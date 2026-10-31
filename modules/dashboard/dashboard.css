@@ -1,0 +1,54 @@
+/* Personal dashboard (modules/dashboard/index.php). Colours from the dotPulse palette
+   (README, Brand); layout works in every theme and narrows to one column. */
+.dash { margin: 0 4px 16px; color: #23262B; }
+.dash h2 { font-size: 1.15em; margin: 18px 0 8px; color: #123A73; }
+.dash-hello { font-size: 1.1em; margin: 4px 0 12px; }
+.dash-empty { color: #5A6474; font-style: italic; }
+
+.dash-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.dash-tile { display: block; padding: 12px 14px; border-radius: 8px; background: #E8EDF5; color: #23262B;
+	text-decoration: none; border-left: 4px solid #1B4F9C; }
+.dash-tile:hover { background: #dbe4f2; }
+.dash-num { display: block; font-size: 1.9em; font-weight: bold; color: #1B4F9C; line-height: 1.2; }
+.dash-alert { border-left-color: #C93D27; }
+.dash-alert .dash-num { color: #C93D27; }
+
+.dash-cols { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); gap: 20px; }
+@media (max-width: 900px) { .dash-cols { grid-template-columns: minmax(0, 1fr); } }
+
+.dash-table td { vertical-align: middle; }
+.dash-group td { font-weight: bold; background: #E8EDF5; color: #123A73; }
+.dash-group-overdue td { color: #C93D27; }
+.dash-due-overdue .dash-date { color: #C93D27; font-weight: bold; }
+.dash-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px;
+	vertical-align: middle; border: 1px solid rgba(0, 0, 0, .15); }
+.dash-milestone { color: #0A8080; margin-right: 2px; }
+.dash-priority { color: #C93D27; font-weight: bold; margin-right: 2px; }
+.dash-action { white-space: nowrap; }
+.dash-table td.dash-progress { white-space: nowrap; text-align: left; }
+.dash-date { white-space: nowrap; }
+
+.dash-bar { display: inline-block; width: 70px; height: 8px; background: #E8EDF5; border-radius: 4px;
+	overflow: hidden; vertical-align: middle; }
+.dash-bar > span { display: block; height: 100%; background: #0A8080; }
+.dash-bar-wide { width: 100%; }
+
+.dash-project { padding: 8px 0; border-bottom: 1px solid #E8EDF5; }
+.dash-project-head { display: flex; align-items: center; gap: 4px; margin-bottom: 4px; }
+.dash-project-head a { font-weight: bold; flex: 1; }
+.dash-status { font-size: .85em; color: #5A6474; }
+.dash-project-meta { font-size: .85em; color: #5A6474; margin-top: 3px; }
+.dash-late { color: #C93D27; }
+
+.dash-week { display: flex; gap: 6px; align-items: flex-end; height: 120px; padding: 4px 0; }
+.dash-day { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; }
+.dash-day-h { font-size: .8em; color: #5A6474; height: 1.2em; }
+.dash-day-bar { flex: 1; width: 70%; display: flex; align-items: flex-end; background: #f3f6fa; border-radius: 3px; }
+.dash-day-bar > span { display: block; width: 100%; background: #1B4F9C; border-radius: 3px 3px 0 0; }
+.dash-day-name { font-size: .8em; margin-top: 3px; }
+.dash-today .dash-day-name { font-weight: bold; color: #123A73; }
+.dash-today .dash-day-bar > span { background: #F06449; }
+
+.dash-events { list-style: none; margin: 0; padding: 0; }
+.dash-events li { padding: 5px 0; border-bottom: 1px solid #E8EDF5; }
+.dash-events .dash-date { display: block; font-size: .85em; color: #5A6474; }

@@ -77,3 +77,50 @@ CREATE TABLE IF NOT EXISTS `%dbprefix%api_tokens` (
 INSERT INTO `%dbprefix%config` (`config_name`, `config_value`, `config_group`, `config_type`)
   SELECT 'api_enabled', 'false', 'api', 'checkbox' FROM DUAL
   WHERE NOT EXISTS (SELECT 1 FROM `%dbprefix%config` WHERE `config_name` = 'api_enabled');
+
+# 20261102
+# Personal dashboard: a core module, first in the menu, in the "All" and "Non-Admin" module groups (so every
+# role with rights on those groups gets it), and the landing page where the stock calendar day view still is
+INSERT INTO `%dbprefix%modules` (`mod_name`, `mod_directory`, `mod_version`, `mod_setup_class`, `mod_type`, `mod_active`, `mod_ui_name`, `mod_ui_icon`, `mod_ui_order`, `mod_ui_active`, `mod_description`)
+  SELECT 'Dashboard', 'dashboard', '1.0.0', '', 'core', 1, 'Dashboard', 'dashboard.png', 0, 1, 'Personal dashboard' FROM DUAL
+  WHERE NOT EXISTS (SELECT 1 FROM `%dbprefix%modules` WHERE `mod_directory` = 'dashboard');
+INSERT INTO `%dbprefix%gacl_axo` (`id`, `section_value`, `value`, `order_value`, `name`, `hidden`)
+  SELECT COALESCE(MAX(`id`), 0) + 1, 'app', 'dashboard', 0, 'Dashboard', 0 FROM `%dbprefix%gacl_axo`
+  HAVING NOT EXISTS (SELECT 1 FROM `%dbprefix%gacl_axo` WHERE `section_value` = 'app' AND `value` = 'dashboard');
+UPDATE `%dbprefix%gacl_axo_seq` SET `id` = (SELECT MAX(`id`) FROM `%dbprefix%gacl_axo`);
+INSERT INTO `%dbprefix%gacl_groups_axo_map` (`group_id`, `axo_id`)
+  SELECT g.`id`, a.`id` FROM `%dbprefix%gacl_axo_groups` g, `%dbprefix%gacl_axo` a
+  WHERE g.`value` IN ('all', 'non_admin') AND a.`section_value` = 'app' AND a.`value` = 'dashboard'
+  AND NOT EXISTS (SELECT 1 FROM `%dbprefix%gacl_groups_axo_map` m WHERE m.`group_id` = g.`id` AND m.`axo_id` = a.`id`);
+DELETE FROM `%dbprefix%dotpermissions` WHERE `section` = 'app' AND `axo` = 'dashboard';
+INSERT INTO `%dbprefix%dotpermissions` (acl_id,user_id,section,axo,permission,allow,priority,enabled)
+  SELECT acl.id,aro.value,axo.section_value,axo.value,aco_m.value,acl.allow,2,acl.enabled
+  FROM `%dbprefix%gacl_acl` acl
+  LEFT JOIN `%dbprefix%gacl_aco_map`        aco_m   ON acl.id=aco_m.acl_id
+  LEFT JOIN `%dbprefix%gacl_aro_map`        aro_m   ON acl.id=aro_m.acl_id
+  LEFT JOIN `%dbprefix%gacl_aro`            aro     ON aro_m.value=aro.value
+  LEFT JOIN `%dbprefix%gacl_axo_groups_map` axo_gm  ON axo_gm.acl_id=acl.id
+  LEFT JOIN `%dbprefix%gacl_axo_groups`     axo_g   ON axo_gm.group_id=axo_g.id
+  LEFT JOIN `%dbprefix%gacl_groups_axo_map` g_axo_m ON axo_g.id=g_axo_m.group_id
+  LEFT JOIN `%dbprefix%gacl_axo`            axo     ON g_axo_m.axo_id=axo.id
+  WHERE aro.value IS NOT NULL AND axo_g.value IS NOT NULL AND axo.section_value = 'app' AND axo.value = 'dashboard';
+INSERT INTO `%dbprefix%dotpermissions` (acl_id,user_id,section,axo,permission,allow,priority,enabled)
+  SELECT acl.id,aro.value,axo.section_value,axo.value,aco_m.value,acl.allow,4,acl.enabled
+  FROM `%dbprefix%gacl_acl` acl
+  LEFT JOIN `%dbprefix%gacl_aco_map`        aco_m   ON acl.id=aco_m.acl_id
+  LEFT JOIN `%dbprefix%gacl_aro_map`        aro_m   ON acl.id=aro_m.acl_id
+  LEFT JOIN `%dbprefix%gacl_aro_groups_map` aro_gm  ON acl.id=aro_gm.acl_id
+  LEFT JOIN `%dbprefix%gacl_aro_groups`     aro_g   ON aro_gm.group_id=aro_g.id
+  LEFT JOIN `%dbprefix%gacl_axo_groups_map` axo_gm  ON axo_gm.acl_id=acl.id
+  LEFT JOIN `%dbprefix%gacl_axo_groups`     axo_g   ON axo_gm.group_id=axo_g.id
+  LEFT JOIN `%dbprefix%gacl_groups_aro_map` g_aro_m ON aro_g.id=g_aro_m.group_id
+  LEFT JOIN `%dbprefix%gacl_aro`            aro     ON g_aro_m.aro_id=aro.id
+  LEFT JOIN `%dbprefix%gacl_groups_axo_map` g_axo_m ON axo_g.id=g_axo_m.group_id
+  LEFT JOIN `%dbprefix%gacl_axo`            axo     ON g_axo_m.axo_id=axo.id
+  WHERE axo_g.value IS NOT NULL AND aro.value IS NOT NULL AND axo.section_value = 'app' AND axo.value = 'dashboard';
+UPDATE `%dbprefix%config` SET `config_value` = 'dashboard' WHERE `config_name` = 'default_view_m' AND `config_value` = 'calendar'
+  AND EXISTS (SELECT 1 FROM (SELECT `config_value` FROM `%dbprefix%config` WHERE `config_name` = 'default_view_a') a WHERE a.`config_value` = 'day_view');
+UPDATE `%dbprefix%config` SET `config_value` = 'index' WHERE `config_name` = 'default_view_a' AND `config_value` = 'day_view'
+  AND EXISTS (SELECT 1 FROM (SELECT `config_value` FROM `%dbprefix%config` WHERE `config_name` = 'default_view_m') m WHERE m.`config_value` = 'dashboard');
+UPDATE `%dbprefix%config` SET `config_value` = '0' WHERE `config_name` = 'default_view_tab'
+  AND EXISTS (SELECT 1 FROM (SELECT `config_value` FROM `%dbprefix%config` WHERE `config_name` = 'default_view_m') m WHERE m.`config_value` = 'dashboard');
