@@ -10,7 +10,8 @@ INSERT INTO dotp_tasks (task_name, task_project, task_owner, task_start_date, ta
 UPDATE dotp_tasks SET task_parent=task_id WHERE task_project=@p;
 INSERT INTO dotp_user_tasks (user_id, task_id, perc_assignment) SELECT 1, task_id, 100 FROM dotp_tasks WHERE task_project=@p;
 INSERT INTO dotp_forums (forum_project, forum_status, forum_owner, forum_name, forum_create_date, forum_description, forum_moderated) VALUES (0, 1, 1, 'Seed forum', NOW(), 'd', 0);
-INSERT INTO dotp_events (event_title, event_start_date, event_end_date, event_owner, event_type, event_private) VALUES ('Seed event', NOW(), NOW() + INTERVAL 1 HOUR, 1, 1, 0);"
+INSERT INTO dotp_events (event_title, event_start_date, event_end_date, event_owner, event_type, event_private) VALUES ('Seed event', NOW(), NOW() + INTERVAL 1 HOUR, 1, 1, 0);
+UPDATE dotp_config SET config_value = 'true' WHERE config_name = 'api_enabled';"
 P=$(db -e "SELECT MAX(project_id) FROM dotp_projects WHERE project_name='Seed Project'")
 T=$(db -e "SELECT MIN(task_id) FROM dotp_tasks WHERE task_project=$P")
 C=$(db -e "SELECT MIN(company_id) FROM dotp_companies")

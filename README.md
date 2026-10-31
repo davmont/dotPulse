@@ -63,6 +63,11 @@ notice or SQL error.
 - Gantt charts, calendar, Helpdesk, Mantis integration, costs and finances, timesheets,
   risks and the other dotProject modules, updated for PHP 8.
 
+### Integration
+- **REST API** (off by default): personal access tokens with read or read-and-write
+  access, acting with the user's permissions; projects, tasks, work logs and task
+  progress. See [docs/api.md](docs/api.md).
+
 ### Interface and languages
 - Material theme by default; the classic themes are still available.
 - Complete **Spanish** translation; the other upstream languages are kept.

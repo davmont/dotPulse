@@ -568,6 +568,22 @@ date_time_last_action DATETIME DEFAULT '0000-00-00 00:00:00',
 PRIMARY KEY ( user_access_log_id )
 );
 
+# REST API personal access tokens (only the SHA-256 of each token is stored)
+CREATE TABLE %dbprefix%api_tokens (
+  token_id int(11) NOT NULL auto_increment,
+  token_user int(11) NOT NULL,
+  token_name varchar(100) NOT NULL default '',
+  token_hash char(64) NOT NULL,
+  token_prefix varchar(12) NOT NULL default '',
+  token_scope varchar(10) NOT NULL default 'read',
+  token_created datetime NOT NULL,
+  token_expires datetime default NULL,
+  token_last_used datetime default NULL,
+  PRIMARY KEY (token_id),
+  UNIQUE KEY idx_token_hash (token_hash),
+  KEY idx_token_user (token_user)
+);
+
 #20040910
 #Pinned tasks
 CREATE TABLE %dbprefix%user_task_pin (
@@ -707,6 +723,7 @@ INSERT INTO %dbprefix%config VALUES (0, 'mail_pass', '', 'mail', 'password');
 INSERT INTO %dbprefix%config VALUES (0, 'mail_defer', 'false', 'mail', 'checkbox');
 INSERT INTO %dbprefix%config VALUES (0, 'mail_timeout', '30', 'mail', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'mail_from', '', 'mail', 'text');
+INSERT INTO %dbprefix%config VALUES (0, 'api_enabled', 'false', 'api', 'checkbox');
 
 INSERT INTO %dbprefix%config_list (config_id, config_list_name)
   SELECT config_id, 'php'

@@ -171,6 +171,30 @@
 "View User"=>"Ver Usuario",
 
 
+"API tokens"=>"Tokens de API",
+"API token"=>"Token de API",
+"API token created"=>"Token de API creado",
+"Copy your new token now. It will not be shown again."=>"Copia ahora tu nuevo token. No se volverá a mostrar.",
+"Use it in the Authorization header:"=>"Úsalo en la cabecera Authorization:",
+"Token"=>"Token",
+"Created"=>"Creado",
+"Expires"=>"Caduca",
+"Last used"=>"Último uso",
+"No API tokens."=>"No hay tokens de API.",
+"Read and write"=>"Lectura y escritura",
+"Read only"=>"Solo lectura",
+"expired"=>"caducado",
+"Revoke"=>"Revocar",
+"Revoke this token? Programs using it stop working."=>"¿Revocar este token? Los programas que lo usen dejarán de funcionar.",
+"New token"=>"Nuevo token",
+"Never"=>"Nunca",
+"Create token"=>"Crear token",
+"A token acts as you, with your permissions. API documentation: docs/api.md."=>"Un token actúa como tú, con tus permisos. Documentación de la API: docs/api.md.",
+"revoked"=>"revocado",
+"not found"=>"no encontrado",
+"Give the token a name."=>"Ponle un nombre al token.",
+"You have too many API tokens. Revoke one first."=>"Tienes demasiados tokens de API. Revoca uno antes.",
+"The API is turned off."=>"La API está desactivada.",
 ##
 ## OBSOLETE KEYS
 ##

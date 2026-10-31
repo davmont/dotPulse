@@ -57,3 +57,23 @@ INSERT INTO `%dbprefix%config` (`config_name`, `config_value`, `config_group`, `
 INSERT INTO `%dbprefix%user_preferences` (`pref_user`, `pref_name`, `pref_value`)
   SELECT 0, 'TASKASSIGNMAIL', '1' FROM DUAL
   WHERE NOT EXISTS (SELECT 1 FROM `%dbprefix%user_preferences` WHERE `pref_user` = 0 AND `pref_name` = 'TASKASSIGNMAIL');
+
+# 20261101
+# REST API: personal access tokens (only the SHA-256 of each token is stored), off until an administrator turns the API on
+CREATE TABLE IF NOT EXISTS `%dbprefix%api_tokens` (
+  `token_id` int(11) NOT NULL AUTO_INCREMENT,
+  `token_user` int(11) NOT NULL,
+  `token_name` varchar(100) NOT NULL DEFAULT '',
+  `token_hash` char(64) NOT NULL,
+  `token_prefix` varchar(12) NOT NULL DEFAULT '',
+  `token_scope` varchar(10) NOT NULL DEFAULT 'read',
+  `token_created` datetime NOT NULL,
+  `token_expires` datetime DEFAULT NULL,
+  `token_last_used` datetime DEFAULT NULL,
+  PRIMARY KEY (`token_id`),
+  UNIQUE KEY `idx_token_hash` (`token_hash`),
+  KEY `idx_token_user` (`token_user`)
+);
+INSERT INTO `%dbprefix%config` (`config_name`, `config_value`, `config_group`, `config_type`)
+  SELECT 'api_enabled', 'false', 'api', 'checkbox' FROM DUAL
+  WHERE NOT EXISTS (SELECT 1 FROM `%dbprefix%config` WHERE `config_name` = 'api_enabled');

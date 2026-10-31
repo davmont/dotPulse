@@ -42,6 +42,8 @@ class CAppUI
 {
 	/** @var array generic array for holding the state of anything */
 	var $state = null;
+	/** @var string|null the session's CSRF token (getCsrfToken() creates it) */
+	var $_csrf_token = null;
 	/** @var int */
 	var $user_id = null;
 	/** @var string */
