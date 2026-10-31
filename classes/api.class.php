@@ -213,7 +213,7 @@ class CApi
 		if ($project !== null) {
 			$where[] = 't.task_project = ' . $project;
 		}
-		$assigned = $_GET['assigned'] ?? null;
+		$assigned = dPgetParam($_GET, 'assigned');
 		if ($assigned !== null) {
 			$uid = $assigned === 'me' ? $this->user_id : (ctype_digit((string)$assigned) ? (int)$assigned : -1);
 			if ($uid < 0) {
@@ -221,7 +221,7 @@ class CApi
 			}
 			$joins[] = array('user_tasks', 'ut', 'ut.task_id = t.task_id AND ut.user_id = ' . $uid);
 		}
-		$open = $_GET['open'] ?? null;
+		$open = dPgetParam($_GET, 'open');
 		if ($open !== null) {
 			$where[] = $open ? 't.task_percent_complete < 100' : 't.task_percent_complete >= 100';
 		}
@@ -531,13 +531,14 @@ class CApi
 	/** A non-negative integer query parameter, null when absent. */
 	function intParam($name)
 	{
-		if (!isset($_GET[$name]) || $_GET[$name] === '') {
+		$value = dPgetParam($_GET, $name);
+		if ($value === null || $value === '') {
 			return null;
 		}
-		if (!is_string($_GET[$name]) || !ctype_digit($_GET[$name]) || strlen($_GET[$name]) > 9) {
+		if (!is_string($value) || !ctype_digit($value) || strlen($value) > 9) {
 			$this->fail(400, 'invalid_parameter', $name . ' must be a non-negative integer.');
 		}
-		return (int)$_GET[$name];
+		return (int)$value;
 	}
 
 	function intValue($value, $min, $max, $name)

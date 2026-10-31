@@ -42,6 +42,6 @@ require_once $AppUI->getModuleClass('projects');
 require_once $AppUI->getModuleClass('tasks');
 
 $route = isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] !== ''
-	? $_SERVER['PATH_INFO'] : (string)($_GET['route'] ?? '');
+	? $_SERVER['PATH_INFO'] : (string)dPgetParam($_GET, 'route', '');
 $api = new CApi($AppUI);
 $api->run($_SERVER['REQUEST_METHOD'] ?? 'GET', $route, CApi::bearerToken($_SERVER));
