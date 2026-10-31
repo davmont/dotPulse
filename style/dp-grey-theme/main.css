@@ -202,7 +202,7 @@ table.tbl TH {
 	padding: 2px 2px 2px 2px;
 	font: 11px verdana, arial, helvetica, sans-serif;
 	text-align:center;
-	color: #000000
+	color: #000000;
 	list-style-type: disc;
 	list-style-position: inside;
 }
@@ -220,10 +220,12 @@ table.std {
 	border-bottom: solid #cccccc 2px;
 }
 table.std TH {
+	/* Was white text on the table's light grey: dark text on the title bar, as in table.tbl. */
+	background: url("images/lines_title_bar.gif");
 	font: 13px verdana, arial, helvetica, sans-serif;
 	font-weight: bold;
 	text-align: center;
-	color: white;
+	color: #000000;
 	margin-bottom: 0px;
 	padding: 1px 1px 1px 1px;
 	list-style-type: disc;
