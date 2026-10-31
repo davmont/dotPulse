@@ -28,9 +28,9 @@ $base = DP_BASE_URL . '/api.php/v1/';
 <?php if ($new_token) { ?>
 <tr>
 	<td colspan="7">
-		<p><strong><?php echo dPhtml($AppUI->_('Copy your new token now. It will not be shown again.')); ?></strong></p>
+		<p><strong><?php echo $AppUI->_('Copy your new token now. It will not be shown again.'); ?></strong></p>
 		<p><code class="api-token"><?php echo dPhtml($new_token); ?></code></p>
-		<p><?php echo dPhtml($AppUI->_('Use it in the Authorization header:')); ?>
+		<p><?php echo $AppUI->_('Use it in the Authorization header:'); ?>
 		<code>curl -H "Authorization: Bearer <?php echo dPhtml($new_token); ?>" <?php echo dPhtml($base); ?>me</code></p>
 	</td>
 </tr>
@@ -47,7 +47,7 @@ $base = DP_BASE_URL . '/api.php/v1/';
 <?php
 $tokens = CApiToken::listFor($user_id);
 if (!$tokens) {
-	echo '<tr><td colspan="7">' . dPhtml($AppUI->_('No API tokens.')) . '</td></tr>';
+	echo '<tr><td colspan="7">' . $AppUI->_('No API tokens.') . '</td></tr>';
 }
 foreach ($tokens as $t) {
 	$expired = $t['token_expires'] && strtotime($t['token_expires']) < time();
@@ -55,9 +55,9 @@ foreach ($tokens as $t) {
 <tr>
 	<td><?php echo dPhtml($t['token_name']); ?></td>
 	<td><code><?php echo dPhtml($t['token_prefix']); ?>&hellip;</code></td>
-	<td><?php echo dPhtml($AppUI->_($t['token_scope'] == 'write' ? 'Read and write' : 'Read only')); ?></td>
+	<td><?php echo $AppUI->_($t['token_scope'] == 'write' ? 'Read and write' : 'Read only'); ?></td>
 	<td><?php echo $fmt($t['token_created']); ?></td>
-	<td><?php echo $fmt($t['token_expires']) . ($expired ? ' (' . dPhtml($AppUI->_('expired')) . ')' : ''); ?></td>
+	<td><?php echo $fmt($t['token_expires']) . ($expired ? ' (' . $AppUI->_('expired') . ')' : ''); ?></td>
 	<td><?php echo $fmt($t['token_last_used']); ?></td>
 	<td>
 		<form method="post" action="?m=admin&amp;a=viewuser&amp;user_id=<?php echo (int)$user_id; ?>">
@@ -65,8 +65,8 @@ foreach ($tokens as $t) {
 			<input type="hidden" name="token_user" value="<?php echo (int)$user_id; ?>" />
 			<input type="hidden" name="token_id" value="<?php echo (int)$t['token_id']; ?>" />
 			<input type="hidden" name="del" value="1" />
-			<input type="submit" class="button" value="<?php echo dPhtml($AppUI->_('Revoke')); ?>"
-				data-dp-confirm="<?php echo dPhtml($AppUI->_('Revoke this token? Programs using it stop working.')); ?>" />
+			<input type="submit" class="button" value="<?php echo $AppUI->_('Revoke'); ?>"
+				data-dp-confirm="<?php echo $AppUI->_('Revoke this token? Programs using it stop working.'); ?>" />
 		</form>
 	</td>
 </tr>
@@ -84,20 +84,20 @@ if ($own) {
 				<input type="text" class="text" name="token_name" maxlength="100" size="25" required="required" /></label>
 			<label><?php echo $AppUI->_('Access'); ?>:
 				<select name="token_scope" class="text">
-					<option value="read"><?php echo dPhtml($AppUI->_('Read only')); ?></option>
-					<option value="write"><?php echo dPhtml($AppUI->_('Read and write')); ?></option>
+					<option value="read"><?php echo $AppUI->_('Read only'); ?></option>
+					<option value="write"><?php echo $AppUI->_('Read and write'); ?></option>
 				</select></label>
 			<label><?php echo $AppUI->_('Expires'); ?>:
 				<select name="token_expires" class="text">
-					<option value="30">30 <?php echo dPhtml($AppUI->_('days')); ?></option>
-					<option value="90" selected="selected">90 <?php echo dPhtml($AppUI->_('days')); ?></option>
-					<option value="365">365 <?php echo dPhtml($AppUI->_('days')); ?></option>
-					<option value="0"><?php echo dPhtml($AppUI->_('Never')); ?></option>
+					<option value="30">30 <?php echo $AppUI->_('days'); ?></option>
+					<option value="90" selected="selected">90 <?php echo $AppUI->_('days'); ?></option>
+					<option value="365">365 <?php echo $AppUI->_('days'); ?></option>
+					<option value="0"><?php echo $AppUI->_('Never'); ?></option>
 				</select></label>
-			<input type="submit" class="button" value="<?php echo dPhtml($AppUI->_('Create token')); ?>" />
+			<input type="submit" class="button" value="<?php echo $AppUI->_('Create token'); ?>" />
 		</form>
-		<p><?php echo dPhtml($AppUI->_('A token acts as you, with your permissions. API documentation: docs/api.md.')); ?>
-		<?php echo dPhtml($AppUI->_('Address')); ?>: <code><?php echo dPhtml($base); ?></code></p>
+		<p><?php echo $AppUI->_('A token acts as you, with your permissions. API documentation: docs/api.md.'); ?>
+		<?php echo $AppUI->_('Address'); ?>: <code><?php echo dPhtml($base); ?></code></p>
 	</td>
 </tr>
 <?php } ?>
