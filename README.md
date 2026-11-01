@@ -59,6 +59,8 @@ notice or SQL error.
 - **Personal dashboard** (the landing page): your open tasks by due date (overdue, next 7
   days, later), the projects you work on with their progress and overdue tasks, the
   hours you logged this week and your coming events.
+- **Board** (project tab): the project's tasks in *To do*, *In progress* and *Done*
+  columns; drag a card, or use its arrows, to change its progress.
 - **Project tips bell**: checks each project against PMBOK practice (charter, scope,
   schedule, cost, risks and more) and suggests the next step.
 - **PMBOK 8th Edition** task fields (status, principles, domains) and project charters

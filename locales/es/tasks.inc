@@ -1,6 +1,10 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
+"Task not found."=>"Tarea no encontrada.",
+"The progress of a task group comes from its tasks."=>"El progreso de un grupo de tareas viene de sus tareas.",
+"Unknown column."=>"Columna desconocida.",
+"You may not edit this task."=>"No puedes editar esta tarea.",
 "-"=>"-",
 "1LBLESTIMATIONS"=>"Estimaciones",
 "3LBLACAOCORRETIVA"=>"Solicitud de Cambio",

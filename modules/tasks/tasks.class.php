@@ -1426,6 +1426,30 @@ class CTask extends CDpObject
 		return db_loadList($sql);
 	}
 
+	/** The project board column of a progress: todo (0 %), doing (1-99 %) or done (100 %). */
+	static function boardColumn($percent)
+	{
+		return $percent <= 0 ? 'todo' : ($percent >= 100 ? 'done' : 'doing');
+	}
+
+	/**
+	 * The progress a task gets when it is moved to a board column: 0 for todo, 100 for done;
+	 * doing keeps a progress already between 1 and 99, else 10 (from todo) or 90 (from done).
+	 */
+	static function boardPercent($column, $current)
+	{
+		if ($column == 'todo') {
+			return 0;
+		}
+		if ($column == 'done') {
+			return 100;
+		}
+		if ($current > 0 && $current < 100) {
+			return (int)$current;
+		}
+		return $current >= 100 ? 90 : 10;
+	}
+
 	function canAccess($user_id)
 	{
 		$q = new DBQuery;
