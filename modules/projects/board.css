@@ -1,0 +1,30 @@
+/* Project board (vw_board.php, js/dp-board.js). Colours from the dotPulse palette. */
+.dp-board-bar { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin: 6px 4px 8px; }
+.dp-board-hint { color: #5A6474; font-size: .9em; }
+.dp-board-status { color: #C93D27; font-weight: bold; }
+.dp-board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0 4px 12px; }
+@media (max-width: 800px) { .dp-board { grid-template-columns: minmax(0, 1fr); } }
+.dp-col { background: #E8EDF5; border-radius: 8px; padding: 8px; min-height: 120px; border: 2px solid transparent; }
+.dp-col h3 { margin: 2px 4px 8px; font-size: 1em; color: #123A73; display: flex; justify-content: space-between; }
+.dp-col[data-col="done"] h3 { color: #0A8080; }
+.dp-col-over { border-color: #1B4F9C; background: #dbe4f2; }
+.dp-count { background: #fff; border-radius: 10px; padding: 0 8px; font-weight: normal; color: #23262B; }
+.dp-cards { display: flex; flex-direction: column; gap: 8px; min-height: 40px; }
+.dp-card { background: #fff; border-radius: 6px; padding: 8px 10px; box-shadow: 0 1px 2px rgba(0, 0, 0, .12);
+	border-left: 4px solid #B8C3D4; color: #23262B; }
+.dp-col[data-col="doing"] .dp-card { border-left-color: #1B4F9C; }
+.dp-col[data-col="done"] .dp-card { border-left-color: #0A8080; }
+.dp-card-editable { cursor: grab; }
+.dp-card-dragging { opacity: .5; }
+.dp-card-saving { opacity: .7; }
+.dp-card-title a { font-weight: bold; }
+.dp-card-milestone { color: #0A8080; margin-right: 3px; }
+.dp-card-priority { color: #C93D27; font-weight: bold; margin-right: 3px; }
+.dp-card-meta { display: flex; justify-content: space-between; font-size: .85em; color: #5A6474; margin-top: 4px; }
+.dp-card-late { color: #C93D27; font-weight: bold; }
+.dp-card-people { font-size: .85em; color: #5A6474; margin-top: 2px; }
+.dp-card-moves { display: flex; justify-content: space-between; margin-top: 6px; }
+.dp-move { border: 1px solid #B8C3D4; background: #fff; border-radius: 4px; color: #1B4F9C; cursor: pointer;
+	padding: 1px 8px; font-size: .8em; }
+.dp-move:hover, .dp-move:focus { background: #E8EDF5; }
+.dp-col[data-col="todo"] .dp-move[data-dir="-1"], .dp-col[data-col="done"] .dp-move[data-dir="1"] { visibility: hidden; }

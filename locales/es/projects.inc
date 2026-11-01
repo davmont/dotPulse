@@ -1,6 +1,16 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
+"Board"=>"Tablero",
+"Drag a card to another column, or use its arrows, to change its progress."=>"Arrastra una tarjeta a otra columna, o usa sus flechas, para cambiar su progreso.",
+"Done"=>"Hecho",
+"High priority"=>"Prioridad alta",
+"Move left"=>"Mover a la izquierda",
+"Move right"=>"Mover a la derecha",
+"Show all tasks"=>"Mostrar todas las tareas",
+"Show only my tasks"=>"Mostrar solo mis tareas",
+"The task could not be moved."=>"No se pudo mover la tarea.",
+"To do"=>"Por hacer",
 "% of work done (based on duration)"=>"% de trabajo realizado (basado en duración)",
 "(no end date)"=>"(sin fecha de finalización)",
 "(no start date)"=>"(sin fecha de inicio)",
