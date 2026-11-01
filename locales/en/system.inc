@@ -309,6 +309,9 @@ A negative value defines the absence of a limit (index all files).",
 
 
 wget -O- http://your.domain/dotproject/queuescanner.php",
+"api_group_title"=>"REST API",
+"api_enabled_title"=>"Enable the REST API",
+"api_enabled_tooltip"=>"Lets users create personal access tokens (User > API tokens) and use api.php. Each token acts with its user's permissions. See docs/api.md.",
 "mail_group_title"=>"Email Settings",
 "mail_from_title"=>"Sender address",
 "mail_from_tooltip"=>"Address that all email is sent from, for example notifications@example.com. The name of the user who caused the message is shown as the sender name, and replies go to that user. Leave empty to send from each user's own address, which many mail servers reject (SPF, DMARC).",

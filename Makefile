@@ -1,7 +1,8 @@
 # Developer checks. Each target is also a CI job (.github/workflows/ci.yml).
 #
 #   make check         lint + phpstan + raw-input + inline-js + js-test (no sandbox needed)
-#   make audit-smoke   start docker/, reinstall the database, run the security smoke test
+#   make audit-smoke   start docker/, reinstall the database, run the security smoke test and the
+#                      REST API checks (docker/tests/api.sh)
 #   make sample-data   start docker/, reinstall the database, load the sample data (db/sample/)
 #   make audit-full    start docker/, then docker/tests/run.sh: every add-on installed, used and
 #                      removed with no SQL error or PHP warning, layout in every theme (~1 hour)
@@ -52,6 +53,8 @@ audit-smoke:
 	@for i in $$(seq 30); do curl -s -o /dev/null http://127.0.0.1:8089/index.php && break; sleep 1; done
 	docker/reset-db.sh
 	docker/smoke.sh
+	docker/tests/seed.sh
+	docker/tests/api.sh
 
 audit-full:
 	docker/up.sh

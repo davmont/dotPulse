@@ -252,6 +252,9 @@ else {
 	$tabBox->add(DP_BASE_DIR . '/modules/admin/vw_usr_log', 'User Log');
 	$tabBox->add(DP_BASE_DIR . '/modules/admin/vw_usr_perms', 'Permissions');
 	$tabBox->add(DP_BASE_DIR . '/modules/admin/vw_usr_roles', 'Roles');
+	if (dPgetConfig('api_enabled', false) && ($user_id == $AppUI->user_id || $canEdit)) {
+		$tabBox->add(DP_BASE_DIR . '/modules/admin/vw_usr_api_tokens', 'API tokens');
+	}
 	if ($canEdit) {
 		$tabBox->add(DP_BASE_DIR . '/modules/admin/vw_usr_transfer', 'Transfer');
 	}

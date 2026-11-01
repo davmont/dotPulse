@@ -93,6 +93,22 @@ Set these under System Admin > System Configuration > Mail:
 Users get an email when someone else assigns them to a task; each user can turn
 it off in their preferences ("Email me when I am assigned to a task").
 
+## REST API (`api.php`)
+
+The API is off until **Enable the REST API** is ticked in System Configuration; leave
+it off if nothing uses it. When it is on:
+
+- serve the site over HTTPS only, since tokens travel in every request;
+- with PHP-FPM or CGI, make sure the `Authorization` header reaches PHP (the root
+  `.htaccess` does it on Apache; nginx passes it by default);
+- tokens act with their user's permissions and can be revoked from the user's **API
+  tokens** tab, or all at once by turning the API off; deactivating a user stops
+  their tokens;
+- 20 failed authentications from one address in 10 minutes block that address for
+  the rest of the window (HTTP 429).
+
+Details, endpoints and nginx `PATH_INFO` configuration: [api.md](api.md).
+
 ## Content-Security-Policy
 
 `index.php` sends an enforced `Content-Security-Policy` header (see

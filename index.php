@@ -267,7 +267,10 @@ $ownAccount = ($m == 'admin' && $a == 'viewuser' && !$dosql
 	|| ($m == 'system' && $a == 'addeditpref' && !$dosql
 		&& (int)dPgetParam($_GET, 'user_id', 0) == $AppUI->user_id)
 	|| ($m == 'system' && $dosql == 'do_preference_aed'
-		&& (int)dPgetParam($_POST, 'pref_user', 0) == $AppUI->user_id);
+		&& (int)dPgetParam($_POST, 'pref_user', 0) == $AppUI->user_id)
+	// do_api_token_aed checks that the token belongs to the user (or that they administer users).
+	|| ($m == 'admin' && $a == 'viewuser' && $dosql == 'do_api_token_aed'
+		&& (int)dPgetParam($_POST, 'token_user', 0) == $AppUI->user_id);
 if (!$canAccess && $m != 'public' && !$ownAccount) {
 	$AppUI->redirect('m=public&a=access_denied');
 }
