@@ -167,6 +167,15 @@ if (isset($_REQUEST['login'])) {
 		$AppUI->setMsg('Login Failed');
 	} else {
 		session_regenerate_id(true);
+		// Two-step login: the password was right, but the session stays logged out until the
+		// code is given (includes/twofactor_login.php).
+		require_once DP_BASE_DIR . '/classes/twofactor.class.php';
+		if (CTwoFactor::isEnabled($AppUI->user_id)) {
+			CTwoFactor::startPending($AppUI->user_id, $redirect);
+			$_SESSION['AppUI'] = new CAppUI;
+			header('Location: ./index.php');
+			exit;
+		}
 		//Register login in user_acces_log
 		$AppUI->registerLogin();
 	}
@@ -189,6 +198,12 @@ $uistyle = (($AppUI->getPref('UISTYLE')) ? $AppUI->getPref('UISTYLE') : dPgetCon
 $m = '';
 $a = '';
 $u = '';
+
+// A login waiting for its two-step code: the code form, nothing else.
+if ($AppUI->doLogin() && !empty($_SESSION['dp_twofactor'])) {
+	require DP_BASE_DIR . '/includes/twofactor_login.php';
+	exit;
+}
 
 // check if we are logged in
 if ($AppUI->doLogin()) {
@@ -270,7 +285,10 @@ $ownAccount = ($m == 'admin' && $a == 'viewuser' && !$dosql
 		&& (int)dPgetParam($_POST, 'pref_user', 0) == $AppUI->user_id)
 	// do_api_token_aed checks that the token belongs to the user (or that they administer users).
 	|| ($m == 'admin' && $a == 'viewuser' && $dosql == 'do_api_token_aed'
-		&& (int)dPgetParam($_POST, 'token_user', 0) == $AppUI->user_id);
+		&& (int)dPgetParam($_POST, 'token_user', 0) == $AppUI->user_id)
+	// do_twofactor_aed: users manage their own two-step login (the handler checks it again).
+	|| ($m == 'admin' && $a == 'viewuser' && $dosql == 'do_twofactor_aed'
+		&& (int)dPgetParam($_POST, 'tf_user', 0) == $AppUI->user_id);
 if (!$canAccess && $m != 'public' && !$ownAccount) {
 	$AppUI->redirect('m=public&a=access_denied');
 }

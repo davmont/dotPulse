@@ -124,3 +124,22 @@ UPDATE `%dbprefix%config` SET `config_value` = 'index' WHERE `config_name` = 'de
   AND EXISTS (SELECT 1 FROM (SELECT `config_value` FROM `%dbprefix%config` WHERE `config_name` = 'default_view_m') m WHERE m.`config_value` = 'dashboard');
 UPDATE `%dbprefix%config` SET `config_value` = '0' WHERE `config_name` = 'default_view_tab'
   AND EXISTS (SELECT 1 FROM (SELECT `config_value` FROM `%dbprefix%config` WHERE `config_name` = 'default_view_m') m WHERE m.`config_value` = 'dashboard');
+
+# 20261103
+# Two-step login (TOTP): secret and last time step used per user, and single-use recovery codes (SHA-256)
+CREATE TABLE IF NOT EXISTS `%dbprefix%user_twofactor` (
+  user_id int(11) NOT NULL,
+  tf_secret varchar(64) NOT NULL,
+  tf_last_counter bigint NOT NULL default 0,
+  tf_enabled_on datetime NOT NULL,
+  PRIMARY KEY (user_id)
+);
+CREATE TABLE IF NOT EXISTS `%dbprefix%user_twofactor_recovery` (
+  rc_id int(11) NOT NULL auto_increment,
+  user_id int(11) NOT NULL,
+  rc_hash char(64) NOT NULL,
+  rc_used_on datetime default NULL,
+  PRIMARY KEY (rc_id),
+  KEY idx_rc_user (user_id)
+);
+

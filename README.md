@@ -43,6 +43,8 @@ documented in [docs/security-audit/](docs/security-audit/), with its roadmap in
 
 - Passwords hashed with `password_hash()` (bcrypt), upgraded transparently on login;
   token-based password reset; rate-limited login and reset.
+- Optional **two-step login** per user (TOTP codes from any authenticator app, with
+  single-use recovery codes); administrators can reset it for a user who lost their phone.
 - CSRF protection on every form post; actions that changed data over GET moved to POST.
 - Enforced Content-Security-Policy with no inline scripts ([docs/csp.md](docs/csp.md)).
 - SQL injection, XSS and missing-permission fixes across core and add-on modules.
@@ -80,7 +82,7 @@ notice or SQL error.
 
 ## Installation
 
-**Requirements:** PHP 8.x (8.3 is tested), MySQL or MariaDB, Apache (recommended) or nginx.
+**Requirements:** PHP 8.1 or later (8.3 is tested), MySQL or MariaDB, Apache (recommended) or nginx.
 Several access rules rely on `.htaccess`; on nginx, port the equivalent `deny` rules
 (see [docs/deployment-security.md](docs/deployment-security.md)).
 
@@ -154,5 +156,5 @@ dotPulse is free software under the **GNU General Public License**, as dotProjec
 been since version 2.0 (versions 1.0.2 and earlier were BSD licensed). See
 [COPYING](COPYING) and [LICENSE](LICENSE).
 
-Bundled third-party libraries (ADOdb, phpGACL, PHPMailer, Dompdf, JpGraph, Smarty and
+Bundled third-party libraries (ADOdb, phpGACL, PHPMailer, Dompdf, php-qrcode, JpGraph, Smarty and
 others) keep their own licences.

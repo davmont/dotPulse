@@ -1,6 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
+"Code"=>"Código",
+"Cancel"=>"Cancelar",
+"Cancel and log in again"=>"Cancelar y volver a iniciar sesión",
+"Enter the 6-digit code from the authenticator app on your phone."=>"Introduce el código de 6 cifras de la aplicación de autenticación de tu teléfono.",
+"No phone? Enter one of your recovery codes (like abcd-2345) instead."=>"¿No tienes el teléfono? Introduce uno de tus códigos de recuperación (como abcd-2345).",
+"That code is not valid. Check the time on your phone and try the newest code."=>"El código no es válido. Comprueba la hora de tu teléfono y prueba con el código más reciente.",
+"The time to enter the code has run out. Log in again."=>"Se ha agotado el tiempo para introducir el código. Vuelve a iniciar sesión.",
+"Too many wrong codes. Log in again."=>"Demasiados códigos incorrectos. Vuelve a iniciar sesión.",
+"Too many wrong codes. Wait a few minutes and log in again."=>"Demasiados códigos incorrectos. Espera unos minutos y vuelve a iniciar sesión.",
+"Two-step login"=>"Inicio de sesión en dos pasos",
+"Verify"=>"Verificar",
+"You logged in with a recovery code. Recovery codes left: %d."=>"Has entrado con un código de recuperación. Códigos de recuperación restantes: %d.",
+"Your session has changed. Enter the code again."=>"Tu sesión ha cambiado. Vuelve a introducir el código.",
 "%"=>"%",
 "- New Item -"=>"- Nuevo Elemento -",
 "About"=>"Acerca de",
