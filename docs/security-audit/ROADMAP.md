@@ -385,6 +385,7 @@ PRs #274-#276.
 - **`make sample-sql [OUT=file] [PREFIX=dp_]`:** the sample data as one SQL file (whole database, no DROP TABLE, no worker or guest account) for servers without command-line PHP. Built on demand rather than committed: its dates and schema would go stale.
 - **Header link colours:** sortable headers of the company Active projects tab and the Gantt options link had a hard-coded white, unreadable on the light header rows of material, dp-grey-theme, wps-redmond and amp; they use the themes' `hdr` class.
 - Verified in `docker/`: every rule with seeded data (and its opposite), in all themes and at phone width; module install, upgrade and removal; sample SQL loaded into an empty database (crawl as priya, 141 pages, no errors); header link colours computed in all five themes. CI green on each PR.
+- **Earned value tips (2026-11-01):** rules 44 (CPI = EV / AC below 0.9, once cost is logged) and 45 (SPI = EV / PV below 0.9, once work is planned by today) use monitoringandcontrol's current earned value (`ControllerEarnValue`, no baseline); `docker/tests/ev-tips.sh`.
 - Known, not fixed: helpdesk logs "Trying to access array offset on null" (`helpdesk.functions.php`, `$HELPDESK_CONFIG` not loaded) on `m=tasks&a=todo&tab=-1` as a worker.
 
 ### Nice to have: dormant modules (to be revived later)
