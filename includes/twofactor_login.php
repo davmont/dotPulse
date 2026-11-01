@@ -49,6 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && dPgetParam($_POST, 'twofactor_code'
 			}
 			session_regenerate_id(true);
 			$AppUI->registerLogin();
+			dPaudit('login.success', 'with two-step login');
+			if ($used == 'recovery') {
+				dPaudit('twofactor.recovery_used', CTwoFactor::recoveryCodesLeft($AppUI->user_id) . ' recovery codes left');
+			}
 			addHistory('login', $AppUI->user_id, 'login', $AppUI->user_first_name . ' ' . $AppUI->user_last_name);
 			if ($used == 'recovery') {
 				$AppUI->setMsg(sprintf($AppUI->_('You logged in with a recovery code. Recovery codes left: %d.', UI_OUTPUT_RAW),
@@ -57,7 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && dPgetParam($_POST, 'twofactor_code'
 			$AppUI->redirect($pending['redirect']);
 		}
 		$limiter->recordAttempt();
-		if (!CTwoFactor::failedAttempt()) {
+		dPaudit('twofactor.failure', '', '', 0, $pending['user_id'], null);
+		if (!CTwoFactor::failedAttempt() || !$limiter->isAllowed()) {
+			dPaudit('twofactor.blocked', 'the password is asked again', '', 0, $pending['user_id'], null);
 			$back_to_login('Too many wrong codes. Log in again.');
 		}
 		$message = $AppUI->_('That code is not valid. Check the time on your phone and try the newest code.');

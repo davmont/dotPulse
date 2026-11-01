@@ -43,6 +43,8 @@ documented in [docs/security-audit/](docs/security-audit/), with its roadmap in
 
 - Passwords hashed with `password_hash()` (bcrypt), upgraded transparently on login;
   token-based password reset; rate-limited login and reset.
+- **Audit log** of logins and administrators' changes (users, roles, permissions,
+  configuration, modules, API tokens) in System Admin; see [docs/audit-log.md](docs/audit-log.md).
 - Optional **two-step login** per user (TOTP codes from any authenticator app, with
   single-use recovery codes); administrators can reset it for a user who lost their phone.
 - CSRF protection on every form post; actions that changed data over GET moved to POST.

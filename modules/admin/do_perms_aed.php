@@ -14,6 +14,8 @@ if ($del) {
 		$AppUI->redirect('m=public&a=access_denied');
 	}
 	if ($obj->del_acl(intval($_REQUEST['permission_id']))) {
+		dPaudit('permission.removed', 'permission ' . dPgetIntParam($_REQUEST, 'permission_id') . ' of user ' . (int)dPgetParam($_POST, 'user_id', 0),
+			'users', (int)dPgetParam($_POST, 'user_id', 0));
 		$AppUI->setMsg('deleted', UI_MSG_ALERT, true);
 	} else {
 		$AppUI->setMsg($msg, UI_MSG_ERROR);
@@ -25,6 +27,9 @@ if ($del) {
 		$AppUI->redirect('m=public&a=access_denied');
 	}
 	if ($obj->addUserPermission()) {
+		dPaudit('permission.added', 'user ' . (int)dPgetParam($_POST, 'user_id', 0) . ': ' . 'module ' . (int)dPgetParam($_POST, 'permission_module', 0) . ', item ' . (int)dPgetParam($_POST, 'permission_item', 0)
+			. ', ' . (dPgetParam($_POST, 'permission_access', 0) ? 'allow' : 'deny') . ' ' . implode(',', array_map('intval', (array)dPgetParam($_POST, 'permission_type', array()))),
+			'users', (int)dPgetParam($_POST, 'user_id', 0));
 		$AppUI->setMsg($isNotNew ? 'updated' : 'added', UI_MSG_OK, true);
 	} else {
 		$AppUI->setMsg($msg, UI_MSG_ERROR);

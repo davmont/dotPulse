@@ -87,4 +87,7 @@ if (!$q->exec()) {
 	return;
 }
 $q->clear();
+require_once DP_BASE_DIR . '/classes/auditlog.class.php';
+dPaudit('user.transferred', 'from ' . CAuditLog::username($from_user) . ' to ' . CAuditLog::username($user_id)
+	. ', projects ' . implode(',', array_map('intval', (array)$projects)), 'users', $from_user);
 $AppUI->setMsg('updated', UI_MSG_OK);

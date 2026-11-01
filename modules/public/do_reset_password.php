@@ -59,6 +59,7 @@ if ($q->exec()) {
 	$reset_done = true;
 	addHistory('users', $reset_user_id, 'password reset',
 		'Password reset by email link from IP ' . $_SERVER['REMOTE_ADDR']);
+	dPaudit('password.reset', '', 'users', $reset_user_id, $reset_user_id, null);
 } else {
 	$reset_error = 'An error occurred while updating your password.';
 }

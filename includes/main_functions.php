@@ -578,6 +578,21 @@ function dPlink($title, $href)
 # add history entries for tracking changes
 #
 
+/**
+ * Adds an entry to the security audit log (classes/auditlog.class.php): an event name from
+ * CAuditLog::events(), details for people (no passwords or tokens), and optionally the
+ * object it concerns. A failure to write it is logged, never shown.
+ */
+function dPaudit($event, $details = '', $object = '', $object_id = 0, $user_id = null, $username = null)
+{
+	require_once DP_BASE_DIR . '/classes/auditlog.class.php';
+	try {
+		CAuditLog::add($event, $details, $object, $object_id, $user_id, $username);
+	} catch (Throwable $e) {
+		error_log('dotPulse audit log: ' . $e->getMessage());
+	}
+}
+
 function addHistory($table, $id, $action = 'modify', $description = '', $project_id = 0)
 {
 	global $AppUI;

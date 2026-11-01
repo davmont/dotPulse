@@ -5,6 +5,13 @@ if (!defined('DP_BASE_DIR')) {
 
 $obj = new CConfig();
 
+// Values before the save, so the audit log can list the settings that changed.
+$q = new DBQuery;
+$q->addTable('config');
+$q->addQuery('config_name, config_value');
+$audit_before = $q->loadHashList();
+$q->clear();
+
 // set all checkboxes to false
 // overwrite the true/enabled/checked checkboxes later
 $q = new DBQuery;
@@ -29,6 +36,15 @@ foreach ($_POST['dPcfg'] as $name => $value) {
 	} else {
 		$AppUI->setMsg('updated', UI_MSG_OK, true);
 	}
+}
+$q = new DBQuery;
+$q->addTable('config');
+$q->addQuery('config_name, config_value');
+$audit_changed = array_keys(array_diff_assoc($q->loadHashList(), $audit_before));
+if ($audit_changed) {
+	// Names only: values can be passwords (mail_pass, ldap_pass).
+	sort($audit_changed);
+	dPaudit('config.changed', implode(', ', $audit_changed), 'config');
 }
 $AppUI->redirect();
 ?>

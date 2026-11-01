@@ -72,6 +72,9 @@ if (!(isset($_SESSION['AppUI'])) || isset($_GET['logout'])) {
 	if (isset($_GET['logout']) && isset($_SESSION['AppUI']->user_id)) {
 		$AppUI =& $_SESSION['AppUI'];
 		$AppUI->registerLogout($AppUI->user_id);
+		if ($AppUI->user_id > 0) {
+			dPaudit('logout');
+		}
 		addHistory(
 			'login',
 			$AppUI->user_id,
@@ -164,6 +167,10 @@ if (isset($_REQUEST['login'])) {
 	if (!$ok) {
 		// If login fails, record the attempt.
 		$rateLimiter->recordAttempt();
+		dPaudit('login.failure', '', '', 0, 0, $username);
+		if (!$rateLimiter->isAllowed()) {
+			dPaudit('login.blocked', 'this address must wait before logging in again', '', 0, 0, $username);
+		}
 		$AppUI->setMsg('Login Failed');
 	} else {
 		session_regenerate_id(true);
@@ -178,6 +185,7 @@ if (isset($_REQUEST['login'])) {
 		}
 		//Register login in user_acces_log
 		$AppUI->registerLogin();
+		dPaudit('login.success');
 	}
 	addHistory(
 		'login',
