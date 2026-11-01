@@ -2,7 +2,7 @@
 #
 #   make check         lint + phpstan + raw-input + inline-js + js-test (no sandbox needed)
 #   make audit-smoke   start docker/, reinstall the database, run the security smoke test and the
-#                      REST API, dashboard, board and earned value tip checks (docker/tests/)
+#                      REST API, dashboard, board, two-step login and earned value tip checks (docker/tests/)
 #   make sample-data   start docker/, reinstall the database, load the sample data (db/sample/)
 #   make audit-full    start docker/, then docker/tests/run.sh: every add-on installed, used and
 #                      removed with no SQL error or PHP warning, layout in every theme (~1 hour)
@@ -57,6 +57,7 @@ audit-smoke:
 	docker/tests/api.sh
 	docker/tests/dashboard.sh
 	docker/tests/board.sh
+	docker/tests/twofactor.sh
 	docker/tests/ev-tips.sh
 
 audit-full:

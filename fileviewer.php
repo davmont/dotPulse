@@ -54,16 +54,35 @@ if (!isset($_SESSION['AppUI']) || isset($_GET['logout'])) {
 	if ($AppUI->doLogin()) $AppUI->loadPrefs(0);
 	// check if the user is trying to log in
 	if (isset($_REQUEST['login'])) {
+		// The same failed-login limit as index.php (this login used to have none).
+		require_once DP_BASE_DIR . '/classes/ratelimiter.class.php';
+		$rateLimiter = new RateLimiter('login');
+		$uistyle = $AppUI->getPref('UISTYLE') ? $AppUI->getPref('UISTYLE') : $dPconfig['host_style'];
+		if (!$rateLimiter->isAllowed()) {
+			$AppUI->setMsg('Too many login attempts. Please wait before trying again.', UI_MSG_ERROR);
+			require DP_BASE_DIR.'/style/'.$uistyle.'/login.php';
+			session_unset();
+			exit;
+		}
 		$username = dPgetCleanParam($_POST, 'username', '');
 		$password = dPgetCleanParam($_POST, 'password', '');
 		$redirect = dPgetCleanParam($_REQUEST, 'redirect', '');
 		$ok = $AppUI->login($username, $password);
 		if (!$ok) {
+			$rateLimiter->recordAttempt();
 			//display login failed message 
-			$uistyle = $AppUI->getPref('UISTYLE') ? $AppUI->getPref('UISTYLE') : $dPconfig['host_style'];
 			$AppUI->setMsg('Login Failed');
 			require DP_BASE_DIR.'/style/'.$uistyle.'/login.php';
 			session_unset();
+			exit;
+		}
+		session_regenerate_id(true);
+		// Two-step login: finish it on the main login page (includes/twofactor_login.php).
+		require_once DP_BASE_DIR . '/classes/twofactor.class.php';
+		if (CTwoFactor::isEnabled($AppUI->user_id)) {
+			CTwoFactor::startPending($AppUI->user_id, '');
+			$_SESSION['AppUI'] = new CAppUI();
+			header('Location: index.php');
 			exit;
 		}
 		header ('Location: fileviewer.php?'.$redirect);

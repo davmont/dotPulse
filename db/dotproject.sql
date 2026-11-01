@@ -569,6 +569,23 @@ date_time_last_action DATETIME DEFAULT '0000-00-00 00:00:00',
 PRIMARY KEY ( user_access_log_id )
 );
 
+# Two-step login: TOTP secret and last time step used, and single-use recovery codes (SHA-256)
+CREATE TABLE %dbprefix%user_twofactor (
+  user_id int(11) NOT NULL,
+  tf_secret varchar(64) NOT NULL,
+  tf_last_counter bigint NOT NULL default 0,
+  tf_enabled_on datetime NOT NULL,
+  PRIMARY KEY (user_id)
+);
+CREATE TABLE %dbprefix%user_twofactor_recovery (
+  rc_id int(11) NOT NULL auto_increment,
+  user_id int(11) NOT NULL,
+  rc_hash char(64) NOT NULL,
+  rc_used_on datetime default NULL,
+  PRIMARY KEY (rc_id),
+  KEY idx_rc_user (user_id)
+);
+
 # REST API personal access tokens (only the SHA-256 of each token is stored)
 CREATE TABLE %dbprefix%api_tokens (
   token_id int(11) NOT NULL auto_increment,

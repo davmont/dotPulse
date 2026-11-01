@@ -93,6 +93,23 @@ Set these under System Admin > System Configuration > Mail:
 Users get an email when someone else assigns them to a task; each user can turn
 it off in their preferences ("Email me when I am assigned to a task").
 
+## Two-step login
+
+Users turn it on themselves in their account (click their name, **Two-step login**
+tab): they scan a QR code with an authenticator app, confirm with a code and save ten
+single-use recovery codes. After that, their password alone no longer logs them in:
+the login page asks for the 6-digit code (or a recovery code) within 5 minutes.
+
+- Recommend it at least to administrators, and to anyone who can see costs or
+  personal data.
+- The server's clock must be right (NTP): codes are accepted only within 30 seconds
+  either side of the current time.
+- A user who lost their phone and their recovery codes: an administrator who may
+  edit users opens that user's **Two-step login** tab and resets it.
+- Five wrong codes ask for the password again; ten wrong codes from one address in
+  15 minutes block that address for the rest of the window.
+- The REST API is not affected: tokens are personal access tokens, revoked separately.
+
 ## REST API (`api.php`)
 
 The API is off until **Enable the REST API** is ticked in System Configuration; leave
