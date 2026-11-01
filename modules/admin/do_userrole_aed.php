@@ -18,6 +18,8 @@ $AppUI->setMsg('Role');
 $perms =& $AppUI->acl();
 if ($del) {
 	if ($perms->deleteUserRole($role_id, $user_id)) {
+		require_once DP_BASE_DIR . '/classes/auditlog.class.php';
+		dPaudit('user.role_removed', 'role ' . $role_id . ' from ' . CAuditLog::username($user_id), 'users', $user_id);
 		$AppUI->setMsg('deleted', UI_MSG_ALERT, true);
 		if (dPgetConfig('user_contact_inactivate') && ! $perms->checkLogin($user_id)) {
 			// Mark contact as private
@@ -38,6 +40,8 @@ if ($del) {
 		$public_contact = true;
 	}
 	if ($perms->insertUserRole($user_role, $user_id)) {
+		require_once DP_BASE_DIR . '/classes/auditlog.class.php';
+		dPaudit('user.role_added', 'role ' . $user_role . ' to ' . CAuditLog::username($user_id), 'users', $user_id);
 		$AppUI->setMsg('added', UI_MSG_OK, true);
 		if ($public_contact) {
 			// Mark contact as public

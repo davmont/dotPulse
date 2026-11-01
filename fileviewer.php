@@ -70,6 +70,10 @@ if (!isset($_SESSION['AppUI']) || isset($_GET['logout'])) {
 		$ok = $AppUI->login($username, $password);
 		if (!$ok) {
 			$rateLimiter->recordAttempt();
+			dPaudit('login.failure', 'file viewer', '', 0, 0, $username);
+			if (!$rateLimiter->isAllowed()) {
+				dPaudit('login.blocked', 'file viewer', '', 0, 0, $username);
+			}
 			//display login failed message 
 			$AppUI->setMsg('Login Failed');
 			require DP_BASE_DIR.'/style/'.$uistyle.'/login.php';
@@ -85,6 +89,7 @@ if (!isset($_SESSION['AppUI']) || isset($_GET['logout'])) {
 			header('Location: index.php');
 			exit;
 		}
+		dPaudit('login.success', 'file viewer');
 		header ('Location: fileviewer.php?'.$redirect);
 		exit;
 	}	

@@ -82,6 +82,13 @@ $titleBlock->show();
 <tr>
 	<td>&nbsp;</td>
 	<td align="left">
+		<a href="?m=system&amp;a=auditlog"><?php echo $AppUI->_('Audit log');?></a>
+	</td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td>
+	<td align="left">
 		<a href="?m=system&amp;a=contacts_ldap"><?php echo $AppUI->_('Import Contacts');?></a>
 	</td>
 </tr>

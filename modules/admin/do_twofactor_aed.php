@@ -8,6 +8,7 @@ if (!defined('DP_BASE_DIR')) {
 // it off or renews their recovery codes, each with a current code; an administrator who may
 // edit users can only reset it for another user (lost phone).
 require_once DP_BASE_DIR . '/classes/twofactor.class.php';
+require_once DP_BASE_DIR . '/classes/auditlog.class.php';
 
 $tf_user = (int)dPgetParam($_POST, 'tf_user', 0);
 $own = ($tf_user == $AppUI->user_id);
@@ -22,6 +23,7 @@ if ($action == 'reset') {
 	}
 	CTwoFactor::disable($tf_user);
 	addHistory('users', $tf_user, 'update', 'Two-step login reset by an administrator');
+	dPaudit('twofactor.reset', 'for ' . CAuditLog::username($tf_user), 'users', $tf_user);
 	$AppUI->setMsg('reset: the user logs in with their password only until they set it up again', UI_MSG_OK, true);
 	$AppUI->redirect($back);
 }
@@ -46,6 +48,7 @@ switch ($action) {
 		$AppUI->setState('TwoFactorCodes', implode(' ', CTwoFactor::enable($AppUI->user_id, $secret, $counter)));
 		$AppUI->setState('TwoFactorSetup', '');
 		addHistory('users', $AppUI->user_id, 'update', 'Two-step login turned on');
+		dPaudit('twofactor.enabled');
 		$AppUI->setMsg('turned on', UI_MSG_OK, true);
 		break;
 	case 'disable':
@@ -57,9 +60,11 @@ switch ($action) {
 		if ($action == 'disable') {
 			CTwoFactor::disable($AppUI->user_id);
 			addHistory('users', $AppUI->user_id, 'update', 'Two-step login turned off');
+			dPaudit('twofactor.disabled');
 			$AppUI->setMsg('turned off', UI_MSG_OK, true);
 		} else {
 			$AppUI->setState('TwoFactorCodes', implode(' ', CTwoFactor::newRecoveryCodes($AppUI->user_id)));
+			dPaudit('twofactor.recovery_renewed');
 			$AppUI->setMsg('new recovery codes created', UI_MSG_OK, true);
 		}
 		break;

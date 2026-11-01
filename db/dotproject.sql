@@ -569,6 +569,23 @@ date_time_last_action DATETIME DEFAULT '0000-00-00 00:00:00',
 PRIMARY KEY ( user_access_log_id )
 );
 
+# Security audit log (classes/auditlog.class.php)
+CREATE TABLE %dbprefix%audit_log (
+  audit_id int(11) NOT NULL auto_increment,
+  audit_date datetime NOT NULL,
+  audit_user int(11) NOT NULL default 0,
+  audit_username varchar(255) NOT NULL default '',
+  audit_ip varchar(45) NOT NULL default '',
+  audit_event varchar(40) NOT NULL default '',
+  audit_object varchar(40) NOT NULL default '',
+  audit_object_id int(11) NOT NULL default 0,
+  audit_details varchar(1000) NOT NULL default '',
+  PRIMARY KEY (audit_id),
+  KEY idx_audit_date (audit_date),
+  KEY idx_audit_event (audit_event),
+  KEY idx_audit_user (audit_username)
+);
+
 # Two-step login: TOTP secret and last time step used, and single-use recovery codes (SHA-256)
 CREATE TABLE %dbprefix%user_twofactor (
   user_id int(11) NOT NULL,
@@ -742,6 +759,7 @@ INSERT INTO %dbprefix%config VALUES (0, 'mail_defer', 'false', 'mail', 'checkbox
 INSERT INTO %dbprefix%config VALUES (0, 'mail_timeout', '30', 'mail', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'mail_from', '', 'mail', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'api_enabled', 'false', 'api', 'checkbox');
+INSERT INTO %dbprefix%config VALUES (0, 'audit_log_days', '365', 'audit', 'text');
 
 INSERT INTO %dbprefix%config_list (config_id, config_list_name)
   SELECT config_id, 'php'

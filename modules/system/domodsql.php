@@ -104,5 +104,9 @@ switch ($cmd) {
 		$AppUI->setMsg('Unknown Command', UI_MSG_ERROR);
 		break;
 }
+if (in_array($cmd, array('install', 'remove', 'upgrade', 'toggle', 'configure'), true)) {
+	dPaudit('module.changed', $cmd . ' ' . $obj->mod_directory
+		. ($cmd == 'toggle' ? ' (now ' . ($obj->mod_active ? 'active' : 'inactive') . ')' : ''), 'modules', $mod_id);
+}
 $AppUI->redirect();
 ?>

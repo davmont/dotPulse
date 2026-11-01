@@ -24,6 +24,8 @@ if (dPgetParam($_POST, 'del', 0)) {
 	$AppUI->setMsg('API token');
 	if (CApiToken::revoke((int)dPgetParam($_POST, 'token_id', 0), $token_user)) {
 		addHistory('api_tokens', $token_user, 'revoke', 'API token revoked');
+		require_once DP_BASE_DIR . '/classes/auditlog.class.php';
+		dPaudit('api.token_revoked', 'token of ' . CAuditLog::username($token_user), 'users', $token_user);
 		$AppUI->setMsg('revoked', UI_MSG_OK, true);
 	} else {
 		$AppUI->setMsg('not found', UI_MSG_ERROR, true);
@@ -47,6 +49,8 @@ if ($token === false) {
 	$AppUI->setMsg('You have too many API tokens. Revoke one first.', UI_MSG_ERROR);
 } else {
 	addHistory('api_tokens', $AppUI->user_id, 'add', 'API token created: ' . $name);
+	dPaudit('api.token_created', $name . ' (' . (dPgetParam($_POST, 'token_scope', 'read') === 'write' ? 'read and write' : 'read only')
+		. ', ' . ($expires ? $expires . ' days' : 'no expiry') . ')');
 	$AppUI->setState('ApiNewToken', $token);
 	$AppUI->setMsg('API token created', UI_MSG_OK);
 }

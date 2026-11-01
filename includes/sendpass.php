@@ -63,6 +63,7 @@ function sendNewPass() {
 		$AppUI->redirect();
 	}
 	$q->clear();
+	dPaudit('password.reset_requested', 'link sent by email', 'users', $user_id, $user_id, null);
 
 
 	// Security Mitigation: Email a link with the token, not the password.

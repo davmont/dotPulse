@@ -143,3 +143,23 @@ CREATE TABLE IF NOT EXISTS `%dbprefix%user_twofactor_recovery` (
   KEY idx_rc_user (user_id)
 );
 
+# 20261104
+# Security audit log: logins, two-step login, passwords, API tokens and changes made by administrators, kept 365 days
+CREATE TABLE IF NOT EXISTS `%dbprefix%audit_log` (
+  audit_id int(11) NOT NULL auto_increment,
+  audit_date datetime NOT NULL,
+  audit_user int(11) NOT NULL default 0,
+  audit_username varchar(255) NOT NULL default '',
+  audit_ip varchar(45) NOT NULL default '',
+  audit_event varchar(40) NOT NULL default '',
+  audit_object varchar(40) NOT NULL default '',
+  audit_object_id int(11) NOT NULL default 0,
+  audit_details varchar(1000) NOT NULL default '',
+  PRIMARY KEY (audit_id),
+  KEY idx_audit_date (audit_date),
+  KEY idx_audit_event (audit_event),
+  KEY idx_audit_user (audit_username)
+);
+INSERT INTO `%dbprefix%config` (`config_name`, `config_value`, `config_group`, `config_type`)
+  SELECT 'audit_log_days', '365', 'audit', 'text' FROM DUAL
+  WHERE NOT EXISTS (SELECT 1 FROM `%dbprefix%config` WHERE `config_name` = 'audit_log_days');

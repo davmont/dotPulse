@@ -105,7 +105,9 @@ function InstallSplitSql($sql, $last_update) {
     return $ret;
   }
  }
- $sql = preg_replace("/\n#[^\n]*\n/", "\n", $sql);
+ // Every whole-line comment, also consecutive ones (the old pattern consumed the line break
+ // and left every second comment line in, where a ';' or a quote broke the statement split).
+ $sql = preg_replace('/^#[^\n]*$/m', '', $sql);
 
  $in_string = false;
 

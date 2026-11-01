@@ -31,9 +31,12 @@ if ($del) {
 	    || !(getPermission('users', 'delete', $user_id_aed))) {
 		$AppUI->redirect('m=public&a=access_denied');
 	}
+	require_once DP_BASE_DIR . '/classes/auditlog.class.php';
+	$audit_name = CAuditLog::username($user_id_aed);
 	if (($msg = $obj->delete())) {
 		$AppUI->setMsg($msg, UI_MSG_ERROR);
 	} else {
+		dPaudit('user.deleted', $audit_name, 'users', $user_id_aed);
 		$AppUI->setMsg('deleted', UI_MSG_ALERT, true);
 	}
 	$AppUI->redirect();
@@ -76,6 +79,19 @@ if (!$isNewUser && $AppUI->user_id == $user_id_aed) {
 	}
 }
 
+// For the audit log: did this save change the password? (The form sends the stored hash back
+// when the password field is left alone.)
+$audit_password = '';
+if (!$isNewUser && (string)dPgetParam($_POST, 'user_password', '') !== '') {
+	$q = new DBQuery;
+	$q->addTable('users');
+	$q->addQuery('user_password');
+	$q->addWhere('user_id = ' . (int)$user_id_aed);
+	if ($q->loadResult() != dPgetParam($_POST, 'user_password', '')) {
+		$audit_password = ', password changed';
+	}
+}
+
 if (($msg = $contact->store())) {
 	$AppUI->setMsg($msg, UI_MSG_ERROR);
 } else {        
@@ -96,6 +112,9 @@ if (($msg = $contact->store())) {
 				$AppUI->setMsg('failed to add role', UI_MSG_ERROR);
 			}
 		}
+		dPaudit($isNewUser ? 'user.created' : 'user.updated', $obj->user_username . $audit_password
+			. ((int)dPgetParam($_POST, 'user_role', 0) ? ', role ' . (int)dPgetParam($_POST, 'user_role', 0) : ''),
+			'users', $obj->user_id);
 		$AppUI->setMsg($isNewUser ? 'added' : 'updated', UI_MSG_OK, true);
 	}
 	$AppUI->redirect(($isNewUser ? ('m=admin&a=viewuser&user_id=' . $obj->user_id . '&tab=3') : ''));

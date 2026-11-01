@@ -90,6 +90,9 @@ class CApi
 		if (!$row) {
 			if ($token !== '') {
 				$limiter->recordAttempt();
+				if (!$limiter->isAllowed()) {
+					dPaudit('api.blocked', 'this address must wait before using the API again', '', 0, 0, '');
+				}
 			}
 			$this->fail(401, 'unauthorized', 'A valid API token is required.');
 		}

@@ -32,6 +32,8 @@ if ($user_id) {
 			if (($msg = $user->store())) {
 				$AppUI->setMsg($msg, UI_MSG_ERROR);
 			} else {
+				require_once DP_BASE_DIR . '/classes/auditlog.class.php';
+				dPaudit('password.changed', $user_id == $AppUI->user_id ? '' : 'for ' . CAuditLog::username($user_id), 'users', $user_id);
 				echo $AppUI->_('chgpwUpdated');
 			}
 		} else {

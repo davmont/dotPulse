@@ -93,6 +93,15 @@ Set these under System Admin > System Configuration > Mail:
 Users get an email when someone else assigns them to a task; each user can turn
 it off in their preferences ("Email me when I am assigned to a task").
 
+## Audit log
+
+System Admin > **Audit log** lists logins (also failed ones and blocked addresses),
+two-step login and password events, API tokens and the changes administrators make;
+see [audit-log.md](audit-log.md). Review it after an incident, and set how long it is
+kept with **audit_log_days** (System Configuration, default 365 days). The IP
+addresses are those PHP sees: behind a reverse proxy configure Apache's `mod_remoteip`
+(or nginx's `real_ip`) so they are the clients' and not the proxy's.
+
 ## Two-step login
 
 Users turn it on themselves in their account (click their name, **Two-step login**
