@@ -56,6 +56,9 @@ form as an administrator and as a regular user, and fails on any PHP error, warn
 notice or SQL error.
 
 ### Project management
+- **Personal dashboard** (the landing page): your open tasks by due date (overdue, next 7
+  days, later), the projects you work on with their progress and overdue tasks, the
+  hours you logged this week and your coming events.
 - **Project tips bell**: checks each project against PMBOK practice (charter, scope,
   schedule, cost, risks and more) and suggests the next step.
 - **PMBOK 8th Edition** task fields (status, principles, domains) and project charters

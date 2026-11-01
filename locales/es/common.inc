@@ -195,6 +195,7 @@
 "Private"=>"Privado",
 "Private Entry"=>"Registro Privado",
 "Privileged"=>"Privilegiado",
+"Dashboard"=>"Panel",
 "Project"=>"Proyecto",
 "ProjectDesigner"=>"ProjectDesigner",
 "Projects"=>"Proyectos",

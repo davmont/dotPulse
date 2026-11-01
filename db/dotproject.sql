@@ -485,6 +485,7 @@ INSERT INTO %dbprefix%modules VALUES("10", "System Administration", "system", "1
 INSERT INTO %dbprefix%modules VALUES("11", "Departments", "departments", "1.0.0", "", "core", "1", "Departments", "users.gif", "11", "0", "", "departments", "dept_id", "dept_name");
 INSERT INTO %dbprefix%modules VALUES("12", "Help", "help", "1.0.0", "", "core", "1", "Help", "dp.gif", "12", "0", "", "", "", "");
 INSERT INTO %dbprefix%modules VALUES("13", "Public", "public", "1.0.0", "", "core", "1", "Public", "users.gif", "13", "0", "", "", "", "");
+INSERT INTO %dbprefix%modules VALUES("14", "Dashboard", "dashboard", "1.0.0", "", "core", "1", "Dashboard", "dashboard.png", "0", "1", "Personal dashboard", "", "", "");
 
 #
 # Table structure for table 'syskeys'
@@ -643,9 +644,9 @@ INSERT INTO %dbprefix%config VALUES (0, 'cal_day_end', '17', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'cal_day_increment', '15', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'cal_working_days', '1,2,3,4,5', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'restrict_task_time_editing', 'false', '', 'checkbox');
-INSERT INTO %dbprefix%config VALUES (0, 'default_view_m', 'calendar', '', 'text');
-INSERT INTO %dbprefix%config VALUES (0, 'default_view_a', 'day_view', '', 'text');
-INSERT INTO %dbprefix%config VALUES (0, 'default_view_tab', '1', '', 'text');
+INSERT INTO %dbprefix%config VALUES (0, 'default_view_m', 'dashboard', '', 'text');
+INSERT INTO %dbprefix%config VALUES (0, 'default_view_a', 'index', '', 'text');
+INSERT INTO %dbprefix%config VALUES (0, 'default_view_tab', '0', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'index_max_file_size', '-1', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'session_handling', 'app', 'session', 'select');
 INSERT INTO %dbprefix%config VALUES (0, 'session_idle_time', '2d', 'session', 'text');
@@ -1321,7 +1322,8 @@ INSERT INTO `%dbprefix%gacl_axo` (`id`, `section_value`, `value`, `order_value`,
     (16, 'app', 'ticketsmith',  12, 'Tickets',               0),
     (17, 'app', 'public',       13, 'Public',                0),
     (18, 'app', 'roles',        14, 'Roles Administration',  0),
-    (19, 'app', 'users',        15, 'User Table',            0);
+    (19, 'app', 'users',        15, 'User Table',            0),
+    (20, 'app', 'dashboard',    0,  'Dashboard',             0);
 
 # 6. ARO Groups (role tree)
 INSERT INTO `%dbprefix%gacl_aro_groups` (`id`, `parent_id`, `lft`, `rgt`, `name`, `value`) VALUES

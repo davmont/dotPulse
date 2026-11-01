@@ -181,7 +181,7 @@ class CApi
 		}
 		$q->addOrder('p.project_name, p.project_id');
 		$q->setLimit($limit + 1, $offset);
-		$rows = $q->loadList();
+		$rows = $this->withProgress($q->loadList());
 		return $this->page(array_map(array($this, 'project'), $rows), $limit, $offset);
 	}
 
@@ -196,6 +196,7 @@ class CApi
 		if (!$row) {
 			$this->fail(404, 'not_found', 'No such project.');
 		}
+		list($row) = $this->withProgress(array($row));
 		return array('data' => $this->project($row));
 	}
 
@@ -340,6 +341,16 @@ class CApi
 		$proj = new CProject;
 		$proj->setAllowedSQL($this->user_id, $q, null, 'p');
 		return $q;
+	}
+
+	/** Sets project_percent_complete from the tasks (the stored column is not kept up to date). */
+	function withProgress($rows)
+	{
+		$pc = CProject::percentComplete(array_column($rows, 'project_id'));
+		foreach ($rows as $i => $row) {
+			$rows[$i]['project_percent_complete'] = $pc[(int)$row['project_id']] ?? 0;
+		}
+		return $rows;
 	}
 
 	/** Tasks of allowed projects that the user may view, in pages (see the class comment). */
