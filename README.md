@@ -62,7 +62,8 @@ notice or SQL error.
 - **Board** (project tab): the project's tasks in *To do*, *In progress* and *Done*
   columns; drag a card, or use its arrows, to change its progress.
 - **Project tips bell**: checks each project against PMBOK practice (charter, scope,
-  schedule, cost, risks and more) and suggests the next step.
+  schedule, cost, risks and more) and suggests the next step, including earned value
+  warnings when the cost (CPI) or schedule (SPI) performance index drops below 0.9.
 - **PMBOK 8th Edition** task fields (status, principles, domains) and project charters
   linked to their project (Initiating module).
 - Gantt charts, calendar, Helpdesk, Mantis integration, costs and finances, timesheets,

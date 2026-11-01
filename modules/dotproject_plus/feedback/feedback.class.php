@@ -33,6 +33,8 @@ class CProjectFeedback
 			14 => array('Cost', array('risks', 'costs'), 'risksWithoutContingencyReserve'),
 			16 => array('Cost', array('costs'), 'noManagementReserve'),
 			15 => array('Cost', array('monitoringandcontrol'), 'usersWithoutHourlyCost'),
+			44 => array('Cost', array('monitoringandcontrol'), 'costOverrun'),
+			45 => array('Schedule', array('monitoringandcontrol'), 'behindSchedule'),
 			18 => array('Resources', array('timeplanning', 'human_resources'), 'nobodyAllocated'),
 			20 => array('Resources', array('timeplanning', 'human_resources'), 'overlappingAllocations'),
 			26 => array('Risk', array('risks'), 'eliminatedWithContingency'),
@@ -75,6 +77,10 @@ class CProjectFeedback
 				'The budget has a contingency reserve for the known risks, but its management reserve is zero. The management reserve covers unforeseen work (the unknown risks); it is usually a percentage of the budget agreed with the sponsor.'),
 			15 => array('Some people have no hourly cost.',
 				'Some users of the project\'s company have no hourly cost, so the work they do is not counted in the project\'s costs. Enter their cost on the Cost tab of each user.'),
+			44 => array('The work done costs more than planned (CPI below 0.9).',
+				'Up to today the actual cost of the hours logged is higher than the earned value of the work done: each unit spent has produced less than 0.9 of planned work. See the trend and the activities behind it on the Cost tab (monitoring and control), then review the estimates of the remaining work or the budget.'),
+			45 => array('The project is behind schedule (SPI below 0.9).',
+				'Up to today the work done is worth less than 90 % of the work planned for this date (earned value against planned value). Find the late activities on the Schedule tab (monitoring and control) and update the plan, the scope or the people allocated.'),
 			18 => array('Nobody is allocated to the activities.',
 				'The project has activities, but no one is allocated to any of them. Without allocations there are no human resource costs and no workload to check: allocate people to the roles estimated for each activity.'),
 			20 => array('Someone is allocated to activities that overlap.',
@@ -309,6 +315,43 @@ class CProjectFeedback
 		$q->addJoin('monitoring_user_cost', 'uc', 'uc.user_id = u.user_id');
 		$q->addWhere('p.project_id = ' . (int)$project_id . ' AND uc.cost_id IS NULL');
 		return self::count($q) > 0;
+	}
+
+	/** Below this cost or schedule performance index the project gets a tip (PMBOK: < 1 is worse than plan). */
+	const EV_THRESHOLD = 0.9;
+
+	/**
+	 * Earned value figures of the project up to today, from monitoringandcontrol (no baseline):
+	 * array(planned value, earned value, actual cost). Kept for the request (two rules use it).
+	 */
+	static function earnedValue($project_id)
+	{
+		static $cache = array();
+		if (!isset($cache[$project_id])) {
+			require_once DP_BASE_DIR . '/modules/monitoringandcontrol/control/controller_earn_value.class.php';
+			$ev = new ControllerEarnValue();
+			$today = date('d/m/Y');
+			$cache[$project_id] = array(
+				(float)$ev->calculaValorPlanejado($project_id, $today),
+				(float)$ev->calculaValorAgregado($project_id, $today),
+				(float)$ev->calculaValorReal($project_id, $today),
+			);
+		}
+		return $cache[$project_id];
+	}
+
+	/** CPI = EV / AC below the threshold, once some cost has been logged. */
+	static function costOverrun($project_id)
+	{
+		list(, $ev, $ac) = self::earnedValue($project_id);
+		return $ac > 0 && $ev / $ac < self::EV_THRESHOLD;
+	}
+
+	/** SPI = EV / PV below the threshold, once some work was planned to be done by today. */
+	static function behindSchedule($project_id)
+	{
+		list($pv, $ev) = self::earnedValue($project_id);
+		return $pv > 0 && $ev / $pv < self::EV_THRESHOLD;
 	}
 
 	static function nobodyAllocated($project_id)
