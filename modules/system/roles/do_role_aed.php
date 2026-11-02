@@ -16,6 +16,7 @@ if ($del) {
 	if (($msg = $role->delete())) {
 		$AppUI->setMsg($msg, UI_MSG_ERROR);
 	} else {
+		dPaudit('role.deleted', (string)$role->role_name, 'roles', (int)$role->role_id);
 		$AppUI->setMsg("Role deleted", UI_MSG_ALERT);
 	}
 } else {
@@ -23,6 +24,7 @@ if ($del) {
 		$AppUI->setMsg($msg, UI_MSG_ERROR);
 	} else {
 		$isNotNew = @$_POST['role_id'];
+		dPaudit('role.saved', (string)$role->role_name, 'roles', (int)$role->role_id);
 		$AppUI->setMsg("Role ".($isNotNew ? 'updated' : 'inserted'), UI_MSG_OK);
 	}
 }

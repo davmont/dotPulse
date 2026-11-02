@@ -54,6 +54,12 @@ return array(
 	'Some activities take 80 hours of effort or more.' => 'Algunas actividades tienen un esfuerzo de 80 horas o más.',
 	'At least one activity is estimated at 80 hours (two working weeks) or more. Estimates this large are usually less accurate and hard to track: break the activity down into smaller ones.'
 		=> 'Al menos una actividad está estimada en 80 horas (dos semanas de trabajo) o más. Las estimaciones tan grandes suelen ser menos precisas y difíciles de seguir: descomponga la actividad en otras más pequeñas.',
+	'The work done costs more than planned (CPI below 0.9).' => 'El trabajo hecho cuesta más de lo previsto (CPI por debajo de 0,9).',
+	'Up to today the actual cost of the hours logged is higher than the earned value of the work done: each unit spent has produced less than 0.9 of planned work. See the trend and the activities behind it on the Cost tab (monitoring and control), then review the estimates of the remaining work or the budget.'
+		=> 'Hasta hoy, el coste real de las horas registradas supera el valor ganado del trabajo hecho: cada unidad gastada ha producido menos de 0,9 de trabajo planificado. Mira la tendencia y las actividades que la causan en la pestaña Coste (monitorización y control) y revisa las estimaciones del trabajo pendiente o el presupuesto.',
+	'The project is behind schedule (SPI below 0.9).' => 'El proyecto va retrasado (SPI por debajo de 0,9).',
+	'Up to today the work done is worth less than 90 % of the work planned for this date (earned value against planned value). Find the late activities on the Schedule tab (monitoring and control) and update the plan, the scope or the people allocated.'
+		=> 'Hasta hoy, el trabajo hecho vale menos del 90 % del trabajo planificado para esta fecha (valor ganado frente a valor planificado). Busca las actividades retrasadas en la pestaña Cronograma (monitorización y control) y actualiza el plan, el alcance o las personas asignadas.',
 	'There are risks but no contingency reserve.' => 'Hay riesgos pero no hay reserva para contingencias.',
 	'The project has risks, but its budget has no contingency reserve. Set aside a reserve for the risks that you accept or that remain after their responses, based on their probability and impact (Budget tab of the project).'
 		=> 'El proyecto tiene riesgos, pero su presupuesto no tiene reserva para contingencias. Reserve una cantidad para los riesgos que acepta o que quedan tras sus respuestas, según su probabilidad e impacto (pestaña Presupuesto del proyecto).',

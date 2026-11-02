@@ -11,3 +11,9 @@
 		Deny from all
 	</IfModule>
 </FilesMatch>
+
+# The REST API (api.php) reads its token from the Authorization header, which CGI and
+# PHP-FPM setups do not pass to PHP unless it is copied into the environment.
+<IfModule mod_setenvif.c>
+	SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
+</IfModule>

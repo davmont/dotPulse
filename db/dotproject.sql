@@ -485,6 +485,7 @@ INSERT INTO %dbprefix%modules VALUES("10", "System Administration", "system", "1
 INSERT INTO %dbprefix%modules VALUES("11", "Departments", "departments", "1.0.0", "", "core", "1", "Departments", "users.gif", "11", "0", "", "departments", "dept_id", "dept_name");
 INSERT INTO %dbprefix%modules VALUES("12", "Help", "help", "1.0.0", "", "core", "1", "Help", "dp.gif", "12", "0", "", "", "", "");
 INSERT INTO %dbprefix%modules VALUES("13", "Public", "public", "1.0.0", "", "core", "1", "Public", "users.gif", "13", "0", "", "", "", "");
+INSERT INTO %dbprefix%modules VALUES("14", "Dashboard", "dashboard", "1.0.0", "", "core", "1", "Dashboard", "dashboard.png", "0", "1", "Personal dashboard", "", "", "");
 
 #
 # Table structure for table 'syskeys'
@@ -568,6 +569,56 @@ date_time_last_action DATETIME DEFAULT '0000-00-00 00:00:00',
 PRIMARY KEY ( user_access_log_id )
 );
 
+# Security audit log (classes/auditlog.class.php)
+CREATE TABLE %dbprefix%audit_log (
+  audit_id int(11) NOT NULL auto_increment,
+  audit_date datetime NOT NULL,
+  audit_user int(11) NOT NULL default 0,
+  audit_username varchar(255) NOT NULL default '',
+  audit_ip varchar(45) NOT NULL default '',
+  audit_event varchar(40) NOT NULL default '',
+  audit_object varchar(40) NOT NULL default '',
+  audit_object_id int(11) NOT NULL default 0,
+  audit_details varchar(1000) NOT NULL default '',
+  PRIMARY KEY (audit_id),
+  KEY idx_audit_date (audit_date),
+  KEY idx_audit_event (audit_event),
+  KEY idx_audit_user (audit_username)
+);
+
+# Two-step login: TOTP secret and last time step used, and single-use recovery codes (SHA-256)
+CREATE TABLE %dbprefix%user_twofactor (
+  user_id int(11) NOT NULL,
+  tf_secret varchar(64) NOT NULL,
+  tf_last_counter bigint NOT NULL default 0,
+  tf_enabled_on datetime NOT NULL,
+  PRIMARY KEY (user_id)
+);
+CREATE TABLE %dbprefix%user_twofactor_recovery (
+  rc_id int(11) NOT NULL auto_increment,
+  user_id int(11) NOT NULL,
+  rc_hash char(64) NOT NULL,
+  rc_used_on datetime default NULL,
+  PRIMARY KEY (rc_id),
+  KEY idx_rc_user (user_id)
+);
+
+# REST API personal access tokens (only the SHA-256 of each token is stored)
+CREATE TABLE %dbprefix%api_tokens (
+  token_id int(11) NOT NULL auto_increment,
+  token_user int(11) NOT NULL,
+  token_name varchar(100) NOT NULL default '',
+  token_hash char(64) NOT NULL,
+  token_prefix varchar(12) NOT NULL default '',
+  token_scope varchar(10) NOT NULL default 'read',
+  token_created datetime NOT NULL,
+  token_expires datetime default NULL,
+  token_last_used datetime default NULL,
+  PRIMARY KEY (token_id),
+  UNIQUE KEY idx_token_hash (token_hash),
+  KEY idx_token_user (token_user)
+);
+
 #20040910
 #Pinned tasks
 CREATE TABLE %dbprefix%user_task_pin (
@@ -627,9 +678,9 @@ INSERT INTO %dbprefix%config VALUES (0, 'cal_day_end', '17', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'cal_day_increment', '15', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'cal_working_days', '1,2,3,4,5', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'restrict_task_time_editing', 'false', '', 'checkbox');
-INSERT INTO %dbprefix%config VALUES (0, 'default_view_m', 'calendar', '', 'text');
-INSERT INTO %dbprefix%config VALUES (0, 'default_view_a', 'day_view', '', 'text');
-INSERT INTO %dbprefix%config VALUES (0, 'default_view_tab', '1', '', 'text');
+INSERT INTO %dbprefix%config VALUES (0, 'default_view_m', 'dashboard', '', 'text');
+INSERT INTO %dbprefix%config VALUES (0, 'default_view_a', 'index', '', 'text');
+INSERT INTO %dbprefix%config VALUES (0, 'default_view_tab', '0', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'index_max_file_size', '-1', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'session_handling', 'app', 'session', 'select');
 INSERT INTO %dbprefix%config VALUES (0, 'session_idle_time', '2d', 'session', 'text');
@@ -707,6 +758,8 @@ INSERT INTO %dbprefix%config VALUES (0, 'mail_pass', '', 'mail', 'password');
 INSERT INTO %dbprefix%config VALUES (0, 'mail_defer', 'false', 'mail', 'checkbox');
 INSERT INTO %dbprefix%config VALUES (0, 'mail_timeout', '30', 'mail', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'mail_from', '', 'mail', 'text');
+INSERT INTO %dbprefix%config VALUES (0, 'api_enabled', 'false', 'api', 'checkbox');
+INSERT INTO %dbprefix%config VALUES (0, 'audit_log_days', '365', 'audit', 'text');
 
 INSERT INTO %dbprefix%config_list (config_id, config_list_name)
   SELECT config_id, 'php'
@@ -1304,7 +1357,8 @@ INSERT INTO `%dbprefix%gacl_axo` (`id`, `section_value`, `value`, `order_value`,
     (16, 'app', 'ticketsmith',  12, 'Tickets',               0),
     (17, 'app', 'public',       13, 'Public',                0),
     (18, 'app', 'roles',        14, 'Roles Administration',  0),
-    (19, 'app', 'users',        15, 'User Table',            0);
+    (19, 'app', 'users',        15, 'User Table',            0),
+    (20, 'app', 'dashboard',    0,  'Dashboard',             0);
 
 # 6. ARO Groups (role tree)
 INSERT INTO `%dbprefix%gacl_aro_groups` (`id`, `parent_id`, `lft`, `rgt`, `name`, `value`) VALUES

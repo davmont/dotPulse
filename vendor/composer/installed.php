@@ -1,19 +1,37 @@
 <?php return array(
     'root' => array(
-        'name' => 'davmont/dotproject',
+        'name' => 'davmont/dotpulse',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'd51beae24e4f729dcefd3efed8f52fd02b86ed5d',
+        'reference' => '213445fa72c04573e7afb644d43324b109c68ad9',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'davmont/dotproject' => array(
+        'chillerlan/php-qrcode' => array(
+            'pretty_version' => '5.0.5',
+            'version' => '5.0.5.0',
+            'reference' => '7b66282572fc14075c0507d74d9837dab25b38d6',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../chillerlan/php-qrcode',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'chillerlan/php-settings-container' => array(
+            'pretty_version' => '3.3.0',
+            'version' => '3.3.0.0',
+            'reference' => 'a0a487cbf5344f721eb504bf0f59bada40c381b7',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../chillerlan/php-settings-container',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'davmont/dotpulse' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'd51beae24e4f729dcefd3efed8f52fd02b86ed5d',
+            'reference' => '213445fa72c04573e7afb644d43324b109c68ad9',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

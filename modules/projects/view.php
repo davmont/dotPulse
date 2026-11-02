@@ -520,6 +520,7 @@ if ($canAccessTask) {
 	$tabBox->add(DP_BASE_DIR . '/modules/tasks/tasks', $AppUI->_('Tasks'));
 	$tabBox->add(DP_BASE_DIR . '/modules/tasks/tasks', $AppUI->_('Tasks (Inactive)'));
 	$tabBox->add(DP_BASE_DIR . '/modules/tasks/viewgantt', $AppUI->_('Gantt Chart'));
+	$tabBox->add(DP_BASE_DIR . '/modules/projects/vw_board', $AppUI->_('Board'));
 	if ($canAccessTaskLog) {
 		$tabBox->add(DP_BASE_DIR . '/modules/projects/vw_logs', $AppUI->_('Task Logs'));
 	}

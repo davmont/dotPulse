@@ -42,6 +42,8 @@ class CAppUI
 {
 	/** @var array generic array for holding the state of anything */
 	var $state = null;
+	/** @var string|null the session's CSRF token (getCsrfToken() creates it) */
+	var $_csrf_token = null;
 	/** @var int */
 	var $user_id = null;
 	/** @var string */
@@ -802,11 +804,17 @@ class CAppUI
 		}
 
 		$user_id = $auth->userId($username);
-		// Some authentication schemes may collect username in various ways.
-		$username = $auth->username;
+		return $this->loadUser($user_id);
+	}
 
-		// Now that the password has been checked, see if they are allowed to
-		// access the system
+	/**
+	 * Logs in a user whose identity has been checked (password in login(), then the code of
+	 * two-step login in includes/twofactor_login.php): checks that their role may log in and
+	 * loads their details and preferences. Returns false when they may not log in.
+	 */
+	function loadUser($user_id)
+	{
+		$user_id = (int)$user_id;
 		if (!(isset($GLOBALS['acl']))) {
 			$GLOBALS['acl'] = new dPacl;
 		}
@@ -822,7 +830,7 @@ class CAppUI
 			. 'contact_department as user_department, contact_email as user_email, '
 			. 'user_type');
 		$q->addJoin('contacts', 'con', 'contact_id = user_contact');
-		$q->addWhere("user_id = $user_id AND user_username = " . $q->quote($username));
+		$q->addWhere('user_id = ' . $user_id);
 		$sql = $q->prepare();
 		$q->clear();
 		dprint(__FILE__, __LINE__, 7, ('Login SQL: ' . $sql));

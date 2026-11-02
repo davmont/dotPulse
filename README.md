@@ -29,10 +29,12 @@ tables keep working unchanged.
 
 Work happens on the **`devel`** branch; **`master`** only receives stable releases.
 
-- Current release: **dotPulse 3.0.0**, the first under the new name. See
-  [RELEASE_NOTES_v3.0.0.md](RELEASE_NOTES_v3.0.0.md), especially its **Breaking changes**
-  and **Upgrading** sections, before upgrading an existing site.
-- Previous release: v2.3.1, still named dotProject ([RELEASE_NOTES_v2.3.1.md](RELEASE_NOTES_v2.3.1.md)).
+- Current release: **dotPulse 3.1.0**: REST API, personal dashboard, Kanban board,
+  two-step login, audit log and earned value warnings. See
+  [RELEASE_NOTES_v3.1.0.md](RELEASE_NOTES_v3.1.0.md) before upgrading (PHP 8.1 or later).
+- Previous releases: 3.0.0, the first under the new name, with the breaking changes
+  from dotProject ([RELEASE_NOTES_v3.0.0.md](RELEASE_NOTES_v3.0.0.md)); v2.3.1, still
+  named dotProject ([RELEASE_NOTES_v2.3.1.md](RELEASE_NOTES_v2.3.1.md)).
 
 ## What's in it
 
@@ -43,6 +45,10 @@ documented in [docs/security-audit/](docs/security-audit/), with its roadmap in
 
 - Passwords hashed with `password_hash()` (bcrypt), upgraded transparently on login;
   token-based password reset; rate-limited login and reset.
+- **Audit log** of logins and administrators' changes (users, roles, permissions,
+  configuration, modules, API tokens) in System Admin; see [docs/audit-log.md](docs/audit-log.md).
+- Optional **two-step login** per user (TOTP codes from any authenticator app, with
+  single-use recovery codes); administrators can reset it for a user who lost their phone.
 - CSRF protection on every form post; actions that changed data over GET moved to POST.
 - Enforced Content-Security-Policy with no inline scripts ([docs/csp.md](docs/csp.md)).
 - SQL injection, XSS and missing-permission fixes across core and add-on modules.
@@ -56,12 +62,23 @@ form as an administrator and as a regular user, and fails on any PHP error, warn
 notice or SQL error.
 
 ### Project management
+- **Personal dashboard** (the landing page): your open tasks by due date (overdue, next 7
+  days, later), the projects you work on with their progress and overdue tasks, the
+  hours you logged this week and your coming events.
+- **Board** (project tab): the project's tasks in *To do*, *In progress* and *Done*
+  columns; drag a card, or use its arrows, to change its progress.
 - **Project tips bell**: checks each project against PMBOK practice (charter, scope,
-  schedule, cost, risks and more) and suggests the next step.
+  schedule, cost, risks and more) and suggests the next step, including earned value
+  warnings when the cost (CPI) or schedule (SPI) performance index drops below 0.9.
 - **PMBOK 8th Edition** task fields (status, principles, domains) and project charters
   linked to their project (Initiating module).
 - Gantt charts, calendar, Helpdesk, Mantis integration, costs and finances, timesheets,
   risks and the other dotProject modules, updated for PHP 8.
+
+### Integration
+- **REST API** (off by default): personal access tokens with read or read-and-write
+  access, acting with the user's permissions; projects, tasks, work logs and task
+  progress. See [docs/api.md](docs/api.md).
 
 ### Interface and languages
 - Material theme by default; the classic themes are still available.
@@ -69,7 +86,7 @@ notice or SQL error.
 
 ## Installation
 
-**Requirements:** PHP 8.x (8.3 is tested), MySQL or MariaDB, Apache (recommended) or nginx.
+**Requirements:** PHP 8.1 or later (8.3 is tested), MySQL or MariaDB, Apache (recommended) or nginx.
 Several access rules rely on `.htaccess`; on nginx, port the equivalent `deny` rules
 (see [docs/deployment-security.md](docs/deployment-security.md)).
 
@@ -143,5 +160,5 @@ dotPulse is free software under the **GNU General Public License**, as dotProjec
 been since version 2.0 (versions 1.0.2 and earlier were BSD licensed). See
 [COPYING](COPYING) and [LICENSE](LICENSE).
 
-Bundled third-party libraries (ADOdb, phpGACL, PHPMailer, Dompdf, JpGraph, Smarty and
+Bundled third-party libraries (ADOdb, phpGACL, PHPMailer, Dompdf, php-qrcode, JpGraph, Smarty and
 others) keep their own licences.

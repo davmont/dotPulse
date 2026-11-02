@@ -72,6 +72,9 @@ if (!(isset($_SESSION['AppUI'])) || isset($_GET['logout'])) {
 	if (isset($_GET['logout']) && isset($_SESSION['AppUI']->user_id)) {
 		$AppUI =& $_SESSION['AppUI'];
 		$AppUI->registerLogout($AppUI->user_id);
+		if ($AppUI->user_id > 0) {
+			dPaudit('logout');
+		}
 		addHistory(
 			'login',
 			$AppUI->user_id,
@@ -164,11 +167,25 @@ if (isset($_REQUEST['login'])) {
 	if (!$ok) {
 		// If login fails, record the attempt.
 		$rateLimiter->recordAttempt();
+		dPaudit('login.failure', '', '', 0, 0, $username);
+		if (!$rateLimiter->isAllowed()) {
+			dPaudit('login.blocked', 'this address must wait before logging in again', '', 0, 0, $username);
+		}
 		$AppUI->setMsg('Login Failed');
 	} else {
 		session_regenerate_id(true);
+		// Two-step login: the password was right, but the session stays logged out until the
+		// code is given (includes/twofactor_login.php).
+		require_once DP_BASE_DIR . '/classes/twofactor.class.php';
+		if (CTwoFactor::isEnabled($AppUI->user_id)) {
+			CTwoFactor::startPending($AppUI->user_id, $redirect);
+			$_SESSION['AppUI'] = new CAppUI;
+			header('Location: ./index.php');
+			exit;
+		}
 		//Register login in user_acces_log
 		$AppUI->registerLogin();
+		dPaudit('login.success');
 	}
 	addHistory(
 		'login',
@@ -189,6 +206,12 @@ $uistyle = (($AppUI->getPref('UISTYLE')) ? $AppUI->getPref('UISTYLE') : dPgetCon
 $m = '';
 $a = '';
 $u = '';
+
+// A login waiting for its two-step code: the code form, nothing else.
+if ($AppUI->doLogin() && !empty($_SESSION['dp_twofactor'])) {
+	require DP_BASE_DIR . '/includes/twofactor_login.php';
+	exit;
+}
 
 // check if we are logged in
 if ($AppUI->doLogin()) {
@@ -267,7 +290,13 @@ $ownAccount = ($m == 'admin' && $a == 'viewuser' && !$dosql
 	|| ($m == 'system' && $a == 'addeditpref' && !$dosql
 		&& (int)dPgetParam($_GET, 'user_id', 0) == $AppUI->user_id)
 	|| ($m == 'system' && $dosql == 'do_preference_aed'
-		&& (int)dPgetParam($_POST, 'pref_user', 0) == $AppUI->user_id);
+		&& (int)dPgetParam($_POST, 'pref_user', 0) == $AppUI->user_id)
+	// do_api_token_aed checks that the token belongs to the user (or that they administer users).
+	|| ($m == 'admin' && $a == 'viewuser' && $dosql == 'do_api_token_aed'
+		&& (int)dPgetParam($_POST, 'token_user', 0) == $AppUI->user_id)
+	// do_twofactor_aed: users manage their own two-step login (the handler checks it again).
+	|| ($m == 'admin' && $a == 'viewuser' && $dosql == 'do_twofactor_aed'
+		&& (int)dPgetParam($_POST, 'tf_user', 0) == $AppUI->user_id);
 if (!$canAccess && $m != 'public' && !$ownAccount) {
 	$AppUI->redirect('m=public&a=access_denied');
 }

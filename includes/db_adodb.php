@@ -60,6 +60,15 @@ function db_insert_id() {
 	return $db->Insert_ID();
 }
 
+/** Rows changed by the last UPDATE or DELETE (for conditional updates that must win once). */
+function db_affected_rows() {
+	global $db;
+	if (!(is_object($db))) {
+		dprint(__FILE__,__LINE__, 0, 'Database object does not exist.');
+	}
+	return $db->Affected_Rows();
+}
+
 function db_exec($sql) {
 	global $db;
 

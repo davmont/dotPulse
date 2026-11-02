@@ -389,6 +389,32 @@ class CProject extends CDpObject
 
 	}
 
+	/**
+	 * Progress of projects, as on the project pages: the tasks' percent complete weighted
+	 * by duration (days counted as daily_working_hours). Returns project id => percent
+	 * (0-100, rounded to one decimal); projects without tasks are 0.
+	 */
+	static function percentComplete($project_ids)
+	{
+		$ids = array_filter(array_map('intval', (array)$project_ids));
+		if (!$ids) {
+			return array();
+		}
+		$hours = (float)(dPgetConfig('daily_working_hours') ? dPgetConfig('daily_working_hours') : 8);
+		$q = new DBQuery;
+		$q->addTable('tasks', 't');
+		$q->addQuery('t.task_project, SUM(t.task_duration * t.task_percent_complete'
+			. ' * IF(t.task_duration_type = 24, ' . $hours . ', t.task_duration_type)) / SUM(t.task_duration'
+			. ' * IF(t.task_duration_type = 24, ' . $hours . ', t.task_duration_type)) AS pc');
+		$q->addWhere('t.task_project IN (' . implode(',', $ids) . ')');
+		$q->addGroup('t.task_project');
+		$result = array_fill_keys($ids, 0.0);
+		foreach ($q->loadList() as $row) {
+			$result[(int)$row['task_project']] = round((float)$row['pc'], 1);
+		}
+		return $result;
+	}
+
 	function getAllowedProjectsInRows($userId)
 	{
 		$q = new DBQuery;
