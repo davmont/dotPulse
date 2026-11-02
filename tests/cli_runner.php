@@ -16,7 +16,7 @@ if (!function_exists('dprint')) {
 }
 
 require_once DP_BASE_DIR . '/classes/query.class.php';
-require_once DP_BASE_DIR . '/lib/phpgacl/test_suite/phpunit/phpunit.php';
+require_once DP_BASE_DIR . '/tests/phpunit.php';
 
 // Include the test file(s)
 require_once dirname(__FILE__) . '/DBQueryTest.php';

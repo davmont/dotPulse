@@ -13,7 +13,7 @@ function closeReport(){
 		members_field.options[0]=null;
 	}
 	document.getElementById("date").value="";
-	tinyMCE.get('description_edit').setContent("");
+	document.getElementById('description_edit').value="";
 	document.getElementById("action_estimation").value="";
 	var div=document.getElementById("ata_div");
 	div.style.display="none";
@@ -39,12 +39,11 @@ function saveReport(){
 	var dateParts=date.split("/");
 	date=dateParts[2]+"-"+dateParts[1]+"-"+dateParts[0];
 	document.getElementById("date").value=date;
-	var description=tinyMCE.get('description_edit').getContent();
+	var description=Trim(document.getElementById('description_edit').value);
 	if(description==""){
 		alert("Favor informar a descrição da reuniao.");
 		return;
 	}
-	document.getElementById("description").value=description;
 	var members_field=document.getElementById("selected_members");
 	var list="";
 	for(i=0; i < members_field.options.length ; i++){

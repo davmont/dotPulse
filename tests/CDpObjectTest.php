@@ -4,7 +4,7 @@ if (!defined('DP_BASE_DIR')) {
     define('DP_BASE_DIR', realpath(__DIR__ . '/../'));
 }
 
-require_once DP_BASE_DIR . '/lib/phpgacl/test_suite/phpunit/phpunit.php';
+require_once DP_BASE_DIR . '/tests/phpunit.php';
 
 // We need to mock AppUI and its method getSystemClass BEFORE including dp.class.php
 // But if dp.class.php is already included, we are fine.

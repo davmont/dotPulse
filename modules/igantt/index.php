@@ -3,7 +3,6 @@
 Copyright (c) 2008 -2009 Pierre-Yves SIMONOT Euxenis SAS 
 *
 * Description:	For dP version prior to V1.2.1 this page will allow to access iGantt from the module menu bar
-*			This work includes the use of the XAJAX library that is distributed under the BSD licence
 *
 * Author:		Pierre-Yves SIMONOT, Euxenis, <pierre-yves.simonot@euxenis.com>
 *
