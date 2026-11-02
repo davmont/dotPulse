@@ -1,0 +1,28 @@
+# Update proposals for the dependencies with a manifest. They target devel, like all work;
+# master only receives releases. Libraries copied into lib/ and modules/ are updated by
+# hand (docs/third-party.md).
+version: 2
+updates:
+  - package-ecosystem: composer
+    directory: /
+    target-branch: devel
+    schedule:
+      interval: weekly
+    groups:
+      composer-minor:
+        update-types: [minor, patch]
+
+  - package-ecosystem: npm
+    directories: [/tools/jest, /tools/browser]
+    target-branch: devel
+    schedule:
+      interval: monthly
+    groups:
+      dev-tools:
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: devel
+    schedule:
+      interval: monthly

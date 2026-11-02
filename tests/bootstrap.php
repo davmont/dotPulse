@@ -3,6 +3,9 @@ if (!defined('DP_BASE_DIR')) {
     define('DP_BASE_DIR', realpath(dirname(__FILE__) . '/../'));
 }
 
+// PEAR libraries require each other relative to lib/PEAR (as includes/main_functions.php sets).
+set_include_path(get_include_path() . PATH_SEPARATOR . DP_BASE_DIR . '/lib/PEAR');
+
 // Mock global functions
 $GLOBALS['mock_sysvals'] = array();
 
@@ -60,6 +63,7 @@ if (!function_exists('arraySelect')) {
 // Mock AppUI
 if (!class_exists('CAppUI')) {
     class CAppUI {
+        var $user_lang = array('en_US.UTF-8', 'en_US', 'en');
         function setMsg($msg) {}
         function _($txt) { return $txt; }
         function getLibraryClass($class) {
@@ -127,6 +131,7 @@ if (!class_exists('DBQuery')) {
             function loadList() { return array(); }
             function loadColumn() { return array(); }
             function addInsert($field, $value) {}
+            function addUpdate($field, $value) {}
         }
     }
 }

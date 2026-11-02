@@ -1,4 +1,6 @@
 <?php
+require_once DP_BASE_DIR . '/includes/filter.php';
+
 class FilterTest extends TestCase {
     function testCheckPlain() {
         // Happy path: no special characters

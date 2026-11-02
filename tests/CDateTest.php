@@ -1,5 +1,5 @@
 <?php
-
+require_once dirname(__FILE__) . '/bootstrap.php';
 require_once dirname(__FILE__) . '/../classes/date.class.php';
 
 class CDateTest extends TestCase {

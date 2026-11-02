@@ -4,6 +4,8 @@ if (!defined('DP_BASE_DIR')) {
 }
 
 require_once DP_BASE_DIR . '/tests/phpunit.php';
+// calendar.class.php needs the real DBQuery, not the mock of bootstrap.php.
+require_once DP_BASE_DIR . '/classes/query.class.php';
 require_once DP_BASE_DIR . '/tests/bootstrap.php';
 
 // CEvent requires calendar.class.php
