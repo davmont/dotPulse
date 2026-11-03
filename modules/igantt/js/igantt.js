@@ -3,7 +3,6 @@
 Copyright (c) 2008 -2009 Pierre-Yves SIMONOT Euxenis SAS 
 *
 * Description:	iGantt JavaScript library - Contains all JavaScript routines used to display a Gantt chart and manage user interaction
-*			This work makes use of the XAJAX library that is distributed under the BSD licence
 *			This work makes use of the ws_jsgraphics library that is distributed under the GNU/LGPL licence
 *
 * Author:		Pierre-Yves SIMONOT, Euxenis, <pierre-yves.simonot@euxenis.com>
@@ -196,24 +195,6 @@ function onMouseDownItem(ev) {
 		depObject.style.backgroundColor="transparent";
 		depObject = null;
 	}
-
-	// If right click (ctrlKey + left click for Opera)  => display task for update using taskDetails overlay
-	if ( ( navigator.appName!='Opera' && ev.which == 3 ) || ( navigator.appName=='Opera' && ev.ctrlKey ) ) {
-		var div = document.getElementById("taskDetails");
-		// Position the overlay right under the task bar
-		var xPos = parseInt(this.style.marginLeft);				// start bar position relative to bar container
-		var end = xPos+parseInt(div.style.width);				// end bar position relative to bar container
-		if ( end>parseInt(Xmax) ) {
-			xPos = parseInt(Xmax)-parseInt(div.style.width);
-			}
-		xPos = xPos+parseInt(colWidth);							// add offset for label columns
-		div.style.left=xPos+"px";
-		var yPos = mousePos.y-getMouseOffset(this, ev).y+19;	// line under the current bar
-		div.style.top=yPos+"px";
-		// Display loading message and query the server
-		displayLoading();
-		xajax_displayTask(barArray[this.id].id);
-		return false; }
 
 	if ( !startmove && !endmove ) {				// the mouse is not located in position for dragging the current object
 		return;
@@ -1134,115 +1115,6 @@ function popCalendar(field) {
 function setCalendar(idate, fdate) {
 	calendarField.value = idate;
 	document.getElementById( "show_"+calendarField.name ).value = fdate;
-}
-
-function scrollPrev() {
-/*
-*	Move Gantt start and end dates to previous month
-*/
-	var f = document.optionFrm;
-	var date = f.sdate.value;
-	f.sdate.value = scrollDate( date, -1 );
-	var date = f.edate.value;
-	f.edate.value = scrollDate( date, -1);
-	displayLoading();
-	xajax_drawGraph( xajax.getFormValues("optionFrm"));
-}
-
-function scrollNext() {
-/*
-*	Move Gantt start and end dates to next month
-*/
-	f = document.optionFrm;
-	var date = f.sdate.value;
-	f.sdate.value = scrollDate( date, 1 );
-	var date = f.edate.value;
-	f.edate.value = scrollDate( date, 1);
-	displayLoading();
-	xajax_drawGraph( xajax.getFormValues("optionFrm"));
-}
-
-function scrollDate( date, value ) {
-/*
-*	Utility function move date by value month (value is negative if previous month)
-*		@param	date in MySQL date format
-*		@param	number of months (+/-) to scroll
-*		@return	new date in MySQL format
-*/
-	var year = parseInt(date.substring(0, 4));
-	var month = 10*parseInt(date.substring(4, 5))+parseInt(date.substring(5,6));
-	var day = 10*parseInt(date.substring(6, 7))+parseInt(date.substring(7, 8));
-	month = month+parseInt(value);
-	if ( month > 12 ) {
-		month = month-12;
-		year = year+1;
-	} else if ( month < 1 ) {
-		month = month+12;
-		year = year-1;
-	}
-// Account for bissextile year
-	if ( month == 2 ) {
-		if ( year%4 == 0 && year%100 != 0 || year%400 == 0) {
-			var maxDay = 29;
-		} else {
-			var maxDay = 28;
-		}
-		if ( parseInt(day) > parseInt(maxDay) ) {
-			day = parseInt(day) - parseInt(maxDay);
-			month = month+1;
-		}
-	}
-	month = month-1;
-// Now format the resulting date
-	var returnDate = new Date();
-	returnDate.setDate(day);
-	returnDate.setMonth(month);
-	returnDate.setFullYear(year);
-	return dateToFormat( returnDate, "%Y%m%d");
-}
-
-function showThisMonth() {
-/*
-*	Set graph date limits to current month first day and last day
-*/
-	f = document.optionFrm;
-	var today = new Date();
-	var thisMonth = today.getMonth();
-// Calculate unix time for 1st of current month start of day in milliseconds
-	var startMonth = new Date();
-	startMonth.setDate(1);
-	startMonth.setHours(dayStart);
-	startMonth.setMinutes(0);
-// Format start date to MySQL time stamp
-	f.sdate.value = dateToFormat( startMonth, "%Y%m%d");
-// Calculate unix time for last day of month end of day in milliseconds
-	var endMonth = new Date();
-	thisMonth = parseInt(thisMonth)+1;
-// Calculate next month
-	if ( thisMonth > 11 ) {
-		thisMonth = 0;
-		var thisYear = today.getFullYear();
-		thisYear = parseInt(thisYear)+1;
-		thisDate.setFullYear(thisYear);
-		}
-	endMonth.setDate(1);
-	endMonth.setMonth(thisMonth);
-	endMonth.setHours(dayEnd);
-	endMonth.setTime(endMonth.getTime()-86400000); // Substract one day in milliseconds to 1st day of next month
-// Format end date to MySQL time stamp
-	f.edate.value = dateToFormat(endMonth, "%Y%m%d");
-	displayLoading();
-	xajax_drawGraph( xajax.getFormValues("optionFrm"));
-}
-
-function showFullProject() {
-/*
-*	Set graph date limits to null (interpreted as display full project at the server side)
-*/
-	document.optionFrm.sdate.value = null;
-	document.optionFrm.edate.value = null;
-	displayLoading();
-	xajax_drawGraph( xajax.getFormValues("optionFrm"));
 }
 
 function dateToFormat( date, format ) {

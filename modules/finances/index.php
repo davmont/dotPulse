@@ -83,8 +83,7 @@ if(dPgetParam($_POST, 'edit', 0))
 ?>
 <link href="./modules/finances/css/jquery.treeTable.css" rel="stylesheet" type="text/css" />
 <link href="./modules/finances/css/finances.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="./modules/finances/js/jquery.js"></script>
-<script type="text/javascript" src="./modules/finances/js/jquery.ui.js"></script>
+<script type="text/javascript" src="./lib/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="./modules/finances/js/jquery.treeTable.js"></script>
 <script type="text/javascript" src="./modules/finances/js/finances.js"></script>
 <script type="text/javascript" nonce="<?php echo dPcspNonce(); ?>">
@@ -435,7 +434,7 @@ if (window.navigator.appName == 'Microsoft Internet Explorer')
 completeTd();
 //$(".treeTable").contents().each(function(i){ alert($(this).text())});
 // Allow dynamic edition and display correct icons 
-$("tr:not(.parent) > .editable:not(.edit)").live("click", tdClick).live("mouseenter", tdEnter).live('mouseleave', tdLeave);
+$(document).on("click", "tr:not(.parent) > .editable:not(.edit)", tdClick).on("mouseenter", "tr:not(.parent) > .editable:not(.edit)", tdEnter).on("mouseleave", "tr:not(.parent) > .editable:not(.edit)", tdLeave);
 $("td.tdDesc > a").hover(function() {$(this).append($("<img src='./images/icons/posticon.gif' />"));}, function() {$(this).find("img:last").remove();});
 
 <?php 

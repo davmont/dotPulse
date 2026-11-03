@@ -145,7 +145,10 @@ function zoom(signal){
 				break;
 			}
 		}
-		
+		// A dependency on a task that is not in the diagram (another project, a task group) has no box.
+		if (!terminalA || !terminalB) {
+			return;
+		}
 		var w1 = new WireIt.Wire(terminalB,terminalA ,document.body);
 		//w1.options.drawingMethod ="arrows";
 		w1.options.drawingMethod ="bezierArrows";

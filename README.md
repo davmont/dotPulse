@@ -160,5 +160,5 @@ dotPulse is free software under the **GNU General Public License**, as dotProjec
 been since version 2.0 (versions 1.0.2 and earlier were BSD licensed). See
 [COPYING](COPYING) and [LICENSE](LICENSE).
 
-Bundled third-party libraries (ADOdb, phpGACL, PHPMailer, Dompdf, php-qrcode, JpGraph, Smarty and
+Bundled third-party libraries (ADOdb, phpGACL, PHPMailer, Dompdf, php-qrcode, JpGraph, jQuery and
 others) keep their own licences.

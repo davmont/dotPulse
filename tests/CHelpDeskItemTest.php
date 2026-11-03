@@ -6,7 +6,7 @@ if (!defined('DP_BASE_DIR')) {
     define('DP_BASE_DIR', realpath(dirname(__FILE__) . '/../'));
 }
 require_once DP_BASE_DIR . '/tests/bootstrap.php';
-require_once DP_BASE_DIR . '/lib/phpgacl/test_suite/phpunit/phpunit.php';
+require_once DP_BASE_DIR . '/tests/phpunit.php';
 
 // Mock required functions
 if (!function_exists('db_loadObject')) {

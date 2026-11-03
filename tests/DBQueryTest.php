@@ -2,7 +2,7 @@
 
 // Ensure the testing framework is available
 if (!class_exists('TestCase')) {
-    require_once dirname(__FILE__) . '/../lib/phpgacl/test_suite/phpunit/phpunit.php';
+    require_once dirname(__FILE__) . '/phpunit.php';
 }
 
 if (!defined('DP_BASE_DIR')) {

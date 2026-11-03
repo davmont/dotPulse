@@ -12,7 +12,7 @@ function db_error() {}
 require_once DP_BASE_DIR . '/lib/adodb/adodb.inc.php';
 require_once DP_BASE_DIR . '/classes/query.class.php';
 
-require_once DP_BASE_DIR . '/lib/phpgacl/test_suite/phpunit/phpunit.php';
+require_once DP_BASE_DIR . '/tests/phpunit.php';
 
 class DBQueryTest extends TestCase {
     function testAddWhere() {
