@@ -25,6 +25,7 @@ if (!defined('DP_BASE_DIR')){
 global $AppUI, $dPconfig;
 // check permissions for this module
 $perms =& $AppUI->acl();
+$project_id = intval( dPgetParam( $_REQUEST, "project_id", 0 ) );
 $canView = $perms->checkModule( $m, 'view' );
 $canAddProject = $perms->checkModuleItem( 'projects', 'view', $project_id );
 
@@ -286,7 +287,7 @@ if (!$project_id) {
       	);
       }
 
-      if ($canAddTask) {
+      if ($canAddTasks) {
       	$titleBlock->addCell();
       	$titleBlock->addCell(
       		'<input type="submit" class="button" value="'.$AppUI->_('new task').'">', '',
@@ -585,7 +586,7 @@ var check_task_dates = <?php
   else
     echo 'false';
 ?>;
-var can_edit_time_information = <?php echo $can_edit_time_information ? 'true' : 'false'; ?>;
+var can_edit_time_information = <?php echo !empty($can_edit_time_information) ? 'true' : 'false'; ?>;
 
 var task_name_msg = "<?php echo $AppUI->_('taskName');?>";
 var task_start_msg = "<?php echo $AppUI->_('taskValidStartDate');?>";

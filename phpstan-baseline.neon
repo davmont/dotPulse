@@ -1309,12 +1309,6 @@ parameters:
 			path: modules/dotproject_plus/do_save_activity_estimations.php
 
 		-
-			message: '#^Path in include\(\) "gantt_pdf\.php" is not a file or it does not exist\.$#'
-			identifier: include.fileNotFound
-			count: 1
-			path: modules/dotproject_plus/viewgantt.php
-
-		-
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
 			identifier: whitespace.fileEnd
 			count: 1
@@ -2335,12 +2329,6 @@ parameters:
 			path: modules/projectdesigner/do_task_bulk_aed.php
 
 		-
-			message: '#^Static call to instance method Date\:\:compare\(\)\.$#'
-			identifier: method.staticCall
-			count: 2
-			path: modules/projectdesigner/gantt.php
-
-		-
 			message: '#^Function each not found\.$#'
 			identifier: function.notFound
 			count: 2
@@ -2579,18 +2567,6 @@ parameters:
 			identifier: array.duplicateKey
 			count: 1
 			path: modules/tasks/do_updatetask.php
-
-		-
-			message: '#^Constant longdashed not found\.$#'
-			identifier: constant.notFound
-			count: 3
-			path: modules/tasks/gantt.php
-
-		-
-			message: '#^Static call to instance method Date\:\:compare\(\)\.$#'
-			identifier: method.staticCall
-			count: 2
-			path: modules/tasks/gantt.php
 
 		-
 			message: '#^Access to an undefined property CTitleBlock\:\:\$showhelp\.$#'

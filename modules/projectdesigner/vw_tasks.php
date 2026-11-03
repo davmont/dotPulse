@@ -236,7 +236,7 @@ foreach ($tasks as $row) {
 	$row['style'] = taskstyle_pd($row);
 	$row['canEdit'] = !getDenyEdit( 'tasks', $row['task_id'] );
 	$row['canViewLog'] = $perms->checkModuleItem('task_log', 'view', $row['task_id']);
-	$i = count($projects[$row['task_project']]['tasks']) + 1;
+	$i = (isset($projects[$row['task_project']]['tasks']) ? count($projects[$row['task_project']]['tasks']) : 0) + 1;
 	$row['task_number'] = $i;
 	$row['node_id'] = 'node_'.$i.'-' . $row['task_id'];
 	if (strpos($row['task_duration'], '.') && $row['task_duration_type'] == 1) {
@@ -352,7 +352,7 @@ foreach ($projects as $k => $p) {
                                 }
                         }
 
-				if ($search_text) {
+				if (!empty($search_text)) {
                               if (strpos($t['task_name'], $search_text) !== false || strpos($t['task_description'], $search_text) !== false)
       					showtask_pd($t, 1, false);
 				}

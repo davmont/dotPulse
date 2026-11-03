@@ -27,12 +27,10 @@ commit `vendor/` as well.
 | jQuery UI | 1.14.1 | dotproject_plus (dialog, autocomplete) | `lib/jquery-ui/`, base theme |
 | Chart.js | 4.4.4 | monitoringandcontrol charts | |
 | flatpickr | 4.6.13 | date fields | |
-| Frappe Gantt | | the interactive Gantt charts (core, igantt) | |
-| JpGraph | 3.0.7 (2011) | Gantt images of tasks and projectdesigner | unmaintained; to be replaced by Frappe Gantt or Chart.js |
+| Frappe Gantt | | every Gantt chart (`classes/gantt_renderer.class.php`, igantt, macroprojects) | JpGraph and its fonts, which drew the projectdesigner Gantt image, were removed in 3.1.1 |
 | PEAR Date, Contact_Vcard | | `CDate`, vCard import/export | unmaintained |
 | overLIB | 4.21 | pop-up help texts | unmaintained |
 | DHTML calendar | | date pickers of core and add-on forms | |
-| DejaVu, FreeFont, Vera | | fonts for JpGraph | |
 
 ## Copied into add-on modules
 

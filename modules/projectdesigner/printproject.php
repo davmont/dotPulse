@@ -6,15 +6,15 @@ if (!defined('DP_BASE_DIR')) {
 global $AppUI, $dPconfig;
 // check permissions for this module
 $perms =& $AppUI->acl();
+$project_id = intval( dPgetParam( $_REQUEST, "project_id", 0 ) );
 $canView = $perms->checkModule( $m, 'view' );
 $canAddProject = $perms->checkModuleItem( 'projects', 'view', $project_id );
 
 if (!$canView) {
 	$AppUI->redirect( "m=public&a=access_denied" );
 }
-$project_id = intval( dPgetParam( $_REQUEST, "project_id", 0 ) );
 $project = new CProject();
-$projects = $project->getAllowedRecords( $AppUI->user_id, 'project_id,project_name', 'project_name', null, $extra );
+$projects = $project->getAllowedRecords( $AppUI->user_id, 'project_id,project_name', 'project_name' );
 $q  = new DBQuery;
 $q->addTable('projects');
 $q->addQuery('project_id, company_name');
@@ -28,7 +28,7 @@ asort($projects);
 $projects = arrayMerge( array( '0'=>$AppUI->_('(None)', UI_OUTPUT_RAW) ), $projects );
 
 $task = new CTask();
-$tasks = $task->getAllowedRecords( $AppUI->user_id, 'task_id,task_name', 'task_name', null, $extra );
+$tasks = $task->getAllowedRecords( $AppUI->user_id, 'task_id,task_name', 'task_name' );
 $tasks = arrayMerge( array( '0'=>$AppUI->_('(None)', UI_OUTPUT_RAW) ), $tasks );
       // check permissions for this record
       $canReadProject = $perms->checkModuleItem( 'projects', 'view', $project_id );
@@ -189,7 +189,7 @@ var check_task_dates = <?php
   else
     echo 'false';
 ?>;
-var can_edit_time_information = <?php echo $can_edit_time_information ? 'true' : 'false'; ?>;
+var can_edit_time_information = <?php echo !empty($can_edit_time_information) ? 'true' : 'false'; ?>;
 
 var task_name_msg = "<?php echo $AppUI->_('taskName');?>";
 var task_start_msg = "<?php echo $AppUI->_('taskValidStartDate');?>";
