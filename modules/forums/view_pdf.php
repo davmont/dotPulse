@@ -9,8 +9,19 @@ $forum_id = dPgetIntParam($_REQUEST, 'forum_id', 0);
 $message_id = dPgetIntParam($_REQUEST, 'message_id', 0);
 $perms =& $AppUI->acl();
 
-if ( ! $perms->checkModuleItem('forums', 'view', $message_id))
+// The permission is on the forum; the messages are limited to that forum below.
+if ( ! $perms->checkModuleItem('forums', 'view', $forum_id))
 	$AppUI->redirect("m=public&a=access_denied");
+
+$q  = new DBQuery;
+$q->addTable('forums', 'f');
+$q->leftJoin('projects', 'p', 'f.forum_project = p.project_id');
+$q->addQuery('f.forum_name, p.project_name');
+$q->addWhere('f.forum_id = ' . (int)$forum_id);
+$forum = $q->loadHash();
+if (!$forum) {
+	$AppUI->redirect("m=public&a=access_denied");
+}
 
 $q  = new DBQuery;
 $q->addTable('forums');
@@ -20,7 +31,7 @@ $q->addQuery('forum_messages.*,	contact_first_name, contact_last_name, contact_e
 $q->addJoin('forum_visits', 'v', "visit_user = {$AppUI->user_id} AND visit_forum = $forum_id AND visit_message = 				forum_messages.message_id");
 $q->addJoin('users', 'u', 'message_author = u.user_id');
 $q->addJoin('contacts', 'con', 'contact_id = user_contact');
-$q->addWhere("forum_id = message_forum AND (message_id = $message_id OR message_parent = $message_id)");
+$q->addWhere("forum_id = message_forum AND message_forum = $forum_id AND (message_id = $message_id OR message_parent = $message_id)");
 if (dPgetConfig('forum_descendent_order') || dPgetParam($_REQUEST, 'sort', 0)) { 
 	$q->addOrder("message_date $sort"); 
 }
@@ -34,6 +45,7 @@ $pdfdata = array();
 $pdfhead = array('Date', 'User', 'Message');
 
 $new_messages = array();
+$topic = '';
 
 foreach ($messages as $row) {
         // Find the parent message - the topic.

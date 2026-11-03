@@ -49,14 +49,15 @@ inline-js:
 php-test:
 	$(DOCKER_RUN) php:8.3-cli php tests/run.php
 
-# Known vulnerabilities: any in the Composer packages (vendor/, deployed with the code); high
-# or critical ones in the Node.js packages of the development tools (never deployed; Jest's
-# own dependencies have moderate ReDoS advisories that its next major release fixes).
+# Known vulnerabilities: any in the Composer packages (vendor/, deployed with the code); moderate
+# or worse in the Node.js packages of the development tools (never deployed; Jest's deepmerge
+# has a low advisory with no fixed release, and tools/jest/package.json overrides glob and
+# minimatch to fixed versions).
 # Libraries copied into lib/ and modules/ are not covered: see docs/third-party.md.
 deps-audit:
 	$(DOCKER_RUN) -e COMPOSER_HOME=/tmp composer:2 audit --locked
 	for d in tools/jest tools/browser; do \
-	  $(DOCKER_RUN) -w /app/$$d -e HOME=/tmp node:22 npm audit --omit=optional --audit-level=high || exit 1; \
+	  $(DOCKER_RUN) -w /app/$$d -e HOME=/tmp node:22 npm audit --omit=optional --audit-level=moderate || exit 1; \
 	done
 
 # Jest tests for js/ (tools/jest/tests/*.test.js), in the node image so no local Node is needed.
