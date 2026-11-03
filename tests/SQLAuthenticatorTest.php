@@ -1,6 +1,15 @@
 <?php
-
+// The mock DBQuery of bootstrap.php (mockResults, mockExecReturns).
+require_once dirname(__FILE__) . '/bootstrap.php';
 require_once dirname(__FILE__) . '/../classes/authenticator.class.php';
+
+// A users.user_password column long enough for password_hash() (main_functions.php asks the database).
+if (!function_exists('dPpasswordColumnFitsHash')) {
+    function dPpasswordColumnFitsHash() { return true; }
+}
+if (!function_exists('dPhashPassword')) {
+    function dPhashPassword($password) { return password_hash($password, PASSWORD_DEFAULT); }
+}
 
 class SQLAuthenticatorTest extends TestCase {
 

@@ -106,10 +106,13 @@ The full checklist (module upgrades, cron, mail, web server rules) is in
 
 ## Development
 
-- `make check` runs the PHP lint, PHPStan, the raw-input and inline-script checks and
-  the JavaScript tests.
-- PHP unit tests: `php tests/cli_runner.php`. JavaScript tests (Jest, in
-  [tools/jest/](tools/jest/)): `make js-test`.
+- `make check` runs the PHP lint, PHPStan, the raw-input and inline-script checks, the
+  PHP unit tests ([tests/](tests/), `make php-test`) and the JavaScript tests (Jest, in
+  [tools/jest/](tools/jest/), `make js-test`).
+- `make deps-audit` looks up the Composer and Node.js dependencies in the security
+  advisory databases (`composer audit`, `npm audit`); Dependabot proposes their updates.
+  Libraries copied into `lib/` and `modules/` are listed in
+  [docs/third-party.md](docs/third-party.md).
 - A Docker sandbox (PHP 8.3 and MariaDB) and the full audit suite are described in
   [docker/README.md](docker/README.md) (`make audit-full`).
 

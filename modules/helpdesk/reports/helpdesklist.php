@@ -128,12 +128,9 @@ function setCalendar( idate, fdate ) {
 <?php
 if ($do_report) {
 
-	$obj = new CTask;
-	$allowedTasks = $obj->getAllowedSQL($AppUI->user_id);
-
 	$q = new DBQuery;
 	$q->addQuery("hi.*,CONCAT(rc.contact_first_name, ' ', rc.contact_last_name) requested_by,CONCAT(ac.contact_first_name, ' ', ac.contact_last_name) assigned_to");
-	$q->addTable(helpdesk_items,'hi');
+	$q->addTable('helpdesk_items','hi');
 	$q->addJoin('users','ru','ru.user_id = hi.item_requestor_id');
 	$q->addJoin('contacts','rc','rc.contact_id = ru.user_contact');
 	$q->addJoin('users','au','au.user_id = hi.item_assigned_to');
@@ -142,9 +139,8 @@ if ($do_report) {
 		$q->addWhere("hi.item_created >= '".$start_date->format( FMT_DATETIME_MYSQL )."'");
 		$q->addWhere("hi.item_created <= '".$end_date->format( FMT_DATETIME_MYSQL )."'");
 	}
-	if (count($allowedTasks)) {
-		$q->addWhere(implode(' AND ', $allowedTasks));
-	}
+	// The items this user may read, as in the helpdesk list.
+	$q->addWhere(getItemPerms());
 	$q->addOrder('hi.item_id');
 	$Task_List = $q->loadList();
 
@@ -371,11 +367,9 @@ if ($log_pdf) {
 	}
 }
 //Added to close out any oped DBQueries
-if ($q) $q->clear();
-if ($q2) $q2->clear();
-if ($q3) $q3->clear();
-if ($q4) $q4->clear();
-if ($q5) $q5->clear();
-if ($q6) $q6->clear();
+if (isset($q)) $q->clear();
+if (isset($q4)) $q4->clear();
+if (isset($q5)) $q5->clear();
+if (isset($q6)) $q6->clear();
 ?>
 </table>

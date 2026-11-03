@@ -1,0 +1,22 @@
+# Known vulnerabilities in the dependencies (make deps-audit). Also weekly: advisories are
+# published without any change here.
+name: Dependency audit
+
+on:
+  push:
+    branches: [devel, master]
+  pull_request:
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deps-audit:
+    name: composer audit, npm audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: make deps-audit
