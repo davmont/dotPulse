@@ -29,12 +29,15 @@ tables keep working unchanged.
 
 Work happens on the **`devel`** branch; **`master`** only receives stable releases.
 
-- Current release: **dotPulse 3.1.0**: REST API, personal dashboard, Kanban board,
-  two-step login, audit log and earned value warnings. See
-  [RELEASE_NOTES_v3.1.0.md](RELEASE_NOTES_v3.1.0.md) before upgrading (PHP 8.1 or later).
-- Previous releases: 3.0.0, the first under the new name, with the breaking changes
-  from dotProject ([RELEASE_NOTES_v3.0.0.md](RELEASE_NOTES_v3.0.0.md)); v2.3.1, still
-  named dotProject ([RELEASE_NOTES_v2.3.1.md](RELEASE_NOTES_v2.3.1.md)).
+- Current release: **dotPulse 3.1.1**, maintenance: outdated libraries replaced or removed
+  (JpGraph, PEAR, TinyMCE, old jQuery), public holidays by country, task end dates
+  fixed. See [RELEASE_NOTES_v3.1.1.md](RELEASE_NOTES_v3.1.1.md) before upgrading.
+- Previous releases: 3.1.0, with the REST API, personal dashboard, Kanban board,
+  two-step login, audit log and earned value warnings
+  ([RELEASE_NOTES_v3.1.0.md](RELEASE_NOTES_v3.1.0.md), PHP 8.1 or later); 3.0.0, the first
+  under the new name, with the breaking changes from dotProject
+  ([RELEASE_NOTES_v3.0.0.md](RELEASE_NOTES_v3.0.0.md)); v2.3.1, still named dotProject
+  ([RELEASE_NOTES_v2.3.1.md](RELEASE_NOTES_v2.3.1.md)).
 
 ## What's in it
 
