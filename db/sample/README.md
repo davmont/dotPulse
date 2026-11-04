@@ -11,12 +11,13 @@ Into a fresh installation only (the script refuses if the database already has p
 
 Dates are relative to the day you load it, so the projects are always under way. Reload it (fresh database) to move "today".
 
-No command-line PHP on the server (shared hosting with only phpMyAdmin)? Build the same data as one SQL file in the docker/ sandbox and import that into an empty database or a fresh installation of the same version:
+No command-line PHP on the server (shared hosting with only phpMyAdmin)? Import the same data as one SQL file into an empty database or a fresh installation of the same version. `db/sample/dotpulse-sample-data.sql` is ready to import (tables `dotp_*`, dotPulse 3.1), but its dates are fixed at 2026-11-04, so the projects stop looking under way as time passes. For current dates or another table prefix, build a new file in the docker/ sandbox:
 
     make sample-sql                                    # docker/.audit/dotproject-sample-data.sql, tables dotp_*
     make sample-sql OUT=/tmp/sample.sql PREFIX=dp_     # another file, another table prefix (dbprefix in config.php)
+    make sample-sql OUT=db/sample/dotpulse-sample-data.sql   # refresh the file in the repository
 
-The file holds the whole database (tables and rows), dated the day you build it, so build a new one rather than keeping it. It has no DROP TABLE: tables that already exist are kept and emptied, and its rows replace the installer's, so your administrator password stops working. Imported into a database that has projects, companies or users besides the administrator, it stops at the first statements without changing anything. The administrator logs in as `admin` / `passwd`; change that and the consultants' passwords on a server other people can reach.
+The file holds the whole database (tables and rows), dated the day it was built. It has no DROP TABLE: tables that already exist are kept and emptied, and its rows replace the installer's, so your administrator password stops working. Imported into a database that has projects, companies or users besides the administrator, it stops at the first statements without changing anything. The administrator logs in as `admin` / `passwd`; change that and the consultants' passwords on a server other people can reach.
 
 ## Who is who
 
