@@ -32,33 +32,17 @@ $mm = $this_week->getMonth();
 $yy = $this_week->getYear();
 
 // prepare time period for 'events'
-$first_time = new CDate(Date_calc::beginOfWeek(
-	$dd,
-	$mm,
-	$yy,
-	FMT_TIMESTAMP_DATE,
-	LOCALE_FIRST_DAY
-));
+$first_time = new CDate(CDate::beginOfWeek($dd, $mm, $yy));
 $week_time = new CDate($first_time); // Can't use first_time after we adjust it.
 $first_time->setTime(0, 0, 0);
 $first_time->subtractSeconds(1);
 
-$last_time = new CDate(Date_calc::endOfWeek($dd, $mm, $yy, FMT_TIMESTAMP_DATE, LOCALE_FIRST_DAY));
+$last_time = new CDate(CDate::endOfWeek($dd, $mm, $yy));
 $last_time->setTime(23, 59, 59);
-$prev_week = new CDate(Date_calc::beginOfPrevWeek(
-	$dd,
-	$mm,
-	$yy,
-	FMT_TIMESTAMP_DATE,
-	LOCALE_FIRST_DAY
-));
-$next_week = new CDate(Date_calc::beginOfNextWeek(
-	$dd,
-	$mm,
-	$yy,
-	FMT_TIMESTAMP_DATE,
-	LOCALE_FIRST_DAY
-));
+$prev_week = new CDate($week_time);
+$prev_week->addDays(-7);
+$next_week = new CDate($week_time);
+$next_week->addDays(7);
 
 $tasks = CTask::getTasksForPeriod($first_time, $last_time, $company_id);
 $events = CEvent::getEventsForPeriod($first_time, $last_time);

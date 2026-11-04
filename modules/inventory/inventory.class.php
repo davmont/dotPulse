@@ -2,12 +2,12 @@
 if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly.');
 }
+require_once $AppUI->getSystemClass('date');
 /* INVENTORY $id: inventory.class.php,v 1.00 2003/11/02 17:32:00 dylan_cuthbert Exp $ */
 
 error_reporting( E_ALL );
 
 require_once( $AppUI->getSystemClass ('dp' ) );
-require_once( $AppUI->getLibraryClass( 'PEAR/Date' ) );
 
 
 class CInventory extends CDpObject

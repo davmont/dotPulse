@@ -29,7 +29,7 @@ $pdf->ezText(safe_utf8_decode(dPgetConfig('company_name')), 12);
 $date = new CDate();
 $pdf->ezText("\n" . $date->format($df) , 8);
 $last_week = new CDate($date);
-$last_week->subtractSpan(new Date_Span(array(7,0,0,0)));
+$last_week->addDays(-7);
 
 $pdf->selectFont("$font_dir/Helvetica-Bold.afm");
 $pdf->ezText("\n" . safe_utf8_decode($AppUI->_('Project Completed Task Report')), 12);

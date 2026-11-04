@@ -3,9 +3,6 @@ if (!defined('DP_BASE_DIR')) {
     define('DP_BASE_DIR', realpath(dirname(__FILE__) . '/../'));
 }
 
-// PEAR libraries require each other relative to lib/PEAR (as includes/main_functions.php sets).
-set_include_path(get_include_path() . PATH_SEPARATOR . DP_BASE_DIR . '/lib/PEAR');
-
 // Mock global functions
 $GLOBALS['mock_sysvals'] = array();
 

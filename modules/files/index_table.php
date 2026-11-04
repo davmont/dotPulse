@@ -480,7 +480,7 @@ function expand(id) {
 						foreach ($file_versions as $file) {
 							if ($file['file_version_id'] == $latest_file['file_version_id']) {
 								$file_icon = getIcon($file['file_type']);
-								$hdate = new Date($file['file_date']);
+								$hdate = new CDate($file['file_date']);
 								?>
 								<tr>
 									<td nowrap="nowrap" width="20">&nbsp;

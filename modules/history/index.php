@@ -250,7 +250,7 @@ foreach ($history as $row) {
 	
 	$df = $AppUI->getPref('SHDATEFORMAT');
 	$tf = $AppUI->getPref('TIMEFORMAT');
-	$hd = new Date($row['history_date']);
+	$hd = new CDate($row['history_date']);
 	// Checking permissions.
 	if ($mod_table == 'login' || $mod_table == 'history' 
 		|| !(in_array($mod_table, $filter_module_tables))

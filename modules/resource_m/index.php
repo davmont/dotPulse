@@ -317,7 +317,7 @@ $titleBlock->show();
 								else {
 									prevDate($ccurrent, $show);
 									echo '<td class="treeMonth" colspan='.$colspan.'>'
-										.generateRangeLink($ccurrent->format('%Y%m').'01', Date_Calc::endOfMonth($ccurrent->format('%m'),
+										.generateRangeLink($ccurrent->format('%Y%m').'01', CDate::endOfMonth($ccurrent->format('%m'),
 																												$ccurrent->format('%Y'),
 																												'%Y%m%d'), 
 															$AppUI->_($currentMonth))
@@ -330,7 +330,7 @@ $titleBlock->show();
 							}
 							prevDate($ccurrent, $show);
 							echo '<td class="treeMonth" colspan='.$colspan.'>'
-								.generateRangeLink($ccurrent->format('%Y%m').'01', Date_Calc::endOfMonth($ccurrent->format('%m'), 
+								.generateRangeLink($ccurrent->format('%Y%m').'01', CDate::endOfMonth($ccurrent->format('%m'), 
 																										$ccurrent->format('%Y'),
 																										'%Y%m%d'), 
 													$AppUI->_($currentMonth))

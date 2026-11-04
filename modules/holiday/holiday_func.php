@@ -65,13 +65,19 @@ function isHoliday( $date=0 ){
 
 	if($holiday_auto)
 	{
-		// Still here? Ok, lets poll the automatic system
-		$drivers_alloc = Date_Holidays::getInstalledDrivers();
-		$driver_object = Date_Holidays::factory($drivers_alloc[$holiday_driver]['title'],$date->getYear(),'en_EN');
-		if (!Date_Holidays::isError($driver_object)) {
-			if($driver_object->getHolidayForDate($date)){
-				return 1;
+		// Still here? Ok, lets poll the automatic system. Its PEAR Date_Holidays
+		// drivers fail on PHP 8 (and need PEAR Date, gone since dotPulse 3.1.1):
+		// a failure counts as no holiday rather than stopping the page.
+		try {
+			$drivers_alloc = Date_Holidays::getInstalledDrivers();
+			$driver_object = Date_Holidays::factory($drivers_alloc[$holiday_driver]['title'],$date->getYear(),'en_EN');
+			if (is_object($driver_object) && !Date_Holidays::isError($driver_object)) {
+				if($driver_object->getHolidayForDate($date)){
+					return 1;
+				}
 			}
+		} catch (Throwable $e) {
+			error_log('holiday: automatic holidays unavailable: ' . $e->getMessage());
 		}
 	}
 

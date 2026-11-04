@@ -48,6 +48,10 @@ function trace($msg) {
 if (phpversion() >= '4') {
     function PHPUnit_error_handler($errno, $errstr, $errfile, $errline) {
 	global $PHPUnit_testRunning;
+	// An error silenced with @ (error_reporting() excludes it) is not a failure.
+	if (!(error_reporting() & $errno)) {
+		return true;
+	}
 	$PHPUnit_testRunning[0]->fail("<B>PHP ERROR:</B> ".$errstr." <B>in</B> ".$errfile." <B>at line</B> ".$errline);
     }
 }
