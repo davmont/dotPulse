@@ -15,49 +15,49 @@ jobs:
     name: PHP 8.3 syntax
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make lint
 
   phpstan:
     name: PHPStan (level 2, baseline)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make phpstan
 
   raw-input:
     name: No new raw $_GET/$_POST reads
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make raw-input
 
   inline-js:
     name: No new inline JavaScript (CSP)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make inline-js
 
   php-test:
     name: PHP unit tests (tests/)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make php-test
 
   js-test:
     name: JavaScript tests (Jest)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make js-test
 
   audit-smoke:
     name: Security smoke test (docker/)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make audit-smoke
       - name: Web server log
         if: failure()
@@ -73,7 +73,7 @@ jobs:
       # Pull requests check the layout in two themes; pushes to devel/master in all five.
       THEMES: ${{ github.event_name == 'pull_request' && 'dp-grey-theme material' || 'default amp dp-grey-theme material wps-redmond' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: 22
