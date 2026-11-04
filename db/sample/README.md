@@ -11,12 +11,12 @@ Into a fresh installation only (the script refuses if the database already has p
 
 Dates are relative to the day you load it, so the projects are always under way. Reload it (fresh database) to move "today".
 
-No command-line PHP on the server (shared hosting with only phpMyAdmin)? Build the same data as one SQL file in the docker/ sandbox and import that into an empty database:
+No command-line PHP on the server (shared hosting with only phpMyAdmin)? Build the same data as one SQL file in the docker/ sandbox and import that into an empty database or a fresh installation of the same version:
 
     make sample-sql                                    # docker/.audit/dotproject-sample-data.sql, tables dotp_*
     make sample-sql OUT=/tmp/sample.sql PREFIX=dp_     # another file, another table prefix (dbprefix in config.php)
 
-The file holds the whole database (tables and rows), dated the day you build it, so build a new one rather than keeping it. It has no DROP TABLE: imported into a database that already has the tables, it fails without changing anything. The administrator logs in as `admin` / `passwd`; change that and the consultants' passwords on a server other people can reach.
+The file holds the whole database (tables and rows), dated the day you build it, so build a new one rather than keeping it. It has no DROP TABLE: tables that already exist are kept and emptied, and its rows replace the installer's, so your administrator password stops working. Imported into a database that has projects, companies or users besides the administrator, it stops at the first statements without changing anything. The administrator logs in as `admin` / `passwd`; change that and the consultants' passwords on a server other people can reach.
 
 ## Who is who
 
