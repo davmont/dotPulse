@@ -3,7 +3,6 @@
 Copyright (c) 2008 -2009 Pierre-Yves SIMONOT Euxenis SAS 
 *
 * Description:	Generates the iGantt tab in dotProject project view after checking browser compatibility
-*			This work includes the use of the XAJAX library that is distributed under the BSD licence
 *
 * Author:		Pierre-Yves SIMONOT, Euxenis, <pierre-yves.simonot@euxenis.com>
 *

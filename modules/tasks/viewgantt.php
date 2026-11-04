@@ -455,35 +455,7 @@ $task_acl2->setAllowedSQL($AppUI->user_id, $q);
 $raw_tasks = $q->loadList();
 $q->clear();
 
-// Dependencies
-$q->addTable('task_dependencies');
-$q->addQuery('dependencies_task_id, dependencies_req_task_id');
-$dep_rows = $q->loadList();
-$q->clear();
-$task_dep_map = [];
-foreach ($dep_rows as $dep) {
-    $task_dep_map[$dep['dependencies_task_id']][] = intval($dep['dependencies_req_task_id']);
-}
-
-// Build frappe-gantt format
-$gantt_tasks = [];
-foreach ($raw_tasks as $t) {
-    $start = substr($t['task_start_date'], 0, 10);
-    $end   = substr($t['task_end_date'],   0, 10);
-    if (empty($start) || $start == '0000-00-00') $start = date('Y-m-d');
-    if (empty($end)   || $end   == '0000-00-00' || $end <= $start) {
-        $end = date('Y-m-d', strtotime($start . ' +1 day'));
-    }
-    $gantt_tasks[] = [
-        'id'           => (string)$t['task_id'],
-        'name'         => $t['task_name'],
-        'start'        => $start,
-        'end'          => $end,
-        'progress'     => intval($t['task_percent_complete']),
-        'dependencies' => isset($task_dep_map[$t['task_id']])
-                            ? implode(',', $task_dep_map[$t['task_id']]) : ''
-    ];
-}
+$gantt_tasks = GanttRenderer::taskRows($raw_tasks);
 
 if (!empty($gantt_tasks)) {
     GanttRenderer::render('dp-task-gantt', $gantt_tasks, '', 'Week');

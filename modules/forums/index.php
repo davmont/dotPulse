@@ -163,11 +163,8 @@ foreach ($forums as $row) {
 	if ($message_date !== null) {
 		echo $message_date->format("$df $tf");
 
-		$last = new Date_Span();
-		$last->setFromDateDiff($now, $message_date);
-
 		echo '<br /><font color=#999966>(' . $AppUI->_('Last post').' ';
-		printf("%.1f", $last->format("%d"));
+		printf("%.1f", abs($now->getTime() - $message_date->getTime()) / 86400);
 		echo ' '.$AppUI->_('days ago') . ') </font>';
 
 		$id = $row['message_parent'] < 0 ? $row['message_id'] : $row['message_parent'];

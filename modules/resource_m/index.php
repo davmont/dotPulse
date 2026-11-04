@@ -135,8 +135,7 @@ $titleBlock = new CTitleBlock('Resource Management', 'helpdesk.png', $m, "$m.$a"
 $titleBlock->show();
 ?>
 <link href="./modules/resource_m/css/jquery.treeTable.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="./modules/resource_m/js/jquery.js"></script>
-<script type="text/javascript" src="./modules/resource_m/js/jquery.ui.js"></script>
+<script type="text/javascript" src="./lib/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="./modules/resource_m/js/jquery.treeTable.js"></script>
 <script type="text/javascript" src="./modules/resource_m/js/resource_m.js"></script>
 <script type="text/javascript" nonce="<?php echo dPcspNonce(); ?>">
@@ -318,7 +317,7 @@ $titleBlock->show();
 								else {
 									prevDate($ccurrent, $show);
 									echo '<td class="treeMonth" colspan='.$colspan.'>'
-										.generateRangeLink($ccurrent->format('%Y%m').'01', Date_Calc::endOfMonth($ccurrent->format('%m'),
+										.generateRangeLink($ccurrent->format('%Y%m').'01', CDate::endOfMonth($ccurrent->format('%m'),
 																												$ccurrent->format('%Y'),
 																												'%Y%m%d'), 
 															$AppUI->_($currentMonth))
@@ -331,7 +330,7 @@ $titleBlock->show();
 							}
 							prevDate($ccurrent, $show);
 							echo '<td class="treeMonth" colspan='.$colspan.'>'
-								.generateRangeLink($ccurrent->format('%Y%m').'01', Date_Calc::endOfMonth($ccurrent->format('%m'), 
+								.generateRangeLink($ccurrent->format('%Y%m').'01', CDate::endOfMonth($ccurrent->format('%m'), 
 																										$ccurrent->format('%Y'),
 																										'%Y%m%d'), 
 													$AppUI->_($currentMonth))

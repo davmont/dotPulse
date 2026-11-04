@@ -5,30 +5,16 @@ if (!defined('DP_BASE_DIR')) {
 ?>
 	<?php $actionEstimation = dPgetCleanParam($_GET, 'action_estimation', '');?>
 	<div id="ata_div" width="100%" style="display:<?php echo $actionEstimation=="read"?'block':'none'; ?>">
-		<!-- TinyMCE -->
-		<script type="text/javascript" src="./modules/timeplanning/js/jsLibraries/tiny_mce/tiny_mce.js"></script>
 		<script type="text/javascript" nonce="<?php echo dPcspNonce(); ?>">
 			// Calendar button below (run through js/dp-actions.js).
 			function tpDisplayCalendar(fieldId, format, button) {
 				displayCalendar(document.getElementById(fieldId), format, button);
 			}
-			tinyMCE.init({
-				mode : "textareas",
-				theme : "advanced",
-				width : "90%",
-				height: "240",
-				theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
-				theme_advanced_buttons2 : "search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-				theme_advanced_buttons3 : "hr,removeformat,sub,sup,charmap"
-			});
 		</script>
-		<!-- /TinyMCE -->
 		 <!-- calendar goodies -->
 		<link type="text/css" rel="stylesheet" href="./modules/timeplanning/js/jsLibraries/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
 		<SCRIPT type="text/javascript" src="./modules/timeplanning/js/jsLibraries/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
 		
-		<!-- ajax caller -->
-		<script type="text/javascript" src="./modules/timeplanning/js/serviceActivator.js"></script>
 
 			<table class="std" align="center" width="80%" style="border: 1px solid black;border-radius:10px ">
 				
@@ -120,8 +106,7 @@ if (!defined('DP_BASE_DIR')) {
 				<tr>
 					<td valign="top" nowrap colspan="2" align="center">
 						<?php echo $AppUI->_('LBL_REPORT'); ?><br>
-						<input id="description" name="description" type="text" style="display:none" >
-						<textarea id="description_edit" name="description_edit" rows="25" cols="80" ><?php echo dPhtml($description); ?></textarea>
+						<textarea id="description_edit" name="description_edit" rows="20" cols="80" style="width:90%"><?php echo dPhtml($description); ?></textarea>
 					</td>
 				</tr>
 				<tr>

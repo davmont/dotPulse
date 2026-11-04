@@ -1,5 +1,6 @@
 <?php
-
+require_once dirname(__FILE__) . '/bootstrap.php';
+require_once dirname(__FILE__) . '/../includes/strftime.php';
 require_once dirname(__FILE__) . '/../classes/date.class.php';
 
 class CDateTest extends TestCase {
@@ -92,6 +93,87 @@ class CDateTest extends TestCase {
         $this->assertEquals('pm', $date->getAMPM(), "23:59 should be pm");
     }
 
+
+    // CDate replaced PEAR Date in dotPulse 3.1.1; these pin the behaviour it kept.
+
+    function testParse() {
+        $date = new CDate('20261103153045');
+        $this->assertEquals('2026-11-03 15:30:45', $date->getDate());
+        $date = new CDate('202611031530'); // YYYYMMDDHHMM
+        $this->assertEquals('2026-11-03 15:30:00', $date->getDate());
+        $date = new CDate('2026-11-03');
+        $this->assertEquals('2026-11-03 00:00:00', $date->getDate());
+        foreach (array('0000-00-00 00:00:00', '2026-02-30', 'garbage') as $invalid) {
+            $date = new CDate($invalid);
+            $this->assert($date->isNull(), "'$invalid' is not a date");
+        }
+        $date = new CDate();
+        $date->setDate(mktime(10, 20, 30, 7, 15, 2026), DATE_FORMAT_UNIXTIME);
+        $this->assertEquals('2026-07-15 10:20:30', $date->getDate());
+        $this->assertEquals((string)mktime(10, 20, 30, 7, 15, 2026), $date->getDate(DATE_FORMAT_UNIXTIME));
+    }
+
+    function testFormat() {
+        $date = new CDate('2026-11-03 15:05:09');
+        $this->assertEquals('03/11/2026 15:05', $date->format('%d/%m/%Y %H:%M'));
+        $this->assertEquals('03:05 pm|3|307|2|20261103', $date->format('%I:%M %p|%e|%j|%w|%Y%m%d'));
+        $this->assertEquals('Tuesday Tue November Nov', $date->format('%A %a %B %b'));
+    }
+
+    function testAddMonthsClampsTheDay() {
+        $date = new CDate('2026-01-31 09:00:00');
+        $date->addMonths(1);
+        $this->assertEquals('2026-02-28 09:00:00', $date->getDate());
+        $date = new CDate('2024-02-29');
+        $date->addYears(1);
+        $this->assertEquals('2025-02-28 00:00:00', $date->getDate());
+        $date = new CDate('2026-03-31');
+        $date->addMonths(-13);
+        $this->assertEquals('2025-02-28 00:00:00', $date->getDate());
+    }
+
+    function testAddSecondsKeepsTheWallClock() {
+        $zone = date_default_timezone_get();
+        date_default_timezone_set('Europe/Madrid'); // summer time starts on 2026-03-29
+        $date = new CDate('2026-03-28 09:00:00');
+        $date->addSeconds(86400);
+        $this->assertEquals('2026-03-29 09:00:00', $date->getDate());
+        $date->addSeconds(-90061);
+        $this->assertEquals('2026-03-28 07:58:59', $date->getDate());
+        date_default_timezone_set($zone);
+    }
+
+    function testSettersChangeOneFieldAtATime() {
+        $date = new CDate('2026-01-31');
+        $date->setMonth(2);
+        $date->setDay(1);
+        $this->assertEquals('2026-02-01 00:00:00', $date->getDate());
+        $date->setTime(25, 0, 0); // an invalid hour is refused
+        $this->assertEquals(0, $date->getHour());
+    }
+
+    function testCompare() {
+        $a = new CDate('2026-11-03 10:00:00');
+        $b = new CDate('2026-11-03 10:00:01');
+        $this->assertEquals(-1, CDate::compare($a, $b));
+        $this->assertEquals(1, $b->compare($b, '2026-11-03 10:00:00'));
+        $this->assert($a->before($b) && $b->after($a) && $a->equals(new CDate('2026-11-03 10:00:00')));
+        $next = $a->getNextDay();
+        $this->assertEquals('2026-11-04 10:00:00', $next->getDate());
+        $this->assertEquals(2, $a->getDayOfWeek());
+    }
+
+    function testCalendarHelpers() {
+        $this->assertEquals('20261102', CDate::beginOfWeek(4, 11, 2026));
+        $this->assertEquals('20261108', CDate::endOfWeek(4, 11, 2026));
+        $this->assertEquals('20240229', CDate::endOfMonth(2, 2024));
+        $this->assertEquals('20251201', CDate::beginOfMonthOffset(-1, 1, 2026));
+        $this->assertEquals('20260201', CDate::beginOfMonthOffset(1, 1, 2026));
+        $weeks = CDate::calendarMonth(2, 2026, '%d');
+        $this->assertEquals(5, count($weeks));
+        $this->assertEquals('26 27 28 29 30 31 01', implode(' ', $weeks[0]));
+        $this->assertEquals('Mon Tue Wed Thu Fri Sat Sun', implode(' ', CDate::weekdayNames()));
+    }
 }
 
 ?>

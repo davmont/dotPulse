@@ -199,26 +199,32 @@ function resetSubNumbersAfterLevel(list,level){
 
 function updateEAPItemsNumbers(){
 	var table = document.getElementById("tb_eap");
-	var lastRow= table.rows.length;
+	// Only the WBS item rows: the Planning and monitoring tab puts header, form and
+	// activity rows in the same table, and has no number or leaf field for an item.
+	var rows=[];
+	for(i=0;i<table.rows.length;i++){
+		var row_id=table.rows[i].id;
+		if(row_id.indexOf("row_")==0 && document.getElementById("identation_"+row_id.substring(4))){
+			rows.push(row_id.substring(4));
+		}
+	}
+	var lastRow=rows.length;
 	var currentNumber=0;
 	var currentFormatedNumber="";//String,used to concat sublevels
 	var currentSubNumbers=[0,0,0,0,0,0,0,0,0,0];
 	var previousIdentation="";
 	
-	for(i=1;i<lastRow;i++){
-		var row_id=table.rows[i].id;	
-		var id=row_id.substring(4,row_id.length);
+	for(i=0;i<lastRow;i++){
+		var id=rows[i];
 		
 		var identation =document.getElementById("identation_"+id).innerHTML;
-		var number_div=document.getElementById("div_numbering_"+id);
-		var number_field=document.getElementById("number_field_"+id);
-		var is_leaf_field=document.getElementById("leaf_field_"+id);
+		var number_div=document.getElementById("div_numbering_"+id) || {};
+		var number_field=document.getElementById("number_field_"+id) || {};
+		var is_leaf_field=document.getElementById("leaf_field_"+id) || {};
 		
 		//set is leaf info
 		if((i+1)<lastRow){
-			var next_row_id=table.rows[i+1].id;
-			var next_id=next_row_id.substring(4,next_row_id.length);
-			var next_identation =document.getElementById("identation_"+next_id).innerHTML;
+			var next_identation =document.getElementById("identation_"+rows[i+1]).innerHTML;
 			if(identation.length >= next_identation.length){
 				is_leaf_field.value="1";
 			}else{

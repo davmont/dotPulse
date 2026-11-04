@@ -32,9 +32,8 @@ if($action) {
 	$userid = $AppUI->user_id;
 	$q = new DBQuery();	
 	if( $action == "add" ) {
-		$date=new Date();
 		$q -> addTable('journal'); // this is not out of the block because we have the setDelete and may cause problems
-		$q -> addInsert('journal_date',date($date->format('Y-m-d H:i:s')));
+		$q -> addInsert('journal_date',date('Y-m-d H:i:s'));
 		$q -> addInsert('journal_description',$journal_description);
 		$q -> addInsert('journal_user',$userid);
 		$q -> addInsert('journal_project',$journal_project);		

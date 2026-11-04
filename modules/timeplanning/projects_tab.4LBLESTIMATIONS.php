@@ -15,7 +15,7 @@ if($minuteId!='-1' && $minuteId!=""){
 	$projectMinute=new ProjectMinute();
 	$projectMinute->load($minuteId);
 	$date=$projectMinute->getDate();
-	$description=$projectMinute->getDescription();
+	$description=ProjectMinute::plainText($projectMinute->getDescription());
 	$isEffort=$projectMinute->isEffort();
 	$isDuration=$projectMinute->isDuration();
 	$isResource=$projectMinute->isResource();
@@ -74,14 +74,14 @@ if($minuteId!='-1' && $minuteId!=""){
 						<?php
 							$date=$minute->getDate();
 							$id=$minute->getId();
-							$description=$minute->getDescription();
-							$description=explode("</p>",$description);
+							// First line of the minute.
+							$description=explode("\n",ProjectMinute::plainText($minute->getDescription()));
 							$description=$description[0];
 							
 						?>
 						<td valign='top'><?php echo $id;?></td>
 						<td valign='top'><?php echo dPhtml($date);?></td>
-						<td valign='top'><?php echo dPhtml(strip_tags($description));?></td>
+						<td valign='top'><?php echo dPhtml($description);?></td>
 						<td valign='top'> <img src="./modules/timeplanning/images/view_icon.gif" style="cursor:pointer"<?php echo dPaction('openReport', array((int)$id)); ?>></td>
 						<td><input type="button" name="Deletar" value="<?php echo $AppUI->_('LBL_EXCLUSION'); ?>"<?php echo dPaction('deleteReport', array((int)$id)); ?> class="button"></td>
 					</tr>

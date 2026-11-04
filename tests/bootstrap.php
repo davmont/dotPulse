@@ -60,6 +60,7 @@ if (!function_exists('arraySelect')) {
 // Mock AppUI
 if (!class_exists('CAppUI')) {
     class CAppUI {
+        var $user_lang = array('en_US.UTF-8', 'en_US', 'en');
         function setMsg($msg) {}
         function _($txt) { return $txt; }
         function getLibraryClass($class) {
@@ -72,6 +73,8 @@ if (!class_exists('CAppUI')) {
             return DP_BASE_DIR . '/modules/' . $module . '/' . $module . '.class.php';
         }
         function setBaseLocale() {}
+        // No add-on modules (the holiday module's days off do not apply).
+        function isActiveModule($module) { return false; }
     }
 }
 if (!isset($GLOBALS['AppUI'])) {
@@ -127,6 +130,7 @@ if (!class_exists('DBQuery')) {
             function loadList() { return array(); }
             function loadColumn() { return array(); }
             function addInsert($field, $value) {}
+            function addUpdate($field, $value) {}
         }
     }
 }

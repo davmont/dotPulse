@@ -1309,12 +1309,6 @@ parameters:
 			path: modules/dotproject_plus/do_save_activity_estimations.php
 
 		-
-			message: '#^Path in include\(\) "gantt_pdf\.php" is not a file or it does not exist\.$#'
-			identifier: include.fileNotFound
-			count: 1
-			path: modules/dotproject_plus/viewgantt.php
-
-		-
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
 			identifier: whitespace.fileEnd
 			count: 1
@@ -1897,30 +1891,6 @@ parameters:
 			path: modules/helpdesk/vw_log_update.php
 
 		-
-			message: '#^Call to static method factory\(\) on an unknown class Date_Holidays\.$#'
-			identifier: class.notFound
-			count: 1
-			path: modules/holiday/holiday_func.php
-
-		-
-			message: '#^Call to static method getInstalledDrivers\(\) on an unknown class Date_Holidays\.$#'
-			identifier: class.notFound
-			count: 1
-			path: modules/holiday/holiday_func.php
-
-		-
-			message: '#^Call to static method isError\(\) on an unknown class Date_Holidays\.$#'
-			identifier: class.notFound
-			count: 1
-			path: modules/holiday/holiday_func.php
-
-		-
-			message: '#^Call to static method getInstalledDrivers\(\) on an unknown class Date_Holidays\.$#'
-			identifier: class.notFound
-			count: 1
-			path: modules/holiday/holiday_options.php
-
-		-
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
 			identifier: whitespace.fileEnd
 			count: 1
@@ -2027,132 +1997,6 @@ parameters:
 			identifier: variable.undefined
 			count: 1
 			path: modules/human_resources/view_hr.php
-
-		-
-			message: '#^Access to an undefined property iGanttResponse\:\:\$_hourFormat\.$#'
-			identifier: property.notFound
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^Call to an undefined method iGanttResponse\:\:warningMsg\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^Class CDate referenced with incorrect case\: Cdate\.$#'
-			identifier: class.nameCase
-			count: 2
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^Class Date_Calc referenced with incorrect case\: Date_calc\.$#'
-			identifier: class.nameCase
-			count: 4
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^Constant ERROR_131 not found\.$#'
-			identifier: constant.notFound
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^PHPDoc tag @param has invalid value \(\=\> browser window width\)\: Unexpected token "\=\>", expected type at offset 93 on line 5$#'
-			identifier: phpDoc.parseError
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^PHPDoc tag @param has invalid value \(\=\> display only week days\)\: Unexpected token "\=\>", expected type at offset 127 on line 6$#'
-			identifier: phpDoc.parseError
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^PHPDoc tag @param has invalid value \(\=\> scale end date\)\: Unexpected token "\=\>", expected type at offset 65 on line 4$#'
-			identifier: phpDoc.parseError
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^PHPDoc tag @param has invalid value \(\=\> scale start date\)\: Unexpected token "\=\>", expected type at offset 35 on line 3$#'
-			identifier: phpDoc.parseError
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^Static method Date_Calc\:\:beginOfNextWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^Static method Date_Calc\:\:beginOfWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^Static method Date_Calc\:\:endOfWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^Undefined variable\: \$limit$#'
-			identifier: variable.undefined
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^Undefined variable\: \$s$#'
-			identifier: variable.undefined
-			count: 1
-			path: modules/igantt/igantt.ajax.class.php
-
-		-
-			message: '#^Access to protected property CTask\:\:\$_query\.$#'
-			identifier: property.protected
-			count: 12
-			path: modules/igantt/igantt.ajax.php
-
-		-
-			message: '#^Constant GANTT_ACTIVITY not found\.$#'
-			identifier: constant.notFound
-			count: 1
-			path: modules/igantt/igantt.ajax.php
-
-		-
-			message: '#^Constant GANTT_DYNAMIC not found\.$#'
-			identifier: constant.notFound
-			count: 1
-			path: modules/igantt/igantt.ajax.php
-
-		-
-			message: '#^Constant GANTT_MILESTONE not found\.$#'
-			identifier: constant.notFound
-			count: 1
-			path: modules/igantt/igantt.ajax.php
-
-		-
-			message: '#^Constant STATIC_EXPAND not found\.$#'
-			identifier: constant.notFound
-			count: 1
-			path: modules/igantt/igantt.ajax.php
-
-		-
-			message: '#^Function constructTaskOptions not found\.$#'
-			identifier: function.notFound
-			count: 2
-			path: modules/igantt/igantt.ajax.php
-
-		-
-			message: '#^Inner named functions are not supported by PHPStan\. Consider refactoring to an anonymous function, class method, or a top\-level\-defined function\. See issue \#165 \(https\://github\.com/phpstan/phpstan/issues/165\) for more details\.$#'
-			identifier: function.inner
-			count: 2
-			path: modules/igantt/igantt.ajax.php
 
 		-
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
@@ -2461,12 +2305,6 @@ parameters:
 			path: modules/projectdesigner/do_task_bulk_aed.php
 
 		-
-			message: '#^Static call to instance method Date\:\:compare\(\)\.$#'
-			identifier: method.staticCall
-			count: 2
-			path: modules/projectdesigner/gantt.php
-
-		-
 			message: '#^Function each not found\.$#'
 			identifier: function.notFound
 			count: 2
@@ -2705,18 +2543,6 @@ parameters:
 			identifier: array.duplicateKey
 			count: 1
 			path: modules/tasks/do_updatetask.php
-
-		-
-			message: '#^Constant longdashed not found\.$#'
-			identifier: constant.notFound
-			count: 3
-			path: modules/tasks/gantt.php
-
-		-
-			message: '#^Static call to instance method Date\:\:compare\(\)\.$#'
-			identifier: method.staticCall
-			count: 2
-			path: modules/tasks/gantt.php
 
 		-
 			message: '#^Access to an undefined property CTitleBlock\:\:\$showhelp\.$#'

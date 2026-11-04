@@ -1,5 +1,5 @@
 <?php
-
+require_once dirname(__FILE__) . '/bootstrap.php';
 require_once dirname(__FILE__) . '/../classes/customfieldsparser.class.php';
 
 class CustomFieldsParserTest extends TestCase {

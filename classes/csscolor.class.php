@@ -23,11 +23,9 @@ if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly.');
 }
 
-require_once 'PEAR.php';
-
 define('CSS_COLOR_ERROR', 100);
 
-class CSS_Color extends PEAR
+class CSS_Color
 {
   //==================================================
   //==PARAMETERS======================================
@@ -64,9 +62,6 @@ class CSS_Color extends PEAR
     // This is the constructor method for the class,
     // which is called when a new object is created.
 
-    // Initialize this PEAR object so I can
-    // use the PEAR error return mechanism
-    $this->PEAR();
 
     // Initialize the palette
     $this->setPalette($bgHex, $fgHex);
@@ -426,11 +421,10 @@ class CSS_Color extends PEAR
   }
 
   //--------------------------------------------------
-  function &cssRaiseError($message, $method, $line)
+  // An invalid colour is ignored: the PEAR error this raised was never read.
+  function cssRaiseError($message, $method, $line)
   {
-    $error = PEAR::raiseError(sprintf("%s.%s() line %d: %s",
-				      get_class($this), $method, $line, $message),
-			      CSS_COLOR_ERROR);
+    return false;
   }
 
 }

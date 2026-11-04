@@ -43,7 +43,7 @@ Each of these must answer 403 (or 404), never 200:
 
 ```sh
 for p in modules/tasks/tasks.class.php vendor/autoload.php includes/config.php \
-         tests/run_tests.php files/ queuescanner.php composer.json; do
+         tests/run.php files/ queuescanner.php composer.json; do
   printf '%-32s %s\n' "$p" "$(curl -s -o /dev/null -w '%{http_code}' "https://your-host/$p")"
 done
 ```

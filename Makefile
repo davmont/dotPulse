@@ -1,6 +1,7 @@
 # Developer checks. Each target is also a CI job (.github/workflows/ci.yml).
 #
-#   make check         lint + phpstan + raw-input + inline-js + js-test (no sandbox needed)
+#   make check         lint + phpstan + raw-input + inline-js + php-test + js-test (no sandbox needed)
+#   make deps-audit    composer audit and npm audit of the dependencies (needs network access)
 #   make audit-smoke   start docker/, reinstall the database, run the security smoke test and the
 #                      REST API, dashboard, board, two-step login, audit log and earned value tip checks
 #   make sample-data   start docker/, reinstall the database, load the sample data (db/sample/)
@@ -16,9 +17,9 @@ DOCKER_RUN := docker run --rm --user $(shell id -u):$(shell id -g) --security-op
 export DP_UID := $(shell id -u)
 export DP_GID := $(shell id -g)
 
-.PHONY: check lint phpstan phpstan-baseline raw-input inline-js js-test audit-smoke audit-full sample-data sample-sql rehearse
+.PHONY: check lint phpstan phpstan-baseline raw-input inline-js php-test js-test deps-audit audit-smoke audit-full sample-data sample-sql rehearse
 
-check: lint phpstan raw-input inline-js js-test
+check: lint phpstan raw-input inline-js php-test js-test
 
 # PHP 8.3 syntax check of first-party code (vendored copies excluded, as in phpstan.neon.dist).
 lint:
@@ -43,6 +44,21 @@ raw-input:
 # No new inline JavaScript (CSP); see docs/csp.md.
 inline-js:
 	scripts/check-inline-js.sh
+
+# PHP unit tests (tests/*Test.php, tests/run.php).
+php-test:
+	$(DOCKER_RUN) php:8.3-cli php tests/run.php
+
+# Known vulnerabilities: any in the Composer packages (vendor/, deployed with the code); moderate
+# or worse in the Node.js packages of the development tools (never deployed; Jest's deepmerge
+# has a low advisory with no fixed release, and tools/jest/package.json overrides glob and
+# minimatch to fixed versions).
+# Libraries copied into lib/ and modules/ are not covered: see docs/third-party.md.
+deps-audit:
+	$(DOCKER_RUN) -e COMPOSER_HOME=/tmp composer:2 audit --locked
+	for d in tools/jest tools/browser; do \
+	  $(DOCKER_RUN) -w /app/$$d -e HOME=/tmp node:22 npm audit --omit=optional --audit-level=moderate || exit 1; \
+	done
 
 # Jest tests for js/ (tools/jest/tests/*.test.js), in the node image so no local Node is needed.
 js-test:

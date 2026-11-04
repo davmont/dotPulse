@@ -2,7 +2,7 @@
 
 // Ensure the testing framework is available
 if (!class_exists('TestCase')) {
-    require_once dirname(__FILE__) . '/../lib/phpgacl/test_suite/phpunit/phpunit.php';
+    require_once dirname(__FILE__) . '/phpunit.php';
 }
 
 if (!defined('DP_BASE_DIR')) {
@@ -81,14 +81,6 @@ class DBQueryTest extends TestCase {
         // 'SELECT * FROM (dp_users)'
         $this->assertRegexp('/FROM \(dp_users\)/', $q);
 
-        // It removes quote, semicolon and double dash
-        $this->assertEquals('admin DROP TABLE users ', $q->sanitise('admin"; DROP TABLE users; --'));
-
-        // Additional types (null, int, float)
-        $this->assertEquals('', $q->sanitise(null));
-        $this->assertEquals('123', $q->sanitise(123));
-        $this->assertEquals('0', $q->sanitise(0));
-        $this->assertEquals('1.5', $q->sanitise(1.5));
         $this->query->clear();
         $this->query->addTable('users', 'u');
         $q = $this->query->prepareSelect();
@@ -98,7 +90,7 @@ class DBQueryTest extends TestCase {
     }
 
     function testLimit() {
-        $q = new DBQuery('test_');
+        $q = new RealDBQuery('test_');
 
         // Initial state
         $this->assertEquals(null, $q->limit);
@@ -123,6 +115,17 @@ class DBQueryTest extends TestCase {
         $q->addLimit(50);
         $this->assertEquals(50, $q->limit);
         $this->assertEquals(0, $q->offset);
+    }
+
+    function testSanitise() {
+        // It removes quote, semicolon and double dash
+        $this->assertEquals('admin DROP TABLE users ', $this->query->sanitise('admin"; DROP TABLE users; --'));
+
+        // Additional types (null, int, float)
+        $this->assertEquals('', $this->query->sanitise(null));
+        $this->assertEquals('123', $this->query->sanitise(123));
+        $this->assertEquals('0', $this->query->sanitise(0));
+        $this->assertEquals('1.5', $this->query->sanitise(1.5));
     }
 }
 

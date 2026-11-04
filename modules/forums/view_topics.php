@@ -119,10 +119,7 @@ foreach ($topics as $row) {
 		if ($row['latest_reply']) {
 			echo $last->format($df . ' ' . $tf).'<br /><font color=#999966>(';
 			
-			$span = new Date_Span();
-			$span->setFromDateDiff($now, $last);
-			
-			printf('%.1f', $span->format('%d'));
+			printf('%.1f', abs($now->getTime() - $last->getTime()) / 86400);
 			echo (' ' .$AppUI->_('days ago') . ')</font>');
 		} else {
 			echo $AppUI->_('No replies');

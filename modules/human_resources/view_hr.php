@@ -89,7 +89,7 @@ $cwd_conv = array_map('cal_work_day_conv', $cwd);
 function cal_work_day_conv($val) {
 	global $AppUI, $locale_char_set;
 	setlocale(LC_ALL, 'en_AU'.(($locale_char_set)? ('.' . $locale_char_set) : '.utf8'));
-	$wk = Date_Calc::getCalendarWeek(null, null, null, "%a", LOCALE_FIRST_DAY);
+	$wk = CDate::weekdayNames();
 	if (!empty($AppUI->user_lang)) {
 		setlocale(LC_ALL, $AppUI->user_lang);
 	}

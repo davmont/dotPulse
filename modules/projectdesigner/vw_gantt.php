@@ -13,9 +13,8 @@ $projectStatus = dPgetSysVal( 'ProjectStatus' );
 <tr>
     <td align="center" colspan="20">
 <?php
-      $src = "?m=projectdesigner&a=gantt&suppressHeaders=1&showLabels=1&proFilter=&showInactive=1showAllGantt=1&project_id=" . (int)$project_id . "&width=";
-      echo '<script nonce="' . dPcspNonce() . '">document.write(\'<img src="\' + ' . dPjs($src)
-            . ' + ((navigator.appName==\'Netscape\'?window.innerWidth:document.body.offsetWidth)*0.90) + \'">\');</script>';
+      require_once DP_BASE_DIR . '/classes/gantt_renderer.class.php';
+      GanttRenderer::render('dp-pd-gantt', GanttRenderer::projectTaskRows($project_id), '', 'Week');
 ?>
 </td>
 </table>

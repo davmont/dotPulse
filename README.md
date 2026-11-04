@@ -29,12 +29,15 @@ tables keep working unchanged.
 
 Work happens on the **`devel`** branch; **`master`** only receives stable releases.
 
-- Current release: **dotPulse 3.1.0**: REST API, personal dashboard, Kanban board,
-  two-step login, audit log and earned value warnings. See
-  [RELEASE_NOTES_v3.1.0.md](RELEASE_NOTES_v3.1.0.md) before upgrading (PHP 8.1 or later).
-- Previous releases: 3.0.0, the first under the new name, with the breaking changes
-  from dotProject ([RELEASE_NOTES_v3.0.0.md](RELEASE_NOTES_v3.0.0.md)); v2.3.1, still
-  named dotProject ([RELEASE_NOTES_v2.3.1.md](RELEASE_NOTES_v2.3.1.md)).
+- Current release: **dotPulse 3.1.1**, maintenance: outdated libraries replaced or removed
+  (JpGraph, PEAR, TinyMCE, old jQuery), public holidays by country, task end dates
+  fixed. See [RELEASE_NOTES_v3.1.1.md](RELEASE_NOTES_v3.1.1.md) before upgrading.
+- Previous releases: 3.1.0, with the REST API, personal dashboard, Kanban board,
+  two-step login, audit log and earned value warnings
+  ([RELEASE_NOTES_v3.1.0.md](RELEASE_NOTES_v3.1.0.md), PHP 8.1 or later); 3.0.0, the first
+  under the new name, with the breaking changes from dotProject
+  ([RELEASE_NOTES_v3.0.0.md](RELEASE_NOTES_v3.0.0.md)); v2.3.1, still named dotProject
+  ([RELEASE_NOTES_v2.3.1.md](RELEASE_NOTES_v2.3.1.md)).
 
 ## What's in it
 
@@ -106,10 +109,13 @@ The full checklist (module upgrades, cron, mail, web server rules) is in
 
 ## Development
 
-- `make check` runs the PHP lint, PHPStan, the raw-input and inline-script checks and
-  the JavaScript tests.
-- PHP unit tests: `php tests/cli_runner.php`. JavaScript tests (Jest, in
-  [tools/jest/](tools/jest/)): `make js-test`.
+- `make check` runs the PHP lint, PHPStan, the raw-input and inline-script checks, the
+  PHP unit tests ([tests/](tests/), `make php-test`) and the JavaScript tests (Jest, in
+  [tools/jest/](tools/jest/), `make js-test`).
+- `make deps-audit` looks up the Composer and Node.js dependencies in the security
+  advisory databases (`composer audit`, `npm audit`); Dependabot proposes their updates.
+  Libraries copied into `lib/` and `modules/` are listed in
+  [docs/third-party.md](docs/third-party.md).
 - A Docker sandbox (PHP 8.3 and MariaDB) and the full audit suite are described in
   [docker/README.md](docker/README.md) (`make audit-full`).
 
@@ -160,5 +166,5 @@ dotPulse is free software under the **GNU General Public License**, as dotProjec
 been since version 2.0 (versions 1.0.2 and earlier were BSD licensed). See
 [COPYING](COPYING) and [LICENSE](LICENSE).
 
-Bundled third-party libraries (ADOdb, phpGACL, PHPMailer, Dompdf, php-qrcode, JpGraph, Smarty and
+Bundled third-party libraries (ADOdb, phpGACL, PHPMailer, Dompdf, php-qrcode, Frappe Gantt, jQuery and
 others) keep their own licences.

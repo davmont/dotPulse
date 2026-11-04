@@ -14,48 +14,56 @@ if (isset($_FILES['vcf']) && isset($_GET['suppressHeaders']) && ($_GET['suppress
 	// This view stores contacts: same CSRF rule as the dosql handlers.
 	$AppUI->verifyCsrfToken();
 	$vcf = $_FILES['vcf'];
-	// include PEAR vCard class
-	require_once($AppUI->getLibraryClass('PEAR/Contact_Vcard_Parse'));
+	require_once $AppUI->getSystemClass('vcard');
 
 	if (is_uploaded_file($vcf['tmp_name'])) {
 
-		// instantiate a parser object
-		$parse = new Contact_Vcard_Parse();
-
-		// parse a vCard file and store the data
-		// in $cardinfo
-		$cardinfo = $parse->fromFile($vcf['tmp_name']);
+		// parse the vCard file: one file can contain multiple vCards
+		$cardinfo = CVcard::parse(file_get_contents($vcf['tmp_name']));
 
 		// store the card info array
 
 		foreach ($cardinfo as $ci) {	//one file can contain multiple vCards
 
 			$obj = new CContact();
+			// A value of the card: property, occurrence, component (empty when missing).
+			$v = function ($name, $index, $component) use ($ci) {
+				return isset($ci[$name][$index]['value'][$component][0]) ? $ci[$name][$index]['value'][$component][0] : '';
+			};
 
 			//transform the card info array to dP store format
-			$contactValues["contact_last_name"] = $ci['N'][0]['value'][0][0];
-			$contactValues["contact_first_name"] = $ci['N'][0]['value'][1][0];
-			$contactValues["contact_title"] = $ci['N'][0]['value'][3][0];
-			$contactValues["contact_birthday"] = $ci['BDAY'][0]['value'][0][0];
-			$contactValues["contact_company"] = $ci['ORG'][0]['value'][0][0];
-			$contactValues["contact_type"] = $ci['N'][0]['value'][2][0];
-			$contactValues["contact_email"] = $ci['EMAIL'][0]['value'][0][0];
-			$contactValues["contact_email2"] = $ci['EMAIL'][1]['value'][0][0];
-			$contactValues["contact_phone"] = $ci['TEL'][0]['value'][0][0];
-			$contactValues["contact_phone2"] = $ci['TEL'][1]['value'][0][0];
-			$contactValues["contact_mobile"] = $ci['TEL'][2]['value'][0][0];
-			if ($ci['ADR'][0]['value'][1][0]) {
-				$contactValues['contact_address1'] = $ci['ADR']['0']['value']['1']['0'];
-				$contactValues['contact_address2'] = $ci['ADR']['0']['value']['2']['0'];
-			} else {
-				$contactValues['contact_address1'] = $ci['ADR']['0']['value']['2']['0'];
-				$contactValues['cotnact_address2'] = '';
+			$contactValues = array();
+			$contactValues["contact_last_name"] = $v('N', 0, 0);
+			$contactValues["contact_first_name"] = $v('N', 0, 1);
+			$contactValues["contact_title"] = $v('N', 0, 3);
+			$contactValues["contact_birthday"] = $v('BDAY', 0, 0);
+			// contact_company is a company id: the organisation's company, when there is one.
+			$contactValues["contact_company"] = 0;
+			if ($v('ORG', 0, 0) !== '') {
+				$q = new DBQuery;
+				$q->addTable('companies');
+				$q->addQuery('company_id');
+				$q->addWhere('company_name = ' . $q->quote($v('ORG', 0, 0)));
+				$contactValues["contact_company"] = (int)$q->loadResult();
 			}
-			$contactValues["contact_city"] = $ci['ADR'][0]['value'][3][0];
-			$contactValues["contact_state"] = $ci['ADR'][0]['value'][4][0];
-			$contactValues["contact_zip"] = $ci['ADR'][0]['value'][5][0];
-			$contactValues["contact_country"] = $ci['ADR'][0]['value'][6][0];
-			$contactValues["contact_notes"] = $ci['NOTE'][0]['value'][0][0];
+			$contactValues["contact_type"] = $v('N', 0, 2);
+			$contactValues["contact_email"] = $v('EMAIL', 0, 0);
+			$contactValues["contact_email2"] = $v('EMAIL', 1, 0);
+			$contactValues["contact_phone"] = $v('TEL', 0, 0);
+			$contactValues["contact_phone2"] = $v('TEL', 1, 0);
+			$contactValues["contact_mobile"] = $v('TEL', 2, 0);
+			if ($v('ADR', 0, 1) !== '') {
+				$contactValues['contact_address1'] = $v('ADR', 0, 1);
+				$contactValues['contact_address2'] = $v('ADR', 0, 2);
+			} else {
+				$contactValues['contact_address1'] = $v('ADR', 0, 2);
+				$contactValues['contact_address2'] = '';
+			}
+			$contactValues["contact_city"] = $v('ADR', 0, 3);
+			$contactValues["contact_state"] = $v('ADR', 0, 4);
+			$contactValues["contact_zip"] = $v('ADR', 0, 5);
+			$contactValues["contact_country"] = $v('ADR', 0, 6);
+			$contactValues["contact_notes"] = $v('NOTE', 0, 0);
 			$contactValues["contact_order_by"] = $contactValues["contact_last_name"].', '.$contactValues["contact_first_name"];
 			$contactValues["contact_id"] = 0;
 

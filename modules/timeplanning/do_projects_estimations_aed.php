@@ -7,10 +7,8 @@
 	require_once (DP_BASE_DIR . "/modules/timeplanning/model/wbs_item_estimation.class.php");
 	
 	//save
-	$description=$_POST['description'];
-	if($description==""){
-		$description=$_POST['description_edit'];
-	}
+	// The minute's text, edited as plain text (stored as HTML, see ProjectMinute).
+	$description=ProjectMinute::fromPlainText(dPgetParam($_POST, 'description_edit', ''));
 	$project_id=$_POST['project_id'];
 	$date=$_POST['date'];
 	$isEffort=$_POST['isEffort'];

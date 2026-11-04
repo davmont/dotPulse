@@ -29,6 +29,25 @@ class ProjectMinute {
 	public function getDescription(){
 		return $this->description;
 	}
+
+	// Minutes were written with a rich text editor (TinyMCE) before dotPulse 3.1.1 and
+	// are still stored as HTML; they are edited as plain text. These two convert.
+	public static function fromPlainText($text){
+		$text = str_replace(array("\r\n", "\r"), "\n", trim((string)$text));
+		return $text === '' ? '' : '<p>' . str_replace("\n", '<br />', htmlspecialchars($text, ENT_QUOTES, 'UTF-8')) . '</p>';
+	}
+
+	public static function plainText($description){
+		$description = (string)$description;
+		if ($description === strip_tags($description)) {
+			return $description;
+		}
+		$text = preg_replace('#<(script|style)\b.*?</\1\s*>#is', '', $description);
+		$text = preg_replace('#<br\s*/?>|</(p|div|li|h[1-6]|tr|blockquote)>#i', "\n", $text);
+		$text = html_entity_decode(strip_tags($text), ENT_QUOTES, 'UTF-8');
+		$text = str_replace("\xC2\xA0", ' ', $text);
+		return trim(preg_replace("/\n{3,}/", "\n\n", preg_replace("/[ \t]+\n/", "\n", $text)));
+	}
 	
 	public function isEffort(){
 		return $this->isEffort;

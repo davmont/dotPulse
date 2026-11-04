@@ -25,7 +25,7 @@ $controllerAta = new ControllerAta();
 $controllerReport = new ControllerReport();  
 ?>
 <script type="text/javascript" src="./modules/monitoringandcontrol/js/ata.js" ></script>
-<script type="text/javascript" src="./modules/monitoringandcontrol/js/jquery.js" ></script>
+<script type="text/javascript" src="./lib/jquery/jquery.min.js" ></script>
 <script type="text/javascript" src="./modules/monitoringandcontrol/js/util.js"> </script>
 <script type="text/javascript" nonce="<?php echo dPcspNonce(); ?>">
 $(document).ready(function() {	

@@ -2,6 +2,7 @@
 if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly.');
 }
+require_once $AppUI->getSystemClass('date');
 /* PROJECTS $Id: invoices.class.php,v 1.1.1.1 2004/04/01 16:08:45 aardvarkads Exp $ */
 /**
  *	@package dotProject
@@ -10,7 +11,6 @@ if (!defined('DP_BASE_DIR')) {
  */
 
 require_once($AppUI->getSystemClass('dp'));
-require_once($AppUI->getLibraryClass('PEAR/Date'));
 
 /**
  * The Invoice Class

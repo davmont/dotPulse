@@ -244,7 +244,6 @@ function clash_process() {
 	// and start/end times we need
 	$first_day = $start_date->format('%E');
 	$end_day = $final_date->format('%E');
-	$oneday = new Date_Span(array(1,0,0,0));
 	
 	$slots = array();
 	$curr_date = new CDate($start_date);
@@ -274,7 +273,7 @@ function clash_process() {
 				
 			}
 		}
-		$curr_date->addSpan($oneday);
+		$curr_date->addDays(1);
 		$curr_date->setTime(0, 0, 0);
 	}
 	

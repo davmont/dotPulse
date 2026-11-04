@@ -517,10 +517,10 @@ function rmFilter(name, id)
 	$('#submitButton').click();
 }
 
-$('a.rmFilterLink').live('click', function () {
+$(document).on('click', 'a.rmFilterLink', function () {
 	rmFilter($(this).attr('data-rm-filter'), $(this).attr('data-rm-id'));
-}).live('mouseenter', function () {
+}).on('mouseenter', 'a.rmFilterLink', function () {
 	$(this).append($("<img style='float:right;' src='./modules/resource_m/images/filter.png' height='12' width='12' />"));
-}).live('mouseout', function () {
+}).on('mouseout', 'a.rmFilterLink', function () {
 	$(this).find('img:last').remove();
 });
