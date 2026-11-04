@@ -73,6 +73,8 @@ if (!class_exists('CAppUI')) {
             return DP_BASE_DIR . '/modules/' . $module . '/' . $module . '.class.php';
         }
         function setBaseLocale() {}
+        // No add-on modules (the holiday module's days off do not apply).
+        function isActiveModule($module) { return false; }
     }
 }
 if (!isset($GLOBALS['AppUI'])) {

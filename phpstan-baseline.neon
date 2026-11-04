@@ -1891,30 +1891,6 @@ parameters:
 			path: modules/helpdesk/vw_log_update.php
 
 		-
-			message: '#^Call to static method factory\(\) on an unknown class Date_Holidays\.$#'
-			identifier: class.notFound
-			count: 1
-			path: modules/holiday/holiday_func.php
-
-		-
-			message: '#^Call to static method getInstalledDrivers\(\) on an unknown class Date_Holidays\.$#'
-			identifier: class.notFound
-			count: 1
-			path: modules/holiday/holiday_func.php
-
-		-
-			message: '#^Call to static method isError\(\) on an unknown class Date_Holidays\.$#'
-			identifier: class.notFound
-			count: 1
-			path: modules/holiday/holiday_func.php
-
-		-
-			message: '#^Call to static method getInstalledDrivers\(\) on an unknown class Date_Holidays\.$#'
-			identifier: class.notFound
-			count: 1
-			path: modules/holiday/holiday_options.php
-
-		-
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
 			identifier: whitespace.fileEnd
 			count: 1

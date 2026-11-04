@@ -1,42 +1,24 @@
-dotProject Holiday Module 0.3
------------------------------
+dotPulse Holiday module 0.2
+---------------------------
 
-INTRODUCTION
-This module integrates the PEAR library for calculating holidays. It
-also features a whitelist and a blacklist to help those who doesnt
-want to write their own holiday drivers. The implementation is done
-by Sensorlink AS, as we needed it to calculate workhours and project
-management.
+Non-working days for the task dates (CDate::isWorkingDay, so the end date
+calculated from a start date and a duration skips them).
 
-LEGAL
-This module is still in early development, aside from the mediocre
-layout it might have its quirks and could misbehave. Sensorlink AS
-is not responsible for any damage it might cause, but please report
-any bugs
+- Whitelist: days off added by hand, one-off or every year (regional and
+  local holidays, company closures).
+- Blacklist: days that are working days even if they are holidays.
+- Settings: turn the manual and the automatic holidays on or off and choose
+  the country of the automatic ones: the national public holidays of
+  Austria, Belgium, France, Germany, Ireland, Italy, the Netherlands,
+  Norway, Portugal, Spain, Sweden, the United Kingdom (England and Wales)
+  or the United States (federal), calculated for any year
+  (holiday_calendar.class.php). The Settings tab lists this year's and next
+  year's.
 
-CONTRIBUTING
-If you decide to write a holiday driver, please contact the package
-maintainer at PEAR and contribute it back to the Date_Holiday project
+The blacklist wins over the whitelist, and both over the automatic holidays.
 
-INSTALLATION
-1. Decompress the tarball to the dotproject module directory like this:
-	cd /path/to/dotproject
-	cd modules
-	tar xzvf /path/to/tarball/dpholiday.tar.gz
-2. Install the module from the GUI as normal
-3. Open the dateclass in the editor of choise:
-	vi /path/to/dotproject/classes/date.class.php
-4. Paste the following in the beginning of the isWorkingDay function (Line 136)
-	// Holiday module, check the holiday database
-	global $baseDir;
-	require_once $baseDir."/modules/holiday/holiday_func.php";
-	if(isHoliday($this))
-	{
-        	return 0;
-	}
-5. Save and exit
+Before dotPulse 3.1.1 the automatic holidays came from PEAR Date_Holidays,
+which does not work on PHP 8. Upgrading the module to 0.2 (System Admin,
+Modules) adds the country setting; choose the country again.
 
-*******************************************
-TODO: Add support for additional calendars and create appropiate classes to handle
-operations used in this module
-
+Originally by Sensorlink AS (c) 2006, Vegard Fiksdal.

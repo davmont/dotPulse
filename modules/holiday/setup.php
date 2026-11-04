@@ -13,7 +13,7 @@ if (!defined('DP_BASE_DIR')) {
 // MODULE CONFIGURATION DEFINITION
 $config = array();
 $config['mod_name'] = 'Holiday';
-$config['mod_version'] = '0.1';
+$config['mod_version'] = '0.2';
 $config['mod_directory'] = 'holiday';
 $config['mod_setup_class'] = 'CSetupHoliday';
 $config['mod_type'] = 'admin';
@@ -51,10 +51,9 @@ class CSetupHoliday {
 		$q -> createDefinition("( " .
                 "holiday_manual int(10) NOT NULL default '0'," .
                 "holiday_auto int(10) NOT NULL default '0'," .
-                "holiday_driver int(10) NOT NULL default '0'," .
+                "holiday_country varchar(8) NOT NULL default ''," .
                 "UNIQUE KEY holiday_manual (holiday_manual)," .
-                "UNIQUE KEY holiday_auto (holiday_auto)," .
-                "UNIQUE KEY holiday_driver (holiday_driver)" .
+                "UNIQUE KEY holiday_auto (holiday_auto)" .
                 ")");                
         
 		$ok = $ok && $q -> exec();
@@ -62,13 +61,11 @@ class CSetupHoliday {
 		// Set default settings
 		$holiday_manual = 1;
 		$holiday_auto = 0;
-		$holiday_driver = 0;
 
 		$q = new DBQuery();
 		$q -> addTable('holiday_settings');
 		$q -> addInsert('holiday_manual', $holiday_manual);
 		$q -> addInsert('holiday_auto', $holiday_auto);
-		$q -> addInsert('holiday_driver', $holiday_driver);
 		$ok = $ok && $q->exec();
 		if($ok){
 			return null;
@@ -90,8 +87,20 @@ class CSetupHoliday {
 		return $ok;
 	}
 	
-	function upgrade() {
-		return null;
+	function upgrade($old_version) {
+		switch ($old_version) {
+			case '0.1':
+				// 0.2: public holidays by country instead of the PEAR Date_Holidays
+				// drivers, whose index is meaningless now; pick the country again.
+				$q = new DBQuery();
+				$q -> alterTable('holiday_settings');
+				$q -> addField('holiday_country', "varchar(8) NOT NULL default ''");
+				$q -> dropField('holiday_driver');
+				if (!$q -> exec()) {
+					return false;
+				}
+		}
+		return true;
 	}
 }
 
