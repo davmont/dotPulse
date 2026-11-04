@@ -51,7 +51,7 @@ $cwd_hr = implode(', ', $cwd_conv);
 
 function cal_work_day_conv($val) {
 	GLOBAL $locale_char_set;
-	$wk = Date_Calc::getCalendarWeek( null, null, null, "%a", LOCALE_FIRST_DAY );
+	$wk = CDate::weekdayNames();
 	return htmlentities($wk[$val], ENT_COMPAT, $locale_char_set);
 }
 ?>

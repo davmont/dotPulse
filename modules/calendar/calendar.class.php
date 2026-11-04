@@ -7,7 +7,6 @@ if (!defined('DP_BASE_DIR')) {
 ## Calendar classes
 ##
 
-require_once($AppUI->getLibraryClass('PEAR/Date'));
 require_once($AppUI->getSystemClass('dp'));
 require_once $AppUI->getSystemClass('libmail');
 require_once $AppUI->getSystemClass('date');
@@ -20,7 +19,7 @@ require_once $AppUI->getSystemClass('date');
 class CMonthCalendar
 {
 	/**#@+
-	 * @var Date
+	 * @var CDate
 	 */
 	var $this_month;
 	var $prev_month;
@@ -71,7 +70,7 @@ class CMonthCalendar
 	var $birthdays_month = null;
 
 	/**
-	 * @param Date $date
+	 * @param CDate $date
 	 */
 	public function __construct($date = null)
 	{
@@ -122,13 +121,13 @@ class CMonthCalendar
 		$this->next_year->setYear($this->next_year->getYear() + 1);
 
 		$AppUI->setBaseLocale(LC_ALL);
-		$date = Date_Calc::beginOfPrevMonth($d, $m, $y, FMT_TIMESTAMP_DATE);
+		$date = CDate::beginOfMonthOffset(-1, $m, $y, FMT_TIMESTAMP_DATE);
 		setlocale(LC_ALL, $AppUI->user_lang);
 
 		$this->prev_month = new CDate($date);
 
 		$AppUI->setBaseLocale(LC_ALL);
-		$date = Date_Calc::beginOfNextMonth($d, $m, $y, FMT_TIMESTAMP_DATE);
+		$date = CDate::beginOfMonthOffset(1, $m, $y, FMT_TIMESTAMP_DATE);
 		setlocale(LC_ALL, $AppUI->user_lang);
 		$this->next_month = new CDate($date);
 	}
@@ -284,7 +283,7 @@ class CMonthCalendar
 		global $AppUI, $locale_char_set;
 
 		$AppUI->setBaseLocale(LC_ALL);
-		$wk = Date_Calc::getCalendarWeek(null, null, null, '%a', LOCALE_FIRST_DAY);
+		$wk = CDate::weekdayNames();
 		setlocale(LC_ALL, $AppUI->user_lang);
 
 		$s = (($this->showWeek) ? ("\n\t\t" . '<th>&nbsp;</th>') : '');
@@ -312,7 +311,7 @@ class CMonthCalendar
 		$this_month = intval($date->getMonth());
 		$this_year = intval($date->getYear());
 		$AppUI->setBaseLocale(LC_ALL);
-		$cal = Date_Calc::getCalendarMonth($this_month, $this_year, '%Y:%m:%d:%w', LOCALE_FIRST_DAY);
+		$cal = CDate::calendarMonth($this_month, $this_year, '%Y:%m:%d:%w');
 		setlocale(LC_ALL, $AppUI->user_lang);
 
 		$df = $AppUI->getPref('SHDATEFORMAT');
@@ -596,8 +595,8 @@ class CEvent extends CDpObject
 		if ($j > 0) {
 			switch ($event_recurs) {
 				case 1:
-					$eventStart->addSpan(new Date_Span(3600 * $j));
-					$eventEnd->addSpan(new Date_Span(3600 * $j));
+					$eventStart->addSeconds(3600 * $j);
+					$eventEnd->addSeconds(3600 * $j);
 					break;
 				case 2:
 					$eventStart->addDays($j);
@@ -734,16 +733,7 @@ class CEvent extends CDpObject
 		}
 
 		//Calculate the Length of Period (Daily, Weekly, Monthly View)
-		$AppUI->setBaseLocale();
-		$periodLength = Date_Calc::dateDiff(
-			$end_date->getDay(),
-			$end_date->getMonth(),
-			$end_date->getYear(),
-			$start_date->getDay(),
-			$start_date->getMonth(),
-			$start_date->getYear()
-		);
-		setlocale(LC_ALL, $AppUI->user_lang);
+		$periodLength = $end_date->dateDiff($start_date);
 		foreach ($eventListRec as $key => $ia) {
 			$end = intval($ia['event_times_recuring']);
 			for ($j = 0; $j < $end; $j++) {

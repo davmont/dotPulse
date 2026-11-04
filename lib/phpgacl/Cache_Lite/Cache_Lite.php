@@ -294,8 +294,12 @@ class Cache_Lite
      */
     function raiseError($msg, $code)
     {
-        include_once('PEAR.php');
-        PEAR::raiseError($msg, $code, $this->_pearErrorMode);
+        // dotPulse ships without PEAR: in the default (return) mode PEAR only
+        // built an error object that nothing read.
+        if ($this->_pearErrorMode == CACHE_LITE_ERROR_DIE) {
+            die($msg);
+        }
+        return false;
     }
 
     // --- Private methods ---

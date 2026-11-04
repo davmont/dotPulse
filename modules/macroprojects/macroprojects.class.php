@@ -16,9 +16,9 @@
 if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly.');
 }
+require_once $AppUI->getSystemClass('date');
 
 require_once($AppUI->getSystemClass('dp'));
-require_once($AppUI->getLibraryClass('PEAR/Date'));
 require_once($AppUI->getModuleClass('tasks'));
 require_once($AppUI->getModuleClass('companies'));
 require_once($AppUI->getModuleClass('departments'));

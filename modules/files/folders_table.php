@@ -708,7 +708,7 @@ function displayFiles($folder_id)
 							foreach ($file_versions as $file) {
 								if ($file['file_version_id'] == $row['file_version_id']) {
 									$file_icon = getIcon($file['file_type']);
-									$file_version_date = new Date($file['file_date']);
+									$file_version_date = new CDate($file['file_date']);
 									?>
 									<tr>
 										<td nowrap="8%">

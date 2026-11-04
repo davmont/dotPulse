@@ -27,12 +27,11 @@ commit `vendor/` as well.
 | jQuery UI | 1.14.1 | dotproject_plus (dialog, autocomplete) | `lib/jquery-ui/`, base theme |
 | Chart.js | 4.4.4 | monitoringandcontrol charts | |
 | flatpickr | 4.6.13 | date fields | |
-| Frappe Gantt | | the interactive Gantt charts (core, igantt) | |
-| JpGraph | 3.0.7 (2011) | Gantt images of tasks and projectdesigner | unmaintained; to be replaced by Frappe Gantt or Chart.js |
-| PEAR Date, Contact_Vcard | | `CDate`, vCard import/export | unmaintained |
+| Frappe Gantt | | every Gantt chart (`classes/gantt_renderer.class.php`, igantt, macroprojects) | JpGraph and its fonts, which drew the projectdesigner Gantt image, were removed in 3.1.1 |
+
+PEAR (Date, Date_Calc, Date_Span, Contact_Vcard) was removed in 3.1.1: `CDate` (`classes/date.class.php`) and `CVcard` (`classes/vcard.class.php`) are dotPulse's own code.
 | overLIB | 4.21 | pop-up help texts | unmaintained |
 | DHTML calendar | | date pickers of core and add-on forms | |
-| DejaVu, FreeFont, Vera | | fonts for JpGraph | |
 
 ## Copied into add-on modules
 
@@ -41,7 +40,7 @@ commit `vendor/` as well.
 | jQuery treeTable | 2.3.0 | finances, resource_m | works with jQuery 3 |
 | WireIt, YUI 2 utilities | 0.6.0, 2.8.0 | timeplanning (PDM tab) | unmaintained; only the files the tab loads are kept |
 | dhtmlgoodies calendar | | timeplanning, monitoringandcontrol, dotproject_plus | |
-| PEAR Date_Holidays | | holiday | |
+| PEAR Date_Holidays | | holiday (automatic holidays) | broken on PHP 8 and needs PEAR Date, removed from `lib/` in 3.1.1: automatic holidays count no day as a holiday; manual holidays work |
 
 Removed in 3.1.1: Smarty 2.6.3, xajax 0.5, R&OS ezPDF, TinyMCE 3.3.9, jQuery 1.4.2 and 1.12.3,
 jQuery UI 1.8rc3 and 1.12.1, DataTables, maskMoney, and most of WireIt and YUI 2.

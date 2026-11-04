@@ -235,10 +235,10 @@ function userUsageWeeks() {
 	
 	$task_duration_per_week = $task->getTaskDurationPerWeek($use_assigned_percentage);
 	$AppUI->setBaseLocale();
-	$ted = new CDate(Date_Calc::endOfWeek($task_end_date->day,$task_end_date->month,$task_end_date->year));
-	$tsd = new CDate(Date_Calc::beginOfWeek($task_start_date->day,$task_start_date->month,$task_start_date->year));
-	$ed = new CDate(Date_Calc::endOfWeek($end_date->day,$end_date->month,$end_date->year));
-	$sd = new CDate(Date_Calc::beginOfWeek($start_date->day,$start_date->month,$start_date->year));
+	$ted = new CDate(CDate::endOfWeek($task_end_date->day,$task_end_date->month,$task_end_date->year));
+	$tsd = new CDate(CDate::beginOfWeek($task_start_date->day,$task_start_date->month,$task_start_date->year));
+	$ed = new CDate(CDate::endOfWeek($end_date->day,$end_date->month,$end_date->year));
+	$sd = new CDate(CDate::beginOfWeek($start_date->day,$start_date->month,$start_date->year));
 	setlocale(LC_ALL, $AppUI->user_lang);
 	
 	$week_difference = $end_date->workingDaysInSpan($start_date)/count(explode(",",dPgetConfig("cal_working_days")));
@@ -248,7 +248,7 @@ function userUsageWeeks() {
 	for ($i = 0; $i<=$week_difference; $i++) {
 		if (!$actual_date->before($tsd) && !$actual_date->after($ted)) {
 			$AppUI->setBaseLocale();
-			$awoy = $actual_date->year.Date_Calc::weekOfYear($actual_date->day,$actual_date->month,$actual_date->year);
+			$awoy = $actual_date->year.CDate::weekNumber($actual_date->day,$actual_date->month,$actual_date->year);
 			setlocale(LC_ALL, $AppUI->user_lang);
 			foreach ($users as $user_id => $user_data) {
 				if (!isset($user_usage[$user_id][$awoy])) {
@@ -293,8 +293,8 @@ function showWeeks() {
 	$allocated_hours_sum = 0;
 	
 	$AppUI->setBaseLocale();
-	$ed = new CDate(Date_Calc::endOfWeek($end_date->day,$end_date->month,$end_date->year));
-	$sd = new CDate(Date_Calc::beginOfWeek($start_date->day,$start_date->month,$start_date->year));
+	$ed = new CDate(CDate::endOfWeek($end_date->day,$end_date->month,$end_date->year));
+	$sd = new CDate(CDate::beginOfWeek($start_date->day,$start_date->month,$start_date->year));
 	setlocale(LC_ALL, $AppUI->user_lang);
 	
 	$week_difference = ceil($ed->workingDaysInSpan($sd)/count(explode(',',dPgetConfig('cal_working_days'))));
@@ -318,7 +318,7 @@ function showWeeks() {
 /*
 			for ($i=0; $i<$week_difference; $i++) { 
 				setlocale(LC_ALL, 'en_AU'.(($locale_char_set)? ('.' . $locale_char_set) : '.utf8'));
-				$awoy = $actual_date->year.Date_Calc::weekOfYear($actual_date->day,$actual_date->month,$actual_date->year);
+				$awoy = $actual_date->year.CDate::weekNumber($actual_date->day,$actual_date->month,$actual_date->year);
 				setlocale(LC_ALL, $AppUI->user_lang);
 
 				$table_rows .= '<td align="right">';

@@ -267,7 +267,7 @@ foreach ($tasks as $row) {
 	$row['style'] = taskstyle_pd($row);
 	$row['canEdit'] = !getDenyEdit( 'tasks', $row['task_id'] );
 	$row['canViewLog'] = $perms->checkModuleItem('task_log', 'view', $row['task_id']);
-	$i = count($projects[$row['task_project']]['tasks']) + 1;
+	$i = (isset($projects[$row['task_project']]['tasks']) ? count($projects[$row['task_project']]['tasks']) : 0) + 1;
 	$row['task_number'] = $i;
 	$row['node_id'] = 'node_'.$i.'-' . $row['task_id'];
 	if (strpos($row['task_duration'], '.') && $row['task_duration_type'] == 1) {
@@ -403,9 +403,9 @@ $projectStatus = dPgetSysVal( 'ProjectStatus' );
 <tr>
     <td align="center" colspan="20">
 <?php
-      $src = "?m=projectdesigner&a=gantt&suppressHeaders=1&showLabels=1&proFilter=&showInactive=1showAllGantt=1&project_id=" . (int)$project_id . "&width=";
-      echo '<script nonce="' . dPcspNonce() . '">document.write(\'<img src="\' + ' . dPjs($src)
-            . ' + ((navigator.appName==\'Netscape\'?window.innerWidth:document.body.offsetWidth)*0.90) + \'">\');</script>';
+      require_once DP_BASE_DIR . '/classes/gantt_renderer.class.php';
+      GanttRenderer::scripts(); // the print view has no theme header
+      GanttRenderer::render('dp-pd-gantt', GanttRenderer::projectTaskRows($project_id), '', 'Week');
 ?>
 </td>
 </table>

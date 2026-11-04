@@ -3,7 +3,7 @@
  * strftime() replacement.
  *
  * strftime() and gmstrftime() are deprecated since PHP 8.1 and removed in PHP 9,
- * but dotProject and its bundled libraries (PEAR Date, jpgraph, ...) format
+ * but dotProject and its bundled libraries (PEAR Date, ADOdb, ...) format
  * dates with them. Code calls dp_strftime()/dp_gmstrftime() instead:
  *
  * - while PHP still has strftime(), it is used (without the deprecation
