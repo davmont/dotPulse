@@ -521,6 +521,17 @@ class CDate {
 		$this->setSecond($s);
 	}
 
+	/** Sets the time of day from hours with a fraction (9.5 is 09:30). */
+	function setHours($hours) {
+		$minutes = (int)round($hours * 60);
+		$this->setTime(intdiv($minutes, 60), $minutes % 60, 0);
+	}
+
+	/** The time of day in hours with a fraction (09:30 is 9.5). */
+	function getHours() {
+		return $this->hour + $this->minute / 60;
+	}
+
 	// Calendar helpers (PEAR Date_Calc's, used by the calendar and the reports).
 	// Weeks start on Monday, as they did with Date_Calc.
 
@@ -682,13 +693,14 @@ class CDate {
 		// get dP time constants
 			$cal_day_start = intval(dPgetConfig('cal_day_start'));
 			$cal_day_end = intval(dPgetConfig('cal_day_end'));
-			$dwh = intval(dPgetConfig('daily_working_hours'));
+			$dwh = floatval(dPgetConfig('daily_working_hours'));
 			
 			// move to the next working day if the first day is a non-working day
 			($sgn > 0) ? $this->next_working_day() : $this->prev_working_day();
 			
-			// calculate the hours spent on the first day	
-			$firstDay = ($sgn > 0) ? min($cal_day_end - $this->hour, $dwh) : min($this->hour - $cal_day_start, $dwh);
+			// calculate the hours spent on the first day (durations can have fractions of an hour)
+			$now = $this->getHours();
+			$firstDay = ($sgn > 0) ? min($cal_day_end - $now, $dwh) : min($now - $cal_day_start, $dwh);
 			
 			/*
 			 ** Catch some possible inconsistencies:
@@ -698,17 +710,14 @@ class CDate {
 			if ($firstDay < 0) {
 				$firstDay = 0;
 			}
-			// Intraday additions are handled easily by just changing the hour value
+			// Intraday additions are handled easily by just changing the time
 			if ($duration <= $firstDay) {
-				($sgn > 0) ? $this->setHour($this->hour+$duration) : $this->setHour($this->hour-$duration);
+				$this->setHours($now + $sgn * $duration);
 				return $this;
 			}
 			
-			// the effective first day hours value
-			$firstAdj = min($dwh, $firstDay);
-			
 			// subtract the first day hours from the total duration
-			$duration -= $firstAdj;
+			$duration -= $firstDay;
 			
 			// we've already processed the first day; move by one day!
 			$this->addDays(1 * $sgn);
@@ -719,20 +728,20 @@ class CDate {
 			// end of proceeding the first day
 			
 			// calc the remaining time and the full working days part of this residual
-			$hoursRemaining = ($duration > $dwh) ? ($duration % $dwh) : $duration;
-			$full_working_days = round(($duration - $hoursRemaining) / $dwh);
+			// (rounded to the minute, so 0.1 + 0.2 hours does not leave a sliver)
+			$full_working_days = (int)floor(round($duration * 60) / round($dwh * 60));
+			$hoursRemaining = round($duration * 60 - $full_working_days * round($dwh * 60)) / 60;
 			
 			// (proceed the full days later)
 			
 			// proceed the last day now
 			
 			// we prefer wed 16:00 over thu 08:00 as end date :)
-			if ($hoursRemaining == 0 && $full_working_day > 0) {
+			if ($hoursRemaining == 0) {
 				$full_working_days--;
-				($sgn > 0) ? $this->setHour($cal_day_start+$dwh) : $this->setHour($cal_day_end-$dwh);
-			} else {
-				($sgn > 0) ? $this->setHour($cal_day_start+$hoursRemaining) : $this->setHour($cal_day_end-$hoursRemaining);
+				$hoursRemaining = $dwh;
 			}
+			$this->setHours(($sgn > 0) ? $cal_day_start + $hoursRemaining : $cal_day_end - $hoursRemaining);
 			//end of proceeding the last day
 		}
 		
@@ -758,7 +767,7 @@ class CDate {
 	 **
 	 **
 	 ** @param	obj	DateObject	may be viewed as end date
-	 ** @return	int							working duration in hours
+	 ** @return	float						working duration in hours
 	 */ 
 	function calcDuration($e) {
 		
@@ -769,19 +778,21 @@ class CDate {
 		// get dP time constants
 		$cal_day_start = intval(dPgetConfig('cal_day_start'));
 		$cal_day_end = intval(dPgetConfig('cal_day_end'));
-		$dwh = intval(dPgetConfig('daily_working_hours'));
+		$dwh = floatval(dPgetConfig('daily_working_hours'));
 		
 		// assume start is before end and set a default signum for the duration	
 		$sgn = 1;
 		
-		// check whether start before end, interchange otherwise
+		// check whether start before end, interchange otherwise (count from the earlier
+		// date; copying into $s used to overwrite the start date it was meant to keep)
 		if ($e->before($s)) {
 			// calculated duration must be negative, set signum appropriately
 			$sgn = -1;
 			
-			$dummy = $s;
-			$s->copy($e);	
-			$e = $dummy;
+			$end = new CDate();
+			$end->copy($s);
+			$s->copy($e);
+			$e = $end;
 		}	 
 		
 		// determine the (working + non-working) day difference between the two dates
@@ -789,7 +800,7 @@ class CDate {
 		
 		// if it is an intraday difference one is finished very easily
 		if ($days == 0) {
-			return min($dwh, abs($e->hour - $s->hour)) * $sgn;
+			return (float)(min($dwh, $e->getHours() - $s->getHours()) * $sgn);
 		}
 		
 		// initialize the duration var
@@ -797,23 +808,21 @@ class CDate {
 		
 		// process the first day
 		// take into account the first day if it is a working day!
-		$day_endpoint = (($sgn > 0) ? $cal_day_end : $cal_day_start);
-		$duration += $s->isWorkingDay() ? min($dwh, abs($day_endpoint - $s->hour)) : 0;
-		$s->addDays(1 * $sgn);
+		$duration += $s->isWorkingDay() ? max(0, min($dwh, $cal_day_end - $s->getHours())) : 0;
+		$s->addDays(1);
 		
 		// end of processing the first day
 		
 		// calc workingdays between start and end
 		for ($i=1; $i < $days; $i++) {
 			$duration += $s->isWorkingDay() ? $dwh : 0;
-			$s->addDays(1 * $sgn);
+			$s->addDays(1);
 		}
 		
 		// take into account the last day in span only if it is a working day!
-		$day_endpoint = (($sgn > 0) ? $cal_day_start : $cal_day_end);
-		$duration += $s->isWorkingDay() ? min($dwh, abs($e->hour - $day_endpoint)) : 0;
+		$duration += $s->isWorkingDay() ? max(0, min($dwh, $e->getHours() - $cal_day_start)) : 0;
 		
-		return $duration * $sgn;
+		return (float)($duration * $sgn);
 	}	
 	
 	function workingDaysInSpan($e) {

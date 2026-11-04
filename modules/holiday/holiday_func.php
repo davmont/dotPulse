@@ -8,21 +8,28 @@ if (!defined('DP_BASE_DIR')) {
 ## Sensorlink AS (c) 2006
 ## Vegard Fiksdal (fiksdal@sensorlink.no)
 ##
-require_once 'PEAR/Holidays.php';
+require_once DP_BASE_DIR . '/modules/holiday/holiday_calendar.class.php';
+
+/** The module settings (one row), read once per request. */
+function holidaySettings() {
+	static $settings = null;
+	if ($settings === null) {
+		$q = new DBQuery();
+		$q -> addTable('holiday_settings');
+		$q -> addQuery('*');
+		$rows = $q -> loadList();
+		$settings = $rows ? $rows[0] : array();
+	}
+	return $settings;
+}
 
 function isHoliday( $date=0 ){	
-	// Query database for settings
+	$settings = holidaySettings();
+	$holiday_manual = intval(isset($settings['holiday_manual']) ? $settings['holiday_manual'] : 0);
+	$holiday_auto =   intval(isset($settings['holiday_auto']) ? $settings['holiday_auto'] : 0);
+	// Until the module is upgraded to 0.2 there is no country.
+	$holiday_country = isset($settings['holiday_country']) ? $settings['holiday_country'] : '';
 	$q = new DBQuery();
-	$q -> addTable('holiday_settings');
-	$q -> addQuery('holiday_manual');
-	$q -> addQuery('holiday_auto');
-	$q -> addQuery('holiday_driver');
-	
-	$settings = $q -> loadList()[0];
-	
-	$holiday_manual = intval($settings['holiday_manual']);
-	$holiday_auto =   intval($settings['holiday_auto']);
-	$holiday_driver = intval($settings['holiday_driver']);
 	if(!$date)
 	{
 		$date=new CDate;
@@ -63,21 +70,11 @@ function isHoliday( $date=0 ){
 		}
 	}
 
-	if($holiday_auto)
+	if($holiday_auto && $holiday_country !== '')
 	{
-		// Still here? Ok, lets poll the automatic system. Its PEAR Date_Holidays
-		// drivers fail on PHP 8 (and need PEAR Date, gone since dotPulse 3.1.1):
-		// a failure counts as no holiday rather than stopping the page.
-		try {
-			$drivers_alloc = Date_Holidays::getInstalledDrivers();
-			$driver_object = Date_Holidays::factory($drivers_alloc[$holiday_driver]['title'],$date->getYear(),'en_EN');
-			if (is_object($driver_object) && !Date_Holidays::isError($driver_object)) {
-				if($driver_object->getHolidayForDate($date)){
-					return 1;
-				}
-			}
-		} catch (Throwable $e) {
-			error_log('holiday: automatic holidays unavailable: ' . $e->getMessage());
+		// Still here? Then the public holidays of the country decide.
+		if (CHolidayCalendar::holidayName($holiday_country, $date->format('%Y-%m-%d')) !== null) {
+			return 1;
 		}
 	}
 

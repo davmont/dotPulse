@@ -10,6 +10,8 @@ if (!defined('DP_BASE_DIR')) {
 ##
 
 
+require_once DP_BASE_DIR . '/modules/holiday/holiday_func.php';
+
 // Saving the settings changes data: POST with the CSRF token and edit permission only.
 $action = ($_SERVER['REQUEST_METHOD'] === 'POST') ? dPgetCleanParam($_POST, 'action', '') : '';
 if($action=="update") {
@@ -17,49 +19,37 @@ if($action=="update") {
 	if (!getPermission('holiday', 'edit')) {
 		$AppUI->redirect('m=public&a=access_denied');
 	}
-	$holiday_manual = $_POST["holiday_manual"];
-	$holiday_auto = $_POST["holiday_auto"];
-	$holiday_driver = $_POST["holiday_driver"];
-	
+	$holiday_manual = (int)dPgetCleanParam($_POST, 'holiday_manual', 0);
+	$holiday_auto = (int)dPgetCleanParam($_POST, 'holiday_auto', 0);
+	$holiday_country = dPgetCleanParam($_POST, 'holiday_country', '');
+	if (!array_key_exists($holiday_country, CHolidayCalendar::countries())) {
+		$holiday_country = '';
+	}
+
 	$q = new DBQuery();
 	$q -> addTable('holiday_settings');
-	$q -> addUpdate('holiday_manual', $holiday_manual+0);
+	$q -> addUpdate('holiday_manual', $holiday_manual);
+	$q -> addUpdate('holiday_auto', $holiday_auto);
+	if (array_key_exists('holiday_country', holidaySettings())) {
+		$q -> addUpdate('holiday_country', $holiday_country);
+	}
 	$q -> exec();
-	
-	$q -> clear();
-	$q -> addTable('holiday_settings');
-	$q -> addUpdate('holiday_auto', $holiday_auto+0);
-	$q -> exec(); 
-	
-	$q -> clear();
-	$q -> addTable('holiday_settings');
-	$q -> addUpdate('holiday_driver', $holiday_driver+0);
-	$q -> exec();
-	
+
     $AppUI->setMsg( "Settings updated" );
 	$AppUI->redirect();
 }
 
-require_once 'PEAR/Holidays.php';
-
-// Filter out available driver titles (TODO: Bother checking up the proper API)
-$drivers_alloc = Date_Holidays::getInstalledDrivers();
-for($i=0;$drivers_alloc[$i];$i++){
-        $drivers_available[$i]=$drivers_alloc[$i]['title'];
+$settings = holidaySettings();
+$holiday_manual = intval(isset($settings['holiday_manual']) ? $settings['holiday_manual'] : 0);
+$holiday_auto = intval(isset($settings['holiday_auto']) ? $settings['holiday_auto'] : 0);
+$holiday_country = isset($settings['holiday_country']) ? $settings['holiday_country'] : '';
+$countries = array('' => $AppUI->_('None', UI_OUTPUT_RAW));
+foreach (CHolidayCalendar::countries() as $code => $name) {
+	$countries[$code] = $AppUI->_($name, UI_OUTPUT_RAW);
 }
-
-// Query database
-$q = new DBQuery();
-$q -> addTable('holiday_settings');
-$q -> addQuery('holiday_manual');
-$q -> addQuery('holiday_auto');
-$q -> addQuery('holiday_driver');
-
-$settings = $q -> loadList()[0];
-
-$holiday_manual = intval($settings['holiday_manual']);
-$holiday_auto =   intval($settings['holiday_auto']);
-$holiday_driver = intval($settings['holiday_driver']);
+if (!array_key_exists('holiday_country', $settings)) {
+	echo '<p class="error">' . $AppUI->_('Upgrade the Holiday module in System Admin, Modules, to choose a country.') . '</p>';
+}
 
 ?>
 
@@ -79,8 +69,8 @@ $holiday_driver = intval($settings['holiday_driver']);
                 echo $holiday_auto ? "checked='checked' />" : "/>";
         ?></td>
         <td><?php
-                echo $AppUI->_( 'Holiday driver ' );
-                echo arraySelect( $drivers_available,"holiday_driver",null,$holiday_driver);
+                echo $AppUI->_( 'Country' ) . ' ';
+                echo arraySelect( $countries,"holiday_country",'size="1" class="text"',$holiday_country);
         ?></td>
 </tr>
 
@@ -97,6 +87,27 @@ $holiday_driver = intval($settings['holiday_driver']);
 </tr>
 </table>	
 </table>
-</form>		
-</body>
-</html>
+</form>
+<?php
+// The public holidays the country gives, this year and next.
+if ($holiday_country !== '') {
+	$this_year = (int)date('Y');
+	foreach (array($this_year, $this_year + 1) as $year) {
+		echo '<h3>' . $AppUI->_('Public holidays') . ' ' . $year . '</h3>';
+		echo '<table width="100%" border="0" cellpadding="3" cellspacing="1" class="tbl">';
+		foreach (CHolidayCalendar::forYear($holiday_country, $year) as $day => $name) {
+			$d = new CDate($day);
+			// Translate "(observed)" and "(substitute day)" on their own.
+			if (preg_match('/^(.*) \((observed|substitute day)\)$/', $name, $parts)) {
+				$name = $AppUI->_($parts[1], UI_OUTPUT_RAW) . ' (' . $AppUI->_($parts[2], UI_OUTPUT_RAW) . ')';
+			} else {
+				$name = $AppUI->_($name, UI_OUTPUT_RAW);
+			}
+			echo '<tr><td width="150" nowrap="nowrap">' . dPhtml($d->format($AppUI->getPref('SHDATEFORMAT')))
+				. '</td><td>' . dPhtml($name) . '</td></tr>';
+		}
+		echo '</table>';
+	}
+	echo '<p>' . $AppUI->_('Only national holidays are included: add regional and local ones to the whitelist.') . '</p>';
+}
+?>

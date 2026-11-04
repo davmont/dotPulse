@@ -40,7 +40,6 @@ PEAR (Date, Date_Calc, Date_Span, Contact_Vcard) was removed in 3.1.1: `CDate` (
 | jQuery treeTable | 2.3.0 | finances, resource_m | works with jQuery 3 |
 | WireIt, YUI 2 utilities | 0.6.0, 2.8.0 | timeplanning (PDM tab) | unmaintained; only the files the tab loads are kept |
 | dhtmlgoodies calendar | | timeplanning, monitoringandcontrol, dotproject_plus | |
-| PEAR Date_Holidays | | holiday (automatic holidays) | broken on PHP 8 and needs PEAR Date, removed from `lib/` in 3.1.1: automatic holidays count no day as a holiday; manual holidays work |
 
-Removed in 3.1.1: Smarty 2.6.3, xajax 0.5, R&OS ezPDF, TinyMCE 3.3.9, jQuery 1.4.2 and 1.12.3,
+Removed in 3.1.1: PEAR Date_Holidays (the holiday module calculates the public holidays itself), Smarty 2.6.3, xajax 0.5, R&OS ezPDF, TinyMCE 3.3.9, jQuery 1.4.2 and 1.12.3,
 jQuery UI 1.8rc3 and 1.12.1, DataTables, maskMoney, and most of WireIt and YUI 2.
