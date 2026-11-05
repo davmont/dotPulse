@@ -1,6 +1,6 @@
 # dotPulse 3.1.1 Release Notes
 
-**Release date:** 2026-11-04
+**Release date:** 2026-11-05
 
 dotPulse 3.1.1 is a maintenance release:
 - it replaces or removes outdated libraries: JpGraph, PEAR, TinyMCE, old jQuery and jQuery UI copies, Smarty, xajax and ezPDF;
