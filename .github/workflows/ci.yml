@@ -74,7 +74,7 @@ jobs:
       THEMES: ${{ github.event_name == 'pull_request' && 'dp-grey-theme material' || 'default amp dp-grey-theme material wps-redmond' }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
       - run: cd tools/browser && npm ci --no-audit --no-fund
