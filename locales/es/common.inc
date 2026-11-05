@@ -299,7 +299,6 @@
 "Working Days"=>"Días Laborables",
 "writeProjectName"=>"Escribir nombre de proyecto :",
 "Yes"=>"Si",
-"You have not configured your PostNuke site correctly"=>"No ha configurado correctamente su sitio PostNuke",
 "You have not removed your install directory, this is a major security risk!"=>"No ha eliminado el directorio install. ¡Esto supone un riesgo elevado!",
 "You must have cookies enabled in your browser"=>"Debe tener los cookies activados en su navegador.",
 "Zip"=>"CP",

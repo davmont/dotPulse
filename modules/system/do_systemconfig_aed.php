@@ -1,42 +1,66 @@
-<?php /* SYSTEM $Id: do_systemconfig_aed.php 6048 2010-10-06 10:01:39Z ajdonnison $ */
+<?php
 if (!defined('DP_BASE_DIR')) {
   die('You should not access this file directly.');
 }
+// Saves the settings of System Configuration: only those the page showed (one
+// section, or a search), so an unticked checkbox turns off only its own setting.
 
 $obj = new CConfig();
 
+$q = new DBQuery;
+$q->addTable('config');
+$q->addQuery('config_name, config_id, config_type, config_value');
+$config = $q->loadHashList('config_name');
+$q->clear();
 // Values before the save, so the audit log can list the settings that changed.
-$q = new DBQuery;
-$q->addTable('config');
-$q->addQuery('config_name, config_value');
-$audit_before = $q->loadHashList();
-$q->clear();
+$audit_before = array();
+foreach ($config as $name => $row) {
+	$audit_before[$name] = $row['config_value'];
+}
 
-// set all checkboxes to false
-// overwrite the true/enabled/checked checkboxes later
-$q = new DBQuery;
-$q->addTable('config');
-$q->addUpdate('config_value', 'false');
-$q->addWhere("config_type='checkbox'");
-$q->exec();
-$q->clear();
+$shown = dPgetParam($_POST, 'dPcfgShown', array());
+$values = dPgetParam($_POST, 'dPcfg', array());
+if (!is_array($shown)) {
+	$shown = array();
+}
+if (!is_array($values)) {
+	$values = array();
+}
 
-foreach ($_POST['dPcfg'] as $name => $value) {
+$AppUI->setMsg('System Configuration');
+$errors = 0;
+foreach (array_unique($shown) as $name) {
+	if (!is_string($name) || !isset($config[$name])) {
+		continue;
+	}
+	$row = $config[$name];
+	$value = isset($values[$name]) ? $values[$name] : null;
+	if ($row['config_type'] == 'checkbox') {
+		$value = ($value === 'true') ? 'true' : 'false';
+	} else if ($row['config_type'] == 'password' && ($value === null || $value === '')) {
+		// Left empty: the saved password stays.
+		continue;
+	} else if (is_array($value)) {
+		// Working days: one checkbox per day.
+		$value = implode(',', array_filter(array_map('strval', $value), 'strlen'));
+	} else if ($value === null) {
+		continue;
+	}
+	if ((string)$value === (string)$row['config_value']) {
+		continue;
+	}
+	$obj->config_id = (int)$row['config_id'];
 	$obj->config_name = $name;
-	$obj->config_value = $value;
-
-	// grab the appropriate id for the object in order to ensure
-	// that the db is updated well (config_name must be unique)
-	$obj->config_id = $_POST['dPcfgId'][$name];
-
-	// prepare (and translate) the module name ready for the suffix
-	$AppUI->setMsg('System Configuration');
+	$obj->config_value = (string)$value;
 	if (($msg = $obj->store())) {
-		$AppUI->setMsg($msg, UI_MSG_ERROR);
-	} else {
-		$AppUI->setMsg('updated', UI_MSG_OK, true);
+		$AppUI->setMsg($msg, UI_MSG_ERROR, true);
+		$errors++;
 	}
 }
+if (!$errors) {
+	$AppUI->setMsg('updated', UI_MSG_OK, true);
+}
+
 $q = new DBQuery;
 $q->addTable('config');
 $q->addQuery('config_name, config_value');

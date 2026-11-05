@@ -16,7 +16,7 @@
 # Environment: STEPS (default "1 2 3 4 5"), THEMES, LAYOUT_EXTRA, CHROME, ALLOW_DEPRECATED=1.
 . "$(dirname "$0")/lib.sh"
 STEPS=${STEPS:-1 2 3 4 5}
-THEMES=${THEMES:-default amp dp-grey-theme material wps-redmond}
+THEMES=${THEMES:-dotpulse default amp dp-grey-theme material wps-redmond}
 LAYOUT_EXTRA=${LAYOUT_EXTRA:-dp-grey-theme@1024x768 material@1024x768 default@1920x1080}
 FAILED=()
 step() { echo; echo "== $*"; }

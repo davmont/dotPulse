@@ -142,7 +142,7 @@ function submitIt() {
 	<td align="right"><?php echo $AppUI->_('User Interface Style');?>:</td>
 	<td>
 <?php
-        $uis = !empty($prefs['UISTYLE']) ? $prefs['UISTYLE'] : 'default';
+        $uis = !empty($prefs['UISTYLE']) ? $prefs['UISTYLE'] : dPgetConfig('host_style', 'dotpulse');
 	$styles = $AppUI->readDirs('style');
 	$temp = $AppUI->setWarning(false);
 	echo arraySelect($styles, 'pref_name[UISTYLE]', 'class="text" size="1"', $uis, true , true);

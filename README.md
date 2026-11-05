@@ -12,7 +12,7 @@
 **dotPulse** is an actively maintained continuation of [dotProject](https://github.com/dotproject/dotProject),
 the open-source, web-based project-management system. Upstream development stopped after
 dotProject 2.2.0 (March 2020); this fork carries the code base forward. It runs on
-PHP 8.x, ships a Material-style theme, adds PMBOK-oriented features and a full
+PHP 8.x, ships its own dotPulse theme, adds PMBOK-oriented features and a full
 Spanish translation, and has been through a complete security and code-quality audit.
 
 The name keeps the *dot* and the **dP** initials that run through the code (`dPgetParam()`,
@@ -84,7 +84,7 @@ notice or SQL error.
   progress. See [docs/api.md](docs/api.md).
 
 ### Interface and languages
-- Material theme by default; the classic themes are still available.
+- The dotPulse theme by default (also on the login page), and a redesigned System Admin: a start page with the state of the installation, and the settings by section with their help in view. The classic themes (default, amp, dp-grey-theme, material, wps-redmond) are still available.
 - Complete **Spanish** translation; the other upstream languages are kept.
 
 ## Installation

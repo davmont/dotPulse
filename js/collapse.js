@@ -87,7 +87,12 @@ function show_tab(i)
 	var tab = document.getElementById('tab_' + i);
 	tab.style.display = 'block';
 	tab = document.getElementById('toptab_' + i);
-	tab.className = 'tabon';
+	if (tab.classList.contains('dp-tab')) {
+		// dotPulse theme: tabs drawn with CSS
+		tab.classList.add('dp-tab-on');
+	} else {
+		tab.className = 'tabon';
+	}
 }
 
 function hide_tabs()
@@ -101,6 +106,10 @@ function hide_tabs()
 	for(i = 0; i < tabs.length; i++)
 		if (tabs[i].className == 'tabon')
 			tabs[i].className = 'taboff';
+
+	tabs = document.querySelectorAll('.dp-tab-on');
+	for(i = 0; i < tabs.length; i++)
+		tabs[i].classList.remove('dp-tab-on');
 
 	tabs = document.getElementsByTagName('div');
 	for(i = 0; i < tabs.length; i++)

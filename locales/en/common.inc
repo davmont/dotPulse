@@ -192,7 +192,6 @@
 "Welcome",
 "Working Days",
 "Yes",
-"You have not configured your PostNuke site correctly",
 "You have not removed your install directory, this is a major security risk!",
 "You must have cookies enabled in your browser",
 "Zip",

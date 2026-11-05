@@ -290,7 +290,6 @@ Om du ej har begärt ändringen av lösenordet behöver du ej oroa dig. Detta meddel
 "Working Days"=>"Working Days",
 "writeProjectName"=>"Write Project name :",
 "Yes"=>"Ja",
-"You have not configured your PostNuke site correctly"=>"You have not configured your PostNuke site correctly",
 "You have not removed your install directory, this is a major security risk!"=>"You have not removed your install directory, this is a major security risk!",
 "You must have cookies enabled in your browser"=>"You must have cookies enabled in your browser",
 "Zip"=>"Postnummer",
