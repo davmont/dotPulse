@@ -28,6 +28,7 @@ $titleBlock ->show();
 $tabBox = new CTabBox( "?m=holiday", "{$dPconfig['root_dir']}/modules/holiday/", $tab );
 $tabBox->add('holiday_white','Whitelist');
 $tabBox->add('holiday_black','Blacklist');
+$tabBox->add('holiday_calendars','Calendars');
 $tabBox->add('holiday_options','Settings');
 $tabBox->show();
 
