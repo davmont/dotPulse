@@ -38,10 +38,10 @@ function dPgetIniSize($val)
 	</tr>
 	<tr>
 		<td class="item">
-			PHP Version &gt;= 5.0
+			PHP Version &gt;= 8.2
 		</td>
 		<td align="left">
-			<?php echo version_compare(phpversion(), '5.0', '<') ? '<b class="error">' . $failedImg . ' (' . phpversion() . '): dotPulse may not work. Please upgrade!</b>' : '<b class="ok">' . $okImg . '</b><span class="item"> (' . phpversion() . ')</span>'; ?>
+			<?php echo version_compare(phpversion(), '8.2', '<') ? '<b class="error">' . $failedImg . ' (' . phpversion() . '): dotPulse may not work. Please upgrade!</b>' : '<b class="ok">' . $okImg . '</b><span class="item"> (' . phpversion() . ')</span>'; ?>
 		</td>
 	</tr>
 	<tr>

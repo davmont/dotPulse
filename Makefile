@@ -50,9 +50,9 @@ inline-js:
 php-test:
 	$(DOCKER_RUN) php:8.3-cli php tests/run.php
 
-# vendor/ holds what composer.lock says and loads on the oldest supported PHP (8.1).
+# vendor/ holds what composer.lock says and loads on the oldest supported PHP (8.2).
 vendor-check:
-	$(DOCKER_RUN) php:8.1-cli php tools/composer/vendor-check.php
+	$(DOCKER_RUN) php:8.2-cli php tools/composer/vendor-check.php
 
 # Known vulnerabilities: any in the Composer packages (vendor/, deployed with the code); moderate
 # or worse in the Node.js packages of the development tools (never deployed; Jest's deepmerge

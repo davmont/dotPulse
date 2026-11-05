@@ -89,7 +89,7 @@ notice or SQL error.
 
 ## Installation
 
-**Requirements:** PHP 8.1 or later (8.3 is tested), MySQL or MariaDB, Apache (recommended) or nginx.
+**Requirements:** PHP 8.2 or later (8.3 is tested), MySQL or MariaDB, Apache (recommended) or nginx.
 Several access rules rely on `.htaccess`; on nginx, port the equivalent `deny` rules
 (see [docs/deployment-security.md](docs/deployment-security.md)).
 
