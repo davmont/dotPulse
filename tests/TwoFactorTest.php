@@ -55,4 +55,13 @@ class TwoFactorTest extends TestCase {
         $uri = CTwoFactor::otpauthUri('ABC', 'ana@example.com', 'dotPulse');
         $this->assertEquals('otpauth://totp/dotPulse%3Aana%40example.com?secret=ABC&issuer=dotPulse&algorithm=SHA1&digits=6&period=30', $uri);
     }
+
+    function testQrCode() {
+        // The QR code is rendered by vendor/ (php-qrcode): an SVG data URI with one dark path.
+        $uri = CTwoFactor::qrDataUri(CTwoFactor::otpauthUri($this->secret, 'admin', 'dotPulse'));
+        $this->assertEquals('data:image/svg+xml;base64,', substr($uri, 0, 26));
+        $svg = base64_decode(substr($uri, 26));
+        $this->assertEquals(1, preg_match('#<svg [^>]*viewBox="0 0 (\d+) \1"#', $svg));
+        $this->assertEquals(true, strpos($svg, 'qr-data dark') !== false || strpos($svg, ' dark ') !== false);
+    }
 }

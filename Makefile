@@ -1,6 +1,7 @@
 # Developer checks. Each target is also a CI job (.github/workflows/ci.yml).
 #
-#   make check         lint + phpstan + raw-input + inline-js + php-test + js-test (no sandbox needed)
+#   make check         lint + phpstan + raw-input + inline-js + php-test + js-test + vendor-check
+#                      (no sandbox needed)
 #   make deps-audit    composer audit and npm audit of the dependencies (needs network access)
 #   make audit-smoke   start docker/, reinstall the database, run the security smoke test and the
 #                      REST API, dashboard, board, two-step login, audit log and earned value tip checks
@@ -17,14 +18,14 @@ DOCKER_RUN := docker run --rm --user $(shell id -u):$(shell id -g) --security-op
 export DP_UID := $(shell id -u)
 export DP_GID := $(shell id -g)
 
-.PHONY: check lint phpstan phpstan-baseline raw-input inline-js php-test js-test deps-audit audit-smoke audit-full sample-data sample-sql rehearse
+.PHONY: check lint phpstan phpstan-baseline raw-input inline-js php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse
 
-check: lint phpstan raw-input inline-js php-test js-test
+check: lint phpstan raw-input inline-js php-test js-test vendor-check
 
 # PHP 8.3 syntax check of first-party code (vendored copies excluded, as in phpstan.neon.dist).
 lint:
 	git ls-files -z '*.php' \
-	  | grep -zvE '^(lib|vendor)/|^modules/(holiday/PEAR)/' \
+	  | grep -zvE '^(lib|vendor)/' \
 	  | $(DOCKER_RUN) -i --entrypoint sh php:8.3-cli -c 'xargs -0 -n 50 -P 4 sh -c "for f; do php -d error_reporting=E_ALL\&~E_DEPRECATED -l \"\$$f\" >/dev/null || { php -l \"\$$f\"; exit 255; }; done" _'
 	@echo "OK: no syntax errors."
 
@@ -48,6 +49,10 @@ inline-js:
 # PHP unit tests (tests/*Test.php, tests/run.php).
 php-test:
 	$(DOCKER_RUN) php:8.3-cli php tests/run.php
+
+# vendor/ holds what composer.lock says and loads on the oldest supported PHP (8.1).
+vendor-check:
+	$(DOCKER_RUN) php:8.1-cli php tools/composer/vendor-check.php
 
 # Known vulnerabilities: any in the Composer packages (vendor/, deployed with the code); moderate
 # or worse in the Node.js packages of the development tools (never deployed; Jest's deepmerge
