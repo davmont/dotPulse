@@ -372,10 +372,14 @@ function userUsageDays() {
 	$task_duration_per_day = $task->getTaskDurationPerDay($use_assigned_percentage);
 	
 	for ($i = 0; $i<=$day_difference; $i++) {
-		if (!$actual_date->before($start_date) && !$actual_date->after($end_date)
-		    && $actual_date->isWorkingDay()) {
+		if (!$actual_date->before($start_date) && !$actual_date->after($end_date)) {
 	
 			foreach ($users as $user_id => $user_data) {
+				// Each person's working days: their workplaces can have different holidays.
+				$actual_date->setHolidayCalendar(CDate::holidayCalendarForUser($user_id));
+				if (!$actual_date->isWorkingDay()) {
+					continue;
+				}
 				if (!isset($user_usage[$user_id][$actual_date->format('%Y%m%d')])) {
 					$user_usage[$user_id][$actual_date->format('%Y%m%d')] = 0;
 				}

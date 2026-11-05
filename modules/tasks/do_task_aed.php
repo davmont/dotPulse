@@ -212,8 +212,12 @@ if ($sub_form) {
 			// there are dependencies set!
 			
 			// backup initial start and end dates
+			// The dates skip the holidays of the owner's workplace.
+			$holiday_calendar = CDate::holidayCalendarForUser($obj->task_owner);
 			$tsd = new CDate ($obj->task_start_date);
+			$tsd->setHolidayCalendar($holiday_calendar);
 			$ted = new CDate ($obj->task_end_date);
+			$ted->setHolidayCalendar($holiday_calendar);
 			
 			// updating the table recording the 
 			// dependency relations with this task
@@ -229,6 +233,7 @@ if ($sub_form) {
 				
 				// shift new start date to the last dependency end date
 				$nsd = new CDate ($tempTask->get_deps_max_end_date($tempTask));
+				$nsd->setHolidayCalendar($holiday_calendar);
 				
 				// prefer Wed 8:00 over Tue 16:00 as start date
 				$nsd = $nsd->next_working_day();

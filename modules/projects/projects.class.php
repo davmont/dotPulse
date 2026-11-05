@@ -273,6 +273,10 @@ class CProject extends CDpObject
 			$newTask->load($task_id);
 			if (in_array($task_id, $taskXref)) {
 				$task_date_vars = array('task_start_date', 'task_end_date');
+				// The dates skip the holidays of the owner's workplace.
+				$holiday_calendar = CDate::holidayCalendarForUser($newTask->task_owner);
+				$origStartHour->setHolidayCalendar($holiday_calendar);
+				$destDate->setHolidayCalendar($holiday_calendar);
 
 				//Adjust task dates based on calculated offsets
 				foreach ($task_date_vars as $my_date) {

@@ -309,6 +309,30 @@ var hourMSecs = 3600*1000;
 /**
 * no comment needed
 */
+/**
+* Whether a day (Date) is a working day: a working day of the week that is not a
+* holiday of the task owner's workplace (holiday_days, from the holiday module).
+*/
+function isWorkDay(d) {
+	if (!isInArray(working_days, d.getDay())) {
+		return false;
+	}
+	var owner = document.querySelector('select[name="task_owner"]');
+	var calendar = owner && owner_holiday_calendar[owner.value] !== undefined
+		? owner_holiday_calendar[owner.value] : default_holiday_calendar;
+	var days = holiday_days[calendar];
+	var day = d.getFullYear() + '-' + (d.getMonth() < 9 ? '0' : '') + (d.getMonth() + 1)
+		+ '-' + (d.getDate() < 10 ? '0' : '') + d.getDate();
+	return !(days && days[day]);
+}
+
+/** Moves a day (Date) to the next working day, if it is not one; a year at most. */
+function skipNonWorkDays(d) {
+	for (var i = 0; i < 366 && !isWorkDay(d); i++) {
+		d.setDate(d.getDate() + 1);
+	}
+}
+
 function isInArray(myArray, intValue) {
 
 	for (var i = 0; i < myArray.length; i++) {
@@ -342,7 +366,7 @@ function calcDuration(f) {
 	for (var i = 0; i < duration; i++) {
 		//var myDate = new Date(int_st_date.substring(0,4), (int_st_date.substring(4,6)-1),int_st_date.substring(6,8), int_st_date.substring(8,10));
 		var myDay = myDate.getDate();
-		if (!isInArray(working_days, myDate.getDay())) {
+		if (!isWorkDay(myDate)) {
 			weekendDays++;
 		}
 		myDate.setDate(myDay + 1);
@@ -354,7 +378,7 @@ function calcDuration(f) {
 	// check if the last day is a weekendDay
 	// if so we subtracted some hours too much before, 
 	// we have to fill up the last working day until cal_day_start + daily_working_hours
-	if (!isInArray(working_days, eDate.getDay()) && eDate.getHours() != cal_day_start) {
+	if (!isWorkDay(eDate) && eDate.getHours() != cal_day_start) {
 		durn = durn + Math.max(0, (cal_day_start + daily_working_hours - eDate.getHours()));
 	}
 	
@@ -394,7 +418,7 @@ function calcDuration(f) {
 			// check if the last day is a weekendDay
 			// if so we subtracted some hours too much before, 
 			// we have to fill up the last working day until cal_day_start + daily_working_hours
-			if (!isInArray(working_days, eDate.getDay()) && eDate.getHours() != cal_day_start) {
+			if (!isWorkDay(eDate) && eDate.getHours() != cal_day_start) {
 				durn = durn + Math.max(0, (cal_day_start + daily_working_hours - eDate.getHours()));
 			}
 		}
@@ -417,7 +441,7 @@ function calcDuration(f) {
 * Get the end of the previous working day 
 */
 function prev_working_day(dateObj) {
-	while (! isInArray(working_days, dateObj.getDay()) || dateObj.getHours() < cal_day_start ||
+	while (! isWorkDay(dateObj) || dateObj.getHours() < cal_day_start ||
 	      (	dateObj.getHours() == cal_day_start && dateObj.getMinutes() == 0)){
 
 		dateObj.setDate(dateObj.getDate()-1);
@@ -431,7 +455,7 @@ function prev_working_day(dateObj) {
 * Get the start of the next working day 
 */
 function next_working_day(dateObj) {
-	while (! isInArray(working_days, dateObj.getDay()) || dateObj.getHours() >= cal_day_end) {
+	while (! isWorkDay(dateObj) || dateObj.getHours() >= cal_day_end) {
 		dateObj.setDate(dateObj.getDate()+1);
 		dateObj.setHours(cal_day_start);
 		dateObj.setMinutes(0);
@@ -463,9 +487,6 @@ function calcFinish(f) {
 	var fullWorkingDays = 0;
 	var int_st_hour = e.getHours();
 
-	// calculate the number of non-working days
-	var k = 7 - working_days.length;
-
 	var durnMins = (durn - inc) * 60;
 	if ((e.getMinutes() + durnMins) >= 60)
 		inc++;
@@ -481,10 +502,8 @@ function calcFinish(f) {
 		e.setMinutes(0);
 	
 	// jump over to the first working day
-	for (var i = 0; i < k; i++){
-		if (!dayType && !isInArray(working_days, e.getDay())) {
-			e.setDate(e.getDate() + 1);
-		}
+	if (!dayType) {
+		skipNonWorkDays(e);
 	}
 		
 	/*
@@ -494,12 +513,12 @@ function calcFinish(f) {
 		e.setMinutes(0);
 
 		// Include start day as a working day (if it is one)
-		if (isInArray(working_days, e.getDay())) fullWorkingDays--;
+		if (isWorkDay(e)) fullWorkingDays--;
 
 	 	for (var i = 0; i < fullWorkingDays; i++)
 		{
 			e.setDate(e.getDate() + 1);
-			if (!isInArray(working_days, e.getDay())) i--;			
+			if (!isWorkDay(e)) i--;			
 		}
 		
 		f.end_hour.value = f.start_hour.value;
@@ -542,7 +561,7 @@ function calcFinish(f) {
 			}
 			g = false;
 			// calculate overriden non-working days
-			if (!dayType && !isInArray(working_days, e.getDay())) {
+			if (!dayType && !isWorkDay(e)) {
 				e.setDate(e.getDate() + 1);
 				i--;
 				g = true;
@@ -556,11 +575,9 @@ function calcFinish(f) {
 
 	// if there was no fullworkingday we have to check whether the end day is a working day 
 	// and in the negative case postpone the end date by appropriate days
-	for (var i = 0; i < 7-working_days.length; i++){
-		// override  possible non-working enddays
-		if (!dayType && !isInArray(working_days, e.getDay())) {
-			e.setDate(e.getDate() + 1);
-		}
+	// override  possible non-working enddays
+	if (!dayType) {
+		skipNonWorkDays(e);
 	}
 
 	if (e.getDate() < 10) tz1 = "0";

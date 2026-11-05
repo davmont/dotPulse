@@ -49,6 +49,8 @@ foreach (CHolidayCalendar::countries() as $code => $name) {
 }
 if (!array_key_exists('holiday_country', $settings)) {
 	echo '<p class="error">' . $AppUI->_('Upgrade the Holiday module in System Admin, Modules, to choose a country.') . '</p>';
+} else {
+	echo '<p>' . $AppUI->_('The default country gives the national holidays of the people without a calendar, and of the calendars without a country.') . '</p>';
 }
 
 ?>
@@ -69,7 +71,7 @@ if (!array_key_exists('holiday_country', $settings)) {
                 echo $holiday_auto ? "checked='checked' />" : "/>";
         ?></td>
         <td><?php
-                echo $AppUI->_( 'Country' ) . ' ';
+                echo $AppUI->_( 'Default country' ) . ' ';
                 echo arraySelect( $countries,"holiday_country",'size="1" class="text"',$holiday_country);
         ?></td>
 </tr>
@@ -89,7 +91,7 @@ if (!array_key_exists('holiday_country', $settings)) {
 </table>
 </form>
 <?php
-// The public holidays the country gives, this year and next.
+// The public holidays the default country gives, this year and next.
 if ($holiday_country !== '') {
 	$this_year = (int)date('Y');
 	foreach (array($this_year, $this_year + 1) as $year) {
@@ -108,6 +110,6 @@ if ($holiday_country !== '') {
 		}
 		echo '</table>';
 	}
-	echo '<p>' . $AppUI->_('Only national holidays are included: add regional and local ones to the whitelist.') . '</p>';
+	echo '<p>' . $AppUI->_('Only national holidays are included: add regional and local ones in a calendar (Calendars tab), or to the whitelist for everybody.') . '</p>';
 }
 ?>
