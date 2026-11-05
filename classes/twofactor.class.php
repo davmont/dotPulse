@@ -110,7 +110,6 @@ class CTwoFactor
 	{
 		require_once DP_BASE_DIR . '/vendor/autoload.php';
 		$options = new \chillerlan\QRCode\QROptions(array(
-			// outputInterface works on php-qrcode 5 and 6 (6 removed the MARKUP_SVG constant).
 			'outputInterface' => \chillerlan\QRCode\Output\QRMarkupSVG::class,
 			'eccLevel' => \chillerlan\QRCode\Common\EccLevel::M,
 			'addQuietzone' => true,

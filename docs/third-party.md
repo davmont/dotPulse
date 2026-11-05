@@ -11,7 +11,7 @@ update when one is replaced.
 | --- | --- |
 | PHPMailer 7 | all mail |
 | Dompdf 3 | PDF reports (through `classes/dpdf.class.php`) |
-| chillerlan/php-qrcode 5 | the QR code of two-step login |
+| chillerlan/php-qrcode 6 | the QR code of two-step login |
 
 `vendor/` is committed, so a server needs no Composer. A Dependabot pull request changes
 `composer.json` and `composer.lock` only: before merging it, run `composer install` and
