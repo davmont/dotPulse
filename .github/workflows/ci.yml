@@ -84,7 +84,7 @@ jobs:
         run: |
           ls docker/.audit
           docker compose -f docker/compose.yml logs web | tail -300
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: audit-reports
