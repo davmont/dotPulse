@@ -55,3 +55,4 @@
 "View Contact",
 "view this contact",
 "yyyy-mm-dd",
+"Action",

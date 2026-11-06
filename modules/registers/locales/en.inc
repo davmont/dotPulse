@@ -13,3 +13,7 @@
 "Reference",
 "Registers",
 "Register Code",
+"Register",
+"inserted",
+"RState",
+"Insert Register",

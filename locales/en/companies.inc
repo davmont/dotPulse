@@ -54,7 +54,7 @@
 "companyDelete"=>"Are you sure you want to delete this company?",
 "companyValidName"=>"Please enter a valid Company name",
 "delete company",
-"doDelete",
+"doDelete"=>"Are you sure you want to delete this",
 "e-mail",
 "edit",
 "edit this company",
@@ -72,3 +72,4 @@
 
 "1LBLORGONOGRAM" => "Organizational diagram",
 "1LBLMONITORAMENTO"=>"Monitoring",
+"\$qid =& \$q->exec(); Company",

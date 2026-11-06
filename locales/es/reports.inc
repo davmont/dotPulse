@@ -1,0 +1,6 @@
+"Please select at least one category for view"=>"Seleccione al menos una categoría para ver",
+"Please choose a start date"=>"Elija una fecha de inicio",
+"Please choose an end date"=>"Elija una fecha de fin",
+"Reports"=>"Informes",
+"Payroll"=>"Nóminas",
+"Billing"=>"Facturación",

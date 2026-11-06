@@ -14,3 +14,7 @@
 "Registrar",
 "Hosting Notes",
 "delete domain",
+"Are you sure you want to cancel.",
+"Hosting/Domain",
+"not found",
+"Domain deleted",

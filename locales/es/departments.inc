@@ -38,3 +38,4 @@
 // "Department deleted" => "Departamento eliminado",
 // "Department inserted" => "Departamento agregado",
 // "Department updated" => "Departamento modificado",
+"Invalid Department ID"=>"ID de departamento no válido",
