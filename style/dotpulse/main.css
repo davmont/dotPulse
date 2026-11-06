@@ -327,3 +327,41 @@ table.minical .event { font-weight: 700; }
 	.dp-top-in, .dp-sub, .dp-page { padding-left: 12px; padding-right: 12px; }
 	.dp-tools input.text { width: 140px; }
 }
+
+/* Phone width (not pop-ups, which open small on purpose). The pages lay out with
+   tables: below 640px the layout and form tables stack (a label above its field),
+   while lists and calendars, which need their columns, scroll sideways inside
+   themselves. */
+@media (max-width: 640px) {
+	/* The modules in one row that scrolls sideways, the current one in view. */
+	.dp-nav { flex: 1 1 100%; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+	.dp-nav a { flex: 0 0 auto; }
+	body:not(.dp-dialog) .dp-page { padding-left: 10px; padding-right: 10px; }
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *),
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *) > tbody,
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *) > thead,
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *) > * > tr,
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *) > * > tr > td,
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *) > * > tr > th {
+		display: block;
+		width: auto !important;
+		max-width: 100%;
+		box-sizing: border-box;
+		white-space: normal;
+		text-align: left;
+	}
+	body:not(.dp-dialog) .dp-page table.tbl, body:not(.dp-dialog) .dp-page table.mocal, body:not(.dp-dialog) .dp-page table.contacts {
+		display: block;
+		max-width: 100%;
+		min-width: 0 !important; /* over inline min-widths: the columns scroll inside */
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	body:not(.dp-dialog) .dp-page h1 { white-space: normal; }
+	body:not(.dp-dialog) .dp-page input:not([type=checkbox], [type=radio], [type=image]), body:not(.dp-dialog) .dp-page select, body:not(.dp-dialog) .dp-page textarea {
+		max-width: 100%;
+		box-sizing: border-box;
+	}
+	body:not(.dp-dialog) .dp-page img { max-width: 100%; height: auto; }
+	body:not(.dp-dialog) .dp-page pre { white-space: pre-wrap; word-break: break-word; }
+}

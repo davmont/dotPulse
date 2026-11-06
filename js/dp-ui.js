@@ -68,3 +68,15 @@ function dpPost(url, fields) {
 	form.submit();
 	return false;
 }
+
+/**
+ * dotPulse theme on a phone: the module menu is one row that scrolls sideways;
+ * bring the current module into view.
+ */
+document.addEventListener('DOMContentLoaded', function () {
+	var nav = document.querySelector('.dp-nav');
+	var on = nav && nav.querySelector('a.dp-on');
+	if (on && nav.scrollWidth > nav.clientWidth) {
+		nav.scrollLeft = Math.max(0, on.offsetLeft - nav.offsetLeft - (nav.clientWidth - on.offsetWidth) / 2);
+	}
+});

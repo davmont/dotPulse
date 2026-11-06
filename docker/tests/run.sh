@@ -6,7 +6,8 @@
 #      sample data (db/sample) and the seed data
 #   2  crawl every page as admin and as worker
 #   3  fill and save every add/edit form as admin and as worker; crawl again with that data
-#   4  layout in each theme (THEMES, at 1366x768) and at LAYOUT_EXTRA (theme@WxH ...);
+#   4  layout in each theme (THEMES, at 1366x768) and at LAYOUT_EXTRA (theme@WxH ...; dotpulse
+#      also at phone width);
 #      pop-ups at their window sizes and task form tab switching in each theme
 #   5  remove every add-on, crawl the core without them, reinstall them all
 #
@@ -17,7 +18,7 @@
 . "$(dirname "$0")/lib.sh"
 STEPS=${STEPS:-1 2 3 4 5}
 THEMES=${THEMES:-dotpulse default amp dp-grey-theme material wps-redmond}
-LAYOUT_EXTRA=${LAYOUT_EXTRA:-dp-grey-theme@1024x768 material@1024x768 default@1920x1080}
+LAYOUT_EXTRA=${LAYOUT_EXTRA:-dotpulse@1024x768 dotpulse@390x844 dp-grey-theme@1024x768 material@1024x768 default@1920x1080}
 FAILED=()
 step() { echo; echo "== $*"; }
 run() { local name=$1; shift; "$@" || FAILED+=("$name"); }
