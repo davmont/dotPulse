@@ -323,6 +323,16 @@ table.minical .event { font-weight: 700; }
 
 .login-box { background: #ffffff; border: 1px solid var(--dp-line-soft); border-radius: 12px; }
 
+/* Laptop width: the dense lists and forms of the older pages need the room. */
+@media (max-width: 1279px) {
+	.dp-page { padding-left: 12px; padding-right: 12px; }
+	table.tbl TH, table.tbl td { padding: 5px 6px; }
+	table.std td { padding: 3px 5px; }
+	td.tabox, div.tabox { padding: 8px; }
+	span.dp-tab a { padding: 7px 10px; }
+	.button, input[type="button"], input[type="submit"], input[type="reset"], button { padding: 4px 9px; }
+}
+
 @media (max-width: 700px) {
 	.dp-top-in, .dp-sub, .dp-page { padding-left: 12px; padding-right: 12px; }
 	.dp-tools input.text { width: 140px; }
