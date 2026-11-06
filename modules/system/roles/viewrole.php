@@ -13,14 +13,12 @@ if (isset($_GET['tab'])) {
 }
 $tab = $AppUI->getState('RoleVwTab') !== NULL ? $AppUI->getState('RoleVwTab') : 0;
 
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
+dPadminOpen('roles');
 if (! is_array($role)) {
-	$titleBlock = new CTitleBlock('Invalid Role', 'main-settings.png', $m, "$m.$a");
-	$titleBlock->addCrumb('?m=system&amp;u=roles', 'role list');
-	$titleBlcok->show();
+	dPadminHeading('Invalid Role');
 } else {
-	$titleBlock = new CTitleBlock('View Role', 'main-settings.png', $m, "$m.$a");
-	$titleBlock->addCrumb('?m=system&amp;u=roles', 'role list');
-	$titleBlock->show();
+	dPadminHeading('View Role', '');
 	// Now onto the display of the user.
 ?>
 <table border="0" cellpadding="4" cellspacing="0" width="100%" class="std">
@@ -40,3 +38,4 @@ if (! is_array($role)) {
 	$tabBox->show();
 } // End of check for valid role
 ?>
+<?php dPadminClose(); ?>

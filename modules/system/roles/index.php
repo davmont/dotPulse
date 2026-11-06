@@ -29,9 +29,9 @@ $q->addOrder('mod_directory');
 $modules = arrayMerge(array('0'=>'All'), $q->loadHashList());
 
 // setup the title block
-$titleBlock = new CTitleBlock('Roles', 'main-settings.png', $m, "$m.$a");
-$titleBlock->addCrumb('?m=system', 'System Admin');
-$titleBlock->show();
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
+dPadminOpen('roles');
+dPadminHeading('Roles and permissions', 'What each role can see and change. Give roles to users in User Admin.');
 
 $crumbs = array();
 $crumbs['?m=system'] = 'System Admin';
@@ -128,3 +128,4 @@ if ($role_id == 0) {
  // Do all the tab stuff.
  
 ?>
+<?php dPadminClose(); ?>

@@ -22,9 +22,9 @@ $values = $q->loadList();
 
 $sysval_id = isset($_GET['sysval_id']) ? $_GET['sysval_id'] : 0;
 
-$titleBlock = new CTitleBlock('System Lookup Values', 'myevo-weather.png', $m, "$m.$u.$a");
-$titleBlock->addCrumb("?m=system", "System Admin");
-$titleBlock->show();
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
+dPadminOpen('syskeys');
+dPadminHeading('Lookup values', 'The statuses, priorities and types that the forms offer.');
 ?>
 <script language="javascript" type="text/javascript" nonce="<?php echo dPcspNonce(); ?>">
 <?php
@@ -106,3 +106,4 @@ if ($sysval_id == 0) {
 ?>
 </table>
 </form>
+<?php dPadminClose(); ?>
