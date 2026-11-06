@@ -49,6 +49,10 @@ if ($action) {
 		$AppUI->setMsg('Calendar deleted', UI_MSG_OK);
 		$AppUI->redirect('m=holiday');
 	}
+	if ($action == 'import' && $calendar_id) {
+		holidayImportIcs($calendar_id);
+		$AppUI->redirect('m=holiday&a=calendar&calendar_id=' . $calendar_id);
+	}
 
 	// Plain text, escaped where it is shown.
 	$name = trim((string)dPgetParam($_POST, 'calendar_name', ''));
@@ -109,6 +113,60 @@ if ($action) {
 	}
 	$AppUI->setMsg('Calendar saved', UI_MSG_OK);
 	$AppUI->redirect('m=holiday&a=calendar&calendar_id=' . $calendar_id);
+}
+
+/**
+ * Adds the days of an uploaded iCalendar file (field "ics") to the calendar as
+ * holidays. A day already in the calendar with the same dates and name is skipped,
+ * so importing a file again adds nothing.
+ */
+function holidayImportIcs($calendar_id) {
+	global $AppUI;
+	$file = isset($_FILES['ics']) ? $_FILES['ics'] : null;
+	if (!$file || $file['error'] !== UPLOAD_ERR_OK || !is_uploaded_file($file['tmp_name'])) {
+		$AppUI->setMsg('Choose an iCalendar (.ics) file', UI_MSG_ERROR);
+		return;
+	}
+	if ($file['size'] > 1048576) {
+		$AppUI->setMsg('The iCalendar file is larger than 1 MB', UI_MSG_ERROR);
+		return;
+	}
+	$days = holidayParseIcs(file_get_contents($file['tmp_name']));
+	if (!$days) {
+		$AppUI->setMsg('No days found in the iCalendar file', UI_MSG_ERROR);
+		return;
+	}
+	$q = new DBQuery();
+	$q -> addTable('holiday');
+	$q -> addQuery('holiday_start_date, holiday_end_date, holiday_description');
+	$q -> addWhere('holiday_calendar = ' . (int)$calendar_id);
+	$have = array();
+	foreach ($q -> loadList() as $row) {
+		$have[substr($row['holiday_start_date'], 0, 10) . '|' . substr($row['holiday_end_date'], 0, 10) . '|' . $row['holiday_description']] = true;
+	}
+	$q -> clear();
+	$added = 0;
+	foreach ($days as $day) {
+		list($start, $end, $name, $annual) = $day;
+		$name = mb_substr($name, 0, 255);
+		$key = $start . '|' . $end . '|' . $name;
+		if (isset($have[$key])) {
+			continue;
+		}
+		$have[$key] = true;
+		$q -> addTable('holiday');
+		$q -> addInsert('holiday_description', $name);
+		$q -> addInsert('holiday_start_date', $start . ' 00:00:00');
+		$q -> addInsert('holiday_end_date', $end . ' 00:00:00');
+		$q -> addInsert('holiday_white', 1);
+		$q -> addInsert('holiday_annual', $annual);
+		$q -> addInsert('holiday_calendar', (int)$calendar_id);
+		$q -> exec();
+		$q -> clear();
+		$added++;
+	}
+	$AppUI->setMsg($AppUI->_('Days imported', UI_OUTPUT_RAW) . ': ' . $added . ' (' . (count($days) - $added) . ' '
+		. $AppUI->_('already in the calendar', UI_OUTPUT_RAW) . ')', UI_MSG_OK, false);
 }
 
 // The days added from here come back to this page.
@@ -283,6 +341,18 @@ if (!$days) {
 	</td>
 </tr>
 </table>
+<form name="importIcs" method="post" enctype="multipart/form-data" action="?m=holiday&amp;a=calendar&amp;calendar_id=<?php echo $calendar_id; ?>">
+<input name="action" type="hidden" value="import" />
+<table width="100%" border="0" cellpadding="3" cellspacing="1">
+<tr>
+	<td align="right">
+		<?php echo $AppUI->_('Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them');?>:
+		<input type="file" name="ics" accept=".ics,text/calendar" class="text" />
+		<input class="button" type="submit" value="<?php echo $AppUI->_('Import');?>" />
+	</td>
+</tr>
+</table>
+</form>
 <?php
 // Every holiday of the calendar, this year and next: what the task dates skip.
 $this_year = (int)date('Y');

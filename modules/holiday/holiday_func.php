@@ -219,4 +219,82 @@ function holidayCalendarForUser($user_id) {
 	}
 	return $cache[$user_id];
 }
+
+/**
+ * The days off of an iCalendar file (RFC 5545), as a regional or local government
+ * or a calendar app exports them: array of array(start 'Y-m-d', end 'Y-m-d',
+ * name, annual). All-day events end the day before DTEND; a timed event counts
+ * for the days it touches. A yearly RRULE makes the day annual; other repeats,
+ * cancelled events and events without a valid start are left out.
+ */
+function holidayParseIcs($text) {
+	// Lines folded with a space or a tab continue the line before.
+	$text = preg_replace("/\r?\n[ \t]/", '', str_replace("\r\n", "\n", (string)$text));
+	$days = array();
+	$event = null;
+	foreach (explode("\n", $text) as $line) {
+		$line = rtrim($line, "\r");
+		if (strcasecmp($line, 'BEGIN:VEVENT') === 0) {
+			$event = array();
+			continue;
+		}
+		if ($event === null) {
+			continue;
+		}
+		if (strcasecmp($line, 'END:VEVENT') === 0) {
+			$day = holidayIcsEvent($event);
+			if ($day) {
+				$days[] = $day;
+			}
+			$event = null;
+			continue;
+		}
+		if (!preg_match('/^([A-Za-z-]+)((?:;[^:]*)?):(.*)$/', $line, $parts)) {
+			continue;
+		}
+		$name = strtoupper($parts[1]);
+		if (!isset($event[$name])) {
+			$event[$name] = array('params' => strtoupper($parts[2]), 'value' => $parts[3]);
+		}
+	}
+	return $days;
+}
+
+/** One VEVENT (property => params, value) as holidayParseIcs() returns it, or null. */
+function holidayIcsEvent($event) {
+	if (!isset($event['DTSTART']) || (isset($event['STATUS']) && strtoupper(trim($event['STATUS']['value'])) == 'CANCELLED')) {
+		return null;
+	}
+	$start = holidayIcsDate($event['DTSTART']['value']);
+	if (!$start) {
+		return null;
+	}
+	$all_day = strpos($event['DTSTART']['params'], 'VALUE=DATE') !== false || strlen(trim($event['DTSTART']['value'])) == 8;
+	$end = isset($event['DTEND']) ? holidayIcsDate($event['DTEND']['value']) : null;
+	if ($end && $all_day && $end > $start) {
+		// The end of an all-day event is the day after its last day.
+		$end = gmdate('Y-m-d', strtotime($end . ' UTC') - 86400);
+	}
+	if (!$end || $end < $start) {
+		$end = $start;
+	}
+	$annual = 0;
+	if (isset($event['RRULE'])) {
+		if (!preg_match('/(^|;)FREQ=YEARLY(;|$)/i', $event['RRULE']['value'])) {
+			return null;
+		}
+		$annual = 1;
+	}
+	$name = isset($event['SUMMARY']) ? $event['SUMMARY']['value'] : '';
+	$name = strtr($name, array('\\n' => ' ', '\\N' => ' ', '\\,' => ',', '\;' => ';', '\\\\' => '\\'));
+	return array($start, $end, trim($name), $annual);
+}
+
+/** The date ('Y-m-d') of an iCalendar DATE or DATE-TIME value, or null. */
+function holidayIcsDate($value) {
+	if (!preg_match('/^(\d{4})(\d{2})(\d{2})/', trim($value), $d) || !checkdate((int)$d[2], (int)$d[3], (int)$d[1])) {
+		return null;
+	}
+	return $d[1] . '-' . $d[2] . '-' . $d[3];
+}
 ?>

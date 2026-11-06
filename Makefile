@@ -4,7 +4,8 @@
 #                      (no sandbox needed)
 #   make deps-audit    composer audit and npm audit of the dependencies (needs network access)
 #   make audit-smoke   start docker/, reinstall the database, run the security smoke test and the
-#                      REST API, dashboard, board, two-step login, audit log and earned value tip checks
+#                      REST API, dashboard, board, two-step login, audit log, earned value tip and
+#                      holiday calendar checks
 #   make sample-data   start docker/, reinstall the database, load the sample data (db/sample/)
 #   make audit-full    start docker/, then docker/tests/run.sh: every add-on installed, used and
 #                      removed with no SQL error or PHP warning, layout in every theme (~1 hour)
@@ -81,6 +82,7 @@ audit-smoke:
 	docker/tests/twofactor.sh
 	docker/tests/auditlog.sh
 	docker/tests/ev-tips.sh
+	docker/tests/holiday.sh
 
 audit-full:
 	docker/up.sh

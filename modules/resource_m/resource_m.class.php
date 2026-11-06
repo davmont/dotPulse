@@ -426,6 +426,9 @@ function editAssign($user_id, $task_id, $new_percent, $aff_style, $adapt=false) 
 ** @return	float	assign		
 */
 function getAssignment($ccurrent, $task, $user_id, $scale, $show) {
+	// The user's working days: their workplace's holidays are days off.
+	$ccurrent = new CDate($ccurrent);
+	$ccurrent->setHolidayCalendar(CDate::holidayCalendarForUser($user_id));
 	if($show < 3) { // The assignment should be calculate for a ranged date so we need to average.
 		//$pcntl	= function_exists('pcntl_fork');
 		
