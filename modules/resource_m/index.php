@@ -106,7 +106,7 @@ $monthCount 	= 	monthCount($cstart_date, $cend_date);
 $yearCount 		= 	yearCount($cstart_date, $cend_date);
 
 // Determine if we have to display days, weeks, months.
-//$showHours = ($dayCount<=1) ? 1 : 0;
+$showHours = 0; // no hour columns: the shortest scale is a day
 $showDays = ($dayCount<=32) ? 1 : 0;
 $showWeeks = ($dayCount<32*7) ? 1 : 0;
 $showMonths = ($dayCount<32*30) ? 1 : 0;

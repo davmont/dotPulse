@@ -23,9 +23,6 @@ if (!defined('DP_BASE_DIR')) {
 	//print "</pre>";
 	
 		
-	//compute hours/week from config
-	$min_hours_week =count(explode(",",dPgetConfig("cal_working_days"))) * $min_hours_day;
-	
 	// get date format
 	$df = $AppUI->getPref('SHDATEFORMAT');
 
@@ -173,6 +170,9 @@ if (!defined('DP_BASE_DIR')) {
 	$dow=0;
 	$last_day = new CDate();
 	$last_day -> copy($start_day);
+	// The user's working days: their workplace's holidays are days off.
+	$last_day->setHolidayCalendar(CDate::holidayCalendarForUser($user_id));
+	$min_hours_week = timecardWeekHours($user_id, $start_day, $min_hours_day);
 	$no_results = true;
 	$first=1;
 

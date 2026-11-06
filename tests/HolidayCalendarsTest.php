@@ -55,5 +55,27 @@ class HolidayCalendarsTest extends TestCase {
         // A loop of parents stops where it closes.
         $this->assertEquals(array(3, 4), array_keys(holidayCalendarChain(3, $calendars)));
     }
+
+    function testParseIcs() {
+        // Folded lines, CRLF, escapes, an all-day day, a two-day event, a yearly one,
+        // a timed event and what is left out (weekly, cancelled, no start).
+        $ics = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\n"
+            . "BEGIN:VEVENT\r\nDTSTART;VALUE=DATE:20260515\r\nDTEND;VALUE=DATE:20260516\r\nSUMMARY:San Isidro\\, Madrid\r\nEND:VEVENT\r\n"
+            . "BEGIN:VEVENT\r\nDTSTART;VALUE=DATE:20261224\r\nDTEND;VALUE=DATE:20261226\r\nSUMMARY:Christmas\r\n  break\r\nEND:VEVENT\r\n"
+            . "BEGIN:VEVENT\r\nDTSTART;VALUE=DATE:20200911\r\nRRULE:FREQ=YEARLY;BYMONTH=9\r\nSUMMARY:Diada\r\nEND:VEVENT\r\n"
+            . "BEGIN:VEVENT\r\nDTSTART;TZID=Europe/Madrid:20260409T000000\r\nDTEND;TZID=Europe/Madrid:20260409T235900\r\nSUMMARY:Jueves Santo\r\nEND:VEVENT\r\n"
+            . "BEGIN:VEVENT\r\nDTSTART;VALUE=DATE:20260105\r\nRRULE:FREQ=WEEKLY\r\nSUMMARY:Weekly\r\nEND:VEVENT\r\n"
+            . "BEGIN:VEVENT\r\nDTSTART;VALUE=DATE:20260106\r\nSTATUS:CANCELLED\r\nSUMMARY:Cancelled\r\nEND:VEVENT\r\n"
+            . "BEGIN:VEVENT\r\nSUMMARY:No start\r\nEND:VEVENT\r\n"
+            . "BEGIN:VEVENT\r\nDTSTART:20261399\r\nSUMMARY:Bad date\r\nEND:VEVENT\r\n"
+            . "END:VCALENDAR\r\n";
+        $this->assertEquals(array(
+            array('2026-05-15', '2026-05-15', 'San Isidro, Madrid', 0),
+            array('2026-12-24', '2026-12-25', 'Christmas break', 0),
+            array('2020-09-11', '2020-09-11', 'Diada', 1),
+            array('2026-04-09', '2026-04-09', 'Jueves Santo', 0),
+        ), holidayParseIcs($ics));
+        $this->assertEquals(array(), holidayParseIcs('not a calendar'));
+    }
 }
 ?>

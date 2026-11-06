@@ -8,8 +8,6 @@ if (!defined('DP_BASE_DIR')) {
 	//print "<pre>$show_possible_hours_worked</pre>";
 	//grab hours per day from config
 	$min_hours_day = dPgetConfig('daily_working_hours', 8);
-	//compute hours/week from config
-	$min_hours_week =count(explode(",",$dPconfig["cal_working_days"])) * $min_hours_day;
 	// get date format
 	$df = $AppUI->getPref('SHDATEFORMAT');
 	
@@ -112,6 +110,7 @@ if (!defined('DP_BASE_DIR')) {
 	
 		$start_data_pretty[$i] =  "$start_month $start_date-".($start_month==$end_month?$end_date:"$end_month $end_date");
 		$start_data_linkable[$i] =  urlencode($start_day->getDate()) ;
+		$week_starts[$i] = new CDate($start_day);
 //		$starts[$i] =  $start_day->format($df);
 		$sql = "
 			SELECT
@@ -204,7 +203,7 @@ if (!defined('DP_BASE_DIR')) {
 		   $hours = 0;
 		 }
 ?>
-	<td align="right"<?php echo $show_possible_hours_worked&&$hours>$min_hours_week?"bgcolor=\"#FFAEB8\"":""?>><a href="?m=timecard&user_id=<?php echo $id?>&tab=0&start_date=<?php echo $start_data_linkable[$i]?>"><?php echo number_format($hours,1)?></a></td>
+	<td align="right"<?php echo $show_possible_hours_worked&&$hours>timecardWeekHours($id, $week_starts[$i], $min_hours_day)?"bgcolor=\"#FFAEB8\"":""?>><a href="?m=timecard&user_id=<?php echo $id?>&tab=0&start_date=<?php echo $start_data_linkable[$i]?>"><?php echo number_format($hours,1)?></a></td>
 <?php
 	}
 ?>

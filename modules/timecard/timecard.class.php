@@ -6,6 +6,19 @@ if (!defined('DP_BASE_DIR')) {
 require_once $AppUI->getSystemClass('dp');
 //require_once $AppUI->getSystemClass('libmail');
 
+/**
+ * The hours a user is expected to work in the week starting on a date: the daily
+ * working hours times the working days, holidays of the user's calendar left out.
+ */
+function timecardWeekHours($user_id, $week_start, $hours_day)
+{
+	$start = new CDate($week_start);
+	$start->setHolidayCalendar(CDate::holidayCalendarForUser($user_id));
+	$end = new CDate($start);
+	$end->addDays(6);
+	return $start->workingDaysInSpan($end) * $hours_day;
+}
+
 // Function to build a where clause to be appended to any sql that will narrow
 // down the returned data to only permitted entities
 
