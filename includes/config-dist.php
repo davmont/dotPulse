@@ -47,11 +47,6 @@ $dPconfig['dbpass'] = 'dp_pass';  // Change to match your MySQL Password
 // set this value to true to use persistent database connections
 $dPconfig['dbpersist'] = false;
 
-// PostNuke authentication (auth_method 'pn') only: secret shared with the PostNuke
-// site, at least 16 characters. The PostNuke side signs the userdata value (before URL
-// encoding) with hash_hmac('sha256', $userdata, $secret) and sends it as "check".
-// $dPconfig['postnuke_secret'] = '';
-
 // Content-Security-Policy: set to true to only report violations instead of
 // blocking them, while a page that breaks under the policy is fixed (docs/csp.md).
 // $dPconfig['csp_report_only'] = true;

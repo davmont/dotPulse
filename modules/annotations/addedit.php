@@ -259,7 +259,8 @@ if ($save_annotations == "1") {
 
 			$AppUI->setMsg( 'Annotations' );
 			$AppUI->setMsg( "invalid ID : ".$obj->annotation_id, UI_MSG_ERROR, true );
-			$AppUI->redirect();					// go back to the calling location
+			// Not to the saved place: that can be this page, which redirected to itself.
+			$AppUI->redirect('m=annotations&project_id=' . (int)$project_id);
 		}
 		$show_time = substr($obj->annotation_date,11,5);
 	}

@@ -285,7 +285,6 @@
 "Working Days"=>"Работни Дни",
 "writeProjectName"=>"Write Project name :",
 "Yes"=>"Да",
-"You have not configured your PostNuke site correctly"=>"You have not configured your PostNuke site correctly",
 "You have not removed your install directory, this is a major security risk!"=>"Не сте изтрили install/ директорията, това е сериозен риск",
 "You must have cookies enabled in your browser"=>"Трябва да позволявате cookies ",
 "Zip"=>"Пощенски код",

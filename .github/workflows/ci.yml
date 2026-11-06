@@ -78,7 +78,7 @@ jobs:
       # Ubuntu runners ship Google Chrome; playwright-core drives it.
       CHROME: /usr/bin/google-chrome
       # Pull requests check the layout in two themes; pushes to devel/master in all five.
-      THEMES: ${{ github.event_name == 'pull_request' && 'dp-grey-theme material' || 'default amp dp-grey-theme material wps-redmond' }}
+      THEMES: ${{ github.event_name == 'pull_request' && 'dotpulse dp-grey-theme' || 'dotpulse default amp dp-grey-theme material wps-redmond' }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7

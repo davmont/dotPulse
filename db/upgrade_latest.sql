@@ -163,3 +163,11 @@ CREATE TABLE IF NOT EXISTS `%dbprefix%audit_log` (
 INSERT INTO `%dbprefix%config` (`config_name`, `config_value`, `config_group`, `config_type`)
   SELECT 'audit_log_days', '365', 'audit', 'text' FROM DUAL
   WHERE NOT EXISTS (SELECT 1 FROM `%dbprefix%config` WHERE `config_name` = 'audit_log_days');
+
+# 20261105
+# The dotPulse theme is the default (where the shipped defaults were kept); PostNuke login removed (PostNuke ended in 2008)
+UPDATE `%dbprefix%config` SET `config_value` = 'dotpulse' WHERE `config_name` = 'host_style' AND `config_value` = 'default';
+UPDATE `%dbprefix%user_preferences` SET `pref_value` = 'dotpulse' WHERE `pref_user` = 0 AND `pref_name` = 'UISTYLE' AND `pref_value` = 'dp-grey-theme';
+UPDATE `%dbprefix%config` SET `config_value` = 'sql' WHERE `config_name` = 'auth_method' AND `config_value` = 'pn';
+DELETE FROM `%dbprefix%config_list` WHERE `config_list_name` = 'pn' AND `config_id` IN (SELECT `config_id` FROM (SELECT `config_id` FROM `%dbprefix%config` WHERE `config_name` = 'auth_method') a);
+DELETE FROM `%dbprefix%config` WHERE `config_name` = 'postnuke_allow_login';

@@ -43,7 +43,7 @@ const POPUPS = [
 			shown: [...document.querySelectorAll('div.tab')].filter(d => d.style.display !== 'none').map(d => d.id),
 			cls: document.getElementById('toptab_' + i).className,
 		}), i);
-		if (st.shown.length !== 1 || st.shown[0] !== 'tab_' + i || st.cls !== 'tabon') { failed++; console.log(`FAIL  ${theme} task form tab ${i}: ${JSON.stringify(st)}`); }
+		if (st.shown.length !== 1 || st.shown[0] !== 'tab_' + i || !(st.cls === 'tabon' || st.cls.split(' ').includes('dp-tab-on'))) { failed++; console.log(`FAIL  ${theme} task form tab ${i}: ${JSON.stringify(st)}`); }
 	}
 	if (!tabs) { failed++; console.log(`FAIL  ${theme} task form: no tabs found`); }
 	if (scriptErrors.length) { failed++; console.log(`FAIL  ${theme} script errors: ${scriptErrors.join(' | ')}`); }

@@ -442,7 +442,7 @@ INSERT INTO %dbprefix%user_preferences VALUES("0", "LOCALE", "en");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "TABVIEW", "0");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "SHDATEFORMAT", "%d/%m/%Y");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "TIMEFORMAT", "%I:%M %p");
-INSERT INTO %dbprefix%user_preferences VALUES("0", "UISTYLE", "dp-grey-theme");
+INSERT INTO %dbprefix%user_preferences VALUES("0", "UISTYLE", "dotpulse");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "TASKASSIGNMAX", "100");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "TASKASSIGNMAIL", "1");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "USERFORMAT", "user");
@@ -652,7 +652,7 @@ CREATE TABLE %dbprefix%config (
 INSERT INTO %dbprefix%config VALUES (0, 'host_locale', 'en', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'check_overallocation', 'false', '', 'checkbox');
 INSERT INTO %dbprefix%config VALUES (0, 'currency_symbol', '$', '', 'text');
-INSERT INTO %dbprefix%config VALUES (0, 'host_style', 'default', '', 'text');
+INSERT INTO %dbprefix%config VALUES (0, 'host_style', 'dotpulse', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'company_name', 'My Company', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'page_title', 'dotPulse', '', 'text');
 INSERT INTO %dbprefix%config VALUES (0, 'site_domain', 'example.com', '', 'text');
@@ -706,10 +706,6 @@ INSERT INTO %dbprefix%config VALUES (0, 'ldap_base_dn', 'dc=saki,dc=com,dc=au', 
 INSERT INTO %dbprefix%config VALUES (0, 'ldap_user_filter', '(uid=%USERNAME%)', 'ldap', 'text'); 
 
 # 20050302
-# PostNuke authentication variables
-INSERT INTO %dbprefix%config VALUES (0, 'postnuke_allow_login', 'true', 'auth', 'checkbox');
-
-# 20050302
 # New list support for config variables
 CREATE TABLE %dbprefix%config_list (
 config_list_id integer not null auto_increment,
@@ -726,11 +722,6 @@ INSERT INTO %dbprefix%config_list (config_id, config_list_name)
 
 INSERT INTO %dbprefix%config_list (config_id, config_list_name)
   SELECT config_id, 'ldap'
-	FROM %dbprefix%config
-	WHERE config_name = 'auth_method';
-
-INSERT INTO %dbprefix%config_list (config_id, config_list_name)
-  SELECT config_id, 'pn'
 	FROM %dbprefix%config
 	WHERE config_name = 'auth_method';
 

@@ -144,8 +144,7 @@ if (dPgetParam($_REQUEST, 'resetpass', 0)) {
 
 // check if the user is trying to log in
 // Note the change to REQUEST instead of POST.  This is so that we can
-// support alternative authentication methods such as the PostNuke
-// and HTTP auth methods now supported.
+// support alternative authentication methods such as HTTP auth.
 if (isset($_REQUEST['login'])) {
 	// Security Mitigation: Rate limit login attempts to prevent brute-force attacks.
 	require_once(DP_BASE_DIR . '/classes/ratelimiter.class.php');
