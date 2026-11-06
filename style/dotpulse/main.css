@@ -17,8 +17,10 @@
 	--dp-line: #B8C3D4;
 	--dp-line-soft: #D9E0EA;
 	--dp-ground: #F4F6FA;
-	--dp-font: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
-	--dp-font-display: "Space Grotesk", "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+	/* Arial metrics before the generic families: on Linux system-ui and sans-serif are
+	   often DejaVu Sans, about 12% wider, which pushes the dense pages off a laptop screen. */
+	--dp-font: "Inter", "Segoe UI", -apple-system, Roboto, "Helvetica Neue", Arial, "Liberation Sans", system-ui, sans-serif;
+	--dp-font-display: "Space Grotesk", "Inter", "Segoe UI", -apple-system, Roboto, Arial, "Liberation Sans", system-ui, sans-serif;
 }
 
 BODY {
