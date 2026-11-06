@@ -16,7 +16,8 @@ done
 log_mark
 
 # The admin costs 50 an hour. Each project has one 10-day task (80 h, budget 4000) that is
-# half way through its dates today, so its planned value is about 2000.
+# half way through its dates at the end of today (planned value counts up to 23:59:59),
+# so its planned value is 2000 whatever the time the test runs.
 db -e "DELETE FROM dotp_monitoring_user_cost WHERE user_id = 1;
 	INSERT INTO dotp_monitoring_user_cost (user_id, cost_value, cost_per_use, cost_dt_begin, cost_dt_end) VALUES (1, 50, 0, NOW() - INTERVAL 1 YEAR, NULL)"
 C=$(db -e "SELECT MIN(company_id) FROM dotp_companies")
@@ -28,7 +29,8 @@ project() {
 		DELETE FROM dotp_projects WHERE project_name = '$1';
 		INSERT INTO dotp_projects (project_name, project_short_name, project_company, project_owner, project_status, project_start_date, project_end_date) VALUES ('$1', 'EV', $C, 1, 3, NOW() - INTERVAL 5 DAY, NOW() + INTERVAL 5 DAY);
 		SET @p = LAST_INSERT_ID();
-		INSERT INTO dotp_tasks (task_name, task_project, task_owner, task_start_date, task_end_date, task_duration, task_duration_type, task_percent_complete, task_parent) VALUES ('EV work', @p, 1, NOW() - INTERVAL 5 DAY, NOW() + INTERVAL 5 DAY, 10, 24, $2, 0);
+		SET @mid = TIMESTAMP(CURDATE() + INTERVAL 1 DAY);
+		INSERT INTO dotp_tasks (task_name, task_project, task_owner, task_start_date, task_end_date, task_duration, task_duration_type, task_percent_complete, task_parent) VALUES ('EV work', @p, 1, @mid - INTERVAL 5 DAY, @mid + INTERVAL 5 DAY, 10, 24, $2, 0);
 		SET @t = LAST_INSERT_ID();
 		UPDATE dotp_tasks SET task_parent = @t WHERE task_id = @t;
 		INSERT INTO dotp_user_tasks (user_id, task_id, perc_assignment) VALUES (1, @t, 100);

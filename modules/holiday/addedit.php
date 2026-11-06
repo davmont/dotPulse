@@ -179,7 +179,7 @@ function delIt() {
 
 	<td>
         <?php echo $AppUI->_( 'Description' );?>
-        <input type="text" class="text" SIZE="100%" name="holiday_description" value="<?php echo dPhtml($holiday["holiday_description"]);?>">
+        <input type="text" class="text" size="40" name="holiday_description" value="<?php echo dPhtml($holiday["holiday_description"]);?>">
 	</td>
 </td></tr>
 
