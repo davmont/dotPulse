@@ -15,7 +15,7 @@ global $task_parent_options, $dPconfig, $projects, $task_project, $can_edit_time
 <input type="hidden" name="sub_form" value="1" />
 <input type="hidden" name="task_id" value="<?php echo $task_id; ?>" />
 <div style="display: flex; flex-wrap: wrap; width: 100%; gap: 16px; background: #fff; border: 1px solid #e0e0e0; border-radius: 4px; padding: 16px; box-sizing: border-box;">
-	<div style="flex: 1 1 350px;">
+	<div style="flex: 1 1 350px; min-width: 0;">
 		<table border="0">
 			<tr>
 				<td>
@@ -108,7 +108,7 @@ echo arraySelect($projects, 'new_task_project',
 ?>
 		</table>
 	</div>
-	<div style="flex: 1 1 350px; text-align: center;">
+	<div style="flex: 1 1 350px; min-width: 0; text-align: center;">
 		<div style="text-align: left; width: 100%; height: 100%; display: flex; flex-direction: column;">
 			<?php echo $AppUI->_('Description');?>:
 			<br />
