@@ -71,22 +71,17 @@ if ($lang != 'en') {
 }
 ksort($trans);
 
-$titleBlock = new CTitleBlock('Translation Management', 'rdf2.png', $m, "$m.$a");
-$titleBlock->addCell($AppUI->_('Module'), '',
-                     '<form action="?m=system&amp;a=translate" method="post" name="modlang">', '');
-$titleBlock->addCell(arraySelect($modules, 'module', 
-                                 'size="1" class="text"' . dPaction(null, array(), null, array('submit' => 'modlang')), 
-                                 $module));
-$titleBlock->addCell($AppUI->_('Language'));
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
+dPadminOpen('translate');
+dPadminHeading('Translations', 'The interface texts of each module in each language.');
 $temp = $AppUI->setWarning(false);
-$titleBlock->addCell(arraySelect($locales, 'lang', 
-                                 'size="1" class="text"' . dPaction(null, array(), null, array('submit' => 'modlang')), 
-                                 $lang, true), 
-                     '','', '</form>');
+echo '<form action="?m=system&amp;a=translate" method="post" name="modlang" class="dpa-actions">'
+	. '<label class="dpa-search"><span>' . $AppUI->_('Module') . '</span>'
+	. arraySelect($modules, 'module', 'size="1"' . dPaction(null, array(), null, array('submit' => 'modlang')), $module) . '</label>'
+	. '<label class="dpa-search"><span>' . $AppUI->_('Language') . '</span>'
+	. arraySelect($locales, 'lang', 'size="1"' . dPaction(null, array(), null, array('submit' => 'modlang')), $lang, true) . '</label>'
+	. '</form>';
 $AppUI->setWarning($temp);
-
-$titleBlock->addCrumb('?m=system', 'system admin');
-$titleBlock->show();
 ?>
 
 <form action="?m=system&amp;a=translate_save" method="post" name="editlang">
@@ -172,3 +167,4 @@ if ($lang != 'en') {
 </tr>
 </form>
 </table>
+<?php dPadminClose(); ?>

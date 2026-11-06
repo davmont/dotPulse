@@ -10,9 +10,9 @@ $keys = $q->loadList();
 
 $syskey_id = isset($_GET['syskey_id']) ? $_GET['syskey_id'] : 0;
 
-$titleBlock = new CTitleBlock('System Lookup Keys', 'myevo-weather.png', $m, "$m.$a");
-$titleBlock->addCrumb("?m=system", "System Admin");
-$titleBlock->show();
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
+dPadminOpen('syskeys');
+dPadminHeading('Lookup keys', 'The lists of lookup values and how their values are separated.');
 ?>
 <script language="javascript" type="text/javascript" nonce="<?php echo dPcspNonce(); ?>">
 <?php
@@ -86,3 +86,4 @@ if ($syskey_id == 0) {
 ?>
 </table>
 </form>
+<?php dPadminClose(); ?>

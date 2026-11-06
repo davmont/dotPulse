@@ -7,12 +7,10 @@ $AppUI->savePlace();
 
 require_once($AppUI->getSystemClass('CustomFields'));
 
-$titleBlock = new CTitleBlock('Custom field editor', 'customfields.png', 'admin', 
-                              'admin.custom_field_editor');
-$titleBlock->addCrumb('?m=system', 'system admin');
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
 $edit_field_id = dpGetParam($_POST, 'field_id', NULL);
-
-$titleBlock->show();
+dPadminOpen('custom_field_editor');
+dPadminHeading('Custom fields', 'Fields of your own on projects, tasks, companies and more.');
 
 $sql = ('SELECT * FROM modules' 
         . ' ORDER BY mod_ui_order');
@@ -63,3 +61,4 @@ foreach ($modules as $module) {
 	}
 }
 ?>
+<?php dPadminClose(); ?>

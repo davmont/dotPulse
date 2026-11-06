@@ -34,132 +34,108 @@ function modCmdLink($cmd, $mod_id, $mod_directory = '', $confirm = '')
 		$confirm ? array('confirm' => $confirm) : array());
 }
 
-$titleBlock = new CTitleBlock('Modules', 'power-management.png', $m, $m . "." . $a);
-$titleBlock->addCrumb('?m=system', 'System Admin');
-$titleBlock->show();
-?>
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
 
-<table border="0" cellpadding="2" cellspacing="1" width="98%" class="tbl">
-<tr>
-	<th colspan="2"><?php echo $AppUI->_('Module');?></th>
-	<th><?php echo $AppUI->_('Status');?></th>
-	<th><?php echo $AppUI->_('Type');?></th>
-	<th><?php echo $AppUI->_('Version');?></th>
-	<th><?php echo $AppUI->_('Menu Text');?></th>
-	<th><?php echo $AppUI->_('Menu Icon');?></th>
-	<th><?php echo $AppUI->_('Menu Status');?></th>
-	<th><?php echo $AppUI->_('#');?></th>
-</tr>
-<?php
-// do the modules that are installed on the system
+// What each installed module offers (from its setup.php): upgrade and configure.
+$installed = array();
+$available = array();
 foreach ($modules as $row) {
-	// clear the file system entry
 	if (isset($modFiles[$row['mod_directory']])) {
 		$modFiles[$row['mod_directory']] = '';
 	}
-	$s = '';
-	// arrows
-	$s .= '<td>';
-	$s .= ('<img src="./images/icons/updown.gif" width="10" height="15" border="0" usemap="#arrow' 
-	       . $row['mod_id'] . '" alt="" />');
-	if ($canEdit) {
-		$s .= '<map id="arrow'.$row['mod_id'].'" name="arrow'.$row['mod_id'].'">'."\n";
-		if ($row['mod_ui_order'] > 0) {
-			$s .= '<area coords="0,0,10,7" ' . modCmdLink('moveup', $row['mod_id']) . ' alt="" />'."\n";
-		}
-		$s .= '<area coords="0,8,10,14" ' . modCmdLink('movedn', $row['mod_id']) . ' alt="" />'."\n";
-		$s .= '</map>'."\n";
+	$config = array();
+	$setup = DP_BASE_DIR . '/modules/' . $row['mod_directory'] . '/setup.php';
+	if (file_exists($setup)) {
+		include_once $setup;
 	}
-	$s .= '</td>'."\n";
-
-	$s .= '<td width="1%" nowrap="nowrap">' . $AppUI->_($row['mod_name']) . '</td>' . "\n";
-	$s .= '<td>';
-	$s .= ('<img src="./images/obj/dot' . ($row['mod_active'] ? 'green' : 'yellowanim') 
-	       . '.gif" width="12" height="12" alt="" />&nbsp;');
-	// John changes Module Terminology to be more descriptive of current Module State... 
-	// [14 Feb 2003]
-	// Status term "deactivate" changed to "Active"
-	// Status term "activate" changed to "Disabled"
-	/*
-	$s .= ('<a href="' . $query_string . '&cmd=toggle&">' 
-	       . ($row['mod_active'] ? $AppUI->_('deactivate') : $AppUI->_('activate')) . '</a>');
-	*/
-	if ($canEdit) {
-		$s .= '<a ' . modCmdLink('toggle', $row['mod_id']) . '>';
-	}
-	$s .= ($row['mod_active'] ? $AppUI->_('active') : $AppUI->_('disabled'));
-	if ($canEdit) {
-		$s .= '</a>';
-	}
-	if ($row['mod_type'] != 'core' && $canEdit) {
-		$s .= (' | <a ' . modCmdLink('remove', $row['mod_id'], '', 
-		       $AppUI->_('This will delete all data associated with the module!', UI_OUTPUT_RAW) 
-		       . "\n\n" . $AppUI->_('Are you sure?', UI_OUTPUT_RAW) . "\n") . '>' 
-		       . $AppUI->_('remove') . '</a>');
-	}
-
-	// check for upgrades
-	$ok = file_exists(DP_BASE_DIR . '/modules/' . $row['mod_directory'] . '/setup.php');
-	if ($ok) {
-		include_once(DP_BASE_DIR . '/modules/' . $row['mod_directory'] . '/setup.php');
-	}
-	if ($ok && $config[ 'mod_version' ] != $row['mod_version'] && $canEdit) {
-		$s .= (' | <a ' . modCmdLink('upgrade', $row['mod_id'], '', $AppUI->_('Are you sure?', UI_OUTPUT_RAW)) 
-		       . ' >' . $AppUI->_('upgrade') . '</a>');
-	}
-
-	// check for configuration
-	if ($ok && isset($config['mod_config']) && $config['mod_config'] == true && $canEdit) {
-		$s .= ' | <a ' . modCmdLink('configure', $row['mod_id']) . '>' . $AppUI->_('configure') . '</a>';
-	}	
-	
-	$s .= '</td>' . "\n";
-	$s .= '<td>' . $row['mod_type'] . '</td>' . "\n";
-	$s .= '<td>' . $row['mod_version'] . '</td>' . "\n";
-	$s .= '<td>' . $AppUI->_($row['mod_ui_name']) . '</td>' . "\n";
-	$s .= '<td>' . $row['mod_ui_icon'] . '</td>' . "\n";
-	
-	$s .= '<td>';
-	$s .= ('<img src="./images/obj/' . ($row['mod_ui_active'] ? 'dotgreen.gif' : 'dotredanim.gif') 
-	       . '" width="12" height="12" alt="" />&nbsp;');
-	
-	
-	if ($canEdit) {
-		$s .= '<a ' . modCmdLink('toggleMenu', $row['mod_id']) . '>';
-	}
-	$s .= (($row['mod_ui_active']) ? $AppUI->_('visible') : $AppUI->_('hidden'));
-	if ($canEdit) {
-		$s .= '</a>';
-	}
-	$s .= '</td>' . "\n";
-
-	$s .= '<td>' . $row['mod_ui_order'] . '</td>' . "\n";
-
-	echo "<tr>\n$s</tr>\n";
+	$row['_upgrade'] = isset($config['mod_version']) && $config['mod_version'] != $row['mod_version'];
+	$row['_configure'] = !empty($config['mod_config']);
+	$installed[] = $row;
 }
-
 foreach ($modFiles as $v) {
-	// clear the file system entry
-	if ($v && ! in_array($v, $hidden_modules)) {
-		$s = '';
-		$s .= '<td></td>' . "\n";
-		$s .= '<td>' . $v . '</td>' . "\n";
-		$s .= '<td>';
-		$s .= '<img src="./images/obj/dotgrey.gif" width="12" height="12" alt="" />&nbsp;';
-		if ($canEdit) {
-			$s .= '<a ' . modCmdLink('install', 0, $v) . '>';
-		}
-		$s .= $AppUI->_('install');
-		if ($canEdit) {
-			$s .= '</a>';
-		}
-		$s .= '</td>' . "\n";
-		echo "<tr>\n$s</tr>\n";
+	if ($v && !in_array($v, $hidden_modules)) {
+		$available[] = $v;
 	}
+}
+$upgrades = count(array_filter($installed, function ($r) { return $r['_upgrade']; }));
 
+dPadminOpen('viewmods');
+dPadminHeading('Modules', 'Install, turn on and upgrade modules, and choose which ones appear in the menu.');
+if ($upgrades) {
+	echo '<div class="dpa-note dpa-warn">' . dPadminIcon('alert') . '<span>' . (int)$upgrades . ' '
+		. $AppUI->_($upgrades == 1 ? 'module has an upgrade to install: back up the database first.' : 'modules have an upgrade to install: back up the database first.')
+		. '</span></div>';
 }
 ?>
+<div class="dpa-scroll">
+<table class="dpa-table">
+<thead><tr>
+	<th><?php echo $AppUI->_('Order'); ?></th>
+	<th><?php echo $AppUI->_('Module'); ?></th>
+	<th><?php echo $AppUI->_('Status'); ?></th>
+	<th><?php echo $AppUI->_('Menu'); ?></th>
+	<th><?php echo $AppUI->_('Actions'); ?></th>
+</tr></thead>
+<tbody>
+<?php
+foreach ($installed as $row) {
+	$id = (int)$row['mod_id'];
+	echo '<tr>';
+	// order in the menu
+	echo '<td class="dpa-actions">';
+	if ($canEdit) {
+		if ($row['mod_ui_order'] > 0) {
+			echo '<a ' . modCmdLink('moveup', $id) . ' title="' . $AppUI->_('Move up') . '" aria-label="' . $AppUI->_('Move up') . '">&#9650;</a>';
+		}
+		echo '<a ' . modCmdLink('movedn', $id) . ' title="' . $AppUI->_('Move down') . '" aria-label="' . $AppUI->_('Move down') . '">&#9660;</a>';
+	}
+	echo ' <span class="dpa-row-name">' . (int)$row['mod_ui_order'] . '</span></td>';
+	// name, type and version
+	echo '<td><div class="dpa-row-label">' . $AppUI->_($row['mod_name']) . '</div><div class="dpa-row-help">'
+		. dPhtml($row['mod_directory']) . ' · ' . $AppUI->_($row['mod_type']) . ' · ' . dPhtml($row['mod_version']) . '</div></td>';
+	// status
+	echo '<td>';
+	if ($row['_upgrade']) {
+		echo '<span class="dpa-badge dpa-up">' . $AppUI->_('Upgrade available') . '</span> ';
+	}
+	echo '<span class="dpa-badge' . ($row['mod_active'] ? '' : ' dpa-off') . '">' . $AppUI->_($row['mod_active'] ? 'active' : 'disabled') . '</span></td>';
+	// menu
+	echo '<td><span class="dpa-badge' . ($row['mod_ui_active'] ? '' : ' dpa-off') . '">' . $AppUI->_($row['mod_ui_active'] ? 'visible' : 'hidden') . '</span>'
+		. ($row['mod_ui_name'] ? ' <span class="dpa-row-help">' . $AppUI->_($row['mod_ui_name']) . '</span>' : '') . '</td>';
+	// actions
+	echo '<td><div class="dpa-actions">';
+	if ($canEdit) {
+		if ($row['_upgrade']) {
+			echo '<a class="dpa-btn dpa-primary" ' . modCmdLink('upgrade', $id, '', $AppUI->_('Are you sure?', UI_OUTPUT_RAW)) . '>' . $AppUI->_('upgrade') . '</a>';
+		}
+		echo '<a class="dpa-btn" ' . modCmdLink('toggle', $id) . '>' . $AppUI->_($row['mod_active'] ? 'Turn off' : 'Turn on') . '</a>';
+		echo '<a class="dpa-btn" ' . modCmdLink('toggleMenu', $id) . '>' . $AppUI->_($row['mod_ui_active'] ? 'Hide from menu' : 'Show in menu') . '</a>';
+		if ($row['_configure']) {
+			echo '<a class="dpa-btn" ' . modCmdLink('configure', $id) . '>' . $AppUI->_('configure') . '</a>';
+		}
+		if ($row['mod_type'] != 'core') {
+			echo '<a class="dpa-btn dpa-danger" ' . modCmdLink('remove', $id, '',
+				$AppUI->_('This will delete all data associated with the module!', UI_OUTPUT_RAW) . "\n\n" . $AppUI->_('Are you sure?', UI_OUTPUT_RAW) . "\n")
+				. '>' . $AppUI->_('remove') . '</a>';
+		}
+	}
+	echo "</div></td></tr>\n";
+}
+?>
+</tbody>
 </table>
+</div>
+<?php if ($available) { ?>
+<section class="dpa-panel">
+	<h2><?php echo $AppUI->_('Not installed'); ?></h2>
+	<?php foreach ($available as $v) { ?>
+	<div class="dpa-row">
+		<div class="dpa-row-text"><div class="dpa-row-label"><?php echo dPhtml($v); ?></div></div>
+		<?php if ($canEdit) { ?><div class="dpa-row-control"><a class="dpa-btn" <?php echo modCmdLink('install', 0, $v); ?>><?php echo $AppUI->_('install'); ?></a></div><?php } ?>
+	</div>
+	<?php } ?>
+</section>
+<?php } ?>
 <form name="frmModCmd" method="post" action="?m=system&amp;a=domodsql">
 	<input type="hidden" name="cmd" value="" />
 	<input type="hidden" name="mod_id" value="" />
@@ -174,3 +150,4 @@ function modCmd(cmd, mod_id, mod_directory) {
 	f.submit();
 }
 </script>
+<?php dPadminClose(); ?>

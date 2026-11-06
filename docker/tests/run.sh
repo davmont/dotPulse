@@ -80,7 +80,7 @@ if has 4; then
 		set_theme "$theme"
 		run "pop-ups and tabs $theme" node "$BROWSER/popups.js" admin passwd "$theme" "$T"
 	done
-	set_theme dp-grey-theme
+	set_theme dotpulse
 fi
 
 if has 5; then

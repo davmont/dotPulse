@@ -35,9 +35,9 @@ $sql_ldap_mapping = array('givenname' => 'contact_first_name',
                           'postalcode' => 'contact_zip',
                           'c' => 'contact_country');
 
-$titleBlock = new CTitleBlock('Import Contacts from LDAP Directory', '', 'admin', '');
-$titleBlock->addCrumb('?m=system', 'system admin');
-$titleBlock->show();
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
+dPadminOpen('contacts_ldap');
+dPadminHeading('Import contacts', 'Contacts from an LDAP directory.');
 
 
 if (isset($_POST['server'])) {
@@ -268,3 +268,4 @@ function clean_value($str) {
 	return str_replace($bad_values,'',$str);
 }
 ?>
+<?php dPadminClose(); ?>
