@@ -25,3 +25,8 @@
 "Tasks"=>"Tareas",
 "User"=>"Usuario",
 
+"Are you sure you want to cancel?"=>"¿Seguro que desea cancelar?",
+"not found"=>"no encontrado",
+"from"=>"de",
+"in"=>"en",
+"Edit History"=>"Editar historial",

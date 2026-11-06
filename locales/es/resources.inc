@@ -6,7 +6,7 @@
 "back"=>"volver",
 "Description"=>"Descripción",
 "Details"=>"Detalles",
-"doDelete"=>"",
+"doDelete"=>"¿Está seguro de que quiere borrar",
 "Equipment"=>"Equipamiento",
 "ID"=>"ID",
 "Max Alloc %"=>"% Máximo asignación",
@@ -22,3 +22,9 @@
 "Type"=>"Tipo",
 "Venue"=>"Local",
 
+"view this resource"=>"ver este recurso",
+"Assigned to Task"=>"Asignado a la tarea",
+"notifyChange"=>"Notificar por correo a los asignados de la tarea",
+"View Resource"=>"Ver recurso",
+"edit this resource"=>"editar este recurso",
+"invalid ID"=>"ID no válido",

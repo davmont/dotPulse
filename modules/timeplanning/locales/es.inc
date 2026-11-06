@@ -41,3 +41,4 @@
 "LBL_DEV_SCHEDULE"=>"Desarrollo del cronograma",
 "LBL_EXECUTE"=>"ejecutar",
 "LBL_ACTION_SCHEDULE_DEV"=>"Esta acción calcula las fechas de inicio y finalización de las actividades en función de la fecha de inicio del proyecto, los esfuerzos estimados y las dependencias lógicas entre actividades.",
+"Assigned to Task"=>"Asignado a la tarea",

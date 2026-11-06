@@ -38,3 +38,6 @@
 "Unknown",
 "Administrative",
 "Operative",
+"MacroProject / Project / Task(Tax)",
+"TOTAL",
+"Macroproject / Project / Task(Tax)",

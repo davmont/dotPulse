@@ -399,3 +399,4 @@
 // "projectsColor" => "Por favor, seleccione un color para identificar este proyecto.",
 // "projectsValidName" => "¿Por favor, introduzca un nombre de proyecto válido?",
 // "Risks" => "Riesgos",
+"Calculated from the task costs"=>"Calculado a partir de los costes de las tareas",

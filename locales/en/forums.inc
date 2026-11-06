@@ -83,3 +83,6 @@
 "Watch Forced",
 "Watch Unforced",
 "Watch updated",
+"Access denied.",
+"Message From",
+"You have unread posts in this topic",

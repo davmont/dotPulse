@@ -13,3 +13,7 @@
 "Reference",
 "Registers",
 "Register Code",
+"Register"=>"Registro",
+"inserted"=>"insertado",
+"RState"=>"Estado reg.",
+"Insert Register"=>"Insertar registro",

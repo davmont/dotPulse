@@ -262,6 +262,59 @@ $a = $AppUI->checkFileName(dPgetCleanParam($_GET, 'a', $def_a));
 
 $u = $AppUI->checkFileName(dPgetCleanParam($_GET, 'u', ''));
 
+// The tabs other modules add to this module's pages (their strings load with it).
+if (!(isset($_SESSION['all_tabs'][$m]))) {
+	// For some reason on some systems if you don't set this up
+	// first you get recursive pointers to the all_tabs array, creating
+	// phantom tabs.
+	if (!isset($_SESSION['all_tabs'])) {
+		$_SESSION['all_tabs'] = array();
+	}
+	$_SESSION['all_tabs'][$m] = array();
+	$all_tabs =& $_SESSION['all_tabs'][$m];
+	foreach ($AppUI->getActiveModules() as $dir => $module) {
+		if (!(getPermission($dir, 'access'))) {
+			continue;
+		}
+		$modules_tabs = $AppUI->readFiles(
+			(DP_BASE_DIR . '/modules/' . $dir . '/'),
+			('^' . $m . '_tab.*\.php')
+		);
+		foreach ($modules_tabs as $mod_tab) {
+			// Get the name as the subextension
+			// cut the module_tab. and the .php parts of the filename 
+			// (begining and end)
+			$nameparts = explode('.', $mod_tab);
+			$filename = mb_substr($mod_tab, 0, -4);
+			if (count($nameparts) > 3) {
+				$file = $nameparts[1];
+				if (!(isset($all_tabs[$file]))) {
+					$all_tabs[$file] = array();
+				}
+				$arr =& $all_tabs[$file];
+				$name = $nameparts[2];
+			} else {
+				$arr =& $all_tabs;
+				$name = $nameparts[1];
+			}
+			$arr[] = array(
+				'name' => ucfirst(str_replace('_', ' ', $name)),
+				'file' => (DP_BASE_DIR . '/modules/' . $dir . '/' . $filename),
+				'module' => $dir
+			);
+
+			/* 
+			 * Don't forget to unset $arr again! $arr is likely to be used in the sequel declaring
+			 * any temporary array. This may lead to strange bugs with disappearing tabs(cf. #1767).
+			 * @author: gregorerhardt @date: 20070203
+			 */
+			unset($arr);
+		}
+	}
+} else {
+	$all_tabs =& $_SESSION['all_tabs'][$m];
+}
+
 // load module based locale settings
 @include_once(DP_BASE_DIR . '/locales/' . $AppUI->user_locale . '/locales.php');
 @include_once(DP_BASE_DIR . '/locales/core.php');
@@ -379,57 +432,6 @@ if (!$suppressHeaders) {
 	require(DP_BASE_DIR . '/style/' . $uistyle . '/header.php');
 }
 
-if (!(isset($_SESSION['all_tabs'][$m]))) {
-	// For some reason on some systems if you don't set this up
-	// first you get recursive pointers to the all_tabs array, creating
-	// phantom tabs.
-	if (!isset($_SESSION['all_tabs'])) {
-		$_SESSION['all_tabs'] = array();
-	}
-	$_SESSION['all_tabs'][$m] = array();
-	$all_tabs =& $_SESSION['all_tabs'][$m];
-	foreach ($AppUI->getActiveModules() as $dir => $module) {
-		if (!(getPermission($dir, 'access'))) {
-			continue;
-		}
-		$modules_tabs = $AppUI->readFiles(
-			(DP_BASE_DIR . '/modules/' . $dir . '/'),
-			('^' . $m . '_tab.*\.php')
-		);
-		foreach ($modules_tabs as $mod_tab) {
-			// Get the name as the subextension
-			// cut the module_tab. and the .php parts of the filename 
-			// (begining and end)
-			$nameparts = explode('.', $mod_tab);
-			$filename = mb_substr($mod_tab, 0, -4);
-			if (count($nameparts) > 3) {
-				$file = $nameparts[1];
-				if (!(isset($all_tabs[$file]))) {
-					$all_tabs[$file] = array();
-				}
-				$arr =& $all_tabs[$file];
-				$name = $nameparts[2];
-			} else {
-				$arr =& $all_tabs;
-				$name = $nameparts[1];
-			}
-			$arr[] = array(
-				'name' => ucfirst(str_replace('_', ' ', $name)),
-				'file' => (DP_BASE_DIR . '/modules/' . $dir . '/' . $filename),
-				'module' => $dir
-			);
-
-			/* 
-			 * Don't forget to unset $arr again! $arr is likely to be used in the sequel declaring
-			 * any temporary array. This may lead to strange bugs with disappearing tabs(cf. #1767).
-			 * @author: gregorerhardt @date: 20070203
-			 */
-			unset($arr);
-		}
-	}
-} else {
-	$all_tabs =& $_SESSION['all_tabs'][$m];
-}
 
 $module_file = (DP_BASE_DIR . '/modules/' . $m . '/' . (($u) ? ($u . '/') : '') . $a . '.php');
 if (file_exists($module_file)) {

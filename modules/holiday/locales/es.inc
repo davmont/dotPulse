@@ -109,3 +109,4 @@
 "No days found in the iCalendar file"=>"El archivo iCalendar no tiene ningún día",
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"Importe los festivos de un archivo iCalendar (.ics), como los publican las comunidades autónomas, los ayuntamientos y las aplicaciones de calendario",
 "Import"=>"Importar",
+"Are you sure you want to cancel?"=>"¿Seguro que desea cancelar?",

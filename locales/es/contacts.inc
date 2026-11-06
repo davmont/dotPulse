@@ -37,7 +37,7 @@
 "Overwrite contact address information"=>"Reemplazar dirección del contacto",
 "Phone"=>"Teléfono",
 "Postcode"=>"Código postal",
-"Private Entry"=>"",
+"Private Entry"=>"Entrada privada",
 "Reset search"=>"Reiniciar búsqueda",
 "Search for"=>"Buscar por",
 "select company..."=>"seleccionar empresa...",
@@ -63,3 +63,4 @@
 // "Contact inserted" => "Contacto agregado",
 // "Contact updated" => "Contacto modificado",
 // "New Contact" => "Nuevo Contacto",
+"Action"=>"Acción",

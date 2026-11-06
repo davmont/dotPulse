@@ -64,3 +64,6 @@
 "LBL_STRATEGYS_LIST"=>"Respuestas a la lista de riesgos.",
 "Risks"=>"Riesgos",
 "LBL_ALL_TASKS"=>"[Todos]",
+"Risk"=>"Riesgo",
+"Are you sure you want to cancel?"=>"¿Está seguro de que desea cancelar?",
+"lista de riscos"=>"lista de riesgos",

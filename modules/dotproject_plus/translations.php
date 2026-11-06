@@ -8,19 +8,12 @@ $locales_locations = array(
     DP_BASE_DIR . '/modules/dotproject_plus/locales/'
 );
 
-$locale_to_load = isset($AppUI->user_prefs['LOCALE']) ? $AppUI->user_prefs['LOCALE'] : 'en_US';
+$locale_to_load = isset($AppUI->user_prefs['LOCALE']) ? $AppUI->user_prefs['LOCALE'] : 'en';
 
-// Potential fallbacks
+// The user's language, then its first two letters (es for es_ES).
 $locales_to_try = array($locale_to_load);
 if (strlen($locale_to_load) > 2) {
     $locales_to_try[] = substr($locale_to_load, 0, 2);
-}
-// Add common aliases if they are Spanish
-if (strpos($locale_to_load, 'es') === 0) {
-    if ($locale_to_load !== 'es_ES')
-        $locales_to_try[] = 'es_ES';
-    if ($locale_to_load !== 'es_es')
-        $locales_to_try[] = 'es_es';
 }
 
 foreach ($locales_locations as $loc) {

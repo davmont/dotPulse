@@ -55,3 +55,4 @@
 "wrongBrowser"=>"Este módulo no puede funcionar con su navegador. Seleccione Mozilla Firefox u Opera para ejecutar este módulo.",
 "You must save or cancel your changes before adding a task"=>"Debe guardar o cancelar sus cambios antes de añadir una tarea",
 "New task"=>"Nueva tarea",
+"InvalidID"=>"ID no válido",
