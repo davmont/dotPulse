@@ -1,5 +1,6 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Insert task template"=>"Insert task template",
-"New tasks template"=>"New tasks template",
+"Insert task template"=>"Aufgabenvorlage einfügen", // MT
+"New tasks template"=>"Neue Aufgabenvorlage", // MT
+"Tasks templates"=>"Aufgabenvorlagen", // MT

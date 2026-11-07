@@ -4,5 +4,5 @@
 "classic"=>"Klasik dotProject sitili",
 "default"=>"Varsayılan temiz stil",
 "demo1"=>"Demo sitili",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"dp-grey-theme"=>"Gri İnce stil", // MT
+"dotpulse"=>"dotPulse",

@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"結案", // MT
+"Project Name"=>"專案名稱", // MT
+"Project Meeting Date"=>"專案會議日期", // MT
+"Project Start Date"=>"專案開始日期", // MT
+"Project End Date"=>"專案結束日期", // MT
+"new post mortem analysis"=>"新事後檢討分析", // MT
+"New Post Mortem"=>"新事後檢討", // MT
+"Edit Post Mortem"=>"編輯事後檢討", // MT
+"Meeting Date"=>"會議日期", // MT
+"Meeting Settings"=>"會議設定", // MT
+"Project Summary"=>"專案摘要", // MT
+"Project Planned Start Date"=>"專案預計開始日期", // MT
+"Project Planned End Date"=>"專案預計結束日期", // MT
+"Project Planned Budget"=>"專案預計預算", // MT
+"Project Budget"=>"專案預算", // MT
+"Lessons Learned"=>"經驗教訓", // MT
+"Project Strengths"=>"專案優勢", // MT
+"Project Weaknesses"=>"專案弱點", // MT
+"Improvement Suggestions"=>"改進建議", // MT
+"Conclusions"=>"結論", // MT
+"Meeting Participants"=>"會議參與者", // MT
+"view this post mortem"=>"檢視此事後檢討", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"在此列出（每個主題以「*」開頭）在此專案中對您有效的技術、流程、IDE 或任何技巧、工具或服務", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"在此列出（每個主題以「*」開頭）在此專案中對您無效的技術、流程、IDE 或任何技巧、工具或服務", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"在此列出（每個主題以「*」開頭）專案中需要改進的方面", // MT
+"General conclusions about the project"=>"專案的整體結論", // MT
+"Post Mortem deleted"=>"事後檢討已刪除", // MT
+"post mortem list"=>"事後檢討清單", // MT
+"Post Mortem"=>"事後檢討", // MT
+"noDeletePermission"=>"您沒有刪除此項目的權限", // MT
+"Post Mortem Records by project"=>"依專案列出事後檢討記錄", // MT
+"Project Status"=>"專案狀態", // MT
+"Participants"=>"參與者", // MT
+"Post Mortem ID"=>"事後檢討 ID", // MT
+"View Post Mortem Analysis"=>"檢視事後檢討分析", // MT
+"edit this post mortem"=>"編輯此事後檢討", // MT
+"invalid ID"=>"無效的 ID", // MT
+"Post Mortem Analysis"=>"事後檢討分析", // MT

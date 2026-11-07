@@ -3,6 +3,6 @@
 ##
 "classic"=>"dorProject stil",
 "default"=>"Standard stil",
-"demo1"=>"A demo style",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"demo1"=>"En demostil", // MT
+"dp-grey-theme"=>"Grå slank stil", // MT
+"dotpulse"=>"dotPulse",

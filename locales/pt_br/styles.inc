@@ -4,5 +4,5 @@
 "classic"=>"Tema Padrao",
 "default"=>"Tema  Clean",
 "demo1"=>"Tema Demonstrativo",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"dp-grey-theme"=>"Estilo Grey Slimline", // MT
+"dotpulse"=>"dotPulse",

@@ -48,7 +48,7 @@
 "LBL_OPEN"=>"Aberto",
 "LBL_CLOSED"=>"Fechado",
 "LBL_NOT_APLICABLE"=>"Não se aplica",
-"LBL_[ALL]"=>"[Todos]",
+"LBL_[ALL]"=>"[Todos]", // MT
 "LBL_NOT_DEFINED"=>"[Não definido]",
 "LBL_YES"=>"Sim",
 "LBL_NO"=>"Não",
@@ -63,4 +63,7 @@
 "LBL_CONTINGENCY_PLAN"=>"Plano de contingência",
 "LBL_STRATEGYS_LIST"=>"Lista de respostas aos riscos",
 "Risks"=>"Riscos",
-"LBL_ALL_TASKS" => "[Todas]",
+"LBL_ALL_TASKS"=>"[Todos]", // MT
+"Risk"=>"Risco", // MT
+"Are you sure you want to cancel?"=>"Tem certeza de que deseja cancelar?", // MT
+"lista de riscos"=>"lista de riscos",

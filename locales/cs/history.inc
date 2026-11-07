@@ -1,27 +1,31 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add history"=>"Add history",
-"Added new"=>"Added new",
-"any"=>"any",
-"cancel"=>"cancel",
-"Date"=>"Date",
-"delete history"=>"delete history",
-"Deleted"=>"Deleted",
-"Description"=>"Description",
-"Edit history"=>"Edit history",
-"Files"=>"Files",
-"Forums"=>"Forums",
-"History added"=>"History added",
-"History deleted"=>"History deleted",
-"History updated"=>"History updated",
-"item"=>"item",
-"Login/Logouts"=>"Login/Logouts",
-"Modified"=>"Modified",
-"New history"=>"New history",
-"Projects"=>"Projects",
-"save"=>"save",
-"Show all"=>"Show all",
-"Tasks"=>"Tasks",
-"User"=>"User",
-
+"Add history"=>"Přidat historii", // MT
+"Added new"=>"Přidáno nové", // MT
+"any"=>"jakýkoli", // MT
+"cancel"=>"zrušit", // MT
+"Date"=>"Datum", // MT
+"delete history"=>"smazat historii", // MT
+"Deleted"=>"Smazáno", // MT
+"Description"=>"Popis", // MT
+"Edit history"=>"Upravit historii", // MT
+"Files"=>"Soubory", // MT
+"Forums"=>"Fóra", // MT
+"History added"=>"Historie přidána", // MT
+"History deleted"=>"Historie smazána", // MT
+"History updated"=>"Historie aktualizována", // MT
+"item"=>"položka", // MT
+"Login/Logouts"=>"Přihlášení/odhlášení", // MT
+"Modified"=>"Změněno", // MT
+"New history"=>"Nová historie", // MT
+"Projects"=>"Projekty", // MT
+"save"=>"uložit", // MT
+"Show all"=>"Zobrazit vše", // MT
+"Tasks"=>"Úkoly", // MT
+"User"=>"Uživatel", // MT
+"Are you sure you want to cancel?"=>"Opravdu chcete zrušit?", // MT
+"not found"=>"nenalezeno", // MT
+"from"=>"od", // MT
+"in"=>"v", // MT
+"Edit History"=>"Upravit historii", // MT

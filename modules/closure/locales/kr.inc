@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"종료", // MT
+"Project Name"=>"프로젝트 이름", // MT
+"Project Meeting Date"=>"프로젝트 회의 날짜", // MT
+"Project Start Date"=>"프로젝트 시작 날짜", // MT
+"Project End Date"=>"프로젝트 종료 날짜", // MT
+"new post mortem analysis"=>"새 사후 분석", // MT
+"New Post Mortem"=>"새 사후 분석", // MT
+"Edit Post Mortem"=>"사후 분석 편집", // MT
+"Meeting Date"=>"회의 날짜", // MT
+"Meeting Settings"=>"회의 설정", // MT
+"Project Summary"=>"프로젝트 요약", // MT
+"Project Planned Start Date"=>"프로젝트 계획 시작 날짜", // MT
+"Project Planned End Date"=>"프로젝트 계획 종료 날짜", // MT
+"Project Planned Budget"=>"프로젝트 계획 예산", // MT
+"Project Budget"=>"프로젝트 예산", // MT
+"Lessons Learned"=>"교훈", // MT
+"Project Strengths"=>"프로젝트 강점", // MT
+"Project Weaknesses"=>"프로젝트 약점", // MT
+"Improvement Suggestions"=>"개선 제안", // MT
+"Conclusions"=>"결론", // MT
+"Meeting Participants"=>"회의 참여자", // MT
+"view this post mortem"=>"이 사후 분석 보기", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"이 프로젝트에서 효과가 있었던 기술, 프로세스, IDE 또는 기타 기법, 도구, 서비스를 여기에 나열하십시오 (각 항목은 '*'로 시작)", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"이 프로젝트에서 효과가 없었던 기술, 프로세스, IDE 또는 기타 기법, 도구, 서비스를 여기에 나열하십시오 (각 항목은 '*'로 시작)", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"프로젝트에서 개선이 필요한 측면을 여기에 나열하십시오 (각 항목은 '*'로 시작)", // MT
+"General conclusions about the project"=>"프로젝트에 대한 전반적인 결론", // MT
+"Post Mortem deleted"=>"사후 분석이 삭제되었습니다", // MT
+"post mortem list"=>"사후 분석 목록", // MT
+"Post Mortem"=>"사후 분석", // MT
+"noDeletePermission"=>"이 항목을 삭제할 권한이 없습니다", // MT
+"Post Mortem Records by project"=>"프로젝트별 사후 분석 기록", // MT
+"Project Status"=>"프로젝트 상태", // MT
+"Participants"=>"참여자", // MT
+"Post Mortem ID"=>"사후 분석 ID", // MT
+"View Post Mortem Analysis"=>"사후 분석 보기", // MT
+"edit this post mortem"=>"이 사후 분석 편집", // MT
+"invalid ID"=>"잘못된 ID", // MT
+"Post Mortem Analysis"=>"사후 분석", // MT

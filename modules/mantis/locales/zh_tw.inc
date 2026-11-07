@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"已整合 Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"嚴重性", // MT
+"Priority"=>"優先順序", // MT
+"Reproducibility"=>"重現性", // MT
+"Resolution"=>"解決方式", // MT
+"tasks created"=>"已建立工作", // MT
+"already imported"=>"已匯入", // MT
+"issues updated"=>"已更新問題", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis 尚未設定，或您沒有 Mantis API 權杖。", // MT
+"That Mantis project is not available to you."=>"您無法使用該 Mantis 專案。", // MT
+"Project linked to Mantis"=>"專案已連結到 Mantis", // MT
+"Project created in Mantis and linked"=>"已在 Mantis 中建立專案並完成連結", // MT
+"Project unlinked from Mantis"=>"專案已取消與 Mantis 的連結", // MT
+"Choose a status."=>"請選擇狀態。", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis 尚未設定：請在系統管理 > 系統設定中設定其位址 (HTTPS)。", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"您的 Mantis API 權杖已儲存。", // MT
+"You have no Mantis API token stored."=>"您沒有已儲存的 Mantis API 權杖。", // MT
+"Mantis API token"=>"Mantis API 權杖", // MT
+"Mantis project"=>"Mantis 專案", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"尚未有專案連結到 Mantis：請從專案的 Mantis 索引標籤進行連結。", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"輸入您的 Mantis API 權杖以查看此專案的 Mantis 問題", // MT
+"This project is not linked to a Mantis project."=>"此專案未連結到 Mantis 專案。", // MT
+"Link"=>"連結", // MT
+"Create it in Mantis"=>"在 Mantis 中建立", // MT
+"needs a Mantis administrator token"=>"需要 Mantis 管理員權杖", // MT
+"Issue"=>"問題", // MT
+"Assigned To"=>"指派給", // MT
+"Updated"=>"已更新", // MT
+"No issues"=>"沒有問題", // MT
+"view"=>"檢視", // MT
+"Import selected as tasks"=>"將選取項目匯入為工作", // MT
+"Change status of selected"=>"變更選取項目的狀態", // MT
+"Unlink this project from Mantis?"=>"要取消此專案與 Mantis 的連結嗎？", // MT
+"Unlink"=>"取消連結", // MT
+"Mantis API token saved for Mantis user"=>"已為 Mantis 使用者儲存 Mantis API 權杖", // MT
+"Your token is stored"=>"您的權杖已儲存", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"在 Mantis 中建立權杖（我的帳戶 > API 權杖）並貼在這裡。Mantis 會套用您自己的 Mantis 權限。", // MT
+"Save"=>"儲存", // MT
+"Remove my token"=>"移除我的權杖", // MT
+"Mantis API token removed"=>"已移除 Mantis API 權杖", // MT
+"A Mantis API token has 32 letters and digits."=>"Mantis API 權杖由 32 個字母和數字組成。", // MT

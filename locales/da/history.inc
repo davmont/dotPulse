@@ -2,26 +2,30 @@
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
 "Add history"=>"Tilføj historik",
-"Added new"=>"Added new",
+"Added new"=>"Tilføjet ny", // MT
 "any"=>"alle",
-"cancel"=>"cancel",
-"Date"=>"Date",
+"cancel"=>"annullér", // MT
+"Date"=>"Dato", // MT
 "delete history"=>"Slet historik",
-"Deleted"=>"Deleted",
-"Description"=>"Description",
+"Deleted"=>"Slettet", // MT
+"Description"=>"Beskrivelse", // MT
 "Edit history"=>"Redigér historik",
-"Files"=>"Files",
-"Forums"=>"Forums",
+"Files"=>"Filer", // MT
+"Forums"=>"Fora", // MT
 "History added"=>"Historik tilføjet",
 "History deleted"=>"Historik slettet",
 "History updated"=>"Historik opdateret",
-"item"=>"item",
-"Login/Logouts"=>"Login/Logouts",
-"Modified"=>"Modified",
+"item"=>"element", // MT
+"Login/Logouts"=>"Login/logout", // MT
+"Modified"=>"Ændret", // MT
 "New history"=>"Ny historik",
-"Projects"=>"Projects",
-"save"=>"save",
-"Show all"=>"Show all",
-"Tasks"=>"Tasks",
-"User"=>"User",
-
+"Projects"=>"Projekter", // MT
+"save"=>"gem", // MT
+"Show all"=>"Vis alle", // MT
+"Tasks"=>"Opgaver", // MT
+"User"=>"Bruger", // MT
+"Are you sure you want to cancel?"=>"Er du sikker på, at du vil annullere?", // MT
+"not found"=>"ikke fundet", // MT
+"from"=>"fra", // MT
+"in"=>"i", // MT
+"Edit History"=>"Redigeringshistorik", // MT

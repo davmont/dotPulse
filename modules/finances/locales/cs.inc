@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"Nemáte požadované oprávnění", // MT
+"Years"=>"Roky", // MT
+"Submit"=>"Odeslat", // MT
+"Display"=>"Zobrazení", // MT
+"Amounts"=>"Částky", // MT
+"without tax"=>"bez daně", // MT
+"with tax"=>"s daní", // MT
+"Detail"=>"Podrobnosti", // MT
+"Sub Total"=>"Mezisoučet", // MT
+"Total"=>"Celkem", // MT
+"All"=>"Vše", // MT
+"Save Changes"=>"Uložit změny", // MT
+"Budget"=>"Rozpočet", // MT
+"Project / Task(Tax)"=>"Projekt / úkol (daň)", // MT
+"INVESTMENT"=>"INVESTICE", // MT
+"OPERATION"=>"PROVOZ", // MT
+"Equipment"=>"Vybavení", // MT
+"Intangible"=>"Nehmotné", // MT
+"Service"=>"Služba", // MT
+"Open in new tab"=>"Otevřít na nové kartě", // MT
+"Tax"=>"Daň", // MT
+"This task is only financial"=>"Tento úkol je pouze finanční", // MT
+"Investment"=>"Investice", // MT
+"Operation"=>"Provoz", // MT
+"You can not set the budget of a dynamic task"=>"Rozpočet dynamického úkolu nelze nastavit", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Výkon Internet Exploreru může způsobit velmi výrazné zpomalení při načítání velkého počtu projektů.", // MT
+"Only valued projects and tasks"=>"Pouze oceněné projekty a úkoly", // MT
+"Only valued projects"=>"Pouze oceněné projekty", // MT
+"Only projects with null budget"=>"Pouze projekty s nulovým rozpočtem", // MT
+"Project Type"=>"Typ projektu", // MT
+"Excel export"=>"Export do Excelu", // MT
+"Project Status"=>"Stav projektu", // MT
+"Template"=>"Šablona", // MT
+"Archived"=>"Archivováno", // MT
+"Unknown"=>"Neznámé", // MT
+"Administrative"=>"Administrativní", // MT
+"Operative"=>"Provozní", // MT
+"MacroProject / Project / Task(Tax)"=>"Makroprojekt / projekt / úkol (daň)", // MT
+"TOTAL"=>"CELKEM", // MT
+"Macroproject / Project / Task(Tax)"=>"Makroprojekt / projekt / úkol (daň)", // MT

@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Új", // MT
+"LBL_EXCLUSION"=>"Kizárás", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Behúzás", // MT
+"LBL_ORDER"=>"Sorrend", // MT
+"LBL_SORT"=>"Rendezés", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Mentés", // MT
+"LBL_ESTIMATION"=>"Becslés", // MT
+"LBL_DESCRIPTION"=>"Leírás", // MT
+"LBL_MOVE"=>"Áthelyezés", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Aktivitások meghatározása", // MT
+"LBL_CREATE_MINUTE"=>"Jegyzőkönyv készítése", // MT
+"LBL_MINUTES"=>"Jegyzőkönyvek", // MT
+"LBL_DATE"=>"Dátum", // MT
+"LBL_EDIT"=>"Szerkesztés", // MT
+"LBL_TYPE"=>"Típus", // MT
+"LBL_EFFORT"=>"Ráfordítás", // MT
+"LBL_DURATION"=>"Időtartam", // MT
+"LBL_RESOURCES"=>"Erőforrások (szerepkörök)", // MT
+"LBL_SIZE"=>"Méret", // MT
+"LBL_ALL_MEMBERS"=>"Minden tag", // MT
+"LBL_PARTICIPANTS"=>"Résztvevők", // MT
+"LBL_REPORT"=>"Jelentés", // MT
+"LBL_CLOSE"=>"Bezárás", // MT
+"LBL_WORK_PACKAGE"=>"Munkacsomag", // MT
+"LBL_IN_DAYS"=>"(nap)", // MT
+"LBL_ESTIMATIONS"=>"Becslések", // MT
+"LBL_ACTIVITY"=>"Aktivitás", // MT
+"LBL_HOURS"=>"Óra", // MT
+"LBL_MINUTES_TIME"=>"Jegyzőkönyvek", // MT
+"LBL_DAYS"=>"Nap", // MT
+"LBL_ROLE"=>"Szerepkör", // MT
+"LBL_ORGONOGRAM"=>"Szervezeti ábra", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Levezetés", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Becslések", // MT
+"1LBLORGONOGRAM"=>"Szervezeti ábra ", // MT
+"LBL_INTRO"=>"Ezt a modult a projektek és a projektfeladatok modul használja, közvetlenül nem kell elérni. A fület elrejtheti a rendszeradminisztráció területén.", // MT
+"LBL_DEV_SCHEDULE"=>"Ütemterv kidolgozása", // MT
+"LBL_EXECUTE"=>"Végrehajtás", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Ez a művelet kiszámítja az aktivitások kezdő és befejező dátumát a projekt indulási dátuma, a becsült ráfordítások és az aktivitások közötti logikai függőségek alapján.", // MT
+"Assigned to Task"=>"Feladathoz rendelve", // MT

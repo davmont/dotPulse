@@ -21,4 +21,9 @@
 "Tool"=>"Outil",
 "Type"=>"Type",
 "Venue"=>"Lieu",
-
+"view this resource"=>"voir cette ressource", // MT
+"Assigned to Task"=>"Assigné à la tâche", // MT
+"notifyChange"=>"Notifier par e-mail les personnes assignées à la tâche", // MT
+"View Resource"=>"Voir la ressource", // MT
+"edit this resource"=>"éditer cette ressource", // MT
+"invalid ID"=>"ID non valide", // MT

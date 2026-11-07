@@ -1,9 +1,9 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Converto to task within the following project"=>"Converto to task within the following project",
-"Internal message"=>"Internal message",
-"No messages under this clasification"=>"No messages under this clasification",
-"No subject"=>"No subject",
-"Notify by email"=>"Notify by email",
-"Quick Recipient"=>"Quick Recipient",
+"Converto to task within the following project"=>"Преобразувай в задача в следния проект", // MT
+"Internal message"=>"Вътрешно съобщение", // MT
+"No messages under this clasification"=>"Няма съобщения в тази категория", // MT
+"No subject"=>"Без тема", // MT
+"Notify by email"=>"Уведоми по имейл", // MT
+"Quick Recipient"=>"Бърз получател", // MT

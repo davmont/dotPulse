@@ -1,9 +1,9 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Converto to task within the following project"=>"Converto to task within the following project",
-"Internal message"=>"Internal message",
-"No messages under this clasification"=>"No messages under this clasification",
-"No subject"=>"No subject",
-"Notify by email"=>"Notify by email",
-"Quick Recipient"=>"Quick Recipient",
+"Converto to task within the following project"=>"Chuyển thành nhiệm vụ trong dự án sau", // MT
+"Internal message"=>"Tin nhắn nội bộ", // MT
+"No messages under this clasification"=>"Không có tin nhắn nào trong phân loại này", // MT
+"No subject"=>"Không có chủ đề", // MT
+"Notify by email"=>"Thông báo qua email", // MT
+"Quick Recipient"=>"Người nhận nhanh", // MT

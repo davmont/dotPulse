@@ -1,24 +1,29 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add Resource"=>"Add Resource",
-"All Resources"=>"All Resources",
-"back"=>"back",
-"Description"=>"Description",
-"Details"=>"Details",
-"doDelete"=>"doDelete",
-"Equipment"=>"Equipment",
+"Add Resource"=>"Tilføj ressource", // MT
+"All Resources"=>"Alle ressourcer", // MT
+"back"=>"tilbage", // MT
+"Description"=>"Beskrivelse", // MT
+"Details"=>"Detaljer", // MT
+"doDelete"=>"Er du sikker på, at du vil slette denne", // MT
+"Equipment"=>"Udstyr", // MT
 "ID"=>"ID",
-"Max Alloc %"=>"Max Alloc %",
-"Max Allocation %"=>"Max Allocation %",
-"Maximum Allocation Percentage"=>"Maximum Allocation Percentage",
-"new resource"=>"new resource",
-"Notes"=>"Notes",
-"Resource ID"=>"Resource ID",
-"resource list"=>"resource list",
-"Resource Name"=>"Resource Name",
-"submit"=>"submit",
-"Tool"=>"Tool",
+"Max Alloc %"=>"Maks. allok. %", // MT
+"Max Allocation %"=>"Maks. allokering %", // MT
+"Maximum Allocation Percentage"=>"Maksimal allokeringsprocent", // MT
+"new resource"=>"ny ressource", // MT
+"Notes"=>"Noter", // MT
+"Resource ID"=>"Ressource-id", // MT
+"resource list"=>"ressourceliste", // MT
+"Resource Name"=>"Ressourcenavn", // MT
+"submit"=>"indsend", // MT
+"Tool"=>"Værktøj", // MT
 "Type"=>"Type",
-"Venue"=>"Venue",
-
+"Venue"=>"Lokale", // MT
+"view this resource"=>"vis denne ressource", // MT
+"Assigned to Task"=>"Tildelt opgave", // MT
+"notifyChange"=>"Underret opgavens tildelte pr. e-mail", // MT
+"View Resource"=>"Vis ressource", // MT
+"edit this resource"=>"redigér denne ressource", // MT
+"invalid ID"=>"ugyldigt id", // MT

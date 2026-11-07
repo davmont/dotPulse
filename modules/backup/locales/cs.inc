@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Zálohovat databázi", // MT
+"restore xml file"=>"obnovit soubor XML", // MT
+"Restore From XML File"=>"Obnovit ze souboru XML", // MT
+"xmlRestoreWarning"=>"Tento nástroj obnoví schéma a data ze souboru XML vytvořeného tímto nástrojem. Neobnovuje ze souborů SQL.", // MT
+"XML File to Restore"=>"Soubor XML k obnovení", // MT
+"Continue On Error?"=>"Pokračovat při chybě?", // MT
+"upload"=>"nahrát", // MT
+"Backup"=>"Záloha", // MT
+"Import"=>"Import",
+"Export"=>"Export",
+"Success"=>"Úspěch!", // MT
+"Failure"=>"Selhání: ", // MT
+"Import Data"=>"Importovat data", // MT
+"Export Data"=>"Exportovat data", // MT
+"File Type"=>"Typ souboru:", // MT
+"clear"=>"vymazat", // MT
+"Filename (without extension):"=>"Název souboru (bez přípony):", // MT
+"Module"=>"Modul", // MT
+"Item"=>"Položka", // MT
+"zip"=>".zip – komprimovaný soubor SQL.", // MT
+"sql"=>".sql – textový soubor s dotazy SQL.", // MT
+"csv"=>".csv – hodnoty oddělené čárkami.", // MT
+"vcf"=>".vcf – soubor vCard.", // MT
+"Add 'DROP TABLE' to output-script"=>"Přidat 'DROP TABLE' do výstupního skriptu", // MT
+"Table structure and data"=>"Struktura tabulek a data", // MT
+"Only table structure"=>"Pouze struktura tabulek", // MT
+"Only data"=>"Pouze data", // MT
+"Options"=>"Volby", // MT
+"Save as"=>"Uložit jako", // MT
+"Compressed ZIP SQL file"=>"Komprimovaný soubor SQL (ZIP)", // MT
+"Plain text SQL file"=>"Prostý textový soubor SQL", // MT
+"XML file"=>"Soubor XML", // MT
+"Download backup"=>"Stáhnout zálohu", // MT
+"xmlLoginMsg"=>"Možná se budete muset odhlásit a znovu přihlásit", // MT
+"Invalid Options"=>"Neplatné volby", // MT
+"Failed to restore backup"=>"Obnovení zálohy se nezdařilo", // MT
+"Backup restored, but with errors"=>"Záloha obnovena, ale s chybami", // MT
+"Backup Restored OK"=>"Záloha úspěšně obnovena", // MT
+"No upload file"=>"Žádný soubor k nahrání", // MT
+"Error in parsing XML file"=>"Chyba při zpracování souboru XML", // MT
+"Restore Database"=>"Obnovit databázi", // MT

@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Integrerad med Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"Allvarlighetsgrad", // MT
+"Priority"=>"Prioritet", // MT
+"Reproducibility"=>"Reproducerbarhet", // MT
+"Resolution"=>"Lösning", // MT
+"tasks created"=>"aktiviteter skapade", // MT
+"already imported"=>"redan importerade", // MT
+"issues updated"=>"ärenden uppdaterade", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis är inte konfigurerat eller så har du ingen Mantis API-token.", // MT
+"That Mantis project is not available to you."=>"Det Mantis-projektet är inte tillgängligt för dig.", // MT
+"Project linked to Mantis"=>"Projektet har kopplats till Mantis", // MT
+"Project created in Mantis and linked"=>"Projektet har skapats i Mantis och kopplats", // MT
+"Project unlinked from Mantis"=>"Projektet har kopplats bort från Mantis", // MT
+"Choose a status."=>"Välj en status.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis är inte konfigurerat: ange dess adress (HTTPS) under Systemadministration > Systemkonfiguration.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Din Mantis API-token är sparad.", // MT
+"You have no Mantis API token stored."=>"Du har ingen sparad Mantis API-token.", // MT
+"Mantis API token"=>"Mantis API-token", // MT
+"Mantis project"=>"Mantis-projekt", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Inget projekt är kopplat till Mantis ännu: koppla ett från dess Mantis-flik.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Ange din Mantis API-token för att se Mantis-ärendena för det här projektet", // MT
+"This project is not linked to a Mantis project."=>"Det här projektet är inte kopplat till något Mantis-projekt.", // MT
+"Link"=>"Länk", // MT
+"Create it in Mantis"=>"Skapa det i Mantis", // MT
+"needs a Mantis administrator token"=>"kräver en token för Mantis-administratör", // MT
+"Issue"=>"Ärende", // MT
+"Assigned To"=>"Tilldelad till", // MT
+"Updated"=>"Uppdaterad", // MT
+"No issues"=>"Inga ärenden", // MT
+"view"=>"visa", // MT
+"Import selected as tasks"=>"Importera valda som aktiviteter", // MT
+"Change status of selected"=>"Ändra status för valda", // MT
+"Unlink this project from Mantis?"=>"Koppla bort det här projektet från Mantis?", // MT
+"Unlink"=>"Koppla bort", // MT
+"Mantis API token saved for Mantis user"=>"Mantis API-token sparad för Mantis-användaren", // MT
+"Your token is stored"=>"Din token är sparad", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Skapa en token i Mantis (Mitt konto > API-token) och klistra in den här. Mantis tillämpar då dina egna Mantis-behörigheter.", // MT
+"Save"=>"Spara", // MT
+"Remove my token"=>"Ta bort min token", // MT
+"Mantis API token removed"=>"Mantis API-token borttagen", // MT
+"A Mantis API token has 32 letters and digits."=>"En Mantis API-token består av 32 bokstäver och siffror.", // MT

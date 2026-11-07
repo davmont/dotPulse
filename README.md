@@ -85,7 +85,7 @@ notice or SQL error.
 
 ### Interface and languages
 - The dotPulse theme by default (also on the login page), and a redesigned System Admin: a start page with the state of the installation, and the settings by section with their help in view. The classic themes (default, amp, dp-grey-theme, material, wps-redmond) are still available.
-- Complete **Spanish** translation; the other upstream languages are kept.
+- Complete **Spanish** translation. The other 23 languages (Bulgarian, Catalan, Chinese, Czech, Danish, Dutch, French, German, Hungarian, Italian, Japanese, Korean, Latvian, Norwegian, Polish, Portuguese, Russian, Slovenian, Swedish, Turkish, Vietnamese) cover every string too, machine translated where the upstream translation had none: those entries end in `// MT` until reviewed (`php tools/locales/check.php status`).
 
 ## Installation
 

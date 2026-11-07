@@ -2,7 +2,7 @@
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
 "classic"=>"Klasiskais dotProject stils",
-"default"=>"Vienk�r�ais stils",
+"default"=>"Vienkāršais stils",
 "demo1"=>"Demo stils",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"dp-grey-theme"=>"Pelēkais plānais stils", // MT
+"dotpulse"=>"dotPulse",

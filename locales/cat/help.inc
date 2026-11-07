@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"About Modules"=>"About Modules",
-"Access Denied"=>"Access Denied",
-"Adding a Company"=>"Adding a Company",
-"Adding a Project"=>"Adding a Project",
-"Adding a Task"=>"Adding a Task",
-"Breadcrumbs"=>"Breadcrumbs",
-"Context Help"=>"Context Help",
-"General Concepts"=>"General Concepts",
-"Getting Started"=>"Getting Started",
-"helpIntro"=>"Here are some quick links to topics in the help file that not directly accessible directly from the context help.",
-"index"=>"index",
-"Left Navigation"=>"Left Navigation",
-"Saving Your Place"=>"Saving Your Place",
-"Tabbed Property Boxes"=>"Tabbed Property Boxes",
-"Top Menu"=>"Top Menu",
+"About Modules"=>"Sobre els mòduls", // MT
+"Access Denied"=>"Accés denegat", // MT
+"Adding a Company"=>"Afegir una empresa", // MT
+"Adding a Project"=>"Afegir un projecte", // MT
+"Adding a Task"=>"Afegir una tasca", // MT
+"Breadcrumbs"=>"Ruta de navegació", // MT
+"Context Help"=>"Ajuda contextual", // MT
+"General Concepts"=>"Conceptes generals", // MT
+"Getting Started"=>"Primers passos", // MT
+"helpIntro"=>"Aquí teniu alguns enllaços ràpids a temes de l'ajuda que no són accessibles directament des de l'ajuda contextual.", // MT
+"index"=>"índex", // MT
+"Left Navigation"=>"Navegació esquerra", // MT
+"Saving Your Place"=>"Desar la posició", // MT
+"Tabbed Property Boxes"=>"Quadres de propietats amb pestanyes", // MT
+"Top Menu"=>"Menú superior", // MT
 

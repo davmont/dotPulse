@@ -32,3 +32,5 @@
 "LBL_LIST_FREQUENCIES"=>"Lista de Frequências",
 "Communication"=>"Comunicação",
 "LBL_EDIT"=>"editar",
+"Issuing"=>"Emissor", // MT
+"Receptor"=>"Receptor",

@@ -7,10 +7,10 @@
 "Adding a Project"=>"Legge til et prosjekt",
 "Adding a Task"=>"Legge til en oppgave",
 "Breadcrumbs"=>"Brødsmuler",
-"Context Help"=>"",
+"Context Help"=>"Kontekstavhengig hjelp", // MT
 "General Concepts"=>"Generele konsepter",
 "Getting Started"=>"Komme i gang",
-"helpIntro"=>"",
+"helpIntro"=>"Her er noen hurtiglenker til emner i hjelpefilen som ikke er direkte tilgjengelige fra den kontekstavhengige hjelpen.", // MT
 "index"=>"indeks",
 "Left Navigation"=>"Venstre navigasjon",
 "Saving Your Place"=>"Lagre ditt sted",

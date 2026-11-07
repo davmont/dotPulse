@@ -1,31 +1,35 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"[none]"=>"[none]",
-"Access Denied"=>"Ej beh�rig",
-"accessDeniedMsg"=>"<p>Du har f�rs�kt att n� ett omr�de i dotproject-projektmanagementapplikationen som du ej har beh�righet att betr�da.</p><p>Kontakta systemf�rvaltaren f�r dotproject-projektmanagementapplikationen.</p>",
-"Allowed Companies"=>"Allowed Companies",
-"chgpwLogin"=>"chgpwLogin",
-"chgpwUpdated"=>"chgpwUpdated",
-"chgpwWrongPW"=>"chgpwWrongPW",
-"Color Selector"=>"F�rgv�ljare",
-"colorLegend"=>"V�lj en f�rg och st�ng sedan f�rgv�ljaren.",
-"companies"=>"companies",
-"Contacts for"=>"Kontakter f�r",
-"Continue"=>"Forts�tta",
-"Current Password"=>"Current Password",
-"New Password"=>"New Password",
-"no departments"=>"no departments",
-"nodepartments"=>"No Departments available",
+"[none]"=>"[ingen]", // MT
+"Access Denied"=>"Ej behörig",
+"accessDeniedMsg"=>"<p>Du har försökt att nå ett område i dotproject-projektmanagementapplikationen som du ej har behörighet att beträda.</p><p>Kontakta systemförvaltaren för dotproject-projektmanagementapplikationen.</p>",
+"Allowed Companies"=>"Tillåtna företag", // MT
+"chgpwLogin"=>"Logga in för att ändra ditt lösenord", // MT
+"chgpwUpdated"=>"Ditt lösenord har uppdaterats", // MT
+"chgpwWrongPW"=>"Du har angett fel gammalt lösenord", // MT
+"Color Selector"=>"Färgväljare",
+"colorLegend"=>"Välj en färg och stäng sedan färgväljaren.",
+"companies"=>"företag", // MT
+"Contacts for"=>"Kontakter för",
+"Continue"=>"Fortsätta",
+"Current Password"=>"Nuvarande lösenord", // MT
+"New Password"=>"Nytt lösenord", // MT
+"no departments"=>"inga avdelningar", // MT
+"nodepartments"=>"Inga avdelningar tillgängliga", // MT
 "notasks"=>"Inga aktiviteter",
-"permissions"=>"permissions",
-"Preset"=>"�terst�lla",
-"Repeat New Password"=>"Repeat New Password",
-"submit"=>"submit",
-"View all allowed companies"=>"View all allowed companies",
+"permissions"=>"behörigheter", // MT
+"Preset"=>"Återställa",
+"Repeat New Password"=>"Upprepa nytt lösenord", // MT
+"submit"=>"skicka", // MT
+"View all allowed companies"=>"Visa alla tillåtna företag", // MT
 
 
 ##
 ## OBSOLETE KEYS
 ##
-// "nodepartments, companies, permissions" => "Inga avdelningar, f�retag, beh�righeter",
+// "nodepartments, companies, permissions" => "Inga avdelningar, företag, behörigheter",
+"Inactive"=>"Inaktiv", // MT
+"Select a company"=>"Välj ett företag", // MT
+"Your password has been changed. You can now log in."=>"Ditt lösenord har ändrats. Du kan nu logga in.", // MT
+"Invalid or expired password reset link."=>"Ogiltig eller utgången länk för lösenordsåterställning.", // MT

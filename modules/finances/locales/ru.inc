@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"У вас нет необходимых прав", // MT
+"Years"=>"Годы", // MT
+"Submit"=>"Отправить", // MT
+"Display"=>"Показать", // MT
+"Amounts"=>"Суммы", // MT
+"without tax"=>"без налога", // MT
+"with tax"=>"с налогом", // MT
+"Detail"=>"Детали", // MT
+"Sub Total"=>"Промежуточный итог", // MT
+"Total"=>"Итого", // MT
+"All"=>"Все", // MT
+"Save Changes"=>"Сохранить изменения", // MT
+"Budget"=>"Бюджет", // MT
+"Project / Task(Tax)"=>"Проект / задача (налог)", // MT
+"INVESTMENT"=>"ИНВЕСТИЦИИ", // MT
+"OPERATION"=>"ЭКСПЛУАТАЦИЯ", // MT
+"Equipment"=>"Оборудование", // MT
+"Intangible"=>"Нематериальные активы", // MT
+"Service"=>"Услуга", // MT
+"Open in new tab"=>"Открыть в новой вкладке", // MT
+"Tax"=>"Налог", // MT
+"This task is only financial"=>"Только финансовая задача", // MT
+"Investment"=>"Инвестиции", // MT
+"Operation"=>"Эксплуатация", // MT
+"You can not set the budget of a dynamic task"=>"Нельзя задать бюджет динамической задачи", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"При загрузке большого числа проектов Internet Explorer может работать значительно медленнее.", // MT
+"Only valued projects and tasks"=>"Только оценённые проекты и задачи", // MT
+"Only valued projects"=>"Только оценённые проекты", // MT
+"Only projects with null budget"=>"Только проекты с нулевым бюджетом", // MT
+"Project Type"=>"Тип проекта", // MT
+"Excel export"=>"Экспорт в Excel", // MT
+"Project Status"=>"Состояние проекта", // MT
+"Template"=>"Шаблон", // MT
+"Archived"=>"Архивный", // MT
+"Unknown"=>"Неизвестно", // MT
+"Administrative"=>"Административный", // MT
+"Operative"=>"Операционный", // MT
+"MacroProject / Project / Task(Tax)"=>"Макропроект / проект / задача (налог)", // MT
+"TOTAL"=>"ИТОГО", // MT
+"Macroproject / Project / Task(Tax)"=>"Макропроект / проект / задача (налог)", // MT

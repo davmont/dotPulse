@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Veritabanını Yedekle", // MT
+"restore xml file"=>"xml dosyasından geri yükle", // MT
+"Restore From XML File"=>"XML Dosyasından Geri Yükle", // MT
+"xmlRestoreWarning"=>"Bu araç, şemayı ve verileri bu araçla oluşturulmuş bir XML dosyasından geri yükler. SQL dosyalarından geri yükleme YAPMAZ.", // MT
+"XML File to Restore"=>"Geri Yüklenecek XML Dosyası", // MT
+"Continue On Error?"=>"Hata Olursa Devam Edilsin mi?", // MT
+"upload"=>"yükle", // MT
+"Backup"=>"Yedekle", // MT
+"Import"=>"İçe Aktar", // MT
+"Export"=>"Dışa Aktar", // MT
+"Success"=>"Başarılı!", // MT
+"Failure"=>"Başarısız: ", // MT
+"Import Data"=>"Verileri İçe Aktar", // MT
+"Export Data"=>"Verileri Dışa Aktar", // MT
+"File Type"=>"Dosya Tipi:", // MT
+"clear"=>"temizle", // MT
+"Filename (without extension):"=>"Dosya adı (uzantısız):", // MT
+"Module"=>"Modül", // MT
+"Item"=>"Kalem", // MT
+"zip"=>".zip - Sıkıştırılmış sql dosyası.", // MT
+"sql"=>".sql - SQL sorguları içeren metin dosyası.", // MT
+"csv"=>".csv - Virgülle Ayrılmış Değerler.", // MT
+"vcf"=>".vcf - vCard dosyası.", // MT
+"Add 'DROP TABLE' to output-script"=>"Çıktı betiğine 'DROP TABLE' ekle", // MT
+"Table structure and data"=>"Tablo yapısı ve veriler", // MT
+"Only table structure"=>"Yalnızca tablo yapısı", // MT
+"Only data"=>"Yalnızca veriler", // MT
+"Options"=>"Seçenekler", // MT
+"Save as"=>"Farklı kaydet", // MT
+"Compressed ZIP SQL file"=>"Sıkıştırılmış ZIP SQL dosyası", // MT
+"Plain text SQL file"=>"Düz metin SQL dosyası", // MT
+"XML file"=>"XML dosyası", // MT
+"Download backup"=>"Yedeği indir", // MT
+"xmlLoginMsg"=>"Oturumu kapatıp yeniden giriş yapmanız gerekebilir", // MT
+"Invalid Options"=>"Geçersiz Seçenekler", // MT
+"Failed to restore backup"=>"Yedek geri yüklenemedi", // MT
+"Backup restored, but with errors"=>"Yedek geri yüklendi, ancak hatalarla", // MT
+"Backup Restored OK"=>"Yedek Başarıyla Geri Yüklendi", // MT
+"No upload file"=>"Yüklenecek dosya yok", // MT
+"Error in parsing XML file"=>"XML dosyası ayrıştırılırken hata", // MT
+"Restore Database"=>"Veritabanını Geri Yükle", // MT

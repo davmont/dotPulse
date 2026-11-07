@@ -2,12 +2,12 @@
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
 "Add Department"=>"Şube Ekle",
-"Address"=>"Address",
+"Address"=>"Adres", // MT
 "badCompany"=>"Bu firma geçerli değil. Şube ekleyemezsiniz.",
-"Company"=>"Company",
+"Company"=>"Firma", // MT
 "delDept"=>"Bu şubeyi silmek istediğinizden emin misiniz?",
 "delete department"=>"Şubeyi sil.",
-"Department"=>"Department",
+"Department"=>"Bölüm", // MT
 "Department Company"=>"Şube Firma",
 "Department Name"=>"Şube adı",
 "Department Parent"=>"Şubenin Dairesi ",
@@ -16,18 +16,18 @@
 "deptValidName"=>"Lütfen geçerli bir Şube ismi giriniz.",
 "deptWithProject"=>"Bir proje ile ilişkili şubeyi silemezsiniz.",
 "deptWithSub"=>"Alt şubeleri olan bir şubeyi silemezsiniz.",
-"Description"=>"Description",
-"Details"=>"Details",
+"Description"=>"Açıklama", // MT
+"Details"=>"Ayrıntılar", // MT
 "Edit Department"=>"Şubesi düzenle",
 "edit this department"=>"Bu şubeyi düzenle.",
-"Fax"=>"Fax",
-"Name"=>"Name",
-"new department"=>"new department",
-"Owner"=>"Owner",
-"Phone"=>"Phone",
-"Please choose a Department first!"=>"Please choose a Department first!",
+"Fax"=>"Faks", // MT
+"Name"=>"İsim", // MT
+"new department"=>"yeni bölüm", // MT
+"Owner"=>"Sahibi", // MT
+"Phone"=>"Telefon", // MT
+"Please choose a Department first!"=>"Lütfen önce bir bölüm seçin!", // MT
 "Select Unit"=>"Birimi Seç",
-"Telephone"=>"Telephone",
+"Telephone"=>"Telefon", // MT
 "View Department"=>"Şubeyi görüntüle",
 "view this department"=>"Bu şubeyi görüntüle.",
-
+"Invalid Department ID"=>"Geçersiz Bölüm Kimliği", // MT

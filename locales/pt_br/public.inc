@@ -1,31 +1,35 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"[none]"=>"[none]",
+"[none]"=>"[nenhum]", // MT
 "Access Denied"=>"Acesso Negado",
 "accessDeniedMsg"=>"<p>Voce tentou acessar um item no Dotproject sem privilegios suficientes.</p><p>Por favor, contate o Administrador do sistema Dotproject.</p>",
-"Allowed Companies"=>"Allowed Companies",
-"chgpwLogin"=>"chgpwLogin",
-"chgpwUpdated"=>"chgpwUpdated",
-"chgpwWrongPW"=>"chgpwWrongPW",
+"Allowed Companies"=>"Empresas Permitidas", // MT
+"chgpwLogin"=>"Faça login para alterar sua senha", // MT
+"chgpwUpdated"=>"Sua senha foi atualizada", // MT
+"chgpwWrongPW"=>"Você digitou a senha antiga errada", // MT
 "Color Selector"=>"Seletor de Cores",
 "colorLegend"=>"Escolha uma cor para identificar sua selecao e feche o Seletor de Cores",
-"companies"=>"companies",
+"companies"=>"empresas", // MT
 "Contacts for"=>"Contatos para",
-"Continue"=>"Continue",
-"Current Password"=>"Current Password",
-"New Password"=>"New Password",
-"no departments"=>"no departments",
-"nodepartments"=>"No Departments available",
+"Continue"=>"Continuar", // MT
+"Current Password"=>"Senha Atual", // MT
+"New Password"=>"Nova Senha", // MT
+"no departments"=>"nenhum departamento", // MT
+"nodepartments"=>"Nenhum Departamento disponível", // MT
 "notasks"=>"Sem Tarefas disponiveis",
-"permissions"=>"permissions",
+"permissions"=>"permissões", // MT
 "Preset"=>"Pre-definido",
-"Repeat New Password"=>"Repeat New Password",
-"submit"=>"submit",
-"View all allowed companies"=>"View all allowed companies",
+"Repeat New Password"=>"Repita a Nova Senha", // MT
+"submit"=>"enviar", // MT
+"View all allowed companies"=>"Ver todas as empresas permitidas", // MT
 
 
 ##
 ## OBSOLETE KEYS
 ##
 // "nodepartments, companies, permissions" => "",
+"Inactive"=>"Inativo", // MT
+"Select a company"=>"Selecione uma empresa", // MT
+"Your password has been changed. You can now log in."=>"Sua senha foi alterada. Agora você pode fazer login.", // MT
+"Invalid or expired password reset link."=>"Link de redefinição de senha inválido ou expirado.", // MT

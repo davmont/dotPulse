@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Cópia de Segurança da Base de Dados", // MT
+"restore xml file"=>"restaurar ficheiro xml", // MT
+"Restore From XML File"=>"Restaurar a Partir de Ficheiro XML", // MT
+"xmlRestoreWarning"=>"Este utilitário restaura o esquema e os dados a partir de um ficheiro XML criado por este utilitário. NÃO restaura a partir de ficheiros SQL.", // MT
+"XML File to Restore"=>"Ficheiro XML a Restaurar", // MT
+"Continue On Error?"=>"Continuar em Caso de Erro?", // MT
+"upload"=>"carregar", // MT
+"Backup"=>"Cópia de Segurança", // MT
+"Import"=>"Importar", // MT
+"Export"=>"Exportar", // MT
+"Success"=>"Sucesso!", // MT
+"Failure"=>"Falha: ", // MT
+"Import Data"=>"Importar Dados", // MT
+"Export Data"=>"Exportar Dados", // MT
+"File Type"=>"Tipo de Ficheiro:", // MT
+"clear"=>"limpar", // MT
+"Filename (without extension):"=>"Nome do ficheiro (sem extensão):", // MT
+"Module"=>"Módulo", // MT
+"Item"=>"Item",
+"zip"=>".zip - Ficheiro sql comprimido.", // MT
+"sql"=>".sql - Ficheiro de texto com consultas SQL.", // MT
+"csv"=>".csv - Valores Separados por Vírgulas.", // MT
+"vcf"=>".vcf - Ficheiro vCard.", // MT
+"Add 'DROP TABLE' to output-script"=>"Adicionar 'DROP TABLE' ao script de saída", // MT
+"Table structure and data"=>"Estrutura e dados das tabelas", // MT
+"Only table structure"=>"Só a estrutura das tabelas", // MT
+"Only data"=>"Só os dados", // MT
+"Options"=>"Opções", // MT
+"Save as"=>"Guardar como", // MT
+"Compressed ZIP SQL file"=>"Ficheiro SQL comprimido em ZIP", // MT
+"Plain text SQL file"=>"Ficheiro SQL em texto simples", // MT
+"XML file"=>"Ficheiro XML", // MT
+"Download backup"=>"Transferir cópia de segurança", // MT
+"xmlLoginMsg"=>"Poderá ter de terminar sessão e voltar a entrar", // MT
+"Invalid Options"=>"Opções Inválidas", // MT
+"Failed to restore backup"=>"Falha ao restaurar a cópia de segurança", // MT
+"Backup restored, but with errors"=>"Cópia de segurança restaurada, mas com erros", // MT
+"Backup Restored OK"=>"Cópia de Segurança Restaurada Correctamente", // MT
+"No upload file"=>"Sem ficheiro carregado", // MT
+"Error in parsing XML file"=>"Erro ao analisar o ficheiro XML", // MT
+"Restore Database"=>"Restaurar Base de Dados", // MT

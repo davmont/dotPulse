@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"Nincs meg a szükséges jogosultsága", // MT
+"Years"=>"Év", // MT
+"Submit"=>"Küldés", // MT
+"Display"=>"Megjelenítés", // MT
+"Amounts"=>"Összegek", // MT
+"without tax"=>"adó nélkül", // MT
+"with tax"=>"adóval", // MT
+"Detail"=>"Részlet", // MT
+"Sub Total"=>"Részösszeg", // MT
+"Total"=>"Összesen", // MT
+"All"=>"Mind", // MT
+"Save Changes"=>"Módosítások mentése", // MT
+"Budget"=>"Büdzsé", // MT
+"Project / Task(Tax)"=>"Projekt / feladat (adó)", // MT
+"INVESTMENT"=>"BERUHÁZÁS", // MT
+"OPERATION"=>"MŰKÖDÉS", // MT
+"Equipment"=>"Eszköz", // MT
+"Intangible"=>"Immateriális", // MT
+"Service"=>"Szolgáltatás", // MT
+"Open in new tab"=>"Megnyitás új lapon", // MT
+"Tax"=>"Adó", // MT
+"This task is only financial"=>"Ez a feladat csak pénzügyi", // MT
+"Investment"=>"Beruházás", // MT
+"Operation"=>"Működés", // MT
+"You can not set the budget of a dynamic task"=>"Dinamikus feladat büdzséje nem állítható be", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Az Internet Explorer teljesítménye miatt nagy számú projekt betöltésekor jelentős lassulás léphet fel.", // MT
+"Only valued projects and tasks"=>"Csak értékkel rendelkező projektek és feladatok", // MT
+"Only valued projects"=>"Csak értékkel rendelkező projektek", // MT
+"Only projects with null budget"=>"Csak büdzsé nélküli projektek", // MT
+"Project Type"=>"Projekttípus", // MT
+"Excel export"=>"Excel export",
+"Project Status"=>"Projekt státusza", // MT
+"Template"=>"Sablon", // MT
+"Archived"=>"Archivált", // MT
+"Unknown"=>"Ismeretlen", // MT
+"Administrative"=>"Adminisztratív", // MT
+"Operative"=>"Operatív", // MT
+"MacroProject / Project / Task(Tax)"=>"Makroprojekt / projekt / feladat (adó)", // MT
+"TOTAL"=>"ÖSSZESEN", // MT
+"Macroproject / Project / Task(Tax)"=>"Makroprojekt / projekt / feladat (adó)", // MT

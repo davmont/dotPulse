@@ -1,9 +1,9 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Converto to task within the following project"=>"Converto to task within the following project",
-"Internal message"=>"Internal message",
-"No messages under this clasification"=>"No messages under this clasification",
-"No subject"=>"No subject",
-"Notify by email"=>"Notify by email",
-"Quick Recipient"=>"Quick Recipient",
+"Converto to task within the following project"=>"Konvertér til opgave i følgende projekt", // MT
+"Internal message"=>"Intern besked", // MT
+"No messages under this clasification"=>"Ingen beskeder i denne kategori", // MT
+"No subject"=>"Intet emne", // MT
+"Notify by email"=>"Underret pr. e-mail", // MT
+"Quick Recipient"=>"Hurtig modtager", // MT

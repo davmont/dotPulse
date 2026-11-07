@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Интегриран с Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"Сериозност", // MT
+"Priority"=>"Приоритет", // MT
+"Reproducibility"=>"Възпроизводимост", // MT
+"Resolution"=>"Решение", // MT
+"tasks created"=>"създадени задачи", // MT
+"already imported"=>"вече импортирани", // MT
+"issues updated"=>"обновени проблеми", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis не е конфигуриран или нямате API токен за Mantis.", // MT
+"That Mantis project is not available to you."=>"Този проект в Mantis не е достъпен за вас.", // MT
+"Project linked to Mantis"=>"Проектът е свързан с Mantis", // MT
+"Project created in Mantis and linked"=>"Проектът е създаден в Mantis и свързан", // MT
+"Project unlinked from Mantis"=>"Проектът е разкачен от Mantis", // MT
+"Choose a status."=>"Изберете състояние.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis не е конфигуриран: задайте адреса му (HTTPS) в Сисадмин > Системна конфигурация.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Вашият API токен за Mantis е съхранен.", // MT
+"You have no Mantis API token stored."=>"Нямате съхранен API токен за Mantis.", // MT
+"Mantis API token"=>"API токен за Mantis", // MT
+"Mantis project"=>"Проект в Mantis", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Все още няма проект, свързан с Mantis: свържете някой от раздела му Mantis.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Въведете своя API токен за Mantis, за да видите проблемите в Mantis за този проект", // MT
+"This project is not linked to a Mantis project."=>"Този проект не е свързан с проект в Mantis.", // MT
+"Link"=>"Връзка", // MT
+"Create it in Mantis"=>"Създай го в Mantis", // MT
+"needs a Mantis administrator token"=>"изисква администраторски токен за Mantis", // MT
+"Issue"=>"Заявка", // MT
+"Assigned To"=>"Възложено на", // MT
+"Updated"=>"Обновен", // MT
+"No issues"=>"Няма проблеми", // MT
+"view"=>"преглед", // MT
+"Import selected as tasks"=>"Импортирай избраните като задачи", // MT
+"Change status of selected"=>"Промени състоянието на избраните", // MT
+"Unlink this project from Mantis?"=>"Да се разкачи ли този проект от Mantis?", // MT
+"Unlink"=>"Разкачи", // MT
+"Mantis API token saved for Mantis user"=>"API токенът за Mantis е записан за потребителя в Mantis", // MT
+"Your token is stored"=>"Токенът ви е съхранен", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Създайте токен в Mantis (My Account > API Tokens) и го поставете тук. Тогава Mantis прилага вашите собствени права в Mantis.", // MT
+"Save"=>"Запиши", // MT
+"Remove my token"=>"Премахни моя токен", // MT
+"Mantis API token removed"=>"API токенът за Mantis е премахнат", // MT
+"A Mantis API token has 32 letters and digits."=>"API токенът за Mantis съдържа 32 букви и цифри.", // MT

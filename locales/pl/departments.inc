@@ -1,38 +1,39 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add Department"=>"Dodaj dzia≥",
-"Address"=>"Address",
-"badCompany"=>"Ta firma jest nieprawid≥owa. Nie moøesz dodaÊ dzia≥u",
-"Company"=>"Company",
-"delDept"=>"Czy jeste∂ pewien øe chcesz usun±Ê ten dzia≥ ?",
-"delete department"=>"delete department",
-"Department"=>"Department",
-"Department Company"=>"Firma dzia≥u",
-"Department Name"=>"Nazwa dzia≥u",
-"Department Parent"=>"NadrzÍdne do dzia≥u",
-"departmentDelete"=>"Are you sure you want to delete this department",
-"deptIndexPage"=>"DostÍp do dzia≥Ûw moøliwy jest przez firmy",
-"deptValidName"=>"ProszÍ wprowadziÊ prawid≥ow± nazwÍ dzia≥u",
-"deptWithProject"=>"Nie moøna usun±Ê dzia≥u, ktÛry ma przypisane projekty",
-"deptWithSub"=>"Nie moøna usun±Ê dzia≥u ktÛry ma dzia≥y podrzÍdne",
-"Description"=>"Description",
-"Details"=>"Details",
-"Edit Department"=>"Edytuj dzia≥",
-"edit this department"=>"edytuj ten dzia≥",
-"Fax"=>"Fax",
-"Name"=>"Name",
-"new department"=>"new department",
-"Owner"=>"Owner",
-"Phone"=>"Phone",
-"Please choose a Department first!"=>"Please choose a Department first!",
-"Select Unit"=>"Select Unit",
-"Telephone"=>"Telephone",
-"View Department"=>"View Department",
-"view this department"=>"przegl±daj ten dzia≥",
+"Add Department"=>"Dodaj dzia≈Ç",
+"Address"=>"Adres", // MT
+"badCompany"=>"Ta firma jest nieprawid≈Çowa. Nie mo≈ºesz dodaƒá dzia≈Çu",
+"Company"=>"Firma", // MT
+"delDept"=>"Czy jeste≈õ pewien ≈ºe chcesz usunƒÖƒá ten dzia≈Ç ?",
+"delete department"=>"usu≈Ñ dzia≈Ç", // MT
+"Department"=>"Dzia≈Ç", // MT
+"Department Company"=>"Firma dzia≈Çu",
+"Department Name"=>"Nazwa dzia≈Çu",
+"Department Parent"=>"Nadrzƒôdne do dzia≈Çu",
+"departmentDelete"=>"Czy na pewno chcesz usunƒÖƒá ten dzia≈Ç", // MT
+"deptIndexPage"=>"Dostƒôp do dzia≈Ç√≥w mo≈ºliwy jest przez firmy",
+"deptValidName"=>"Proszƒô wprowadziƒá prawid≈ÇowƒÖ nazwƒô dzia≈Çu",
+"deptWithProject"=>"Nie mo≈ºna usunƒÖƒá dzia≈Çu, kt√≥ry ma przypisane projekty",
+"deptWithSub"=>"Nie mo≈ºna usunƒÖƒá dzia≈Çu kt√≥ry ma dzia≈Çy podrzƒôdne",
+"Description"=>"Opis", // MT
+"Details"=>"Szczeg√≥≈Çy", // MT
+"Edit Department"=>"Edytuj dzia≈Ç",
+"edit this department"=>"edytuj ten dzia≈Ç",
+"Fax"=>"Faks", // MT
+"Name"=>"Nazwa", // MT
+"new department"=>"nowy dzia≈Ç", // MT
+"Owner"=>"W≈Ça≈õciciel", // MT
+"Phone"=>"Telefon", // MT
+"Please choose a Department first!"=>"Najpierw wybierz dzia≈Ç!", // MT
+"Select Unit"=>"Wybierz jednostkƒô", // MT
+"Telephone"=>"Telefon", // MT
+"View Department"=>"Wy≈õwietl dzia≈Ç", // MT
+"view this department"=>"przeglƒÖdaj ten dzia≈Ç",
 
 
 ##
 ## OBSOLETE KEYS
 ##
-// "" => "Dodaj dzia≥",
+// "" => "Dodaj dzia≈Ç",
+"Invalid Department ID"=>"Nieprawid≈Çowy identyfikator dzia≈Çu", // MT

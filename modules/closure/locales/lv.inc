@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Noslēgšana", // MT
+"Project Name"=>"Projekta nosaukums", // MT
+"Project Meeting Date"=>"Projekta sanāksmes datums", // MT
+"Project Start Date"=>"Projekta sākuma datums", // MT
+"Project End Date"=>"Projekta beigu datums", // MT
+"new post mortem analysis"=>"jauna pēcprojekta analīze", // MT
+"New Post Mortem"=>"Jauna pēcprojekta analīze", // MT
+"Edit Post Mortem"=>"Labot pēcprojekta analīzi", // MT
+"Meeting Date"=>"Sanāksmes datums", // MT
+"Meeting Settings"=>"Sanāksmes iestatījumi", // MT
+"Project Summary"=>"Projekta kopsavilkums", // MT
+"Project Planned Start Date"=>"Projekta plānotais sākuma datums", // MT
+"Project Planned End Date"=>"Projekta plānotais beigu datums", // MT
+"Project Planned Budget"=>"Projekta plānotais budžets", // MT
+"Project Budget"=>"Projekta budžets", // MT
+"Lessons Learned"=>"Gūtās atziņas", // MT
+"Project Strengths"=>"Projekta stiprās puses", // MT
+"Project Weaknesses"=>"Projekta vājās puses", // MT
+"Improvement Suggestions"=>"Uzlabojumu ieteikumi", // MT
+"Conclusions"=>"Secinājumi", // MT
+"Meeting Participants"=>"Sanāksmes dalībnieki", // MT
+"view this post mortem"=>"skatīt šo pēcprojekta analīzi", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Uzskaitiet šeit (katru tēmu ar '*') tehnoloģijas, procesus, IDE vai jebkādas metodes, rīkus vai pakalpojumus, kas šajā projektā jums attaisnojās", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Uzskaitiet šeit (katru tēmu ar '*') tehnoloģijas, procesus, IDE vai jebkādas metodes, rīkus vai pakalpojumus, kas šajā projektā jums neattaisnojās", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Uzskaitiet šeit (katru tēmu ar '*') projekta aspektus, kas jāuzlabo", // MT
+"General conclusions about the project"=>"Vispārīgi secinājumi par projektu", // MT
+"Post Mortem deleted"=>"Pēcprojekta analīze dzēsta", // MT
+"post mortem list"=>"pēcprojekta analīžu saraksts", // MT
+"Post Mortem"=>"Pēcprojekta analīze", // MT
+"noDeletePermission"=>"Jums nav atļaujas dzēst šo vienumu", // MT
+"Post Mortem Records by project"=>"Pēcprojekta analīzes ieraksti pa projektiem", // MT
+"Project Status"=>"Projekta statuss", // MT
+"Participants"=>"Dalībnieki", // MT
+"Post Mortem ID"=>"Pēcprojekta analīzes ID", // MT
+"View Post Mortem Analysis"=>"Skatīt pēcprojekta analīzi", // MT
+"edit this post mortem"=>"labot šo pēcprojekta analīzi", // MT
+"invalid ID"=>"nederīgs ID", // MT
+"Post Mortem Analysis"=>"Pēcprojekta analīze", // MT

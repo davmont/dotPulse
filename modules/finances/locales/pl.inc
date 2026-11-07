@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"Nie masz wymaganych uprawnień", // MT
+"Years"=>"Lata", // MT
+"Submit"=>"Wyślij", // MT
+"Display"=>"Wyświetl", // MT
+"Amounts"=>"Kwoty", // MT
+"without tax"=>"bez podatku", // MT
+"with tax"=>"z podatkiem", // MT
+"Detail"=>"Szczegół", // MT
+"Sub Total"=>"Suma częściowa", // MT
+"Total"=>"Razem", // MT
+"All"=>"Wszystkie", // MT
+"Save Changes"=>"Zapisz zmiany", // MT
+"Budget"=>"Budżet", // MT
+"Project / Task(Tax)"=>"Projekt / Zadanie (podatek)", // MT
+"INVESTMENT"=>"INWESTYCJA", // MT
+"OPERATION"=>"EKSPLOATACJA", // MT
+"Equipment"=>"Sprzęt", // MT
+"Intangible"=>"Wartości niematerialne", // MT
+"Service"=>"Usługa", // MT
+"Open in new tab"=>"Otwórz w nowej karcie", // MT
+"Tax"=>"Podatek", // MT
+"This task is only financial"=>"To zadanie jest wyłącznie finansowe", // MT
+"Investment"=>"Inwestycja", // MT
+"Operation"=>"Eksploatacja", // MT
+"You can not set the budget of a dynamic task"=>"Nie można ustawić budżetu zadania dynamicznego", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Wydajność przeglądarki Internet Explorer może powodować bardzo znaczne spowolnienie przy wczytywaniu dużej liczby projektów.", // MT
+"Only valued projects and tasks"=>"Tylko wycenione projekty i zadania", // MT
+"Only valued projects"=>"Tylko wycenione projekty", // MT
+"Only projects with null budget"=>"Tylko projekty z zerowym budżetem", // MT
+"Project Type"=>"Typ projektu", // MT
+"Excel export"=>"Eksport do Excela", // MT
+"Project Status"=>"Status projektu", // MT
+"Template"=>"Szablon", // MT
+"Archived"=>"Zarchiwizowany", // MT
+"Unknown"=>"Nieznany", // MT
+"Administrative"=>"Administracyjny", // MT
+"Operative"=>"Operacyjny", // MT
+"MacroProject / Project / Task(Tax)"=>"MacroProject / Projekt / Zadanie (podatek)", // MT
+"TOTAL"=>"RAZEM", // MT
+"Macroproject / Project / Task(Tax)"=>"Makroprojekt / Projekt / Zadanie (podatek)", // MT

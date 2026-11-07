@@ -48,7 +48,7 @@
 "LBL_OPEN"=>"Aberto",
 "LBL_CLOSED"=>"Fechado",
 "LBL_NOT_APLICABLE"=>"Não se aplica",
-"LBL_[ALL]"=>"[Todos]",
+"LBL_[ALL]"=>"[Todos]", // MT
 "LBL_NOT_DEFINED"=>"[Não definido]",
 "LBL_YES"=>"Sim",
 "LBL_NO"=>"Não",
@@ -63,4 +63,17 @@
 "LBL_CONTINGENCY_PLAN"=>"Plano de contingência",
 "LBL_STRATEGYS_LIST"=>"Lista de respostas aos riscos",
 "Risks"=>"Riscos",
-"LBL_ALL_TASKS" => "[Todas]",
+"LBL_ALL_TASKS"=>"[Todos]", // MT
+"Task Log"=>"Registro de Tarefa", // MT
+"projectName"=>"Nome do projeto", // MT
+"Journal"=>"Diário", // MT
+"Initiating"=>"Iniciação", // MT
+"Board"=>"Quadro", // MT
+"Show all tasks"=>"Mostrar todas as tarefas", // MT
+"Show only my tasks"=>"Mostrar apenas minhas tarefas", // MT
+"Drag a card to another column, or use its arrows, to change its progress."=>"Arraste um cartão para outra coluna, ou use as setas dele, para alterar o progresso.", // MT
+"The task could not be moved."=>"Não foi possível mover a tarefa.", // MT
+"High priority"=>"Prioridade alta", // MT
+"Move left"=>"Mover para a esquerda", // MT
+"Move right"=>"Mover para a direita", // MT
+"noDeletePermission"=>"Você não tem permissão para excluir este item", // MT

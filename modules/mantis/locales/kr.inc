@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Mantis 연동됨", // MT
+"ID"=>"ID",
+"Severity"=>"심각도", // MT
+"Priority"=>"우선순위", // MT
+"Reproducibility"=>"재현성", // MT
+"Resolution"=>"해결", // MT
+"tasks created"=>"작업 생성됨", // MT
+"already imported"=>"이미 가져옴", // MT
+"issues updated"=>"이슈 업데이트됨", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis가 구성되지 않았거나 Mantis API 토큰이 없습니다.", // MT
+"That Mantis project is not available to you."=>"해당 Mantis 프로젝트를 사용할 수 없습니다.", // MT
+"Project linked to Mantis"=>"프로젝트가 Mantis에 연결되었습니다", // MT
+"Project created in Mantis and linked"=>"Mantis에 프로젝트가 생성되고 연결되었습니다", // MT
+"Project unlinked from Mantis"=>"프로젝트와 Mantis의 연결이 해제되었습니다", // MT
+"Choose a status."=>"상태를 선택하십시오.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis가 구성되지 않았습니다. 시스템 관리 > 시스템 구성에서 주소(HTTPS)를 설정하십시오.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Mantis API 토큰이 저장되어 있습니다.", // MT
+"You have no Mantis API token stored."=>"저장된 Mantis API 토큰이 없습니다.", // MT
+"Mantis API token"=>"Mantis API 토큰", // MT
+"Mantis project"=>"Mantis 프로젝트", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"아직 Mantis에 연결된 프로젝트가 없습니다. 프로젝트의 Mantis 탭에서 연결하십시오.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"이 프로젝트의 Mantis 이슈를 보려면 Mantis API 토큰을 입력하십시오", // MT
+"This project is not linked to a Mantis project."=>"이 프로젝트는 Mantis 프로젝트에 연결되어 있지 않습니다.", // MT
+"Link"=>"링크", // MT
+"Create it in Mantis"=>"Mantis에서 만들기", // MT
+"needs a Mantis administrator token"=>"Mantis 관리자 토큰이 필요합니다", // MT
+"Issue"=>"이슈", // MT
+"Assigned To"=>"담당자", // MT
+"Updated"=>"업데이트됨", // MT
+"No issues"=>"이슈 없음", // MT
+"view"=>"보기", // MT
+"Import selected as tasks"=>"선택한 항목을 작업으로 가져오기", // MT
+"Change status of selected"=>"선택한 항목의 상태 변경", // MT
+"Unlink this project from Mantis?"=>"이 프로젝트와 Mantis의 연결을 해제하시겠습니까?", // MT
+"Unlink"=>"연결 해제", // MT
+"Mantis API token saved for Mantis user"=>"Mantis 사용자의 Mantis API 토큰이 저장되었습니다", // MT
+"Your token is stored"=>"토큰이 저장되어 있습니다", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Mantis에서 토큰을 만들고(내 계정 > API 토큰) 여기에 붙여넣으십시오. 그러면 Mantis에서 본인의 Mantis 권한이 적용됩니다.", // MT
+"Save"=>"저장", // MT
+"Remove my token"=>"내 토큰 제거", // MT
+"Mantis API token removed"=>"Mantis API 토큰이 제거되었습니다", // MT
+"A Mantis API token has 32 letters and digits."=>"Mantis API 토큰은 32자의 영문자와 숫자로 이루어집니다.", // MT

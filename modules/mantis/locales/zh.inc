@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"已集成 Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"严重程度", // MT
+"Priority"=>"优先级", // MT
+"Reproducibility"=>"可重现性", // MT
+"Resolution"=>"解决方案", // MT
+"tasks created"=>"个任务已创建", // MT
+"already imported"=>"已导入", // MT
+"issues updated"=>"个问题已更新", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis 未配置，或您没有 Mantis API 令牌。", // MT
+"That Mantis project is not available to you."=>"您无法使用该 Mantis 项目。", // MT
+"Project linked to Mantis"=>"项目已链接到 Mantis", // MT
+"Project created in Mantis and linked"=>"已在 Mantis 中创建项目并链接", // MT
+"Project unlinked from Mantis"=>"项目已取消与 Mantis 的链接", // MT
+"Choose a status."=>"请选择状况。", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis 未配置：请在系统管理 > 系统配置中设置其地址 (HTTPS)。", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"您的 Mantis API 令牌已保存。", // MT
+"You have no Mantis API token stored."=>"您尚未保存 Mantis API 令牌。", // MT
+"Mantis API token"=>"Mantis API 令牌", // MT
+"Mantis project"=>"Mantis 项目", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"尚无项目链接到 Mantis：请从项目的 Mantis 标签中进行链接。", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"输入您的 Mantis API 令牌以查看此项目的 Mantis 问题", // MT
+"This project is not linked to a Mantis project."=>"此项目未链接到 Mantis 项目。", // MT
+"Link"=>"链接", // MT
+"Create it in Mantis"=>"在 Mantis 中创建", // MT
+"needs a Mantis administrator token"=>"需要 Mantis 管理员令牌", // MT
+"Issue"=>"问题", // MT
+"Assigned To"=>"分配给", // MT
+"Updated"=>"已更新", // MT
+"No issues"=>"没有问题", // MT
+"view"=>"查看", // MT
+"Import selected as tasks"=>"将所选导入为任务", // MT
+"Change status of selected"=>"更改所选的状况", // MT
+"Unlink this project from Mantis?"=>"取消此项目与 Mantis 的链接？", // MT
+"Unlink"=>"取消链接", // MT
+"Mantis API token saved for Mantis user"=>"已为以下 Mantis 用户保存 Mantis API 令牌", // MT
+"Your token is stored"=>"您的令牌已保存", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"在 Mantis 中创建令牌（我的账户 > API 令牌）并粘贴到此处。Mantis 将应用您自己的 Mantis 权限。", // MT
+"Save"=>"保存", // MT
+"Remove my token"=>"删除我的令牌", // MT
+"Mantis API token removed"=>"Mantis API 令牌已删除", // MT
+"A Mantis API token has 32 letters and digits."=>"Mantis API 令牌由 32 个字母和数字组成。", // MT

@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Lezárás", // MT
+"Project Name"=>"Projekt neve", // MT
+"Project Meeting Date"=>"Projektértekezlet dátuma", // MT
+"Project Start Date"=>"Projekt indulási dátuma", // MT
+"Project End Date"=>"Projekt befejezési dátuma", // MT
+"new post mortem analysis"=>"új utólagos elemzés", // MT
+"New Post Mortem"=>"Új utólagos elemzés", // MT
+"Edit Post Mortem"=>"Utólagos elemzés szerkesztése", // MT
+"Meeting Date"=>"Értekezlet dátuma", // MT
+"Meeting Settings"=>"Értekezlet beállításai", // MT
+"Project Summary"=>"Projekt összefoglalója", // MT
+"Project Planned Start Date"=>"Projekt tervezett indulási dátuma", // MT
+"Project Planned End Date"=>"Projekt tervezett befejezési dátuma", // MT
+"Project Planned Budget"=>"Projekt tervezett büdzséje", // MT
+"Project Budget"=>"Projekt büdzséje", // MT
+"Lessons Learned"=>"Tanulságok", // MT
+"Project Strengths"=>"A projekt erősségei", // MT
+"Project Weaknesses"=>"A projekt gyengeségei", // MT
+"Improvement Suggestions"=>"Fejlesztési javaslatok", // MT
+"Conclusions"=>"Következtetések", // MT
+"Meeting Participants"=>"Értekezlet résztvevői", // MT
+"view this post mortem"=>"utólagos elemzés megtekintése", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Sorolja fel itt (minden témát '*'-gal kezdve) azokat a technológiákat, folyamatokat, fejlesztőkörnyezeteket vagy bármilyen technikákat, eszközöket vagy szolgáltatásokat, amelyek beváltak ebben a projektben", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Sorolja fel itt (minden témát '*'-gal kezdve) azokat a technológiákat, folyamatokat, fejlesztőkörnyezeteket vagy bármilyen technikákat, eszközöket vagy szolgáltatásokat, amelyek nem váltak be ebben a projektben", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Sorolja fel itt (minden témát '*'-gal kezdve) a projekt fejlesztendő szempontjait", // MT
+"General conclusions about the project"=>"Általános következtetések a projektről", // MT
+"Post Mortem deleted"=>"Utólagos elemzés törölve", // MT
+"post mortem list"=>"utólagos elemzések listája", // MT
+"Post Mortem"=>"Utólagos elemzés", // MT
+"noDeletePermission"=>"Nincs jogosultsága törölni ezt az elemet", // MT
+"Post Mortem Records by project"=>"Utólagos elemzések projektenként", // MT
+"Project Status"=>"Projekt státusza", // MT
+"Participants"=>"Résztvevők", // MT
+"Post Mortem ID"=>"Utólagos elemzés azonosítója", // MT
+"View Post Mortem Analysis"=>"Utólagos elemzés megtekintése", // MT
+"edit this post mortem"=>"utólagos elemzés szerkesztése", // MT
+"invalid ID"=>"érvénytelen azonosító", // MT
+"Post Mortem Analysis"=>"Utólagos elemzés", // MT

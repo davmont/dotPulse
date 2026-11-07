@@ -1,8 +1,8 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"classic"=>"¥j¨å dotProject ­·®æ",
-"default"=>"²M²n­·®æ(¤º©w­È)",
-"demo1"=>"½d¨Ò­·®æ",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"classic"=>"å¤å…¸ dotProject é¢¨æ ¼",
+"default"=>"æ¸…çˆ½é¢¨æ ¼(å…§å®šå€¼)",
+"demo1"=>"ç¯„ä¾‹é¢¨æ ¼",
+"dp-grey-theme"=>"ç°è‰²ç´°ç·šæ¨£å¼", // MT
+"dotpulse"=>"dotPulse",

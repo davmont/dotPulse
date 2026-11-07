@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Kapanış", // MT
+"Project Name"=>"Proje Adı", // MT
+"Project Meeting Date"=>"Proje Toplantı Tarihi", // MT
+"Project Start Date"=>"Proje Başlangıç Tarihi", // MT
+"Project End Date"=>"Proje Bitiş Tarihi", // MT
+"new post mortem analysis"=>"yeni proje sonrası analiz", // MT
+"New Post Mortem"=>"Yeni Proje Sonrası Analiz", // MT
+"Edit Post Mortem"=>"Proje Sonrası Analizi Düzenle", // MT
+"Meeting Date"=>"Toplantı Tarihi", // MT
+"Meeting Settings"=>"Toplantı Ayarları", // MT
+"Project Summary"=>"Proje Özeti", // MT
+"Project Planned Start Date"=>"Planlanan Proje Başlangıç Tarihi", // MT
+"Project Planned End Date"=>"Planlanan Proje Bitiş Tarihi", // MT
+"Project Planned Budget"=>"Planlanan Proje Bütçesi", // MT
+"Project Budget"=>"Proje Bütçesi", // MT
+"Lessons Learned"=>"Alınan Dersler", // MT
+"Project Strengths"=>"Projenin Güçlü Yönleri", // MT
+"Project Weaknesses"=>"Projenin Zayıf Yönleri", // MT
+"Improvement Suggestions"=>"İyileştirme Önerileri", // MT
+"Conclusions"=>"Sonuçlar", // MT
+"Meeting Participants"=>"Toplantı Katılımcıları", // MT
+"view this post mortem"=>"bu proje sonrası analizi görüntüle", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Bu projede işinize yarayan teknolojileri, süreçleri, IDE'leri veya diğer teknikleri, araçları ya da hizmetleri burada listeleyin (her konu '*' ile)", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Bu projede işinize yaramayan teknolojileri, süreçleri, IDE'leri veya diğer teknikleri, araçları ya da hizmetleri burada listeleyin (her konu '*' ile)", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Projenin iyileştirilmesi gereken yönlerini burada listeleyin (her konu '*' ile)", // MT
+"General conclusions about the project"=>"Proje hakkında genel sonuçlar", // MT
+"Post Mortem deleted"=>"Proje sonrası analiz silindi", // MT
+"post mortem list"=>"proje sonrası analiz listesi", // MT
+"Post Mortem"=>"Proje Sonrası Analiz", // MT
+"noDeletePermission"=>"Bu öğeyi silme izniniz yok", // MT
+"Post Mortem Records by project"=>"Projeye Göre Proje Sonrası Analiz Kayıtları", // MT
+"Project Status"=>"Proje Durumu", // MT
+"Participants"=>"Katılımcılar", // MT
+"Post Mortem ID"=>"Proje Sonrası Analiz Kimliği", // MT
+"View Post Mortem Analysis"=>"Proje Sonrası Analizi Görüntüle", // MT
+"edit this post mortem"=>"bu proje sonrası analizi düzenle", // MT
+"invalid ID"=>"geçersiz kimlik", // MT
+"Post Mortem Analysis"=>"Proje Sonrası Analiz", // MT

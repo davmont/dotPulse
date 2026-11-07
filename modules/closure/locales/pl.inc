@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Zamknięcie", // MT
+"Project Name"=>"Nazwa projektu", // MT
+"Project Meeting Date"=>"Data spotkania projektowego", // MT
+"Project Start Date"=>"Data rozpoczęcia projektu", // MT
+"Project End Date"=>"Data zakończenia projektu", // MT
+"new post mortem analysis"=>"nowa analiza powykonawcza", // MT
+"New Post Mortem"=>"Nowa analiza powykonawcza", // MT
+"Edit Post Mortem"=>"Edytuj analizę powykonawczą", // MT
+"Meeting Date"=>"Data spotkania", // MT
+"Meeting Settings"=>"Ustawienia spotkania", // MT
+"Project Summary"=>"Podsumowanie projektu", // MT
+"Project Planned Start Date"=>"Planowana data rozpoczęcia projektu", // MT
+"Project Planned End Date"=>"Planowana data zakończenia projektu", // MT
+"Project Planned Budget"=>"Planowany budżet projektu", // MT
+"Project Budget"=>"Budżet projektu", // MT
+"Lessons Learned"=>"Wnioski", // MT
+"Project Strengths"=>"Mocne strony projektu", // MT
+"Project Weaknesses"=>"Słabe strony projektu", // MT
+"Improvement Suggestions"=>"Sugestie usprawnień", // MT
+"Conclusions"=>"Wnioski końcowe", // MT
+"Meeting Participants"=>"Uczestnicy spotkania", // MT
+"view this post mortem"=>"wyświetl tę analizę powykonawczą", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Wymień tutaj (każdy punkt z '*') technologie, procesy, środowiska IDE lub inne techniki, narzędzia czy usługi, które sprawdziły się w tym projekcie", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Wymień tutaj (każdy punkt z '*') technologie, procesy, środowiska IDE lub inne techniki, narzędzia czy usługi, które nie sprawdziły się w tym projekcie", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Wymień tutaj (każdy punkt z '*') aspekty projektu, które wymagają poprawy", // MT
+"General conclusions about the project"=>"Ogólne wnioski dotyczące projektu", // MT
+"Post Mortem deleted"=>"Usunięto analizę powykonawczą", // MT
+"post mortem list"=>"lista analiz powykonawczych", // MT
+"Post Mortem"=>"Analiza powykonawcza", // MT
+"noDeletePermission"=>"Nie masz uprawnień do usunięcia tego elementu", // MT
+"Post Mortem Records by project"=>"Analizy powykonawcze według projektu", // MT
+"Project Status"=>"Status projektu", // MT
+"Participants"=>"Uczestnicy", // MT
+"Post Mortem ID"=>"ID analizy powykonawczej", // MT
+"View Post Mortem Analysis"=>"Wyświetl analizę powykonawczą", // MT
+"edit this post mortem"=>"edytuj tę analizę powykonawczą", // MT
+"invalid ID"=>"nieprawidłowy identyfikator", // MT
+"Post Mortem Analysis"=>"Analiza powykonawcza", // MT

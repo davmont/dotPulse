@@ -1,9 +1,9 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Converto to task within the following project"=>"Converto to task within the following project",
-"Internal message"=>"Internal message",
-"No messages under this clasification"=>"No messages under this clasification",
-"No subject"=>"No subject",
-"Notify by email"=>"Notify by email",
-"Quick Recipient"=>"Quick Recipient",
+"Converto to task within the following project"=>"Omzetten naar taak binnen het volgende project", // MT
+"Internal message"=>"Intern bericht", // MT
+"No messages under this clasification"=>"Geen berichten in deze categorie", // MT
+"No subject"=>"Geen onderwerp", // MT
+"Notify by email"=>"Per e-mail informeren", // MT
+"Quick Recipient"=>"Snelle ontvanger", // MT

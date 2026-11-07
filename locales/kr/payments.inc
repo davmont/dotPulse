@@ -19,3 +19,9 @@
 "Total"=>"합계",
 "new payment"=>"새로운 지불",
 "payments list"=>"지불 목록",
+"Invoice Date"=>"송장 날짜", // MT
+"Invoice Due"=>"송장 기한", // MT
+"Payment"=>"지불", // MT
+"Invoices"=>"송장", // MT
+"No Payments available"=>"지불 내역이 없습니다", // MT
+"Payments"=>"지불", // MT

@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Tilføj", // MT
+"LBL_EXCLUSION"=>"Udelad", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Indrykning", // MT
+"LBL_ORDER"=>"Rækkefølge", // MT
+"LBL_SORT"=>"Sortér", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Gem", // MT
+"LBL_ESTIMATION"=>"Estimat", // MT
+"LBL_DESCRIPTION"=>"Beskrivelse", // MT
+"LBL_MOVE"=>"Flyt", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Definition af aktiviteter", // MT
+"LBL_CREATE_MINUTE"=>"Opret referat", // MT
+"LBL_MINUTES"=>"Referater", // MT
+"LBL_DATE"=>"Dato", // MT
+"LBL_EDIT"=>"Redigér", // MT
+"LBL_TYPE"=>"Type",
+"LBL_EFFORT"=>"Indsats", // MT
+"LBL_DURATION"=>"Varighed", // MT
+"LBL_RESOURCES"=>"Ressourcer (roller)", // MT
+"LBL_SIZE"=>"Størrelse", // MT
+"LBL_ALL_MEMBERS"=>"Alle medlemmer", // MT
+"LBL_PARTICIPANTS"=>"Deltagere", // MT
+"LBL_REPORT"=>"Rapport", // MT
+"LBL_CLOSE"=>"Luk", // MT
+"LBL_WORK_PACKAGE"=>"Arbejdspakke", // MT
+"LBL_IN_DAYS"=>"(dage)", // MT
+"LBL_ESTIMATIONS"=>"Estimater", // MT
+"LBL_ACTIVITY"=>"Aktivitet", // MT
+"LBL_HOURS"=>"Timer", // MT
+"LBL_MINUTES_TIME"=>"Referater", // MT
+"LBL_DAYS"=>"Dage", // MT
+"LBL_ROLE"=>"Rolle", // MT
+"LBL_ORGONOGRAM"=>"Organisationsdiagram", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Afledning", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Estimater", // MT
+"1LBLORGONOGRAM"=>"Organisationsdiagram ", // MT
+"LBL_INTRO"=>"Dette modul bruges fra modulerne for projekter og projektopgaver. Det behøver ikke at blive åbnet direkte. Du kan skjule denne fane i systemadministrationen.", // MT
+"LBL_DEV_SCHEDULE"=>"Udvikling af tidsplan", // MT
+"LBL_EXECUTE"=>"Udfør", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Denne handling beregner aktiviteternes start- og slutdatoer ud fra projektets startdato, de estimerede indsatser og de logiske afhængigheder mellem aktiviteterne.", // MT
+"Assigned to Task"=>"Tildelt opgave", // MT

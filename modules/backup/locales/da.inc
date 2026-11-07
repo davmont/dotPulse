@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Sikkerhedskopiér database", // MT
+"restore xml file"=>"gendan XML-fil", // MT
+"Restore From XML File"=>"Gendan fra XML-fil", // MT
+"xmlRestoreWarning"=>"Dette værktøj gendanner skema og data fra en XML-fil oprettet af dette værktøj. Det gendanner IKKE fra SQL-filer.", // MT
+"XML File to Restore"=>"XML-fil, der skal gendannes", // MT
+"Continue On Error?"=>"Fortsæt ved fejl?", // MT
+"upload"=>"upload",
+"Backup"=>"Sikkerhedskopi", // MT
+"Import"=>"Importér", // MT
+"Export"=>"Eksportér", // MT
+"Success"=>"Udført!", // MT
+"Failure"=>"Fejl: ", // MT
+"Import Data"=>"Importér data", // MT
+"Export Data"=>"Eksportér data", // MT
+"File Type"=>"Filtype:", // MT
+"clear"=>"ryd", // MT
+"Filename (without extension):"=>"Filnavn (uden filtype):", // MT
+"Module"=>"Modul", // MT
+"Item"=>"Element", // MT
+"zip"=>".zip - Komprimeret SQL-fil.", // MT
+"sql"=>".sql - Tekstfil med SQL-forespørgsler.", // MT
+"csv"=>".csv - Kommaseparerede værdier.", // MT
+"vcf"=>".vcf - vCard-fil.", // MT
+"Add 'DROP TABLE' to output-script"=>"Tilføj 'DROP TABLE' til output-scriptet", // MT
+"Table structure and data"=>"Tabelstruktur og data", // MT
+"Only table structure"=>"Kun tabelstruktur", // MT
+"Only data"=>"Kun data", // MT
+"Options"=>"Indstillinger", // MT
+"Save as"=>"Gem som", // MT
+"Compressed ZIP SQL file"=>"Komprimeret ZIP SQL-fil", // MT
+"Plain text SQL file"=>"SQL-fil i ren tekst", // MT
+"XML file"=>"XML-fil", // MT
+"Download backup"=>"Download sikkerhedskopi", // MT
+"xmlLoginMsg"=>"Du skal muligvis logge ud og ind igen", // MT
+"Invalid Options"=>"Ugyldige indstillinger", // MT
+"Failed to restore backup"=>"Kunne ikke gendanne sikkerhedskopien", // MT
+"Backup restored, but with errors"=>"Sikkerhedskopien er gendannet, men med fejl", // MT
+"Backup Restored OK"=>"Sikkerhedskopien er gendannet", // MT
+"No upload file"=>"Ingen fil at uploade", // MT
+"Error in parsing XML file"=>"Fejl ved fortolkning af XML-fil", // MT
+"Restore Database"=>"Gendan database", // MT

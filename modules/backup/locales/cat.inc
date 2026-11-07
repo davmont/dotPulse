@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Còpia de seguretat de la base de dades", // MT
+"restore xml file"=>"restaurar arxiu XML", // MT
+"Restore From XML File"=>"Restaurar des d'un arxiu XML", // MT
+"xmlRestoreWarning"=>"Aquesta utilitat restaurarà l'esquema i les dades d'un arxiu XML creat per aquesta utilitat. NO restaurarà des d'arxius SQL.", // MT
+"XML File to Restore"=>"Arxiu XML a restaurar", // MT
+"Continue On Error?"=>"Continuar en cas d'error?", // MT
+"upload"=>"pujar", // MT
+"Backup"=>"Còpia de seguretat", // MT
+"Import"=>"Importar", // MT
+"Export"=>"Exportar", // MT
+"Success"=>"Fet!", // MT
+"Failure"=>"Error: ", // MT
+"Import Data"=>"Importar dades", // MT
+"Export Data"=>"Exportar dades", // MT
+"File Type"=>"Tipus d'arxiu:", // MT
+"clear"=>"netejar", // MT
+"Filename (without extension):"=>"Nom de l'arxiu (sense extensió):", // MT
+"Module"=>"Mòdul", // MT
+"Item"=>"Element", // MT
+"zip"=>".zip - Arxiu SQL comprimit.", // MT
+"sql"=>".sql - Arxiu de text amb consultes SQL.", // MT
+"csv"=>".csv - Valors separats per comes.", // MT
+"vcf"=>".vcf - Arxiu vCard.", // MT
+"Add 'DROP TABLE' to output-script"=>"Afegir 'DROP TABLE' a l'script de sortida", // MT
+"Table structure and data"=>"Estructura i dades de les taules", // MT
+"Only table structure"=>"Només l'estructura de les taules", // MT
+"Only data"=>"Només les dades", // MT
+"Options"=>"Opcions", // MT
+"Save as"=>"Desar com a", // MT
+"Compressed ZIP SQL file"=>"Arxiu SQL comprimit en ZIP", // MT
+"Plain text SQL file"=>"Arxiu SQL de text pla", // MT
+"XML file"=>"Arxiu XML", // MT
+"Download backup"=>"Descarregar la còpia de seguretat", // MT
+"xmlLoginMsg"=>"Potser cal tancar la sessió i tornar-la a iniciar", // MT
+"Invalid Options"=>"Opcions no vàlides", // MT
+"Failed to restore backup"=>"No s'ha pogut restaurar la còpia de seguretat", // MT
+"Backup restored, but with errors"=>"Còpia de seguretat restaurada, però amb errors", // MT
+"Backup Restored OK"=>"Còpia de seguretat restaurada correctament", // MT
+"No upload file"=>"No hi ha arxiu pujat", // MT
+"Error in parsing XML file"=>"Error en analitzar l'arxiu XML", // MT
+"Restore Database"=>"Restaurar la base de dades", // MT

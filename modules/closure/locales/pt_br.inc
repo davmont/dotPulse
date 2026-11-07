@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Encerramento", // MT
+"Project Name"=>"Nome do Projeto", // MT
+"Project Meeting Date"=>"Data da Reunião do Projeto", // MT
+"Project Start Date"=>"Data de Início do Projeto", // MT
+"Project End Date"=>"Data Final do Projeto", // MT
+"new post mortem analysis"=>"nova análise post mortem", // MT
+"New Post Mortem"=>"Novo Post Mortem", // MT
+"Edit Post Mortem"=>"Editar Post Mortem", // MT
+"Meeting Date"=>"Data da Reunião", // MT
+"Meeting Settings"=>"Configurações da Reunião", // MT
+"Project Summary"=>"Resumo do Projeto", // MT
+"Project Planned Start Date"=>"Data de Início Planejada do Projeto", // MT
+"Project Planned End Date"=>"Data Final Planejada do Projeto", // MT
+"Project Planned Budget"=>"Orçamento Planejado do Projeto", // MT
+"Project Budget"=>"Orçamento do Projeto", // MT
+"Lessons Learned"=>"Lições Aprendidas", // MT
+"Project Strengths"=>"Pontos Fortes do Projeto", // MT
+"Project Weaknesses"=>"Pontos Fracos do Projeto", // MT
+"Improvement Suggestions"=>"Sugestões de Melhoria", // MT
+"Conclusions"=>"Conclusões", // MT
+"Meeting Participants"=>"Participantes da Reunião", // MT
+"view this post mortem"=>"ver este post mortem", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Liste aqui (cada tópico com '*') as tecnologias, processos, IDEs ou quaisquer técnicas, ferramentas ou serviços que deram certo para você neste projeto", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Liste aqui (cada tópico com '*') as tecnologias, processos, IDEs ou quaisquer técnicas, ferramentas ou serviços que não deram certo para você neste projeto", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Liste aqui (cada tópico com '*') os aspectos do projeto que precisam ser melhorados", // MT
+"General conclusions about the project"=>"Conclusões gerais sobre o projeto", // MT
+"Post Mortem deleted"=>"Post Mortem excluído", // MT
+"post mortem list"=>"lista de post mortem", // MT
+"Post Mortem"=>"Post Mortem",
+"noDeletePermission"=>"Você não tem permissão para excluir este item", // MT
+"Post Mortem Records by project"=>"Registros de Post Mortem por projeto", // MT
+"Project Status"=>"Status do Projeto", // MT
+"Participants"=>"Participantes", // MT
+"Post Mortem ID"=>"ID do Post Mortem", // MT
+"View Post Mortem Analysis"=>"Ver Análise Post Mortem", // MT
+"edit this post mortem"=>"editar este post mortem", // MT
+"invalid ID"=>"ID inválido", // MT
+"Post Mortem Analysis"=>"Análise Post Mortem", // MT

@@ -1,36 +1,36 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"All"=>"All",
+"All"=>"Alle", // MT
 "All Links"=>"Alle Verweise",
-"All Projects"=>"All Projects",
+"All Projects"=>"Alle Projekte", // MT
 "Application"=>"Anwendung",
-"Are you sure you want to cancel?"=>"Are you sure you want to cancel?",
-"Attach a link"=>"Attach a link",
-"cancel"=>"cancel",
+"Are you sure you want to cancel?"=>"Möchten Sie wirklich abbrechen?", // MT
+"Attach a link"=>"Link anhängen", // MT
+"cancel"=>"abbrechen", // MT
 "Category"=>"Kategorie",
-"Date"=>"Date",
-"Description"=>"Description",
+"Date"=>"Datum", // MT
+"Description"=>"Beschreibung", // MT
 "Document"=>"Dokument",
 "Filter"=>"Filter",
-"go"=>"go",
+"go"=>"los", // MT
 "Link Name"=>"Verweisname",
 "Link URL"=>"Verweis-URL",
 "Link(s)"=>"Link(s)",
-"linksDelete"=>"Remove this link?",
+"linksDelete"=>"Diesen Link entfernen?", // MT
 "new link"=>"Neuer Verweis",
-"Owner"=>"Owner",
-"Page(s)"=>"Page(s)",
+"Owner"=>"Besitzer", // MT
+"Page(s)"=>"Seite(n)", // MT
 "Please select a project first!"=>"Bitte zuerst ein Projekt wählen!",
-"Project"=>"Project",
-"Search"=>"Search",
-"Search in name and description fields"=>"Search in name and description fields",
+"Project"=>"Projekt", // MT
+"Search"=>"Suchen", // MT
+"Search in name and description fields"=>"In Namens- und Beschreibungsfeldern suchen", // MT
 "select task"=>"Aufgabe wählen",
-"submit"=>"submit",
-"Task"=>"Task",
+"submit"=>"absenden", // MT
+"Task"=>"Aufgabe", // MT
 "Task Name"=>"Aufgabenname",
-"Unknown"=>"Unknown",
-"Uploaded By"=>"Uploaded By",
+"Unknown"=>"Unbekannt", // MT
+"Uploaded By"=>"Hochgeladen von", // MT
 
 
 ##
@@ -39,3 +39,5 @@
 // "Add Link" => "Verweis hinzufügen",
 // "Link" => "Verweis",
 // "links list" => "Verweisliste",
+"links list"=>"Linkliste", // MT
+"Link"=>"Link",

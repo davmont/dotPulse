@@ -2,13 +2,13 @@
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
 "%"=>"%",
-"accessDenied"=>"You do not have the required permission",
+"accessDenied"=>"Vous n'avez pas la permission requise", // MT
 "Adapt the duration of the task as a result of the change"=>"Adapter la durée de la tâche en fonction",
 "All"=>"Tous",
 "All Projects"=>"Tous les projets",
 "All Users"=>"Tous les utilisateurs",
 "Assigment"=>"Affectation",
-"Assignation"=>"Assignation",
+"Assignation"=>"Affectation", // MT
 "Company"=>"Pôle",
 "Daily assigned hours"=>"Heures quotidienne assignées",
 "Display"=>"Affichage",

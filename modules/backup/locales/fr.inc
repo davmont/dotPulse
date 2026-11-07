@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Sauvegarder la base de données", // MT
+"restore xml file"=>"restaurer un fichier XML", // MT
+"Restore From XML File"=>"Restaurer depuis un fichier XML", // MT
+"xmlRestoreWarning"=>"Cet utilitaire restaure le schéma et les données à partir d'un fichier XML créé par cet utilitaire. Il ne restaure PAS à partir de fichiers SQL.", // MT
+"XML File to Restore"=>"Fichier XML à restaurer", // MT
+"Continue On Error?"=>"Continuer en cas d'erreur ?", // MT
+"upload"=>"téléverser", // MT
+"Backup"=>"Sauvegarde", // MT
+"Import"=>"Importer", // MT
+"Export"=>"Exporter", // MT
+"Success"=>"Succès !", // MT
+"Failure"=>"Échec : ", // MT
+"Import Data"=>"Importer les données", // MT
+"Export Data"=>"Exporter les données", // MT
+"File Type"=>"Type de fichier :", // MT
+"clear"=>"effacer", // MT
+"Filename (without extension):"=>"Nom du fichier (sans extension) :", // MT
+"Module"=>"Module",
+"Item"=>"Élément", // MT
+"zip"=>".zip - Fichier SQL compressé.", // MT
+"sql"=>".sql - Fichier texte avec des requêtes SQL.", // MT
+"csv"=>".csv - Valeurs séparées par des virgules.", // MT
+"vcf"=>".vcf - Fichier vCard.", // MT
+"Add 'DROP TABLE' to output-script"=>"Ajouter 'DROP TABLE' au script de sortie", // MT
+"Table structure and data"=>"Structure et données des tables", // MT
+"Only table structure"=>"Structure des tables uniquement", // MT
+"Only data"=>"Données uniquement", // MT
+"Options"=>"Options",
+"Save as"=>"Enregistrer sous", // MT
+"Compressed ZIP SQL file"=>"Fichier SQL compressé ZIP", // MT
+"Plain text SQL file"=>"Fichier SQL texte brut", // MT
+"XML file"=>"Fichier XML", // MT
+"Download backup"=>"Télécharger la sauvegarde", // MT
+"xmlLoginMsg"=>"Vous devrez peut-être vous déconnecter puis vous reconnecter", // MT
+"Invalid Options"=>"Options non valides", // MT
+"Failed to restore backup"=>"Échec de la restauration de la sauvegarde", // MT
+"Backup restored, but with errors"=>"Sauvegarde restaurée, mais avec des erreurs", // MT
+"Backup Restored OK"=>"Sauvegarde restaurée avec succès", // MT
+"No upload file"=>"Aucun fichier téléversé", // MT
+"Error in parsing XML file"=>"Erreur lors de l'analyse du fichier XML", // MT
+"Restore Database"=>"Restaurer la base de données", // MT

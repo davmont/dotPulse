@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"Bạn không có quyền cần thiết", // MT
+"Years"=>"Năm", // MT
+"Submit"=>"Gửi", // MT
+"Display"=>"Hiển thị", // MT
+"Amounts"=>"Số tiền", // MT
+"without tax"=>"chưa thuế", // MT
+"with tax"=>"có thuế", // MT
+"Detail"=>"Chi tiết", // MT
+"Sub Total"=>"Tổng phụ", // MT
+"Total"=>"Tổng", // MT
+"All"=>"Tất cả", // MT
+"Save Changes"=>"Lưu thay đổi", // MT
+"Budget"=>"Ngân sách", // MT
+"Project / Task(Tax)"=>"Dự án / Nhiệm vụ (Thuế)", // MT
+"INVESTMENT"=>"ĐẦU TƯ", // MT
+"OPERATION"=>"VẬN HÀNH", // MT
+"Equipment"=>"Thiết bị", // MT
+"Intangible"=>"Vô hình", // MT
+"Service"=>"Dịch vụ", // MT
+"Open in new tab"=>"Mở trong thẻ mới", // MT
+"Tax"=>"Thuế", // MT
+"This task is only financial"=>"Nhiệm vụ này chỉ mang tính tài chính", // MT
+"Investment"=>"Đầu tư", // MT
+"Operation"=>"Vận hành", // MT
+"You can not set the budget of a dynamic task"=>"Bạn không thể đặt ngân sách cho nhiệm vụ động", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Hiệu năng của Internet Explorer có thể bị chậm đi đáng kể khi phải tải một số lượng lớn dự án.", // MT
+"Only valued projects and tasks"=>"Chỉ dự án và nhiệm vụ có giá trị", // MT
+"Only valued projects"=>"Chỉ dự án có giá trị", // MT
+"Only projects with null budget"=>"Chỉ dự án không có ngân sách", // MT
+"Project Type"=>"Loại dự án", // MT
+"Excel export"=>"Xuất Excel", // MT
+"Project Status"=>"Trạng thái dự án", // MT
+"Template"=>"Mẫu", // MT
+"Archived"=>"Đã lưu trữ", // MT
+"Unknown"=>"Không rõ", // MT
+"Administrative"=>"Hành chính", // MT
+"Operative"=>"Tác nghiệp", // MT
+"MacroProject / Project / Task(Tax)"=>"Dự án vĩ mô / Dự án / Nhiệm vụ (Thuế)", // MT
+"TOTAL"=>"TỔNG CỘNG", // MT
+"Macroproject / Project / Task(Tax)"=>"Dự án vĩ mô / Dự án / Nhiệm vụ (Thuế)", // MT

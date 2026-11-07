@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"終結", // MT
+"Project Name"=>"プロジェクト名", // MT
+"Project Meeting Date"=>"プロジェクト会議の日付", // MT
+"Project Start Date"=>"プロジェクト開始日", // MT
+"Project End Date"=>"プロジェクト終了日", // MT
+"new post mortem analysis"=>"新規事後分析", // MT
+"New Post Mortem"=>"新規事後分析", // MT
+"Edit Post Mortem"=>"事後分析を編集", // MT
+"Meeting Date"=>"会議の日付", // MT
+"Meeting Settings"=>"会議の設定", // MT
+"Project Summary"=>"プロジェクトの概要", // MT
+"Project Planned Start Date"=>"プロジェクトの計画開始日", // MT
+"Project Planned End Date"=>"プロジェクトの計画終了日", // MT
+"Project Planned Budget"=>"プロジェクトの計画予算", // MT
+"Project Budget"=>"プロジェクト予算", // MT
+"Lessons Learned"=>"教訓", // MT
+"Project Strengths"=>"プロジェクトの強み", // MT
+"Project Weaknesses"=>"プロジェクトの弱み", // MT
+"Improvement Suggestions"=>"改善提案", // MT
+"Conclusions"=>"結論", // MT
+"Meeting Participants"=>"会議の参加者", // MT
+"view this post mortem"=>"この事後分析を表示", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"このプロジェクトでうまくいった技術、プロセス、IDE、その他の手法、ツール、サービスをここに列挙してください (各項目の先頭に '*')", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"このプロジェクトでうまくいかなかった技術、プロセス、IDE、その他の手法、ツール、サービスをここに列挙してください (各項目の先頭に '*')", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"プロジェクトで改善が必要な点をここに列挙してください (各項目の先頭に '*')", // MT
+"General conclusions about the project"=>"プロジェクトに関する全体的な結論", // MT
+"Post Mortem deleted"=>"事後分析を削除しました", // MT
+"post mortem list"=>"事後分析一覧", // MT
+"Post Mortem"=>"事後分析", // MT
+"noDeletePermission"=>"この項目を削除する権限がありません", // MT
+"Post Mortem Records by project"=>"プロジェクト別の事後分析記録", // MT
+"Project Status"=>"プロジェクトのステータス", // MT
+"Participants"=>"参加者", // MT
+"Post Mortem ID"=>"事後分析 ID", // MT
+"View Post Mortem Analysis"=>"事後分析を表示", // MT
+"edit this post mortem"=>"この事後分析を編集", // MT
+"invalid ID"=>"無効な ID", // MT
+"Post Mortem Analysis"=>"事後分析", // MT

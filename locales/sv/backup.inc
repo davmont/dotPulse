@@ -1,14 +1,14 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add 'DROP TABLE' to output-script"=>"Lägg till 'DROP TABLE' i utmatningesskriptet",
-"Backup database"=>"Säkra databasen",
+"Add 'DROP TABLE' to output-script"=>"LÃ¤gg till 'DROP TABLE' i utmatningesskriptet",
+"Backup database"=>"SÃ¤kra databasen",
 "Compressed .ZIP file"=>"Komprimerad .ZIP-fil",
-"Download backup"=>"Ladda hem säkringen",
+"Download backup"=>"Ladda hem sÃ¤kringen",
 "Export"=>"Exportera",
 "Extra options"=>"Optioner",
-"Only data"=>"Endast innehåll",
+"Only data"=>"Endast innehÃ¥ll",
 "Only table structure"=>"Endast tabellstrukturen",
 "Plain text file"=>"Okomprimerad textfil",
 "Save as"=>"Spara som",
-"Table structure and data"=>"Tabellstruktur och innehåll",
+"Table structure and data"=>"Tabellstruktur och innehÃ¥ll",

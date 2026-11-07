@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Afsluiting", // MT
+"Project Name"=>"Projectnaam", // MT
+"Project Meeting Date"=>"Vergaderdatum project", // MT
+"Project Start Date"=>"Startdatum project", // MT
+"Project End Date"=>"Einddatum project", // MT
+"new post mortem analysis"=>"nieuwe post-mortemanalyse", // MT
+"New Post Mortem"=>"Nieuwe post-mortem", // MT
+"Edit Post Mortem"=>"Post-mortem wijzigen", // MT
+"Meeting Date"=>"Vergaderdatum", // MT
+"Meeting Settings"=>"Vergaderinstellingen", // MT
+"Project Summary"=>"Projectsamenvatting", // MT
+"Project Planned Start Date"=>"Geplande startdatum project", // MT
+"Project Planned End Date"=>"Geplande einddatum project", // MT
+"Project Planned Budget"=>"Gepland projectbudget", // MT
+"Project Budget"=>"Projectbudget", // MT
+"Lessons Learned"=>"Geleerde lessen", // MT
+"Project Strengths"=>"Sterke punten project", // MT
+"Project Weaknesses"=>"Zwakke punten project", // MT
+"Improvement Suggestions"=>"Verbetervoorstellen", // MT
+"Conclusions"=>"Conclusies", // MT
+"Meeting Participants"=>"Deelnemers vergadering", // MT
+"view this post mortem"=>"deze post-mortem bekijken", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Noem hier (elk onderwerp met '*') technologieën, processen, IDE's of andere technieken, hulpmiddelen of diensten die in dit project goed werkten", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Noem hier (elk onderwerp met '*') technologieën, processen, IDE's of andere technieken, hulpmiddelen of diensten die in dit project niet goed werkten", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Noem hier (elk onderwerp met '*') de aspecten van het project die verbeterd moeten worden", // MT
+"General conclusions about the project"=>"Algemene conclusies over het project", // MT
+"Post Mortem deleted"=>"Post-mortem verwijderd", // MT
+"post mortem list"=>"post-mortemlijst", // MT
+"Post Mortem"=>"Post-mortem", // MT
+"noDeletePermission"=>"U hebt geen rechten om dit item te verwijderen", // MT
+"Post Mortem Records by project"=>"Post-mortemrecords per project", // MT
+"Project Status"=>"Projectstatus", // MT
+"Participants"=>"Deelnemers", // MT
+"Post Mortem ID"=>"Post-mortem-ID", // MT
+"View Post Mortem Analysis"=>"Post-mortemanalyse bekijken", // MT
+"edit this post mortem"=>"deze post-mortem wijzigen", // MT
+"invalid ID"=>"ongeldig ID", // MT
+"Post Mortem Analysis"=>"Post-mortemanalyse", // MT

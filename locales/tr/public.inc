@@ -1,31 +1,35 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"[none]"=>"[none]",
+"[none]"=>"[hiçbiri]", // MT
 "Access Denied"=>"Erişim Engellendi",
 "accessDeniedMsg"=>"<p>Yeterli yetkiniz olmadığı halde dotproject maddelerinden birine erişmeye çalıştınız. </p><p>Lütfen dotproject sistem yöneticisiyle irtibata geçiniz. </p>",
-"Allowed Companies"=>"Allowed Companies",
-"chgpwLogin"=>"chgpwLogin",
-"chgpwUpdated"=>"chgpwUpdated",
-"chgpwWrongPW"=>"chgpwWrongPW",
+"Allowed Companies"=>"İzin Verilen Firmalar", // MT
+"chgpwLogin"=>"Şifrenizi değiştirmek için giriş yapın", // MT
+"chgpwUpdated"=>"Şifreniz güncellendi", // MT
+"chgpwWrongPW"=>"Eski şifreyi yanlış girdiniz", // MT
 "Color Selector"=>"Renk seçici",
 "colorLegend"=>"Seçiminizi diğerlerinden ayırabilecek bir ren seçiniz ve Renk Seçiçiyi kapatınız.",
-"companies"=>"companies",
+"companies"=>"firmalar", // MT
 "Contacts for"=>"için irtibatlar",
 "Continue"=>"devam",
-"Current Password"=>"Current Password",
-"New Password"=>"New Password",
-"no departments"=>"no departments",
-"nodepartments"=>"No Departments available",
+"Current Password"=>"Mevcut Şifre", // MT
+"New Password"=>"Yeni Şifre", // MT
+"no departments"=>"bölüm yok", // MT
+"nodepartments"=>"Kullanılabilir bölüm yok", // MT
 "notasks"=>"Hiç bir görev yok",
-"permissions"=>"permissions",
+"permissions"=>"izinler", // MT
 "Preset"=>"Önceden ayarlı",
-"Repeat New Password"=>"Repeat New Password",
-"submit"=>"submit",
-"View all allowed companies"=>"View all allowed companies",
+"Repeat New Password"=>"Yeni Şifreyi Tekrarla", // MT
+"submit"=>"gönder", // MT
+"View all allowed companies"=>"İzin verilen tüm firmaları görüntüle", // MT
 
 
 ##
 ## OBSOLETE KEYS
 ##
 // "nodepartments, companies, permissions" => "Şube, firma yetki yok",
+"Inactive"=>"Etkin Değil", // MT
+"Select a company"=>"Bir firma seçin", // MT
+"Your password has been changed. You can now log in."=>"Şifreniz değiştirildi. Artık giriş yapabilirsiniz.", // MT
+"Invalid or expired password reset link."=>"Geçersiz veya süresi dolmuş şifre sıfırlama bağlantısı.", // MT

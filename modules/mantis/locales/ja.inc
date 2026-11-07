@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Mantis 連携", // MT
+"ID"=>"ID",
+"Severity"=>"重大度", // MT
+"Priority"=>"優先度", // MT
+"Reproducibility"=>"再現性", // MT
+"Resolution"=>"解決状況", // MT
+"tasks created"=>"件のタスクを作成しました", // MT
+"already imported"=>"件はインポート済みです", // MT
+"issues updated"=>"件の課題を更新しました", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis が設定されていないか、Mantis API トークンがありません。", // MT
+"That Mantis project is not available to you."=>"その Mantis プロジェクトは利用できません。", // MT
+"Project linked to Mantis"=>"プロジェクトを Mantis にリンクしました", // MT
+"Project created in Mantis and linked"=>"Mantis にプロジェクトを作成してリンクしました", // MT
+"Project unlinked from Mantis"=>"プロジェクトの Mantis へのリンクを解除しました", // MT
+"Choose a status."=>"ステータスを選択してください。", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis が設定されていません。システム管理 > システム設定でアドレス (HTTPS) を設定してください。", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Mantis API トークンは保存済みです。", // MT
+"You have no Mantis API token stored."=>"Mantis API トークンが保存されていません。", // MT
+"Mantis API token"=>"Mantis API トークン", // MT
+"Mantis project"=>"Mantis プロジェクト", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Mantis にリンクされたプロジェクトはまだありません。プロジェクトの Mantis タブからリンクしてください。", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"このプロジェクトの Mantis の課題を表示するには、Mantis API トークンを入力してください", // MT
+"This project is not linked to a Mantis project."=>"このプロジェクトは Mantis プロジェクトにリンクされていません。", // MT
+"Link"=>"リンク", // MT
+"Create it in Mantis"=>"Mantis に作成", // MT
+"needs a Mantis administrator token"=>"Mantis の管理者トークンが必要です", // MT
+"Issue"=>"課題", // MT
+"Assigned To"=>"担当者", // MT
+"Updated"=>"更新日", // MT
+"No issues"=>"課題はありません", // MT
+"view"=>"表示", // MT
+"Import selected as tasks"=>"選択した課題をタスクとしてインポート", // MT
+"Change status of selected"=>"選択した課題のステータスを変更", // MT
+"Unlink this project from Mantis?"=>"このプロジェクトの Mantis へのリンクを解除しますか?", // MT
+"Unlink"=>"リンク解除", // MT
+"Mantis API token saved for Mantis user"=>"Mantis ユーザの Mantis API トークンを保存しました", // MT
+"Your token is stored"=>"トークンは保存済みです", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Mantis でトークンを作成し (マイアカウント > API トークン)、ここに貼り付けてください。Mantis ではあなた自身の Mantis の権限が適用されます。", // MT
+"Save"=>"保存", // MT
+"Remove my token"=>"トークンを削除", // MT
+"Mantis API token removed"=>"Mantis API トークンを削除しました", // MT
+"A Mantis API token has 32 letters and digits."=>"Mantis API トークンは英数字 32 文字です。", // MT

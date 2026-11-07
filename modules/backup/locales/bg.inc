@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Резервно копие на базата данни", // MT
+"restore xml file"=>"възстанови от XML файл", // MT
+"Restore From XML File"=>"Възстановяване от XML файл", // MT
+"xmlRestoreWarning"=>"Тази помощна програма възстановява схемата и данните от XML файл, създаден от нея. Тя НЕ възстановява от SQL файлове.", // MT
+"XML File to Restore"=>"XML файл за възстановяване", // MT
+"Continue On Error?"=>"Да се продължи ли при грешка?", // MT
+"upload"=>"качи", // MT
+"Backup"=>"Резервно копие", // MT
+"Import"=>"Импортиране", // MT
+"Export"=>"Експортиране", // MT
+"Success"=>"Успех!", // MT
+"Failure"=>"Неуспех: ", // MT
+"Import Data"=>"Импортирай данни", // MT
+"Export Data"=>"Експортирай данни", // MT
+"File Type"=>"Тип на файла:", // MT
+"clear"=>"изчисти", // MT
+"Filename (without extension):"=>"Име на файла (без разширение):", // MT
+"Module"=>"Модул", // MT
+"Item"=>"Елемент", // MT
+"zip"=>".zip - Компресиран SQL файл.", // MT
+"sql"=>".sql - Текстов файл със SQL заявки.", // MT
+"csv"=>".csv - Стойности, разделени със запетая.", // MT
+"vcf"=>".vcf - vCard файл.", // MT
+"Add 'DROP TABLE' to output-script"=>"Добави 'DROP TABLE' в изходния скрипт", // MT
+"Table structure and data"=>"Структура и данни на таблиците", // MT
+"Only table structure"=>"Само структура на таблиците", // MT
+"Only data"=>"Само данни", // MT
+"Options"=>"Опции", // MT
+"Save as"=>"Запиши като", // MT
+"Compressed ZIP SQL file"=>"Компресиран ZIP SQL файл", // MT
+"Plain text SQL file"=>"SQL файл с обикновен текст", // MT
+"XML file"=>"XML файл", // MT
+"Download backup"=>"Изтегли резервното копие", // MT
+"xmlLoginMsg"=>"Може да се наложи да излезете и да влезете отново", // MT
+"Invalid Options"=>"Невалидни опции", // MT
+"Failed to restore backup"=>"Неуспешно възстановяване на резервното копие", // MT
+"Backup restored, but with errors"=>"Резервното копие е възстановено, но с грешки", // MT
+"Backup Restored OK"=>"Резервното копие е възстановено успешно", // MT
+"No upload file"=>"Няма файл за качване", // MT
+"Error in parsing XML file"=>"Грешка при анализа на XML файла", // MT
+"Restore Database"=>"Възстанови базата данни", // MT

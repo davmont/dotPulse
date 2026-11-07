@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"增加", // MT
+"LBL_EXCLUSION"=>"排除", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"縮排", // MT
+"LBL_ORDER"=>"順序", // MT
+"LBL_SORT"=>"排序", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"儲存", // MT
+"LBL_ESTIMATION"=>"估算", // MT
+"LBL_DESCRIPTION"=>"說明", // MT
+"LBL_MOVE"=>"移動", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"活動定義", // MT
+"LBL_CREATE_MINUTE"=>"建立會議記錄", // MT
+"LBL_MINUTES"=>"會議記錄", // MT
+"LBL_DATE"=>"日期", // MT
+"LBL_EDIT"=>"編輯", // MT
+"LBL_TYPE"=>"型態", // MT
+"LBL_EFFORT"=>"工作量", // MT
+"LBL_DURATION"=>"歷時", // MT
+"LBL_RESOURCES"=>"資源（角色）", // MT
+"LBL_SIZE"=>"大小", // MT
+"LBL_ALL_MEMBERS"=>"所有成員", // MT
+"LBL_PARTICIPANTS"=>"參與者", // MT
+"LBL_REPORT"=>"報表", // MT
+"LBL_CLOSE"=>"關閉", // MT
+"LBL_WORK_PACKAGE"=>"工作包", // MT
+"LBL_IN_DAYS"=>"（天）", // MT
+"LBL_ESTIMATIONS"=>"估算", // MT
+"LBL_ACTIVITY"=>"活動", // MT
+"LBL_HOURS"=>"小時", // MT
+"LBL_MINUTES_TIME"=>"會議記錄", // MT
+"LBL_DAYS"=>"天", // MT
+"LBL_ROLE"=>"角色", // MT
+"LBL_ORGONOGRAM"=>"組織圖", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"分解", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"估算", // MT
+"1LBLORGONOGRAM"=>"組織圖 ", // MT
+"LBL_INTRO"=>"此模組由專案和專案工作模組使用，不需要直接存取。您可以在系統管理區域中隱藏此索引標籤。", // MT
+"LBL_DEV_SCHEDULE"=>"時程制定", // MT
+"LBL_EXECUTE"=>"執行", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"此動作會根據專案開始日期、估算工作量和活動之間的邏輯相依性，計算活動的開始和結束日期。", // MT
+"Assigned to Task"=>"已指派給工作", // MT

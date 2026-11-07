@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"데이터베이스 백업", // MT
+"restore xml file"=>"XML 파일 복원", // MT
+"Restore From XML File"=>"XML 파일에서 복원", // MT
+"xmlRestoreWarning"=>"이 유틸리티는 이 유틸리티로 생성한 XML 파일에서 스키마와 데이터를 복원합니다. SQL 파일에서는 복원하지 않습니다.", // MT
+"XML File to Restore"=>"복원할 XML 파일", // MT
+"Continue On Error?"=>"오류가 발생해도 계속하시겠습니까?", // MT
+"upload"=>"업로드", // MT
+"Backup"=>"백업", // MT
+"Import"=>"가져오기", // MT
+"Export"=>"내보내기", // MT
+"Success"=>"성공!", // MT
+"Failure"=>"실패: ", // MT
+"Import Data"=>"데이터 가져오기", // MT
+"Export Data"=>"데이터 내보내기", // MT
+"File Type"=>"파일 형식:", // MT
+"clear"=>"지우기", // MT
+"Filename (without extension):"=>"파일 이름 (확장자 제외):", // MT
+"Module"=>"모듈", // MT
+"Item"=>"항목", // MT
+"zip"=>".zip - 압축된 SQL 파일.", // MT
+"sql"=>".sql - SQL 쿼리가 담긴 텍스트 파일.", // MT
+"csv"=>".csv - 쉼표로 구분된 값.", // MT
+"vcf"=>".vcf - vCard 파일.", // MT
+"Add 'DROP TABLE' to output-script"=>"출력 스크립트에 'DROP TABLE' 추가", // MT
+"Table structure and data"=>"테이블 구조 및 데이터", // MT
+"Only table structure"=>"테이블 구조만", // MT
+"Only data"=>"데이터만", // MT
+"Options"=>"옵션", // MT
+"Save as"=>"다른 이름으로 저장", // MT
+"Compressed ZIP SQL file"=>"압축된 ZIP SQL 파일", // MT
+"Plain text SQL file"=>"일반 텍스트 SQL 파일", // MT
+"XML file"=>"XML 파일", // MT
+"Download backup"=>"백업 다운로드", // MT
+"xmlLoginMsg"=>"로그아웃 후 다시 로그인해야 할 수 있습니다", // MT
+"Invalid Options"=>"잘못된 옵션", // MT
+"Failed to restore backup"=>"백업을 복원하지 못했습니다", // MT
+"Backup restored, but with errors"=>"백업이 복원되었지만 오류가 있습니다", // MT
+"Backup Restored OK"=>"백업이 복원되었습니다", // MT
+"No upload file"=>"업로드할 파일이 없습니다", // MT
+"Error in parsing XML file"=>"XML 파일을 구문 분석하는 중 오류가 발생했습니다", // MT
+"Restore Database"=>"데이터베이스 복원", // MT

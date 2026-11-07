@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"您没有所需的权限", // MT
+"Years"=>"年", // MT
+"Submit"=>"提交", // MT
+"Display"=>"显示", // MT
+"Amounts"=>"金额", // MT
+"without tax"=>"不含税", // MT
+"with tax"=>"含税", // MT
+"Detail"=>"明细", // MT
+"Sub Total"=>"小计", // MT
+"Total"=>"合计", // MT
+"All"=>"全部", // MT
+"Save Changes"=>"保存更改", // MT
+"Budget"=>"预算", // MT
+"Project / Task(Tax)"=>"项目/任务（税）", // MT
+"INVESTMENT"=>"投资", // MT
+"OPERATION"=>"运营", // MT
+"Equipment"=>"设备", // MT
+"Intangible"=>"无形资产", // MT
+"Service"=>"服务", // MT
+"Open in new tab"=>"在新标签页中打开", // MT
+"Tax"=>"税", // MT
+"This task is only financial"=>"此任务仅涉及财务", // MT
+"Investment"=>"投资", // MT
+"Operation"=>"运营", // MT
+"You can not set the budget of a dynamic task"=>"不能设置动态任务的预算", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"加载大量项目时，Internet Explorer 的性能可能导致显著变慢。", // MT
+"Only valued projects and tasks"=>"仅已估值的项目和任务", // MT
+"Only valued projects"=>"仅已估值的项目", // MT
+"Only projects with null budget"=>"仅预算为空的项目", // MT
+"Project Type"=>"项目类型", // MT
+"Excel export"=>"导出 Excel", // MT
+"Project Status"=>"项目状况", // MT
+"Template"=>"模板", // MT
+"Archived"=>"已归档", // MT
+"Unknown"=>"未知", // MT
+"Administrative"=>"行政", // MT
+"Operative"=>"运营", // MT
+"MacroProject / Project / Task(Tax)"=>"宏项目/项目/任务（税）", // MT
+"TOTAL"=>"合计", // MT
+"Macroproject / Project / Task(Tax)"=>"宏项目/项目/任务（税）", // MT

@@ -1,8 +1,8 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"classic"=>"The Classic dotProject style",
-"default"=>"Default clean style",
-"demo1"=>"A demo style",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"classic"=>"Den klassiske dotProject-stil", // MT
+"default"=>"Ren standardstil", // MT
+"demo1"=>"En demostil", // MT
+"dp-grey-theme"=>"Grå slank stil", // MT
+"dotpulse"=>"dotPulse",

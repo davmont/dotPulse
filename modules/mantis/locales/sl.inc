@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Integrirano z Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"Resnost", // MT
+"Priority"=>"Prioriteta", // MT
+"Reproducibility"=>"Ponovljivost", // MT
+"Resolution"=>"Rešitev", // MT
+"tasks created"=>"ustvarjenih opravil", // MT
+"already imported"=>"že uvoženo", // MT
+"issues updated"=>"posodobljenih zadev", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis ni nastavljen ali pa nimate žetona API za Mantis.", // MT
+"That Mantis project is not available to you."=>"Ta projekt Mantis vam ni na voljo.", // MT
+"Project linked to Mantis"=>"Projekt povezan z Mantis", // MT
+"Project created in Mantis and linked"=>"Projekt ustvarjen v Mantis in povezan", // MT
+"Project unlinked from Mantis"=>"Projekt odvezan od Mantis", // MT
+"Choose a status."=>"Izberite stanje.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis ni nastavljen: nastavite njegov naslov (HTTPS) v Administracija sistema > Nastavitve sistema.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Vaš žeton API za Mantis je shranjen.", // MT
+"You have no Mantis API token stored."=>"Nimate shranjenega žetona API za Mantis.", // MT
+"Mantis API token"=>"Žeton API za Mantis", // MT
+"Mantis project"=>"Projekt Mantis", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Z Mantis še ni povezan noben projekt: povežite ga v njegovem zavihku Mantis.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Vnesite svoj žeton API za Mantis, da vidite zadeve Mantis tega projekta", // MT
+"This project is not linked to a Mantis project."=>"Ta projekt ni povezan s projektom Mantis.", // MT
+"Link"=>"Povezava", // MT
+"Create it in Mantis"=>"Ustvari ga v Mantis", // MT
+"needs a Mantis administrator token"=>"potreben je skrbniški žeton Mantis", // MT
+"Issue"=>"Zadeva", // MT
+"Assigned To"=>"Dodeljeno", // MT
+"Updated"=>"Posodobljeno", // MT
+"No issues"=>"Ni zadev", // MT
+"view"=>"ogled", // MT
+"Import selected as tasks"=>"Uvozi izbrane kot opravila", // MT
+"Change status of selected"=>"Spremeni stanje izbranih", // MT
+"Unlink this project from Mantis?"=>"Želite projekt odvezati od Mantis?", // MT
+"Unlink"=>"Odveži", // MT
+"Mantis API token saved for Mantis user"=>"Žeton API za Mantis shranjen za uporabnika Mantis", // MT
+"Your token is stored"=>"Vaš žeton je shranjen", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Ustvarite žeton v Mantis (Moj račun > API Tokens) in ga prilepite sem. Mantis nato uporablja vaša lastna dovoljenja v Mantis.", // MT
+"Save"=>"Shrani", // MT
+"Remove my token"=>"Odstrani moj žeton", // MT
+"Mantis API token removed"=>"Žeton API za Mantis odstranjen", // MT
+"A Mantis API token has 32 letters and digits."=>"Žeton API za Mantis ima 32 črk in številk.", // MT

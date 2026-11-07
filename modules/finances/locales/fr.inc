@@ -39,3 +39,6 @@
 "Only valued projects and tasks"=>"Projets et tâches valorisés",
 "Only valued projects"=>"Projets valorisés",
 "Only projects with null budget"=>"Projets non valorisés",
+"MacroProject / Project / Task(Tax)"=>"Macroprojet / Projet / Tâche (taxe)", // MT
+"TOTAL"=>"TOTAL",
+"Macroproject / Project / Task(Tax)"=>"Macroprojet / Projet / Tâche (taxe)", // MT

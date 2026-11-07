@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Đã tích hợp Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"Mức độ nghiêm trọng", // MT
+"Priority"=>"Mức ưu tiên", // MT
+"Reproducibility"=>"Khả năng tái hiện", // MT
+"Resolution"=>"Cách giải quyết", // MT
+"tasks created"=>"nhiệm vụ đã tạo", // MT
+"already imported"=>"đã được nhập", // MT
+"issues updated"=>"vấn đề đã cập nhật", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis chưa được cấu hình hoặc bạn chưa có token API Mantis.", // MT
+"That Mantis project is not available to you."=>"Dự án Mantis đó không khả dụng với bạn.", // MT
+"Project linked to Mantis"=>"Đã liên kết dự án với Mantis", // MT
+"Project created in Mantis and linked"=>"Đã tạo dự án trong Mantis và liên kết", // MT
+"Project unlinked from Mantis"=>"Đã huỷ liên kết dự án với Mantis", // MT
+"Choose a status."=>"Hãy chọn một trạng thái.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis chưa được cấu hình: hãy đặt địa chỉ (HTTPS) trong Quản trị hệ thống > Cấu hình hệ thống.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Token API Mantis của bạn đã được lưu.", // MT
+"You have no Mantis API token stored."=>"Bạn chưa lưu token API Mantis nào.", // MT
+"Mantis API token"=>"Token API Mantis", // MT
+"Mantis project"=>"Dự án Mantis", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Chưa có dự án nào được liên kết với Mantis: hãy liên kết từ thẻ Mantis của dự án.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Nhập token API Mantis của bạn để xem các vấn đề Mantis của dự án này", // MT
+"This project is not linked to a Mantis project."=>"Dự án này chưa được liên kết với dự án Mantis nào.", // MT
+"Link"=>"Liên kết", // MT
+"Create it in Mantis"=>"Tạo trong Mantis", // MT
+"needs a Mantis administrator token"=>"cần token của quản trị viên Mantis", // MT
+"Issue"=>"Vấn đề", // MT
+"Assigned To"=>"Giao cho", // MT
+"Updated"=>"Đã cập nhật", // MT
+"No issues"=>"Không có vấn đề nào", // MT
+"view"=>"xem", // MT
+"Import selected as tasks"=>"Nhập các mục đã chọn thành nhiệm vụ", // MT
+"Change status of selected"=>"Đổi trạng thái của các mục đã chọn", // MT
+"Unlink this project from Mantis?"=>"Huỷ liên kết dự án này với Mantis?", // MT
+"Unlink"=>"Huỷ liên kết", // MT
+"Mantis API token saved for Mantis user"=>"Đã lưu token API Mantis cho người dùng Mantis", // MT
+"Your token is stored"=>"Token của bạn đã được lưu", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Hãy tạo token trong Mantis (My Account > API Tokens) và dán vào đây. Khi đó Mantis sẽ áp dụng quyền Mantis của chính bạn.", // MT
+"Save"=>"Lưu", // MT
+"Remove my token"=>"Gỡ token của tôi", // MT
+"Mantis API token removed"=>"Đã gỡ token API Mantis", // MT
+"A Mantis API token has 32 letters and digits."=>"Token API Mantis gồm 32 chữ cái và chữ số.", // MT

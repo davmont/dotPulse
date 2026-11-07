@@ -5,6 +5,9 @@
  *   php tools/locales/check.php            fails when a string is missing (make locales)
  *   php tools/locales/check.php missing es lists what is missing in a language, as JSON:
  *                                          target locale file => array(string, ...)
+ *   php tools/locales/check.php status     coverage of every language: entries of the English
+ *                                          catalogue it has, and how many are still marked
+ *                                          "// MT" (machine translation, to review)
  *
  * The strings are the literals the code translates: $AppUI->_('...'), new CTitleBlock('...'),
  * addCrumb(url, '...'), the labels of tab boxes ($tabBox->add(file, '...')) and setMsg('...').
@@ -12,7 +15,9 @@
  * for <m> (locales/<lang>/<m>.inc, modules/<m>/locales/<lang>.inc); one used outside the
  * modules (classes/, includes/, style/...) in common.inc. Every string of an English file
  * must also be in the Spanish one, and an English key that is an identifier (noDeletePermission)
- * needs an English text. An empty value counts as missing. Other languages are not maintained here.
+ * needs an English text. An empty value counts as missing. The other languages are not checked:
+ * their strings were machine translated and each such entry ends in "// MT" until someone reviews
+ * it (the translation page of System Admin rewrites the file without the marks when it saves).
  * Strings without a letter, and those in tools/locales/ignore.txt, are left out.
  */
 $root = dirname(__DIR__, 2);
@@ -153,6 +158,30 @@ foreach (array_merge(glob("$root/locales/en/*.inc"), glob("$root/modules/*/local
 			$missing['es'][$es][$k] = true;
 		}
 	}
+}
+
+if (isset($argv[1]) && $argv[1] === 'status') {
+	$en_files = array_merge(glob("$root/locales/en/*.inc"), glob("$root/modules/*/locales/en.inc"));
+	printf("%-6s %8s %8s %8s\n", 'lang', 'entries', 'missing', 'to review');
+	foreach (glob("$root/locales/*/lang.php") as $lang_php) {
+		$lang = basename(dirname($lang_php));
+		$total = $have_n = $review = 0;
+		foreach ($en_files as $en) {
+			$rel = substr($en, strlen($root) + 1);
+			$file = $root . '/' . (preg_match('#^modules/#', $rel) ? preg_replace('#/en\.inc$#', "/$lang.inc", $rel) : preg_replace('#^locales/en/#', "locales/$lang/", $rel));
+			$have = array();
+			foreach (localeStrings($file) as $k => $v) {
+				$have[trim($k)] = true;
+			}
+			foreach (localeStrings($en) as $k => $v) {
+				$total++;
+				$have_n += isset($have[trim($k)]) ? 1 : 0;
+			}
+			$review += is_readable($file) ? preg_match_all('#// MT[ \t]*$#m', file_get_contents($file)) : 0;
+		}
+		printf("%-6s %8d %8d %8d\n", $lang, $have_n, $total - $have_n, $review);
+	}
+	exit(0);
 }
 
 if (isset($argv[1]) && $argv[1] === 'missing') {
