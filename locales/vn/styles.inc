@@ -3,6 +3,6 @@
 ##
 "classic"=>"Giao diện truyền thống",
 "default"=>"Giao diện mặc định",
-"demo1"=>"A demo style",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"demo1"=>"Kiểu giao diện mẫu", // MT
+"dp-grey-theme"=>"Kiểu Grey Slimline", // MT
+"dotpulse"=>"dotPulse",

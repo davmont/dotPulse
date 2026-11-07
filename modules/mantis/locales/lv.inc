@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Integrēts ar Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"Smagums", // MT
+"Priority"=>"Prioritāte", // MT
+"Reproducibility"=>"Atkārtojamība", // MT
+"Resolution"=>"Risinājums", // MT
+"tasks created"=>"izveidoti uzdevumi", // MT
+"already imported"=>"jau importēts", // MT
+"issues updated"=>"atjauninātas problēmas", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis nav konfigurēts vai jums nav Mantis API pilnvaras.", // MT
+"That Mantis project is not available to you."=>"Šis Mantis projekts jums nav pieejams.", // MT
+"Project linked to Mantis"=>"Projekts sasaistīts ar Mantis", // MT
+"Project created in Mantis and linked"=>"Projekts izveidots Mantis un sasaistīts", // MT
+"Project unlinked from Mantis"=>"Projekta sasaiste ar Mantis noņemta", // MT
+"Choose a status."=>"Izvēlieties statusu.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis nav konfigurēts: iestatiet tā adresi (HTTPS) sadaļā Sistēmas administr. > Sistēmas konfigurācija.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Jūsu Mantis API pilnvara ir saglabāta.", // MT
+"You have no Mantis API token stored."=>"Jums nav saglabātas Mantis API pilnvaras.", // MT
+"Mantis API token"=>"Mantis API pilnvara", // MT
+"Mantis project"=>"Mantis projekts", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Neviens projekts vēl nav sasaistīts ar Mantis: sasaistiet to no tā Mantis cilnes.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Ievadiet savu Mantis API pilnvaru, lai redzētu šī projekta Mantis problēmas", // MT
+"This project is not linked to a Mantis project."=>"Šis projekts nav sasaistīts ar Mantis projektu.", // MT
+"Link"=>"Saite", // MT
+"Create it in Mantis"=>"Izveidot to Mantis", // MT
+"needs a Mantis administrator token"=>"nepieciešama Mantis administratora pilnvara", // MT
+"Issue"=>"Problēma", // MT
+"Assigned To"=>"Piešķirts", // MT
+"Updated"=>"Atjaunināts", // MT
+"No issues"=>"Nav problēmu", // MT
+"view"=>"skatīt", // MT
+"Import selected as tasks"=>"Importēt atlasītās kā uzdevumus", // MT
+"Change status of selected"=>"Mainīt atlasīto statusu", // MT
+"Unlink this project from Mantis?"=>"Noņemt šī projekta sasaisti ar Mantis?", // MT
+"Unlink"=>"Atsaistīt", // MT
+"Mantis API token saved for Mantis user"=>"Mantis API pilnvara saglabāta Mantis lietotājam", // MT
+"Your token is stored"=>"Jūsu pilnvara ir saglabāta", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Izveidojiet pilnvaru Mantis (My Account > API Tokens) un ielīmējiet to šeit. Tad Mantis piemēro jūsu pašu Mantis atļaujas.", // MT
+"Save"=>"Saglabāt", // MT
+"Remove my token"=>"Noņemt manu pilnvaru", // MT
+"Mantis API token removed"=>"Mantis API pilnvara noņemta", // MT
+"A Mantis API token has 32 letters and digits."=>"Mantis API pilnvarā ir 32 burti un cipari.", // MT

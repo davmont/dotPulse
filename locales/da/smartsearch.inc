@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Advanced search"=>"Advanced search",
-"All words"=>"All words",
-"Display all fields"=>"Display all fields",
-"Empty"=>"Empty",
-"Events"=>"Events",
-"Files Content"=>"Files Content",
-"Forum Messages"=>"Forum Messages",
-"Ignore case"=>"Ignore case",
-"Ignore special chars"=>"Ignore special chars",
-"Modules selection"=>"Modules selection",
-"Search"=>"Search",
-"Select all"=>"Select all",
-"Show empty"=>"Show empty",
-"Task Log"=>"Task Log",
-"Total records found"=>"Total records found",
-
+"Advanced search"=>"Avanceret søgning", // MT
+"All words"=>"Alle ord", // MT
+"Display all fields"=>"Vis alle felter", // MT
+"Empty"=>"Tom", // MT
+"Events"=>"Hændelser", // MT
+"Files Content"=>"Filindhold", // MT
+"Forum Messages"=>"Forumbeskeder", // MT
+"Ignore case"=>"Ignorér store/små bogstaver", // MT
+"Ignore special chars"=>"Ignorér specialtegn", // MT
+"Modules selection"=>"Valg af moduler", // MT
+"Search"=>"Søg", // MT
+"Select all"=>"Vælg alle", // MT
+"Show empty"=>"Vis tomme", // MT
+"Task Log"=>"Opgavelog", // MT
+"Total records found"=>"Antal fundne poster i alt", // MT
+"Deselect all"=>"Fravælg alle", // MT

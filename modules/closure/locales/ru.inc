@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Закрытие", // MT
+"Project Name"=>"Название проекта", // MT
+"Project Meeting Date"=>"Дата совещания по проекту", // MT
+"Project Start Date"=>"Дата начала проекта", // MT
+"Project End Date"=>"Дата окончания проекта", // MT
+"new post mortem analysis"=>"новый анализ завершённого проекта", // MT
+"New Post Mortem"=>"Новый анализ проекта", // MT
+"Edit Post Mortem"=>"Редактировать анализ проекта", // MT
+"Meeting Date"=>"Дата совещания", // MT
+"Meeting Settings"=>"Параметры совещания", // MT
+"Project Summary"=>"Сводка проекта", // MT
+"Project Planned Start Date"=>"Плановая дата начала проекта", // MT
+"Project Planned End Date"=>"Плановая дата окончания проекта", // MT
+"Project Planned Budget"=>"Плановый бюджет проекта", // MT
+"Project Budget"=>"Бюджет проекта", // MT
+"Lessons Learned"=>"Извлечённые уроки", // MT
+"Project Strengths"=>"Сильные стороны проекта", // MT
+"Project Weaknesses"=>"Слабые стороны проекта", // MT
+"Improvement Suggestions"=>"Предложения по улучшению", // MT
+"Conclusions"=>"Выводы", // MT
+"Meeting Participants"=>"Участники совещания", // MT
+"view this post mortem"=>"просмотреть этот анализ проекта", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Перечислите здесь (каждый пункт с '*') технологии, процессы, IDE или любые методы, инструменты и сервисы, которые оправдали себя в этом проекте", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Перечислите здесь (каждый пункт с '*') технологии, процессы, IDE или любые методы, инструменты и сервисы, которые не оправдали себя в этом проекте", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Перечислите здесь (каждый пункт с '*') аспекты проекта, которые нужно улучшить", // MT
+"General conclusions about the project"=>"Общие выводы по проекту", // MT
+"Post Mortem deleted"=>"Анализ проекта удалён", // MT
+"post mortem list"=>"список анализов проектов", // MT
+"Post Mortem"=>"Анализ проекта", // MT
+"noDeletePermission"=>"У вас нет прав на удаление этого элемента", // MT
+"Post Mortem Records by project"=>"Анализы завершённых проектов по проектам", // MT
+"Project Status"=>"Состояние проекта", // MT
+"Participants"=>"Участники", // MT
+"Post Mortem ID"=>"ID анализа проекта", // MT
+"View Post Mortem Analysis"=>"Просмотр анализа завершённого проекта", // MT
+"edit this post mortem"=>"редактировать этот анализ проекта", // MT
+"invalid ID"=>"неверный ID", // MT
+"Post Mortem Analysis"=>"Анализ завершённого проекта", // MT

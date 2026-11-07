@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Integrat amb Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"Gravetat", // MT
+"Priority"=>"Prioritat", // MT
+"Reproducibility"=>"Reproductibilitat", // MT
+"Resolution"=>"Resolució", // MT
+"tasks created"=>"tasques creades", // MT
+"already imported"=>"ja importat", // MT
+"issues updated"=>"incidències actualitzades", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis no està configurat o no teniu cap testimoni de l'API de Mantis.", // MT
+"That Mantis project is not available to you."=>"Aquest projecte de Mantis no està disponible per a vós.", // MT
+"Project linked to Mantis"=>"Projecte vinculat a Mantis", // MT
+"Project created in Mantis and linked"=>"Projecte creat a Mantis i vinculat", // MT
+"Project unlinked from Mantis"=>"Projecte desvinculat de Mantis", // MT
+"Choose a status."=>"Trieu un estat.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis no està configurat: definiu-ne l'adreça (HTTPS) a Sistema > Configuració del sistema.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"El vostre testimoni de l'API de Mantis està desat.", // MT
+"You have no Mantis API token stored."=>"No teniu cap testimoni de l'API de Mantis desat.", // MT
+"Mantis API token"=>"Testimoni de l'API de Mantis", // MT
+"Mantis project"=>"Projecte de Mantis", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Encara no hi ha cap projecte vinculat a Mantis: vinculeu-ne un des de la seva pestanya Mantis.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Introduïu el vostre testimoni de l'API de Mantis per veure les incidències de Mantis d'aquest projecte", // MT
+"This project is not linked to a Mantis project."=>"Aquest projecte no està vinculat a cap projecte de Mantis.", // MT
+"Link"=>"Enllaç", // MT
+"Create it in Mantis"=>"Crear-lo a Mantis", // MT
+"needs a Mantis administrator token"=>"cal un testimoni d'administrador de Mantis", // MT
+"Issue"=>"Incidència", // MT
+"Assigned To"=>"Assignat a", // MT
+"Updated"=>"Actualitzat", // MT
+"No issues"=>"No hi ha incidències", // MT
+"view"=>"veure", // MT
+"Import selected as tasks"=>"Importar els seleccionats com a tasques", // MT
+"Change status of selected"=>"Canviar l'estat dels seleccionats", // MT
+"Unlink this project from Mantis?"=>"Voleu desvincular aquest projecte de Mantis?", // MT
+"Unlink"=>"Desvincular", // MT
+"Mantis API token saved for Mantis user"=>"Testimoni de l'API de Mantis desat per a l'usuari de Mantis", // MT
+"Your token is stored"=>"El vostre testimoni està desat", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Creeu un testimoni a Mantis (El meu compte > API Tokens) i enganxeu-lo aquí. Aleshores Mantis aplica els vostres propis permisos de Mantis.", // MT
+"Save"=>"Desar", // MT
+"Remove my token"=>"Treure el meu testimoni", // MT
+"Mantis API token removed"=>"Testimoni de l'API de Mantis eliminat", // MT
+"A Mantis API token has 32 letters and digits."=>"Un testimoni de l'API de Mantis té 32 lletres i dígits.", // MT

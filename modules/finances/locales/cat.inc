@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"No teniu el permís necessari", // MT
+"Years"=>"Anys", // MT
+"Submit"=>"Enviar", // MT
+"Display"=>"Mostrar", // MT
+"Amounts"=>"Imports", // MT
+"without tax"=>"sense impostos", // MT
+"with tax"=>"amb impostos", // MT
+"Detail"=>"Detall", // MT
+"Sub Total"=>"Subtotal", // MT
+"Total"=>"Total",
+"All"=>"Tots", // MT
+"Save Changes"=>"Desar els canvis", // MT
+"Budget"=>"Pressupost", // MT
+"Project / Task(Tax)"=>"Projecte / Tasca (impost)", // MT
+"INVESTMENT"=>"INVERSIÓ", // MT
+"OPERATION"=>"OPERACIÓ", // MT
+"Equipment"=>"Equipament", // MT
+"Intangible"=>"Intangible",
+"Service"=>"Servei", // MT
+"Open in new tab"=>"Obrir en una pestanya nova", // MT
+"Tax"=>"Impost", // MT
+"This task is only financial"=>"Aquesta tasca és només financera", // MT
+"Investment"=>"Inversió", // MT
+"Operation"=>"Operació", // MT
+"You can not set the budget of a dynamic task"=>"No podeu definir el pressupost d'una tasca dinàmica", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"El rendiment d'Internet Explorer pot provocar una lentitud molt important si s'han de carregar molts projectes.", // MT
+"Only valued projects and tasks"=>"Només projectes i tasques valorats", // MT
+"Only valued projects"=>"Només projectes valorats", // MT
+"Only projects with null budget"=>"Només projectes sense pressupost", // MT
+"Project Type"=>"Tipus de projecte", // MT
+"Excel export"=>"Exportar a Excel", // MT
+"Project Status"=>"Estat del projecte", // MT
+"Template"=>"Plantilla", // MT
+"Archived"=>"Arxivat", // MT
+"Unknown"=>"Desconegut", // MT
+"Administrative"=>"Administratiu", // MT
+"Operative"=>"Operatiu", // MT
+"MacroProject / Project / Task(Tax)"=>"Macroprojecte / Projecte / Tasca (impost)", // MT
+"TOTAL"=>"TOTAL",
+"Macroproject / Project / Task(Tax)"=>"Macroprojecte / Projecte / Tasca (impost)", // MT

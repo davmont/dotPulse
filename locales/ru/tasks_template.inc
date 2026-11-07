@@ -1,5 +1,6 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Insert task template"=>"Insert task template",
-"New tasks template"=>"New tasks template",
+"Insert task template"=>"Вставить шаблон задач", // MT
+"New tasks template"=>"Новый шаблон задач", // MT
+"Tasks templates"=>"Шаблоны задач", // MT

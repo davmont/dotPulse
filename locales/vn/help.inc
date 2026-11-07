@@ -6,11 +6,11 @@
 "Adding a Company"=>"Thêm công ty",
 "Adding a Project"=>"Thêm dự án",
 "Adding a Task"=>"Thêm nhiệm vụ",
-"Breadcrumbs"=>"Breadcrumbs",
+"Breadcrumbs"=>"Đường dẫn điều hướng", // MT
 "Context Help"=>"Trợ giúp ngữ cảnh",
 "General Concepts"=>"Các khái niệm chung",
 "Getting Started"=>"Bắt đầu",
-"helpIntro"=>"Here are some quick links to topics in the help file that not directly accessible directly from the context help.",
+"helpIntro"=>"Dưới đây là một số liên kết nhanh tới các chủ đề trong tệp trợ giúp không truy cập trực tiếp được từ trợ giúp theo ngữ cảnh.", // MT
 "index"=>"mục lục",
 "Left Navigation"=>"Điều khiển bên trái",
 "Saving Your Place"=>"Lưu thông tin của bạn",

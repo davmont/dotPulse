@@ -1,14 +1,14 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"1LBLMONITORAMENTO"=>"Monitoring",
-"1LBLORGONOGRAM"=>"Organizational diagram",
+"1LBLMONITORAMENTO"=>"Suivi", // MT
+"1LBLORGONOGRAM"=>"Organigramme", // MT
 "Active Projects"=>"Projet actif",
 "Add Company"=>"Ajouter un pôle",
 "Address"=>"Adresse",
 "All Companies"=>"Toutes les pôles",
-"All Projects"=>"All Projects",
-"All w/o archived"=>"All w/o archived",
+"All Projects"=>"Tous les projets", // MT
+"All w/o archived"=>"Tous sauf archivés", // MT
 "Archived Projects"=>"Projets archivé",
 "Attach a file"=>"Joindre un fichier",
 "back"=>"Retour",
@@ -16,7 +16,7 @@
 "cdepartment::store-check failed"=>"Échec de l\\'opération CDepartement::store-check",
 "City"=>"Ville",
 "Clients"=>"Clients",
-"co"=>"",
+"co"=>"co", // MT
 "companies list"=>"liste des pôles",
 "Company"=>"pôle",
 "company list"=>"liste des pôles",
@@ -32,12 +32,12 @@
 "edit"=>"Éditer",
 "Edit Company"=>"Éditer le pôle",
 "edit this company"=>"Éditer ce pôle",
-"Email"=>"Email",
+"Email"=>"E-mail", // MT
 "Fax"=>"Fax",
-"From"=>"From",
+"From"=>"De", // MT
 "inserted"=>"Insérer",
 "Invalid Company ID"=>"Identifiant de pôle invalide",
-"My projects"=>"My projects",
+"My projects"=>"Mes projets", // MT
 "new company"=>"Nouveau pôle",
 "new contact"=>"Nouveau contact",
 "new project"=>"Nouveau Projet",
@@ -51,13 +51,13 @@
 "required"=>"Requis",
 "Reset search"=>"Annuler la recherche",
 "Search"=>"Recherche",
-"show all"=>"show all",
-"Show Archived"=>"Show Archived",
-"Show captions"=>"Show captions",
-"Show Tasks"=>"Show Tasks",
-"show this month"=>"show this month",
+"show all"=>"tout afficher", // MT
+"Show Archived"=>"Afficher les archivés", // MT
+"Show captions"=>"Afficher les légendes", // MT
+"Show Tasks"=>"Afficher les tâches", // MT
+"show this month"=>"afficher ce mois", // MT
 "sort by"=>"Trier par",
-"Sort Tasks By Name"=>"Sort Tasks By Name",
+"Sort Tasks By Name"=>"Trier les tâches par nom", // MT
 "Started"=>"Démarré",
 "State"=>"État",
 "Status"=>"Statuts",
@@ -65,7 +65,7 @@
 "Suppliers"=>"Sous-traitants",
 "Task Name"=>"Nom de tâche",
 "test"=>"test",
-"To"=>"To",
+"To"=>"À", // MT
 "Type"=>"Type",
 "URL"=>"URL",
 "View Company"=>"Voir le pôle",
@@ -82,3 +82,4 @@
 // "companyWelcome" => "<b> Bienvenue %s.</b>  Cette page montre la liste des clients et de leur projets actifs",
 // "Macroprojects gantt" => "MacroProjets gantt",
 // "View Company/Client" => "Voir pôle/Client",
+"\$qid =& \$q->exec(); Company"=>"\$qid =& \$q->exec(); Pôle", // MT

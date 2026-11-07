@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Adatbázis mentése", // MT
+"restore xml file"=>"visszaállítás XML fájlból", // MT
+"Restore From XML File"=>"Visszaállítás XML fájlból", // MT
+"xmlRestoreWarning"=>"Ez a segédprogram az általa létrehozott XML fájlból állítja vissza a sémát és az adatokat. SQL fájlokból NEM állít vissza.", // MT
+"XML File to Restore"=>"Visszaállítandó XML fájl", // MT
+"Continue On Error?"=>"Folytatás hiba esetén?", // MT
+"upload"=>"feltöltés", // MT
+"Backup"=>"Biztonsági mentés", // MT
+"Import"=>"Importálás", // MT
+"Export"=>"Exportálás", // MT
+"Success"=>"Sikerült!", // MT
+"Failure"=>"Hiba:  ", // MT
+"Import Data"=>"Adatok importálása", // MT
+"Export Data"=>"Adatok exportálása", // MT
+"File Type"=>"Fájltípus:", // MT
+"clear"=>"törlés", // MT
+"Filename (without extension):"=>"Fájlnév (kiterjesztés nélkül):", // MT
+"Module"=>"Modul", // MT
+"Item"=>"Tétel", // MT
+"zip"=>".zip - Tömörített SQL fájl.", // MT
+"sql"=>".sql - SQL lekérdezéseket tartalmazó szövegfájl.", // MT
+"csv"=>".csv - Vesszővel elválasztott értékek.", // MT
+"vcf"=>".vcf - vCard fájl.", // MT
+"Add 'DROP TABLE' to output-script"=>"'DROP TABLE' hozzáadása a kimeneti szkripthez", // MT
+"Table structure and data"=>"Táblaszerkezet és adatok", // MT
+"Only table structure"=>"Csak táblaszerkezet", // MT
+"Only data"=>"Csak adatok", // MT
+"Options"=>"Beállítások", // MT
+"Save as"=>"Mentés másként", // MT
+"Compressed ZIP SQL file"=>"Tömörített ZIP SQL fájl", // MT
+"Plain text SQL file"=>"Egyszerű szöveges SQL fájl", // MT
+"XML file"=>"XML fájl", // MT
+"Download backup"=>"Biztonsági mentés letöltése", // MT
+"xmlLoginMsg"=>"Lehet, hogy ki kell jelentkeznie, majd újra be", // MT
+"Invalid Options"=>"Érvénytelen beállítások", // MT
+"Failed to restore backup"=>"Nem sikerült visszaállítani a biztonsági mentést", // MT
+"Backup restored, but with errors"=>"A biztonsági mentés visszaállítva, de hibákkal", // MT
+"Backup Restored OK"=>"A biztonsági mentés sikeresen visszaállítva", // MT
+"No upload file"=>"Nincs feltöltendő fájl", // MT
+"Error in parsing XML file"=>"Hiba az XML fájl feldolgozásakor", // MT
+"Restore Database"=>"Adatbázis visszaállítása", // MT

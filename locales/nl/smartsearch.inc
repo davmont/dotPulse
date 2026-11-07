@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Advanced search"=>"Advanced search",
-"All words"=>"All words",
-"Display all fields"=>"Display all fields",
-"Empty"=>"Empty",
-"Events"=>"Events",
-"Files Content"=>"Files Content",
-"Forum Messages"=>"Forum Messages",
-"Ignore case"=>"Ignore case",
-"Ignore special chars"=>"Ignore special chars",
-"Modules selection"=>"Modules selection",
-"Search"=>"Search",
-"Select all"=>"Select all",
-"Show empty"=>"Show empty",
-"Task Log"=>"Task Log",
-"Total records found"=>"Total records found",
-
+"Advanced search"=>"Geavanceerd zoeken", // MT
+"All words"=>"Alle woorden", // MT
+"Display all fields"=>"Alle velden tonen", // MT
+"Empty"=>"Leeg", // MT
+"Events"=>"Evenementen", // MT
+"Files Content"=>"Inhoud van bestanden", // MT
+"Forum Messages"=>"Forumberichten", // MT
+"Ignore case"=>"Hoofdletters negeren", // MT
+"Ignore special chars"=>"Speciale tekens negeren", // MT
+"Modules selection"=>"Moduleselectie", // MT
+"Search"=>"Zoek", // MT
+"Select all"=>"Alles selecteren", // MT
+"Show empty"=>"Lege tonen", // MT
+"Task Log"=>"Taaklogboek", // MT
+"Total records found"=>"Totaal gevonden records", // MT
+"Deselect all"=>"Alles deselecteren", // MT

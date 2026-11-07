@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Advanced search"=>"Advanced search",
-"All words"=>"All words",
-"Display all fields"=>"Display all fields",
-"Empty"=>"Empty",
-"Events"=>"Events",
-"Files Content"=>"Files Content",
-"Forum Messages"=>"Forum Messages",
-"Ignore case"=>"Ignore case",
-"Ignore special chars"=>"Ignore special chars",
-"Modules selection"=>"Modules selection",
-"Search"=>"Search",
-"Select all"=>"Select all",
-"Show empty"=>"Show empty",
-"Task Log"=>"Task Log",
-"Total records found"=>"Total records found",
-
+"Advanced search"=>"Rozšířené hledání", // MT
+"All words"=>"Všechna slova", // MT
+"Display all fields"=>"Zobrazit všechna pole", // MT
+"Empty"=>"Prázdné", // MT
+"Events"=>"Události", // MT
+"Files Content"=>"Obsah souborů", // MT
+"Forum Messages"=>"Příspěvky ve fórech", // MT
+"Ignore case"=>"Nerozlišovat velikost písmen", // MT
+"Ignore special chars"=>"Ignorovat speciální znaky", // MT
+"Modules selection"=>"Výběr modulů", // MT
+"Search"=>"Hledat", // MT
+"Select all"=>"Vybrat vše", // MT
+"Show empty"=>"Zobrazit prázdné", // MT
+"Task Log"=>"Záznam úkolu", // MT
+"Total records found"=>"Celkem nalezených záznamů", // MT
+"Deselect all"=>"Zrušit výběr", // MT

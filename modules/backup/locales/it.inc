@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Backup del database", // MT
+"restore xml file"=>"ripristina file XML", // MT
+"Restore From XML File"=>"Ripristina da file XML", // MT
+"xmlRestoreWarning"=>"Questo strumento ripristina schema e dati da un file XML creato da questo stesso strumento. NON ripristina da file SQL.", // MT
+"XML File to Restore"=>"File XML da ripristinare", // MT
+"Continue On Error?"=>"Continuare in caso di errore?", // MT
+"upload"=>"carica", // MT
+"Backup"=>"Backup",
+"Import"=>"Importa", // MT
+"Export"=>"Esporta", // MT
+"Success"=>"Operazione riuscita!", // MT
+"Failure"=>"Errore: ", // MT
+"Import Data"=>"Importa dati", // MT
+"Export Data"=>"Esporta dati", // MT
+"File Type"=>"Tipo di file:", // MT
+"clear"=>"pulisci", // MT
+"Filename (without extension):"=>"Nome file (senza estensione):", // MT
+"Module"=>"Modulo", // MT
+"Item"=>"Elemento", // MT
+"zip"=>".zip - File SQL compresso.", // MT
+"sql"=>".sql - File di testo con query SQL.", // MT
+"csv"=>".csv - Valori separati da virgola.", // MT
+"vcf"=>".vcf - File vCard.", // MT
+"Add 'DROP TABLE' to output-script"=>"Aggiungi 'DROP TABLE' allo script di output", // MT
+"Table structure and data"=>"Struttura e dati delle tabelle", // MT
+"Only table structure"=>"Solo struttura delle tabelle", // MT
+"Only data"=>"Solo dati", // MT
+"Options"=>"Opzioni", // MT
+"Save as"=>"Salva come", // MT
+"Compressed ZIP SQL file"=>"File SQL compresso ZIP", // MT
+"Plain text SQL file"=>"File SQL di testo semplice", // MT
+"XML file"=>"File XML", // MT
+"Download backup"=>"Scarica backup", // MT
+"xmlLoginMsg"=>"Potrebbe essere necessario uscire e accedere di nuovo", // MT
+"Invalid Options"=>"Opzioni non valide", // MT
+"Failed to restore backup"=>"Impossibile ripristinare il backup", // MT
+"Backup restored, but with errors"=>"Backup ripristinato, ma con errori", // MT
+"Backup Restored OK"=>"Backup ripristinato correttamente", // MT
+"No upload file"=>"Nessun file caricato", // MT
+"Error in parsing XML file"=>"Errore durante l'analisi del file XML", // MT
+"Restore Database"=>"Ripristina database", // MT

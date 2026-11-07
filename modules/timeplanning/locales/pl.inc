@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Dodaj", // MT
+"LBL_EXCLUSION"=>"Wyklucz", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Wcięcie", // MT
+"LBL_ORDER"=>"Kolejność", // MT
+"LBL_SORT"=>"Sortuj", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Zapisz", // MT
+"LBL_ESTIMATION"=>"Szacowanie", // MT
+"LBL_DESCRIPTION"=>"Opis", // MT
+"LBL_MOVE"=>"Przenieś", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Definiowanie działań", // MT
+"LBL_CREATE_MINUTE"=>"Utwórz protokół", // MT
+"LBL_MINUTES"=>"Protokoły", // MT
+"LBL_DATE"=>"Data", // MT
+"LBL_EDIT"=>"Edytuj", // MT
+"LBL_TYPE"=>"Typ", // MT
+"LBL_EFFORT"=>"Nakład pracy", // MT
+"LBL_DURATION"=>"Czas trwania", // MT
+"LBL_RESOURCES"=>"Zasoby (role)", // MT
+"LBL_SIZE"=>"Rozmiar", // MT
+"LBL_ALL_MEMBERS"=>"Wszyscy członkowie", // MT
+"LBL_PARTICIPANTS"=>"Uczestnicy", // MT
+"LBL_REPORT"=>"Raport", // MT
+"LBL_CLOSE"=>"Zamknij", // MT
+"LBL_WORK_PACKAGE"=>"Pakiet roboczy", // MT
+"LBL_IN_DAYS"=>"(dni)", // MT
+"LBL_ESTIMATIONS"=>"Szacunki", // MT
+"LBL_ACTIVITY"=>"Działanie", // MT
+"LBL_HOURS"=>"Godziny", // MT
+"LBL_MINUTES_TIME"=>"Protokoły", // MT
+"LBL_DAYS"=>"Dni", // MT
+"LBL_ROLE"=>"Rola", // MT
+"LBL_ORGONOGRAM"=>"Schemat organizacyjny", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Dekompozycja", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Szacunki", // MT
+"1LBLORGONOGRAM"=>"Schemat organizacyjny ", // MT
+"LBL_INTRO"=>"Ten moduł jest używany z modułów projektów i zadań projektu. Nie trzeba otwierać go bezpośrednio. Możesz ukryć tę kartę w obszarze administracji systemu.", // MT
+"LBL_DEV_SCHEDULE"=>"Opracowanie harmonogramu", // MT
+"LBL_EXECUTE"=>"Wykonaj", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Ta akcja oblicza daty rozpoczęcia i zakończenia działań na podstawie daty rozpoczęcia projektu, szacowanego nakładu pracy i logicznych zależności między działaniami.", // MT
+"Assigned to Task"=>"Przypisano do zadania", // MT

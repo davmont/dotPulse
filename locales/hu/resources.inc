@@ -1,24 +1,29 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add Resource"=>"Add Resource",
-"All Resources"=>"All Resources",
-"back"=>"back",
-"Description"=>"Description",
-"Details"=>"Details",
-"doDelete"=>"doDelete",
-"Equipment"=>"Equipment",
+"Add Resource"=>"Új erőforrás", // MT
+"All Resources"=>"Minden erőforrás", // MT
+"back"=>"vissza", // MT
+"Description"=>"Leírás", // MT
+"Details"=>"Részletek", // MT
+"doDelete"=>"Biztosan törölni szeretné ezt:", // MT
+"Equipment"=>"Eszköz", // MT
 "ID"=>"ID",
-"Max Alloc %"=>"Max Alloc %",
-"Max Allocation %"=>"Max Allocation %",
-"Maximum Allocation Percentage"=>"Maximum Allocation Percentage",
-"new resource"=>"new resource",
-"Notes"=>"Notes",
-"Resource ID"=>"Resource ID",
-"resource list"=>"resource list",
-"Resource Name"=>"Resource Name",
-"submit"=>"submit",
-"Tool"=>"Tool",
-"Type"=>"Type",
-"Venue"=>"Venue",
-
+"Max Alloc %"=>"Max. allok. %", // MT
+"Max Allocation %"=>"Max. allokáció %", // MT
+"Maximum Allocation Percentage"=>"Maximális allokációs százalék", // MT
+"new resource"=>"új erőforrás", // MT
+"Notes"=>"Jegyzetek", // MT
+"Resource ID"=>"Erőforrás-azonosító", // MT
+"resource list"=>"erőforrások listája", // MT
+"Resource Name"=>"Erőforrás neve", // MT
+"submit"=>"küldés", // MT
+"Tool"=>"Eszköz", // MT
+"Type"=>"Típus", // MT
+"Venue"=>"Helyszín", // MT
+"view this resource"=>"erőforrás megtekintése", // MT
+"Assigned to Task"=>"Feladathoz rendelve", // MT
+"notifyChange"=>"A feladat felelőseinek értesítése e-mailben", // MT
+"View Resource"=>"Erőforrás megtekintése", // MT
+"edit this resource"=>"erőforrás szerkesztése", // MT
+"invalid ID"=>"érvénytelen azonosító", // MT

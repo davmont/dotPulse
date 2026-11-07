@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Ajouter", // MT
+"LBL_EXCLUSION"=>"Exclure", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Indentation", // MT
+"LBL_ORDER"=>"Ordre", // MT
+"LBL_SORT"=>"Trier", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Enregistrer", // MT
+"LBL_ESTIMATION"=>"Estimation",
+"LBL_DESCRIPTION"=>"Description",
+"LBL_MOVE"=>"Déplacer", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Définition des activités", // MT
+"LBL_CREATE_MINUTE"=>"Créer un compte rendu", // MT
+"LBL_MINUTES"=>"Comptes rendus", // MT
+"LBL_DATE"=>"Date",
+"LBL_EDIT"=>"Éditer", // MT
+"LBL_TYPE"=>"Type",
+"LBL_EFFORT"=>"Effort",
+"LBL_DURATION"=>"Durée", // MT
+"LBL_RESOURCES"=>"Ressources (rôles)", // MT
+"LBL_SIZE"=>"Taille", // MT
+"LBL_ALL_MEMBERS"=>"Tous les membres", // MT
+"LBL_PARTICIPANTS"=>"Participants",
+"LBL_REPORT"=>"Rapport", // MT
+"LBL_CLOSE"=>"Fermer", // MT
+"LBL_WORK_PACKAGE"=>"Lot de travail", // MT
+"LBL_IN_DAYS"=>"(jours)", // MT
+"LBL_ESTIMATIONS"=>"Estimations",
+"LBL_ACTIVITY"=>"Activité", // MT
+"LBL_HOURS"=>"Heures", // MT
+"LBL_MINUTES_TIME"=>"Comptes rendus", // MT
+"LBL_DAYS"=>"Jours", // MT
+"LBL_ROLE"=>"Rôle", // MT
+"LBL_ORGONOGRAM"=>"Organigramme", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Dérivation", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Estimations",
+"1LBLORGONOGRAM"=>"Organigramme ", // MT
+"LBL_INTRO"=>"Ce module est utilisé depuis les modules projets et tâches. Il n'a pas besoin d'être consulté directement. Vous pouvez masquer cet onglet dans l'administration système.", // MT
+"LBL_DEV_SCHEDULE"=>"Élaboration de l'échéancier", // MT
+"LBL_EXECUTE"=>"Exécuter", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Cette action calcule les dates de début et de fin des activités à partir de la date de début du projet, des efforts estimés et des dépendances logiques entre activités.", // MT
+"Assigned to Task"=>"Assigné à la tâche", // MT

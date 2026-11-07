@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Datubāzes rezerves kopija", // MT
+"restore xml file"=>"atjaunot no XML faila", // MT
+"Restore From XML File"=>"Atjaunot no XML faila", // MT
+"xmlRestoreWarning"=>"Šī utilīta atjauno shēmu un datus no XML faila, kas izveidots ar šo utilītu. Tā NEATJAUNO no SQL failiem.", // MT
+"XML File to Restore"=>"Atjaunojamais XML fails", // MT
+"Continue On Error?"=>"Turpināt kļūdas gadījumā?", // MT
+"upload"=>"augšupielādēt", // MT
+"Backup"=>"Rezerves kopija", // MT
+"Import"=>"Importēt", // MT
+"Export"=>"Eksportēt", // MT
+"Success"=>"Izdevās!", // MT
+"Failure"=>"Kļūme: ", // MT
+"Import Data"=>"Importēt datus", // MT
+"Export Data"=>"Eksportēt datus", // MT
+"File Type"=>"Faila tips:", // MT
+"clear"=>"notīrīt", // MT
+"Filename (without extension):"=>"Faila nosaukums (bez paplašinājuma):", // MT
+"Module"=>"Modulis", // MT
+"Item"=>"Vienums", // MT
+"zip"=>".zip — saspiests SQL fails.", // MT
+"sql"=>".sql — teksta fails ar SQL vaicājumiem.", // MT
+"csv"=>".csv — ar komatu atdalītas vērtības.", // MT
+"vcf"=>".vcf — vCard fails.", // MT
+"Add 'DROP TABLE' to output-script"=>"Pievienot izvades skriptam 'DROP TABLE'", // MT
+"Table structure and data"=>"Tabulas struktūra un dati", // MT
+"Only table structure"=>"Tikai tabulas struktūra", // MT
+"Only data"=>"Tikai dati", // MT
+"Options"=>"Opcijas", // MT
+"Save as"=>"Saglabāt kā", // MT
+"Compressed ZIP SQL file"=>"Saspiests ZIP SQL fails", // MT
+"Plain text SQL file"=>"Vienkārša teksta SQL fails", // MT
+"XML file"=>"XML fails", // MT
+"Download backup"=>"Lejupielādēt rezerves kopiju", // MT
+"xmlLoginMsg"=>"Iespējams, jums būs jāatsakās un jāpiesakās no jauna", // MT
+"Invalid Options"=>"Nederīgas opcijas", // MT
+"Failed to restore backup"=>"Neizdevās atjaunot rezerves kopiju", // MT
+"Backup restored, but with errors"=>"Rezerves kopija atjaunota, bet ar kļūdām", // MT
+"Backup Restored OK"=>"Rezerves kopija veiksmīgi atjaunota", // MT
+"No upload file"=>"Nav augšupielādējamā faila", // MT
+"Error in parsing XML file"=>"Kļūda, parsējot XML failu", // MT
+"Restore Database"=>"Atjaunot datubāzi", // MT

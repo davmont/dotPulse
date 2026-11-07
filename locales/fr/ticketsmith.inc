@@ -26,7 +26,7 @@
 "Closed Parents"=>"Parents fermés",
 "Closed Tickets"=>"Tickets fermés",
 "Comments"=>"Commentaires",
-"Company"=>"P�le",
+"Company"=>"Pôle",
 "Date"=>"Date",
 "day"=>"jour",
 "days"=>"jours",
@@ -82,7 +82,7 @@
 "Processing"=>"en traitement",
 "Processing Tickets"=>"ticket en traitements",
 "Project"=>"Projet",
-"Report as PDF"=>"Report as PDF",
+"Report as PDF"=>"Rapport en PDF", // MT
 "required"=>"Requis",
 "results"=>"resusltats",
 "Return to parent"=>"Retour au parent",
@@ -104,7 +104,7 @@
 "Ticket"=>"Ticket",
 "Ticket assigned to you"=>"Le ticket vous est assigné",
 "Ticket ID"=>"ID ticket",
-"Ticket Updated - "=>"Mise a jour ticket",
+"Ticket Updated - "=>"Ticket mis à jour -", // MT
 "tickets"=>"tickets",
 "tickets list"=>"liste des tickets",
 "ticketsmithValidDetail"=>"Merci de fournir les détails suivants avant de valider",
@@ -131,3 +131,6 @@
 ##
 // "" => "",
 // "Priorité absolue!" => "Priorité absolue!",
+"\$type Ticket Report"=>"Rapport des tickets \$type", // MT
+"Ticket added"=>"Ticket ajouté", // MT
+"ticket list"=>"liste des tickets", // MT

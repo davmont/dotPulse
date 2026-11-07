@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"Nimate zahtevanega dovoljenja", // MT
+"Years"=>"Leta", // MT
+"Submit"=>"Pošlji", // MT
+"Display"=>"Prikaz", // MT
+"Amounts"=>"Zneski", // MT
+"without tax"=>"brez davka", // MT
+"with tax"=>"z davkom", // MT
+"Detail"=>"Podrobnost", // MT
+"Sub Total"=>"Vmesna vsota", // MT
+"Total"=>"Skupaj", // MT
+"All"=>"Vse", // MT
+"Save Changes"=>"Shrani spremembe", // MT
+"Budget"=>"Proračun", // MT
+"Project / Task(Tax)"=>"Projekt / opravilo (davek)", // MT
+"INVESTMENT"=>"NALOŽBA", // MT
+"OPERATION"=>"DELOVANJE", // MT
+"Equipment"=>"Oprema", // MT
+"Intangible"=>"Neopredmeteno", // MT
+"Service"=>"Storitev", // MT
+"Open in new tab"=>"Odpri v novem zavihku", // MT
+"Tax"=>"Davek", // MT
+"This task is only financial"=>"To opravilo je samo finančno", // MT
+"Investment"=>"Naložba", // MT
+"Operation"=>"Delovanje", // MT
+"You can not set the budget of a dynamic task"=>"Proračuna dinamičnega opravila ni mogoče nastaviti", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Pri nalaganju velikega števila projektov lahko Internet Explorer zelo upočasni delovanje.", // MT
+"Only valued projects and tasks"=>"Samo ovrednoteni projekti in opravila", // MT
+"Only valued projects"=>"Samo ovrednoteni projekti", // MT
+"Only projects with null budget"=>"Samo projekti brez proračuna", // MT
+"Project Type"=>"Tip projekta", // MT
+"Excel export"=>"Izvoz v Excel", // MT
+"Project Status"=>"Stanje projekta", // MT
+"Template"=>"Predloga", // MT
+"Archived"=>"Arhivirano", // MT
+"Unknown"=>"Neznano", // MT
+"Administrative"=>"Administrativno", // MT
+"Operative"=>"Operativno", // MT
+"MacroProject / Project / Task(Tax)"=>"Makroprojekt / projekt / opravilo (davek)", // MT
+"TOTAL"=>"SKUPAJ", // MT
+"Macroproject / Project / Task(Tax)"=>"Makroprojekt / projekt / opravilo (davek)", // MT

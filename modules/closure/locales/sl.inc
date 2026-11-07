@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Zaključek", // MT
+"Project Name"=>"Ime projekta", // MT
+"Project Meeting Date"=>"Datum sestanka projekta", // MT
+"Project Start Date"=>"Datum začetka projekta", // MT
+"Project End Date"=>"Končni datum projekta", // MT
+"new post mortem analysis"=>"nova analiza po zaključku", // MT
+"New Post Mortem"=>"Nova analiza po zaključku", // MT
+"Edit Post Mortem"=>"Uredi analizo po zaključku", // MT
+"Meeting Date"=>"Datum sestanka", // MT
+"Meeting Settings"=>"Nastavitve sestanka", // MT
+"Project Summary"=>"Povzetek projekta", // MT
+"Project Planned Start Date"=>"Načrtovani datum začetka projekta", // MT
+"Project Planned End Date"=>"Načrtovani končni datum projekta", // MT
+"Project Planned Budget"=>"Načrtovani proračun projekta", // MT
+"Project Budget"=>"Proračun projekta", // MT
+"Lessons Learned"=>"Pridobljene izkušnje", // MT
+"Project Strengths"=>"Prednosti projekta", // MT
+"Project Weaknesses"=>"Slabosti projekta", // MT
+"Improvement Suggestions"=>"Predlogi za izboljšave", // MT
+"Conclusions"=>"Sklepi", // MT
+"Meeting Participants"=>"Udeleženci sestanka", // MT
+"view this post mortem"=>"oglej si to analizo po zaključku", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Tukaj naštejte (vsako točko z '*') tehnologije, procese, razvojna okolja ali katere koli tehnike, orodja ali storitve, ki so se vam na tem projektu obnesli", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Tukaj naštejte (vsako točko z '*') tehnologije, procese, razvojna okolja ali katere koli tehnike, orodja ali storitve, ki se vam na tem projektu niso obnesli", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Tukaj naštejte (vsako točko z '*') vidike projekta, ki jih je treba izboljšati", // MT
+"General conclusions about the project"=>"Splošni sklepi o projektu", // MT
+"Post Mortem deleted"=>"Analiza po zaključku izbrisana", // MT
+"post mortem list"=>"seznam analiz po zaključku", // MT
+"Post Mortem"=>"Analiza po zaključku", // MT
+"noDeletePermission"=>"Nimate dovoljenja za brisanje tega elementa", // MT
+"Post Mortem Records by project"=>"Zapisi analiz po zaključku po projektih", // MT
+"Project Status"=>"Stanje projekta", // MT
+"Participants"=>"Udeleženci", // MT
+"Post Mortem ID"=>"ID analize po zaključku", // MT
+"View Post Mortem Analysis"=>"Ogled analize po zaključku", // MT
+"edit this post mortem"=>"uredi to analizo po zaključku", // MT
+"invalid ID"=>"neveljaven ID", // MT
+"Post Mortem Analysis"=>"Analiza po zaključku", // MT

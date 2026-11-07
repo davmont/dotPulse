@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Advanced search"=>"Advanced search",
-"All words"=>"All words",
-"Display all fields"=>"Display all fields",
-"Empty"=>"Empty",
-"Events"=>"Events",
-"Files Content"=>"Files Content",
-"Forum Messages"=>"Forum Messages",
-"Ignore case"=>"Ignore case",
-"Ignore special chars"=>"Ignore special chars",
-"Modules selection"=>"Modules selection",
-"Search"=>"Search",
-"Select all"=>"Select all",
-"Show empty"=>"Show empty",
-"Task Log"=>"Task Log",
-"Total records found"=>"Total records found",
-
+"Advanced search"=>"詳細検索", // MT
+"All words"=>"すべての単語", // MT
+"Display all fields"=>"すべてのフィールドを表示", // MT
+"Empty"=>"空", // MT
+"Events"=>"イベント", // MT
+"Files Content"=>"ファイルの内容", // MT
+"Forum Messages"=>"フォーラムのメッセージ", // MT
+"Ignore case"=>"大文字と小文字を区別しない", // MT
+"Ignore special chars"=>"特殊文字を無視", // MT
+"Modules selection"=>"モジュールの選択", // MT
+"Search"=>"検索", // MT
+"Select all"=>"すべて選択", // MT
+"Show empty"=>"空を表示", // MT
+"Task Log"=>"タスクログ", // MT
+"Total records found"=>"見つかったレコード数", // MT
+"Deselect all"=>"すべて選択解除", // MT

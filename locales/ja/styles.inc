@@ -1,8 +1,8 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"classic"=>"The Classic dotProject style",
-"default"=>"Default clean style",
-"demo1"=>"A demo style",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"classic"=>"従来の dotProject スタイル", // MT
+"default"=>"既定のシンプルなスタイル", // MT
+"demo1"=>"デモ用スタイル", // MT
+"dp-grey-theme"=>"グレーのスリムなスタイル", // MT
+"dotpulse"=>"dotPulse",

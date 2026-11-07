@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Integrováno s Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"Závažnost", // MT
+"Priority"=>"Priorita", // MT
+"Reproducibility"=>"Reprodukovatelnost", // MT
+"Resolution"=>"Řešení", // MT
+"tasks created"=>"vytvořené úkoly", // MT
+"already imported"=>"již importováno", // MT
+"issues updated"=>"aktualizované požadavky", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis není nakonfigurován nebo nemáte API token Mantis.", // MT
+"That Mantis project is not available to you."=>"Tento projekt Mantis vám není dostupný.", // MT
+"Project linked to Mantis"=>"Projekt propojen s Mantis", // MT
+"Project created in Mantis and linked"=>"Projekt vytvořen v Mantis a propojen", // MT
+"Project unlinked from Mantis"=>"Projekt odpojen od Mantis", // MT
+"Choose a status."=>"Vyberte stav.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis není nakonfigurován: nastavte jeho adresu (HTTPS) v Systémová administrace > Konfigurace systému.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Váš API token Mantis je uložen.", // MT
+"You have no Mantis API token stored."=>"Nemáte uložen žádný API token Mantis.", // MT
+"Mantis API token"=>"API token Mantis", // MT
+"Mantis project"=>"Projekt Mantis", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Zatím není s Mantis propojen žádný projekt: propojte jej na jeho kartě Mantis.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Zadejte svůj API token Mantis, abyste viděli požadavky Mantis tohoto projektu", // MT
+"This project is not linked to a Mantis project."=>"Tento projekt není propojen s projektem Mantis.", // MT
+"Link"=>"Odkaz", // MT
+"Create it in Mantis"=>"Vytvořit v Mantis", // MT
+"needs a Mantis administrator token"=>"vyžaduje token administrátora Mantis", // MT
+"Issue"=>"Požadavek", // MT
+"Assigned To"=>"Přiřazeno", // MT
+"Updated"=>"Aktualizováno", // MT
+"No issues"=>"Žádné požadavky", // MT
+"view"=>"zobrazit", // MT
+"Import selected as tasks"=>"Importovat vybrané jako úkoly", // MT
+"Change status of selected"=>"Změnit stav vybraných", // MT
+"Unlink this project from Mantis?"=>"Odpojit tento projekt od Mantis?", // MT
+"Unlink"=>"Odpojit", // MT
+"Mantis API token saved for Mantis user"=>"API token Mantis uložen pro uživatele Mantis", // MT
+"Your token is stored"=>"Váš token je uložen", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Vytvořte token v Mantis (Můj účet > API tokeny) a vložte jej sem. Mantis pak uplatní vaše vlastní oprávnění v Mantis.", // MT
+"Save"=>"Uložit", // MT
+"Remove my token"=>"Odebrat můj token", // MT
+"Mantis API token removed"=>"API token Mantis odebrán", // MT
+"A Mantis API token has 32 letters and digits."=>"API token Mantis má 32 písmen a číslic.", // MT

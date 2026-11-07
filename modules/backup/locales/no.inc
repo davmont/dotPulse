@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Sikkerhetskopier database", // MT
+"restore xml file"=>"gjenopprett XML-fil", // MT
+"Restore From XML File"=>"Gjenopprett fra XML-fil", // MT
+"xmlRestoreWarning"=>"Dette verktøyet gjenoppretter skjema og data fra en XML-fil opprettet av dette verktøyet. Det gjenoppretter IKKE fra SQL-filer.", // MT
+"XML File to Restore"=>"XML-fil som skal gjenopprettes", // MT
+"Continue On Error?"=>"Fortsette ved feil?", // MT
+"upload"=>"last opp", // MT
+"Backup"=>"Sikkerhetskopi", // MT
+"Import"=>"Importer", // MT
+"Export"=>"Eksporter", // MT
+"Success"=>"Vellykket!", // MT
+"Failure"=>"Feil: ", // MT
+"Import Data"=>"Importer data", // MT
+"Export Data"=>"Eksporter data", // MT
+"File Type"=>"Filtype:", // MT
+"clear"=>"tøm", // MT
+"Filename (without extension):"=>"Filnavn (uten filtype):", // MT
+"Module"=>"Modul", // MT
+"Item"=>"Element", // MT
+"zip"=>".zip - Komprimert SQL-fil.", // MT
+"sql"=>".sql - Tekstfil med SQL-spørringer.", // MT
+"csv"=>".csv - Kommaseparerte verdier.", // MT
+"vcf"=>".vcf - vCard-fil.", // MT
+"Add 'DROP TABLE' to output-script"=>"Legg til 'DROP TABLE' i utdataskriptet", // MT
+"Table structure and data"=>"Tabellstruktur og data", // MT
+"Only table structure"=>"Bare tabellstruktur", // MT
+"Only data"=>"Bare data", // MT
+"Options"=>"Alternativer", // MT
+"Save as"=>"Lagre som", // MT
+"Compressed ZIP SQL file"=>"Komprimert ZIP SQL-fil", // MT
+"Plain text SQL file"=>"SQL-fil i ren tekst", // MT
+"XML file"=>"XML-fil", // MT
+"Download backup"=>"Last ned sikkerhetskopi", // MT
+"xmlLoginMsg"=>"Du må kanskje logge ut og inn igjen", // MT
+"Invalid Options"=>"Ugyldige alternativer", // MT
+"Failed to restore backup"=>"Kunne ikke gjenopprette sikkerhetskopien", // MT
+"Backup restored, but with errors"=>"Sikkerhetskopien er gjenopprettet, men med feil", // MT
+"Backup Restored OK"=>"Sikkerhetskopien er gjenopprettet", // MT
+"No upload file"=>"Ingen fil å laste opp", // MT
+"Error in parsing XML file"=>"Feil ved tolking av XML-filen", // MT
+"Restore Database"=>"Gjenopprett database", // MT

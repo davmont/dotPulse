@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Mantis ile Entegre", // MT
+"ID"=>"ID",
+"Severity"=>"Önem Derecesi", // MT
+"Priority"=>"Öncelik", // MT
+"Reproducibility"=>"Tekrarlanabilirlik", // MT
+"Resolution"=>"Çözüm", // MT
+"tasks created"=>"görev oluşturuldu", // MT
+"already imported"=>"zaten içe aktarıldı", // MT
+"issues updated"=>"sorun güncellendi", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis yapılandırılmamış veya Mantis API anahtarınız yok.", // MT
+"That Mantis project is not available to you."=>"Bu Mantis projesi sizin için kullanılabilir değil.", // MT
+"Project linked to Mantis"=>"Proje Mantis'e bağlandı", // MT
+"Project created in Mantis and linked"=>"Proje Mantis'te oluşturuldu ve bağlandı", // MT
+"Project unlinked from Mantis"=>"Projenin Mantis bağlantısı kaldırıldı", // MT
+"Choose a status."=>"Bir durum seçin.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis yapılandırılmamış: adresini (HTTPS) Sistem Yönetimi > Sistem Yapılandırması'nda ayarlayın.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Mantis API anahtarınız kayıtlı.", // MT
+"You have no Mantis API token stored."=>"Kayıtlı Mantis API anahtarınız yok.", // MT
+"Mantis API token"=>"Mantis API anahtarı", // MT
+"Mantis project"=>"Mantis projesi", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Henüz Mantis'e bağlı proje yok: birini Mantis sekmesinden bağlayın.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Bu projenin Mantis sorunlarını görmek için Mantis API anahtarınızı girin", // MT
+"This project is not linked to a Mantis project."=>"Bu proje bir Mantis projesine bağlı değil.", // MT
+"Link"=>"Bağlantı", // MT
+"Create it in Mantis"=>"Mantis'te oluştur", // MT
+"needs a Mantis administrator token"=>"Mantis yönetici anahtarı gerektirir", // MT
+"Issue"=>"Sorun", // MT
+"Assigned To"=>"Atanan", // MT
+"Updated"=>"Güncellendi", // MT
+"No issues"=>"Sorun yok", // MT
+"view"=>"görüntüle", // MT
+"Import selected as tasks"=>"Seçilenleri görev olarak içe aktar", // MT
+"Change status of selected"=>"Seçilenlerin durumunu değiştir", // MT
+"Unlink this project from Mantis?"=>"Bu projenin Mantis bağlantısı kaldırılsın mı?", // MT
+"Unlink"=>"Bağlantıyı kaldır", // MT
+"Mantis API token saved for Mantis user"=>"Mantis API anahtarı şu Mantis kullanıcısı için kaydedildi:", // MT
+"Your token is stored"=>"Anahtarınız kayıtlı", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Mantis'te bir anahtar oluşturun (Hesabım > API Anahtarları) ve buraya yapıştırın. Mantis bu durumda kendi Mantis izinlerinizi uygular.", // MT
+"Save"=>"Kaydet", // MT
+"Remove my token"=>"Anahtarımı kaldır", // MT
+"Mantis API token removed"=>"Mantis API anahtarı kaldırıldı", // MT
+"A Mantis API token has 32 letters and digits."=>"Bir Mantis API anahtarı 32 harf ve rakamdan oluşur.", // MT

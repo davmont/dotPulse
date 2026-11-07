@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Datenbank sichern", // MT
+"restore xml file"=>"XML-Datei wiederherstellen", // MT
+"Restore From XML File"=>"Aus XML-Datei wiederherstellen", // MT
+"xmlRestoreWarning"=>"Dieses Werkzeug stellt Schema und Daten aus einer XML-Datei wieder her, die mit diesem Werkzeug erstellt wurde. Es stellt NICHT aus SQL-Dateien wieder her.", // MT
+"XML File to Restore"=>"Wiederherzustellende XML-Datei", // MT
+"Continue On Error?"=>"Bei Fehler fortfahren?", // MT
+"upload"=>"hochladen", // MT
+"Backup"=>"Sicherung", // MT
+"Import"=>"Importieren", // MT
+"Export"=>"Exportieren", // MT
+"Success"=>"Erfolgreich!", // MT
+"Failure"=>"Fehler: ", // MT
+"Import Data"=>"Daten importieren", // MT
+"Export Data"=>"Daten exportieren", // MT
+"File Type"=>"Dateityp:", // MT
+"clear"=>"leeren", // MT
+"Filename (without extension):"=>"Dateiname (ohne Erweiterung):", // MT
+"Module"=>"Modul", // MT
+"Item"=>"Posten", // MT
+"zip"=>".zip - Komprimierte SQL-Datei.", // MT
+"sql"=>".sql - Textdatei mit SQL-Abfragen.", // MT
+"csv"=>".csv - Kommagetrennte Werte.", // MT
+"vcf"=>".vcf - vCard-Datei.", // MT
+"Add 'DROP TABLE' to output-script"=>"'DROP TABLE' zum Ausgabeskript hinzufügen", // MT
+"Table structure and data"=>"Tabellenstruktur und Daten", // MT
+"Only table structure"=>"Nur Tabellenstruktur", // MT
+"Only data"=>"Nur Daten", // MT
+"Options"=>"Optionen", // MT
+"Save as"=>"Speichern als", // MT
+"Compressed ZIP SQL file"=>"Komprimierte ZIP-SQL-Datei", // MT
+"Plain text SQL file"=>"SQL-Datei als Klartext", // MT
+"XML file"=>"XML-Datei", // MT
+"Download backup"=>"Sicherung herunterladen", // MT
+"xmlLoginMsg"=>"Sie müssen sich eventuell ab- und wieder anmelden", // MT
+"Invalid Options"=>"Ungültige Optionen", // MT
+"Failed to restore backup"=>"Sicherung konnte nicht wiederhergestellt werden", // MT
+"Backup restored, but with errors"=>"Sicherung wiederhergestellt, jedoch mit Fehlern", // MT
+"Backup Restored OK"=>"Sicherung erfolgreich wiederhergestellt", // MT
+"No upload file"=>"Keine Datei zum Hochladen", // MT
+"Error in parsing XML file"=>"Fehler beim Parsen der XML-Datei", // MT
+"Restore Database"=>"Datenbank wiederherstellen", // MT

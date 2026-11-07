@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"Du har inte den behörighet som krävs", // MT
+"Years"=>"År", // MT
+"Submit"=>"Skicka", // MT
+"Display"=>"Visa", // MT
+"Amounts"=>"Belopp", // MT
+"without tax"=>"exklusive moms", // MT
+"with tax"=>"inklusive moms", // MT
+"Detail"=>"Detalj", // MT
+"Sub Total"=>"Delsumma", // MT
+"Total"=>"Totalt", // MT
+"All"=>"Alla", // MT
+"Save Changes"=>"Spara ändringar", // MT
+"Budget"=>"Budget",
+"Project / Task(Tax)"=>"Projekt / aktivitet (moms)", // MT
+"INVESTMENT"=>"INVESTERING", // MT
+"OPERATION"=>"DRIFT", // MT
+"Equipment"=>"Utrustning", // MT
+"Intangible"=>"Immateriell", // MT
+"Service"=>"Tjänst", // MT
+"Open in new tab"=>"Öppna i ny flik", // MT
+"Tax"=>"Moms", // MT
+"This task is only financial"=>"Den här aktiviteten är endast ekonomisk", // MT
+"Investment"=>"Investering", // MT
+"Operation"=>"Drift", // MT
+"You can not set the budget of a dynamic task"=>"Du kan inte ange budget för en dynamisk aktivitet", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Internet Explorer kan bli mycket långsam om ett stort antal projekt ska laddas.", // MT
+"Only valued projects and tasks"=>"Endast värderade projekt och aktiviteter", // MT
+"Only valued projects"=>"Endast värderade projekt", // MT
+"Only projects with null budget"=>"Endast projekt utan budget", // MT
+"Project Type"=>"Projekttyp", // MT
+"Excel export"=>"Excel-export", // MT
+"Project Status"=>"Projektstatus", // MT
+"Template"=>"Mall", // MT
+"Archived"=>"Arkiverad", // MT
+"Unknown"=>"Okänd", // MT
+"Administrative"=>"Administrativ", // MT
+"Operative"=>"Operativ", // MT
+"MacroProject / Project / Task(Tax)"=>"Makroprojekt / projekt / aktivitet (moms)", // MT
+"TOTAL"=>"TOTALT", // MT
+"Macroproject / Project / Task(Tax)"=>"Makroprojekt / projekt / aktivitet (moms)", // MT

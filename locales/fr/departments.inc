@@ -4,7 +4,7 @@
 "Add Department"=>"Ajouter un service",
 "Address"=>"Adresse ",
 "badCompany"=>"Cette société est invalide. Vous ne pouvez pas ajouter un service",
-"Company"=>"",
+"Company"=>"Pôle", // MT
 "delDept"=>"Êtes-vous sûr de vouloir supprimer ce service",
 "delete department"=>"supprimer le service",
 "Department"=>"Service",
@@ -38,3 +38,4 @@
 // "Department deleted" => "Service supprimer",
 // "Department inserted" => "Service inséré",
 // "Department updated" => "Service mis a jour",
+"Invalid Department ID"=>"ID de service non valide", // MT

@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Přidat", // MT
+"LBL_EXCLUSION"=>"Vyloučit", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Odsazení", // MT
+"LBL_ORDER"=>"Pořadí", // MT
+"LBL_SORT"=>"Řadit", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Uložit", // MT
+"LBL_ESTIMATION"=>"Odhad", // MT
+"LBL_DESCRIPTION"=>"Popis", // MT
+"LBL_MOVE"=>"Přesunout", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Definice aktivit", // MT
+"LBL_CREATE_MINUTE"=>"Vytvořit zápis", // MT
+"LBL_MINUTES"=>"Zápisy", // MT
+"LBL_DATE"=>"Datum", // MT
+"LBL_EDIT"=>"Upravit", // MT
+"LBL_TYPE"=>"Typ", // MT
+"LBL_EFFORT"=>"Úsilí", // MT
+"LBL_DURATION"=>"Délka", // MT
+"LBL_RESOURCES"=>"Zdroje (role)", // MT
+"LBL_SIZE"=>"Velikost", // MT
+"LBL_ALL_MEMBERS"=>"Všichni členové", // MT
+"LBL_PARTICIPANTS"=>"Účastníci", // MT
+"LBL_REPORT"=>"Sestava", // MT
+"LBL_CLOSE"=>"Zavřít", // MT
+"LBL_WORK_PACKAGE"=>"Pracovní balík", // MT
+"LBL_IN_DAYS"=>"(dny)", // MT
+"LBL_ESTIMATIONS"=>"Odhady", // MT
+"LBL_ACTIVITY"=>"Aktivita", // MT
+"LBL_HOURS"=>"Hodin", // MT
+"LBL_MINUTES_TIME"=>"Zápisy", // MT
+"LBL_DAYS"=>"Dny", // MT
+"LBL_ROLE"=>"Role",
+"LBL_ORGONOGRAM"=>"Organizační schéma", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Odvození", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Odhady", // MT
+"1LBLORGONOGRAM"=>"Organizační schéma ", // MT
+"LBL_INTRO"=>"Tento modul používají moduly projektů a úkolů projektu. Není nutné k němu přistupovat přímo. Tuto kartu můžete skrýt v systémové administraci.", // MT
+"LBL_DEV_SCHEDULE"=>"Tvorba harmonogramu", // MT
+"LBL_EXECUTE"=>"Provést", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Tato akce vypočítá data zahájení a ukončení aktivit na základě data zahájení projektu, odhadovaného úsilí a logických závislostí mezi aktivitami.", // MT
+"Assigned to Task"=>"Přiřazeno k úkolu", // MT

@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Varnostna kopija baze podatkov", // MT
+"restore xml file"=>"obnovi datoteko XML", // MT
+"Restore From XML File"=>"Obnovi iz datoteke XML", // MT
+"xmlRestoreWarning"=>"To orodje obnovi shemo in podatke iz datoteke XML, ki jo je ustvarilo to orodje. Iz datotek SQL NE obnavlja.", // MT
+"XML File to Restore"=>"Datoteka XML za obnovitev", // MT
+"Continue On Error?"=>"Nadaljujem ob napaki?", // MT
+"upload"=>"naloži", // MT
+"Backup"=>"Varnostna kopija", // MT
+"Import"=>"Uvoz", // MT
+"Export"=>"Izvoz", // MT
+"Success"=>"Uspeh!", // MT
+"Failure"=>"Neuspeh: ", // MT
+"Import Data"=>"Uvozi podatke", // MT
+"Export Data"=>"Izvozi podatke", // MT
+"File Type"=>"Tip datoteke:", // MT
+"clear"=>"počisti", // MT
+"Filename (without extension):"=>"Ime datoteke (brez končnice):", // MT
+"Module"=>"Modul", // MT
+"Item"=>"Postavka", // MT
+"zip"=>".zip – stisnjena datoteka SQL.", // MT
+"sql"=>".sql – besedilna datoteka s poizvedbami SQL.", // MT
+"csv"=>".csv – vrednosti, ločene z vejicami.", // MT
+"vcf"=>".vcf – datoteka vCard.", // MT
+"Add 'DROP TABLE' to output-script"=>"V izhodni skript dodaj 'DROP TABLE'", // MT
+"Table structure and data"=>"Struktura tabel in podatki", // MT
+"Only table structure"=>"Samo struktura tabel", // MT
+"Only data"=>"Samo podatki", // MT
+"Options"=>"Možnosti", // MT
+"Save as"=>"Shrani kot", // MT
+"Compressed ZIP SQL file"=>"Stisnjena datoteka SQL ZIP", // MT
+"Plain text SQL file"=>"Navadna besedilna datoteka SQL", // MT
+"XML file"=>"Datoteka XML", // MT
+"Download backup"=>"Prenesi varnostno kopijo", // MT
+"xmlLoginMsg"=>"Morda se boste morali odjaviti in znova prijaviti", // MT
+"Invalid Options"=>"Neveljavne možnosti", // MT
+"Failed to restore backup"=>"Obnovitev varnostne kopije ni uspela", // MT
+"Backup restored, but with errors"=>"Varnostna kopija obnovljena, vendar z napakami", // MT
+"Backup Restored OK"=>"Varnostna kopija uspešno obnovljena", // MT
+"No upload file"=>"Ni datoteke za nalaganje", // MT
+"Error in parsing XML file"=>"Napaka pri razčlenjevanju datoteke XML", // MT
+"Restore Database"=>"Obnovi bazo podatkov", // MT

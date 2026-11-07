@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"About Modules"=>"A modulokrÛl",
-"Access Denied"=>"Hozz·fÈrÈs megtagadva",
-"Adding a Company"=>"CÈg felvitele",
+"About Modules"=>"A modulokr√≥l",
+"Access Denied"=>"Hozz√°f√©r√©s megtagadva",
+"Adding a Company"=>"C√©g felvitele",
 "Adding a Project"=>"Projekt felvitele",
 "Adding a Task"=>"Feladat felvitele",
 "Breadcrumbs"=>"Morzsa",
-"Context Help"=>"÷sszef¸ggÈsek s˙gÛja",
-"General Concepts"=>"Fıbb fogalmak",
-"Getting Started"=>"Indul·s",
-"helpIntro"=>"Itt tal·l nÈh·ny gyors navig·ciÛt a s˙gÛhoz.",
-"index"=>"index",
-"Left Navigation"=>"Bal oldali navig·zciÛ",
-"Saving Your Place"=>"HelyÈnek elmentÈse",
-"Tabbed Property Boxes"=>"F¸lekre osztott dobozok",
-"Top Menu"=>"Felsı men¸",
+"Context Help"=>"√ñsszef√ºgg√©sek s√∫g√≥ja",
+"General Concepts"=>"F≈ëbb fogalmak",
+"Getting Started"=>"Indul√°s",
+"helpIntro"=>"Itt tal√°l n√©h√°ny gyors navig√°ci√≥t a s√∫g√≥hoz.",
+"index"=>"tartalomjegyz√©k", // MT
+"Left Navigation"=>"Bal oldali navig√°zci√≥",
+"Saving Your Place"=>"Hely√©nek elment√©se",
+"Tabbed Property Boxes"=>"F√ºlekre osztott dobozok",
+"Top Menu"=>"Fels≈ë men√º",
 

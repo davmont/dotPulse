@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"Du har ikke nødvendig tillatelse", // MT
+"Years"=>"År", // MT
+"Submit"=>"Send", // MT
+"Display"=>"Visning", // MT
+"Amounts"=>"Beløp", // MT
+"without tax"=>"uten mva.", // MT
+"with tax"=>"med mva.", // MT
+"Detail"=>"Detalj", // MT
+"Sub Total"=>"Delsum", // MT
+"Total"=>"Totalt", // MT
+"All"=>"Alle", // MT
+"Save Changes"=>"Lagre endringer", // MT
+"Budget"=>"Budsjett", // MT
+"Project / Task(Tax)"=>"Prosjekt / oppgave (mva.)", // MT
+"INVESTMENT"=>"INVESTERING", // MT
+"OPERATION"=>"DRIFT", // MT
+"Equipment"=>"Utstyr", // MT
+"Intangible"=>"Immateriell", // MT
+"Service"=>"Tjeneste", // MT
+"Open in new tab"=>"Åpne i ny fane", // MT
+"Tax"=>"Mva.", // MT
+"This task is only financial"=>"Denne oppgaven er bare økonomisk", // MT
+"Investment"=>"Investering", // MT
+"Operation"=>"Drift", // MT
+"You can not set the budget of a dynamic task"=>"Du kan ikke angi budsjettet for en dynamisk oppgave", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Ytelsen til Internet Explorer kan føre til betydelig treghet når et stort antall prosjekter skal lastes.", // MT
+"Only valued projects and tasks"=>"Bare verdisatte prosjekter og oppgaver", // MT
+"Only valued projects"=>"Bare verdisatte prosjekter", // MT
+"Only projects with null budget"=>"Bare prosjekter uten budsjett", // MT
+"Project Type"=>"Prosjekttype", // MT
+"Excel export"=>"Excel-eksport", // MT
+"Project Status"=>"Prosjektstatus", // MT
+"Template"=>"Mal", // MT
+"Archived"=>"Arkivert", // MT
+"Unknown"=>"Ukjent", // MT
+"Administrative"=>"Administrativ", // MT
+"Operative"=>"Operativ", // MT
+"MacroProject / Project / Task(Tax)"=>"Makroprosjekt / prosjekt / oppgave (mva.)", // MT
+"TOTAL"=>"TOTALT", // MT
+"Macroproject / Project / Task(Tax)"=>"Makroprosjekt / prosjekt / oppgave (mva.)", // MT

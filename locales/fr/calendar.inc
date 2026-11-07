@@ -81,7 +81,7 @@
 "submit"=>"Envoyer",
 "Suggest Alternative"=>"Alternative suggéré",
 "Suggest Alternative Event Time"=>"Suggérer d\\'autres temps événement",
-"Sunday"=>"Sunday",
+"Sunday"=>"Dimanche", // MT
 "Task / Project"=>"Tâche / Projet",
 "Time"=>"Heure",
 "times"=>"fois",
@@ -103,3 +103,16 @@
 ## OBSOLETE KEYS
 ##
 // "Macroprojects" => "MacroProjets",
+"START"=>"DÉBUT", // MT
+"END"=>"FIN", // MT
+"Please enter a valid event title"=>"Veuillez saisir un titre d'événement valide", // MT
+"Please enter number of recurrences"=>"Veuillez saisir le nombre de répétitions", // MT
+"New"=>"Nouveau", // MT
+"Invalid action, event cancelled"=>"Action non valide, événement annulé", // MT
+"First available time slot"=>"Premier créneau disponible", // MT
+"No times match your parameters"=>"Aucun horaire ne correspond à vos critères", // MT
+"Mail sent"=>"E-mail envoyé", // MT
+"previous day"=>"jour précédent", // MT
+"next day"=>"jour suivant", // MT
+"previous week"=>"semaine précédente", // MT
+"next week"=>"semaine suivante", // MT

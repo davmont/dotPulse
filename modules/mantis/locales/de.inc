@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Mantis integriert", // MT
+"ID"=>"ID",
+"Severity"=>"Schweregrad", // MT
+"Priority"=>"Priorität", // MT
+"Reproducibility"=>"Reproduzierbarkeit", // MT
+"Resolution"=>"Lösung", // MT
+"tasks created"=>"Aufgaben erstellt", // MT
+"already imported"=>"bereits importiert", // MT
+"issues updated"=>"Issues aktualisiert", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis ist nicht konfiguriert oder Sie haben kein Mantis-API-Token.", // MT
+"That Mantis project is not available to you."=>"Dieses Mantis-Projekt ist für Sie nicht verfügbar.", // MT
+"Project linked to Mantis"=>"Projekt mit Mantis verknüpft", // MT
+"Project created in Mantis and linked"=>"Projekt in Mantis erstellt und verknüpft", // MT
+"Project unlinked from Mantis"=>"Verknüpfung des Projekts mit Mantis aufgehoben", // MT
+"Choose a status."=>"Wählen Sie einen Status.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis ist nicht konfiguriert: Legen Sie die Adresse (HTTPS) unter Systemverwaltung > Systemkonfiguration fest.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Ihr Mantis-API-Token ist gespeichert.", // MT
+"You have no Mantis API token stored."=>"Sie haben kein Mantis-API-Token gespeichert.", // MT
+"Mantis API token"=>"Mantis-API-Token", // MT
+"Mantis project"=>"Mantis-Projekt", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Noch kein Projekt ist mit Mantis verknüpft: Verknüpfen Sie eines über seinen Reiter Mantis.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Geben Sie Ihr Mantis-API-Token ein, um die Mantis-Issues dieses Projekts zu sehen", // MT
+"This project is not linked to a Mantis project."=>"Dieses Projekt ist nicht mit einem Mantis-Projekt verknüpft.", // MT
+"Link"=>"Link",
+"Create it in Mantis"=>"In Mantis erstellen", // MT
+"needs a Mantis administrator token"=>"erfordert ein Mantis-Administrator-Token", // MT
+"Issue"=>"Vorgang", // MT
+"Assigned To"=>"Zugewiesen an", // MT
+"Updated"=>"Aktualisiert", // MT
+"No issues"=>"Keine Issues", // MT
+"view"=>"anzeigen", // MT
+"Import selected as tasks"=>"Ausgewählte als Aufgaben importieren", // MT
+"Change status of selected"=>"Status der ausgewählten ändern", // MT
+"Unlink this project from Mantis?"=>"Verknüpfung dieses Projekts mit Mantis aufheben?", // MT
+"Unlink"=>"Verknüpfung aufheben", // MT
+"Mantis API token saved for Mantis user"=>"Mantis-API-Token gespeichert für Mantis-Benutzer", // MT
+"Your token is stored"=>"Ihr Token ist gespeichert", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Erstellen Sie ein Token in Mantis (Mein Konto > API-Tokens) und fügen Sie es hier ein. Mantis wendet dann Ihre eigenen Mantis-Berechtigungen an.", // MT
+"Save"=>"Speichern", // MT
+"Remove my token"=>"Mein Token entfernen", // MT
+"Mantis API token removed"=>"Mantis-API-Token entfernt", // MT
+"A Mantis API token has 32 letters and digits."=>"Ein Mantis-API-Token besteht aus 32 Buchstaben und Ziffern.", // MT

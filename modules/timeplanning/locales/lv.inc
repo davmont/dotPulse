@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Pievienot", // MT
+"LBL_EXCLUSION"=>"Izslēgt", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Atkāpe", // MT
+"LBL_ORDER"=>"Secība", // MT
+"LBL_SORT"=>"Kārtot", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Saglabāt", // MT
+"LBL_ESTIMATION"=>"Novērtējums", // MT
+"LBL_DESCRIPTION"=>"Apraksts", // MT
+"LBL_MOVE"=>"Pārvietot", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Aktivitāšu definēšana", // MT
+"LBL_CREATE_MINUTE"=>"Izveidot protokolu", // MT
+"LBL_MINUTES"=>"Protokoli", // MT
+"LBL_DATE"=>"Datums", // MT
+"LBL_EDIT"=>"Labot", // MT
+"LBL_TYPE"=>"Tips", // MT
+"LBL_EFFORT"=>"Darbietilpība", // MT
+"LBL_DURATION"=>"Ilgums", // MT
+"LBL_RESOURCES"=>"Resursi (lomas)", // MT
+"LBL_SIZE"=>"Izmērs", // MT
+"LBL_ALL_MEMBERS"=>"Visi dalībnieki", // MT
+"LBL_PARTICIPANTS"=>"Dalībnieki", // MT
+"LBL_REPORT"=>"Atskaite", // MT
+"LBL_CLOSE"=>"Aizvērt", // MT
+"LBL_WORK_PACKAGE"=>"Darba pakete", // MT
+"LBL_IN_DAYS"=>"(dienas)", // MT
+"LBL_ESTIMATIONS"=>"Novērtējumi", // MT
+"LBL_ACTIVITY"=>"Aktivitāte", // MT
+"LBL_HOURS"=>"Stundas", // MT
+"LBL_MINUTES_TIME"=>"Protokoli", // MT
+"LBL_DAYS"=>"Dienas", // MT
+"LBL_ROLE"=>"Loma", // MT
+"LBL_ORGONOGRAM"=>"Organizācijas shēma", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Atvasināšana", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Novērtējumi", // MT
+"1LBLORGONOGRAM"=>"Organizācijas shēma ", // MT
+"LBL_INTRO"=>"Šis modulis tiek izmantots no projektu un projekta uzdevumu moduļiem. Tam nav jāpiekļūst tieši. Šo cilni varat paslēpt sistēmas administrēšanas sadaļā.", // MT
+"LBL_DEV_SCHEDULE"=>"Grafika izstrāde", // MT
+"LBL_EXECUTE"=>"Izpildīt", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Šī darbība aprēķina aktivitāšu sākuma un beigu datumus, pamatojoties uz projekta sākuma datumu, novērtēto darbietilpību un loģiskajām atkarībām starp aktivitātēm.", // MT
+"Assigned to Task"=>"Piešķirts uzdevumam", // MT

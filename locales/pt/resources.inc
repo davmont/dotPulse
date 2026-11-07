@@ -1,24 +1,29 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add Resource"=>"Add Resource",
-"All Resources"=>"All Resources",
-"back"=>"back",
-"Description"=>"Description",
-"Details"=>"Details",
-"doDelete"=>"doDelete",
-"Equipment"=>"Equipment",
+"Add Resource"=>"Adicionar Recurso", // MT
+"All Resources"=>"Todos os Recursos", // MT
+"back"=>"voltar", // MT
+"Description"=>"Descrição", // MT
+"Details"=>"Detalhes", // MT
+"doDelete"=>"Tem a certeza de que quer apagar este", // MT
+"Equipment"=>"Equipamento", // MT
 "ID"=>"ID",
-"Max Alloc %"=>"Max Alloc %",
-"Max Allocation %"=>"Max Allocation %",
-"Maximum Allocation Percentage"=>"Maximum Allocation Percentage",
-"new resource"=>"new resource",
-"Notes"=>"Notes",
-"Resource ID"=>"Resource ID",
-"resource list"=>"resource list",
-"Resource Name"=>"Resource Name",
-"submit"=>"submit",
-"Tool"=>"Tool",
-"Type"=>"Type",
-"Venue"=>"Venue",
-
+"Max Alloc %"=>"% Aloc. Máx.", // MT
+"Max Allocation %"=>"Alocação Máx. %", // MT
+"Maximum Allocation Percentage"=>"Percentagem Máxima de Alocação", // MT
+"new resource"=>"novo recurso", // MT
+"Notes"=>"Notas", // MT
+"Resource ID"=>"ID do Recurso", // MT
+"resource list"=>"lista de recursos", // MT
+"Resource Name"=>"Nome do Recurso", // MT
+"submit"=>"submeter", // MT
+"Tool"=>"Ferramenta", // MT
+"Type"=>"Tipo", // MT
+"Venue"=>"Local", // MT
+"view this resource"=>"ver este recurso", // MT
+"Assigned to Task"=>"Atribuído à Tarefa", // MT
+"notifyChange"=>"Notificar por Email os Atribuídos da Tarefa", // MT
+"View Resource"=>"Ver Recurso", // MT
+"edit this resource"=>"editar este recurso", // MT
+"invalid ID"=>"ID inválido", // MT

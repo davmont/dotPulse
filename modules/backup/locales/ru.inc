@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Резервное копирование базы данных", // MT
+"restore xml file"=>"восстановить из XML-файла", // MT
+"Restore From XML File"=>"Восстановить из XML-файла", // MT
+"xmlRestoreWarning"=>"Эта утилита восстанавливает схему и данные из XML-файла, созданного ею же. Восстановление из SQL-файлов НЕ поддерживается.", // MT
+"XML File to Restore"=>"XML-файл для восстановления", // MT
+"Continue On Error?"=>"Продолжать при ошибке?", // MT
+"upload"=>"загрузить", // MT
+"Backup"=>"Резервное копирование", // MT
+"Import"=>"Импорт", // MT
+"Export"=>"Экспорт", // MT
+"Success"=>"Успешно!", // MT
+"Failure"=>"Ошибка: ", // MT
+"Import Data"=>"Импортировать данные", // MT
+"Export Data"=>"Экспорт данных", // MT
+"File Type"=>"Тип файла:", // MT
+"clear"=>"очистить", // MT
+"Filename (without extension):"=>"Имя файла (без расширения):", // MT
+"Module"=>"Модуль", // MT
+"Item"=>"Позиция", // MT
+"zip"=>".zip - сжатый SQL-файл.", // MT
+"sql"=>".sql - текстовый файл с SQL-запросами.", // MT
+"csv"=>".csv - значения, разделённые запятыми.", // MT
+"vcf"=>".vcf - файл vCard.", // MT
+"Add 'DROP TABLE' to output-script"=>"Добавить 'DROP TABLE' в выходной скрипт", // MT
+"Table structure and data"=>"Структура таблиц и данные", // MT
+"Only table structure"=>"Только структура таблиц", // MT
+"Only data"=>"Только данные", // MT
+"Options"=>"Параметры", // MT
+"Save as"=>"Сохранить как", // MT
+"Compressed ZIP SQL file"=>"Сжатый SQL-файл ZIP", // MT
+"Plain text SQL file"=>"Текстовый SQL-файл", // MT
+"XML file"=>"XML-файл", // MT
+"Download backup"=>"Скачать резервную копию", // MT
+"xmlLoginMsg"=>"Возможно, потребуется выйти и войти снова", // MT
+"Invalid Options"=>"Недопустимые параметры", // MT
+"Failed to restore backup"=>"Не удалось восстановить резервную копию", // MT
+"Backup restored, but with errors"=>"Резервная копия восстановлена, но с ошибками", // MT
+"Backup Restored OK"=>"Резервная копия успешно восстановлена", // MT
+"No upload file"=>"Нет загружаемого файла", // MT
+"Error in parsing XML file"=>"Ошибка разбора XML-файла", // MT
+"Restore Database"=>"Восстановление базы данных", // MT

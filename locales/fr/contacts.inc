@@ -22,7 +22,7 @@
 "edit"=>"Editer",
 "Edit"=>"Éditer",
 "Edit Contact"=>"Éditer un contact",
-"Email"=>"Email",
+"Email"=>"E-mail", // MT
 "Export vCard for"=>"Exporter d\\'une vCard",
 "Fax"=>"Fax",
 "Fetch vCard(s) File"=>"Dispatcher un fichier de vCard(s)",
@@ -62,3 +62,4 @@
 // "Contact deleted" => "Contact effacé",
 // "Contact inserted" => "Contact ajouté",
 // "Contact updated" => "Contact mis a jour",
+"Action"=>"Action",

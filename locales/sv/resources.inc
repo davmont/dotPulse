@@ -1,24 +1,29 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add Resource"=>"Add Resource",
-"All Resources"=>"All Resources",
-"back"=>"back",
-"Description"=>"Description",
-"Details"=>"Details",
-"doDelete"=>"doDelete",
-"Equipment"=>"Equipment",
+"Add Resource"=>"Lägg till resurs", // MT
+"All Resources"=>"Alla resurser", // MT
+"back"=>"tillbaka", // MT
+"Description"=>"Beskrivning", // MT
+"Details"=>"Detaljer", // MT
+"doDelete"=>"Är du säker på att du vill ta bort detta", // MT
+"Equipment"=>"Utrustning", // MT
 "ID"=>"ID",
-"Max Alloc %"=>"Max Alloc %",
-"Max Allocation %"=>"Max Allocation %",
-"Maximum Allocation Percentage"=>"Maximum Allocation Percentage",
-"new resource"=>"new resource",
-"Notes"=>"Notes",
-"Resource ID"=>"Resource ID",
-"resource list"=>"resource list",
-"Resource Name"=>"Resource Name",
-"submit"=>"submit",
-"Tool"=>"Tool",
-"Type"=>"Type",
-"Venue"=>"Venue",
-
+"Max Alloc %"=>"Max allok. %", // MT
+"Max Allocation %"=>"Max allokering %", // MT
+"Maximum Allocation Percentage"=>"Maximal allokeringsprocent", // MT
+"new resource"=>"ny resurs", // MT
+"Notes"=>"Anteckningar", // MT
+"Resource ID"=>"Resurs-ID", // MT
+"resource list"=>"resurslista", // MT
+"Resource Name"=>"Resursnamn", // MT
+"submit"=>"skicka", // MT
+"Tool"=>"Verktyg", // MT
+"Type"=>"Typ", // MT
+"Venue"=>"Lokal", // MT
+"view this resource"=>"visa den här resursen", // MT
+"Assigned to Task"=>"Tilldelad aktivitet", // MT
+"notifyChange"=>"Avisera aktivitetens tilldelade via e-post", // MT
+"View Resource"=>"Visa resurs", // MT
+"edit this resource"=>"redigera den här resursen", // MT
+"invalid ID"=>"ogiltigt ID", // MT

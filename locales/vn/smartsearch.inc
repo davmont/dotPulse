@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Advanced search"=>"Advanced search",
-"All words"=>"All words",
-"Display all fields"=>"Display all fields",
-"Empty"=>"Empty",
-"Events"=>"Events",
-"Files Content"=>"Files Content",
-"Forum Messages"=>"Forum Messages",
-"Ignore case"=>"Ignore case",
-"Ignore special chars"=>"Ignore special chars",
-"Modules selection"=>"Modules selection",
-"Search"=>"Search",
-"Select all"=>"Select all",
-"Show empty"=>"Show empty",
-"Task Log"=>"Task Log",
-"Total records found"=>"Total records found",
-
+"Advanced search"=>"Tìm kiếm nâng cao", // MT
+"All words"=>"Tất cả các từ", // MT
+"Display all fields"=>"Hiện tất cả các trường", // MT
+"Empty"=>"Trống", // MT
+"Events"=>"Sự kiện", // MT
+"Files Content"=>"Nội dung tệp", // MT
+"Forum Messages"=>"Tin nhắn diễn đàn", // MT
+"Ignore case"=>"Không phân biệt hoa thường", // MT
+"Ignore special chars"=>"Bỏ qua ký tự đặc biệt", // MT
+"Modules selection"=>"Chọn mô-đun", // MT
+"Search"=>"Tìm kiếm", // MT
+"Select all"=>"Chọn tất cả", // MT
+"Show empty"=>"Hiện mục trống", // MT
+"Task Log"=>"Nhật ký nhiệm vụ", // MT
+"Total records found"=>"Tổng số bản ghi tìm thấy", // MT
+"Deselect all"=>"Bỏ chọn tất cả", // MT

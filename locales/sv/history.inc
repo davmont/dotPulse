@@ -1,27 +1,31 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add history"=>"L�gga till historik",
-"Added new"=>"Added new",
+"Add history"=>"Lägga till historik",
+"Added new"=>"Lade till ny", // MT
 "any"=>"ej tillordnad",
-"cancel"=>"cancel",
-"Date"=>"Date",
+"cancel"=>"avbryt", // MT
+"Date"=>"Datum", // MT
 "delete history"=>"Radera historik",
-"Deleted"=>"Deleted",
-"Description"=>"Description",
+"Deleted"=>"Borttagen", // MT
+"Description"=>"Beskrivning", // MT
 "Edit history"=>"Redigera historik",
-"Files"=>"Files",
-"Forums"=>"Forums",
-"History added"=>"L�gga till historikpost",
+"Files"=>"Filer", // MT
+"Forums"=>"Forum", // MT
+"History added"=>"Lägga till historikpost",
 "History deleted"=>"Radera historikpost",
 "History updated"=>"Historikpost aktualiserad",
-"item"=>"item",
-"Login/Logouts"=>"Login/Logouts",
-"Modified"=>"Modified",
+"item"=>"objekt", // MT
+"Login/Logouts"=>"In-/utloggningar", // MT
+"Modified"=>"Ändrad", // MT
 "New history"=>"Ny historikpost",
-"Projects"=>"Projects",
-"save"=>"save",
-"Show all"=>"Show all",
-"Tasks"=>"Tasks",
-"User"=>"User",
-
+"Projects"=>"Projekt", // MT
+"save"=>"spara", // MT
+"Show all"=>"Visa alla", // MT
+"Tasks"=>"Aktiviteter", // MT
+"User"=>"Användare", // MT
+"Are you sure you want to cancel?"=>"Är du säker på att du vill avbryta?", // MT
+"not found"=>"hittades inte", // MT
+"from"=>"från", // MT
+"in"=>"i", // MT
+"Edit History"=>"Redigeringshistorik", // MT

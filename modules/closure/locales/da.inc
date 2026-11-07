@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Afslutning", // MT
+"Project Name"=>"Projektnavn", // MT
+"Project Meeting Date"=>"Dato for projektmøde", // MT
+"Project Start Date"=>"Projektets startdato", // MT
+"Project End Date"=>"Projektets slutdato", // MT
+"new post mortem analysis"=>"ny evaluering efter projektet", // MT
+"New Post Mortem"=>"Ny evaluering", // MT
+"Edit Post Mortem"=>"Redigér evaluering", // MT
+"Meeting Date"=>"Mødedato", // MT
+"Meeting Settings"=>"Mødeindstillinger", // MT
+"Project Summary"=>"Projektresumé", // MT
+"Project Planned Start Date"=>"Projektets planlagte startdato", // MT
+"Project Planned End Date"=>"Projektets planlagte slutdato", // MT
+"Project Planned Budget"=>"Projektets planlagte budget", // MT
+"Project Budget"=>"Projektbudget", // MT
+"Lessons Learned"=>"Erfaringer", // MT
+"Project Strengths"=>"Projektets styrker", // MT
+"Project Weaknesses"=>"Projektets svagheder", // MT
+"Improvement Suggestions"=>"Forslag til forbedringer", // MT
+"Conclusions"=>"Konklusioner", // MT
+"Meeting Participants"=>"Mødedeltagere", // MT
+"view this post mortem"=>"vis denne evaluering", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Angiv her (hvert punkt med '*') teknologier, processer, IDE'er eller andre teknikker, værktøjer eller tjenester, der fungerede for dig i dette projekt", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Angiv her (hvert punkt med '*') teknologier, processer, IDE'er eller andre teknikker, værktøjer eller tjenester, der ikke fungerede for dig i dette projekt", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Angiv her (hvert punkt med '*') de aspekter af projektet, der skal forbedres", // MT
+"General conclusions about the project"=>"Generelle konklusioner om projektet", // MT
+"Post Mortem deleted"=>"Evaluering slettet", // MT
+"post mortem list"=>"evalueringsliste", // MT
+"Post Mortem"=>"Evaluering", // MT
+"noDeletePermission"=>"Du har ikke rettighed til at slette dette element", // MT
+"Post Mortem Records by project"=>"Evalueringer pr. projekt", // MT
+"Project Status"=>"Projektstatus", // MT
+"Participants"=>"Deltagere", // MT
+"Post Mortem ID"=>"Evaluerings-id", // MT
+"View Post Mortem Analysis"=>"Vis evalueringsanalyse", // MT
+"edit this post mortem"=>"redigér denne evaluering", // MT
+"invalid ID"=>"ugyldigt id", // MT
+"Post Mortem Analysis"=>"Evalueringsanalyse", // MT

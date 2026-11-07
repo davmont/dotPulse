@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"추가", // MT
+"LBL_EXCLUSION"=>"제외", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"들여쓰기", // MT
+"LBL_ORDER"=>"순서", // MT
+"LBL_SORT"=>"정렬", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"저장", // MT
+"LBL_ESTIMATION"=>"추정", // MT
+"LBL_DESCRIPTION"=>"설명", // MT
+"LBL_MOVE"=>"이동", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"활동 정의", // MT
+"LBL_CREATE_MINUTE"=>"회의록 작성", // MT
+"LBL_MINUTES"=>"회의록", // MT
+"LBL_DATE"=>"날짜", // MT
+"LBL_EDIT"=>"편집", // MT
+"LBL_TYPE"=>"종류", // MT
+"LBL_EFFORT"=>"노력", // MT
+"LBL_DURATION"=>"지속기간", // MT
+"LBL_RESOURCES"=>"자원 (역할)", // MT
+"LBL_SIZE"=>"크기", // MT
+"LBL_ALL_MEMBERS"=>"모든 구성원", // MT
+"LBL_PARTICIPANTS"=>"참여자", // MT
+"LBL_REPORT"=>"보고서", // MT
+"LBL_CLOSE"=>"닫기", // MT
+"LBL_WORK_PACKAGE"=>"작업 패키지", // MT
+"LBL_IN_DAYS"=>"(일)", // MT
+"LBL_ESTIMATIONS"=>"추정", // MT
+"LBL_ACTIVITY"=>"진행 내용", // MT
+"LBL_HOURS"=>"시간", // MT
+"LBL_MINUTES_TIME"=>"회의록", // MT
+"LBL_DAYS"=>"일", // MT
+"LBL_ROLE"=>"역할", // MT
+"LBL_ORGONOGRAM"=>"조직도", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"분해", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"추정", // MT
+"1LBLORGONOGRAM"=>"조직도 ", // MT
+"LBL_INTRO"=>"이 모듈은 프로젝트 및 프로젝트 작업 모듈에서 사용됩니다. 직접 접근할 필요가 없으며, 시스템 관리 영역에서 이 탭을 숨길 수 있습니다.", // MT
+"LBL_DEV_SCHEDULE"=>"일정 개발", // MT
+"LBL_EXECUTE"=>"실행", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"이 동작은 프로젝트 시작 날짜, 추정 노력 및 활동 간 논리적 의존 관계를 바탕으로 활동의 시작 및 종료 날짜를 계산합니다.", // MT
+"Assigned to Task"=>"작업에 할당됨", // MT

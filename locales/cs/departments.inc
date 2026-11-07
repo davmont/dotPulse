@@ -1,40 +1,41 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add Department"=>"Pøidat oddìlení",
-"Address"=>"Address",
-"badCompany"=>"Pracovní skupina není platná. Nemù¾ete pøidat oddìlení.",
-"Company"=>"Company",
-"delDept"=>"Urèitì chcete smazat toto oddìlení",
-"delete department"=>"delete department",
-"Department"=>"Department",
-"Department Company"=>"Pracovní skupina oddìlení",
-"Department Name"=>"Jméno oddìlení",
-"Department Parent"=>"Nadøízené oddìlení",
-"departmentDelete"=>"Are you sure you want to delete this department",
-"deptIndexPage"=>"Prosím k oddìlením pøistupujte pøes spoleènost.",
-"deptValidName"=>"Prosím zadejte platné jméno oddìlení.",
-"deptWithProject"=>"Nemù¾ete smazat oddìlení, které má pøiøazeny projekty",
-"deptWithSub"=>"Nemù¾ete vymazat oddìlení, které má podøízená oddìlení.",
-"Description"=>"Description",
-"Details"=>"Details",
-"Edit Department"=>"Editovat oddìlení",
-"edit this department"=>"editovat toto oddìlení",
+"Add Department"=>"PÅ™idat oddÄ›lenÃ­",
+"Address"=>"Adresa", // MT
+"badCompany"=>"PracovnÃ­ skupina nenÃ­ platnÃ¡. NemÅ¯Å¾ete pÅ™idat oddÄ›lenÃ­.",
+"Company"=>"Skupina", // MT
+"delDept"=>"UrÄitÄ› chcete smazat toto oddÄ›lenÃ­",
+"delete department"=>"smazat oddÄ›lenÃ­", // MT
+"Department"=>"OddÄ›lenÃ­", // MT
+"Department Company"=>"PracovnÃ­ skupina oddÄ›lenÃ­",
+"Department Name"=>"JmÃ©no oddÄ›lenÃ­",
+"Department Parent"=>"NadÅ™Ã­zenÃ© oddÄ›lenÃ­",
+"departmentDelete"=>"Opravdu chcete smazat toto oddÄ›lenÃ­", // MT
+"deptIndexPage"=>"ProsÃ­m k oddÄ›lenÃ­m pÅ™istupujte pÅ™es spoleÄnost.",
+"deptValidName"=>"ProsÃ­m zadejte platnÃ© jmÃ©no oddÄ›lenÃ­.",
+"deptWithProject"=>"NemÅ¯Å¾ete smazat oddÄ›lenÃ­, kterÃ© mÃ¡ pÅ™iÅ™azeny projekty",
+"deptWithSub"=>"NemÅ¯Å¾ete vymazat oddÄ›lenÃ­, kterÃ© mÃ¡ podÅ™Ã­zenÃ¡ oddÄ›lenÃ­.",
+"Description"=>"Popis", // MT
+"Details"=>"Podrobnosti", // MT
+"Edit Department"=>"Editovat oddÄ›lenÃ­",
+"edit this department"=>"editovat toto oddÄ›lenÃ­",
 "Fax"=>"Fax",
-"Name"=>"Name",
-"new department"=>"new department",
-"Owner"=>"Owner",
-"Phone"=>"Phone",
-"Please choose a Department first!"=>"Please choose a Department first!",
-"Select Unit"=>"Select Unit",
-"Telephone"=>"Telephone",
-"View Department"=>"View Department",
-"view this department"=>"zobrazit toto oddìlení",
+"Name"=>"JmÃ©no", // MT
+"new department"=>"novÃ© oddÄ›lenÃ­", // MT
+"Owner"=>"VlastnÃ­k", // MT
+"Phone"=>"Telefon", // MT
+"Please choose a Department first!"=>"Nejprve prosÃ­m vyberte oddÄ›lenÃ­!", // MT
+"Select Unit"=>"Vyberte jednotku", // MT
+"Telephone"=>"Telefon", // MT
+"View Department"=>"Zobrazit oddÄ›lenÃ­", // MT
+"view this department"=>"zobrazit toto oddÄ›lenÃ­",
 
 
 ##
 ## OBSOLETE KEYS
 ##
-// "Department deleted" => "Oddìlení vymazáno",
-// "Department inserted" => "Oddìlení ulo¾eno",
-// "Department updated" => "Oddìlení zaktualizováno",
+// "Department deleted" => "OddÄ›lenÃ­ vymazÃ¡no",
+// "Department inserted" => "OddÄ›lenÃ­ uloÅ¾eno",
+// "Department updated" => "OddÄ›lenÃ­ zaktualizovÃ¡no",
+"Invalid Department ID"=>"NeplatnÃ© ID oddÄ›lenÃ­", // MT

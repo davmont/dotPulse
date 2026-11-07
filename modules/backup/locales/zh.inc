@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"备份数据库", // MT
+"restore xml file"=>"恢复 XML 文件", // MT
+"Restore From XML File"=>"从 XML 文件恢复", // MT
+"xmlRestoreWarning"=>"此工具将从本工具创建的 XML 文件中恢复架构和数据。它不能从 SQL 文件恢复。", // MT
+"XML File to Restore"=>"要恢复的 XML 文件", // MT
+"Continue On Error?"=>"出错时继续？", // MT
+"upload"=>"上传", // MT
+"Backup"=>"备份", // MT
+"Import"=>"导入", // MT
+"Export"=>"导出", // MT
+"Success"=>"成功！", // MT
+"Failure"=>"失败： ", // MT
+"Import Data"=>"导入数据", // MT
+"Export Data"=>"导出数据", // MT
+"File Type"=>"文件类型：", // MT
+"clear"=>"清除", // MT
+"Filename (without extension):"=>"文件名（不含扩展名）：", // MT
+"Module"=>"模块", // MT
+"Item"=>"条目", // MT
+"zip"=>".zip - 压缩的 SQL 文件。", // MT
+"sql"=>".sql - 包含 SQL 查询的文本文件。", // MT
+"csv"=>".csv - 逗号分隔值。", // MT
+"vcf"=>".vcf - vCard 文件。", // MT
+"Add 'DROP TABLE' to output-script"=>"在输出脚本中添加“DROP TABLE”", // MT
+"Table structure and data"=>"表结构和数据", // MT
+"Only table structure"=>"仅表结构", // MT
+"Only data"=>"仅数据", // MT
+"Options"=>"选项", // MT
+"Save as"=>"另存为", // MT
+"Compressed ZIP SQL file"=>"压缩的 ZIP SQL 文件", // MT
+"Plain text SQL file"=>"纯文本 SQL 文件", // MT
+"XML file"=>"XML 文件", // MT
+"Download backup"=>"下载备份", // MT
+"xmlLoginMsg"=>"您可能需要注销后重新登录", // MT
+"Invalid Options"=>"无效的选项", // MT
+"Failed to restore backup"=>"恢复备份失败", // MT
+"Backup restored, but with errors"=>"备份已恢复，但有错误", // MT
+"Backup Restored OK"=>"备份恢复成功", // MT
+"No upload file"=>"没有上传文件", // MT
+"Error in parsing XML file"=>"解析 XML 文件时出错", // MT
+"Restore Database"=>"恢复数据库", // MT
