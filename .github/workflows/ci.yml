@@ -85,6 +85,12 @@ jobs:
         with:
           node-version: 22
       - run: cd tools/browser && npm ci --no-audit --no-fund
+      # The layout widths depend on the font: the themes fall back to Arial metrics
+      # (Liberation Sans), as on most Linux desktops.
+      - name: Fonts
+        run: |
+          fc-list | grep -qi "Liberation Sans" || { sudo apt-get update -q && sudo apt-get install -y -q fonts-liberation; }
+          fc-match "Liberation Sans"
       - run: make audit-full
       - name: Reports and web server log
         if: failure()

@@ -22,7 +22,7 @@ $current_module = isset($m) ? $m : '';
 	<?php @$AppUI->loadJS(); echo $AppUI->getCsrfMeta(); ?>
 </head>
 
-<body>
+<body<?php echo $dialog ? ' class="dp-dialog"' : ''; ?>>
 <?php if (!$dialog) { // no top bar in pop-up windows
 	$nav = $AppUI->getMenuModules();
 	$newItemPermCheck = array(

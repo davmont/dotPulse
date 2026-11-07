@@ -240,7 +240,7 @@ if (!@$min_view) {
 	echo 'm=' . $m . '&amp;a=' . $a . '&amp;tab=' . $tab . '&amp;project_id=' . $project_id; ?>">
 		<input type="hidden" name="display_option" value="<?php echo dPhtml($display_option); ?>" />
 		<input type="hidden" name="caller" value="<?php echo $a; ?>" />
-		<table border="0" align="center" class="tbl" cellpadding="2" cellspacing="0" style="min-width:990px">
+		<table border="0" align="center" class="tbl" cellpadding="2" cellspacing="0" width="100%">
 			<tr>
 				<td align="right"><em>Date Filter:</em></td>
 				<td align="right">
