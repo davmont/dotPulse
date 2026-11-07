@@ -1,6 +1,7 @@
 # Developer checks. Each target is also a CI job (.github/workflows/ci.yml).
 #
-#   make check         lint + phpstan + raw-input + inline-js + php-test + js-test + vendor-check
+#   make check         lint + phpstan + raw-input + inline-js + locales + php-test + js-test +
+#                      vendor-check
 #                      (no sandbox needed)
 #   make deps-audit    composer audit and npm audit of the dependencies (needs network access)
 #   make audit-smoke   start docker/, reinstall the database, run the security smoke test and the
@@ -19,9 +20,9 @@ DOCKER_RUN := docker run --rm --user $(shell id -u):$(shell id -g) --security-op
 export DP_UID := $(shell id -u)
 export DP_GID := $(shell id -g)
 
-.PHONY: check lint phpstan phpstan-baseline raw-input inline-js php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse
+.PHONY: check lint phpstan phpstan-baseline raw-input inline-js locales php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse
 
-check: lint phpstan raw-input inline-js php-test js-test vendor-check
+check: lint phpstan raw-input inline-js locales php-test js-test vendor-check
 
 # PHP 8.3 syntax check of first-party code (vendored copies excluded, as in phpstan.neon.dist).
 lint:
@@ -46,6 +47,11 @@ raw-input:
 # No new inline JavaScript (CSP); see docs/csp.md.
 inline-js:
 	scripts/check-inline-js.sh
+
+# Every string the code translates has an English and a Spanish entry (tools/locales/check.php;
+# `php tools/locales/check.php missing es` lists what is missing).
+locales:
+	$(DOCKER_RUN) php:8.3-cli php tools/locales/check.php
 
 # PHP unit tests (tests/*Test.php, tests/run.php).
 php-test:

@@ -64,3 +64,6 @@
 "LBL_STRATEGYS_LIST"=>"Answers to risks list",
 "Risks"=>"Risks",
 "LBL_ALL_TASKS" => "[All]",
+"Risk",
+"Are you sure you want to cancel?",
+"lista de riscos",

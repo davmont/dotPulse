@@ -2,3 +2,5 @@
 'Edit Note',
 'Journal Entries',
 'New Note',
+"Edit journal"=>"Editar diario",
+"any"=>"cualquiera",

@@ -36,3 +36,5 @@
 
 
 
+"Issuing"=>"Emisor",
+"Receptor"=>"Receptor",

@@ -24,3 +24,8 @@
 "Show all",
 "Tasks",
 "User",
+"Are you sure you want to cancel?",
+"not found",
+"from",
+"in",
+"Edit History",

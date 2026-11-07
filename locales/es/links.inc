@@ -65,3 +65,5 @@
 // "Todos los proyectos" => "Todos los proyectos",
 // "URL de enlace" => "URL de enlace",
 // "¿Está seguro de querer cancelar?" => "¿Está seguro de querer cancelar?",
+"links list"=>"lista de enlaces",
+"Link"=>"Enlace",

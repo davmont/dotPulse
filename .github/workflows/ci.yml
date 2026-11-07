@@ -39,6 +39,13 @@ jobs:
       - uses: actions/checkout@v7
       - run: make inline-js
 
+  locales:
+    name: Translations (English, Spanish)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: make locales
+
   php-test:
     name: PHP unit tests (tests/)
     runs-on: ubuntu-latest

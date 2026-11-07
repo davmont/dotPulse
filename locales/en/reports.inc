@@ -1,0 +1,6 @@
+"Please select at least one category for view",
+"Please choose a start date",
+"Please choose an end date",
+"Reports",
+"Payroll",
+"Billing",

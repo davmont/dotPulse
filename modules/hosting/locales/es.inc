@@ -14,3 +14,7 @@
 "Registrar",
 "Hosting Notes",
 "delete domain",
+"Are you sure you want to cancel."=>"¿Está seguro de que desea cancelar?",
+"Hosting/Domain"=>"Alojamiento/dominio",
+"not found"=>"no encontrado",
+"Domain deleted"=>"Dominio borrado",

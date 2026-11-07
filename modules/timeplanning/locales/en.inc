@@ -41,3 +41,4 @@
 "LBL_DEV_SCHEDULE"=>"Schedule development",
 "LBL_EXECUTE" => "Execute",
 "LBL_ACTION_SCHEDULE_DEV"=>"This action calculates activities starts and end dates based on project start date, estimated efforts and logic dependencies between activities.",
+"Assigned to Task",
