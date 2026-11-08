@@ -17,18 +17,18 @@ $page_title = dPgetConfig('page_title', 'dotPulse');
 		<?php echo $page_title; ?> :: Login
 	</title>
 	<link rel="stylesheet" type="text/css" href="./style/<?php echo $uistyle; ?>/main.css" media="all" />
-	<link rel="shortcut icon" href="./style/<?php echo $uistyle; ?>/images/favicon.ico" type="image/ico" />
+	<link rel="shortcut icon" href="./style/dotpulse/images/favicon.ico" type="image/ico" />
 	<link rel="icon" href="./images/brand/favicon.svg" type="image/svg+xml" />
 	<link rel="apple-touch-icon" href="./images/brand/apple-touch-icon.png" />
 	<style type="text/css">
 		:root {
-			--primary-color: #1B4F9C;
-			--primary-dark: #123A73;
-			--bg-color: #F4F6FA;
-			--card-bg: #ffffff;
-			--text-main: #23262B;
-			--text-muted: #5A6474;
-			--border-color: #B8C3D4;
+			--primary-color: var(--dp-primary);
+			--primary-dark: var(--dp-primary-hover);
+			--bg-color: var(--dp-ground);
+			--card-bg: var(--dp-surface);
+			--text-main: var(--dp-ink);
+			--text-muted: var(--dp-slate);
+			--border-color: var(--dp-control-line);
 		}
 
 		body {
@@ -48,7 +48,7 @@ $page_title = dPgetConfig('page_title', 'dotPulse');
 			max-width: 400px;
 			padding: 40px;
 			border-radius: 12px;
-			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 10px 25px var(--dp-shadow);
 			text-align: center;
 		}
 
@@ -92,14 +92,14 @@ $page_title = dPgetConfig('page_title', 'dotPulse');
 		.form-group input:focus {
 			outline: none;
 			border-color: var(--primary-color);
-			box-shadow: 0 0 0 3px rgba(27, 79, 156, 0.18);
+			box-shadow: 0 0 0 3px var(--dp-focus-ring);
 		}
 
 		.login-btn {
 			width: 100%;
 			padding: 12px;
 			background-color: var(--primary-color);
-			color: white;
+			color: var(--dp-on-primary);
 			border: none;
 			border-radius: 6px;
 			font-size: 16px;
@@ -123,7 +123,7 @@ $page_title = dPgetConfig('page_title', 'dotPulse');
 		}
 
 		.login-footer a {
-			color: var(--primary-color);
+			color: var(--dp-blue);
 			text-decoration: none;
 			font-weight: 500;
 		}
@@ -153,7 +153,7 @@ $page_title = dPgetConfig('page_title', 'dotPulse');
 	<div class="login-card">
 		<div class="logo-area">
 			<a href="https://github.com/davmont/dotPulse">
-				<img src="./images/brand/logo.svg" height="44" alt="dotPulse" />
+				<img src="./images/brand/<?php echo empty($dp_theme_dark) ? 'logo.svg' : 'logo-dark.svg'; ?>" height="44" alt="dotPulse" />
 			</a>
 		</div>
 

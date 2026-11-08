@@ -13,10 +13,13 @@ tools/brand/build.py, so it stays sharp at any size and screen density.
     money and time (coral): costs, invoices, timesheets...
     records and system (slate): files, history, backup, settings...
 - Small icons (actions and states, 16 px): the glyph alone, coloured by what it does
-  (edit blue, delete coral, add and confirm teal, the rest slate).
+  (edit blue, delete coral, add and confirm teal, the rest slate), plus a <name>.dark.svg
+  in the light shades of the dark palette. The build stops if a colour is under 3:1
+  (WCAG 1.4.11) on the white and ground of its theme.
 Each SVG has the name of the bitmap it replaces, next to it. Only themes that define
-DP_VECTOR_ICONS (dotpulse) show them: dPfindImage() prefers the SVG and dPvectorIconFilter()
-swaps the bitmaps in the page; the classic themes keep the bitmaps.
+DP_VECTOR_ICONS (dotpulse, dotpulse-dark) show them: dPfindImage() prefers the SVG and
+dPvectorIconFilter() swaps the bitmaps in the page, taking the dark versions in a theme
+that defines DP_DARK_THEME; the classic themes keep the bitmaps.
 """
 import os, sys
 
@@ -26,7 +29,9 @@ C = {
     'blue': '#1B4F9C', 'blue_deep': '#123A73', 'blue_light': '#7BA9F7',
     'teal': '#0A8080', 'coral': '#F06449', 'coral_text': '#C93D27',
     'slate': '#5A6474', 'ink': '#23262B', 'line': '#B8C3D4', 'white': '#FFFFFF',
-    'green': '#2E9E5B', 'amber': '#E0A100',
+    'green': '#2E9E5B', 'amber': '#A67500',
+    # Small icons in the light theme: shades of coral and grey that reach 3:1 on the page.
+    'coral_icon': '#E5553A', 'grey_icon': '#7F8897',
 }
 
 # Areas: tile colour (top of the gradient, bottom) and the colour of the brand dot.
@@ -144,6 +149,9 @@ glyph('fields', 'M4 5h16v4H4zM4 15h16v4H4zM7 7h.01M7 17h.01')
 glyph('plus', 'M12 5v14M5 12h14')
 glyph('save', 'M5 3.5h11l4.5 4.5v11a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19V5A1.5 1.5 0 0 1 5 3.5zM7.5 3.5V8h7V3.5M7.5 20.5v-6h9v6')
 glyph('export', 'M12 15V4M8 8l4-4 4 4M4 15v4a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 20 19v-4')
+glyph('clock', 'M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18zM12 7.5V12l3 2')
+glyph('task-start', 'M9 5H6v14h3M11 12h8M16 9l3 3-3 3')
+glyph('task-end', 'M15 5h3v14h-3M5 12h8M10 9l3 3-3 3')
 glyph('dot', '', fill='M12 5a7 7 0 1 1 0 14 7 7 0 0 1 0-14z')
 glyph('smartfolder', 'M3.5 7V5.5A1.5 1.5 0 0 1 5 4h4.5l2 2.5H19A1.5 1.5 0 0 1 20.5 8v10.5A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5zM11 10.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM13 15l2.5 2.5')
 
@@ -281,20 +289,20 @@ SMALL = [
     ('images/arrow-right.svg', 'caret-right', S, 12),
     ('images/arrow-down.svg', 'caret-down', S, 12),
     ('images/arrow-up.svg', 'caret-up', S, 12),
-    ('images/icons/milestone.svg', 'diamond', C['coral'], 14),
+    ('images/icons/milestone.svg', 'diamond', C['coral_icon'], 14),
     ('images/icons/pin.svg', 'pin', B, 14),
     ('images/icons/unpin.svg', 'unpin', S, 14),
-    ('images/icons/priority+1.svg', 'arrow-up', C['coral'], 16),
+    ('images/icons/priority+1.svg', 'arrow-up', C['coral_icon'], 16),
     ('images/icons/priority+2.svg', 'arrows-up', C['coral_text'], 16),
     ('images/icons/priority-1.svg', 'arrow-down', B, 16),
     ('images/icons/priority-2.svg', 'arrows-down', B, 16),
     ('images/icons/low.svg', 'arrow-down', B, 16),
     ('images/icons/updown.svg', 'updown', S, 16),
-    ('images/icons/birthday.svg', 'cake', C['coral'], 16),
+    ('images/icons/birthday.svg', 'cake', C['coral_icon'], 16),
     ('images/log-error.svg', 'alert-circle', R, 14),
     ('images/log-info.svg', 'info-circle', B, 14),
     ('images/log-notice.svg', 'warning-small', C['amber'], 14),
-    ('images/obj/alert.svg', 'warning-small', C['coral'], 16),
+    ('images/obj/alert.svg', 'warning-small', C['coral_icon'], 16),
     ('images/obj/warning.svg', 'warning-small', C['amber'], 16),
     ('images/obj/error.svg', 'alert-circle', R, 16),
     ('images/obj/lock.svg', 'lock', S, 16),
@@ -307,11 +315,20 @@ SMALL = [
     ('images/obj/folder-shared.svg', 'folder-shared', S, 16),
     ('images/obj/palette.svg', 'palette', S, 16),
     ('images/obj/dotgreen.svg', 'dot', C['green'], 14),
-    ('images/obj/dotgrey.svg', 'dot', C['line'], 14),
-    ('images/obj/dotredanim.svg', 'dot', C['coral'], 12),
+    ('images/obj/dotgrey.svg', 'dot', C['grey_icon'], 14),
+    ('images/obj/dotredanim.svg', 'dot', C['coral_icon'], 12),
     ('images/obj/dotyellowanim.svg', 'dot', C['amber'], 12),
     ('images/smartfolder.svg', 'smartfolder', S, 16),
     ('images/view.week.svg', 'week', S, 16),
+    # Calendar: the event types (sysval EventType) and the start and end of a task.
+    ('modules/calendar/images/event0.svg', 'calendar', B, 16),
+    ('modules/calendar/images/event1.svg', 'clock', B, 16),
+    ('modules/calendar/images/event2.svg', 'users', B, 16),
+    ('modules/calendar/images/event3.svg', 'week', B, 16),
+    ('modules/calendar/images/event4.svg', 'cake', B, 16),
+    ('modules/calendar/images/event5.svg', 'bell', B, 16),
+    ('images/block-start-16.svg', 'task-start', T, 16),
+    ('images/block-end-16.svg', 'task-end', R, 16),
     # Module copies of the same actions.
     ('modules/monitoringandcontrol/images/img.svg', 'calendar', B, 16),
     ('modules/timeplanning/images/img.svg', 'calendar', B, 16),
@@ -343,12 +360,49 @@ SMALL = [
 ]
 
 
+# Small icons in a dark theme (style/dotpulse-dark): the same meaning colours, in the light
+# shades of the brand's dark palette (tools/brand/build.py). Each is written next to the light
+# one as <name>.dark.svg; the tiles carry their own background and serve both themes.
+DARK = {
+    C['blue']: C['blue_light'], C['teal']: '#2BC4C4', C['coral_text']: '#FF8A6E',
+    C['coral_icon']: '#FF8A6E', C['slate']: '#A9B4C4', C['green']: '#4CC67F',
+    C['amber']: '#F2C230', C['grey_icon']: '#7A8699',
+}
+# The backgrounds the icons sit on: dotpulse (white, ground) and dotpulse-dark (surface, ground).
+GROUNDS = {'light': ('#FFFFFF', '#F4F6FA'), 'dark': ('#1A202B', '#141A24')}
+
+
+def luminance(hex_colour):
+    c = [int(hex_colour[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+    c = [v / 12.92 if v <= 0.03928 else ((v + 0.055) / 1.055) ** 2.4 for v in c]
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
+
+
+def contrast(a, b):
+    la, lb = luminance(a), luminance(b)
+    return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
+
+
+def check_contrast():
+    """Every small icon colour reaches 3:1 (WCAG 1.4.11) on the grounds of its theme."""
+    bad = []
+    for path, g, colour, size in SMALL:
+        for theme, col in (('light', colour), ('dark', DARK.get(colour, colour))):
+            for ground in GROUNDS[theme]:
+                if contrast(col, ground) < 3:
+                    bad.append(f'{path} ({theme}): {col} on {ground} is {contrast(col, ground):.2f}:1')
+    if bad:
+        sys.exit('Icons below 3:1:\n  ' + '\n  '.join(bad))
+
+
 def main():
+    check_contrast()
     written = []
     for path, g, area in TILES:
         written.append((path, tile(g, area)))
     for path, g, colour, size in SMALL:
         written.append((path, small(g, colour, size)))
+        written.append((path[:-4] + '.dark.svg', small(g, DARK.get(colour, colour), size)))
     for path, svg in written:
         full = os.path.join(ROOT, path)
         if not os.path.isdir(os.path.dirname(full)):

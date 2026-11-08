@@ -1,4 +1,5 @@
-/* System Admin pages (modules/system/admin_ui.php): the same look in every theme. */
+/* System Admin pages (modules/system/admin_ui.php): the same look in every theme
+   (a dark theme redefines the --a-* colours, style/dotpulse-dark/main.css). */
 .dpa {
 	--a-blue: #1B4F9C;
 	--a-blue-deep: #123A73;
@@ -15,6 +16,14 @@
 	--a-slate: #5A6474;
 	--a-line: #B8C3D4;
 	--a-line-soft: #D9E0EA;
+	--a-surface: #ffffff;
+	--a-surface-head: #F7F9FC;
+	--a-row-line: #EDF1F6;
+	--a-faint: #7A8494;
+	--a-off: #EEF0F3;
+	--a-primary: #1B4F9C;
+	--a-primary-deep: #123A73;
+	--a-on-primary: #ffffff;
 	font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
 	font-size: 14px;
 	line-height: 1.45;
@@ -64,7 +73,7 @@
 	font: inherit;
 	font-size: 14px;
 	color: var(--a-ink);
-	background: #ffffff;
+	background: var(--a-surface);
 	border: 1px solid var(--a-line);
 	border-radius: 8px;
 	min-height: 38px;
@@ -79,19 +88,19 @@
 	font: inherit; font-size: 14px; font-weight: 500;
 	min-height: 40px; padding: 0 16px;
 	border-radius: 8px; border: 1px solid var(--a-line);
-	background: #ffffff; color: var(--a-ink);
+	background: var(--a-surface); color: var(--a-ink);
 	cursor: pointer; text-decoration: none;
 }
 .dpa .dpa-btn:hover { background: var(--a-tint); border-color: var(--a-blue-light); text-decoration: none; }
-.dpa .dpa-btn.dpa-primary { background: var(--a-blue); border-color: var(--a-blue); color: #ffffff; font-weight: 600; }
-.dpa .dpa-btn.dpa-primary:hover { background: var(--a-blue-deep); border-color: var(--a-blue-deep); color: #ffffff; }
+.dpa .dpa-btn.dpa-primary { background: var(--a-primary); border-color: var(--a-primary); color: var(--a-on-primary); font-weight: 600; }
+.dpa .dpa-btn.dpa-primary:hover { background: var(--a-primary-deep); border-color: var(--a-primary-deep); color: var(--a-on-primary); }
 .dpa .dpa-btn.dpa-danger { color: var(--a-coral-text); border-color: var(--a-coral-line); }
 
 /* Switch: a real checkbox drawn as a switch */
 .dpa-switch { position: relative; display: inline-block; width: 44px; height: 24px; flex: none; }
 .dpa-switch input { position: absolute; inset: 0; width: 44px; height: 24px; margin: 0; opacity: 0; cursor: pointer; z-index: 1; }
 .dpa-switch span { position: absolute; inset: 0; border-radius: 12px; background: var(--a-line); transition: background .15s; pointer-events: none; }
-.dpa-switch span::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #ffffff; transition: left .15s; }
+.dpa-switch span::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--a-on-primary); transition: left .15s; }
 .dpa-switch input:checked + span { background: var(--a-blue); }
 .dpa-switch input:checked + span::after { left: 23px; }
 .dpa-switch input:focus-visible + span { outline: 2px solid var(--a-blue-light); outline-offset: 2px; }
@@ -103,10 +112,10 @@
 .dpa-days span {
 	display: flex; align-items: center; justify-content: center;
 	width: 44px; height: 40px; border-radius: 8px;
-	border: 1px solid var(--a-line); background: #ffffff; color: var(--a-slate);
+	border: 1px solid var(--a-line); background: var(--a-surface); color: var(--a-slate);
 	font-weight: 500; cursor: pointer;
 }
-.dpa-days input:checked + span { background: var(--a-blue); border-color: var(--a-blue); color: #ffffff; }
+.dpa-days input:checked + span { background: var(--a-primary); border-color: var(--a-primary); color: var(--a-on-primary); }
 .dpa-days input:focus-visible + span { outline: 2px solid var(--a-blue-light); outline-offset: 2px; }
 
 /* Heading */
@@ -115,27 +124,27 @@
 .dpa-head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
 
 /* Panels and settings rows */
-.dpa-panel { background: #ffffff; border: 1px solid var(--a-line-soft); border-radius: 12px; padding: 18px 22px; }
+.dpa-panel { background: var(--a-surface); border: 1px solid var(--a-line-soft); border-radius: 12px; padding: 18px 22px; }
 .dpa-panel > h2 { margin-bottom: 6px; }
-.dpa-row { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; padding: 14px 0; border-top: 1px solid #EDF1F6; flex-wrap: wrap; }
+.dpa-row { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; padding: 14px 0; border-top: 1px solid var(--a-row-line); flex-wrap: wrap; }
 .dpa-panel > h2 + .dpa-row { border-top: 0; }
 .dpa-row-text { flex: 1 1 280px; min-width: 0; }
 .dpa-row-label { font-weight: 500; font-size: 15px; }
 .dpa-row-help { font-size: 13px; color: var(--a-slate); margin-top: 3px; }
-.dpa-row-name { font-size: 11px; color: #7A8494; font-family: ui-monospace, Menlo, Consolas, monospace; margin-top: 2px; }
+.dpa-row-name { font-size: 11px; color: var(--a-faint); font-family: ui-monospace, Menlo, Consolas, monospace; margin-top: 2px; }
 .dpa-row-control { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .dpa-section-tag { font-size: 12px; color: var(--a-slate); }
 
 .dpa-savebar {
 	position: sticky; bottom: 0; z-index: 5;
 	display: flex; justify-content: flex-end; align-items: center; gap: 10px; flex-wrap: wrap;
-	background: #ffffff; border: 1px solid var(--a-line-soft); border-radius: 12px; padding: 10px 16px;
+	background: var(--a-surface); border: 1px solid var(--a-line-soft); border-radius: 12px; padding: 10px 16px;
 	box-shadow: 0 -4px 16px rgba(35, 38, 43, .06);
 }
 .dpa-savebar .dpa-savebar-note { margin-right: auto; color: var(--a-slate); font-size: 13px; }
 
 /* Notices */
-.dpa-note { display: flex; gap: 10px; align-items: flex-start; border-radius: 10px; padding: 12px 16px; border: 1px solid var(--a-line-soft); background: #ffffff; }
+.dpa-note { display: flex; gap: 10px; align-items: flex-start; border-radius: 10px; padding: 12px 16px; border: 1px solid var(--a-line-soft); background: var(--a-surface); }
 .dpa-note.dpa-warn { background: var(--a-coral-wash); border-color: var(--a-coral-line); color: var(--a-ink); }
 .dpa-note.dpa-warn .dpa-icon { color: var(--a-coral-text); }
 .dpa-note.dpa-good { background: var(--a-teal-wash); border-color: var(--a-teal-line); }
@@ -143,7 +152,7 @@
 
 /* Start page: status and cards */
 .dpa-status { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-.dpa-stat { background: #ffffff; border: 1px solid var(--a-line-soft); border-radius: 10px; padding: 12px 16px; display: flex; flex-direction: column; gap: 2px; }
+.dpa-stat { background: var(--a-surface); border: 1px solid var(--a-line-soft); border-radius: 10px; padding: 12px 16px; display: flex; flex-direction: column; gap: 2px; }
 .dpa-stat-label { font-size: 12px; color: var(--a-slate); }
 .dpa-stat-value { font-size: 18px; font-weight: 600; }
 .dpa-stat-more { font-size: 13px; color: var(--a-slate); }
@@ -153,7 +162,7 @@
 .dpa-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
 .dpa .dpa-card {
 	display: flex; gap: 12px; align-items: flex-start;
-	background: #ffffff; border: 1px solid var(--a-line-soft); border-radius: 10px;
+	background: var(--a-surface); border: 1px solid var(--a-line-soft); border-radius: 10px;
 	padding: 14px 16px; min-height: 86px; color: var(--a-ink); text-decoration: none;
 }
 .dpa .dpa-card:hover { border-color: var(--a-blue-light); background: var(--a-tint); text-decoration: none; color: var(--a-ink); }
@@ -162,14 +171,14 @@
 .dpa-card-text { display: block; font-size: 13px; color: var(--a-slate); margin-top: 3px; }
 
 /* Lists (phase 2 pages) */
-.dpa table.dpa-table { width: 100%; border-collapse: collapse; background: #ffffff; border: 1px solid var(--a-line-soft); border-radius: 10px; overflow: hidden; }
-.dpa table.dpa-table th { text-align: left; font-size: 12px; font-weight: 600; color: var(--a-slate); background: #F7F9FC; padding: 10px 12px; border-bottom: 1px solid var(--a-line-soft); }
-.dpa table.dpa-table td { padding: 10px 12px; border-bottom: 1px solid #EDF1F6; vertical-align: middle; }
+.dpa table.dpa-table { width: 100%; border-collapse: collapse; background: var(--a-surface); border: 1px solid var(--a-line-soft); border-radius: 10px; overflow: hidden; }
+.dpa table.dpa-table th { text-align: left; font-size: 12px; font-weight: 600; color: var(--a-slate); background: var(--a-surface-head); padding: 10px 12px; border-bottom: 1px solid var(--a-line-soft); }
+.dpa table.dpa-table td { padding: 10px 12px; border-bottom: 1px solid var(--a-row-line); vertical-align: middle; }
 .dpa table.dpa-table tr:last-child td { border-bottom: 0; }
 .dpa table.dpa-table tr:hover td { background: var(--a-tint); }
 .dpa-scroll { overflow-x: auto; }
 .dpa-badge { display: inline-block; font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 999px; background: var(--a-wash); color: var(--a-blue-deep); }
-.dpa-badge.dpa-off { background: #EEF0F3; color: var(--a-slate); }
+.dpa-badge.dpa-off { background: var(--a-off); color: var(--a-slate); }
 .dpa-badge.dpa-up { background: var(--a-coral-wash); color: var(--a-coral-text); }
 .dpa-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 

@@ -283,28 +283,55 @@ function dPvectorIcons()
 }
 
 /**
+ * Whether the theme is dark (style/dotpulse-dark defines DP_DARK_THEME in its overrides.php):
+ * it gets the dark versions of the small icons and the colour filter of includes/dark_colors.php.
+ */
+function dPdarkTheme()
+{
+	return defined('DP_DARK_THEME') && DP_DARK_THEME;
+}
+
+/**
+ * The vector icon to serve for a file path without its extension (".../stock_edit-16"): its
+ * dark version in a dark theme where there is one, else the SVG; the extension, or null.
+ */
+function dPvectorIconExtension($base_file)
+{
+	if (dPdarkTheme() && file_exists($base_file . '.dark.svg')) {
+		return '.dark.svg';
+	}
+	return file_exists($base_file . '.svg') ? '.svg' : null;
+}
+
+/**
  * Output filter of the themes with vector icons: every src of a bitmap of the installation
- * (images/, modules/, style/) that has an SVG of the same name next to it names the SVG.
- * Markup names the bitmaps, so the classic themes are left as they were.
+ * (images/, modules/, style/) that has an SVG of the same name next to it names the SVG (in a
+ * dark theme, its dark version where there is one). Markup names the bitmaps, so the classic
+ * themes are left as they were.
  */
 function dPvectorIconFilter($html)
 {
-	static $svg_of = array();
+	static $ext_of = array();
 	$base = DP_BASE_URL;
 	return preg_replace_callback('/(\ssrc\s*=\s*)(["\'])([^"\'<>?#]+)\.(gif|png|jpe?g)\2/i',
-		function ($m) use (&$svg_of, $base) {
+		function ($m) use (&$ext_of, $base) {
 			$path = $m[3];
-			if (!isset($svg_of[$path])) {
+			$key = (dPdarkTheme() ? 'dark:' : '') . $path;
+			if (!array_key_exists($key, $ext_of)) {
 				$rel = $path;
 				if ($base !== '' && strpos($rel, $base) === 0) {
 					$rel = substr($rel, strlen($base));
 				}
 				$rel = preg_replace('#^\.?/#', '', $rel);
-				$file = realpath(DP_BASE_DIR . '/' . $rel . '.svg');
-				$svg_of[$path] = (strpos($rel, '://') === false && $file !== false
-					&& preg_match('#^' . preg_quote(realpath(DP_BASE_DIR), '#') . '/(images|modules|style)/#', $file));
+				$ext = null;
+				$dir = realpath(DP_BASE_DIR . '/' . dirname($rel));
+				if (strpos($rel, '://') === false && $dir !== false
+					&& preg_match('#^' . preg_quote(realpath(DP_BASE_DIR), '#') . '/(images|modules|style)(/|$)#', $dir)) {
+					$ext = dPvectorIconExtension($dir . '/' . basename($rel));
+				}
+				$ext_of[$key] = $ext;
 			}
-			return $svg_of[$path] ? $m[1] . $m[2] . $path . '.svg' . $m[2] : $m[0];
+			return $ext_of[$key] !== null ? $m[1] . $m[2] . $path . $ext_of[$key] . $m[2] : $m[0];
 		}, $html);
 }
 
@@ -328,11 +355,11 @@ function dPfindImage($name, $module = null)
 	);
 
 	// In a theme with vector icons, the SVG of a bitmap (tools/icons/build.py) wins where both are.
-	$svg = dPvectorIcons() ? preg_replace('/\.(png|gif|jpe?g)$/i', '.svg', $name) : $name;
+	$stem = dPvectorIcons() ? preg_replace('/\.(png|gif|jpe?g)$/i', '', $name) : $name;
 	foreach ($locations_to_search as $exception => $folder) {
 		if (($module) || ($exception != 'module-image' && $exception != 'module-icon')) {
-			if ($svg !== $name && file_exists(DP_BASE_DIR . $folder . $svg)) {
-				return (DP_BASE_URL . $folder . $svg);
+			if ($stem !== $name && ($ext = dPvectorIconExtension(DP_BASE_DIR . $folder . $stem)) !== null) {
+				return (DP_BASE_URL . $folder . $stem . $ext);
 			}
 			if (file_exists(DP_BASE_DIR . $folder . $name)) {
 				return (DP_BASE_URL . $folder . $name);
@@ -340,8 +367,8 @@ function dPfindImage($name, $module = null)
 		}
 	}
 	// default to base image directory
-	if ($svg !== $name && file_exists(DP_BASE_DIR . '/images/' . $svg)) {
-		return ('./images/' . $svg);
+	if ($stem !== $name && ($ext = dPvectorIconExtension(DP_BASE_DIR . '/images/' . $stem)) !== null) {
+		return ('./images/' . $stem . $ext);
 	}
 	return ('./images/' . $name);
 }

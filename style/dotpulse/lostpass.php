@@ -18,13 +18,13 @@ if (!defined('DP_BASE_DIR')) {
 	<style type="text/css" media="all">
 		@import "./style/<?php echo $uistyle; ?>/main.css";
 	</style>
-	<link rel="shortcut icon" href="./style/<?php echo $uistyle; ?>/images/favicon.ico" type="image/ico" />
+	<link rel="shortcut icon" href="./style/dotpulse/images/favicon.ico" type="image/ico" />
 	<link rel="icon" href="./images/brand/favicon.svg" type="image/svg+xml" />
 	<link rel="apple-touch-icon" href="./images/brand/apple-touch-icon.png" />
 </head>
 <style type="text/css">
 	body {
-		background-color: #F4F6FA !important;
+		background-color: var(--dp-ground) !important;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -35,10 +35,10 @@ if (!defined('DP_BASE_DIR')) {
 	}
 
 	.login-container {
-		background: #ffffff;
+		background: var(--dp-surface);
 		padding: 30px 40px;
 		border-radius: 8px;
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 4px 15px var(--dp-shadow);
 		width: 55%;
 		max-width: 600px;
 		min-width: 300px;
@@ -52,7 +52,7 @@ if (!defined('DP_BASE_DIR')) {
 		font-size: 1.25em;
 		padding-bottom: 20px;
 		text-align: center;
-		color: #333;
+		color: var(--dp-ink);
 	}
 
 	.login-container td {
@@ -63,15 +63,15 @@ if (!defined('DP_BASE_DIR')) {
 	.login-container input.text {
 		width: 100%;
 		padding: 10px;
-		border: 1px solid #B8C3D4;
+		border: 1px solid var(--dp-control-line);
 		border-radius: 4px;
 		box-sizing: border-box;
 		margin-bottom: 10px;
 	}
 
 	.login-container .button {
-		background-color: #1B4F9C;
-		color: #fff;
+		background-color: var(--dp-primary);
+		color: var(--dp-on-primary);
 		border: none;
 		padding: 10px;
 		border-radius: 4px;
@@ -82,7 +82,7 @@ if (!defined('DP_BASE_DIR')) {
 	}
 
 	.login-container .button:hover {
-		background-color: #123A73;
+		background-color: var(--dp-primary-hover);
 	}
 
 	.login-footer {
@@ -93,7 +93,7 @@ if (!defined('DP_BASE_DIR')) {
 
 	.login-footer a {
 		text-decoration: none;
-		color: #1B4F9C;
+		color: var(--dp-blue);
 	}
 
 	.login-footer a:hover {
@@ -103,7 +103,7 @@ if (!defined('DP_BASE_DIR')) {
 	.system-messages {
 		margin-top: 20px;
 		font-size: 0.85em;
-		color: #666;
+		color: var(--dp-slate);
 	}
 </style>
 </head>
@@ -127,7 +127,7 @@ if (!defined('DP_BASE_DIR')) {
 							placeholder="<?php echo $AppUI->_('EMail'); ?>" /></td>
 				</tr>
 				<tr>
-					<td align="left" valign="middle" width="50%"><a href="https://github.com/davmont/dotPulse"><img src="./images/brand/logo.svg" height="28" border="0" alt="dotPulse" /></a></td>
+					<td align="left" valign="middle" width="50%"><a href="https://github.com/davmont/dotPulse"><img src="./images/brand/<?php echo empty($dp_theme_dark) ? 'logo.svg' : 'logo-dark.svg'; ?>" height="28" border="0" alt="dotPulse" /></a></td>
 					<td align="right" valign="middle" width="50%"><input type="submit" name="sendpass"
 							value="<?php echo $AppUI->_('send password'); ?>" class="button" /></td>
 				</tr>

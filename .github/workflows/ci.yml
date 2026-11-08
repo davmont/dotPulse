@@ -46,6 +46,13 @@ jobs:
       - uses: actions/checkout@v7
       - run: make locales
 
+  theme-contrast:
+    name: Theme colour contrast (WCAG AA)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: make theme-contrast
+
   php-test:
     name: PHP unit tests (tests/)
     runs-on: ubuntu-latest

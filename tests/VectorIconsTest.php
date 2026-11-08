@@ -9,7 +9,8 @@ require_once DP_BASE_DIR . '/includes/main_functions.php';
 
 /**
  * The vector icons (tools/icons/build.py): dPvectorIconFilter() and dPfindImage(), which serve
- * the SVG next to a bitmap only in a theme that defines DP_VECTOR_ICONS.
+ * the SVG next to a bitmap only in a theme that defines DP_VECTOR_ICONS, and its dark version
+ * in a theme that defines DP_DARK_THEME.
  */
 class VectorIconsTest extends TestCase {
     // Runs first: DP_VECTOR_ICONS cannot be undefined once the next test defines it.
@@ -54,6 +55,16 @@ class VectorIconsTest extends TestCase {
         foreach ($same as $html) {
             $this->assertEquals($html, dPvectorIconFilter($html));
         }
+    }
+
+    // Runs last: DP_DARK_THEME stays defined for the rest of the file.
+    function testDarkThemeServesTheDarkVersions() {
+        define('DP_DARK_THEME', true);
+        $this->assertEquals('<img src="./images/icons/stock_edit-16.dark.svg">',
+            dPvectorIconFilter('<img src="./images/icons/stock_edit-16.png">'));
+        $this->assertEquals('./images/prev.dark.svg', dPfindImage('prev.gif'));
+        // The module tiles carry their own background: one file for both themes.
+        $this->assertEquals(DP_BASE_URL . '/modules/projects/images/applet3-48.svg', dPfindImage('applet3-48.png', 'projects'));
     }
 }
 ?>

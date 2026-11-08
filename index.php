@@ -432,6 +432,11 @@ ob_start(array($AppUI, 'injectCsrfToken'));
 if (dPvectorIcons()) {
 	ob_start('dPvectorIconFilter');
 }
+// Dark themes adapt the colours written into the markup (includes/dark_colors.php).
+if (dPdarkTheme()) {
+	require_once DP_BASE_DIR . '/includes/dark_colors.php';
+	ob_start('dPdarkColorFilter');
+}
 if (!$suppressHeaders) {
 	require(DP_BASE_DIR . '/style/' . $uistyle . '/header.php');
 }
@@ -453,6 +458,9 @@ if (!$suppressHeaders) {
 	echo ('<iframe name="thread" src="' . DP_BASE_URL
 		. '/modules/index.html" width="0" height="0" frameborder="0"></iframe>');
 	require(DP_BASE_DIR . '/style/' . $uistyle . '/footer.php');
+}
+if (dPdarkTheme()) {
+	ob_end_flush();
 }
 if (dPvectorIcons()) {
 	ob_end_flush();
