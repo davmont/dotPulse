@@ -178,14 +178,24 @@ function dPdarkBackgroundKept($css_or_value)
 	return dPdarkParseColor($value) !== null && dPdarkColor($value, 'bg') === null;
 }
 
+/** Whether the response headers sent so far are those of a page (no type yet counts as one). */
+function dPdarkIsHtmlResponse($headers)
+{
+	foreach ($headers as $header) {
+		$parts = explode(':', $header, 2);
+		if (count($parts) === 2 && strcasecmp(trim($parts[0]), 'Content-Type') === 0) {
+			return stripos(ltrim($parts[1]), 'text/html') === 0;
+		}
+	}
+	return true;
+}
+
 /** The output filter (index.php): every tag and <style> block of the page. */
 function dPdarkColorFilter($html)
 {
 	// Only pages: an export or a download keeps its bytes.
-	foreach (headers_list() as $header) {
-		if (preg_match('/^content-type:\s*(?!text\/html)/i', $header)) {
-			return $html;
-		}
+	if (!dPdarkIsHtmlResponse(headers_list())) {
+		return $html;
 	}
 	$html = preg_replace_callback('#(<style\b[^>]*>)(.*?)(</style>)#is', function ($m) {
 		$css = preg_replace_callback('/\{([^{}]*)\}/', function ($r) {
