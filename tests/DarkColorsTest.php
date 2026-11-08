@@ -71,5 +71,14 @@ class DarkColorsTest extends TestCase {
             $this->assertEquals($html, dPdarkColorFilter($html));
         }
     }
+
+    function testOnlyPagesAreFiltered() {
+        $this->assert(dPdarkIsHtmlResponse(array('Content-type: text/html;charset=utf-8', 'X-Content-Type-Options: nosniff')));
+        $this->assert(dPdarkIsHtmlResponse(array('Content-Type:text/html')));
+        $this->assert(dPdarkIsHtmlResponse(array()));
+        $this->assert(!dPdarkIsHtmlResponse(array('Content-Type: application/pdf')));
+        $this->assert(!dPdarkIsHtmlResponse(array('content-type: text/csv; charset=utf-8')));
+        $this->assert(!dPdarkIsHtmlResponse(array('Content-Type: application/json')));
+    }
 }
 ?>
