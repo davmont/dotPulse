@@ -143,6 +143,8 @@ input[type="submit"]:hover, .button.primary:hover {
 }
 .dp-logo { display: flex; align-items: center; }
 .dp-logo img { display: block; height: 30px; width: auto; }
+/* The date picker button: its bitmap was 24x12, the vector icon is square. */
+img[src$="images/calendar.svg"] { width: 16px; height: 16px; vertical-align: middle; }
 .dp-nav {
 	display: flex;
 	flex-wrap: wrap;

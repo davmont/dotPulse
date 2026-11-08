@@ -428,6 +428,10 @@ if ($a == 'configure') {
 include(DP_BASE_DIR . '/style/' . $uistyle . '/overrides.php');
 // Every POST form in the page gets the CSRF token checked on dosql requests.
 ob_start(array($AppUI, 'injectCsrfToken'));
+// Themes with vector icons swap each bitmap for its SVG (includes/main_functions.php).
+if (dPvectorIcons()) {
+	ob_start('dPvectorIconFilter');
+}
 if (!$suppressHeaders) {
 	require(DP_BASE_DIR . '/style/' . $uistyle . '/header.php');
 }
@@ -449,6 +453,9 @@ if (!$suppressHeaders) {
 	echo ('<iframe name="thread" src="' . DP_BASE_URL
 		. '/modules/index.html" width="0" height="0" frameborder="0"></iframe>');
 	require(DP_BASE_DIR . '/style/' . $uistyle . '/footer.php');
+}
+if (dPvectorIcons()) {
+	ob_end_flush();
 }
 ob_end_flush();
 ?>
