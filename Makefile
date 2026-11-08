@@ -24,7 +24,7 @@ export DP_GID := $(shell id -g)
 
 check: lint phpstan raw-input inline-js locales php-test js-test vendor-check
 
-# PHP 8.3 syntax check of first-party code (vendored copies excluded, as in phpstan.neon.dist).
+# PHP 8.3 syntax check of first-party code (vendored copies excluded, as in tools/phpstan/phpstan.neon.dist).
 lint:
 	git ls-files -z '*.php' \
 	  | grep -zvE '^(lib|vendor)/' \
@@ -34,19 +34,19 @@ lint:
 # includes/config.php is not tracked; PHPStan follows require statements into it.
 phpstan:
 	test -e includes/config.php || cp includes/config-dist.php includes/config.php
-	$(DOCKER_RUN) $(PHPSTAN_IMAGE) analyse -c phpstan.neon.dist --memory-limit=3G --no-progress
+	$(DOCKER_RUN) $(PHPSTAN_IMAGE) analyse -c tools/phpstan/phpstan.neon.dist --memory-limit=3G --no-progress
 
 # Only after fixing existing findings: records the remaining ones as accepted.
 phpstan-baseline:
 	test -e includes/config.php || cp includes/config-dist.php includes/config.php
-	$(DOCKER_RUN) $(PHPSTAN_IMAGE) analyse -c phpstan.neon.dist --memory-limit=3G --no-progress --generate-baseline phpstan-baseline.neon
+	$(DOCKER_RUN) $(PHPSTAN_IMAGE) analyse -c tools/phpstan/phpstan.neon.dist --memory-limit=3G --no-progress --generate-baseline tools/phpstan/phpstan-baseline.neon
 
 raw-input:
-	scripts/check-raw-input.sh
+	tools/checks/check-raw-input.sh
 
 # No new inline JavaScript (CSP); see docs/csp.md.
 inline-js:
-	scripts/check-inline-js.sh
+	tools/checks/check-inline-js.sh
 
 # Every string the code translates has an English and a Spanish entry (tools/locales/check.php;
 # `php tools/locales/check.php missing es` lists what is missing).

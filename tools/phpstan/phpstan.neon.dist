@@ -1,5 +1,6 @@
 # Static analysis of first-party code. Run: make phpstan (or see .github/workflows/ci.yml).
 # Existing findings are recorded in phpstan-baseline.neon; new code must not add any.
+# Paths are relative to this file: the code is two levels up.
 includes:
     - phpstan-baseline.neon
 
@@ -7,33 +8,33 @@ parameters:
     level: 2
     phpVersion: 80300
     paths:
-        - base.php
-        - csp-report.php
-        - index.php
-        - fileviewer.php
-        - queuescanner.php
-        - classes
-        - db
-        - functions
-        - includes
-        - install
-        - misc
-        - modules
+        - ../../base.php
+        - ../../csp-report.php
+        - ../../index.php
+        - ../../fileviewer.php
+        - ../../queuescanner.php
+        - ../../classes
+        - ../../db
+        - ../../functions
+        - ../../includes
+        - ../../install
+        - ../../misc
+        - ../../modules
     excludePaths:
         analyseAndScan:
             # Vendored third-party copies inside modules
-            - modules/holiday/PEAR/*
-            - modules/*/js/*
+            - ../../modules/holiday/PEAR/*
+            - ../../modules/*/js/*
     bootstrapFiles:
-        - phpstan-bootstrap.php
+        - bootstrap.php
     # Libraries and themes are only read to resolve classes and functions, not analysed.
     scanDirectories:
-        - lib
-        - style
-        - vendor
+        - ../../lib
+        - ../../style
+        - ../../vendor
     # View files are included by index.php and use its variables ($AppUI, $m, ...),
     # so "might not be defined" fires on almost every one. Definitely undefined
     # variables are still reported.
     checkMaybeUndefinedVariables: false
-    tmpDir: .phpstan-cache
+    tmpDir: ../../.phpstan-cache
     reportUnmatchedIgnoredErrors: false
