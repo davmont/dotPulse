@@ -273,6 +273,42 @@ function dPshowModuleConfig($config)
 }
 
 /**
+ * Whether the theme shows the vector icons (tools/icons/build.py) instead of the bitmaps:
+ * a theme opts in by defining DP_VECTOR_ICONS in its overrides.php (dotpulse does). The
+ * classic themes keep the original bitmaps.
+ */
+function dPvectorIcons()
+{
+	return defined('DP_VECTOR_ICONS') && DP_VECTOR_ICONS;
+}
+
+/**
+ * Output filter of the themes with vector icons: every src of a bitmap of the installation
+ * (images/, modules/, style/) that has an SVG of the same name next to it names the SVG.
+ * Markup names the bitmaps, so the classic themes are left as they were.
+ */
+function dPvectorIconFilter($html)
+{
+	static $svg_of = array();
+	$base = DP_BASE_URL;
+	return preg_replace_callback('/(\ssrc\s*=\s*)(["\'])([^"\'<>?#]+)\.(gif|png|jpe?g)\2/i',
+		function ($m) use (&$svg_of, $base) {
+			$path = $m[3];
+			if (!isset($svg_of[$path])) {
+				$rel = $path;
+				if ($base !== '' && strpos($rel, $base) === 0) {
+					$rel = substr($rel, strlen($base));
+				}
+				$rel = preg_replace('#^\.?/#', '', $rel);
+				$file = realpath(DP_BASE_DIR . '/' . $rel . '.svg');
+				$svg_of[$path] = (strpos($rel, '://') === false && $file !== false
+					&& preg_match('#^' . preg_quote(realpath(DP_BASE_DIR), '#') . '/(images|modules|style)/#', $file));
+			}
+			return $svg_of[$path] ? $m[1] . $m[2] . $path . '.svg' . $m[2] : $m[0];
+		}, $html);
+}
+
+/**
  *	Function to recussively find an image in a number of places
  *	@param string The name of the image
  *	@param string Optional name of the current module
@@ -291,15 +327,22 @@ function dPfindImage($name, $module = null)
 		('/images/obj/')
 	);
 
+	// In a theme with vector icons, the SVG of a bitmap (tools/icons/build.py) wins where both are.
+	$svg = dPvectorIcons() ? preg_replace('/\.(png|gif|jpe?g)$/i', '.svg', $name) : $name;
 	foreach ($locations_to_search as $exception => $folder) {
-		if (
-			(($module) || ($exception != 'module-image' && $exception != 'module-icon'))
-			&& file_exists(DP_BASE_DIR . $folder . $name)
-		) {
-			return (DP_BASE_URL . $folder . $name);
+		if (($module) || ($exception != 'module-image' && $exception != 'module-icon')) {
+			if ($svg !== $name && file_exists(DP_BASE_DIR . $folder . $svg)) {
+				return (DP_BASE_URL . $folder . $svg);
+			}
+			if (file_exists(DP_BASE_DIR . $folder . $name)) {
+				return (DP_BASE_URL . $folder . $name);
+			}
 		}
 	}
 	// default to base image directory
+	if ($svg !== $name && file_exists(DP_BASE_DIR . '/images/' . $svg)) {
+		return ('./images/' . $svg);
+	}
 	return ('./images/' . $name);
 }
 
@@ -1048,13 +1091,13 @@ function shownavbar($xpg_totalrecs, $xpg_pagesize, $xpg_total_pages, $page, $fol
 			echo ('<a href="./index.php?m=' . $m
 				. (($a) ? ('&amp;a=' . $a) : '') . (($tab) ? ('&amp;tab=' . $tab) : '')
 				. (($folder) ? ('&amp;folder=' . $folder) : '') . '&amp;page=1">'
-				. '<img src="images/navfirst.gif" border="0" Alt="'
+				. '<img src="images/navfirst.svg" border="0" Alt="'
 				. $AppUI->_('First Page') . '"></a>' . "\n");
 			echo ('&nbsp;&nbsp;' . "\n");
 			echo ('<a href="./index.php?m=' . $m
 				. (($a) ? ('&amp;a=' . $a) : '') . (($tab) ? ('&amp;tab=' . $tab) : '')
 				. (($folder) ? ('&amp;folder=' . $folder) : '') . '&amp;page=' . $xpg_prev_page . '">'
-				. '<img src="images/navleft.gif" border="0" Alt="'
+				. '<img src="images/navleft.svg" border="0" Alt="'
 				. $AppUI->_('Previous Page') . ': ' . $xpg_prev_page . '"></a>' . "\n");
 		} else {
 			echo ("&nbsp;\n");
@@ -1094,13 +1137,13 @@ function shownavbar($xpg_totalrecs, $xpg_pagesize, $xpg_total_pages, $page, $fol
 			echo ('<a href="./index.php?m=' . $m
 				. (($a) ? ('&amp;a=' . $a) : '') . (($tab) ? ('&amp;tab=' . $tab) : '')
 				. (($folder) ? ('&amp;folder=' . $folder) : '') . '&amp;page=' . $xpg_next_page . '">'
-				. '<img src="images/navright.gif" border="0" Alt="'
+				. '<img src="images/navright.svg" border="0" Alt="'
 				. $AppUI->_('Next Page') . ': ' . $xpg_next_page . '"></a>' . "\n");
 			echo "&nbsp;&nbsp;\n";
 			echo ('<a href="./index.php?m=' . $m
 				. (($a) ? ('&amp;a=' . $a) : '') . (($tab) ? ('&amp;tab=' . $tab) : '')
 				. (($folder) ? ('&amp;folder=' . $folder) : '') . '&amp;page=' . $xpg_total_pages . '">'
-				. '<img src="images/navlast.gif" border="0" Alt="'
+				. '<img src="images/navlast.svg" border="0" Alt="'
 				. $AppUI->_('Last Page') . '"></a>' . "\n");
 		} else {
 			echo ("&nbsp;\n");
