@@ -31,13 +31,13 @@ Work happens on the **`devel`** branch; **`master`** only receives stable releas
 
 - Current release: **dotPulse 3.1.1**, maintenance: outdated libraries replaced or removed
   (JpGraph, PEAR, TinyMCE, old jQuery), public holidays by country, task end dates
-  fixed. See [RELEASE_NOTES_v3.1.1.md](RELEASE_NOTES_v3.1.1.md) before upgrading.
+  fixed. See [release notes v3.1.1](docs/release-notes/v3.1.1.md) before upgrading.
 - Previous releases: 3.1.0, with the REST API, personal dashboard, Kanban board,
   two-step login, audit log and earned value warnings
-  ([RELEASE_NOTES_v3.1.0.md](RELEASE_NOTES_v3.1.0.md), PHP 8.1 or later); 3.0.0, the first
+  ([release notes v3.1.0](docs/release-notes/v3.1.0.md), PHP 8.1 or later); 3.0.0, the first
   under the new name, with the breaking changes from dotProject
-  ([RELEASE_NOTES_v3.0.0.md](RELEASE_NOTES_v3.0.0.md)); v2.3.1, still named dotProject
-  ([RELEASE_NOTES_v2.3.1.md](RELEASE_NOTES_v2.3.1.md)).
+  ([release notes v3.0.0](docs/release-notes/v3.0.0.md)); v2.3.1, still named dotProject
+  ([release notes v2.3.1](docs/release-notes/v2.3.1.md)).
 
 ## What's in it
 
@@ -105,7 +105,7 @@ code, and run the installer, which detects the existing installation and applies
 database upgrades. Then upgrade the add-on modules from **System Admin > Modules**.
 Customised page titles and e-mail prefixes are kept; the defaults are renamed to dotPulse.
 The full checklist (module upgrades, cron, mail, web server rules) is in
-[RELEASE_NOTES_v3.0.0.md](RELEASE_NOTES_v3.0.0.md#upgrading).
+[release notes v3.0.0](docs/release-notes/v3.0.0.md#upgrading).
 
 ## Development
 
@@ -121,6 +121,17 @@ The full checklist (module upgrades, cron, mail, web server rules) is in
 
 Node.js is only needed for the development tools in [tools/](tools/); a server does not
 need it.
+
+What a server needs is the root PHP entry points (`index.php`, `api.php`, `fileviewer.php`,
+`csp-report.php`, `queuescanner.php` for cron, `base.php`) and the application directories
+(`classes/`, `db/`, `files/`, `functions/`, `images/`, `includes/`, `install/`, `js/`, `lib/`,
+`locales/`, `misc/`, `modules/`, `style/`, `vendor/`). Next to them:
+- [docs/](docs/): administration and security guides, the API, the [release notes](docs/release-notes/)
+  and the audit record; [scripts/](scripts/) has the CSP report summary for administrators.
+- Development only, left out of release archives (`git archive`, see `.gitattributes`):
+  [tools/](tools/) (PHPStan configuration in `tools/phpstan/`, the raw-input and inline-script
+  checks in `tools/checks/`, the locale check, the brand and icon builders, Jest and Playwright),
+  [tests/](tests/), [docker/](docker/), `Makefile` and `.github/`.
 
 ## Brand
 

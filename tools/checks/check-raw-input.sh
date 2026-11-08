@@ -1,14 +1,14 @@
 #!/bin/bash
 # Fails when first-party PHP indexes request superglobals directly ($_GET['x'],
 # $_POST[...], $_REQUEST[...], $_COOKIE[...]) more often than recorded in
-# scripts/raw-input-baseline.txt. New code must read input through
+# tools/checks/raw-input-baseline.txt. New code must read input through
 # dPgetParam()/dPgetCleanParam()/dPgetIntParam(), which validate and type it.
 #
-#   scripts/check-raw-input.sh            check (CI)
-#   scripts/check-raw-input.sh --update   rewrite the baseline after removing raw uses
+#   tools/checks/check-raw-input.sh            check (CI)
+#   tools/checks/check-raw-input.sh --update   rewrite the baseline after removing raw uses
 set -euo pipefail
-cd "$(dirname "$0")/.."
-BASELINE=scripts/raw-input-baseline.txt
+cd "$(dirname "$0")/../.."
+BASELINE=tools/checks/raw-input-baseline.txt
 PATTERN='\$_(GET|POST|REQUEST|COOKIE)[[:space:]]*\['
 
 current() {
@@ -38,7 +38,7 @@ done < <(current)
 if [ $fail -ne 0 ]; then
   echo
   echo "Read request input with dPgetParam()/dPgetCleanParam()/dPgetIntParam() instead."
-  echo "If you removed raw uses elsewhere, run scripts/check-raw-input.sh --update."
+  echo "If you removed raw uses elsewhere, run tools/checks/check-raw-input.sh --update."
   exit 1
 fi
 echo "OK: no new raw superglobal reads."

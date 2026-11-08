@@ -2,15 +2,15 @@
 # Fails when first-party code gains inline JavaScript, which the
 # Content-Security-Policy blocks: event-handler attributes (onclick=, ...),
 # javascript: URLs, and <script> blocks without src, nonce or a JSON type.
-# Counts per file are recorded in scripts/inline-js-baseline.txt; a converted
+# Counts per file are recorded in tools/checks/inline-js-baseline.txt; a converted
 # file must stay at its new count. See docs/csp.md for how to convert.
 #
-#   scripts/check-inline-js.sh              check (CI)
-#   scripts/check-inline-js.sh --update     rewrite the baseline after converting
-#   scripts/check-inline-js.sh --list PATH  show the remaining lines under PATH
+#   tools/checks/check-inline-js.sh              check (CI)
+#   tools/checks/check-inline-js.sh --update     rewrite the baseline after converting
+#   tools/checks/check-inline-js.sh --list PATH  show the remaining lines under PATH
 set -euo pipefail
-cd "$(dirname "$0")/.."
-BASELINE=scripts/inline-js-baseline.txt
+cd "$(dirname "$0")/../.."
+BASELINE=tools/checks/inline-js-baseline.txt
 EVENTS='click|dblclick|change|submit|reset|load|unload|beforeunload|error|resize|scroll|focus|blur|input|select|key(down|up|press)|mouse(down|up|over|out|move|enter|leave)|contextmenu|drag(start|end|over|enter|leave)?|drop'
 # Comment lines (//, #, /*, *) are skipped.
 # Case-insensitive (onClick=, JavaScript:), and a handler may start an attribute
@@ -52,7 +52,7 @@ done < <(current)
 if [ $fail -ne 0 ]; then
   echo
   echo "Use dPaction() / data-dp-* attributes, a .js file, or a nonce (docs/csp.md)."
-  echo "After converting code, run scripts/check-inline-js.sh --update."
+  echo "After converting code, run tools/checks/check-inline-js.sh --update."
   exit 1
 fi
 echo "OK: no new inline JavaScript."
