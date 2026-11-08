@@ -7,6 +7,8 @@ server, and a release archive (`git archive`) leaves this directory out.
   constants it needs (`make phpstan`; `make phpstan-baseline` rewrites the baseline).
 - `checks/`: the raw superglobal and inline JavaScript checks with their baselines
   (`make raw-input`, `make inline-js`; `--update` rewrites a baseline).
+  `theme-contrast.py` checks the colours of the dotPulse themes against WCAG AA
+  (`make theme-contrast`).
 - `locales/`: the translation check (`make locales`).
 - `jest/`: Jest tests for the scripts in `js/` (`make js-test`, runs in the
   `node:22` image, so no local Node is needed).

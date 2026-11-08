@@ -16,7 +16,7 @@ $current_module = isset($m) ? $m : '';
 	<meta name="Version" content="<?php echo @$AppUI->getVersion(); ?>" />
 	<title><?php echo @dPgetConfig('page_title'); ?></title>
 	<link rel="stylesheet" type="text/css" href="./style/<?php echo $uistyle; ?>/main.css" media="all" />
-	<link rel="shortcut icon" href="./style/<?php echo $uistyle; ?>/images/favicon.ico" type="image/ico" />
+	<link rel="shortcut icon" href="./style/dotpulse/images/favicon.ico" type="image/ico" />
 	<link rel="icon" href="./images/brand/favicon.svg" type="image/svg+xml" />
 	<link rel="apple-touch-icon" href="./images/brand/apple-touch-icon.png" />
 	<?php @$AppUI->loadJS(); echo $AppUI->getCsrfMeta(); ?>
@@ -41,7 +41,7 @@ $current_module = isset($m) ? $m : '';
 ?>
 	<header class="dp-top">
 		<div class="dp-top-in">
-			<a class="dp-logo" href="<?php echo dPhtml($dPconfig['base_url']); ?>/index.php"><img src="./images/brand/logo.svg" width="110" height="30" alt="<?php echo dPhtml(dPgetConfig('page_title', 'dotPulse')); ?>" /></a>
+			<a class="dp-logo" href="<?php echo dPhtml($dPconfig['base_url']); ?>/index.php"><img src="./images/brand/<?php echo empty($dp_theme_dark) ? 'logo.svg' : 'logo-dark.svg'; ?>" width="110" height="30" alt="<?php echo dPhtml(dPgetConfig('page_title', 'dotPulse')); ?>" /></a>
 			<nav class="dp-nav" aria-label="<?php echo $AppUI->_('Modules'); ?>">
 				<?php
 				foreach ($nav as $module) {

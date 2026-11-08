@@ -1,7 +1,7 @@
 # Developer checks. Each target is also a CI job (.github/workflows/ci.yml).
 #
-#   make check         lint + phpstan + raw-input + inline-js + locales + php-test + js-test +
-#                      vendor-check
+#   make check         lint + phpstan + raw-input + inline-js + locales + theme-contrast +
+#                      php-test + js-test + vendor-check
 #                      (no sandbox needed)
 #   make deps-audit    composer audit and npm audit of the dependencies (needs network access)
 #   make audit-smoke   start docker/, reinstall the database, run the security smoke test and the
@@ -20,9 +20,9 @@ DOCKER_RUN := docker run --rm --user $(shell id -u):$(shell id -g) --security-op
 export DP_UID := $(shell id -u)
 export DP_GID := $(shell id -g)
 
-.PHONY: check lint phpstan phpstan-baseline raw-input inline-js locales php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse
+.PHONY: check lint phpstan phpstan-baseline raw-input inline-js locales theme-contrast php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse
 
-check: lint phpstan raw-input inline-js locales php-test js-test vendor-check
+check: lint phpstan raw-input inline-js locales theme-contrast php-test js-test vendor-check
 
 # PHP 8.3 syntax check of first-party code (vendored copies excluded, as in tools/phpstan/phpstan.neon.dist).
 lint:
@@ -52,6 +52,11 @@ inline-js:
 # `php tools/locales/check.php missing es` lists what is missing).
 locales:
 	$(DOCKER_RUN) php:8.3-cli php tools/locales/check.php
+
+# Text and control colours of the dotPulse themes reach WCAG AA (tools/checks/theme-contrast.py;
+# the icons are checked when tools/icons/build.py writes them).
+theme-contrast:
+	python3 tools/checks/theme-contrast.py
 
 # PHP unit tests (tests/*Test.php, tests/run.php).
 php-test:
