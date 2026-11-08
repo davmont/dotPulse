@@ -29,15 +29,17 @@ tables keep working unchanged.
 
 Work happens on the **`devel`** branch; **`master`** only receives stable releases.
 
-- Current release: **dotPulse 3.1.1**, maintenance: outdated libraries replaced or removed
-  (JpGraph, PEAR, TinyMCE, old jQuery), public holidays by country, task end dates
-  fixed. See [release notes v3.1.1](docs/release-notes/v3.1.1.md) before upgrading.
-- Previous releases: 3.1.0, with the REST API, personal dashboard, Kanban board,
-  two-step login, audit log and earned value warnings
-  ([release notes v3.1.0](docs/release-notes/v3.1.0.md), PHP 8.1 or later); 3.0.0, the first
-  under the new name, with the breaking changes from dotProject
-  ([release notes v3.0.0](docs/release-notes/v3.0.0.md)); v2.3.1, still named dotProject
-  ([release notes v2.3.1](docs/release-notes/v2.3.1.md)).
+- Current release: **dotPulse 3.2.0**: holiday calendars per workplace, the dotPulse theme
+  by default with a redesigned System Admin, a phone layout, vector icons and a dark variant,
+  and all 25 languages complete (PHP 8.2 or later). See
+  [release notes v3.2.0](docs/release-notes/v3.2.0.md) before upgrading.
+- Previous releases: 3.1.1, maintenance: outdated libraries replaced or removed (JpGraph,
+  PEAR, TinyMCE, old jQuery), public holidays by country, task end dates fixed
+  ([release notes v3.1.1](docs/release-notes/v3.1.1.md)); 3.1.0, with the REST API, personal
+  dashboard, Kanban board, two-step login, audit log and earned value warnings
+  ([release notes v3.1.0](docs/release-notes/v3.1.0.md)); 3.0.0, the first under the new name,
+  with the breaking changes from dotProject ([release notes v3.0.0](docs/release-notes/v3.0.0.md));
+  v2.3.1, still named dotProject ([release notes v2.3.1](docs/release-notes/v2.3.1.md)).
 
 ## What's in it
 

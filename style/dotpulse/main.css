@@ -332,6 +332,9 @@ table.mocal .event a { color: var(--dp-blue-deep); }
    marks, beside the title with a gap and centred on it. */
 a.event { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; vertical-align: top; }
 a.event img { flex: none; width: 16px; height: 16px; }
+/* Colour keys of the task lists (a 10 px cell per status): an edge, so that the key of
+   future tasks, the page's own colour, still shows. */
+td[width="10"][style*="background-color"] { box-shadow: inset 0 0 0 1px var(--dp-control-line); }
 
 /* Mini calendar */
 table.minititle { background-color: transparent; }
