@@ -1,9 +1,9 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Converto to task within the following project"=>"Converto to task within the following project",
-"Internal message"=>"Internal message",
-"No messages under this clasification"=>"No messages under this clasification",
-"No subject"=>"No subject",
-"Notify by email"=>"Notify by email",
-"Quick Recipient"=>"Quick Recipient",
+"Converto to task within the following project"=>"Aşağıdaki proje içinde göreve dönüştür", // MT
+"Internal message"=>"Dahili mesaj", // MT
+"No messages under this clasification"=>"Bu sınıflandırmada mesaj yok", // MT
+"No subject"=>"Konu yok", // MT
+"Notify by email"=>"E-postayla bildir", // MT
+"Quick Recipient"=>"Hızlı Alıcı", // MT

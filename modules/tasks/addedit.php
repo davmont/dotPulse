@@ -259,6 +259,26 @@ var working_days = new Array(<?php echo implode(',', array_map('intval', explode
 var cal_day_start = <?php echo intval(dPgetConfig('cal_day_start')); ?>;
 var cal_day_end = <?php echo intval(dPgetConfig('cal_day_end')); ?>;
 var daily_working_hours = <?php echo intval(dPgetConfig('daily_working_hours')); ?>;
+<?php
+// The holidays of the owners' workplaces, last year to two years ahead, for
+// the finish date and the duration calculated here (isWorkDay() in addedit.js).
+$owner_holiday_calendar = array();
+$holiday_days = array();
+$default_holiday_calendar = CDate::holidayCalendarForUser(isset($obj->task_owner) ? $obj->task_owner : $AppUI->user_id);
+if ($AppUI->isActiveModule('holiday')) {
+	foreach (array_keys($users) as $owner_id) {
+		$owner_holiday_calendar[$owner_id] = CDate::holidayCalendarForUser($owner_id);
+	}
+	$this_year = (int)date('Y');
+	foreach (array_unique(array_merge(array($default_holiday_calendar), array_values($owner_holiday_calendar))) as $calendar_id) {
+		$holiday_days[$calendar_id] = array_fill_keys(array_keys(
+			holidayDays($calendar_id, ($this_year - 1) . '-01-01', ($this_year + 2) . '-12-31')), 1);
+	}
+}
+?>
+var holiday_days = <?php echo json_encode((object)$holiday_days, JSON_HEX_TAG | JSON_FORCE_OBJECT); ?>;
+var owner_holiday_calendar = <?php echo json_encode((object)$owner_holiday_calendar, JSON_HEX_TAG | JSON_FORCE_OBJECT); ?>;
+var default_holiday_calendar = <?php echo (int)$default_holiday_calendar; ?>;
 var projTasksWithEndDates = new Array();
 <?php
 foreach ($projTasksWithEndDates as $key => $val) {

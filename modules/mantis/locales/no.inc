@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Integrert med Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"Alvorlighetsgrad", // MT
+"Priority"=>"Prioritet", // MT
+"Reproducibility"=>"Reproduserbarhet", // MT
+"Resolution"=>"Løsning", // MT
+"tasks created"=>"oppgaver opprettet", // MT
+"already imported"=>"allerede importert", // MT
+"issues updated"=>"saker oppdatert", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis er ikke konfigurert, eller du har ikke noe Mantis API-token.", // MT
+"That Mantis project is not available to you."=>"Det Mantis-prosjektet er ikke tilgjengelig for deg.", // MT
+"Project linked to Mantis"=>"Prosjekt koblet til Mantis", // MT
+"Project created in Mantis and linked"=>"Prosjekt opprettet i Mantis og koblet", // MT
+"Project unlinked from Mantis"=>"Prosjekt koblet fra Mantis", // MT
+"Choose a status."=>"Velg en status.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis er ikke konfigurert: angi adressen (HTTPS) under Systemadministrasjon > Systemkonfigurasjon.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Mantis API-tokenet ditt er lagret.", // MT
+"You have no Mantis API token stored."=>"Du har ikke lagret noe Mantis API-token.", // MT
+"Mantis API token"=>"Mantis API-token", // MT
+"Mantis project"=>"Mantis-prosjekt", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Ingen prosjekter er koblet til Mantis ennå: koble et fra Mantis-fanen.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Skriv inn Mantis API-tokenet ditt for å se Mantis-sakene for dette prosjektet", // MT
+"This project is not linked to a Mantis project."=>"Dette prosjektet er ikke koblet til et Mantis-prosjekt.", // MT
+"Link"=>"Lenke", // MT
+"Create it in Mantis"=>"Opprett det i Mantis", // MT
+"needs a Mantis administrator token"=>"krever et Mantis-administratortoken", // MT
+"Issue"=>"Sak", // MT
+"Assigned To"=>"Tildelt", // MT
+"Updated"=>"Oppdatert", // MT
+"No issues"=>"Ingen saker", // MT
+"view"=>"vis", // MT
+"Import selected as tasks"=>"Importer valgte som oppgaver", // MT
+"Change status of selected"=>"Endre status for valgte", // MT
+"Unlink this project from Mantis?"=>"Koble dette prosjektet fra Mantis?", // MT
+"Unlink"=>"Koble fra", // MT
+"Mantis API token saved for Mantis user"=>"Mantis API-token lagret for Mantis-bruker", // MT
+"Your token is stored"=>"Tokenet ditt er lagret", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Opprett et token i Mantis (My Account > API Tokens) og lim det inn her. Mantis bruker da dine egne Mantis-tillatelser.", // MT
+"Save"=>"Lagre", // MT
+"Remove my token"=>"Fjern tokenet mitt", // MT
+"Mantis API token removed"=>"Mantis API-token fjernet", // MT
+"A Mantis API token has 32 letters and digits."=>"Et Mantis API-token har 32 bokstaver og sifre.", // MT

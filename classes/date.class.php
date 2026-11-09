@@ -53,6 +53,8 @@ class CDate {
 	public $minute;
 	public $second;
 	public $partsecond = 0.0;
+	/** The holiday calendar of isWorkingDay() (holiday module); 0 is the default one. */
+	public $holidayCalendar = 0;
 
 	function __construct($date = null)
 	{
@@ -73,6 +75,31 @@ class CDate {
 		foreach (array('year', 'month', 'day', 'hour', 'minute', 'second', 'partsecond') as $field) {
 			$this->$field = $date->$field;
 		}
+		$this->holidayCalendar = isset($date->holidayCalendar) ? $date->holidayCalendar : 0;
+	}
+
+	/**
+	* Counts the holidays of a calendar as non-working days (see isWorkingDay()):
+	* the calendar of a workplace, from holidayCalendarForUser(). Returns $this.
+	*/
+	function setHolidayCalendar($calendar_id)
+	{
+		$this->holidayCalendar = (int)$calendar_id;
+		return $this;
+	}
+
+	/**
+	* The holiday calendar of a user's workplace, or 0 (the default holidays, also
+	* when the holiday module is not active).
+	*/
+	static function holidayCalendarForUser($user_id)
+	{
+		global $AppUI;
+		if (!(isset($AppUI) && is_object($AppUI) && $AppUI->isActiveModule('holiday'))) {
+			return 0;
+		}
+		require_once DP_BASE_DIR . '/modules/holiday/holiday_func.php';
+		return holidayCalendarForUser($user_id);
 	}
 
 	function isNull()
@@ -616,7 +643,7 @@ class CDate {
 		// so every working-day check (task reminders, next_working_day()) crashed.
 		if (isset($AppUI) && is_object($AppUI) && $AppUI->isActiveModule('holiday')) {
 			require_once $baseDir."/modules/holiday/holiday_func.php";
-			if (isHoliday($this)) {
+			if (isHoliday($this, $this->holidayCalendar)) {
 				return 0;
 			}
 		}

@@ -15,8 +15,8 @@ dotProject directory; without it Apache ignores them silently.
 | Path | Rule |
 |---|---|
 | `modules/`, `lib/`, `classes/`, `functions/`, `includes/`, `style/`, `locales/`, `db/`, `misc/` | `.php`, `.phtml`, `.phar` and `.inc` refused; images, CSS and JS still served |
-| `vendor/`, `tests/`, `docs/`, `docker/`, `files/` | Everything refused |
-| Root | `queuescanner.php`, developer scripts, `composer.*`, `package*.json` and `*.md` refused |
+| `vendor/`, `tests/`, `tools/`, `scripts/`, `docs/`, `docker/`, `files/` | Everything refused |
+| Root | `queuescanner.php`, `composer.*`, `package*.json`, `Makefile` and `*.md` refused |
 
 Uploaded files are served by `fileviewer.php?file_id=...` and each user's PDF
 report by `fileviewer.php?report=pdf`, both after the login and permission
@@ -29,9 +29,9 @@ block, before the PHP `location`:
 
 ```nginx
 location ~ ^/(modules|lib|classes|functions|includes|style|locales|db|misc)/.*\.(php|phtml|phar|inc)$ { deny all; }
-location ~ ^/(vendor|tests|docs|docker|files)/ { deny all; }
-location ~ ^/(queuescanner|benchmark_\w+|test_\w+|fix_locales|install_timeplanning|gen_locale\w*|find_missing_labels)\.php$ { deny all; }
-location ~ ^/(composer\.(json|lock)|package(-lock)?\.json)$ { deny all; }
+location ~ ^/(vendor|tests|tools|scripts|docs|docker|files)/ { deny all; }
+location ~ ^/queuescanner\.php$ { deny all; }
+location ~ ^/(composer\.(json|lock)|package(-lock)?\.json|Makefile)$ { deny all; }
 location ~ \.md$ { deny all; }
 ```
 

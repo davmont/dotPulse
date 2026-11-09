@@ -1,24 +1,29 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add Resource"=>"Add Resource",
-"All Resources"=>"All Resources",
-"back"=>"back",
-"Description"=>"Description",
-"Details"=>"Details",
-"doDelete"=>"doDelete",
-"Equipment"=>"Equipment",
+"Add Resource"=>"Přidat zdroj", // MT
+"All Resources"=>"Všechny zdroje", // MT
+"back"=>"zpět", // MT
+"Description"=>"Popis", // MT
+"Details"=>"Podrobnosti", // MT
+"doDelete"=>"Opravdu chcete smazat", // MT
+"Equipment"=>"Vybavení", // MT
 "ID"=>"ID",
-"Max Alloc %"=>"Max Alloc %",
-"Max Allocation %"=>"Max Allocation %",
-"Maximum Allocation Percentage"=>"Maximum Allocation Percentage",
-"new resource"=>"new resource",
-"Notes"=>"Notes",
-"Resource ID"=>"Resource ID",
-"resource list"=>"resource list",
-"Resource Name"=>"Resource Name",
-"submit"=>"submit",
-"Tool"=>"Tool",
-"Type"=>"Type",
-"Venue"=>"Venue",
-
+"Max Alloc %"=>"Max. alok. %", // MT
+"Max Allocation %"=>"Max. alokace %", // MT
+"Maximum Allocation Percentage"=>"Maximální procento alokace", // MT
+"new resource"=>"nový zdroj", // MT
+"Notes"=>"Poznámky", // MT
+"Resource ID"=>"ID zdroje", // MT
+"resource list"=>"seznam zdrojů", // MT
+"Resource Name"=>"Název zdroje", // MT
+"submit"=>"odeslat", // MT
+"Tool"=>"Nástroj", // MT
+"Type"=>"Typ", // MT
+"Venue"=>"Místo", // MT
+"view this resource"=>"zobrazit tento zdroj", // MT
+"Assigned to Task"=>"Přiřazeno k úkolu", // MT
+"notifyChange"=>"Upozornit řešitele úkolu e-mailem", // MT
+"View Resource"=>"Zobrazit zdroj", // MT
+"edit this resource"=>"upravit tento zdroj", // MT
+"invalid ID"=>"neplatné ID", // MT

@@ -1,9 +1,9 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Converto to task within the following project"=>"Converto to task within the following project",
-"Internal message"=>"Internal message",
-"No messages under this clasification"=>"No messages under this clasification",
-"No subject"=>"No subject",
-"Notify by email"=>"Notify by email",
-"Quick Recipient"=>"Quick Recipient",
+"Converto to task within the following project"=>"Pārvērst par uzdevumu šajā projektā", // MT
+"Internal message"=>"Iekšējais ziņojums", // MT
+"No messages under this clasification"=>"Šajā klasifikācijā nav ziņojumu", // MT
+"No subject"=>"Bez temata", // MT
+"Notify by email"=>"Paziņot pa e-pastu", // MT
+"Quick Recipient"=>"Ātrais saņēmējs", // MT

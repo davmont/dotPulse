@@ -1,24 +1,29 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add Resource"=>"Add Resource",
-"All Resources"=>"All Resources",
-"back"=>"back",
-"Description"=>"Description",
-"Details"=>"Details",
-"doDelete"=>"doDelete",
-"Equipment"=>"Equipment",
+"Add Resource"=>"Afegir recurs", // MT
+"All Resources"=>"Tots els recursos", // MT
+"back"=>"tornar", // MT
+"Description"=>"Descripció", // MT
+"Details"=>"Detalls", // MT
+"doDelete"=>"Segur que voleu eliminar aquest", // MT
+"Equipment"=>"Equipament", // MT
 "ID"=>"ID",
-"Max Alloc %"=>"Max Alloc %",
-"Max Allocation %"=>"Max Allocation %",
-"Maximum Allocation Percentage"=>"Maximum Allocation Percentage",
-"new resource"=>"new resource",
+"Max Alloc %"=>"% màx. assig.", // MT
+"Max Allocation %"=>"% màxim d'assignació", // MT
+"Maximum Allocation Percentage"=>"Percentatge màxim d'assignació", // MT
+"new resource"=>"nou recurs", // MT
 "Notes"=>"Notes",
-"Resource ID"=>"Resource ID",
-"resource list"=>"resource list",
-"Resource Name"=>"Resource Name",
-"submit"=>"submit",
-"Tool"=>"Tool",
-"Type"=>"Type",
-"Venue"=>"Venue",
-
+"Resource ID"=>"ID del recurs", // MT
+"resource list"=>"llista de recursos", // MT
+"Resource Name"=>"Nom del recurs", // MT
+"submit"=>"enviar", // MT
+"Tool"=>"Eina", // MT
+"Type"=>"Tipus", // MT
+"Venue"=>"Lloc", // MT
+"view this resource"=>"veure aquest recurs", // MT
+"Assigned to Task"=>"Assignat a la tasca", // MT
+"notifyChange"=>"Notificar per correu els assignats a la tasca", // MT
+"View Resource"=>"Veure recurs", // MT
+"edit this resource"=>"editar aquest recurs", // MT
+"invalid ID"=>"ID no vàlid", // MT

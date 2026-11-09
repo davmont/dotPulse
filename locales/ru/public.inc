@@ -1,26 +1,29 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"[none]"=>"[none]",
-"Access Denied"=>"Access Denied",
-"accessDeniedMsg"=>"You have attemped to access an item in dotproject without the sufficient permissions to do so. Please contact the dotproject System Administrator.",
-"Allowed Companies"=>"Allowed Companies",
-"chgpwLogin"=>"chgpwLogin",
-"chgpwUpdated"=>"chgpwUpdated",
-"chgpwWrongPW"=>"chgpwWrongPW",
-"Color Selector"=>"Color Selector",
-"colorLegend"=>"Choose a color to uniquely identify your selection and close the Color Selector.",
-"companies"=>"companies",
-"Contacts for"=>"Contacts for",
-"Continue"=>"Continue",
-"Current Password"=>"Current Password",
-"New Password"=>"New Password",
-"no departments"=>"no departments",
-"nodepartments"=>"No Departments available",
-"notasks"=>"No Tasks available",
-"permissions"=>"permissions",
-"Preset"=>"Preset",
-"Repeat New Password"=>"Repeat New Password",
-"submit"=>"submit",
-"View all allowed companies"=>"View all allowed companies",
-
+"[none]"=>"[нет]", // MT
+"Access Denied"=>"Доступ запрещён", // MT
+"accessDeniedMsg"=>"Вы попытались открыть элемент dotProject, не имея на это достаточных прав. Обратитесь к системному администратору dotProject.", // MT
+"Allowed Companies"=>"Разрешённые компании", // MT
+"chgpwLogin"=>"Войдите, чтобы сменить пароль", // MT
+"chgpwUpdated"=>"Ваш пароль обновлён", // MT
+"chgpwWrongPW"=>"Вы ввели неверный старый пароль", // MT
+"Color Selector"=>"Выбор цвета", // MT
+"colorLegend"=>"Выберите цвет, однозначно обозначающий ваш выбор, и закройте окно выбора цвета.", // MT
+"companies"=>"компании", // MT
+"Contacts for"=>"Контакты для", // MT
+"Continue"=>"Продолжить", // MT
+"Current Password"=>"Текущий пароль", // MT
+"New Password"=>"Новый пароль", // MT
+"no departments"=>"нет подразделений", // MT
+"nodepartments"=>"Нет доступных подразделений", // MT
+"notasks"=>"Нет доступных задач", // MT
+"permissions"=>"права", // MT
+"Preset"=>"Предустановка", // MT
+"Repeat New Password"=>"Повторите новый пароль", // MT
+"submit"=>"отправить", // MT
+"View all allowed companies"=>"Просмотреть все разрешённые компании", // MT
+"Inactive"=>"Неактивный", // MT
+"Select a company"=>"Выберите компанию", // MT
+"Your password has been changed. You can now log in."=>"Ваш пароль изменён. Теперь можно войти.", // MT
+"Invalid or expired password reset link."=>"Ссылка для сброса пароля недействительна или устарела.", // MT

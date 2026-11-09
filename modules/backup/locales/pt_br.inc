@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Backup do Banco de Dados", // MT
+"restore xml file"=>"restaurar arquivo xml", // MT
+"Restore From XML File"=>"Restaurar a partir de Arquivo XML", // MT
+"xmlRestoreWarning"=>"Este utilitário restaura o esquema e os dados a partir de um arquivo XML criado por ele mesmo. Ele NÃO restaura a partir de arquivos SQL.", // MT
+"XML File to Restore"=>"Arquivo XML a Restaurar", // MT
+"Continue On Error?"=>"Continuar em Caso de Erro?", // MT
+"upload"=>"enviar", // MT
+"Backup"=>"Backup",
+"Import"=>"Importar", // MT
+"Export"=>"Exportar", // MT
+"Success"=>"Sucesso!", // MT
+"Failure"=>"Falha: ", // MT
+"Import Data"=>"Importar Dados", // MT
+"Export Data"=>"Exportar Dados", // MT
+"File Type"=>"Tipo de Arquivo:", // MT
+"clear"=>"limpar", // MT
+"Filename (without extension):"=>"Nome do arquivo (sem extensão):", // MT
+"Module"=>"Módulo", // MT
+"Item"=>"Item",
+"zip"=>".zip - Arquivo SQL compactado.", // MT
+"sql"=>".sql - Arquivo de texto com consultas SQL.", // MT
+"csv"=>".csv - Valores Separados por Vírgula.", // MT
+"vcf"=>".vcf - Arquivo vCard.", // MT
+"Add 'DROP TABLE' to output-script"=>"Adicionar 'DROP TABLE' ao script de saída", // MT
+"Table structure and data"=>"Estrutura e dados das tabelas", // MT
+"Only table structure"=>"Somente a estrutura das tabelas", // MT
+"Only data"=>"Somente os dados", // MT
+"Options"=>"Opções", // MT
+"Save as"=>"Salvar como", // MT
+"Compressed ZIP SQL file"=>"Arquivo SQL compactado em ZIP", // MT
+"Plain text SQL file"=>"Arquivo SQL em texto simples", // MT
+"XML file"=>"Arquivo XML", // MT
+"Download backup"=>"Baixar backup", // MT
+"xmlLoginMsg"=>"Talvez seja necessário sair e entrar novamente", // MT
+"Invalid Options"=>"Opções Inválidas", // MT
+"Failed to restore backup"=>"Falha ao restaurar o backup", // MT
+"Backup restored, but with errors"=>"Backup restaurado, mas com erros", // MT
+"Backup Restored OK"=>"Backup Restaurado com Sucesso", // MT
+"No upload file"=>"Nenhum arquivo enviado", // MT
+"Error in parsing XML file"=>"Erro ao analisar o arquivo XML", // MT
+"Restore Database"=>"Restaurar Banco de Dados", // MT

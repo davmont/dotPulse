@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Toevoegen", // MT
+"LBL_EXCLUSION"=>"Uitsluiten", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Inspringing", // MT
+"LBL_ORDER"=>"Volgorde", // MT
+"LBL_SORT"=>"Sorteren", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Opslaan", // MT
+"LBL_ESTIMATION"=>"Raming", // MT
+"LBL_DESCRIPTION"=>"Omschrijving", // MT
+"LBL_MOVE"=>"Verplaatsen", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Definitie van activiteiten", // MT
+"LBL_CREATE_MINUTE"=>"Notulen maken", // MT
+"LBL_MINUTES"=>"Notulen", // MT
+"LBL_DATE"=>"Datum", // MT
+"LBL_EDIT"=>"Wijzig", // MT
+"LBL_TYPE"=>"Type",
+"LBL_EFFORT"=>"Inspanning", // MT
+"LBL_DURATION"=>"Duur", // MT
+"LBL_RESOURCES"=>"Middelen (rollen)", // MT
+"LBL_SIZE"=>"Grootte", // MT
+"LBL_ALL_MEMBERS"=>"Alle leden", // MT
+"LBL_PARTICIPANTS"=>"Deelnemers", // MT
+"LBL_REPORT"=>"Rapport", // MT
+"LBL_CLOSE"=>"Sluiten", // MT
+"LBL_WORK_PACKAGE"=>"Werkpakket", // MT
+"LBL_IN_DAYS"=>"(dagen)", // MT
+"LBL_ESTIMATIONS"=>"Ramingen", // MT
+"LBL_ACTIVITY"=>"Activiteit", // MT
+"LBL_HOURS"=>"Uren", // MT
+"LBL_MINUTES_TIME"=>"Notulen", // MT
+"LBL_DAYS"=>"Dagen", // MT
+"LBL_ROLE"=>"Rol", // MT
+"LBL_ORGONOGRAM"=>"Organigram", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Afleiding", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Ramingen", // MT
+"1LBLORGONOGRAM"=>"Organigram ", // MT
+"LBL_INTRO"=>"Deze module wordt gebruikt vanuit de modules projecten en projecttaken. Ze hoeft niet rechtstreeks te worden geopend. U kunt dit tabblad verbergen in het systeembeheer.", // MT
+"LBL_DEV_SCHEDULE"=>"Planning ontwikkelen", // MT
+"LBL_EXECUTE"=>"Uitvoeren", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Deze actie berekent de begin- en einddatums van activiteiten op basis van de startdatum van het project, de geraamde inspanning en de logische afhankelijkheden tussen activiteiten.", // MT
+"Assigned to Task"=>"Toegewezen aan taak", // MT

@@ -2,7 +2,7 @@
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
 "classic"=>"Klasyczny styl DotProject",
-"default"=>"Domy¶lny styl",
+"default"=>"DomyÅ›lny styl",
 "demo1"=>"Styl demo",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"dp-grey-theme"=>"Styl Grey Slimline", // MT
+"dotpulse"=>"dotPulse",

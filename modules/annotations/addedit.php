@@ -259,7 +259,8 @@ if ($save_annotations == "1") {
 
 			$AppUI->setMsg( 'Annotations' );
 			$AppUI->setMsg( "invalid ID : ".$obj->annotation_id, UI_MSG_ERROR, true );
-			$AppUI->redirect();					// go back to the calling location
+			// Not to the saved place: that can be this page, which redirected to itself.
+			$AppUI->redirect('m=annotations&project_id=' . (int)$project_id);
 		}
 		$show_time = substr($obj->annotation_date,11,5);
 	}
@@ -610,34 +611,34 @@ $tmpdigit = dPgetSysVal( 'AnnotationsPoints' );	 //the dP will get the sysval fo
 					'mouseover mouseout', array('call-mouseout' => 'nd'));
 			}
 		}
-	echo '<td align="center" nowrap="nowrap">';
+	echo '<td align="center">';
 		echo '<table><tr>';
-			echo '<td align="center" nowrap="nowrap"' . annotationsTip($explanation['strategy'], 7, 400) . '>';
+			echo '<td align="center"' . annotationsTip($explanation['strategy'], 7, 400) . '>';
 				echo $AppUI->_('Strategy');
 				echo arraySelect( $points, 'annotation_strategy', 'class="text" size="1"', array_search($obj->annotation_strategy, $points) );
 			echo '</td>';
 
-			echo '<td align="center" nowrap="nowrap"' . annotationsTip($explanation['sholders'], 7, 400) . '>';
+			echo '<td align="center"' . annotationsTip($explanation['sholders'], 7, 400) . '>';
 			echo $AppUI->_('Sholders');
 			echo arraySelect( $points, 'annotation_sholders', 'class="text" size="1"', array_search($obj->annotation_sholders, $points) );
 			echo '</td>';
 			
-			echo '<td align="center" nowrap="nowrap"' . annotationsTip($explanation['risks'], 7, 350) . '>';
+			echo '<td align="center"' . annotationsTip($explanation['risks'], 7, 350) . '>';
 			echo $AppUI->_('Risks');
 			echo arraySelect( $points, 'annotation_risks', 'class="text" size="1"', array_search($obj->annotation_risks, $points) );
 			echo '</td>';
 			
-			echo '<td align="center" nowrap="nowrap"' . annotationsTip($explanation['sizing'], 5, 350) . '>';
+			echo '<td align="center"' . annotationsTip($explanation['sizing'], 5, 350) . '>';
 			echo $AppUI->_('Size');
 			echo arraySelect( $points, 'annotation_sizing', 'class="text" size="1"', array_search($obj->annotation_sizing, $points) );
 			echo '</td>';
 		
-			echo '<td align="center" nowrap="nowrap"' . annotationsTip($explanation['horizontality'], 5, 350) . '>';
+			echo '<td align="center"' . annotationsTip($explanation['horizontality'], 5, 350) . '>';
 			echo $AppUI->_('Horiz');
 			echo arraySelect( $points, 'annotation_horizontality', 'class="text" size="1"', array_search($obj->annotation_horizontality, $points) );
 			echo '</td>';
 			
-			echo '<td align="center" nowrap="nowrap"' . annotationsTip($explanation['costbenefit'], 5, 350) . '>';
+			echo '<td align="center"' . annotationsTip($explanation['costbenefit'], 5, 350) . '>';
 			echo $AppUI->_('Cost/Bene');
 			echo arraySelect( $points, 'annotation_costbenefit', 'class="text" size="1"', array_search($obj->annotation_costbenefit, $points) );
 			echo '</td>';
@@ -674,7 +675,7 @@ $tmpdigit = dPgetSysVal( 'AnnotationsPoints' );	 //the dP will get the sysval fo
 			}
 			$checked= ( $obj->annotation_must == "1" ) ? "checked" : "";
 		?>
-		<td align="center" nowrap="nowrap">
+		<td align="center">
 			<?php // Get the priority out of project table:
 				$q->clear();
 				$q->addTable('projects');
@@ -686,7 +687,7 @@ $tmpdigit = dPgetSysVal( 'AnnotationsPoints' );	 //the dP will get the sysval fo
 				echo $AppUI->_('Project Priority is')." : <b>".$priorities[$prio]."</b>&nbsp;&nbsp;||&nbsp;&nbsp;".$AppUI->_('Revised Priority')." : "; echo arraySelect( $priorities,'annotation_revised_priority','size=1 class=text ',$obj->annotation_revised_priority); ?>			
 				
 			<br><input type="checkbox" name="annotation_must" value="1" <?php echo $checked; ?>><?php echo $AppUI->_('This is a')."<b>&nbsp;".$AppUI->_('Must do')."</b>";?></td>
-		<td align="center" nowrap="nowrap"><?php echo ($presets_from != "") ? "<p style=\"font-size: 10px;\">(".$presets_from.")</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" : ""; echo $AppUI->_('Rationale');?></td>
+		<td align="center"><?php echo ($presets_from != "") ? "<p style=\"font-size: 10px;\">(".$presets_from.")</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" : ""; echo $AppUI->_('Rationale');?></td>
 	</tr><tr>
 		<td align="center" width="50%"><textarea name="annotation_must_rationale" rows="3" style="width:100%; box-sizing:border-box;">
 											<?php echo ($obj->annotation_must_rationale != "") ? dPformSafe($obj->annotation_must_rationale) : "";?></textarea></td>

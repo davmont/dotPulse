@@ -15,49 +15,70 @@ jobs:
     name: PHP 8.3 syntax
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make lint
 
   phpstan:
     name: PHPStan (level 2, baseline)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make phpstan
 
   raw-input:
     name: No new raw $_GET/$_POST reads
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make raw-input
 
   inline-js:
     name: No new inline JavaScript (CSP)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make inline-js
+
+  locales:
+    name: Translations (English, Spanish)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: make locales
+
+  theme-contrast:
+    name: Theme colour contrast (WCAG AA)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: make theme-contrast
 
   php-test:
     name: PHP unit tests (tests/)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make php-test
+
+  vendor-check:
+    name: vendor/ matches composer.lock (PHP 8.2)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: make vendor-check
 
   js-test:
     name: JavaScript tests (Jest)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make js-test
 
   audit-smoke:
     name: Security smoke test (docker/)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: make audit-smoke
       - name: Web server log
         if: failure()
@@ -71,22 +92,30 @@ jobs:
       # Ubuntu runners ship Google Chrome; playwright-core drives it.
       CHROME: /usr/bin/google-chrome
       # Pull requests check the layout in two themes; pushes to devel/master in all five.
-      THEMES: ${{ github.event_name == 'pull_request' && 'dp-grey-theme material' || 'default amp dp-grey-theme material wps-redmond' }}
+      THEMES: ${{ github.event_name == 'pull_request' && 'dotpulse dp-grey-theme' || 'dotpulse default amp dp-grey-theme material wps-redmond' }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
       - run: cd tools/browser && npm ci --no-audit --no-fund
+      # The layout widths depend on the font: the themes fall back to Arial metrics
+      # (Liberation Sans), as on most Linux desktops.
+      - name: Fonts
+        run: |
+          fc-list | grep -qi "Liberation Sans" || { sudo apt-get update -q && sudo apt-get install -y -q fonts-liberation; }
+          fc-match "Liberation Sans"
       - run: make audit-full
       - name: Reports and web server log
         if: failure()
         run: |
           ls docker/.audit
           docker compose -f docker/compose.yml logs web | tail -300
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: audit-reports
           path: docker/.audit/
+          # .audit is a hidden directory: without this nothing was uploaded.
+          include-hidden-files: true
           retention-days: 7

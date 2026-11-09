@@ -1,5 +1,6 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Insert task template"=>"Insert task template",
-"New tasks template"=>"New tasks template",
+"Insert task template"=>"Ievietot uzdevumu veidni", // MT
+"New tasks template"=>"Jauna uzdevumu veidne", // MT
+"Tasks templates"=>"Uzdevumu veidnes", // MT

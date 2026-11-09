@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Adicionar", // MT
+"LBL_EXCLUSION"=>"Excluir", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Indentação", // MT
+"LBL_ORDER"=>"Ordem", // MT
+"LBL_SORT"=>"Ordenar", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Guardar", // MT
+"LBL_ESTIMATION"=>"Estimativa", // MT
+"LBL_DESCRIPTION"=>"Descrição", // MT
+"LBL_MOVE"=>"Mover", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Definição das Actividades", // MT
+"LBL_CREATE_MINUTE"=>"Criar Acta", // MT
+"LBL_MINUTES"=>"Actas", // MT
+"LBL_DATE"=>"Data", // MT
+"LBL_EDIT"=>"Editar", // MT
+"LBL_TYPE"=>"Tipo", // MT
+"LBL_EFFORT"=>"Esforço", // MT
+"LBL_DURATION"=>"Duração", // MT
+"LBL_RESOURCES"=>"Recursos (papéis)", // MT
+"LBL_SIZE"=>"Tamanho", // MT
+"LBL_ALL_MEMBERS"=>"Todos os membros", // MT
+"LBL_PARTICIPANTS"=>"Participantes", // MT
+"LBL_REPORT"=>"Relatório", // MT
+"LBL_CLOSE"=>"Fechar", // MT
+"LBL_WORK_PACKAGE"=>"Pacote de Trabalho", // MT
+"LBL_IN_DAYS"=>"(dias)", // MT
+"LBL_ESTIMATIONS"=>"Estimativas", // MT
+"LBL_ACTIVITY"=>"Actividade", // MT
+"LBL_HOURS"=>"Horas", // MT
+"LBL_MINUTES_TIME"=>"Actas", // MT
+"LBL_DAYS"=>"Dias", // MT
+"LBL_ROLE"=>"Papel", // MT
+"LBL_ORGONOGRAM"=>"Organograma", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Derivação", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Estimativas", // MT
+"1LBLORGONOGRAM"=>"Organograma ", // MT
+"LBL_INTRO"=>"Este módulo é usado a partir dos módulos de projectos e de tarefas do projecto. Não precisa de ser acedido directamente. Pode ocultar este separador na área de administração do sistema.", // MT
+"LBL_DEV_SCHEDULE"=>"Desenvolvimento do cronograma", // MT
+"LBL_EXECUTE"=>"Executar", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Esta acção calcula as datas de início e de fim das actividades com base na data de início do projecto, nos esforços estimados e nas dependências lógicas entre actividades.", // MT
+"Assigned to Task"=>"Atribuído à Tarefa", // MT

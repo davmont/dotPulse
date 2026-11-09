@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"About Modules"=>"Par modu�iem",
+"About Modules"=>"Par moduļiem",
 "Access Denied"=>"Pieeja aizliegta",
-"Adding a Company"=>"Uz��muma pievieno�ana",
-"Adding a Project"=>"Projekta pievieno�ana",
-"Adding a Task"=>"Uzdevuma pievieno�ana",
-"Breadcrumbs"=>"",
-"Context Help"=>"Kontekstu�l� pal�dz�ba",
-"General Concepts"=>"Visp�r�g� koncepcija",
-"Getting Started"=>"S�kot darbu",
-"helpIntro"=>"",
+"Adding a Company"=>"Uzņēmuma pievienošana",
+"Adding a Project"=>"Projekta pievienošana",
+"Adding a Task"=>"Uzdevuma pievienošana",
+"Breadcrumbs"=>"Navigācijas ceļš", // MT
+"Context Help"=>"Kontekstuālā palīdzība",
+"General Concepts"=>"Vispārīgā koncepcija",
+"Getting Started"=>"Sākot darbu",
+"helpIntro"=>"Šeit ir dažas ātrās saites uz palīdzības faila tēmām, kas nav tieši pieejamas no konteksta palīdzības.", // MT
 "index"=>"saturs",
-"Left Navigation"=>"",
-"Saving Your Place"=>"",
-"Tabbed Property Boxes"=>"",
-"Top Menu"=>"",
+"Left Navigation"=>"Kreisā navigācija", // MT
+"Saving Your Place"=>"Jūsu vietas saglabāšana", // MT
+"Tabbed Property Boxes"=>"Rekvizītu lodziņi ar cilnēm", // MT
+"Top Menu"=>"Augšējā izvēlne", // MT
 

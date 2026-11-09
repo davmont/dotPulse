@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Advanced search"=>"Advanced search",
-"All words"=>"All words",
-"Display all fields"=>"Display all fields",
-"Empty"=>"Empty",
-"Events"=>"Events",
-"Files Content"=>"Files Content",
-"Forum Messages"=>"Forum Messages",
-"Ignore case"=>"Ignore case",
-"Ignore special chars"=>"Ignore special chars",
-"Modules selection"=>"Modules selection",
-"Search"=>"Search",
-"Select all"=>"Select all",
-"Show empty"=>"Show empty",
-"Task Log"=>"Task Log",
-"Total records found"=>"Total records found",
-
+"Advanced search"=>"Paplašinātā meklēšana", // MT
+"All words"=>"Visi vārdi", // MT
+"Display all fields"=>"Rādīt visus laukus", // MT
+"Empty"=>"Tukšs", // MT
+"Events"=>"Notikumi", // MT
+"Files Content"=>"Failu saturs", // MT
+"Forum Messages"=>"Foruma ziņojumi", // MT
+"Ignore case"=>"Ignorēt reģistru", // MT
+"Ignore special chars"=>"Ignorēt speciālās rakstzīmes", // MT
+"Modules selection"=>"Moduļu atlase", // MT
+"Search"=>"Meklēt", // MT
+"Select all"=>"Atlasīt visu", // MT
+"Show empty"=>"Rādīt tukšos", // MT
+"Task Log"=>"Uzdevumu žurnāls", // MT
+"Total records found"=>"Kopā atrasti ieraksti", // MT
+"Deselect all"=>"Noņemt atlasi visam", // MT

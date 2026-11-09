@@ -4,14 +4,6 @@
 /error_log
 output.txt
 test_out.txt
-existing_labels_es.txt
-gen_locale.php
-gen_locale_es.php
-existing_labels.txt
-find_missing_labels.php
-missing_labels_es.txt
-used_labels.txt
-missing_labels.txt
 SECURITY_AUDIT.md
 
 # Local configuration: written by the installer or copied from includes/config-dist.php

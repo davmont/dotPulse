@@ -10,6 +10,8 @@ if (!defined('DP_BASE_DIR')) {
 ## Vegard Fiksdal (fiksdal@sensorlink.no)
 ##
 
+require_once DP_BASE_DIR . '/modules/holiday/holiday_func.php';
+
 $holiday_id = (int)defVal( @$_GET["holiday_id"], 0);
 $holiday_white = defVal( @$_GET["white"], -1);
 
@@ -20,6 +22,12 @@ $start_date = intval( $log_start_date ) ? new CDate( $log_start_date ) : new CDa
 $end_date   = intval( $log_end_date )   ? new CDate( $log_end_date ) : new CDate();
 $holiday_description = dPgetParam( $_POST, "holiday_description", '');
 $holiday_annual = dPgetParam( $_POST, "holiday_annual", 0);
+// The calendar the day belongs to; 0: every calendar (and the default holidays).
+$calendars = holidayCalendars();
+$holiday_calendar = (int)dPgetParam( $_POST, "holiday_calendar", 0);
+if (!isset($calendars[$holiday_calendar])) {
+        $holiday_calendar = 0;
+}
         
 // Adding, updating and deleting change data: POST with the CSRF token and edit
 // permission only.
@@ -37,6 +45,9 @@ if($action) {
         		$q -> addInsert('holiday_end_date',$end_date->format(FMT_DATETIME_MYSQL));
         		$q -> addInsert('holiday_white',$holiday_white);
         		$q -> addInsert('holiday_annual',$holiday_annual);
+        		if (holidayHasCalendars()) {
+        			$q -> addInsert('holiday_calendar', $holiday_calendar);
+        		}
                 $okMsg = "Holiday registered";
         } else if ( $action == "update" ) {
         		$q -> addTable('holiday');
@@ -44,6 +55,9 @@ if($action) {
         		$q -> addUpdate('holiday_start_date',$start_date->format(FMT_DATETIME_MYSQL));
         		$q -> addUpdate('holiday_end_date',$end_date->format(FMT_DATETIME_MYSQL));
         		$q -> addUpdate('holiday_annual',$holiday_annual);
+        		if (holidayHasCalendars()) {
+        			$q -> addUpdate('holiday_calendar', $holiday_calendar);
+        		}
         		$q -> addWhere('holiday_id = ' . (int)$holiday_id);              
                 $okMsg = "Holiday updated";
         }
@@ -69,7 +83,8 @@ $holiday = $q -> loadHash();
 if (!$holiday) {
 	// A new holiday (or one that no longer exists).
 	$holiday = array('holiday_white' => 0, 'holiday_annual' => 0, 'holiday_description' => '',
-		'holiday_start_date' => null, 'holiday_end_date' => null);
+		'holiday_start_date' => null, 'holiday_end_date' => null,
+		'holiday_calendar' => (int)dPgetCleanParam($_GET, 'calendar_id', 0));
 }
 
 if($holiday_white == -1)
@@ -150,9 +165,21 @@ function delIt() {
 	<input type="checkbox" value="1" name="holiday_annual" <?php if($holiday["holiday_annual"]){?>checked="checked"<?php }?> />
 	</td>
 
+<?php if ($calendars) {
+	$calendar_names = array(0 => $AppUI->_('All calendars', UI_OUTPUT_RAW));
+	foreach ($calendars as $id => $calendar) {
+		$calendar_names[$id] = $calendar['calendar_name'];
+	}
+?>
+	<td nowrap="nowrap">
+        <?php echo $AppUI->_( 'Calendar' );?>
+        <?php echo arraySelect($calendar_names, 'holiday_calendar', 'size="1" class="text"', isset($holiday['holiday_calendar']) ? (int)$holiday['holiday_calendar'] : 0); ?>
+	</td>
+<?php } ?>
+
 	<td>
         <?php echo $AppUI->_( 'Description' );?>
-        <input type="text" class="text" SIZE="100%" name="holiday_description" value="<?php echo dPhtml($holiday["holiday_description"]);?>">
+        <input type="text" class="text" size="40" name="holiday_description" value="<?php echo dPhtml($holiday["holiday_description"]);?>">
 	</td>
 </td></tr>
 

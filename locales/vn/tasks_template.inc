@@ -1,5 +1,6 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Insert task template"=>"Insert task template",
-"New tasks template"=>"New tasks template",
+"Insert task template"=>"Chèn mẫu nhiệm vụ", // MT
+"New tasks template"=>"Mẫu nhiệm vụ mới", // MT
+"Tasks templates"=>"Mẫu nhiệm vụ", // MT

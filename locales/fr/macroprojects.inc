@@ -259,7 +259,7 @@
 "add/del project"=>"Ajouter/Supprimer un projet",
 "cancel"=>"Annuler",
 "change color"=>"Changer la couleur",
-"co"=>"Sorti par",
+"co"=>"co", // MT
 "completed"=>"Complété",
 "Del"=>"Supprimer",
 "Delete"=>"Supprimer",
@@ -284,7 +284,7 @@
 "noCompanies"=>"Merci de créer une entreprise en premier",
 "noDeleteRecord"=>"Suppression impossible: dépendances!",
 "none"=>"Aucun",
-"normal"=>"",
+"normal"=>"normal", // MT
 "on time"=>"A temps",
 "organize tasks"=>"Actions groupées sur les tâches",
 "overdue"=>"Passé dû",

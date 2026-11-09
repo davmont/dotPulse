@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Afegir", // MT
+"LBL_EXCLUSION"=>"Excloure", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Sagnat", // MT
+"LBL_ORDER"=>"Ordre", // MT
+"LBL_SORT"=>"Ordenar", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Desar", // MT
+"LBL_ESTIMATION"=>"Estimació", // MT
+"LBL_DESCRIPTION"=>"Descripció", // MT
+"LBL_MOVE"=>"Moure", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Definició d'activitats", // MT
+"LBL_CREATE_MINUTE"=>"Crear acta", // MT
+"LBL_MINUTES"=>"Actes", // MT
+"LBL_DATE"=>"Data", // MT
+"LBL_EDIT"=>"Editar", // MT
+"LBL_TYPE"=>"Tipus", // MT
+"LBL_EFFORT"=>"Esforç", // MT
+"LBL_DURATION"=>"Duració", // MT
+"LBL_RESOURCES"=>"Recursos (rols)", // MT
+"LBL_SIZE"=>"Mida", // MT
+"LBL_ALL_MEMBERS"=>"Tots els membres", // MT
+"LBL_PARTICIPANTS"=>"Participants",
+"LBL_REPORT"=>"Informe", // MT
+"LBL_CLOSE"=>"Tancar", // MT
+"LBL_WORK_PACKAGE"=>"Paquet de treball", // MT
+"LBL_IN_DAYS"=>"(dies)", // MT
+"LBL_ESTIMATIONS"=>"Estimacions", // MT
+"LBL_ACTIVITY"=>"Activitat", // MT
+"LBL_HOURS"=>"Hores", // MT
+"LBL_MINUTES_TIME"=>"Actes", // MT
+"LBL_DAYS"=>"Dies", // MT
+"LBL_ROLE"=>"Rol", // MT
+"LBL_ORGONOGRAM"=>"Organigrama", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Derivació", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Estimacions", // MT
+"1LBLORGONOGRAM"=>"Organigrama ", // MT
+"LBL_INTRO"=>"Aquest mòdul s'utilitza des dels mòduls de projectes i de tasques de projecte. No cal accedir-hi directament. Podeu amagar aquesta pestanya a l'àrea d'administració del sistema.", // MT
+"LBL_DEV_SCHEDULE"=>"Desenvolupament del calendari", // MT
+"LBL_EXECUTE"=>"Executar", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Aquesta acció calcula les dates d'inici i de fi de les activitats a partir de la data d'inici del projecte, els esforços estimats i les dependències lògiques entre activitats.", // MT
+"Assigned to Task"=>"Assignat a la tasca", // MT

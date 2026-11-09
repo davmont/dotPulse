@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"U hebt niet de vereiste rechten", // MT
+"Years"=>"Jaren", // MT
+"Submit"=>"Verzenden", // MT
+"Display"=>"Weergeven", // MT
+"Amounts"=>"Bedragen", // MT
+"without tax"=>"exclusief btw", // MT
+"with tax"=>"inclusief btw", // MT
+"Detail"=>"Detail",
+"Sub Total"=>"Subtotaal", // MT
+"Total"=>"Totaal", // MT
+"All"=>"Alle", // MT
+"Save Changes"=>"Wijzigingen opslaan", // MT
+"Budget"=>"Budget",
+"Project / Task(Tax)"=>"Project / taak (btw)", // MT
+"INVESTMENT"=>"INVESTERING", // MT
+"OPERATION"=>"EXPLOITATIE", // MT
+"Equipment"=>"Apparatuur", // MT
+"Intangible"=>"Immaterieel", // MT
+"Service"=>"Dienst", // MT
+"Open in new tab"=>"Openen in nieuw tabblad", // MT
+"Tax"=>"Btw", // MT
+"This task is only financial"=>"Deze taak is alleen financieel", // MT
+"Investment"=>"Investering", // MT
+"Operation"=>"Exploitatie", // MT
+"You can not set the budget of a dynamic task"=>"U kunt het budget van een dynamische taak niet instellen", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Internet Explorer kan aanzienlijk vertragen als er veel projecten moeten worden geladen.", // MT
+"Only valued projects and tasks"=>"Alleen gewaardeerde projecten en taken", // MT
+"Only valued projects"=>"Alleen gewaardeerde projecten", // MT
+"Only projects with null budget"=>"Alleen projecten zonder budget", // MT
+"Project Type"=>"Projecttype", // MT
+"Excel export"=>"Exporteren naar Excel", // MT
+"Project Status"=>"Projectstatus", // MT
+"Template"=>"Sjabloon", // MT
+"Archived"=>"Gearchiveerd", // MT
+"Unknown"=>"Onbekend", // MT
+"Administrative"=>"Administratief", // MT
+"Operative"=>"Operationeel", // MT
+"MacroProject / Project / Task(Tax)"=>"Macroproject / project / taak (btw)", // MT
+"TOTAL"=>"TOTAAL", // MT
+"Macroproject / Project / Task(Tax)"=>"Macroproject / project / taak (btw)", // MT

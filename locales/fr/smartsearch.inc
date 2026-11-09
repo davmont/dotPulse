@@ -16,4 +16,4 @@
 "Show empty"=>"Afficher vide",
 "Task Log"=>"Connexion tâche",
 "Total records found"=>"Total d\\'enregistrements trouvés",
-
+"Deselect all"=>"Tout désélectionner", // MT

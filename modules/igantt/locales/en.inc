@@ -55,3 +55,4 @@
 "wrongBrowser"=>"This module cannot work with your browser. Please select Mozilla Firefox or Opera to run this module.",
 "You must save or cancel your changes before adding a task",
 "New task",
+"InvalidID"=>"Invalid ID",

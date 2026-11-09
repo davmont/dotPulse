@@ -1643,12 +1643,17 @@ class CTask extends CDpObject
 		}
 
 		// load original task dates and calculate task time span
+		// (skipping the holidays of the owner's workplace)
+		$holiday_calendar = CDate::holidayCalendarForUser($newTask->task_owner);
 		$tsd = new CDate($newTask->task_start_date);
+		$tsd->setHolidayCalendar($holiday_calendar);
 		$ted = new CDate($newTask->task_end_date);
+		$ted->setHolidayCalendar($holiday_calendar);
 		$duration = $tsd->calcDuration($ted);
 
 		// reset start date
 		$nsd = new CDate($newTask->get_deps_max_end_date($newTask));
+		$nsd->setHolidayCalendar($holiday_calendar);
 
 		// prefer Wed 8:00 over Tue 16:00 as start date
 		$nsd = $nsd->next_working_day();
@@ -1734,6 +1739,7 @@ class CTask extends CDpObject
 				$q->clear();
 
 				$ed = new CDate($t['task_end_date']);
+				$ed->setHolidayCalendar(CDate::holidayCalendarForUser($taskObj->task_owner));
 
 				$ed->addDays(db_loadResult($sql));
 				$ed->next_working_day();
@@ -2458,11 +2464,9 @@ class CTask extends CDpObject
 		}
 		$this->htmlDecode();
 
-		// Only remind on working days.
+		// Only remind on working days (each person's, below, as their workplaces
+		// can have different holidays).
 		$today = new CDate();
-		if (!$today->isWorkingDay()) {
-			return true;
-		}
 
 		// Check if the task is completed
 		if ($this->task_percent_complete == 100) {
@@ -2473,7 +2477,7 @@ class CTask extends CDpObject
 		$q->addTable('user_tasks', 'ut');
 		$q->leftJoin('users', 'u', 'u.user_id = ut.user_id');
 		$q->leftJoin('contacts', 'c', 'c.contact_id = u.user_contact');
-		$q->addQuery('c.contact_id, contact_first_name, contact_last_name, contact_email');
+		$q->addQuery('c.contact_id, contact_first_name, contact_last_name, contact_email, u.user_id');
 		$q->addWhere('ut.task_id = ' . (int)$id);
 		$contacts = $q->loadHashList('contact_id');
 		$q->clear();
@@ -2493,11 +2497,23 @@ class CTask extends CDpObject
 					'contact_id' => $owner_contact,
 					'contact_first_name' => $owner_first_name,
 					'contact_last_name' => $owner_last_name,
-					'contact_email' => $owner_email
+					'contact_email' => $owner_email,
+					'user_id' => $this->task_owner
 				);
 			}
 		}
 		$q->clear();
+
+		$working_today = array();
+		foreach ($contacts as $contact_id => $contact) {
+			$today->setHolidayCalendar(CDate::holidayCalendarForUser($contact['user_id']));
+			if ($today->isWorkingDay()) {
+				$working_today[$contact_id] = true;
+			}
+		}
+		if (!$working_today) {
+			return true;
+		}
 
 		// build the subject line, based on how soon the
 		// task will be overdue.
@@ -2544,8 +2560,8 @@ class CTask extends CDpObject
 			. $this->task_description . "\n");
 
 		$mail = new Mail;
-		foreach ($contacts as $contact) {
-			if ($mail->ValidEmail($contact['contact_email'])) {
+		foreach ($contacts as $contact_id => $contact) {
+			if (isset($working_today[$contact_id]) && $mail->ValidEmail($contact['contact_email'])) {
 				$mail->To($contact['contact_email']);
 			}
 		}

@@ -1,0 +1,114 @@
+/* dotPulse dark: the dotPulse theme (style/dotpulse) with the brand's dark palette
+   (images/brand/logo-dark.svg, tools/brand/build.py). Layout and rules come from
+   dotPulse's stylesheet; this one redefines its colours and adds what a dark page needs.
+   Text reaches 4.5:1 on the surfaces it sits on, icons and lines 3:1 (WCAG AA);
+   tools/checks/theme-contrast.py checks the pairs (make theme-contrast).
+   Colours the templates write into the markup are adapted by includes/dark_colors.php. */
+@import url("../dotpulse/main.css");
+
+:root {
+	color-scheme: dark;
+	--dp-blue: #7BA9F7;
+	--dp-blue-deep: #B5CFFB;
+	--dp-blue-light: #7BA9F7;
+	--dp-blue-wash: #243150;
+	--dp-blue-tint: #1F2838;
+	--dp-coral: #FF8A6E;
+	--dp-coral-text: #FF9C84;
+	--dp-coral-wash: #3A2421;
+	--dp-teal: #2BC4C4;
+	--dp-teal-wash: #14302F;
+	--dp-ink: #E9EDF3;
+	--dp-slate: #A9B4C4;
+	--dp-line: #4A5568;
+	--dp-line-soft: #2C3443;
+	--dp-ground: #141A24;
+	--dp-surface: #1A202B;
+	--dp-surface-alt: #171C26;
+	--dp-row-line: #252D3A;
+	--dp-today: #22324D;
+	--dp-weekend: #171D27;
+	--dp-muted: #8F9AAD;
+	--dp-faint: #7F8BA0;
+	--dp-control-line: #707C90;
+	--dp-focus: #7BA9F7;
+	--dp-primary: #2F68C8;
+	--dp-primary-hover: #2558B0;
+	--dp-on-primary: #FFFFFF;
+	--dp-banner: #22324D;
+	--dp-hover-tile: #2D3D60;
+	--dp-shadow: rgba(0, 0, 0, 0.5);
+	--dp-focus-ring: rgba(123, 169, 247, 0.35);
+}
+
+/* Form controls keep a visible edge on the dark surface. */
+.text, select, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="search"], input[type="url"], input[type="date"], input[type="file"], TEXTAREA, .textarea {
+	background-color: var(--dp-ground);
+}
+input::placeholder, textarea::placeholder { color: var(--dp-muted); opacity: 1; }
+.button, input[type="button"], input[type="reset"], button { color: var(--dp-blue-deep); }
+
+/* Bitmaps without a vector version were drawn for a white page: a light backing keeps
+   them legible (spacers excluded). */
+img:is([src$=".gif" i], [src$=".png" i], [src$=".jpg" i])[src*="images/"]:not([src*="shim"]) {
+	background-color: #E8EDF5;
+	border-radius: 3px;
+}
+
+/* System Admin (modules/system/admin.css): its own colour set. */
+body .dpa {
+	--a-blue: #7BA9F7;
+	--a-blue-deep: #B5CFFB;
+	--a-blue-light: #7BA9F7;
+	--a-wash: #243150;
+	--a-tint: #1F2838;
+	--a-coral-text: #FF9C84;
+	--a-coral-wash: #3A2421;
+	--a-coral-line: #8A4334;
+	--a-teal: #2BC4C4;
+	--a-teal-wash: #14302F;
+	--a-teal-line: #2A6B6B;
+	--a-ink: #E9EDF3;
+	--a-slate: #A9B4C4;
+	--a-line: #707C90;
+	--a-line-soft: #2C3443;
+	--a-surface: #1A202B;
+	--a-surface-head: #1F2633;
+	--a-row-line: #252D3A;
+	--a-faint: #8F9AAD;
+	--a-off: #2A3240;
+	--a-primary: #2F68C8;
+	--a-primary-deep: #2558B0;
+	--a-on-primary: #FFFFFF;
+}
+
+/* Project Gantt chart (lib/frappe-gantt draws it with fixed light colours). */
+body .gantt .grid-header { fill: var(--dp-blue-wash); stroke: var(--dp-line-soft); }
+body .gantt .grid-row { fill: var(--dp-surface); }
+body .gantt .grid-row:nth-child(even) { fill: var(--dp-surface-alt); }
+body .gantt .row-line { stroke: var(--dp-row-line); }
+body .gantt .tick { stroke: var(--dp-line); }
+body .gantt .today-highlight { fill: #3A3A22; opacity: 0.6; }
+body .gantt .arrow { stroke: var(--dp-slate); }
+body .gantt .bar { fill: #46546E; stroke: var(--dp-slate); }
+body .gantt .bar-progress { fill: #3D6FD0; }
+body .gantt .bar-wrapper:hover .bar, body .gantt .bar-wrapper.active .bar { fill: #55647F; }
+body .gantt .bar-wrapper:hover .bar-progress, body .gantt .bar-wrapper.active .bar-progress { fill: #4A7EE0; }
+body .gantt .bar-label { fill: #FFFFFF; }
+body .gantt .bar-label.big, body .gantt .bar-invalid ~ .bar-label { fill: var(--dp-ink); }
+body .gantt .upper-text { fill: var(--dp-slate); }
+body .gantt .lower-text { fill: var(--dp-ink); }
+body .gantt .handle { fill: var(--dp-slate); }
+
+/* Module widgets drawn on a fixed light background. */
+.modal-content { background-color: var(--dp-surface) !important; color: var(--dp-ink); border-color: var(--dp-line) !important; }
+.treeTable { background-color: var(--dp-surface) !important; }
+.treeTable tbody tr.even { background: var(--dp-surface-alt) !important; }
+.treeTable tbody tr.odd { background: var(--dp-surface) !important; }
+.tdContentProject { background-color: #2A3244 !important; }
+.parent .tdContentTask { background-color: #232A38 !important; }
+.tdContentTask { background-color: #1E2430 !important; }
+form[name=budgetFrm] input[disabled] { background-color: var(--dp-surface-alt); color: var(--dp-muted); }
+.gtbl { background: var(--dp-surface) !important; }
+.gtbl, .gtbl td, .gtbl th { border-color: var(--dp-line) !important; }

@@ -1,5 +1,6 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Insert task template"=>"Insert task template",
-"New tasks template"=>"New tasks template",
+"Insert task template"=>"Feladatsablon beszúrása", // MT
+"New tasks template"=>"Új feladatsablon", // MT
+"Tasks templates"=>"Feladatsablonok", // MT

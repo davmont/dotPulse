@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"添加", // MT
+"LBL_EXCLUSION"=>"排除", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"缩进", // MT
+"LBL_ORDER"=>"顺序", // MT
+"LBL_SORT"=>"排序", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"保存", // MT
+"LBL_ESTIMATION"=>"估算", // MT
+"LBL_DESCRIPTION"=>"概述", // MT
+"LBL_MOVE"=>"移动", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"活动定义", // MT
+"LBL_CREATE_MINUTE"=>"创建会议纪要", // MT
+"LBL_MINUTES"=>"会议纪要", // MT
+"LBL_DATE"=>"日期", // MT
+"LBL_EDIT"=>"编辑", // MT
+"LBL_TYPE"=>"类型", // MT
+"LBL_EFFORT"=>"工作量", // MT
+"LBL_DURATION"=>"期限", // MT
+"LBL_RESOURCES"=>"资源（角色）", // MT
+"LBL_SIZE"=>"大小", // MT
+"LBL_ALL_MEMBERS"=>"所有成员", // MT
+"LBL_PARTICIPANTS"=>"参与者", // MT
+"LBL_REPORT"=>"报表", // MT
+"LBL_CLOSE"=>"关闭", // MT
+"LBL_WORK_PACKAGE"=>"工作包", // MT
+"LBL_IN_DAYS"=>"（天）", // MT
+"LBL_ESTIMATIONS"=>"估算", // MT
+"LBL_ACTIVITY"=>"活动", // MT
+"LBL_HOURS"=>"小时", // MT
+"LBL_MINUTES_TIME"=>"会议纪要", // MT
+"LBL_DAYS"=>"天", // MT
+"LBL_ROLE"=>"角色", // MT
+"LBL_ORGONOGRAM"=>"组织结构图", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"派生", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"估算", // MT
+"1LBLORGONOGRAM"=>"组织结构图 ", // MT
+"LBL_INTRO"=>"此模块由项目和项目任务模块使用，无需直接访问。您可以在系统管理区域隐藏此标签。", // MT
+"LBL_DEV_SCHEDULE"=>"制定进度计划", // MT
+"LBL_EXECUTE"=>"执行", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"此操作根据项目开始日期、估算工作量以及活动之间的逻辑依赖关系计算活动的开始和结束日期。", // MT
+"Assigned to Task"=>"已分配到任务", // MT

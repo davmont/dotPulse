@@ -31,4 +31,5 @@
 "Task Name"=>"Nom de tâche",
 "Unknown"=>"Inconnu",
 "Uploaded By"=>"Uploader par:",
-
+"links list"=>"liste des liens", // MT
+"Link"=>"Lien", // MT

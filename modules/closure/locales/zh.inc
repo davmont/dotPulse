@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"收尾", // MT
+"Project Name"=>"项目名称", // MT
+"Project Meeting Date"=>"项目会议日期", // MT
+"Project Start Date"=>"项目开始日期", // MT
+"Project End Date"=>"项目结束日期", // MT
+"new post mortem analysis"=>"新建事后分析", // MT
+"New Post Mortem"=>"新建事后分析", // MT
+"Edit Post Mortem"=>"编辑事后分析", // MT
+"Meeting Date"=>"会议日期", // MT
+"Meeting Settings"=>"会议设置", // MT
+"Project Summary"=>"项目摘要", // MT
+"Project Planned Start Date"=>"项目计划开始日期", // MT
+"Project Planned End Date"=>"项目计划结束日期", // MT
+"Project Planned Budget"=>"项目计划预算", // MT
+"Project Budget"=>"项目预算", // MT
+"Lessons Learned"=>"经验教训", // MT
+"Project Strengths"=>"项目优势", // MT
+"Project Weaknesses"=>"项目不足", // MT
+"Improvement Suggestions"=>"改进建议", // MT
+"Conclusions"=>"结论", // MT
+"Meeting Participants"=>"会议参与者", // MT
+"view this post mortem"=>"查看此事后分析", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"在此列出（每项以“*”开头）在本项目中效果良好的技术、流程、IDE 或任何技巧、工具或服务", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"在此列出（每项以“*”开头）在本项目中效果不佳的技术、流程、IDE 或任何技巧、工具或服务", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"在此列出（每项以“*”开头）项目中需要改进的方面", // MT
+"General conclusions about the project"=>"关于项目的总体结论", // MT
+"Post Mortem deleted"=>"事后分析已删除", // MT
+"post mortem list"=>"事后分析列表", // MT
+"Post Mortem"=>"事后分析", // MT
+"noDeletePermission"=>"您没有删除此项目的权限", // MT
+"Post Mortem Records by project"=>"按项目的事后分析记录", // MT
+"Project Status"=>"项目状况", // MT
+"Participants"=>"参与者", // MT
+"Post Mortem ID"=>"事后分析 ID", // MT
+"View Post Mortem Analysis"=>"查看事后分析", // MT
+"edit this post mortem"=>"编辑此事后分析", // MT
+"invalid ID"=>"无效的 ID", // MT
+"Post Mortem Analysis"=>"事后分析", // MT

@@ -44,3 +44,4 @@
 "LBL_DEV_SCHEDULE"=>"Desenvolver cronograma",
 "LBL_EXECUTE" => "Executar",
 "LBL_ACTION_SCHEDULE_DEV"=>"Esta ação calcula as datas de início e fim das atividades do projeto a partir da data de início do projeto<br>O cálculo é baseado nas estimativas de esforço e dependências lógicas entre as atividades.",
+"Assigned to Task"=>"Atribuído à Tarefa", // MT

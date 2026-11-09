@@ -1,33 +1,33 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add Department"=>"Lägga till avdelning",
-"Address"=>"Address",
-"badCompany"=>"Detta företag är ogiltigt. Därför kan ingen avdelning läggas till.",
-"Company"=>"Company",
+"Add Department"=>"LÃ¤gga till avdelning",
+"Address"=>"Adress", // MT
+"badCompany"=>"Detta fÃ¶retag Ã¤r ogiltigt. DÃ¤rfÃ¶r kan ingen avdelning lÃ¤ggas till.",
+"Company"=>"FÃ¶retag", // MT
 "delDept"=>"Skall denna avdelning verkligen raderas?",
 "delete department"=>"Radera avdelning",
-"Department"=>"Department",
-"Department Company"=>"Avdelning företag",
+"Department"=>"Avdelning", // MT
+"Department Company"=>"Avdelning fÃ¶retag",
 "Department Name"=>"Avdelningsnamn",
-"Department Parent"=>"Överordnad avdelning",
+"Department Parent"=>"Ã–verordnad avdelning",
 "departmentDelete"=>"Skall denna avdelning verkligen raderas?",
-"deptIndexPage"=>"Visa avdelningen via ett företag",
-"deptValidName"=>"Mata in ett giltigt namn för denna avdelning",
+"deptIndexPage"=>"Visa avdelningen via ett fÃ¶retag",
+"deptValidName"=>"Mata in ett giltigt namn fÃ¶r denna avdelning",
 "deptWithProject"=>"En avdelning associerad med projekt kan ej raderas.",
 "deptWithSub"=>"En avdelning med underavdelningar kan ej raderas.",
-"Description"=>"Description",
-"Details"=>"Details",
+"Description"=>"Beskrivning", // MT
+"Details"=>"Detaljer", // MT
 "Edit Department"=>"Redigera avdelning",
 "edit this department"=>"redigera denna avdelning",
 "Fax"=>"Fax",
-"Name"=>"Name",
-"new department"=>"new department",
-"Owner"=>"Owner",
-"Phone"=>"Phone",
-"Please choose a Department first!"=>"Please choose a Department first!",
-"Select Unit"=>"Välj enhet",
-"Telephone"=>"Telephone",
+"Name"=>"Namn", // MT
+"new department"=>"ny avdelning", // MT
+"Owner"=>"Ã„gare", // MT
+"Phone"=>"Telefon", // MT
+"Please choose a Department first!"=>"VÃ¤lj en avdelning fÃ¶rst!", // MT
+"Select Unit"=>"VÃ¤lj enhet",
+"Telephone"=>"Telefon", // MT
 "View Department"=>"Visa avdelning",
 "view this department"=>"visa denna avdelning",
-
+"Invalid Department ID"=>"Ogiltigt avdelnings-ID", // MT

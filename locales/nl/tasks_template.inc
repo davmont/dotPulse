@@ -1,5 +1,6 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Insert task template"=>"Insert task template",
-"New tasks template"=>"New tasks template",
+"Insert task template"=>"Taaksjabloon invoegen", // MT
+"New tasks template"=>"Nieuw taaksjabloon", // MT
+"Tasks templates"=>"Taaksjablonen", // MT

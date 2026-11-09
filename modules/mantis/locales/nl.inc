@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Geïntegreerd met Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"Ernst", // MT
+"Priority"=>"Prioriteit", // MT
+"Reproducibility"=>"Reproduceerbaarheid", // MT
+"Resolution"=>"Oplossing", // MT
+"tasks created"=>"taken aangemaakt", // MT
+"already imported"=>"al geïmporteerd", // MT
+"issues updated"=>"issues bijgewerkt", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis is niet geconfigureerd of u hebt geen Mantis-API-token.", // MT
+"That Mantis project is not available to you."=>"Dat Mantis-project is niet voor u beschikbaar.", // MT
+"Project linked to Mantis"=>"Project gekoppeld aan Mantis", // MT
+"Project created in Mantis and linked"=>"Project aangemaakt in Mantis en gekoppeld", // MT
+"Project unlinked from Mantis"=>"Project losgekoppeld van Mantis", // MT
+"Choose a status."=>"Kies een status.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis is niet geconfigureerd: stel het adres (HTTPS) in bij Systeembeheer > Systeemconfiguratie.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Uw Mantis-API-token is opgeslagen.", // MT
+"You have no Mantis API token stored."=>"U hebt geen Mantis-API-token opgeslagen.", // MT
+"Mantis API token"=>"Mantis-API-token", // MT
+"Mantis project"=>"Mantis-project", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Er is nog geen project aan Mantis gekoppeld: koppel er een via het tabblad Mantis van dat project.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Voer uw Mantis-API-token in om de Mantis-issues van dit project te zien", // MT
+"This project is not linked to a Mantis project."=>"Dit project is niet gekoppeld aan een Mantis-project.", // MT
+"Link"=>"Link",
+"Create it in Mantis"=>"Aanmaken in Mantis", // MT
+"needs a Mantis administrator token"=>"vereist een token van een Mantis-beheerder", // MT
+"Issue"=>"Issue",
+"Assigned To"=>"Toegewezen aan", // MT
+"Updated"=>"Bijgewerkt", // MT
+"No issues"=>"Geen issues", // MT
+"view"=>"bekijken", // MT
+"Import selected as tasks"=>"Geselecteerde importeren als taken", // MT
+"Change status of selected"=>"Status van geselecteerde wijzigen", // MT
+"Unlink this project from Mantis?"=>"Dit project loskoppelen van Mantis?", // MT
+"Unlink"=>"Loskoppelen", // MT
+"Mantis API token saved for Mantis user"=>"Mantis-API-token opgeslagen voor Mantis-gebruiker", // MT
+"Your token is stored"=>"Uw token is opgeslagen", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Maak een token aan in Mantis (Mijn account > API-tokens) en plak het hier. Mantis past dan uw eigen Mantis-rechten toe.", // MT
+"Save"=>"Opslaan", // MT
+"Remove my token"=>"Mijn token verwijderen", // MT
+"Mantis API token removed"=>"Mantis-API-token verwijderd", // MT
+"A Mantis API token has 32 letters and digits."=>"Een Mantis-API-token bestaat uit 32 letters en cijfers.", // MT

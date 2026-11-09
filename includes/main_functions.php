@@ -273,6 +273,69 @@ function dPshowModuleConfig($config)
 }
 
 /**
+ * Whether the theme shows the vector icons (tools/icons/build.py) instead of the bitmaps:
+ * a theme opts in by defining DP_VECTOR_ICONS in its overrides.php (dotpulse does). The
+ * classic themes keep the original bitmaps.
+ */
+function dPvectorIcons()
+{
+	return defined('DP_VECTOR_ICONS') && DP_VECTOR_ICONS;
+}
+
+/**
+ * Whether the theme is dark (style/dotpulse-dark defines DP_DARK_THEME in its overrides.php):
+ * it gets the dark versions of the small icons and the colour filter of includes/dark_colors.php.
+ */
+function dPdarkTheme()
+{
+	return defined('DP_DARK_THEME') && DP_DARK_THEME;
+}
+
+/**
+ * The vector icon to serve for a file path without its extension (".../stock_edit-16"): its
+ * dark version in a dark theme where there is one, else the SVG; the extension, or null.
+ */
+function dPvectorIconExtension($base_file)
+{
+	if (dPdarkTheme() && file_exists($base_file . '.dark.svg')) {
+		return '.dark.svg';
+	}
+	return file_exists($base_file . '.svg') ? '.svg' : null;
+}
+
+/**
+ * Output filter of the themes with vector icons: every src of a bitmap of the installation
+ * (images/, modules/, style/) that has an SVG of the same name next to it names the SVG (in a
+ * dark theme, its dark version where there is one). Markup names the bitmaps, so the classic
+ * themes are left as they were.
+ */
+function dPvectorIconFilter($html)
+{
+	static $ext_of = array();
+	$base = DP_BASE_URL;
+	return preg_replace_callback('/(\ssrc\s*=\s*)(["\'])([^"\'<>?#]+)\.(gif|png|jpe?g)\2/i',
+		function ($m) use (&$ext_of, $base) {
+			$path = $m[3];
+			$key = (dPdarkTheme() ? 'dark:' : '') . $path;
+			if (!array_key_exists($key, $ext_of)) {
+				$rel = $path;
+				if ($base !== '' && strpos($rel, $base) === 0) {
+					$rel = substr($rel, strlen($base));
+				}
+				$rel = preg_replace('#^\.?/#', '', $rel);
+				$ext = null;
+				$dir = realpath(DP_BASE_DIR . '/' . dirname($rel));
+				if (strpos($rel, '://') === false && $dir !== false
+					&& preg_match('#^' . preg_quote(realpath(DP_BASE_DIR), '#') . '/(images|modules|style)(/|$)#', $dir)) {
+					$ext = dPvectorIconExtension($dir . '/' . basename($rel));
+				}
+				$ext_of[$key] = $ext;
+			}
+			return $ext_of[$key] !== null ? $m[1] . $m[2] . $path . $ext_of[$key] . $m[2] : $m[0];
+		}, $html);
+}
+
+/**
  *	Function to recussively find an image in a number of places
  *	@param string The name of the image
  *	@param string Optional name of the current module
@@ -291,15 +354,22 @@ function dPfindImage($name, $module = null)
 		('/images/obj/')
 	);
 
+	// In a theme with vector icons, the SVG of a bitmap (tools/icons/build.py) wins where both are.
+	$stem = dPvectorIcons() ? preg_replace('/\.(png|gif|jpe?g)$/i', '', $name) : $name;
 	foreach ($locations_to_search as $exception => $folder) {
-		if (
-			(($module) || ($exception != 'module-image' && $exception != 'module-icon'))
-			&& file_exists(DP_BASE_DIR . $folder . $name)
-		) {
-			return (DP_BASE_URL . $folder . $name);
+		if (($module) || ($exception != 'module-image' && $exception != 'module-icon')) {
+			if ($stem !== $name && ($ext = dPvectorIconExtension(DP_BASE_DIR . $folder . $stem)) !== null) {
+				return (DP_BASE_URL . $folder . $stem . $ext);
+			}
+			if (file_exists(DP_BASE_DIR . $folder . $name)) {
+				return (DP_BASE_URL . $folder . $name);
+			}
 		}
 	}
 	// default to base image directory
+	if ($stem !== $name && ($ext = dPvectorIconExtension(DP_BASE_DIR . '/images/' . $stem)) !== null) {
+		return ('./images/' . $stem . $ext);
+	}
 	return ('./images/' . $name);
 }
 
@@ -1048,13 +1118,13 @@ function shownavbar($xpg_totalrecs, $xpg_pagesize, $xpg_total_pages, $page, $fol
 			echo ('<a href="./index.php?m=' . $m
 				. (($a) ? ('&amp;a=' . $a) : '') . (($tab) ? ('&amp;tab=' . $tab) : '')
 				. (($folder) ? ('&amp;folder=' . $folder) : '') . '&amp;page=1">'
-				. '<img src="images/navfirst.gif" border="0" Alt="'
+				. '<img src="images/navfirst.svg" border="0" Alt="'
 				. $AppUI->_('First Page') . '"></a>' . "\n");
 			echo ('&nbsp;&nbsp;' . "\n");
 			echo ('<a href="./index.php?m=' . $m
 				. (($a) ? ('&amp;a=' . $a) : '') . (($tab) ? ('&amp;tab=' . $tab) : '')
 				. (($folder) ? ('&amp;folder=' . $folder) : '') . '&amp;page=' . $xpg_prev_page . '">'
-				. '<img src="images/navleft.gif" border="0" Alt="'
+				. '<img src="images/navleft.svg" border="0" Alt="'
 				. $AppUI->_('Previous Page') . ': ' . $xpg_prev_page . '"></a>' . "\n");
 		} else {
 			echo ("&nbsp;\n");
@@ -1094,13 +1164,13 @@ function shownavbar($xpg_totalrecs, $xpg_pagesize, $xpg_total_pages, $page, $fol
 			echo ('<a href="./index.php?m=' . $m
 				. (($a) ? ('&amp;a=' . $a) : '') . (($tab) ? ('&amp;tab=' . $tab) : '')
 				. (($folder) ? ('&amp;folder=' . $folder) : '') . '&amp;page=' . $xpg_next_page . '">'
-				. '<img src="images/navright.gif" border="0" Alt="'
+				. '<img src="images/navright.svg" border="0" Alt="'
 				. $AppUI->_('Next Page') . ': ' . $xpg_next_page . '"></a>' . "\n");
 			echo "&nbsp;&nbsp;\n";
 			echo ('<a href="./index.php?m=' . $m
 				. (($a) ? ('&amp;a=' . $a) : '') . (($tab) ? ('&amp;tab=' . $tab) : '')
 				. (($folder) ? ('&amp;folder=' . $folder) : '') . '&amp;page=' . $xpg_total_pages . '">'
-				. '<img src="images/navlast.gif" border="0" Alt="'
+				. '<img src="images/navlast.svg" border="0" Alt="'
 				. $AppUI->_('Last Page') . '"></a>' . "\n");
 		} else {
 			echo ("&nbsp;\n");

@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"필요한 권한이 없습니다", // MT
+"Years"=>"연도", // MT
+"Submit"=>"제출", // MT
+"Display"=>"표시", // MT
+"Amounts"=>"금액", // MT
+"without tax"=>"세금 제외", // MT
+"with tax"=>"세금 포함", // MT
+"Detail"=>"세부 정보", // MT
+"Sub Total"=>"소계", // MT
+"Total"=>"합계", // MT
+"All"=>"전체", // MT
+"Save Changes"=>"변경 사항 저장", // MT
+"Budget"=>"예산", // MT
+"Project / Task(Tax)"=>"프로젝트 / 작업(세금)", // MT
+"INVESTMENT"=>"투자", // MT
+"OPERATION"=>"운영", // MT
+"Equipment"=>"장비", // MT
+"Intangible"=>"무형", // MT
+"Service"=>"서비스", // MT
+"Open in new tab"=>"새 탭에서 열기", // MT
+"Tax"=>"세금", // MT
+"This task is only financial"=>"이 작업은 재무 전용입니다", // MT
+"Investment"=>"투자", // MT
+"Operation"=>"운영", // MT
+"You can not set the budget of a dynamic task"=>"동적 작업의 예산은 설정할 수 없습니다", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Internet Explorer에서는 불러올 프로젝트가 많을 경우 속도가 크게 느려질 수 있습니다.", // MT
+"Only valued projects and tasks"=>"금액이 지정된 프로젝트 및 작업만", // MT
+"Only valued projects"=>"금액이 지정된 프로젝트만", // MT
+"Only projects with null budget"=>"예산이 없는 프로젝트만", // MT
+"Project Type"=>"프로젝트 종류", // MT
+"Excel export"=>"Excel 내보내기", // MT
+"Project Status"=>"프로젝트 상태", // MT
+"Template"=>"템플릿", // MT
+"Archived"=>"보관됨", // MT
+"Unknown"=>"알 수 없음", // MT
+"Administrative"=>"관리", // MT
+"Operative"=>"운영", // MT
+"MacroProject / Project / Task(Tax)"=>"매크로프로젝트 / 프로젝트 / 작업(세금)", // MT
+"TOTAL"=>"합계", // MT
+"Macroproject / Project / Task(Tax)"=>"매크로프로젝트 / 프로젝트 / 작업(세금)", // MT

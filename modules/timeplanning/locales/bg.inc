@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Добави", // MT
+"LBL_EXCLUSION"=>"Изключи", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Отстъп", // MT
+"LBL_ORDER"=>"Ред", // MT
+"LBL_SORT"=>"Сортирай", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Запиши", // MT
+"LBL_ESTIMATION"=>"Оценка", // MT
+"LBL_DESCRIPTION"=>"Описание", // MT
+"LBL_MOVE"=>"Премести", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Определяне на дейностите", // MT
+"LBL_CREATE_MINUTE"=>"Създай протокол", // MT
+"LBL_MINUTES"=>"Протоколи", // MT
+"LBL_DATE"=>"Дата", // MT
+"LBL_EDIT"=>"Редактирай", // MT
+"LBL_TYPE"=>"Тип", // MT
+"LBL_EFFORT"=>"Усилие", // MT
+"LBL_DURATION"=>"Продължителност", // MT
+"LBL_RESOURCES"=>"Ресурси (роли)", // MT
+"LBL_SIZE"=>"Размер", // MT
+"LBL_ALL_MEMBERS"=>"Всички членове", // MT
+"LBL_PARTICIPANTS"=>"Участници", // MT
+"LBL_REPORT"=>"Справка", // MT
+"LBL_CLOSE"=>"Затвори", // MT
+"LBL_WORK_PACKAGE"=>"Работен пакет", // MT
+"LBL_IN_DAYS"=>"(дни)", // MT
+"LBL_ESTIMATIONS"=>"Оценки", // MT
+"LBL_ACTIVITY"=>"Дейност", // MT
+"LBL_HOURS"=>"Часа", // MT
+"LBL_MINUTES_TIME"=>"Протоколи", // MT
+"LBL_DAYS"=>"Дни", // MT
+"LBL_ROLE"=>"Роля", // MT
+"LBL_ORGONOGRAM"=>"Организационна диаграма", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Извеждане", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Оценки", // MT
+"1LBLORGONOGRAM"=>"Организационна диаграма ", // MT
+"LBL_INTRO"=>"Този модул се използва от модулите за проекти и задачи по проекти. Не е необходимо да се отваря директно. Можете да скриете този раздел в системната администрация.", // MT
+"LBL_DEV_SCHEDULE"=>"Разработване на графика", // MT
+"LBL_EXECUTE"=>"Изпълни", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Това действие изчислява началните и крайните дати на дейностите въз основа на началната дата на проекта, оценените усилия и логическите зависимости между дейностите.", // MT
+"Assigned to Task"=>"Възложен на задача", // MT

@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Lägg till", // MT
+"LBL_EXCLUSION"=>"Ta bort", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Indrag", // MT
+"LBL_ORDER"=>"Ordning", // MT
+"LBL_SORT"=>"Sortera", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Spara", // MT
+"LBL_ESTIMATION"=>"Uppskattning", // MT
+"LBL_DESCRIPTION"=>"Beskrivning", // MT
+"LBL_MOVE"=>"Flytta", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Definition av aktiviteter", // MT
+"LBL_CREATE_MINUTE"=>"Skapa protokoll", // MT
+"LBL_MINUTES"=>"Protokoll", // MT
+"LBL_DATE"=>"Datum", // MT
+"LBL_EDIT"=>"Redigera", // MT
+"LBL_TYPE"=>"Typ", // MT
+"LBL_EFFORT"=>"Arbetsinsats", // MT
+"LBL_DURATION"=>"Längd", // MT
+"LBL_RESOURCES"=>"Resurser (roller)", // MT
+"LBL_SIZE"=>"Storlek", // MT
+"LBL_ALL_MEMBERS"=>"Alla medlemmar", // MT
+"LBL_PARTICIPANTS"=>"Deltagare", // MT
+"LBL_REPORT"=>"Rapport", // MT
+"LBL_CLOSE"=>"Stäng", // MT
+"LBL_WORK_PACKAGE"=>"Arbetspaket", // MT
+"LBL_IN_DAYS"=>"(dagar)", // MT
+"LBL_ESTIMATIONS"=>"Uppskattningar", // MT
+"LBL_ACTIVITY"=>"Aktivitet", // MT
+"LBL_HOURS"=>"Timmar", // MT
+"LBL_MINUTES_TIME"=>"Protokoll", // MT
+"LBL_DAYS"=>"Dagar", // MT
+"LBL_ROLE"=>"Roll", // MT
+"LBL_ORGONOGRAM"=>"Organisationsschema", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Härledning", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Uppskattningar", // MT
+"1LBLORGONOGRAM"=>"Organisationsschema ", // MT
+"LBL_INTRO"=>"Den här modulen används från projektmodulen och modulen för projektaktiviteter. Den behöver inte öppnas direkt. Du kan dölja fliken under systemadministration.", // MT
+"LBL_DEV_SCHEDULE"=>"Utveckling av tidsplan", // MT
+"LBL_EXECUTE"=>"Kör", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Den här åtgärden beräknar aktiviteternas start- och slutdatum utifrån projektets startdatum, uppskattad arbetsinsats och logiska beroenden mellan aktiviteterna.", // MT
+"Assigned to Task"=>"Tilldelad aktivitet", // MT

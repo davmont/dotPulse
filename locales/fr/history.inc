@@ -24,4 +24,8 @@
 "Show all"=>"Voir tout",
 "Tasks"=>"Tâche",
 "User"=>"Utilisateur",
-
+"Are you sure you want to cancel?"=>"Voulez-vous vraiment annuler ?", // MT
+"not found"=>"introuvable", // MT
+"from"=>"de", // MT
+"in"=>"dans", // MT
+"Edit History"=>"Éditer l'historique", // MT

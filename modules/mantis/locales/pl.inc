@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Zintegrowano z Mantis", // MT
+"ID"=>"ID",
+"Severity"=>"Ważność", // MT
+"Priority"=>"Priorytet", // MT
+"Reproducibility"=>"Powtarzalność", // MT
+"Resolution"=>"Rozwiązanie", // MT
+"tasks created"=>"utworzono zadania", // MT
+"already imported"=>"już zaimportowano", // MT
+"issues updated"=>"zaktualizowano zgłoszenia", // MT
+"Mantis is not configured or you have no Mantis API token."=>"Mantis nie jest skonfigurowany lub nie masz tokenu API Mantis.", // MT
+"That Mantis project is not available to you."=>"Ten projekt Mantis nie jest dla Ciebie dostępny.", // MT
+"Project linked to Mantis"=>"Powiązano projekt z Mantis", // MT
+"Project created in Mantis and linked"=>"Utworzono projekt w Mantis i powiązano go", // MT
+"Project unlinked from Mantis"=>"Odłączono projekt od Mantis", // MT
+"Choose a status."=>"Wybierz status.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"Mantis nie jest skonfigurowany: ustaw jego adres (HTTPS) w Administracja systemu > Konfiguracja systemu.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"Twój token API Mantis jest zapisany.", // MT
+"You have no Mantis API token stored."=>"Nie masz zapisanego tokenu API Mantis.", // MT
+"Mantis API token"=>"Token API Mantis", // MT
+"Mantis project"=>"Projekt Mantis", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Żaden projekt nie jest jeszcze powiązany z Mantis: powiąż go na jego karcie Mantis.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Wprowadź swój token API Mantis, aby zobaczyć zgłoszenia Mantis tego projektu", // MT
+"This project is not linked to a Mantis project."=>"Ten projekt nie jest powiązany z projektem Mantis.", // MT
+"Link"=>"Łącze", // MT
+"Create it in Mantis"=>"Utwórz go w Mantis", // MT
+"needs a Mantis administrator token"=>"wymaga tokenu administratora Mantis", // MT
+"Issue"=>"Zgłoszenie", // MT
+"Assigned To"=>"Przypisano do", // MT
+"Updated"=>"Zaktualizowano", // MT
+"No issues"=>"Brak zgłoszeń", // MT
+"view"=>"wyświetl", // MT
+"Import selected as tasks"=>"Importuj wybrane jako zadania", // MT
+"Change status of selected"=>"Zmień status wybranych", // MT
+"Unlink this project from Mantis?"=>"Odłączyć ten projekt od Mantis?", // MT
+"Unlink"=>"Odłącz", // MT
+"Mantis API token saved for Mantis user"=>"Zapisano token API Mantis dla użytkownika Mantis", // MT
+"Your token is stored"=>"Twój token jest zapisany", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Utwórz token w Mantis (Moje konto > Tokeny API) i wklej go tutaj. Mantis zastosuje wtedy Twoje własne uprawnienia Mantis.", // MT
+"Save"=>"Zapisz", // MT
+"Remove my token"=>"Usuń mój token", // MT
+"Mantis API token removed"=>"Usunięto token API Mantis", // MT
+"A Mantis API token has 32 letters and digits."=>"Token API Mantis składa się z 32 liter i cyfr.", // MT

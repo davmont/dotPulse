@@ -96,3 +96,6 @@
 // "Forum message updated" => "message mis a jour",
 // "Forum updated" => "Forum mis a jour",
 // "forumsSubject" => "Merci d\\'entrer un sujet valide.",
+"Access denied."=>"Accès refusé.", // MT
+"Message From"=>"Message de", // MT
+"You have unread posts in this topic"=>"Vous avez des messages non lus dans ce sujet", // MT

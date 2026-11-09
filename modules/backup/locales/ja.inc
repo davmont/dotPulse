@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"データベースのバックアップ", // MT
+"restore xml file"=>"XML ファイルを復元", // MT
+"Restore From XML File"=>"XML ファイルから復元", // MT
+"xmlRestoreWarning"=>"このユーティリティは、このユーティリティで作成した XML ファイルからスキーマとデータを復元します。SQL ファイルからは復元しません。", // MT
+"XML File to Restore"=>"復元する XML ファイル", // MT
+"Continue On Error?"=>"エラー時も続行しますか?", // MT
+"upload"=>"アップロード", // MT
+"Backup"=>"バックアップ", // MT
+"Import"=>"インポート", // MT
+"Export"=>"エクスポート", // MT
+"Success"=>"成功しました!", // MT
+"Failure"=>"失敗: ", // MT
+"Import Data"=>"データをインポート", // MT
+"Export Data"=>"データのエクスポート", // MT
+"File Type"=>"ファイルの種類:", // MT
+"clear"=>"クリア", // MT
+"Filename (without extension):"=>"ファイル名 (拡張子なし):", // MT
+"Module"=>"モジュール", // MT
+"Item"=>"項目", // MT
+"zip"=>".zip - 圧縮された SQL ファイル。", // MT
+"sql"=>".sql - SQL クエリを含むテキストファイル。", // MT
+"csv"=>".csv - カンマ区切り値。", // MT
+"vcf"=>".vcf - vCard ファイル。", // MT
+"Add 'DROP TABLE' to output-script"=>"出力スクリプトに 'DROP TABLE' を追加", // MT
+"Table structure and data"=>"テーブル構造とデータ", // MT
+"Only table structure"=>"テーブル構造のみ", // MT
+"Only data"=>"データのみ", // MT
+"Options"=>"オプション", // MT
+"Save as"=>"形式", // MT
+"Compressed ZIP SQL file"=>"ZIP 圧縮 SQL ファイル", // MT
+"Plain text SQL file"=>"プレーンテキスト SQL ファイル", // MT
+"XML file"=>"XML ファイル", // MT
+"Download backup"=>"バックアップをダウンロード", // MT
+"xmlLoginMsg"=>"一度ログアウトして再ログインする必要がある場合があります", // MT
+"Invalid Options"=>"無効なオプション", // MT
+"Failed to restore backup"=>"バックアップを復元できませんでした", // MT
+"Backup restored, but with errors"=>"バックアップを復元しましたが、エラーがあります", // MT
+"Backup Restored OK"=>"バックアップを正常に復元しました", // MT
+"No upload file"=>"アップロードファイルがありません", // MT
+"Error in parsing XML file"=>"XML ファイルの解析エラー", // MT
+"Restore Database"=>"データベースの復元", // MT

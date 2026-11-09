@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"您沒有必要的權限", // MT
+"Years"=>"年", // MT
+"Submit"=>"送出", // MT
+"Display"=>"顯示", // MT
+"Amounts"=>"金額", // MT
+"without tax"=>"未稅", // MT
+"with tax"=>"含稅", // MT
+"Detail"=>"明細", // MT
+"Sub Total"=>"小計", // MT
+"Total"=>"總計", // MT
+"All"=>"全部", // MT
+"Save Changes"=>"儲存變更", // MT
+"Budget"=>"預算", // MT
+"Project / Task(Tax)"=>"專案 / 工作（稅）", // MT
+"INVESTMENT"=>"投資", // MT
+"OPERATION"=>"營運", // MT
+"Equipment"=>"設備", // MT
+"Intangible"=>"無形資產", // MT
+"Service"=>"服務", // MT
+"Open in new tab"=>"在新索引標籤中開啟", // MT
+"Tax"=>"稅", // MT
+"This task is only financial"=>"此工作僅涉及財務", // MT
+"Investment"=>"投資", // MT
+"Operation"=>"營運", // MT
+"You can not set the budget of a dynamic task"=>"您無法設定動態工作的預算", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"若要載入大量專案，Internet Explorer 的效能可能導致非常明顯的速度變慢。", // MT
+"Only valued projects and tasks"=>"只顯示已計值的專案和工作", // MT
+"Only valued projects"=>"只顯示已計值的專案", // MT
+"Only projects with null budget"=>"只顯示預算為空的專案", // MT
+"Project Type"=>"專案型態", // MT
+"Excel export"=>"匯出 Excel", // MT
+"Project Status"=>"專案狀態", // MT
+"Template"=>"範本", // MT
+"Archived"=>"已封存", // MT
+"Unknown"=>"未知", // MT
+"Administrative"=>"行政", // MT
+"Operative"=>"營運", // MT
+"MacroProject / Project / Task(Tax)"=>"MacroProject / 專案 / 工作（稅）", // MT
+"TOTAL"=>"總計", // MT
+"Macroproject / Project / Task(Tax)"=>"Macroproject / 專案 / 工作（稅）", // MT

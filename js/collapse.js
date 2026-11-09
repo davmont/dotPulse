@@ -22,6 +22,8 @@ function toggle_collapse(item, collapse)
 	// offsets. Why anyone would use such a crappy browser is
 	// beyond me.
 	var bottom = item_image.name.substr(item_image.name.length-2,2);
+	// The same kind of image as the page shows (SVG in a theme with vector icons).
+	var ext = /\.svg$/.test(item_image.src) ? '.svg' : '.gif';
 	if (bottom == '_0') {
 		// Item is collapsed, expand it.
 		if (collapse) {
@@ -34,12 +36,12 @@ function toggle_collapse(item, collapse)
 			for (var j = 0; j < orig.length; j++)
 				parent.insertBefore(orig[j], next);
 			item_image.name = item_image.id + '_1';
-			item_image.src = './images/arrow-down.gif';
+			item_image.src = './images/arrow-down' + ext;
 		} 
 	} else {
 		// Item is expanded, collapse it.
 		item_image.name = item_image.id + '_0';
-		item_image.src = './images/arrow-right.gif';
+		item_image.src = './images/arrow-right' + ext;
 		var row_array = new Array();
 		var rid = 0;
 		var sib = item_elem.nextSibling;
@@ -87,7 +89,12 @@ function show_tab(i)
 	var tab = document.getElementById('tab_' + i);
 	tab.style.display = 'block';
 	tab = document.getElementById('toptab_' + i);
-	tab.className = 'tabon';
+	if (tab.classList.contains('dp-tab')) {
+		// dotPulse theme: tabs drawn with CSS
+		tab.classList.add('dp-tab-on');
+	} else {
+		tab.className = 'tabon';
+	}
 }
 
 function hide_tabs()
@@ -101,6 +108,10 @@ function hide_tabs()
 	for(i = 0; i < tabs.length; i++)
 		if (tabs[i].className == 'tabon')
 			tabs[i].className = 'taboff';
+
+	tabs = document.querySelectorAll('.dp-tab-on');
+	for(i = 0; i < tabs.length; i++)
+		tabs[i].classList.remove('dp-tab-on');
 
 	tabs = document.getElementsByTagName('div');
 	for(i = 0; i < tabs.length; i++)

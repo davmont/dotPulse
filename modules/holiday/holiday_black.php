@@ -11,7 +11,9 @@ if (!defined('DP_BASE_DIR')) {
 ##
 
 
+require_once DP_BASE_DIR . '/modules/holiday/holiday_func.php';
 $AppUI->savePlace();
+$calendars = holidayCalendars();
 ?>
 
 <form action=./?m=holiday method="post">
@@ -22,6 +24,7 @@ $AppUI->savePlace();
 	<th width="50" nowrap="nowrap"><?php echo $AppUI->_('Start date');?></th>
 	<th width=100 nowrap="nowrap"><?php echo $AppUI->_('End date');?></th>
 	<th width="10" nowrap="nowrap"><?php echo $AppUI->_('Annual');?></th>
+<?php if ($calendars) { ?>	<th nowrap="nowrap"><?php echo $AppUI->_('Calendar');?></th><?php } ?>
 </tr>
 <?php
 //get stuff from db
@@ -43,6 +46,7 @@ while ($row = db_fetch_assoc( $prc )) {
 	<td width=100 nowrap="nowrap"><?php echo $tmp_start_date->format($AppUI->getPref('SHDATEFORMAT'))?></td>
 	<td width=100 nowrap="nowrap"><?php echo $tmp_end_date->format($AppUI->getPref('SHDATEFORMAT'))?></td>
 	<td width="100" nowrap="nowrap"><?php echo $row["holiday_annual"] ? 'Yes' : 'No'; ?></td>
+<?php if ($calendars) { ?>	<td nowrap="nowrap"><?php echo isset($calendars[$row['holiday_calendar']]) ? dPhtml($calendars[$row['holiday_calendar']]['calendar_name']) : $AppUI->_('All calendars'); ?></td><?php } ?>
 </tr>
 <?php
 }

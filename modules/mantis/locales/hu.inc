@@ -1,0 +1,46 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Mantis Integrated"=>"Mantis integrálva", // MT
+"ID"=>"ID",
+"Severity"=>"Súlyosság", // MT
+"Priority"=>"Prioritás", // MT
+"Reproducibility"=>"Reprodukálhatóság", // MT
+"Resolution"=>"Megoldás", // MT
+"tasks created"=>"feladat létrehozva", // MT
+"already imported"=>"már importálva", // MT
+"issues updated"=>"ügy frissítve", // MT
+"Mantis is not configured or you have no Mantis API token."=>"A Mantis nincs beállítva, vagy nincs Mantis API tokenje.", // MT
+"That Mantis project is not available to you."=>"Ez a Mantis projekt nem érhető el az Ön számára.", // MT
+"Project linked to Mantis"=>"A projekt összekapcsolva a Mantisszal", // MT
+"Project created in Mantis and linked"=>"A projekt létrehozva a Mantisban és összekapcsolva", // MT
+"Project unlinked from Mantis"=>"A projekt leválasztva a Mantisról", // MT
+"Choose a status."=>"Válasszon státuszt.", // MT
+"Mantis is not configured: set its address (HTTPS) in System Admin > System Configuration."=>"A Mantis nincs beállítva: adja meg a címét (HTTPS) a Rendszer admin > Rendszerbeállítások menüpontban.", // MT
+"Mantis"=>"Mantis",
+"Your Mantis API token is stored."=>"A Mantis API tokenje el van tárolva.", // MT
+"You have no Mantis API token stored."=>"Nincs eltárolt Mantis API tokenje.", // MT
+"Mantis API token"=>"Mantis API token",
+"Mantis project"=>"Mantis projekt", // MT
+"No project is linked to Mantis yet: link one from its Mantis tab."=>"Még egyetlen projekt sincs összekapcsolva a Mantisszal: kapcsoljon össze egyet a Mantis fülén.", // MT
+"Enter your Mantis API token to see the Mantis issues of this project"=>"Adja meg a Mantis API tokenjét a projekt Mantis ügyeinek megtekintéséhez", // MT
+"This project is not linked to a Mantis project."=>"Ez a projekt nincs Mantis projekthez kapcsolva.", // MT
+"Link"=>"Hivatkozás", // MT
+"Create it in Mantis"=>"Létrehozás a Mantisban", // MT
+"needs a Mantis administrator token"=>"Mantis adminisztrátori token szükséges", // MT
+"Issue"=>"Ügy", // MT
+"Assigned To"=>"Felelős", // MT
+"Updated"=>"Frissítve", // MT
+"No issues"=>"Nincsenek ügyek", // MT
+"view"=>"megtekintés", // MT
+"Import selected as tasks"=>"Kijelöltek importálása feladatként", // MT
+"Change status of selected"=>"Kijelöltek státuszának módosítása", // MT
+"Unlink this project from Mantis?"=>"Leválasztja ezt a projektet a Mantisról?", // MT
+"Unlink"=>"Leválasztás", // MT
+"Mantis API token saved for Mantis user"=>"Mantis API token mentve a Mantis felhasználóhoz:", // MT
+"Your token is stored"=>"A tokenje el van tárolva", // MT
+"Create a token in Mantis (My Account > API Tokens) and paste it here. Mantis then applies your own Mantis permissions."=>"Hozzon létre egy tokent a Mantisban (My Account > API Tokens), és illessze be ide. A Mantis ekkor az Ön saját Mantis jogosultságait alkalmazza.", // MT
+"Save"=>"Mentés", // MT
+"Remove my token"=>"Tokenem eltávolítása", // MT
+"Mantis API token removed"=>"Mantis API token eltávolítva", // MT
+"A Mantis API token has 32 letters and digits."=>"A Mantis API token 32 betűből és számjegyből áll.", // MT

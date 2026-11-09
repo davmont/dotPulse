@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Kết thúc", // MT
+"Project Name"=>"Tên dự án", // MT
+"Project Meeting Date"=>"Ngày họp dự án", // MT
+"Project Start Date"=>"Ngày bắt đầu dự án", // MT
+"Project End Date"=>"Ngày kết thúc dự án", // MT
+"new post mortem analysis"=>"phân tích sau dự án mới", // MT
+"New Post Mortem"=>"Phân tích sau dự án mới", // MT
+"Edit Post Mortem"=>"Sửa phân tích sau dự án", // MT
+"Meeting Date"=>"Ngày họp", // MT
+"Meeting Settings"=>"Thiết lập cuộc họp", // MT
+"Project Summary"=>"Tóm tắt dự án", // MT
+"Project Planned Start Date"=>"Ngày bắt đầu dự án theo kế hoạch", // MT
+"Project Planned End Date"=>"Ngày kết thúc dự án theo kế hoạch", // MT
+"Project Planned Budget"=>"Ngân sách dự án theo kế hoạch", // MT
+"Project Budget"=>"Ngân sách dự án", // MT
+"Lessons Learned"=>"Bài học kinh nghiệm", // MT
+"Project Strengths"=>"Điểm mạnh của dự án", // MT
+"Project Weaknesses"=>"Điểm yếu của dự án", // MT
+"Improvement Suggestions"=>"Đề xuất cải tiến", // MT
+"Conclusions"=>"Kết luận", // MT
+"Meeting Participants"=>"Người tham gia cuộc họp", // MT
+"view this post mortem"=>"xem phân tích sau dự án này", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Liệt kê tại đây (mỗi mục bắt đầu bằng '*') các công nghệ, quy trình, IDE hoặc bất kỳ kỹ thuật, công cụ hay dịch vụ nào hiệu quả với bạn trong dự án này", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Liệt kê tại đây (mỗi mục bắt đầu bằng '*') các công nghệ, quy trình, IDE hoặc bất kỳ kỹ thuật, công cụ hay dịch vụ nào không hiệu quả với bạn trong dự án này", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Liệt kê tại đây (mỗi mục bắt đầu bằng '*') các khía cạnh của dự án cần được cải thiện", // MT
+"General conclusions about the project"=>"Kết luận chung về dự án", // MT
+"Post Mortem deleted"=>"Đã xoá phân tích sau dự án", // MT
+"post mortem list"=>"danh sách phân tích sau dự án", // MT
+"Post Mortem"=>"Phân tích sau dự án", // MT
+"noDeletePermission"=>"Bạn không có quyền xoá mục này", // MT
+"Post Mortem Records by project"=>"Hồ sơ phân tích sau dự án theo dự án", // MT
+"Project Status"=>"Trạng thái dự án", // MT
+"Participants"=>"Người tham gia", // MT
+"Post Mortem ID"=>"ID phân tích sau dự án", // MT
+"View Post Mortem Analysis"=>"Xem phân tích sau dự án", // MT
+"edit this post mortem"=>"sửa phân tích sau dự án này", // MT
+"invalid ID"=>"ID không hợp lệ", // MT
+"Post Mortem Analysis"=>"Phân tích sau dự án", // MT

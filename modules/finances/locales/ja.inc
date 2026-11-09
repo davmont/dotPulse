@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"必要な権限がありません", // MT
+"Years"=>"年", // MT
+"Submit"=>"送信", // MT
+"Display"=>"表示", // MT
+"Amounts"=>"金額", // MT
+"without tax"=>"税抜", // MT
+"with tax"=>"税込", // MT
+"Detail"=>"詳細", // MT
+"Sub Total"=>"小計", // MT
+"Total"=>"合計", // MT
+"All"=>"すべて", // MT
+"Save Changes"=>"変更を保存", // MT
+"Budget"=>"予算", // MT
+"Project / Task(Tax)"=>"プロジェクト / タスク (税)", // MT
+"INVESTMENT"=>"投資", // MT
+"OPERATION"=>"運用", // MT
+"Equipment"=>"設備", // MT
+"Intangible"=>"無形資産", // MT
+"Service"=>"サービス", // MT
+"Open in new tab"=>"新しいタブで開く", // MT
+"Tax"=>"税", // MT
+"This task is only financial"=>"このタスクは財務のみです", // MT
+"Investment"=>"投資", // MT
+"Operation"=>"運用", // MT
+"You can not set the budget of a dynamic task"=>"動的タスクの予算は設定できません", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Internet Explorer では、読み込むプロジェクトが多い場合に動作が著しく遅くなることがあります。", // MT
+"Only valued projects and tasks"=>"金額が設定されたプロジェクトとタスクのみ", // MT
+"Only valued projects"=>"金額が設定されたプロジェクトのみ", // MT
+"Only projects with null budget"=>"予算が未設定のプロジェクトのみ", // MT
+"Project Type"=>"プロジェクトの種類", // MT
+"Excel export"=>"Excel エクスポート", // MT
+"Project Status"=>"プロジェクトのステータス", // MT
+"Template"=>"テンプレート", // MT
+"Archived"=>"アーカイブ済み", // MT
+"Unknown"=>"不明", // MT
+"Administrative"=>"管理", // MT
+"Operative"=>"運用", // MT
+"MacroProject / Project / Task(Tax)"=>"マクロプロジェクト / プロジェクト / タスク (税)", // MT
+"TOTAL"=>"合計", // MT
+"Macroproject / Project / Task(Tax)"=>"マクロプロジェクト / プロジェクト / タスク (税)", // MT

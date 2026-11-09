@@ -6,7 +6,7 @@
 "6LBLCRONOGRAMA"=>"Cronograma",
 "7LBLQUALIDADE"=>"Qualidade",
 "8LBLBASELINE"=>"Linha de Base",
-"Gravar"=>"Gravar",
+"Gravar"=>"Enviar", // MT
 "LBL_ABERTO"=>"Aberto",
 "LBL_ACAO_CORRETIVA"=>"Ação Corretiva",
 "LBL_APOIA"=>"Apóia",
@@ -83,5 +83,11 @@
 "LBL_VERSAO"=>"Versão",
 "LBL_VP"=>"VP",
 "LBL_VPR"=>"VPR",
-"Voltar"=>"Voltar",
+"Voltar"=>"Voltar", // MT
 "LBL_POSICAO_ATUAL"=>"Posição Atual",
+"Monitoring and Control"=>"Monitoramento e Controle", // MT
+"Invalid ID"=>"ID inválido", // MT
+"Nova Baseline"=>"Nova Linha de Base", // MT
+"Fechar"=>"Fechar",
+"Salvar"=>"Salvar",
+"Ação Corretiva"=>"Ação Corretiva",

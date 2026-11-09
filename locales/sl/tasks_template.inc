@@ -1,5 +1,6 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Insert task template"=>"Insert task template",
-"New tasks template"=>"New tasks template",
+"Insert task template"=>"Vstavi predlogo opravil", // MT
+"New tasks template"=>"Nova predloga opravil", // MT
+"Tasks templates"=>"Predloge opravil", // MT

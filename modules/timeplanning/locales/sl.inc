@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Dodaj", // MT
+"LBL_EXCLUSION"=>"Izključi", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Zamik", // MT
+"LBL_ORDER"=>"Vrstni red", // MT
+"LBL_SORT"=>"Razvrsti", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Shrani", // MT
+"LBL_ESTIMATION"=>"Ocena", // MT
+"LBL_DESCRIPTION"=>"Opis", // MT
+"LBL_MOVE"=>"Premakni", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Opredelitev aktivnosti", // MT
+"LBL_CREATE_MINUTE"=>"Ustvari zapisnik", // MT
+"LBL_MINUTES"=>"Zapisniki", // MT
+"LBL_DATE"=>"Datum", // MT
+"LBL_EDIT"=>"Uredi", // MT
+"LBL_TYPE"=>"Tip", // MT
+"LBL_EFFORT"=>"Napor", // MT
+"LBL_DURATION"=>"Trajanje", // MT
+"LBL_RESOURCES"=>"Viri (vloge)", // MT
+"LBL_SIZE"=>"Velikost", // MT
+"LBL_ALL_MEMBERS"=>"Vsi člani", // MT
+"LBL_PARTICIPANTS"=>"Udeleženci", // MT
+"LBL_REPORT"=>"Poročilo", // MT
+"LBL_CLOSE"=>"Zapri", // MT
+"LBL_WORK_PACKAGE"=>"Delovni paket", // MT
+"LBL_IN_DAYS"=>"(dni)", // MT
+"LBL_ESTIMATIONS"=>"Ocene", // MT
+"LBL_ACTIVITY"=>"Dejavnost", // MT
+"LBL_HOURS"=>"Ure", // MT
+"LBL_MINUTES_TIME"=>"Zapisniki", // MT
+"LBL_DAYS"=>"Dnevi", // MT
+"LBL_ROLE"=>"Vloga", // MT
+"LBL_ORGONOGRAM"=>"Organizacijski diagram", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Izpeljava", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Ocene", // MT
+"1LBLORGONOGRAM"=>"Organizacijski diagram ", // MT
+"LBL_INTRO"=>"Ta modul uporabljata modula Projekti in Opravila projekta. Neposreden dostop do njega ni potreben. Ta zavihek lahko skrijete v administraciji sistema.", // MT
+"LBL_DEV_SCHEDULE"=>"Razvoj časovnega načrta", // MT
+"LBL_EXECUTE"=>"Izvedi", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"To dejanje izračuna datume začetka in konca aktivnosti na podlagi datuma začetka projekta, ocenjenega napora in logičnih odvisnosti med aktivnostmi.", // MT
+"Assigned to Task"=>"Dodeljeno opravilu", // MT

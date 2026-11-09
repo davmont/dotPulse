@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"About Modules"=>"About Modules",
-"Access Denied"=>"Access Denied",
-"Adding a Company"=>"Adding a Company",
-"Adding a Project"=>"Adding a Project",
-"Adding a Task"=>"Adding a Task",
-"Breadcrumbs"=>"Breadcrumbs",
-"Context Help"=>"Context Help",
-"General Concepts"=>"General Concepts",
-"Getting Started"=>"Getting Started",
-"helpIntro"=>"Here are some quick links to topics in the help file that not directly accessible directly from the context help.",
-"index"=>"index",
-"Left Navigation"=>"Left Navigation",
-"Saving Your Place"=>"Saving Your Place",
-"Tabbed Property Boxes"=>"Tabbed Property Boxes",
-"Top Menu"=>"Top Menu",
+"About Modules"=>"Om moduler", // MT
+"Access Denied"=>"Adgang nægtet", // MT
+"Adding a Company"=>"Tilføjelse af en virksomhed", // MT
+"Adding a Project"=>"Tilføjelse af et projekt", // MT
+"Adding a Task"=>"Tilføjelse af en opgave", // MT
+"Breadcrumbs"=>"Brødkrummer", // MT
+"Context Help"=>"Kontekstafhængig hjælp", // MT
+"General Concepts"=>"Generelle begreber", // MT
+"Getting Started"=>"Kom godt i gang", // MT
+"helpIntro"=>"Her er nogle hurtige links til emner i hjælpefilen, som ikke er direkte tilgængelige fra den kontekstafhængige hjælp.", // MT
+"index"=>"indeks", // MT
+"Left Navigation"=>"Venstre navigation", // MT
+"Saving Your Place"=>"Gem din position", // MT
+"Tabbed Property Boxes"=>"Egenskabsbokse med faner", // MT
+"Top Menu"=>"Topmenu", // MT
 

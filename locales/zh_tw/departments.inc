@@ -1,38 +1,39 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Add Department"=>"·s¼W³¡ªù",
-"Address"=>"¦í§}",
-"badCompany"=>"³o­Ó³¡ªùµL®Ä, §AµLªk·s¼W¤@­Ó³¡ªù.",
-"Company"=>"¤½¥q",
-"delDept"=>"½T©w­n§R°£³o­Ó³¡ªù¶Ü?",
-"delete department"=>"§R°£³¡ªù",
-"Department"=>"³¡ªù",
-"Department Company"=>"³¡ªù©ÒÄÝ¤½¥q",
-"Department Name"=>"³¡ªù¦WºÙ",
-"Department Parent"=>"¤W¼h¥DºÞ³æ¦ì",
-"departmentDelete"=>"§R°£³o­Ó³¡ªù?",
-"deptIndexPage"=>"½Ð³z¹L¤@­Ó¤½¥q¨Ó¦s¨ú³¡ªù",
-"deptValidName"=>"½Ð¿é¤J¤@­Ó¦³®Äªº³¡ªù¦WºÙ",
-"deptWithProject"=>"µLªk§R°£¤@­Ó³sµ²¨ì±M®×ªº³¡ªù.",
-"deptWithSub"=>"µLªk§R°£¤@­Ó¦³¤UÄÝ³æ¦ìªº³¡ªù",
-"Description"=>"»¡©ú",
-"Details"=>"²Ó¸`",
-"Edit Department"=>"½s¿è³¡ªù¸ê®Æ",
-"edit this department"=>"½s¿è³o­Ó³¡ªù",
-"Fax"=>"Fax",
-"Name"=>"Name",
-"new department"=>"new department",
-"Owner"=>"©Ò¦³¤H",
-"Phone"=>"¹q¸Ü",
-"Please choose a Department first!"=>"Please choose a Department first!",
-"Select Unit"=>"Select Unit",
-"Telephone"=>"Telephone",
-"View Department"=>"Åã¥Ü³¡ªù",
-"view this department"=>"ÀËµø³o­Ó³¡ªù",
+"Add Department"=>"æ–°å¢žéƒ¨é–€",
+"Address"=>"ä½å€",
+"badCompany"=>"é€™å€‹éƒ¨é–€ç„¡æ•ˆ, ä½ ç„¡æ³•æ–°å¢žä¸€å€‹éƒ¨é–€.",
+"Company"=>"å…¬å¸",
+"delDept"=>"ç¢ºå®šè¦åˆªé™¤é€™å€‹éƒ¨é–€å—Ž?",
+"delete department"=>"åˆªé™¤éƒ¨é–€",
+"Department"=>"éƒ¨é–€",
+"Department Company"=>"éƒ¨é–€æ‰€å±¬å…¬å¸",
+"Department Name"=>"éƒ¨é–€åç¨±",
+"Department Parent"=>"ä¸Šå±¤ä¸»ç®¡å–®ä½",
+"departmentDelete"=>"åˆªé™¤é€™å€‹éƒ¨é–€?",
+"deptIndexPage"=>"è«‹é€éŽä¸€å€‹å…¬å¸ä¾†å­˜å–éƒ¨é–€",
+"deptValidName"=>"è«‹è¼¸å…¥ä¸€å€‹æœ‰æ•ˆçš„éƒ¨é–€åç¨±",
+"deptWithProject"=>"ç„¡æ³•åˆªé™¤ä¸€å€‹é€£çµåˆ°å°ˆæ¡ˆçš„éƒ¨é–€.",
+"deptWithSub"=>"ç„¡æ³•åˆªé™¤ä¸€å€‹æœ‰ä¸‹å±¬å–®ä½çš„éƒ¨é–€",
+"Description"=>"èªªæ˜Ž",
+"Details"=>"ç´°ç¯€",
+"Edit Department"=>"ç·¨è¼¯éƒ¨é–€è³‡æ–™",
+"edit this department"=>"ç·¨è¼¯é€™å€‹éƒ¨é–€",
+"Fax"=>"å‚³çœŸ", // MT
+"Name"=>"åç¨±", // MT
+"new department"=>"æ–°éƒ¨é–€", // MT
+"Owner"=>"æ‰€æœ‰äºº",
+"Phone"=>"é›»è©±",
+"Please choose a Department first!"=>"è«‹å…ˆé¸æ“‡éƒ¨é–€ï¼", // MT
+"Select Unit"=>"é¸æ“‡å–®ä½", // MT
+"Telephone"=>"é›»è©±", // MT
+"View Department"=>"é¡¯ç¤ºéƒ¨é–€",
+"view this department"=>"æª¢è¦–é€™å€‹éƒ¨é–€",
 
 
 ##
 ## OBSOLETE KEYS
 ##
-// "Invalid Department ID" => "µL®Äªº³¡ªù ID",
+// "Invalid Department ID" => "ç„¡æ•ˆçš„éƒ¨é–€ ID",
+"Invalid Department ID"=>"ç„¡æ•ˆçš„éƒ¨é–€ ID", // MT

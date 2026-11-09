@@ -7,16 +7,16 @@
 "Add Message"=>"Добави съобщение",
 "add new forum"=>"добави нов форум",
 "Author"=>"Автор",
-"back"=>"back",
+"back"=>"назад", // MT
 "closed"=>"затворено",
-"Collapsed"=>"",
+"Collapsed"=>"Свити", // MT
 "Configure Forums Module"=>"Настройте Форумния Модул",
 "Created On"=>"Създадено",
 "days"=>"дни",
 "days ago"=>"изминали дни",
 "delete forum"=>"изтрии форум",
-"Description"=>"Description",
-"Details"=>"Details",
+"Description"=>"Описание", // MT
+"Details"=>"Подробности", // MT
 "edit"=>"промени",
 "Edit Forum"=>"Промени форума",
 "Edit Message"=>"Промени съобщение",
@@ -37,7 +37,7 @@
 "forumTypeMessage"=>"Моля, въведете съобщение преди да изпратите",
 "hours"=>"часове",
 "Inactive Projects"=>"Неактивни проекти",
-"Incorrect watch type passed to sql handler."=>"",
+"Incorrect watch type passed to sql handler."=>"Към SQL обработчика е подаден грешен тип наблюдение.", // MT
 "Last 30 days"=>"За последните 30 дни",
 "last edited by"=>"последно променено от",
 "Last post"=>"Последното съобщение",
@@ -70,7 +70,7 @@
 "start a new topic"=>"започни нова тема",
 "Started"=>"Начато",
 "Subject"=>"Тема",
-"submit"=>"submit",
+"submit"=>"прати", // MT
 "system admin"=>"администратор",
 "this topic"=>"тази тема",
 "Topics"=>"Област",
@@ -82,4 +82,6 @@
 "Watch Forced"=>"Следи насила",
 "Watch Unforced"=>"Следи ненасила",
 "Watch updated"=>"Следене е записано",
-
+"Access denied."=>"Достъпът е отказан.", // MT
+"Message From"=>"Съобщение от", // MT
+"You have unread posts in this topic"=>"Имате непрочетени публикации в тази тема", // MT

@@ -23,3 +23,4 @@
 "Sent messages",
 "Title",
 "Viewed messages",
+"Message sent succesfully"=>"Mensaje enviado correctamente",

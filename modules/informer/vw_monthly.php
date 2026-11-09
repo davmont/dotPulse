@@ -22,7 +22,7 @@ if (!defined('DP_BASE_DIR')) {
 
 	//grab hours per day from config
 	$show_possible_hours_worked = $INFORMER_CONFIG['show_possible_hours_worked'];
-	if( $show_possible_hours_worked ) $opp_hours = ( $dPconfig['daily_working_hours'] ) ? $dPconfig['daily_working_hours'] : 8;
+	$opp_hours = $show_possible_hours_worked ? dPgetConfig('daily_working_hours', 8) : 0;
 	
 	//get date format
 	$df = $AppUI->getPref('SHDATEFORMAT');
@@ -69,6 +69,7 @@ if (!defined('DP_BASE_DIR')) {
 	foreach( $res as $row ) $data[$row['day']][] = $row;
 	
 	$weekdate = new CDate();
+	$weekdate->setHolidayCalendar(CDate::holidayCalendarForUser($user_id));
 	$weekdate->copy( $start_day );
 //echo '<pre>'; print_r($data);echo '</pre>';	
 ?>

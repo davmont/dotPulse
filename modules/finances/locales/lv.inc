@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"Jums nav nepieciešamās atļaujas", // MT
+"Years"=>"Gadi", // MT
+"Submit"=>"Iesniegt", // MT
+"Display"=>"Attēlot", // MT
+"Amounts"=>"Summas", // MT
+"without tax"=>"bez nodokļa", // MT
+"with tax"=>"ar nodokli", // MT
+"Detail"=>"Detaļas", // MT
+"Sub Total"=>"Starpsumma", // MT
+"Total"=>"Kopā", // MT
+"All"=>"Visi", // MT
+"Save Changes"=>"Saglabāt izmaiņas", // MT
+"Budget"=>"Budžets", // MT
+"Project / Task(Tax)"=>"Projekts / uzdevums (nodoklis)", // MT
+"INVESTMENT"=>"INVESTĪCIJAS", // MT
+"OPERATION"=>"DARBĪBA", // MT
+"Equipment"=>"Aprīkojums", // MT
+"Intangible"=>"Nemateriāls", // MT
+"Service"=>"Pakalpojums", // MT
+"Open in new tab"=>"Atvērt jaunā cilnē", // MT
+"Tax"=>"Nodoklis", // MT
+"This task is only financial"=>"Šis uzdevums ir tikai finansiāls", // MT
+"Investment"=>"Investīcijas", // MT
+"Operation"=>"Darbība", // MT
+"You can not set the budget of a dynamic task"=>"Dinamiskam uzdevumam nevar iestatīt budžetu", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Internet Explorer veiktspēja var ievērojami palēnināt darbu, ja jāielādē liels skaits projektu.", // MT
+"Only valued projects and tasks"=>"Tikai novērtētie projekti un uzdevumi", // MT
+"Only valued projects"=>"Tikai novērtētie projekti", // MT
+"Only projects with null budget"=>"Tikai projekti bez budžeta", // MT
+"Project Type"=>"Projekta tips", // MT
+"Excel export"=>"Eksports uz Excel", // MT
+"Project Status"=>"Projekta statuss", // MT
+"Template"=>"Veidne", // MT
+"Archived"=>"Arhivēts", // MT
+"Unknown"=>"Nezināms", // MT
+"Administrative"=>"Administratīvs", // MT
+"Operative"=>"Operatīvs", // MT
+"MacroProject / Project / Task(Tax)"=>"Makroprojekts / projekts / uzdevums (nodoklis)", // MT
+"TOTAL"=>"KOPĀ", // MT
+"Macroproject / Project / Task(Tax)"=>"Makroprojekts / projekts / uzdevums (nodoklis)", // MT

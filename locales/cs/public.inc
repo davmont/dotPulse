@@ -1,26 +1,29 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"[none]"=>"[none]",
-"Access Denied"=>"P��stup odep�en",
-"accessDeniedMsg"=>"<p>Sna��te se p�istupovat k polo�ce v syst�mu, ke kter�m nem�te dostate�n� p��stupov� pr�va. </p><p>Pros�m kontaktujte  administr�tora syst�mu</p>",
-"Allowed Companies"=>"Allowed Companies",
-"chgpwLogin"=>"chgpwLogin",
-"chgpwUpdated"=>"chgpwUpdated",
-"chgpwWrongPW"=>"chgpwWrongPW",
+"[none]"=>"[žádný]", // MT
+"Access Denied"=>"Přístup odepřen",
+"accessDeniedMsg"=>"<p>Snažíte se přistupovat k položce v systému, ke kterém nemáte dostatečná přístupová práva. </p><p>Prosím kontaktujte  administrátora systému</p>",
+"Allowed Companies"=>"Povolené skupiny", // MT
+"chgpwLogin"=>"Pro změnu hesla se přihlaste", // MT
+"chgpwUpdated"=>"Vaše heslo bylo aktualizováno", // MT
+"chgpwWrongPW"=>"Zadali jste nesprávné staré heslo", // MT
 "Color Selector"=>"Volba barev",
-"colorLegend"=>"Pros�m vyberte barvu, kter� bude reprezentovat v� projekt a zav�ete toto okno.",
-"companies"=>"companies",
-"Contacts for"=>"Contacts for",
-"Continue"=>"Continue",
-"Current Password"=>"Current Password",
-"New Password"=>"New Password",
-"no departments"=>"no departments",
-"nodepartments"=>"No Departments available",
-"notasks"=>"No Tasks available",
-"permissions"=>"permissions",
-"Preset"=>"P�edvolba",
-"Repeat New Password"=>"Repeat New Password",
-"submit"=>"submit",
-"View all allowed companies"=>"View all allowed companies",
-
+"colorLegend"=>"Prosím vyberte barvu, která bude reprezentovat váš projekt a zavřete toto okno.",
+"companies"=>"skupiny", // MT
+"Contacts for"=>"Kontakty pro", // MT
+"Continue"=>"Pokračovat", // MT
+"Current Password"=>"Aktuální heslo", // MT
+"New Password"=>"Nové heslo", // MT
+"no departments"=>"žádná oddělení", // MT
+"nodepartments"=>"Žádná oddělení nejsou k dispozici", // MT
+"notasks"=>"Žádné úkoly nejsou k dispozici", // MT
+"permissions"=>"oprávnění", // MT
+"Preset"=>"Předvolba",
+"Repeat New Password"=>"Zopakujte nové heslo", // MT
+"submit"=>"odeslat", // MT
+"View all allowed companies"=>"Zobrazit všechny povolené skupiny", // MT
+"Inactive"=>"Neaktivní", // MT
+"Select a company"=>"Vyberte skupinu", // MT
+"Your password has been changed. You can now log in."=>"Vaše heslo bylo změněno. Nyní se můžete přihlásit.", // MT
+"Invalid or expired password reset link."=>"Neplatný nebo prošlý odkaz pro obnovení hesla.", // MT

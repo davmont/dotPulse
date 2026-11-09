@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Sao lưu cơ sở dữ liệu", // MT
+"restore xml file"=>"khôi phục tệp xml", // MT
+"Restore From XML File"=>"Khôi phục từ tệp XML", // MT
+"xmlRestoreWarning"=>"Tiện ích này sẽ khôi phục lược đồ và dữ liệu từ tệp XML do chính tiện ích này tạo ra. Nó KHÔNG khôi phục từ tệp SQL.", // MT
+"XML File to Restore"=>"Tệp XML cần khôi phục", // MT
+"Continue On Error?"=>"Tiếp tục khi gặp lỗi?", // MT
+"upload"=>"tải lên", // MT
+"Backup"=>"Sao lưu", // MT
+"Import"=>"Nhập", // MT
+"Export"=>"Xuất", // MT
+"Success"=>"Thành công!", // MT
+"Failure"=>"Thất bại: ", // MT
+"Import Data"=>"Nhập dữ liệu", // MT
+"Export Data"=>"Xuất dữ liệu", // MT
+"File Type"=>"Loại tệp:", // MT
+"clear"=>"xoá trắng", // MT
+"Filename (without extension):"=>"Tên tệp (không có phần mở rộng):", // MT
+"Module"=>"Mô-đun", // MT
+"Item"=>"Hạng mục", // MT
+"zip"=>".zip - Tệp SQL nén.", // MT
+"sql"=>".sql - Tệp văn bản chứa truy vấn SQL.", // MT
+"csv"=>".csv - Giá trị phân tách bằng dấu phẩy.", // MT
+"vcf"=>".vcf - Tệp vCard.", // MT
+"Add 'DROP TABLE' to output-script"=>"Thêm 'DROP TABLE' vào script đầu ra", // MT
+"Table structure and data"=>"Cấu trúc bảng và dữ liệu", // MT
+"Only table structure"=>"Chỉ cấu trúc bảng", // MT
+"Only data"=>"Chỉ dữ liệu", // MT
+"Options"=>"Tuỳ chọn", // MT
+"Save as"=>"Lưu dưới dạng", // MT
+"Compressed ZIP SQL file"=>"Tệp SQL nén ZIP", // MT
+"Plain text SQL file"=>"Tệp SQL văn bản thuần", // MT
+"XML file"=>"Tệp XML", // MT
+"Download backup"=>"Tải bản sao lưu", // MT
+"xmlLoginMsg"=>"Bạn có thể cần đăng xuất và đăng nhập lại", // MT
+"Invalid Options"=>"Tuỳ chọn không hợp lệ", // MT
+"Failed to restore backup"=>"Không khôi phục được bản sao lưu", // MT
+"Backup restored, but with errors"=>"Đã khôi phục bản sao lưu nhưng có lỗi", // MT
+"Backup Restored OK"=>"Đã khôi phục bản sao lưu thành công", // MT
+"No upload file"=>"Không có tệp tải lên", // MT
+"Error in parsing XML file"=>"Lỗi khi phân tích tệp XML", // MT
+"Restore Database"=>"Khôi phục cơ sở dữ liệu", // MT

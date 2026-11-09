@@ -1,4 +1,5 @@
-// Layout check: pages must not scroll sideways or put controls outside the window.
+// Layout check: pages must not scroll sideways or put controls outside the window
+// (a control in a box that scrolls sideways within the window counts as reachable).
 //
 //   node layout.js <user> <password> <theme> <WxH> <urls-file> <report.jsonl> [known-file]
 //
@@ -32,8 +33,11 @@ const isKnown = url => known.some(k => (k.t === '*' || k.t === theme) && (k.v ==
 				const path = e => { const a = []; for (let x = e; x && x !== document.body && a.length < 5; x = x.parentElement) a.unshift(x.tagName.toLowerCase() + (x.id ? '#' + x.id : x.name ? `[name=${x.name}]` : '')); return a.join('>'); };
 				const visible = e => { const s = getComputedStyle(e), b = e.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && b.width > 0 && b.height > 0; };
 				const outside = [];
+				// A control in a box that scrolls sideways and fits in the window (a wide list on
+				// a phone) is reached by scrolling that box.
+				const inScroller = e => { for (let x = e.parentElement; x && x !== document.body; x = x.parentElement) { const o = getComputedStyle(x).overflowX, b = x.getBoundingClientRect(); if ((o === 'auto' || o === 'scroll') && b.left >= -1 && b.right <= W + 1) return true; } return false; };
 				for (const e of document.querySelectorAll('button,input:not([type=hidden]),select,textarea,a.button')) {
-					if (!visible(e)) continue;
+					if (!visible(e) || inScroller(e)) continue;
 					const b = e.getBoundingClientRect();
 					if (b.right + scrollX > W + 1 || b.left + scrollX < -1) outside.push(path(e) + ' ' + (e.value || e.textContent || '').trim().slice(0, 20));
 				}

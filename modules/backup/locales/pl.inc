@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Kopia zapasowa bazy danych", // MT
+"restore xml file"=>"przywróć plik XML", // MT
+"Restore From XML File"=>"Przywróć z pliku XML", // MT
+"xmlRestoreWarning"=>"To narzędzie przywraca schemat i dane z pliku XML utworzonego przez to narzędzie. NIE przywraca z plików SQL.", // MT
+"XML File to Restore"=>"Plik XML do przywrócenia", // MT
+"Continue On Error?"=>"Kontynuować w razie błędu?", // MT
+"upload"=>"prześlij", // MT
+"Backup"=>"Kopia zapasowa", // MT
+"Import"=>"Importuj", // MT
+"Export"=>"Eksportuj", // MT
+"Success"=>"Sukces!", // MT
+"Failure"=>"Niepowodzenie: ", // MT
+"Import Data"=>"Importuj dane", // MT
+"Export Data"=>"Eksportuj dane", // MT
+"File Type"=>"Typ pliku:", // MT
+"clear"=>"wyczyść", // MT
+"Filename (without extension):"=>"Nazwa pliku (bez rozszerzenia):", // MT
+"Module"=>"Moduł", // MT
+"Item"=>"Pozycja", // MT
+"zip"=>".zip - skompresowany plik SQL.", // MT
+"sql"=>".sql - plik tekstowy z zapytaniami SQL.", // MT
+"csv"=>".csv - wartości rozdzielone przecinkami.", // MT
+"vcf"=>".vcf - plik vCard.", // MT
+"Add 'DROP TABLE' to output-script"=>"Dodaj 'DROP TABLE' do skryptu wyjściowego", // MT
+"Table structure and data"=>"Struktura i dane tabel", // MT
+"Only table structure"=>"Tylko struktura tabel", // MT
+"Only data"=>"Tylko dane", // MT
+"Options"=>"Opcje", // MT
+"Save as"=>"Zapisz jako", // MT
+"Compressed ZIP SQL file"=>"Skompresowany plik SQL ZIP", // MT
+"Plain text SQL file"=>"Zwykły plik tekstowy SQL", // MT
+"XML file"=>"Plik XML", // MT
+"Download backup"=>"Pobierz kopię zapasową", // MT
+"xmlLoginMsg"=>"Może być konieczne wylogowanie się i ponowne zalogowanie", // MT
+"Invalid Options"=>"Nieprawidłowe opcje", // MT
+"Failed to restore backup"=>"Nie udało się przywrócić kopii zapasowej", // MT
+"Backup restored, but with errors"=>"Przywrócono kopię zapasową, ale wystąpiły błędy", // MT
+"Backup Restored OK"=>"Kopia zapasowa została przywrócona", // MT
+"No upload file"=>"Brak pliku do przesłania", // MT
+"Error in parsing XML file"=>"Błąd podczas analizy pliku XML", // MT
+"Restore Database"=>"Przywróć bazę danych", // MT

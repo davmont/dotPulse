@@ -110,7 +110,7 @@ class CTwoFactor
 	{
 		require_once DP_BASE_DIR . '/vendor/autoload.php';
 		$options = new \chillerlan\QRCode\QROptions(array(
-			'outputType' => \chillerlan\QRCode\Output\QROutputInterface::MARKUP_SVG,
+			'outputInterface' => \chillerlan\QRCode\Output\QRMarkupSVG::class,
 			'eccLevel' => \chillerlan\QRCode\Common\EccLevel::M,
 			'addQuietzone' => true,
 			'outputBase64' => true,

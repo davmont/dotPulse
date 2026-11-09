@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Ekle", // MT
+"LBL_EXCLUSION"=>"Hariç Tut", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Girinti", // MT
+"LBL_ORDER"=>"Sıra", // MT
+"LBL_SORT"=>"Sırala", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Kaydet", // MT
+"LBL_ESTIMATION"=>"Tahmin", // MT
+"LBL_DESCRIPTION"=>"Açıklama", // MT
+"LBL_MOVE"=>"Taşı", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Aktivite Tanımı", // MT
+"LBL_CREATE_MINUTE"=>"Tutanak Oluştur", // MT
+"LBL_MINUTES"=>"Tutanaklar", // MT
+"LBL_DATE"=>"Tarih", // MT
+"LBL_EDIT"=>"Düzenle", // MT
+"LBL_TYPE"=>"Tip", // MT
+"LBL_EFFORT"=>"Efor", // MT
+"LBL_DURATION"=>"Süre", // MT
+"LBL_RESOURCES"=>"Kaynaklar (roller)", // MT
+"LBL_SIZE"=>"Boyut", // MT
+"LBL_ALL_MEMBERS"=>"Tüm üyeler", // MT
+"LBL_PARTICIPANTS"=>"Katılımcılar", // MT
+"LBL_REPORT"=>"Rapor", // MT
+"LBL_CLOSE"=>"Kapat", // MT
+"LBL_WORK_PACKAGE"=>"İş Paketi", // MT
+"LBL_IN_DAYS"=>"(gün)", // MT
+"LBL_ESTIMATIONS"=>"Tahminler", // MT
+"LBL_ACTIVITY"=>"Aktivite", // MT
+"LBL_HOURS"=>"Saat", // MT
+"LBL_MINUTES_TIME"=>"Tutanaklar", // MT
+"LBL_DAYS"=>"Gün", // MT
+"LBL_ROLE"=>"Rol", // MT
+"LBL_ORGONOGRAM"=>"Organizasyon şeması", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Türetme", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Tahminler", // MT
+"1LBLORGONOGRAM"=>"Organizasyon şeması ", // MT
+"LBL_INTRO"=>"Bu modül, projeler ve proje görevleri modülünden kullanılır. Doğrudan erişilmesi gerekmez. Bu sekmeyi sistem yönetimi alanında gizleyebilirsiniz.", // MT
+"LBL_DEV_SCHEDULE"=>"Zaman planı geliştirme", // MT
+"LBL_EXECUTE"=>"Çalıştır", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Bu işlem, aktivitelerin başlangıç ve bitiş tarihlerini proje başlangıç tarihine, tahmini eforlara ve aktiviteler arasındaki mantıksal bağımlılıklara göre hesaplar.", // MT
+"Assigned to Task"=>"Göreve Atandı", // MT

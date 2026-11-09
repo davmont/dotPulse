@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Avslutning", // MT
+"Project Name"=>"Projektnamn", // MT
+"Project Meeting Date"=>"Datum för projektmöte", // MT
+"Project Start Date"=>"Projektets startdatum", // MT
+"Project End Date"=>"Projektets slutdatum", // MT
+"new post mortem analysis"=>"ny efterhandsanalys", // MT
+"New Post Mortem"=>"Ny efterhandsanalys", // MT
+"Edit Post Mortem"=>"Redigera efterhandsanalys", // MT
+"Meeting Date"=>"Mötesdatum", // MT
+"Meeting Settings"=>"Mötesinställningar", // MT
+"Project Summary"=>"Projektsammanfattning", // MT
+"Project Planned Start Date"=>"Projektets planerade startdatum", // MT
+"Project Planned End Date"=>"Projektets planerade slutdatum", // MT
+"Project Planned Budget"=>"Projektets planerade budget", // MT
+"Project Budget"=>"Projektbudget", // MT
+"Lessons Learned"=>"Lärdomar", // MT
+"Project Strengths"=>"Projektets styrkor", // MT
+"Project Weaknesses"=>"Projektets svagheter", // MT
+"Improvement Suggestions"=>"Förbättringsförslag", // MT
+"Conclusions"=>"Slutsatser", // MT
+"Meeting Participants"=>"Mötesdeltagare", // MT
+"view this post mortem"=>"visa den här efterhandsanalysen", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Lista här (varje punkt med '*') tekniker, processer, IDE:er eller andra metoder, verktyg eller tjänster som fungerade för dig i det här projektet", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Lista här (varje punkt med '*') tekniker, processer, IDE:er eller andra metoder, verktyg eller tjänster som inte fungerade för dig i det här projektet", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Lista här (varje punkt med '*') de delar av projektet som behöver förbättras", // MT
+"General conclusions about the project"=>"Allmänna slutsatser om projektet", // MT
+"Post Mortem deleted"=>"Efterhandsanalysen har tagits bort", // MT
+"post mortem list"=>"lista över efterhandsanalyser", // MT
+"Post Mortem"=>"Efterhandsanalys", // MT
+"noDeletePermission"=>"Du har inte behörighet att ta bort det här objektet", // MT
+"Post Mortem Records by project"=>"Efterhandsanalyser per projekt", // MT
+"Project Status"=>"Projektstatus", // MT
+"Participants"=>"Deltagare", // MT
+"Post Mortem ID"=>"Efterhandsanalys-ID", // MT
+"View Post Mortem Analysis"=>"Visa efterhandsanalys", // MT
+"edit this post mortem"=>"redigera den här efterhandsanalysen", // MT
+"invalid ID"=>"ogiltigt ID", // MT
+"Post Mortem Analysis"=>"Efterhandsanalys", // MT

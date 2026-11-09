@@ -23,12 +23,16 @@ $prefs = $q->loadHashList();
 // get the user name
 $user = (($user_id) ? dPgetUsernameFromID($user_id) : 'Default');
 
-$titleBlock = new CTitleBlock('Edit User Preferences', 'myevo-weather.png', $m, "$m.$a");
-if (getPermission('system', 'edit')) {
-	$titleBlock->addCrumb("?m=system", "system admin");
-	$titleBlock->addCrumb("?m=system&amp;a=systemconfig", "system configuration");
+// The defaults (no user) are a System Admin page; a user's own preferences are not.
+$admin_page = (!$user_id && getPermission('system', 'edit'));
+if ($admin_page) {
+	require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
+	dPadminOpen('addeditpref');
+	dPadminHeading('Default user preferences', 'Language, date format, theme and other preferences of the users who have not chosen their own.');
+} else {
+	$titleBlock = new CTitleBlock('Edit User Preferences', 'myevo-weather.png', $m, "$m.$a");
+	$titleBlock->show();
 }
-$titleBlock->show();
 ?>
 <script type="text/javascript" language="javascript" nonce="<?php echo dPcspNonce(); ?>">
 function submitIt() {
@@ -70,7 +74,18 @@ function submitIt() {
 	$langlist = array();
 	foreach ($LANGUAGES as $lang => $langinfo)
 		$langlist[$lang] = $langinfo[1];
-	echo arraySelect($langlist, 'pref_name[LOCALE]', 'class="text" size="1"', @$prefs['LOCALE'], true);
+	// A language without its country ('en', the installer's default) selects one of its
+	// locales, not the first of the list (which saving would then make the default).
+	$locale_pref = isset($prefs['LOCALE']) ? $prefs['LOCALE'] : '';
+	if (!isset($langlist[$locale_pref])) {
+		$matches = preg_grep('/^' . preg_quote($locale_pref, '/') . '_/', array_keys($langlist));
+		if (isset($langlist[$locale_pref . '_US'])) {
+			$locale_pref = $locale_pref . '_US';
+		} else if ($matches) {
+			$locale_pref = reset($matches);
+		}
+	}
+	echo arraySelect($langlist, 'pref_name[LOCALE]', 'class="text" size="1"', $locale_pref, true);
 	$AppUI->setWarning($temp);
 ?>
 	</td>
@@ -142,7 +157,7 @@ function submitIt() {
 	<td align="right"><?php echo $AppUI->_('User Interface Style');?>:</td>
 	<td>
 <?php
-        $uis = !empty($prefs['UISTYLE']) ? $prefs['UISTYLE'] : 'default';
+        $uis = !empty($prefs['UISTYLE']) ? $prefs['UISTYLE'] : dPgetConfig('host_style', 'dotpulse');
 	$styles = $AppUI->readDirs('style');
 	$temp = $AppUI->setWarning(false);
 	echo arraySelect($styles, 'pref_name[UISTYLE]', 'class="text" size="1"', $uis, true , true);
@@ -249,3 +264,4 @@ function submitIt() {
 </tr>
 </table>
 </form>
+<?php if ($admin_page) { dPadminClose(); } ?>

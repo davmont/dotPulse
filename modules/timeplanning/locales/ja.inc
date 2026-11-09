@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"追加", // MT
+"LBL_EXCLUSION"=>"除外", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"インデント", // MT
+"LBL_ORDER"=>"順序", // MT
+"LBL_SORT"=>"並べ替え", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"保存", // MT
+"LBL_ESTIMATION"=>"見積", // MT
+"LBL_DESCRIPTION"=>"説明", // MT
+"LBL_MOVE"=>"移動", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"アクティビティの定義", // MT
+"LBL_CREATE_MINUTE"=>"議事録を作成", // MT
+"LBL_MINUTES"=>"議事録", // MT
+"LBL_DATE"=>"日付", // MT
+"LBL_EDIT"=>"編集", // MT
+"LBL_TYPE"=>"種類", // MT
+"LBL_EFFORT"=>"工数", // MT
+"LBL_DURATION"=>"期間", // MT
+"LBL_RESOURCES"=>"リソース (ロール)", // MT
+"LBL_SIZE"=>"サイズ", // MT
+"LBL_ALL_MEMBERS"=>"全メンバー", // MT
+"LBL_PARTICIPANTS"=>"参加者", // MT
+"LBL_REPORT"=>"レポート", // MT
+"LBL_CLOSE"=>"閉じる", // MT
+"LBL_WORK_PACKAGE"=>"ワークパッケージ", // MT
+"LBL_IN_DAYS"=>"(日)", // MT
+"LBL_ESTIMATIONS"=>"見積", // MT
+"LBL_ACTIVITY"=>"アクティビティ", // MT
+"LBL_HOURS"=>"時間", // MT
+"LBL_MINUTES_TIME"=>"議事録", // MT
+"LBL_DAYS"=>"日数", // MT
+"LBL_ROLE"=>"ロール", // MT
+"LBL_ORGONOGRAM"=>"組織図", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"派生", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"見積", // MT
+"1LBLORGONOGRAM"=>"組織図 ", // MT
+"LBL_INTRO"=>"このモジュールはプロジェクトおよびプロジェクトタスクのモジュールから使用されます。直接アクセスする必要はありません。システム管理でこのタブを非表示にできます。", // MT
+"LBL_DEV_SCHEDULE"=>"スケジュールの作成", // MT
+"LBL_EXECUTE"=>"実行", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"プロジェクトの開始日、見積工数、アクティビティ間の論理的な依存関係に基づいて、アクティビティの開始日と終了日を計算します。", // MT
+"Assigned to Task"=>"タスクに割り当て済み", // MT

@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"Back-up database", // MT
+"restore xml file"=>"XML-bestand terugzetten", // MT
+"Restore From XML File"=>"Terugzetten uit XML-bestand", // MT
+"xmlRestoreWarning"=>"Dit hulpprogramma zet schema en gegevens terug uit een XML-bestand dat met dit hulpprogramma is gemaakt. Het zet GEEN SQL-bestanden terug.", // MT
+"XML File to Restore"=>"Terug te zetten XML-bestand", // MT
+"Continue On Error?"=>"Doorgaan bij fout?", // MT
+"upload"=>"uploaden", // MT
+"Backup"=>"Back-up", // MT
+"Import"=>"Importeren", // MT
+"Export"=>"Exporteren", // MT
+"Success"=>"Gelukt!", // MT
+"Failure"=>"Mislukt: ", // MT
+"Import Data"=>"Gegevens importeren", // MT
+"Export Data"=>"Gegevens exporteren", // MT
+"File Type"=>"Bestandstype:", // MT
+"clear"=>"wissen", // MT
+"Filename (without extension):"=>"Bestandsnaam (zonder extensie):", // MT
+"Module"=>"Module",
+"Item"=>"Item",
+"zip"=>".zip - Gecomprimeerd SQL-bestand.", // MT
+"sql"=>".sql - Tekstbestand met SQL-query's.", // MT
+"csv"=>".csv - Door komma's gescheiden waarden.", // MT
+"vcf"=>".vcf - vCard-bestand.", // MT
+"Add 'DROP TABLE' to output-script"=>"'DROP TABLE' aan uitvoerscript toevoegen", // MT
+"Table structure and data"=>"Tabelstructuur en gegevens", // MT
+"Only table structure"=>"Alleen tabelstructuur", // MT
+"Only data"=>"Alleen gegevens", // MT
+"Options"=>"Opties", // MT
+"Save as"=>"Opslaan als", // MT
+"Compressed ZIP SQL file"=>"Gecomprimeerd ZIP-SQL-bestand", // MT
+"Plain text SQL file"=>"SQL-bestand als platte tekst", // MT
+"XML file"=>"XML-bestand", // MT
+"Download backup"=>"Back-up downloaden", // MT
+"xmlLoginMsg"=>"Mogelijk moet u zich afmelden en opnieuw aanmelden", // MT
+"Invalid Options"=>"Ongeldige opties", // MT
+"Failed to restore backup"=>"Terugzetten van back-up mislukt", // MT
+"Backup restored, but with errors"=>"Back-up teruggezet, maar met fouten", // MT
+"Backup Restored OK"=>"Back-up succesvol teruggezet", // MT
+"No upload file"=>"Geen uploadbestand", // MT
+"Error in parsing XML file"=>"Fout bij het verwerken van het XML-bestand", // MT
+"Restore Database"=>"Database terugzetten", // MT

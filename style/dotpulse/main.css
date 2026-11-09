@@ -1,0 +1,406 @@
+/* dotPulse theme: the brand palette (images/brand) on a light, flat layout.
+   System fonts only: no request to a font service (CSP and visitor privacy). */
+
+:root {
+	--dp-blue: #1B4F9C;
+	--dp-blue-deep: #123A73;
+	--dp-blue-light: #7BA9F7;
+	--dp-blue-wash: #E8EDF5;
+	--dp-blue-tint: #F3F7FE;
+	--dp-coral: #F06449;
+	--dp-coral-text: #C93D27;
+	--dp-coral-wash: #FFF1EE;
+	--dp-teal: #0A8080;
+	--dp-teal-wash: #EEF8F8;
+	--dp-ink: #23262B;
+	--dp-slate: #5A6474;
+	--dp-line: #B8C3D4;
+	--dp-line-soft: #D9E0EA;
+	--dp-ground: #F4F6FA;
+	/* Surfaces and states, so that a theme built on this one (dotpulse-dark) can redefine them. */
+	--dp-surface: #ffffff;
+	--dp-surface-alt: #FAFBFD;
+	--dp-row-line: #EDF1F6;
+	--dp-today: #E3ECFB;
+	--dp-weekend: #F7F8FB;
+	--dp-muted: #8A93A1;
+	--dp-faint: #7F8897;
+	/* Edges of form controls and the focus ring: 3:1 on the page (tools/checks/theme-contrast.py). */
+	--dp-control-line: #7F8BA0;
+	--dp-focus: #2F68C8;
+	--dp-primary: #1B4F9C;
+	--dp-primary-hover: #123A73;
+	--dp-on-primary: #ffffff;
+	--dp-banner: #123A73;
+	--dp-hover-tile: #dbe4f2;
+	--dp-shadow: rgba(0, 0, 0, 0.1);
+	--dp-focus-ring: rgba(27, 79, 156, 0.18);
+	/* Arial metrics before the generic families: on Linux system-ui and sans-serif are
+	   often DejaVu Sans, about 12% wider, which pushes the dense pages off a laptop screen. */
+	--dp-font: "Inter", "Segoe UI", -apple-system, Roboto, "Helvetica Neue", Arial, "Liberation Sans", system-ui, sans-serif;
+	--dp-font-display: "Space Grotesk", "Inter", "Segoe UI", -apple-system, Roboto, Arial, "Liberation Sans", system-ui, sans-serif;
+}
+
+BODY {
+	background-color: var(--dp-ground);
+	color: var(--dp-ink);
+	margin: 0;
+	padding: 0;
+	font-family: var(--dp-font);
+	font-size: 14px;
+	line-height: 1.45;
+}
+
+ul { margin-left: 25px; }
+dl { margin-top: 0; padding-left: 1px; }
+dt { margin-top: 0.5em; color: var(--dp-blue); font-weight: 600; }
+dd { margin-bottom: 0; margin-left: 1.5em; }
+em { font-weight: 600; text-decoration: none; font-style: normal; }
+.ql-editor em { font-weight: normal; font-style: italic; }
+
+A:link, A:visited { color: var(--dp-blue); text-decoration: none; }
+A:active, A:hover { color: var(--dp-blue-deep); text-decoration: underline; }
+
+TD, TR { font-family: var(--dp-font); font-size: 13px; }
+
+h1, .title {
+	font-family: var(--dp-font-display);
+	font-size: 24px;
+	font-weight: 600;
+	color: var(--dp-ink);
+	margin: 4px 0 0;
+}
+h2, .subtitle {
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--dp-ink);
+	margin: 16px 0 0;
+}
+h3 {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--dp-ink);
+	margin: 24px 0 6px;
+}
+
+.bordertable, bordertable { border: 1px solid var(--dp-line); }
+
+/* Form controls */
+.text, select, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="search"], input[type="url"], input[type="date"], input[type="file"] {
+	font-family: var(--dp-font);
+	font-size: 13px;
+	color: var(--dp-ink);
+	background-color: var(--dp-surface);
+	border: 1px solid var(--dp-control-line);
+	border-radius: 6px;
+	padding: 4px 8px;
+	box-sizing: border-box;
+	min-height: 30px;
+}
+select { padding-right: 4px; }
+select[multiple] { padding: 4px; }
+TEXTAREA, .textarea, textarea.small {
+	font-family: var(--dp-font);
+	font-size: 13px;
+	color: var(--dp-ink);
+	background-color: var(--dp-surface);
+	border: 1px solid var(--dp-control-line);
+	border-radius: 6px;
+	padding: 6px 8px;
+	box-sizing: border-box;
+}
+.text:focus, select:focus, TEXTAREA:focus, input:focus {
+	outline: 2px solid var(--dp-focus);
+	outline-offset: 0;
+	border-color: var(--dp-blue);
+}
+input[type="checkbox"], input[type="radio"] { accent-color: var(--dp-blue); }
+
+.button, input[type="button"], input[type="submit"], input[type="reset"], button {
+	font-family: var(--dp-font);
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--dp-blue-deep);
+	background-color: var(--dp-surface);
+	border: 1px solid var(--dp-control-line);
+	border-radius: 6px;
+	padding: 5px 12px;
+	min-height: 30px;
+	cursor: pointer;
+}
+.button:hover, input[type="button"]:hover, input[type="submit"]:hover, button:hover {
+	background-color: var(--dp-blue-tint);
+	border-color: var(--dp-blue-light);
+}
+input[type="submit"], .button.primary {
+	background-color: var(--dp-primary);
+	border-color: var(--dp-primary);
+	color: var(--dp-on-primary);
+}
+input[type="submit"]:hover, .button.primary:hover {
+	background-color: var(--dp-primary-hover);
+	border-color: var(--dp-primary-hover);
+}
+
+.item { color: var(--dp-slate); }
+.ok { color: var(--dp-teal); }
+.hint { color: var(--dp-slate); font-size: 12px; }
+
+/* Top bar (header.php) */
+.dp-top {
+	background: var(--dp-surface);
+	border-bottom: 1px solid var(--dp-line-soft);
+}
+.dp-top-in {
+	display: flex;
+	align-items: center;
+	gap: 16px 20px;
+	flex-wrap: wrap;
+	padding: 8px 20px;
+}
+.dp-logo { display: flex; align-items: center; }
+.dp-logo img { display: block; height: 30px; width: auto; }
+/* The date picker button: its bitmap was 24x12, the vector icon is square. */
+img[src$="images/calendar.svg"], img[src$="images/calendar.dark.svg"] { width: 16px; height: 16px; vertical-align: middle; }
+.dp-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px 4px;
+	flex: 1 1 400px;
+	min-width: 0;
+}
+.dp-nav a {
+	display: block;
+	padding: 6px 10px;
+	border-radius: 6px;
+	color: var(--dp-slate);
+	font-size: 14px;
+	font-weight: 500;
+}
+.dp-nav a:hover { background: var(--dp-blue-wash); color: var(--dp-blue-deep); text-decoration: none; }
+.dp-nav a.dp-on { background: var(--dp-blue-wash); color: var(--dp-blue-deep); font-weight: 600; }
+.dp-tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dp-tools form { margin: 0; display: flex; gap: 6px; align-items: center; }
+.dp-tools input.text { width: 180px; }
+.dp-sub {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 6px 16px;
+	padding: 6px 20px;
+	font-size: 13px;
+	color: var(--dp-slate);
+	background: var(--dp-ground);
+	border-bottom: 1px solid var(--dp-line-soft);
+}
+.dp-sub a { font-weight: 500; }
+.dp-page { padding: 16px 20px 32px; }
+
+/* Older templates and modules that still use these classes */
+TH.banner { background-color: var(--dp-banner); color: var(--dp-on-primary); }
+TH.banner a { color: var(--dp-on-primary); }
+TD.nav { background-color: var(--dp-surface); color: var(--dp-ink); border-bottom: 1px solid var(--dp-line-soft); }
+TD.clsBtnUp, TD.clsBtnDown, TD.clsBtnOn, TD.clsBtnOff, TD.topBtnOff { color: var(--dp-ink); padding: 0 3px; }
+
+/* List tables */
+table.tbl {
+	background: var(--dp-line-soft);
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 1px solid var(--dp-line-soft);
+	border-radius: 8px;
+	overflow: hidden;
+}
+table.tbl TH {
+	background-color: var(--dp-blue-wash);
+	color: var(--dp-ink);
+	font-weight: 600;
+	font-size: 12px;
+	text-align: left;
+	padding: 8px;
+	border-bottom: 1px solid var(--dp-line-soft);
+}
+table.tbl TH a.hdr, A.hdr:link, A.hdr:active, A.hdr:visited { color: var(--dp-blue-deep); }
+table.tbl td {
+	background-color: var(--dp-surface);
+	padding: 6px 8px;
+	border-bottom: 1px solid var(--dp-row-line);
+}
+table.tbl tr:hover td { background-color: var(--dp-blue-tint); }
+table.tbl td.event, table.tbl td.event td { background-color: var(--dp-blue-tint); }
+
+/* Form tables */
+table.std {
+	background: var(--dp-surface);
+	border: 1px solid var(--dp-line-soft);
+	border-radius: 10px;
+	padding: 8px;
+}
+table.std TH {
+	background-color: var(--dp-blue-wash);
+	color: var(--dp-ink);
+	font-weight: 600;
+	padding: 6px 8px;
+	border-radius: 4px;
+}
+table.std td { padding: 4px 6px; }
+table.std td.hilite { background-color: var(--dp-blue-tint); border-radius: 4px; }
+
+table.contacts { background-color: var(--dp-line-soft); }
+table.contacts td { background-color: var(--dp-surface); }
+table.contacts td.hilite { background-color: var(--dp-blue-tint); }
+
+th strong { font-weight: 600; }
+th form { margin: 0; }
+
+/* Tabs (overrides.php draws them without images) */
+div.tabrow {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px;
+	border-bottom: 1px solid var(--dp-line-soft);
+	margin-top: 8px;
+}
+span.dp-tab { display: block; margin-bottom: -1px; }
+span.dp-tab a {
+	display: block;
+	padding: 8px 14px;
+	color: var(--dp-slate);
+	font-weight: 500;
+	border-bottom: 2px solid transparent;
+	border-radius: 6px 6px 0 0;
+}
+span.dp-tab a:hover { color: var(--dp-blue-deep); background: var(--dp-blue-tint); text-decoration: none; }
+span.dp-tab.dp-tab-on a { color: var(--dp-blue-deep); border-bottom-color: var(--dp-blue); font-weight: 600; }
+td.tabox, div.tabox {
+	background-color: var(--dp-surface);
+	border: 1px solid var(--dp-line-soft);
+	border-top: 0;
+	border-radius: 0 0 10px 10px;
+	padding: 12px;
+}
+td.tabon { background: var(--dp-surface); }
+td.taboff { background: var(--dp-ground); }
+td.tabsp { border-bottom: 1px solid var(--dp-line-soft); }
+table.tabitem { display: inline-table; }
+.dp-tabview { font-size: 12px; color: var(--dp-slate); margin: 4px 0; }
+
+/* Messages */
+.warning, .error, .no_ { color: var(--dp-coral-text); }
+.message { color: var(--dp-blue-deep); }
+.hidden { display: none; }
+.disabled { color: var(--dp-muted); }
+
+/* Pop-up calendar */
+body.popcal { background-color: var(--dp-surface); }
+table.poptitle, table.poptitle td { background-color: var(--dp-surface); }
+table.poptitle th { background-color: var(--dp-surface); color: var(--dp-ink); font-size: 14px; font-weight: 600; }
+table.popcal { background-color: var(--dp-line-soft); }
+table.popcal th { background-color: var(--dp-blue-wash); color: var(--dp-ink); font-size: 12px; font-weight: 600; }
+table.popcal td { background-color: var(--dp-surface); font-size: 12px; text-align: center; }
+table.popcal td.empty { background-color: var(--dp-ground); }
+table.popcal td.weekend { background-color: var(--dp-ground); }
+table.popcal a:link, table.popcal a:visited { color: var(--dp-blue); }
+table.popcal a.today:link, table.popcal a.today:visited { color: var(--dp-coral-text); font-weight: 700; }
+table.popcal a.weekend:link, table.popcal a.weekend:visited { color: var(--dp-blue-deep); }
+table.popcal a.empty:link, table.popcal a.empty:visited { color: var(--dp-muted); }
+
+/* Month calendar */
+table.motitle { background-color: transparent; margin-bottom: 10px; width: 100%; }
+table.motitle td { background-color: transparent; }
+table.motitle th { background-color: transparent; font-size: 18px; color: var(--dp-ink); font-weight: 600; padding: 10px 0; }
+table.motitle th a { color: var(--dp-blue-deep) !important; }
+table.mocal {
+	background-color: var(--dp-line-soft);
+	border-spacing: 1px;
+	border-radius: 8px;
+	overflow: hidden;
+	width: 100%;
+}
+table.mocal th { background-color: var(--dp-blue-wash); color: var(--dp-ink); padding: 10px; font-weight: 600; font-size: 12px; text-align: center; }
+table.mocal td { padding: 8px; box-sizing: border-box; }
+table.mocal td.week { vertical-align: top; background-color: var(--dp-ground); color: var(--dp-slate); height: 100px; }
+table.mocal td.empty { background-color: var(--dp-surface-alt); color: var(--dp-faint); vertical-align: top; height: 100px; }
+table.mocal td.day { background-color: var(--dp-surface); color: var(--dp-ink); text-align: left; vertical-align: top; height: 100px; }
+table.mocal td.day:hover { background-color: var(--dp-blue-tint); }
+table.mocal td.today { background-color: var(--dp-today); color: var(--dp-blue-deep); vertical-align: top; height: 100px; box-shadow: inset 0 0 0 2px var(--dp-blue); }
+table.mocal td.weekend { background-color: var(--dp-weekend); vertical-align: top; height: 100px; }
+table.mocal .event { background: var(--dp-blue-wash); border-radius: 4px; padding: 2px 4px; margin: 2px 0; font-size: 12px; }
+table.mocal .event a { color: var(--dp-blue-deep); }
+/* Calendar links (calendar.class.php): an event's type icon, or a task's start and end
+   marks, beside the title with a gap and centred on it. */
+a.event { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; vertical-align: top; }
+a.event img { flex: none; width: 16px; height: 16px; }
+/* Colour keys of the task lists (a 10 px cell per status): an edge, so that the key of
+   future tasks, the page's own colour, still shows. */
+td[width="10"][style*="background-color"] { box-shadow: inset 0 0 0 1px var(--dp-control-line); }
+
+/* Mini calendar */
+table.minititle { background-color: transparent; }
+table.minititle th { font-weight: 600; color: var(--dp-ink); }
+table.minititle a { color: var(--dp-blue-deep); }
+table.minical { background-color: var(--dp-line-soft); border-spacing: 1px; border-radius: 6px; }
+table.minical th { background-color: var(--dp-blue-wash); color: var(--dp-ink); font-size: 11px; font-weight: 600; }
+table.minical td { background-color: var(--dp-surface); font-size: 11px; text-align: center; }
+table.minical td.today { background-color: var(--dp-today); font-weight: 700; }
+table.minical td.empty { background-color: var(--dp-ground); }
+table.minical td.weekend { background-color: var(--dp-weekend); }
+table.minical td.day { background-color: var(--dp-surface); }
+table.minical td.weekend:hover { background-color: var(--dp-blue-tint); }
+table.minical .event { font-weight: 700; }
+
+.login-box { background: var(--dp-surface); border: 1px solid var(--dp-line-soft); border-radius: 12px; }
+
+/* Laptop width: the dense lists and forms of the older pages need the room. */
+@media (max-width: 1279px) {
+	.dp-page { padding-left: 12px; padding-right: 12px; }
+	table.tbl TH, table.tbl td { padding: 5px 6px; }
+	table.std td { padding: 3px 5px; }
+	td.tabox, div.tabox { padding: 8px; }
+	span.dp-tab a { padding: 7px 10px; }
+	.button, input[type="button"], input[type="submit"], input[type="reset"], button { padding: 4px 9px; }
+}
+
+@media (max-width: 700px) {
+	.dp-top-in, .dp-sub, .dp-page { padding-left: 12px; padding-right: 12px; }
+	.dp-tools input.text { width: 140px; }
+}
+
+/* Phone width (not pop-ups, which open small on purpose). The pages lay out with
+   tables: below 640px the layout and form tables stack (a label above its field),
+   while lists and calendars, which need their columns, scroll sideways inside
+   themselves. */
+@media (max-width: 640px) {
+	/* The modules in one row that scrolls sideways, the current one in view. */
+	.dp-nav { flex: 1 1 100%; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+	.dp-nav a { flex: 0 0 auto; }
+	body:not(.dp-dialog) .dp-page { padding-left: 10px; padding-right: 10px; }
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *),
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *) > tbody,
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *) > thead,
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *) > * > tr,
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *) > * > tr > td,
+	body:not(.dp-dialog) .dp-page table:not(.tbl, .mocal, .popcal, .contacts, .tbl *, .mocal *, .contacts *) > * > tr > th {
+		display: block;
+		width: auto !important;
+		max-width: 100%;
+		box-sizing: border-box;
+		white-space: normal;
+		text-align: left;
+	}
+	body:not(.dp-dialog) .dp-page table.tbl, body:not(.dp-dialog) .dp-page table.mocal, body:not(.dp-dialog) .dp-page table.contacts {
+		display: block;
+		max-width: 100%;
+		min-width: 0 !important; /* over inline min-widths: the columns scroll inside */
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	body:not(.dp-dialog) .dp-page h1 { white-space: normal; }
+	body:not(.dp-dialog) .dp-page input:not([type=checkbox], [type=radio], [type=image]), body:not(.dp-dialog) .dp-page select, body:not(.dp-dialog) .dp-page textarea {
+		max-width: 100%;
+		box-sizing: border-box;
+	}
+	body:not(.dp-dialog) .dp-page img { max-width: 100%; height: auto; }
+	body:not(.dp-dialog) .dp-page pre { white-space: pre-wrap; word-break: break-word; }
+}

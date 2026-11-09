@@ -15,9 +15,9 @@
 "Assign ticket to parent"=>"分配跟踪单至母单",
 "Assigned to"=>"分配至",
 "Assigned to Me"=>"分配给自己",
-"Assignment changed"=>"Assignment changed",
+"Assignment changed"=>"分配已更改", // MT
 "Author"=>"撰写人",
-"back"=>"back",
+"back"=>"返回", // MT
 "Back to top"=>"回到顶部",
 "Body"=>"内容",
 "Cc"=>"抄送",
@@ -26,7 +26,7 @@
 "Closed Parents"=>"已结束的母单",
 "Closed Tickets"=>"已结束的跟踪单",
 "Comments"=>"注释",
-"Company"=>"Company",
+"Company"=>"公司", // MT
 "Date"=>"日期",
 "day"=>"天",
 "days"=>"天",
@@ -36,8 +36,8 @@
 "Depth"=>"范围",
 "Descending"=>"递减",
 "Description of Problem"=>"问题描述",
-"E-Mail"=>"E-Mail",
-"Expunge Deleted"=>"Expunge Deleted",
+"E-Mail"=>"电子邮件", // MT
+"Expunge Deleted"=>"彻底清除已删除项", // MT
 "Field"=>"区域",
 "Followup"=>"跟进单",
 "Followups"=>"跟进单",
@@ -58,8 +58,8 @@
 "My"=>"我的",
 "My Tickets"=>"我的跟踪单",
 "my tickets"=>"我的跟踪单",
-"Name"=>"Name",
-"New Ticket"=>"New Ticket",
+"Name"=>"名称", // MT
+"New Ticket"=>"新建跟踪单", // MT
 "new ticket"=>"新添跟踪单",
 "newer"=>"新的",
 "no results"=>"无结果",
@@ -71,19 +71,19 @@
 "Open Tickets"=>"开放的跟踪单",
 "Original message"=>"原始信息",
 "original ticket author"=>"原跟踪单作者",
-"Owner"=>"Owner",
+"Owner"=>"负责人", // MT
 "Pattern"=>"式样",
 "Post Comment"=>"张贴意见",
 "Post Followup"=>"张贴跟进单",
 "Post followup (emails client)"=>"张贴跟进单（email方式）",
 "Post internal comment"=>"张贴内部意见",
 "Priority"=>"优先级",
-"Priority changed"=>"Priority changed",
+"Priority changed"=>"优先级已更改", // MT
 "Processing"=>"处理中的",
 "Processing Tickets"=>"处理中的跟踪单",
-"Project"=>"Project",
-"Report as PDF"=>"Report as PDF",
-"required"=>"required",
+"Project"=>"项目", // MT
+"Report as PDF"=>"导出为 PDF 报表", // MT
+"required"=>"必填", // MT
 "results"=>"结果",
 "Return to parent"=>"返回到源跟踪单",
 "Return to ticket list"=>"返回跟踪单列表",
@@ -95,16 +95,16 @@
 "Sort By"=>"排序方式",
 "Staff Comment"=>"提供意见",
 "Status"=>"状况",
-"Status changed"=>"Status changed",
+"Status changed"=>"状况已更改", // MT
 "Subject"=>"主题",
-"submit"=>"submit",
+"submit"=>"提交", // MT
 "Submit Trouble Ticket"=>"提交问题跟踪单",
 "There are no"=>"没有",
 "There were"=>"有",
 "Ticket"=>"跟踪单",
 "Ticket assigned to you"=>"已分配给你的跟踪单",
 "Ticket ID"=>"跟踪单标识",
-"Ticket Updated - "=>"Ticket Updated - ",
+"Ticket Updated - "=>"跟踪单已更新 - ", // MT
 "tickets"=>"跟踪单",
 "tickets list"=>"跟踪单列表",
 "ticketsmithValidDetail"=>"提交前请提供以下详情",
@@ -114,8 +114,8 @@
 "Trouble ticket"=>"问题跟踪单",
 "Trouble ticket assigned to you"=>"已分配给你的问题跟踪单",
 "Trouble Ticket Management"=>"问题跟踪单处理",
-"Trouble Ticket Management -"=>"Trouble Ticket Management -",
-"Trouble Ticket Management - New Ticket"=>"Trouble Ticket Management - New Ticket",
+"Trouble Ticket Management -"=>"故障跟踪单管理 -", // MT
+"Trouble Ticket Management - New Ticket"=>"故障跟踪单管理 - 新建跟踪单", // MT
 "Type"=>"类型",
 "View"=>"查看",
 "view this ticket"=>"查看此跟踪单",
@@ -130,3 +130,6 @@
 ## OBSOLETE KEYS
 ##
 // "特别紧急" => "特别紧急",
+"\$type Ticket Report"=>"\$type 跟踪单报表", // MT
+"Ticket added"=>"跟踪单已添加", // MT
+"ticket list"=>"跟踪单列表", // MT

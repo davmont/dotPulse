@@ -1,19 +1,19 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Advanced search"=>"Advanced search",
-"All words"=>"All words",
-"Display all fields"=>"Display all fields",
-"Empty"=>"Empty",
-"Events"=>"Events",
-"Files Content"=>"Files Content",
-"Forum Messages"=>"Forum Messages",
-"Ignore case"=>"Ignore case",
-"Ignore special chars"=>"Ignore special chars",
-"Modules selection"=>"Modules selection",
-"Search"=>"Search",
-"Select all"=>"Select all",
-"Show empty"=>"Show empty",
-"Task Log"=>"Task Log",
-"Total records found"=>"Total records found",
-
+"Advanced search"=>"Részletes keresés", // MT
+"All words"=>"Minden szó", // MT
+"Display all fields"=>"Minden mező megjelenítése", // MT
+"Empty"=>"Üres", // MT
+"Events"=>"Események", // MT
+"Files Content"=>"Fájlok tartalma", // MT
+"Forum Messages"=>"Fórumüzenetek", // MT
+"Ignore case"=>"Kis- és nagybetűk figyelmen kívül hagyása", // MT
+"Ignore special chars"=>"Különleges karakterek figyelmen kívül hagyása", // MT
+"Modules selection"=>"Modulok kiválasztása", // MT
+"Search"=>"Keresés", // MT
+"Select all"=>"Összes kijelölése", // MT
+"Show empty"=>"Üresek megjelenítése", // MT
+"Task Log"=>"Feladatnapló", // MT
+"Total records found"=>"Talált rekordok száma", // MT
+"Deselect all"=>"Kijelölés megszüntetése", // MT

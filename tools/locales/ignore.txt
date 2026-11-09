@@ -1,0 +1,2 @@
+# Strings the locale check leaves out (tools/locales/check.php), one per line:
+# literals that are not text for people (codes, sample values).

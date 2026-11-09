@@ -1,8 +1,7 @@
 # Root-level files that must never be requested over HTTP:
 # - queuescanner.php runs from cron on the command line (see docs/deployment-security.md)
-# - developer and maintenance scripts (also refuse to run outside the CLI)
-# - dependency manifests, Markdown documentation and PHPStan configuration
-<FilesMatch "^(queuescanner|benchmark_[a-z0-9_]+|test_[a-z0-9_]+|fix_locales|install_timeplanning|gen_locale[a-z0-9_]*|find_missing_labels|phpstan-bootstrap)\.php$|^(composer\.(json|lock)|package(-lock)?\.json)$|\.(md|neon|neon\.dist)$">
+# - dependency manifests, Markdown documentation and the Makefile
+<FilesMatch "^queuescanner\.php$|^(composer\.(json|lock)|package(-lock)?\.json|Makefile)$|\.md$">
 	<IfModule mod_authz_core.c>
 		Require all denied
 	</IfModule>

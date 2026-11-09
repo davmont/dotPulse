@@ -1,8 +1,8 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"classic"=>"A klasszikus dotproject stílus",
-"default"=>"Alap tiszta stílus",
-"demo1"=>"Demo stílus",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"classic"=>"A klasszikus dotproject stÃ­lus",
+"default"=>"Alap tiszta stÃ­lus",
+"demo1"=>"Demo stÃ­lus",
+"dp-grey-theme"=>"SzÃ¼rke Slimline stÃ­lus", // MT
+"dotpulse"=>"dotPulse",

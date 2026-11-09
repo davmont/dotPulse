@@ -1,24 +1,24 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"About Modules"=>"O modu≥ach",
-"Access Denied"=>"DostÍp zabroniony",
+"About Modules"=>"O modu≈Çach",
+"Access Denied"=>"Dostƒôp zabroniony",
 "Adding a Company"=>"Dodawanie firmy",
 "Adding a Project"=>"Dodawanie projektu",
 "Adding a Task"=>"Dodawanie zadania",
-"Breadcrumbs"=>"Breadcrumbs",
+"Breadcrumbs"=>"≈öcie≈ºka nawigacji", // MT
 "Context Help"=>"Pomoc kontekstowa",
-"General Concepts"=>"OgÛlne za≥oøenia",
+"General Concepts"=>"Og√≥lne za≈Ço≈ºenia",
 "Getting Started"=>"Zaczynamy",
-"helpIntro"=>"Tu znajdziesz linki do tematÛw, ktÛre nie s± dostÍpne z pomocy kontekstowej",
+"helpIntro"=>"Tu znajdziesz linki do temat√≥w, kt√≥re nie sƒÖ dostƒôpne z pomocy kontekstowej",
 "index"=>"indeks",
 "Left Navigation"=>"Lewa nawigacja",
 "Saving Your Place"=>"Zapisywanie Twojego miejsca",
-"Tabbed Property Boxes"=>"Tabbed Property Boxes",
-"Top Menu"=>"G≥Ûwne meny",
+"Tabbed Property Boxes"=>"Pola w≈Ça≈õciwo≈õci w kartach", // MT
+"Top Menu"=>"G≈Ç√≥wne meny",
 
 
 ##
 ## OBSOLETE KEYS
 ##
-// "" => "O modu≥ach",
+// "" => "O modu≈Çach",

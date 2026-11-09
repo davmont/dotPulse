@@ -32,9 +32,9 @@ $q->clear();
 
 $company_name = $company_list[$company_id];
 
-$titleBlock = new CTitleBlock('Edit Billing Codes', 'myevo-weather.png', $m, "$m.$a");
-$titleBlock->addCrumb('?m=system', 'System Admin');
-$titleBlock->show();
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
+dPadminOpen('billingcode');
+dPadminHeading('Billing codes', 'The codes of the time log, for each company.');
 ?>
 <script type="text/javascript" language="javascript" nonce="<?php echo dPcspNonce(); ?>">
 <!--
@@ -149,3 +149,4 @@ echo $AppUI->_('submit');?>"<?php echo dPaction('submitIt'); ?> />
 </tr>
 </table>
 </form>
+<?php dPadminClose(); ?>

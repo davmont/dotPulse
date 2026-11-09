@@ -12,7 +12,7 @@
 **dotPulse** is an actively maintained continuation of [dotProject](https://github.com/dotproject/dotProject),
 the open-source, web-based project-management system. Upstream development stopped after
 dotProject 2.2.0 (March 2020); this fork carries the code base forward. It runs on
-PHP 8.x, ships a Material-style theme, adds PMBOK-oriented features and a full
+PHP 8.x, ships its own dotPulse theme, adds PMBOK-oriented features and a full
 Spanish translation, and has been through a complete security and code-quality audit.
 
 The name keeps the *dot* and the **dP** initials that run through the code (`dPgetParam()`,
@@ -29,15 +29,17 @@ tables keep working unchanged.
 
 Work happens on the **`devel`** branch; **`master`** only receives stable releases.
 
-- Current release: **dotPulse 3.1.1**, maintenance: outdated libraries replaced or removed
-  (JpGraph, PEAR, TinyMCE, old jQuery), public holidays by country, task end dates
-  fixed. See [RELEASE_NOTES_v3.1.1.md](RELEASE_NOTES_v3.1.1.md) before upgrading.
-- Previous releases: 3.1.0, with the REST API, personal dashboard, Kanban board,
-  two-step login, audit log and earned value warnings
-  ([RELEASE_NOTES_v3.1.0.md](RELEASE_NOTES_v3.1.0.md), PHP 8.1 or later); 3.0.0, the first
-  under the new name, with the breaking changes from dotProject
-  ([RELEASE_NOTES_v3.0.0.md](RELEASE_NOTES_v3.0.0.md)); v2.3.1, still named dotProject
-  ([RELEASE_NOTES_v2.3.1.md](RELEASE_NOTES_v2.3.1.md)).
+- Current release: **dotPulse 3.2.0**: holiday calendars per workplace, the dotPulse theme
+  by default with a redesigned System Admin, a phone layout, vector icons and a dark variant,
+  and all 25 languages complete (PHP 8.2 or later). See
+  [release notes v3.2.0](docs/release-notes/v3.2.0.md) before upgrading.
+- Previous releases: 3.1.1, maintenance: outdated libraries replaced or removed (JpGraph,
+  PEAR, TinyMCE, old jQuery), public holidays by country, task end dates fixed
+  ([release notes v3.1.1](docs/release-notes/v3.1.1.md)); 3.1.0, with the REST API, personal
+  dashboard, Kanban board, two-step login, audit log and earned value warnings
+  ([release notes v3.1.0](docs/release-notes/v3.1.0.md)); 3.0.0, the first under the new name,
+  with the breaking changes from dotProject ([release notes v3.0.0](docs/release-notes/v3.0.0.md));
+  v2.3.1, still named dotProject ([release notes v2.3.1](docs/release-notes/v2.3.1.md)).
 
 ## What's in it
 
@@ -84,12 +86,12 @@ notice or SQL error.
   progress. See [docs/api.md](docs/api.md).
 
 ### Interface and languages
-- Material theme by default; the classic themes are still available.
-- Complete **Spanish** translation; the other upstream languages are kept.
+- The dotPulse theme by default (also on the login page), and a redesigned System Admin: a start page with the state of the installation, and the settings by section with their help in view. A dark variant, **dotPulse dark** (`dotpulse-dark` in the preferences), with text and icons checked for WCAG AA contrast. The classic themes (default, amp, dp-grey-theme, material, wps-redmond) are still available.
+- Complete **Spanish** translation. The other 23 languages (Bulgarian, Catalan, Chinese, Czech, Danish, Dutch, French, German, Hungarian, Italian, Japanese, Korean, Latvian, Norwegian, Polish, Portuguese, Russian, Slovenian, Swedish, Turkish, Vietnamese) cover every string too, machine translated where the upstream translation had none: those entries end in `// MT` until reviewed (`php tools/locales/check.php status`).
 
 ## Installation
 
-**Requirements:** PHP 8.1 or later (8.3 is tested), MySQL or MariaDB, Apache (recommended) or nginx.
+**Requirements:** PHP 8.2 or later (8.3 is tested), MySQL or MariaDB, Apache (recommended) or nginx.
 Several access rules rely on `.htaccess`; on nginx, port the equivalent `deny` rules
 (see [docs/deployment-security.md](docs/deployment-security.md)).
 
@@ -105,7 +107,7 @@ code, and run the installer, which detects the existing installation and applies
 database upgrades. Then upgrade the add-on modules from **System Admin > Modules**.
 Customised page titles and e-mail prefixes are kept; the defaults are renamed to dotPulse.
 The full checklist (module upgrades, cron, mail, web server rules) is in
-[RELEASE_NOTES_v3.0.0.md](RELEASE_NOTES_v3.0.0.md#upgrading).
+[release notes v3.0.0](docs/release-notes/v3.0.0.md#upgrading).
 
 ## Development
 
@@ -121,6 +123,17 @@ The full checklist (module upgrades, cron, mail, web server rules) is in
 
 Node.js is only needed for the development tools in [tools/](tools/); a server does not
 need it.
+
+What a server needs is the root PHP entry points (`index.php`, `api.php`, `fileviewer.php`,
+`csp-report.php`, `queuescanner.php` for cron, `base.php`) and the application directories
+(`classes/`, `db/`, `files/`, `functions/`, `images/`, `includes/`, `install/`, `js/`, `lib/`,
+`locales/`, `misc/`, `modules/`, `style/`, `vendor/`). Next to them:
+- [docs/](docs/): administration and security guides, the API, the [release notes](docs/release-notes/)
+  and the audit record; [scripts/](scripts/) has the CSP report summary for administrators.
+- Development only, left out of release archives (`git archive`, see `.gitattributes`):
+  [tools/](tools/) (PHPStan configuration in `tools/phpstan/`, the raw-input and inline-script
+  checks in `tools/checks/`, the locale check, the brand and icon builders, Jest and Playwright),
+  [tests/](tests/), [docker/](docker/), `Makefile` and `.github/`.
 
 ## Brand
 

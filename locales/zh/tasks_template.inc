@@ -1,5 +1,6 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Insert task template"=>"Insert task template",
-"New tasks template"=>"New tasks template",
+"Insert task template"=>"插入任务模板", // MT
+"New tasks template"=>"新建任务模板", // MT
+"Tasks templates"=>"任务模板", // MT

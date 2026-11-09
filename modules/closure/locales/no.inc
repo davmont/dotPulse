@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Avslutning", // MT
+"Project Name"=>"Prosjektnavn", // MT
+"Project Meeting Date"=>"Prosjektets møtedato", // MT
+"Project Start Date"=>"Prosjektets startdato", // MT
+"Project End Date"=>"Prosjektets sluttdato", // MT
+"new post mortem analysis"=>"ny etteranalyse", // MT
+"New Post Mortem"=>"Ny etteranalyse", // MT
+"Edit Post Mortem"=>"Endre etteranalyse", // MT
+"Meeting Date"=>"Møtedato", // MT
+"Meeting Settings"=>"Møteinnstillinger", // MT
+"Project Summary"=>"Prosjektsammendrag", // MT
+"Project Planned Start Date"=>"Prosjektets planlagte startdato", // MT
+"Project Planned End Date"=>"Prosjektets planlagte sluttdato", // MT
+"Project Planned Budget"=>"Prosjektets planlagte budsjett", // MT
+"Project Budget"=>"Prosjektbudsjett", // MT
+"Lessons Learned"=>"Erfaringer", // MT
+"Project Strengths"=>"Prosjektets styrker", // MT
+"Project Weaknesses"=>"Prosjektets svakheter", // MT
+"Improvement Suggestions"=>"Forslag til forbedringer", // MT
+"Conclusions"=>"Konklusjoner", // MT
+"Meeting Participants"=>"Møtedeltakere", // MT
+"view this post mortem"=>"vis denne etteranalysen", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"List opp her (hvert punkt med '*') teknologier, prosesser, IDE-er eller andre teknikker, verktøy eller tjenester som fungerte for deg i dette prosjektet", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"List opp her (hvert punkt med '*') teknologier, prosesser, IDE-er eller andre teknikker, verktøy eller tjenester som ikke fungerte for deg i dette prosjektet", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"List opp her (hvert punkt med '*') de sidene ved prosjektet som må forbedres", // MT
+"General conclusions about the project"=>"Generelle konklusjoner om prosjektet", // MT
+"Post Mortem deleted"=>"Etteranalyse slettet", // MT
+"post mortem list"=>"liste over etteranalyser", // MT
+"Post Mortem"=>"Etteranalyse", // MT
+"noDeletePermission"=>"Du har ikke tillatelse til å slette dette elementet", // MT
+"Post Mortem Records by project"=>"Etteranalyser per prosjekt", // MT
+"Project Status"=>"Prosjektstatus", // MT
+"Participants"=>"Deltakere", // MT
+"Post Mortem ID"=>"Etteranalyse-ID", // MT
+"View Post Mortem Analysis"=>"Vis etteranalyse", // MT
+"edit this post mortem"=>"endre denne etteranalysen", // MT
+"invalid ID"=>"ugyldig ID", // MT
+"Post Mortem Analysis"=>"Etteranalyse", // MT

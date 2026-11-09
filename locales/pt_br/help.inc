@@ -11,7 +11,7 @@
 "General Concepts"=>"Conceitos Gerais",
 "Getting Started"=>"Iniciando",
 "helpIntro"=>"Atalhos para topicos internos da Ajuda",
-"index"=>"index",
+"index"=>"índice", // MT
 "Left Navigation"=>"Navegacao a esquerda",
 "Saving Your Place"=>"Salvando Caminho",
 "Tabbed Property Boxes"=>"Abas de propriedades",

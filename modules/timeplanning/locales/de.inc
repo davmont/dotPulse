@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Hinzufügen", // MT
+"LBL_EXCLUSION"=>"Ausschließen", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Einrückung", // MT
+"LBL_ORDER"=>"Reihenfolge", // MT
+"LBL_SORT"=>"Sortieren", // MT
+"LBL_WBS"=>"PSP", // MT
+"LBL_SAVE"=>"Speichern", // MT
+"LBL_ESTIMATION"=>"Schätzung", // MT
+"LBL_DESCRIPTION"=>"Beschreibung", // MT
+"LBL_MOVE"=>"Verschieben", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Definition der Vorgänge", // MT
+"LBL_CREATE_MINUTE"=>"Protokoll erstellen", // MT
+"LBL_MINUTES"=>"Protokolle", // MT
+"LBL_DATE"=>"Datum", // MT
+"LBL_EDIT"=>"Bearbeiten", // MT
+"LBL_TYPE"=>"Typ", // MT
+"LBL_EFFORT"=>"Aufwand", // MT
+"LBL_DURATION"=>"Dauer", // MT
+"LBL_RESOURCES"=>"Ressourcen (Rollen)", // MT
+"LBL_SIZE"=>"Größe", // MT
+"LBL_ALL_MEMBERS"=>"Alle Mitglieder", // MT
+"LBL_PARTICIPANTS"=>"Teilnehmer", // MT
+"LBL_REPORT"=>"Bericht", // MT
+"LBL_CLOSE"=>"Schließen", // MT
+"LBL_WORK_PACKAGE"=>"Arbeitspaket", // MT
+"LBL_IN_DAYS"=>"(Tage)", // MT
+"LBL_ESTIMATIONS"=>"Schätzungen", // MT
+"LBL_ACTIVITY"=>"Aktivität", // MT
+"LBL_HOURS"=>"Stunden", // MT
+"LBL_MINUTES_TIME"=>"Protokolle", // MT
+"LBL_DAYS"=>"Tage", // MT
+"LBL_ROLE"=>"Rolle", // MT
+"LBL_ORGONOGRAM"=>"Organigramm", // MT
+"1LBLWBS"=>"PSP", // MT
+"2LBLDERIVATION"=>"Ableitung", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Schätzungen", // MT
+"1LBLORGONOGRAM"=>"Organigramm ", // MT
+"LBL_INTRO"=>"Dieses Modul wird von den Modulen Projekte und Projektaufgaben verwendet. Es muss nicht direkt aufgerufen werden. Sie können diesen Reiter in der Systemverwaltung ausblenden.", // MT
+"LBL_DEV_SCHEDULE"=>"Terminplanentwicklung", // MT
+"LBL_EXECUTE"=>"Ausführen", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Diese Aktion berechnet Anfangs- und Enddaten der Aktivitäten auf Basis des Projektbeginns, der geschätzten Aufwände und der logischen Abhängigkeiten zwischen den Aktivitäten.", // MT
+"Assigned to Task"=>"Der Aufgabe zugewiesen", // MT

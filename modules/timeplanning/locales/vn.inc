@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Thêm", // MT
+"LBL_EXCLUSION"=>"Loại trừ", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Thụt lề", // MT
+"LBL_ORDER"=>"Thứ tự", // MT
+"LBL_SORT"=>"Sắp xếp", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Lưu", // MT
+"LBL_ESTIMATION"=>"Ước tính", // MT
+"LBL_DESCRIPTION"=>"Mô tả", // MT
+"LBL_MOVE"=>"Di chuyển", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Định nghĩa hoạt động", // MT
+"LBL_CREATE_MINUTE"=>"Tạo biên bản", // MT
+"LBL_MINUTES"=>"Biên bản", // MT
+"LBL_DATE"=>"Ngày tháng", // MT
+"LBL_EDIT"=>"Sửa đổi", // MT
+"LBL_TYPE"=>"Kiểu", // MT
+"LBL_EFFORT"=>"Nỗ lực", // MT
+"LBL_DURATION"=>"Thời gian thực hiện", // MT
+"LBL_RESOURCES"=>"Tài nguyên (vai trò)", // MT
+"LBL_SIZE"=>"Kích thước", // MT
+"LBL_ALL_MEMBERS"=>"Tất cả thành viên", // MT
+"LBL_PARTICIPANTS"=>"Người tham gia", // MT
+"LBL_REPORT"=>"Báo cáo", // MT
+"LBL_CLOSE"=>"Đóng", // MT
+"LBL_WORK_PACKAGE"=>"Gói công việc", // MT
+"LBL_IN_DAYS"=>"(ngày)", // MT
+"LBL_ESTIMATIONS"=>"Ước tính", // MT
+"LBL_ACTIVITY"=>"Hoạt động", // MT
+"LBL_HOURS"=>"Giờ", // MT
+"LBL_MINUTES_TIME"=>"Biên bản", // MT
+"LBL_DAYS"=>"Ngày", // MT
+"LBL_ROLE"=>"Vai trò", // MT
+"LBL_ORGONOGRAM"=>"Sơ đồ tổ chức", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Phân rã", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Ước tính", // MT
+"1LBLORGONOGRAM"=>"Sơ đồ tổ chức ", // MT
+"LBL_INTRO"=>"Mô-đun này được dùng từ mô-đun dự án và nhiệm vụ dự án. Không cần truy cập trực tiếp. Bạn có thể ẩn thẻ này trong khu vực quản trị hệ thống.", // MT
+"LBL_DEV_SCHEDULE"=>"Xây dựng lịch trình", // MT
+"LBL_EXECUTE"=>"Thực hiện", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Thao tác này tính ngày bắt đầu và kết thúc của các hoạt động dựa trên ngày bắt đầu dự án, nỗ lực ước tính và các phụ thuộc logic giữa các hoạt động.", // MT
+"Assigned to Task"=>"Được giao cho nhiệm vụ", // MT

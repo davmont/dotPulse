@@ -4,5 +4,5 @@
 "classic"=>"Класически стил dotProject",
 "default"=>"Изчистен стил",
 "demo1"=>"Демо стил",
-"dp-grey-theme"=>"Grey Slimline style",
-
+"dp-grey-theme"=>"Стил Grey Slimline", // MT
+"dotpulse"=>"dotPulse",

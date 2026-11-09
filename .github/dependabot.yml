@@ -3,6 +3,8 @@
 # hand (docs/third-party.md).
 version: 2
 updates:
+  # vendor/ is committed and Dependabot does not update it: before merging, run
+  # composer install --no-dev on the branch and commit vendor/ (CI's vendor-check fails until then).
   - package-ecosystem: composer
     directory: /
     target-branch: devel

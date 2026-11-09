@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Uzavření", // MT
+"Project Name"=>"Název projektu", // MT
+"Project Meeting Date"=>"Datum schůzky k projektu", // MT
+"Project Start Date"=>"Datum zahájení projektu", // MT
+"Project End Date"=>"Datum ukončení projektu", // MT
+"new post mortem analysis"=>"nová analýza post mortem", // MT
+"New Post Mortem"=>"Nová analýza post mortem", // MT
+"Edit Post Mortem"=>"Upravit analýzu post mortem", // MT
+"Meeting Date"=>"Datum schůzky", // MT
+"Meeting Settings"=>"Nastavení schůzky", // MT
+"Project Summary"=>"Shrnutí projektu", // MT
+"Project Planned Start Date"=>"Plánované datum zahájení projektu", // MT
+"Project Planned End Date"=>"Plánované datum ukončení projektu", // MT
+"Project Planned Budget"=>"Plánovaný rozpočet projektu", // MT
+"Project Budget"=>"Rozpočet projektu", // MT
+"Lessons Learned"=>"Získané zkušenosti", // MT
+"Project Strengths"=>"Silné stránky projektu", // MT
+"Project Weaknesses"=>"Slabé stránky projektu", // MT
+"Improvement Suggestions"=>"Návrhy na zlepšení", // MT
+"Conclusions"=>"Závěry", // MT
+"Meeting Participants"=>"Účastníci schůzky", // MT
+"view this post mortem"=>"zobrazit tuto analýzu post mortem", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Uveďte zde (každé téma s '*') technologie, procesy, IDE nebo jakékoli techniky, nástroje či služby, které se vám v tomto projektu osvědčily", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Uveďte zde (každé téma s '*') technologie, procesy, IDE nebo jakékoli techniky, nástroje či služby, které se vám v tomto projektu neosvědčily", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Uveďte zde (každé téma s '*') aspekty projektu, které je třeba zlepšit", // MT
+"General conclusions about the project"=>"Obecné závěry o projektu", // MT
+"Post Mortem deleted"=>"Analýza post mortem smazána", // MT
+"post mortem list"=>"seznam analýz post mortem", // MT
+"Post Mortem"=>"Post mortem", // MT
+"noDeletePermission"=>"Nemáte oprávnění tuto položku smazat", // MT
+"Post Mortem Records by project"=>"Záznamy post mortem podle projektu", // MT
+"Project Status"=>"Stav projektu", // MT
+"Participants"=>"Účastníci", // MT
+"Post Mortem ID"=>"ID post mortem", // MT
+"View Post Mortem Analysis"=>"Zobrazit analýzu post mortem", // MT
+"edit this post mortem"=>"upravit tuto analýzu post mortem", // MT
+"invalid ID"=>"neplatné ID", // MT
+"Post Mortem Analysis"=>"Analýza post mortem", // MT

@@ -1,0 +1,187 @@
+/* System Admin pages (modules/system/admin_ui.php): the same look in every theme
+   (a dark theme redefines the --a-* colours, style/dotpulse-dark/main.css). */
+.dpa {
+	--a-blue: #1B4F9C;
+	--a-blue-deep: #123A73;
+	--a-blue-light: #7BA9F7;
+	--a-wash: #E8EDF5;
+	--a-tint: #F3F7FE;
+	--a-coral-text: #C93D27;
+	--a-coral-wash: #FFF1EE;
+	--a-coral-line: #F7B5A6;
+	--a-teal: #0A6E6E;
+	--a-teal-wash: #EEF8F8;
+	--a-teal-line: #9FD8D8;
+	--a-ink: #23262B;
+	--a-slate: #5A6474;
+	--a-line: #B8C3D4;
+	--a-line-soft: #D9E0EA;
+	--a-surface: #ffffff;
+	--a-surface-head: #F7F9FC;
+	--a-row-line: #EDF1F6;
+	--a-faint: #7A8494;
+	--a-off: #EEF0F3;
+	--a-primary: #1B4F9C;
+	--a-primary-deep: #123A73;
+	--a-on-primary: #ffffff;
+	font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.45;
+	color: var(--a-ink);
+	max-width: 1280px;
+}
+.dpa *, .dpa *::before, .dpa *::after { box-sizing: border-box; }
+.dpa a { color: var(--a-blue); }
+.dpa a:hover { color: var(--a-blue-deep); }
+.dpa h1 {
+	font-family: "Space Grotesk", "Inter", "Segoe UI", system-ui, sans-serif;
+	font-size: 26px;
+	font-weight: 600;
+	color: var(--a-ink);
+	margin: 4px 0 0;
+}
+.dpa h2 { font-size: 16px; font-weight: 600; color: var(--a-ink); margin: 0 0 4px; }
+.dpa p { margin: 0; }
+.dpa-icon { flex: none; }
+
+/* Layout: side menu and content; the menu goes above the content on narrow screens. */
+.dpa-layout { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; padding: 8px 0 24px; }
+.dpa-side { flex: 1 1 220px; max-width: 250px; display: flex; flex-direction: column; gap: 14px; }
+.dpa-main { flex: 999 1 560px; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 820px) { .dpa-side { max-width: none; } }
+/* On a phone the menu is on top and the page has the whole width: let it shrink to it. */
+@media (max-width: 640px) {
+	.dpa-main { min-width: 0; }
+	.dpa-head-row .dpa-search input { width: 100%; }
+	.dpa-panel { padding: 14px; }
+	.dpa-row-control { flex: 1 1 100%; min-width: 0; }
+	.dpa-row-control input:not([type=checkbox], [type=radio]), .dpa-row-control select { max-width: 100%; box-sizing: border-box; }
+}
+
+.dpa-side a { display: block; padding: 6px 10px; border-radius: 6px; color: var(--a-ink); text-decoration: none; }
+.dpa-side a:hover { background: var(--a-tint); color: var(--a-blue-deep); text-decoration: none; }
+.dpa-side a.dpa-on { background: var(--a-wash); color: var(--a-blue-deep); font-weight: 600; }
+.dpa-side-home { font-weight: 600; }
+.dpa-side-group { display: flex; flex-direction: column; gap: 1px; }
+.dpa-side-title { font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--a-slate); padding: 0 10px 4px; }
+.dpa-search { margin: 0; }
+.dpa-search label, .dpa-field label.dpa-label-top { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--a-slate); }
+
+/* Controls */
+.dpa input[type="text"], .dpa input[type="search"], .dpa input[type="password"], .dpa input[type="email"],
+.dpa input[type="number"], .dpa select, .dpa textarea {
+	font: inherit;
+	font-size: 14px;
+	color: var(--a-ink);
+	background: var(--a-surface);
+	border: 1px solid var(--a-line);
+	border-radius: 8px;
+	min-height: 38px;
+	padding: 6px 10px;
+	max-width: 100%;
+}
+.dpa input:focus, .dpa select:focus, .dpa textarea:focus { outline: 2px solid var(--a-blue-light); outline-offset: 0; border-color: var(--a-blue); }
+.dpa input[type="number"] { width: 110px; }
+.dpa .dpa-wide { width: 360px; }
+.dpa-btn, .dpa button.dpa-btn, .dpa input.dpa-btn {
+	display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+	font: inherit; font-size: 14px; font-weight: 500;
+	min-height: 40px; padding: 0 16px;
+	border-radius: 8px; border: 1px solid var(--a-line);
+	background: var(--a-surface); color: var(--a-ink);
+	cursor: pointer; text-decoration: none;
+}
+.dpa .dpa-btn:hover { background: var(--a-tint); border-color: var(--a-blue-light); text-decoration: none; }
+.dpa .dpa-btn.dpa-primary { background: var(--a-primary); border-color: var(--a-primary); color: var(--a-on-primary); font-weight: 600; }
+.dpa .dpa-btn.dpa-primary:hover { background: var(--a-primary-deep); border-color: var(--a-primary-deep); color: var(--a-on-primary); }
+.dpa .dpa-btn.dpa-danger { color: var(--a-coral-text); border-color: var(--a-coral-line); }
+
+/* Switch: a real checkbox drawn as a switch */
+.dpa-switch { position: relative; display: inline-block; width: 44px; height: 24px; flex: none; }
+.dpa-switch input { position: absolute; inset: 0; width: 44px; height: 24px; margin: 0; opacity: 0; cursor: pointer; z-index: 1; }
+.dpa-switch span { position: absolute; inset: 0; border-radius: 12px; background: var(--a-line); transition: background .15s; pointer-events: none; }
+.dpa-switch span::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--a-on-primary); transition: left .15s; }
+.dpa-switch input:checked + span { background: var(--a-blue); }
+.dpa-switch input:checked + span::after { left: 23px; }
+.dpa-switch input:focus-visible + span { outline: 2px solid var(--a-blue-light); outline-offset: 2px; }
+
+/* Day picker */
+.dpa-days { border: 0; margin: 0; padding: 0; display: flex; gap: 6px; flex-wrap: wrap; }
+.dpa-days label { position: relative; }
+.dpa-days input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.dpa-days span {
+	display: flex; align-items: center; justify-content: center;
+	width: 44px; height: 40px; border-radius: 8px;
+	border: 1px solid var(--a-line); background: var(--a-surface); color: var(--a-slate);
+	font-weight: 500; cursor: pointer;
+}
+.dpa-days input:checked + span { background: var(--a-primary); border-color: var(--a-primary); color: var(--a-on-primary); }
+.dpa-days input:focus-visible + span { outline: 2px solid var(--a-blue-light); outline-offset: 2px; }
+
+/* Heading */
+.dpa-head p { color: var(--a-slate); font-size: 15px; margin-top: 6px; }
+.dpa-crumb { font-size: 13px; color: var(--a-slate); }
+.dpa-head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+
+/* Panels and settings rows */
+.dpa-panel { background: var(--a-surface); border: 1px solid var(--a-line-soft); border-radius: 12px; padding: 18px 22px; }
+.dpa-panel > h2 { margin-bottom: 6px; }
+.dpa-row { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; padding: 14px 0; border-top: 1px solid var(--a-row-line); flex-wrap: wrap; }
+.dpa-panel > h2 + .dpa-row { border-top: 0; }
+.dpa-row-text { flex: 1 1 280px; min-width: 0; }
+.dpa-row-label { font-weight: 500; font-size: 15px; }
+.dpa-row-help { font-size: 13px; color: var(--a-slate); margin-top: 3px; }
+.dpa-row-name { font-size: 11px; color: var(--a-faint); font-family: ui-monospace, Menlo, Consolas, monospace; margin-top: 2px; }
+.dpa-row-control { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dpa-section-tag { font-size: 12px; color: var(--a-slate); }
+
+.dpa-savebar {
+	position: sticky; bottom: 0; z-index: 5;
+	display: flex; justify-content: flex-end; align-items: center; gap: 10px; flex-wrap: wrap;
+	background: var(--a-surface); border: 1px solid var(--a-line-soft); border-radius: 12px; padding: 10px 16px;
+	box-shadow: 0 -4px 16px rgba(35, 38, 43, .06);
+}
+.dpa-savebar .dpa-savebar-note { margin-right: auto; color: var(--a-slate); font-size: 13px; }
+
+/* Notices */
+.dpa-note { display: flex; gap: 10px; align-items: flex-start; border-radius: 10px; padding: 12px 16px; border: 1px solid var(--a-line-soft); background: var(--a-surface); }
+.dpa-note.dpa-warn { background: var(--a-coral-wash); border-color: var(--a-coral-line); color: var(--a-ink); }
+.dpa-note.dpa-warn .dpa-icon { color: var(--a-coral-text); }
+.dpa-note.dpa-good { background: var(--a-teal-wash); border-color: var(--a-teal-line); }
+.dpa-note.dpa-good .dpa-icon { color: var(--a-teal); }
+
+/* Start page: status and cards */
+.dpa-status { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.dpa-stat { background: var(--a-surface); border: 1px solid var(--a-line-soft); border-radius: 10px; padding: 12px 16px; display: flex; flex-direction: column; gap: 2px; }
+.dpa-stat-label { font-size: 12px; color: var(--a-slate); }
+.dpa-stat-value { font-size: 18px; font-weight: 600; }
+.dpa-stat-more { font-size: 13px; color: var(--a-slate); }
+.dpa-stat.dpa-warn { background: var(--a-coral-wash); border-color: var(--a-coral-line); }
+.dpa-stat.dpa-warn .dpa-stat-label { color: var(--a-coral-text); font-weight: 600; }
+.dpa-cards-group { display: flex; flex-direction: column; gap: 10px; }
+.dpa-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.dpa .dpa-card {
+	display: flex; gap: 12px; align-items: flex-start;
+	background: var(--a-surface); border: 1px solid var(--a-line-soft); border-radius: 10px;
+	padding: 14px 16px; min-height: 86px; color: var(--a-ink); text-decoration: none;
+}
+.dpa .dpa-card:hover { border-color: var(--a-blue-light); background: var(--a-tint); text-decoration: none; color: var(--a-ink); }
+.dpa-card-icon { flex: 0 0 36px; height: 36px; border-radius: 8px; background: var(--a-wash); color: var(--a-blue); display: flex; align-items: center; justify-content: center; }
+.dpa-card-title { display: block; font-weight: 600; font-size: 15px; }
+.dpa-card-text { display: block; font-size: 13px; color: var(--a-slate); margin-top: 3px; }
+
+/* Lists (phase 2 pages) */
+.dpa table.dpa-table { width: 100%; border-collapse: collapse; background: var(--a-surface); border: 1px solid var(--a-line-soft); border-radius: 10px; overflow: hidden; }
+.dpa table.dpa-table th { text-align: left; font-size: 12px; font-weight: 600; color: var(--a-slate); background: var(--a-surface-head); padding: 10px 12px; border-bottom: 1px solid var(--a-line-soft); }
+.dpa table.dpa-table td { padding: 10px 12px; border-bottom: 1px solid var(--a-row-line); vertical-align: middle; }
+.dpa table.dpa-table tr:last-child td { border-bottom: 0; }
+.dpa table.dpa-table tr:hover td { background: var(--a-tint); }
+.dpa-scroll { overflow-x: auto; }
+.dpa-badge { display: inline-block; font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 999px; background: var(--a-wash); color: var(--a-blue-deep); }
+.dpa-badge.dpa-off { background: var(--a-off); color: var(--a-slate); }
+.dpa-badge.dpa-up { background: var(--a-coral-wash); color: var(--a-coral-text); }
+.dpa-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+/* Old markup inside the admin pages (phase 2 pages keep their tables). */
+.dpa table.std, .dpa table.tbl { border-radius: 10px; }
+.dpa-head-row .dpa-search input { width: 320px; }

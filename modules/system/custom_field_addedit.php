@@ -5,11 +5,9 @@ if (!defined('DP_BASE_DIR')) {
 
 require_once($AppUI->getSystemClass('CustomFields'));
 	
-$titleBlock = new CTitleBlock('Custom Fields - Add/Edit', '', 'admin', 
-                              'admin.custom_field_addedit');
-$titleBlock->addCrumb('?m=system', 'system admin');
-$titleBlock->addCrumb('?m=system&amp;a=custom_field_editor', 'custom fields');
-$titleBlock->show();
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
+dPadminOpen('custom_field_editor');
+dPadminHeading('Add or edit a custom field', '');
 
 $field_id = ((dpGetParam($_POST, 'field_id', NULL) != NULL) 
              ? dpGetParam($_POST, 'field_id', NULL) : dpGetParam($_GET, 'field_id', 0));
@@ -266,3 +264,4 @@ foreach ($select_items as $itm) {
 	</td></tr>
 	</form>
 </table>
+<?php dPadminClose(); ?>

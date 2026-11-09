@@ -17,3 +17,4 @@
 "Task Log"=>"Historial de Tarea",
 "Total records found"=>"Total de registros encontrados",
 
+"Deselect all"=>"Deseleccionar todo",

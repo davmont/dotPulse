@@ -2,12 +2,12 @@
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
 "Add Department"=>"Abteilung hinzufügen",
-"Address"=>"Address",
+"Address"=>"Adresse", // MT
 "badCompany"=>"Diese Firma ist ungültig. Es kann deshalb keine Abteilung hinzugefügt werden.",
-"Company"=>"Company",
+"Company"=>"Firma", // MT
 "delDept"=>"Soll diese Abteilung wirklich gelöscht werden?",
 "delete department"=>"Abteilung löschen",
-"Department"=>"Department",
+"Department"=>"Abteilung", // MT
 "Department Company"=>"Abteilung Firma",
 "Department Name"=>"Abteilungsname",
 "Department Parent"=>"Übergeordnete Abteilung",
@@ -16,18 +16,18 @@
 "deptValidName"=>"Bitte einen gültigen Namen für diese Abteilung eingeben",
 "deptWithProject"=>"Eine mit Projekten assoziierte Abteilung kann nicht gelöscht werden.",
 "deptWithSub"=>"Eine Abteilung mit Unterabteilungen kann nicht gelöscht werden.",
-"Description"=>"Description",
+"Description"=>"Beschreibung", // MT
 "Details"=>"Details",
 "Edit Department"=>"Abteilung bearbeiten",
 "edit this department"=>"diese Abteilung bearbeiten",
 "Fax"=>"Fax",
 "Name"=>"Name",
-"new department"=>"new department",
-"Owner"=>"Owner",
-"Phone"=>"Phone",
-"Please choose a Department first!"=>"Please choose a Department first!",
+"new department"=>"neue Abteilung", // MT
+"Owner"=>"Besitzer", // MT
+"Phone"=>"Telefon", // MT
+"Please choose a Department first!"=>"Bitte wählen Sie zuerst eine Abteilung!", // MT
 "Select Unit"=>"Einheit wählen",
 "Telephone"=>"Telefon",
 "View Department"=>"Abteilung ansehen",
 "view this department"=>"diese Abteilung ansehen",
-
+"Invalid Department ID"=>"Ungültige Abteilungs-ID", // MT

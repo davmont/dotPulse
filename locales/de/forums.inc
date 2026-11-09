@@ -7,7 +7,7 @@
 "Add Message"=>"Nachricht hinzufügen",
 "add new forum"=>"Neues Forum hinzufügen",
 "Author"=>"Autor",
-"back"=>"back",
+"back"=>"zurück", // MT
 "closed"=>"geschlossen",
 "Collapsed"=>"Eingeklappt",
 "Configure Forums Module"=>"Forummodul konfigurieren",
@@ -15,7 +15,7 @@
 "days"=>"Tage",
 "days ago"=>"Tag(e) zuvor",
 "delete forum"=>"Forum löschen",
-"Description"=>"Description",
+"Description"=>"Beschreibung", // MT
 "Details"=>"Details",
 "edit"=>"bearbeiten",
 "Edit Forum"=>"Forum bearbeiten",
@@ -70,16 +70,18 @@
 "start a new topic"=>"Neues Thema initiieren",
 "Started"=>"Begonnen am",
 "Subject"=>"Betreff",
-"submit"=>"submit",
+"submit"=>"absenden", // MT
 "system admin"=>"Systemverwaltung",
 "this topic"=>"dieses Thema",
 "Topics"=>"Themen",
 "topics for this forum"=>"Themen in diesem Forum",
 "update watches"=>"Forenbeobachtung aktualisieren",
-"View"=>"View",
+"View"=>"Anzeigen", // MT
 "view PDF file"=>"PDF ansehen",
 "Watch"=>"Beobachte",
 "Watch Forced"=>"Forenbeobachtung erzwungen",
 "Watch Unforced"=>"Erzwingen der Forenbeobachtung aufgehoben",
 "Watch updated"=>"Beobachtung aktualisiert",
-
+"Access denied."=>"Zugriff verweigert.", // MT
+"Message From"=>"Nachricht von", // MT
+"You have unread posts in this topic"=>"Sie haben ungelesene Beiträge in diesem Thema", // MT

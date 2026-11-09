@@ -1,0 +1,44 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Backup Database"=>"備份資料庫", // MT
+"restore xml file"=>"還原 XML 檔案", // MT
+"Restore From XML File"=>"從 XML 檔案還原", // MT
+"xmlRestoreWarning"=>"此公用程式會從本公用程式建立的 XML 檔案還原結構描述和資料。它不會從 SQL 檔案還原。", // MT
+"XML File to Restore"=>"要還原的 XML 檔案", // MT
+"Continue On Error?"=>"發生錯誤時繼續？", // MT
+"upload"=>"上傳", // MT
+"Backup"=>"備份", // MT
+"Import"=>"匯入", // MT
+"Export"=>"匯出", // MT
+"Success"=>"成功！", // MT
+"Failure"=>"失敗： ", // MT
+"Import Data"=>"匯入資料", // MT
+"Export Data"=>"匯出資料", // MT
+"File Type"=>"檔案類型：", // MT
+"clear"=>"清除", // MT
+"Filename (without extension):"=>"檔案名稱（不含副檔名）：", // MT
+"Module"=>"模組", // MT
+"Item"=>"項目", // MT
+"zip"=>".zip - 壓縮的 SQL 檔案。", // MT
+"sql"=>".sql - 含 SQL 查詢的文字檔。", // MT
+"csv"=>".csv - 逗號分隔值。", // MT
+"vcf"=>".vcf - vCard 檔案。", // MT
+"Add 'DROP TABLE' to output-script"=>"在輸出指令碼中加入「DROP TABLE」", // MT
+"Table structure and data"=>"資料表結構和資料", // MT
+"Only table structure"=>"僅資料表結構", // MT
+"Only data"=>"僅資料", // MT
+"Options"=>"選項", // MT
+"Save as"=>"另存為", // MT
+"Compressed ZIP SQL file"=>"壓縮的 ZIP SQL 檔案", // MT
+"Plain text SQL file"=>"純文字 SQL 檔案", // MT
+"XML file"=>"XML 檔案", // MT
+"Download backup"=>"下載備份", // MT
+"xmlLoginMsg"=>"您可能需要登出後再重新登入", // MT
+"Invalid Options"=>"無效的選項", // MT
+"Failed to restore backup"=>"無法還原備份", // MT
+"Backup restored, but with errors"=>"備份已還原，但有錯誤", // MT
+"Backup Restored OK"=>"備份已成功還原", // MT
+"No upload file"=>"沒有上傳檔案", // MT
+"Error in parsing XML file"=>"剖析 XML 檔案時發生錯誤", // MT
+"Restore Database"=>"還原資料庫", // MT

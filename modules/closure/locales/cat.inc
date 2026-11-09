@@ -1,0 +1,41 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Closure"=>"Tancament", // MT
+"Project Name"=>"Nom del projecte", // MT
+"Project Meeting Date"=>"Data de la reunió del projecte", // MT
+"Project Start Date"=>"Data d'inici del projecte", // MT
+"Project End Date"=>"Data de fi del projecte", // MT
+"new post mortem analysis"=>"nova anàlisi post mortem", // MT
+"New Post Mortem"=>"Nova anàlisi post mortem", // MT
+"Edit Post Mortem"=>"Editar l'anàlisi post mortem", // MT
+"Meeting Date"=>"Data de la reunió", // MT
+"Meeting Settings"=>"Configuració de la reunió", // MT
+"Project Summary"=>"Resum del projecte", // MT
+"Project Planned Start Date"=>"Data d'inici planificada del projecte", // MT
+"Project Planned End Date"=>"Data de fi planificada del projecte", // MT
+"Project Planned Budget"=>"Pressupost planificat del projecte", // MT
+"Project Budget"=>"Pressupost del projecte", // MT
+"Lessons Learned"=>"Lliçons apreses", // MT
+"Project Strengths"=>"Punts forts del projecte", // MT
+"Project Weaknesses"=>"Punts febles del projecte", // MT
+"Improvement Suggestions"=>"Suggeriments de millora", // MT
+"Conclusions"=>"Conclusions",
+"Meeting Participants"=>"Participants a la reunió", // MT
+"view this post mortem"=>"veure aquesta anàlisi post mortem", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that worked out for you in this project"=>"Enumereu aquí (cada tema amb '*') les tecnologies, processos, IDE o qualsevol tècnica, eina o servei que us hagi funcionat en aquest projecte", // MT
+"List here (each topic with '*') technologies, processes, IDEs or whatever tecniques, tools or services that did not worked out for you in this project"=>"Enumereu aquí (cada tema amb '*') les tecnologies, processos, IDE o qualsevol tècnica, eina o servei que no us hagi funcionat en aquest projecte", // MT
+"List here (each topic with '*') the aspects of the project that need to be improved"=>"Enumereu aquí (cada tema amb '*') els aspectes del projecte que cal millorar", // MT
+"General conclusions about the project"=>"Conclusions generals sobre el projecte", // MT
+"Post Mortem deleted"=>"Anàlisi post mortem eliminada", // MT
+"post mortem list"=>"llista d'anàlisis post mortem", // MT
+"Post Mortem"=>"Post mortem", // MT
+"noDeletePermission"=>"No teniu permís per eliminar aquest element", // MT
+"Post Mortem Records by project"=>"Registres post mortem per projecte", // MT
+"Project Status"=>"Estat del projecte", // MT
+"Participants"=>"Participants",
+"Post Mortem ID"=>"ID de l'anàlisi post mortem", // MT
+"View Post Mortem Analysis"=>"Veure l'anàlisi post mortem", // MT
+"edit this post mortem"=>"editar aquesta anàlisi post mortem", // MT
+"invalid ID"=>"ID no vàlid", // MT
+"Post Mortem Analysis"=>"Anàlisi post mortem", // MT

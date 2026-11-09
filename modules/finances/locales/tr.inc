@@ -1,0 +1,43 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"accessDenied"=>"Gerekli izne sahip değilsiniz", // MT
+"Years"=>"Yıl", // MT
+"Submit"=>"Gönder", // MT
+"Display"=>"Görüntüle", // MT
+"Amounts"=>"Tutarlar", // MT
+"without tax"=>"vergisiz", // MT
+"with tax"=>"vergili", // MT
+"Detail"=>"Ayrıntı", // MT
+"Sub Total"=>"Ara Toplam", // MT
+"Total"=>"Toplam", // MT
+"All"=>"Tümü", // MT
+"Save Changes"=>"Değişiklikleri Kaydet", // MT
+"Budget"=>"Bütçe", // MT
+"Project / Task(Tax)"=>"Proje / Görev (Vergi)", // MT
+"INVESTMENT"=>"YATIRIM", // MT
+"OPERATION"=>"OPERASYON", // MT
+"Equipment"=>"Ekipman", // MT
+"Intangible"=>"Maddi Olmayan", // MT
+"Service"=>"Hizmet", // MT
+"Open in new tab"=>"Yeni sekmede aç", // MT
+"Tax"=>"Vergi", // MT
+"This task is only financial"=>"Bu görev yalnızca finansal", // MT
+"Investment"=>"Yatırım", // MT
+"Operation"=>"Operasyon", // MT
+"You can not set the budget of a dynamic task"=>"Dinamik bir görevin bütçesini ayarlayamazsınız", // MT
+"Performance of Internet Explorer may cause a very significant slowdown in the case of a large number of projects to load."=>"Çok sayıda proje yüklenirken Internet Explorer performansı ciddi yavaşlamaya neden olabilir.", // MT
+"Only valued projects and tasks"=>"Yalnızca değerlendirilmiş projeler ve görevler", // MT
+"Only valued projects"=>"Yalnızca değerlendirilmiş projeler", // MT
+"Only projects with null budget"=>"Yalnızca bütçesi olmayan projeler", // MT
+"Project Type"=>"Proje Tipi", // MT
+"Excel export"=>"Excel'e aktar", // MT
+"Project Status"=>"Proje Durumu", // MT
+"Template"=>"Şablon", // MT
+"Archived"=>"Arşivlendi", // MT
+"Unknown"=>"Bilinmiyor", // MT
+"Administrative"=>"İdari", // MT
+"Operative"=>"Operasyonel", // MT
+"MacroProject / Project / Task(Tax)"=>"Makro Proje / Proje / Görev (Vergi)", // MT
+"TOTAL"=>"TOPLAM", // MT
+"Macroproject / Project / Task(Tax)"=>"Makro proje / Proje / Görev (Vergi)", // MT

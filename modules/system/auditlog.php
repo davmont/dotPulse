@@ -37,9 +37,9 @@ $query = function ($offset) use ($filter) {
 };
 $days = (int)dPgetConfig('audit_log_days', 365);
 
-$titleBlock = new CTitleBlock('Audit log', 'main-settings.png', $m, "$m.$a");
-$titleBlock->addCrumb('?m=system', 'System Admin');
-$titleBlock->show();
+require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
+dPadminOpen('auditlog');
+dPadminHeading('Audit log', 'Logins, two-step login, passwords, API tokens and the changes made by administrators.');
 ?>
 <form method="get" action="index.php" class="std" style="padding: 6px 8px; margin-bottom: 8px">
 	<input type="hidden" name="m" value="system" />
@@ -92,3 +92,4 @@ $titleBlock->show();
 	<?php if ($offset > 0) { ?><a href="<?php echo dPhtml($query(max(0, $offset - $limit))); ?>">&laquo; <?php echo $AppUI->_('Newer'); ?></a><?php } ?>
 	<?php if ($more) { ?>&nbsp; <a href="<?php echo dPhtml($query($offset + $limit)); ?>"><?php echo $AppUI->_('Older'); ?> &raquo;</a><?php } ?>
 </p>
+<?php dPadminClose(); ?>

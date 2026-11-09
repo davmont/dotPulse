@@ -1,0 +1,47 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"LBL_ADD"=>"Agg.", // MT
+"LBL_EXCLUSION"=>"Escludi", // MT
+"LBL_ID"=>"ID",
+"LBL_IDENTATION"=>"Rientro", // MT
+"LBL_ORDER"=>"Ordine", // MT
+"LBL_SORT"=>"Ordina", // MT
+"LBL_WBS"=>"WBS",
+"LBL_SAVE"=>"Salva", // MT
+"LBL_ESTIMATION"=>"Stima", // MT
+"LBL_DESCRIPTION"=>"Descrizione", // MT
+"LBL_MOVE"=>"Sposta", // MT
+"LBL_ACTIVITIES_DEFINITION"=>"Definizione delle attività", // MT
+"LBL_CREATE_MINUTE"=>"Crea verbale", // MT
+"LBL_MINUTES"=>"Verbali", // MT
+"LBL_DATE"=>"Data", // MT
+"LBL_EDIT"=>"Mod.", // MT
+"LBL_TYPE"=>"Tipo", // MT
+"LBL_EFFORT"=>"Sforzo", // MT
+"LBL_DURATION"=>"Durata", // MT
+"LBL_RESOURCES"=>"Risorse (ruoli)", // MT
+"LBL_SIZE"=>"Dimensione", // MT
+"LBL_ALL_MEMBERS"=>"Tutti i membri", // MT
+"LBL_PARTICIPANTS"=>"Partecipanti", // MT
+"LBL_REPORT"=>"Report",
+"LBL_CLOSE"=>"Chiudi", // MT
+"LBL_WORK_PACKAGE"=>"Pacchetto di lavoro", // MT
+"LBL_IN_DAYS"=>"(giorni)", // MT
+"LBL_ESTIMATIONS"=>"Stime", // MT
+"LBL_ACTIVITY"=>"Attività", // MT
+"LBL_HOURS"=>"Ore", // MT
+"LBL_MINUTES_TIME"=>"Verbali", // MT
+"LBL_DAYS"=>"Giorni", // MT
+"LBL_ROLE"=>"Ruolo", // MT
+"LBL_ORGONOGRAM"=>"Organigramma", // MT
+"1LBLWBS"=>"WBS",
+"2LBLDERIVATION"=>"Derivazione", // MT
+"3LBLMDP"=>"PDM",
+"4LBLESTIMATIONS"=>"Stime", // MT
+"1LBLORGONOGRAM"=>"Organigramma ", // MT
+"LBL_INTRO"=>"Questo modulo è usato dai moduli Progetti e Attività di progetto. Non è necessario accedervi direttamente. Puoi nascondere questa scheda nell'area di amministrazione di sistema.", // MT
+"LBL_DEV_SCHEDULE"=>"Sviluppo della pianificazione", // MT
+"LBL_EXECUTE"=>"Esegui", // MT
+"LBL_ACTION_SCHEDULE_DEV"=>"Questa azione calcola le date di inizio e fine delle attività in base alla data di inizio del progetto, agli sforzi stimati e alle dipendenze logiche tra le attività.", // MT
+"Assigned to Task"=>"Assegnato all'attività", // MT
