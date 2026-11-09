@@ -420,6 +420,14 @@ The interface icons were 2000s desktop bitmaps (16-48 px GIF/PNG), blurry on hig
 - Third-party widgets: the Gantt chart (frappe-gantt) and the tree tables, modal dialogs and igantt grid of add-on modules are recoloured; date pickers (flatpickr, jscalendar) and overlib tooltips stay as light pop-ups with their own dark text.
 - Calendar (both themes): event type icons (general, appointment, meeting, all day, anniversary, reminder) and the task start and end marks are SVG; the event links are a flex row, so the icon no longer overlaps the title.
 
+### 3.2.1: security release (2026-11-09)
+Advisory [GHSA-rj5g-wp63-485q](https://github.com/davmont/dotPulse/security/advisories/GHSA-rj5g-wp63-485q), [release notes](../release-notes/v3.2.1.md). Fixed in the advisory's private fork and released before the advisory was published.
+- **Request triage:** every raw read of `$_GET`, `$_POST`, `$_REQUEST`, `$_COOKIE` and the session state built from them was traced to its sink and classified (89 findings: privilege escalation through the task handler's sub-form include, account takeover through the contact of another user's account, SQL injection, handlers that checked the module but not the record, stored and reflected XSS, the installer showing the database settings). All were fixed in this release, including the low ones.
+- **`CDpObject::bind()` keeps the record id an integer** (`castKey()`, also in the classes with their own `bind()`), so a request value bound to an object no longer reaches SQL as the id.
+- **Lists and pickers** (risks, the generic and helpdesk selectors, contact companies, closure, monitoring and control, time planning, earnings manager tabs) show only what the user may view.
+- The raw-read baseline (`tools/checks/raw-input-baseline.txt`) went from 1008 reads in 218 files to 910 in 194.
+- Verified locally against MariaDB with PHP's built-in server: `docker/smoke.sh` (except the Apache-only checks), the full audit's steps 1-3 (45 add-ons, crawls as admin and worker, 65 forms saved as each, no SQL error or warning in the log), targeted attacks as the worker (account e-mail, sub-form include, earnings manager list, department filter, selectors), PHP tests, PHPStan unchanged.
+
 ### Nice to have: dormant modules (to be revived later)
 Phase 8 converted them for the CSP, fixed the XSS/SQL injection found on the way and made most of them load on PHP 8 (see above). What is left for a real revival:
 - **Removed (2026-10-19, owner decision):** bugspray (an old copy of helpdesk) and smartsearchns (a fork of smartsearch; its two helpdesk search objects are in git history, port them to smartsearch if helpdesk is revived) as duplicates; groups (contact groups, 2004 alpha on the 1.x permissions table), tracIntegration (Trac integration) and eventum (Eventum helpdesk integration) as not useful. All remain in git history.
