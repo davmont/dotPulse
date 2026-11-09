@@ -3,15 +3,14 @@ if (!defined('DP_BASE_DIR')) {
   die('You should not access this file directly.');
 }
 
-function selPermWhere($obj, $idfld, $namefield, $prefix = '') {
+/**
+ * Limits $q to the records of $obj's module the user may view, the way the module's own
+ * lists do (no access at all gives an empty list). $column holds the record id in $q.
+ */
+function selAllowed(&$q, $obj, $column) {
 	global $AppUI;
-
-	$allowed  = $obj->getAllowedRecords($AppUI->user_id, "$idfld, $namefield");
-	if (count($allowed)) {
-		$prfx = $prefix ? "$prefix." : "";
-		return " $prfx$idfld IN (" . implode(",", array_keys($allowed)) . ") ";
-	} else {
-		return null;
+	foreach ($obj->getAllowedSQL($AppUI->user_id, $column) as $where) {
+		$q->addWhere($where);
 	}
 }
 
@@ -45,16 +44,17 @@ switch ($table) {
 		$title = 'Company';
 		$q->addQuery('company_id, company_name');
 		$q->addOrder('company_name');
-		$q->addWhere(selPermWhere($obj, 'company_id', 'company_name'));
+		selAllowed($q, $obj, 'company_id');
 		break;
 	case 'departments':
-		// known issue: does not filter out denied companies
 		$title = 'Department';
 		$company_id = (int)dPgetParam($_GET, 'company_id', 0);
 		//$ok &= $company_id;  // Is it safe to delete this line ??? [kobudo 13 Feb 2003]
 		//$where = selPermWhere('companies', 'company_id');
 		$obj = new CDepartment;
-		$q->addWhere(selPermWhere($obj, 'dept_id', 'dept_name'));
+		require_once $AppUI->getModuleClass('companies');
+		selAllowed($q, $obj, 'dept_id');
+		selAllowed($q, new CCompany(), 'company_id');
 		$q->addWhere("dept_company = company_id ");
 		$q->addTable('companies', 'b');
 		
@@ -77,16 +77,24 @@ switch ($table) {
 		$title = 'File';
 		$q->addQuery('file_id,file_name');
 		$q->addOrder('file_name');
+		require_once $AppUI->getModuleClass('projects');
+		selAllowed($q, new CFile(), 'file_id');
+		selAllowed($q, new CProject(), 'file_project');
 		break;
 	case 'file_folders':
 		$title = 'File Folder';
 		$q->addQuery('file_folder_id,file_folder_name');
 		$q->addOrder('file_folder_name');
+		require_once $AppUI->getModuleClass('files');
+		selAllowed($q, new CFileFolder(), 'file_folder_id');
 		break;
 	case 'forums':
 		$title = 'Forum';
 		$q->addQuery('forum_id,forum_name');
 		$q->addOrder('forum_name');
+		require_once $AppUI->getModuleClass('projects');
+		selAllowed($q, new CForum(), 'forum_id');
+		selAllowed($q, new CProject(), 'forum_project');
 		break;
 	case 'projects':
 		$project_company = (int)dPgetParam($_GET, 'project_company', 0);
@@ -100,7 +108,7 @@ switch ($table) {
 			$q->addWhere('b.project_id = a.project_id');
 			$q->addWhere("b.contact_id = $user_id");
 		}
-		$q->addWhere(selPermWhere($obj, 'project_id', 'project_name', 'a'));
+		selAllowed($q, $obj, 'a.project_id');
 		if ($project_company) {
 			$q->addWhere("project_company = $project_company");
 		}
@@ -115,7 +123,25 @@ switch ($table) {
 			$q->addWhere("task_project = $task_project");
 		}
 		$q->innerJoin('projects', 'p', 'task_project = p.project_id');
-		$task_list = $q->loadList();
+		$q->addQuery('task_access, task_owner, task_project');
+		require_once $AppUI->getModuleClass('projects');
+		selAllowed($q, new CTask(), 'task_id');
+		selAllowed($q, new CProject(), 'p.project_id');
+		$task_list = array();
+		foreach ($q->loadList() as $task) {
+			// Tasks that are not public only when the user may access them.
+			if ((int)$task['task_access'] !== 0) {
+				$check = new CTask();
+				$check->task_id = (int)$task['task_id'];
+				$check->task_access = (int)$task['task_access'];
+				$check->task_owner = (int)$task['task_owner'];
+				$check->task_project = (int)$task['task_project'];
+				if (!$check->canAccess($AppUI->user_id)) {
+					continue;
+				}
+			}
+			$task_list[] = $task;
+		}
 		$level = 0;
 		$query_result = array();
 		$last_parent = 0;
@@ -145,14 +171,19 @@ switch ($table) {
 		$title = 'Document';
 		$q->addQuery('SGD_id, SGD_name');
 		$q->addOrder('SGD_name');
+		if (!getPermission('mngdocument', 'view')) {
+			$q->addWhere('1 = 0');
+		}
 		break;
 	case 'helpdesk_items':
 		// Added by HaTaX for helpdesk support
 		include DP_BASE_DIR.'/modules/helpdesk/config.php';
 		$title = 'HelpDesk Items';
 		$q->addQuery("item_id, CONCAT_WS(' - ',CONCAT('#', item_id), item_title) AS name");
-		$q->addTable('helpdesk_items');
-		$q->addWhere("item_status != ".$HELPDESK_CONFIG['closed_status_id']);
+		$q->addWhere("item_status != ".(int)$HELPDESK_CONFIG['closed_status_id']);
+		// Only the items the helpdesk lists show this user.
+		require_once DP_BASE_DIR . '/modules/helpdesk/helpdesk.functions.php';
+		$q->addWhere(getPermission('helpdesk', 'view') ? getItemPerms() : '1 = 0');
 		$q->addOrder('item_id, name');
 		break;
 	default:

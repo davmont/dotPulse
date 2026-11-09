@@ -91,7 +91,7 @@ class CustomField
 			if ($this->value_id > 0) {
 				$q->addUpdate('value_charvalue', $ins_charvalue);
 				$q->addUpdate('value_intvalue', $ins_intvalue);
-				$q->addWhere('value_id = ' . $this->value_id);
+				$q->addWhere('value_id = ' . (int)$this->value_id);
 			} else {
 				$new_value_id = $db->GenID('custom_fields_values_id', 1);
 
@@ -654,7 +654,7 @@ class CustomFields
 		// Get Custom Fields for this Module
 		$q = new DBQuery;
 		$q->addTable('custom_fields_struct');
-		$q->addWhere("field_module = '" . $this->m . "' AND field_page = '" . $this->a . "'");
+		$q->addWhere('field_module = ? AND field_page = ?', array((string)$this->m, (string)$this->a));
 		$q->addOrder('field_order ASC');
 		$q->addOrder('field_name ASC');//to display by name and not by entry in database
 		$rows = $q->loadList();
@@ -725,9 +725,9 @@ class CustomFields
 		$q = new DBQuery;
 		$q->addTable('custom_fields_struct');
 		$q->addQuery('field_id');
-		$q->addWhere("field_module = '" . $this->m . "'");
-		$q->addWhere("field_page = '" . $field_a . "'");
-		$q->addWhere("field_name = '" . $field_name . "'");
+		$q->addWhere('field_module = ?', (string)$this->m);
+		$q->addWhere('field_page = ?', (string)$field_a);
+		$q->addWhere('field_name = ?', (string)$field_name);
 
 		if ($q->loadResult()) {
 			$error_msg = $AppUI ? $AppUI->_('Custom field name already exists') : 'Custom field name already exists';
@@ -777,7 +777,7 @@ class CustomFields
 		$q->addUpdate('field_datatype', $field_datatype);
 		$q->addUpdate('field_extratags', $field_extratags);
 		$q->addUpdate('field_order', $field_order);
-		$q->addWhere('field_id = ' . $field_id);
+		$q->addWhere('field_id = ' . (int)$field_id);
 		if (!$q->exec()) {
 			$error_msg = $db->ErrorMsg();
 			$q->clear();
@@ -876,8 +876,8 @@ class CustomFields
 		$q->addQuery('cfv.value_charvalue');
 		$q->addJoin('custom_fields_struct', 'cfs', 'cfs.field_id = cfv.value_field_id');
 		$q->addJoin($moduleTable, 'm', 'm.' . $moduleTableId . ' = cfv.value_object_id');
-		$q->addWhere('cfs.field_module = "' . $this->m . '"');
-		$q->addWhere('cfv.value_charvalue LIKE "%' . $keyword . '%"');
+		$q->addWhere('cfs.field_module = ?', (string)$this->m);
+		$q->addWhere('cfv.value_charvalue LIKE ?', '%' . $keyword . '%');
 		return $q->loadList();
 	}
 }
@@ -889,7 +889,7 @@ class CustomOptionList
 
 	function __construct($field_id)
 	{
-		$this->field_id = $field_id;
+		$this->field_id = (int)$field_id;
 		$this->options = array();
 	}
 
@@ -968,7 +968,7 @@ class CustomOptionList
 		foreach ($deleteoptions as $opt => $value) {
 			$q = new DBQuery;
 			$q->setDelete('custom_fields_lists');
-			$q->addWhere('list_option_id = ' . $opt);
+			$q->addWhere('list_option_id = ' . (int)$opt);
 
 			if (!$q->exec()) {
 				$delete_error = $db->ErrorMsg();

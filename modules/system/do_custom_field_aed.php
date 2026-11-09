@@ -13,7 +13,19 @@ if (!defined('DP_BASE_DIR')) {
 
 	if ($edit_field_id != NULL)
 	{
-		$edit_module = dpGetParam($_POST, "module", NULL);
+		$edit_field_id = (int)$edit_field_id;
+		$edit_module = (string)dpGetParam($_POST, "module", '');
+		// Custom fields belong to an installed module: accept only a module name.
+		$q = new DBQuery();
+		$q->addTable('modules');
+		$q->addQuery('mod_name');
+		$q->addWhere('LOWER(mod_name) = ?', mb_strtolower($edit_module));
+		if (!$q->loadResult()) {
+			$AppUI->setMsg('Module', UI_MSG_ERROR);
+			$AppUI->setMsg('invalidID', UI_MSG_ERROR, true);
+			$AppUI->redirect('m=system&a=custom_field_editor');
+		}
+		$q->clear();
 		$field_name = dpGetParam($_POST, "field_name", NULL);
 		$field_description = db_escape(dpGetParam($_POST, "field_description", NULL));
 		$field_htmltype = dpGetParam($_POST, "field_htmltype", NULL);

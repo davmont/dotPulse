@@ -35,6 +35,8 @@ if (!$project_retorno) {
 	$AppUI->setMsg('Invalid ID', UI_MSG_ERROR);
 	$AppUI->redirect('m=projects');
 }
+// Forms of a project: the user must be able to edit it.
+dPrequireProjectEdit($project_id);
 ?>
 <script type="text/javascript" src="./modules/monitoringandcontrol/js/ata.js"   ></script>
 <script type="text/javascript" src="./modules/monitoringandcontrol/js/validateChangeRequest.js"></script>

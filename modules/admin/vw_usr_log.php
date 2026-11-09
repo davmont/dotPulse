@@ -39,10 +39,13 @@ $end_date = intval($date_reg) ? new CDate(dPgetCleanParam($_POST, "log_end_date"
 $df = $AppUI->getPref('SHDATEFORMAT');
 global $currentTabId;
 $user_id = 0;
-if ($a = dPgetCleanParam($_REQUEST, "a", "") == "") {
-    $a = "&tab={$currentTabId}&amp;showdetails=1";
+$currentTabId = (int)$currentTabId;
+if (dPgetCleanParam($_GET, "a", "") == "") {
+    // System Admin's list of all users (admin/index.php checks access to it).
+    $a = "&amp;tab={$currentTabId}&amp;showdetails=1";
 } else {
-    $user_id = intval(dPgetParam($_REQUEST, "user_id", 0));
+    // A user's own page: the same user id that admin/viewuser.php checked access to.
+    $user_id = dPgetIntParam($_GET, "user_id", 0);
     $a = "&amp;a=viewuser&amp;user_id={$user_id}&amp;tab={$currentTabId}&amp;showdetails=1";
 }
 
@@ -96,7 +99,7 @@ if (dPgetParam($_REQUEST, "showdetails", 0) == 1) {
 	$q->addQuery('ual.*, u.*, c.*');
 	$q->addWhere('ual.user_id = u.user_id');
 	$q->addWhere('user_contact = contact_id ');
-	if ($user_id != 0) { $q->addWhere("ual.user_id='$user_id'"); }
+	if ($user_id != 0) { $q->addWhere('ual.user_id = ' . (int)$user_id); }
 	$q->addWhere("ual.date_time_in >='$start_date'");
 	$q->addWhere("ual.date_time_out <='$end_date'");
 	$q->addGroup('ual.date_time_last_action DESC');
@@ -114,9 +117,9 @@ if (dPgetParam($_REQUEST, "showdetails", 0) == 1) {
 	<tr>
 		<td align="center"><?php echo dPhtml($detail["contact_first_name"]);?></td>
 		<td align="center"><?php echo dPhtml($detail["contact_last_name"]);?></td>
-		<td align="center"><?php echo $detail["user_ip"];?></td>
-		<td align="center"><?php echo $detail["date_time_in"];?></td>
-		<td align="center"><?php echo $detail["date_time_out"];?></td>
+		<td align="center"><?php echo dPhtml($detail["user_ip"]);?></td>
+		<td align="center"><?php echo dPhtml($detail["date_time_in"]);?></td>
+		<td align="center"><?php echo dPhtml($detail["date_time_out"]);?></td>
 	</tr>
 <?php } ?>
 </table>

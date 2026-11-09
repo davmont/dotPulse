@@ -20,6 +20,12 @@ if ($projectSelected!=null) {
 }
 $t = intval(dPgetParam($_GET, 'tab'));
 
+// Only risks of projects this user may see (and risks without a project).
+require_once $AppUI->getModuleClass('projects');
+$riskProjectFilter = new CProject();
+$riskAllowedProjects = array_map('intval', array_keys($riskProjectFilter->getAllowedRecords($AppUI->user_id, 'project_id,project_name')));
+$riskAllowedProjects[] = 0;
+$whereProject .= ' and risk_project IN (' . implode(',', $riskAllowedProjects) . ')';
 $q = new DBQuery(); 
 $q->addQuery('*');
 $q->addTable('risks');

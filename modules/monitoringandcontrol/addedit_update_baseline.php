@@ -22,11 +22,10 @@ if (!$record) {
 	$AppUI->setMsg('Invalid ID', UI_MSG_ERROR);
 	$AppUI->redirect($project_id ? 'm=projects&a=view&project_id=' . $project_id : 'm=projects');
 }
+// The baseline's own project, which the user must be able to edit.
+$project_id = (int)$record[0]['project_id'];
+dPrequireProjectEdit($project_id);
 $project_name = $controllerUtil->getProjectName($project_id);
-if (!$project_name) {
-	$project_id = (int)$record[0]['project_id'];
-	$project_name = $controllerUtil->getProjectName($project_id);
-}
 ?>
 <script type="text/javascript" src="./modules/monitoringandcontrol/js/ata.js"   ></script>
 <!--  calendar  -->

@@ -29,7 +29,11 @@ if ($orderby == "user_id") {
 
 // retrieve list of earnings and their line_items
 // the tab selected tells which query to use
-if ($tab < 0) {
+$tab = (int)$tab;
+// The manager lists (all users' earnings) are for approvers only, as inv_aed.php's guard:
+// user types 1 to 6. Timecard users (type 7) have no "paid" list.
+$earn_manager = ($AppUI->user_type >= 1 && $AppUI->user_type <= 6);
+if ($tab < 0 || ($tab >= 4 && !$earn_manager) || ($tab == 3 && $AppUI->user_type == 7) || $tab > 6) {
 	$tab = 0;
 }
 
@@ -99,7 +103,7 @@ $tabBox->add('vw_idx', $AppUI->_('Approved'));
 if ($AppUI->user_type != 7) {
 	$tabBox->add('vw_idx', $AppUI->_('Paid'));
 }
-if ($AppUI->user_type < 7) {
+if ($earn_manager) {
 	$tabBox->add('vw_idx', $AppUI->_('MGR: To Approve'));
 	$tabBox->add('vw_idx', $AppUI->_('MGR: I Approved'));
 	$tabBox->add('vw_idx', $AppUI->_('MGR: All Approved'));

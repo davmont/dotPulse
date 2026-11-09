@@ -22,7 +22,25 @@ if (!$obj->bind( $_POST )) {
 }
 
 // detect if a deleete operation has to be processed
-$del = dPgetParam( $_POST, 'del', 0 );
+$del = (int)dPgetParam( $_POST, 'del', 0 );
+$unittest_id = (int)$obj->unittest_id;
+// Permission on this record, as addedit.php and runtest.php check (getDenyEdit).
+dPrequireWritePermission('testing', $unittest_id, $del);
+// An existing test of a project the user cannot see stays out of reach.
+$stored_project = 0;
+if ($unittest_id) {
+	$existing = new CTesting();
+	if (!$existing->load($unittest_id)) {
+		$AppUI->setMsg( 'Test' );
+		$AppUI->setMsg( 'invalidID', UI_MSG_ERROR, true );
+		$AppUI->redirect();
+	}
+	$stored_project = (int)$existing->unittest_project_id;
+	if ($stored_project && !getPermission('projects', 'view', $stored_project)) {
+		$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+}
 
 
 if ($del) {
@@ -45,11 +63,17 @@ if ($del) {
 	if (($test_task = dPgetParam( $_POST, 'test_task', null )) !== null) {
 		$obj->unittest_task_id = (int)$test_task;
 	}
+	// The project must be one the user can see, and the task one of its tasks.
+	$test_project_id = ($obj->unittest_project_id !== null) ? (int)$obj->unittest_project_id : $stored_project;
+	if (($test_project_id && !getPermission('projects', 'view', $test_project_id))
+			|| !dPrecordsBelongTo($test_project_id, array(array('tasks', 'task_id', 'task_project', (int)$obj->unittest_task_id)))) {
+		$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+		$AppUI->redirect('m=public&a=access_denied');
+	}
 	if (($msg = $obj->store())) {
 		$AppUI->setMsg( $msg, UI_MSG_ERROR );
 	} else {
-		$isNotNew = @$_POST['unittest_id'];
-		$AppUI->setMsg( $isNotNew ? 'Test updated' : 'Test inserted', UI_MSG_OK);
+		$AppUI->setMsg( $unittest_id ? 'Test updated' : 'Test inserted', UI_MSG_OK);
 	}
 	$AppUI->redirect();
 }

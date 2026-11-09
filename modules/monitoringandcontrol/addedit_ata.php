@@ -21,6 +21,8 @@ if (!$project_name) {
 	$AppUI->setMsg('Invalid ID', UI_MSG_ERROR);
 	$AppUI->redirect('m=projects');
 }
+// Forms of a project: the user must be able to edit it.
+dPrequireProjectEdit($project_id);
 $controllerAta = new ControllerAta();
 $controllerReport = new ControllerReport();  
 ?>

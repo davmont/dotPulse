@@ -39,8 +39,6 @@ modules/departments/index.php:4
 modules/departments/view.php:3
 modules/dotproject_plus/copy_project/CopyProjectViewHelper.php:1
 modules/dotproject_plus/do_copy_project.php:2
-modules/dotproject_plus/do_delete_activity_log.php:1
-modules/dotproject_plus/do_new_activity_log.php:1
 modules/dotproject_plus/do_new_wbs_item.php:1
 modules/dotproject_plus/do_save_activity_estimations.php:17
 modules/dotproject_plus/do_save_activity_order.php:5
@@ -66,7 +64,6 @@ modules/forums/post_message.php:2
 modules/forums/viewer.php:3
 modules/forums/view_topics.php:2
 modules/gallery2/configure.php:3
-modules/helpdesk/configure.php:6
 modules/helpdesk/do_item_aed.php:2
 modules/helpdesk/index.php:4
 modules/helpdesk/list.php:30
@@ -76,11 +73,7 @@ modules/history/addedit.php:1
 modules/history/index.php:5
 modules/holiday/addedit.php:2
 modules/holiday/index.php:1
-modules/hosting/do_hosting_aed.php:1
 modules/hosting/index.php:8
-modules/human_resources/do_hr_aed.php:1
-modules/human_resources/do_policies_aed.php:1
-modules/human_resources/do_role_aed.php:1
 modules/human_resources/index.php:2
 modules/informer/index.php:1
 modules/informer/vw_monthly.php:1
@@ -106,15 +99,12 @@ modules/macroprojects/departments_tab.view.macroprojects_gantt.php:4
 modules/macroprojects/departments_tab.view.macroprojects.php:8
 modules/macroprojects/do_macroproject_aed.php:1
 modules/macroprojects/index.php:10
-modules/macroprojects/reports/tasksperuser.php:1
 modules/macroprojects/reports/userperformance.php:2
 modules/macroprojects/viewfinances.php:1
 modules/macroprojects/viewgantt.php:2
 modules/macroprojects/view.php:4
 modules/messages/index.php:6
 modules/mileagelog/addedit.php:5
-modules/mileagelog/configure.php:3
-modules/mileagelog/do_mileagelog_aed.php:13
 modules/mileagelog/index.php:2
 modules/mileagelog/vw_mileagelog.php:11
 modules/monitoringandcontrol/admin_tab.viewuser.5LBLCUSTO.php:1
@@ -139,7 +129,6 @@ modules/opportunities/vw_idx_details_archieved.php:2
 modules/opportunities/vw_idx_details_open.php:2
 modules/opportunities/vw_idx_details.php:2
 modules/opportunities/vw_idx_details_project.php:2
-modules/payments/do_payment_aed.php:1
 modules/payments/index.php:2
 modules/projectdesigner/configure.php:5
 modules/projectdesigner/do_task_bulk_aed.php:15
@@ -151,7 +140,6 @@ modules/projects/departments_tab.view.projects_gantt.php:4
 modules/projects/departments_tab.view.projects.php:8
 modules/projects/do_project_aed.php:1
 modules/projects/index.php:10
-modules/projects/reports/tasksperuser.php:1
 modules/projects/reports/userperformance.php:2
 modules/projects/viewgantt.php:2
 modules/projects/view.php:7
@@ -185,7 +173,6 @@ modules/tasks/tasks.php:4
 modules/tasks/todo.php:3
 modules/tasks/viewgantt.php:3
 modules/tasks/view.php:4
-modules/testing/do_test_aed.php:1
 modules/testing/index.php:4
 modules/timecard/configure.php:3
 modules/timecard/do_updatetasklog.php:1

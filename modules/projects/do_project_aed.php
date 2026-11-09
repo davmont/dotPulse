@@ -40,6 +40,30 @@ $del = (int)dPgetParam($_POST, 'del', 0);
 // Permission on this record, as its addedit page checks.
 dPrequireWritePermission('projects', dPgetParam($_POST, 'project_id', 0), $del);
 
+if (!$del) {
+	$stored = null;
+	if ($obj->project_id) {
+		$stored = new CProject();
+		if (!$stored->load($obj->project_id)) {
+			$AppUI->setMsg('Project');
+			$AppUI->setMsg('invalidID', UI_MSG_ERROR, true);
+			$AppUI->redirect();
+		}
+	}
+	// The creator is who added the project, never a form value.
+	$obj->project_creator = $stored ? $stored->project_creator : $AppUI->user_id;
+	// The companies must be ones the user may see, as the form lists them; a project
+	// keeps the company it already has.
+	foreach (array('project_company', 'project_company_internal') as $field) {
+		$obj->$field = (int)$obj->$field;
+		if ($obj->$field && !($stored && $obj->$field == $stored->$field)
+				&& !getPermission('companies', 'view', $obj->$field)) {
+			$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+			$AppUI->redirect('m=public&a=access_denied');
+		}
+	}
+}
+
 // prepare (and translate) the module name ready for the suffix
 if ($del) {
 	$project_id = (int)dPgetParam($_POST, 'project_id', 0);

@@ -13,7 +13,18 @@ $not = (bool)dPgetParam($_POST, 'notify', '0');
 $notcont = (bool)dPgetParam($_POST, 'notify_contacts', '0');
 
 $obj = new CFile();
-$obj->load($file_id);
+// Edit permission on this file, as files/co.php checks before showing the form.
+if (!$file_id || !getPermission('files', 'edit', $file_id) || !$obj->load($file_id)) {
+	$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+	$AppUI->redirect('m=public&a=access_denied');
+}
+// A file checked out by someone else (or marked final) stays locked: only the user who
+// checked it out, a system administrator or the project owner may take it over or cancel it.
+if (!empty($obj->file_checkout) && $obj->file_checkout != $AppUI->user_id
+		&& !getPermission('system', 'edit') && !$obj->canAdmin()) {
+	$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+	$AppUI->redirect('m=public&a=access_denied');
+}
 
 //set checkout messages
 if ($msg = $obj->checkout($AppUI->user_id, $coReason)) {

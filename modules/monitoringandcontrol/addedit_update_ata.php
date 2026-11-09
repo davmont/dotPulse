@@ -24,11 +24,10 @@ if (!$meetingData) {
 	$AppUI->setMsg('Invalid ID', UI_MSG_ERROR);
 	$AppUI->redirect($project_id ? 'm=projects&a=view&project_id=' . $project_id : 'm=projects');
 }
+// The meeting's own project, which the user must be able to edit.
+$project_id = (int)$meetingData['project_id'];
+dPrequireProjectEdit($project_id);
 $project_name = $controllerUtil->getProjectName($project_id);
-if (!$project_name) {
-	$project_id = (int)$meetingData['project_id'];
-	$project_name = $controllerUtil->getProjectName($project_id);
-}
 ?>
 <script type="text/javascript" src="./modules/monitoringandcontrol/js/ata.js" ></script>
 <script type="text/javascript" src="./lib/jquery/jquery.min.js" ></script>

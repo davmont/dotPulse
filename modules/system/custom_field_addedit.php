@@ -10,7 +10,7 @@ dPadminOpen('custom_field_editor');
 dPadminHeading('Add or edit a custom field', '');
 
 $field_id = ((dpGetParam($_POST, 'field_id', NULL) != NULL) 
-             ? dpGetParam($_POST, 'field_id', NULL) : dpGetParam($_GET, 'field_id', 0));
+             ? dPgetIntParam($_POST, 'field_id', 0) : dPgetIntParam($_GET, 'field_id', 0));
 // Deleting a field changes data: POST with the CSRF token and system edit permission only.
 $delete_field = ($_SERVER['REQUEST_METHOD'] === 'POST') ? dpGetParam($_POST, 'delete', 0) : 0;
 if ($delete_field) {
@@ -21,6 +21,24 @@ if ($delete_field) {
 }
 $module = ((dpGetParam($_GET, 'module', NULL) == NULL) 
            ? dpGetParam($_POST, 'module', NULL) : dpGetParam($_GET, 'module', NULL));
+// Custom fields belong to an installed module: accept only a module name (case as listed).
+$q = new DBQuery();
+$q->addTable('modules');
+$q->addQuery('mod_name');
+$known_module = null;
+foreach ($q->loadColumn() as $mod_name) {
+	if (is_string($module) && mb_strtolower($mod_name) === mb_strtolower($module)) {
+		$known_module = $module;
+		break;
+	}
+}
+$q->clear();
+if ($known_module === null) {
+	$AppUI->setMsg('Module', UI_MSG_ERROR);
+	$AppUI->setMsg('invalidID', UI_MSG_ERROR, true);
+	$AppUI->redirect('m=system&a=custom_field_editor');
+}
+$module = $known_module;
 
 $select_newitem = dpGetParam($_POST, 'select_newitem', NULL);
 $select_items = dpGetParam($_POST, 'select_items', Array());

@@ -148,7 +148,7 @@ if($HELPDESK_CONFIG['search_criteria_project']){
 			$q->addTable('projects');
 			$q->addOrder('project_name');
 			$q->addWhere('project_company in (' . implode(',',array_keys(arrayMerge( array( 0 => '' ), getAllowedCompanies($company)))) .')');
-			$q->addWhere('project_status!='.$HELPDESK_CONFIG['archived_project_status_id']);
+			$q->addWhere('project_status!='.(int)$HELPDESK_CONFIG['archived_project_status_id']);
 			$project_list = $q->loadHashList();
 			$q->close();
 		}
@@ -214,7 +214,7 @@ if($HELPDESK_CONFIG['search_criteria_status']){
 	if ($status >= 0) {
 		$tarr[] = "hi.item_status=" . (int)$status;
 	} elseif ($status == -2) {
-		$tarr[] = "hi.item_status<>".$HELPDESK_CONFIG['closed_status_id'];
+		$tarr[] = "hi.item_status<>".(int)$HELPDESK_CONFIG['closed_status_id'];
 	}
 
 	if (!$req_project_id && !$req_company_id) {
