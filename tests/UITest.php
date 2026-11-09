@@ -206,5 +206,23 @@ class UITest extends TestCase {
         $this->assertRegexp('/Default message/', $msg);
         $this->assertRegexp('/class="message"/', $msg);
     }
+    // $AppUI lives in the session: a version cached on it by an older
+    // release must not be shown after an upgrade.
+    function testGetVersionIgnoresVersionCachedInTheSession() {
+        include DP_BASE_DIR . '/includes/version.php';
+        $current = $dp_version_major . '.' . $dp_version_minor
+            . (isset($dp_version_patch) ? '.' . $dp_version_patch : '')
+            . (isset($dp_version_prepatch) ? '-' . $dp_version_prepatch : '');
+
+        $ui = new TestCAppUI();
+        $ui->version_major = 3;
+        $ui->version_minor = 1;
+        $ui->version_patch = 0;
+        $ui->version_string = '3.1.0';
+        $stale = unserialize(serialize($ui));
+        $this->assertEquals($current, $stale->getVersion());
+        $this->assertEquals($current, $stale->version_string);
+    }
 }
+
 ?>
