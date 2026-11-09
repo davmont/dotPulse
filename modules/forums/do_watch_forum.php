@@ -6,7 +6,11 @@ if (!defined('DP_BASE_DIR')){
 /** 
  * Change forum watches
  */
-$watch = isset( $_POST['watch'] ) ? $_POST['watch'] : 0;
+// What is watched names a column (watch_forum, watch_topic): only those two.
+$watch = dPgetParam($_POST, 'watch', '');
+if (!in_array($watch, array('forum', 'topic'), true)) {
+	$watch = '';
+}
 
 if ($watch) {
 	// clear existing watches
@@ -24,7 +28,7 @@ if ($watch) {
 			if (strpos($k, 'forum_') !== FALSE) {
 				$q->addTable('forum_watch');
 				$q->addInsert('watch_user', $AppUI->user_id);
-				$q->addInsert('watch_'.$watch, substr( $k, 6 ));
+				$q->addInsert('watch_'.$watch, (int)substr( $k, 6 ));
 				if (!$q->exec()) {
 					$AppUI->setMsg( db_error(), UI_MSG_ERROR );
 				} else {

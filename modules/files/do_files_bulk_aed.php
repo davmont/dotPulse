@@ -4,38 +4,49 @@ if (!defined('DP_BASE_DIR')) {
 }
 
 global $AppUI;
-$selected = dPgetCleanParam($_POST, 'bulk_selected_file', 0);
+$selected = dPgetParam($_POST, 'bulk_selected_file', 0);
 $redirect = dPgetCleanParam($_POST, 'redirect', '');
-$bulk_file_project = dPgetCleanParam($_POST, 'bulk_file_project', 'O');
-$bulk_file_folder = dPgetCleanParam($_POST, 'bulk_file_folder', 'O');
+// 'O' (or nothing) leaves the project or folder as it is; otherwise an id.
+$bulk_file_project = dPgetParam($_POST, 'bulk_file_project', 'O');
+$bulk_file_folder = dPgetParam($_POST, 'bulk_file_folder', 'O');
+$move_project = ($bulk_file_project !== '' && $bulk_file_project !== 'O');
+$move_folder = ($bulk_file_folder !== '' && $bulk_file_folder !== 'O');
+$bulk_file_project = (int)$bulk_file_project;
+$bulk_file_folder = (int)$bulk_file_folder;
+
+// The target project and folder must be ones the user may put files in, as the file
+// form allows (project view, folder edit).
+if (($move_project && $bulk_file_project && !getPermission('projects', 'view', $bulk_file_project))
+		|| ($move_folder && $bulk_file_folder && !getPermission('file_folders', 'edit', $bulk_file_folder))) {
+	$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+	$AppUI->redirect('m=public&a=access_denied');
+}
 
 if (is_array($selected) && count($selected)) {
-	$upd_file = new CFile();
-	foreach ($selected as $key => $val) {
-		if ($key) {
-			$upd_file->load($key);
+	foreach (array_keys($selected) as $file_id) {
+		$file_id = (int)$file_id;
+		if (!$file_id) {
+			continue;
 		}
-		
-		if (isset($_POST['bulk_file_project']) && $bulk_file_project!='' 
-			&& $bulk_file_project!='O') {
-			if ($upd_file->file_id) {
-				// move the file on filesystem if the affiliated project was changed
-				if ($upd_file->file_project != $bulk_file_project) {
-					$oldProject = $upd_file->file_project;
-					$upd_file->file_project = $bulk_file_project;
-					$res = $upd_file->moveFile($oldProject, $upd_file->file_real_filename);
-					if (!$res) {
-						$AppUI->setMsg('At least one File could not be moved', UI_MSG_ERROR);
-					}
-				}
-				$upd_file->store();
+		// Each file is changed: the user must be allowed to edit it.
+		dPrequireWritePermission('files', $file_id);
+		$upd_file = new CFile();
+		if (!$upd_file->load($file_id)) {
+			continue;
+		}
+		if ($move_project && $upd_file->file_project != $bulk_file_project) {
+			// move the file on filesystem if the affiliated project was changed
+			$oldProject = $upd_file->file_project;
+			$upd_file->file_project = $bulk_file_project;
+			if (!$upd_file->moveFile($oldProject, $upd_file->file_real_filename)) {
+				$AppUI->setMsg('At least one File could not be moved', UI_MSG_ERROR);
 			}
 		}
-		if (isset($_POST['bulk_file_folder']) && $bulk_file_folder!='' && $bulk_file_folder!='O') {
-			if ($upd_file->file_id) {
-				$upd_file->file_folder = $bulk_file_folder;
-				$upd_file->store();
-			}
+		if ($move_folder) {
+			$upd_file->file_folder = $bulk_file_folder;
+		}
+		if ($move_project || $move_folder) {
+			$upd_file->store();
 		}
 	}
 }

@@ -420,14 +420,22 @@ The interface icons were 2000s desktop bitmaps (16-48 px GIF/PNG), blurry on hig
 - Third-party widgets: the Gantt chart (frappe-gantt) and the tree tables, modal dialogs and igantt grid of add-on modules are recoloured; date pickers (flatpickr, jscalendar) and overlib tooltips stay as light pop-ups with their own dark text.
 - Calendar (both themes): event type icons (general, appointment, meeting, all day, anniversary, reminder) and the task start and end marks are SVG; the event links are a flex row, so the icon no longer overlaps the title.
 
-### After 3.2.0: next steps (proposed, to prioritise)
-What 3.2.0 left open, from the work above. None blocks an installation.
+### 3.2.1: security release (2026-11-09)
+Advisory [GHSA-rj5g-wp63-485q](https://github.com/davmont/dotPulse/security/advisories/GHSA-rj5g-wp63-485q), [release notes](../release-notes/v3.2.1.md). Fixed in the advisory's private fork and released before the advisory was published.
+- **Request triage:** every raw read of `$_GET`, `$_POST`, `$_REQUEST`, `$_COOKIE` and the session state built from them was traced to its sink and classified (89 findings: privilege escalation through the task handler's sub-form include, account takeover through the contact of another user's account, SQL injection, handlers that checked the module but not the record, stored and reflected XSS, the installer showing the database settings). All were fixed in this release, including the low ones.
+- **`CDpObject::bind()` keeps the record id an integer** (`castKey()`, also in the classes with their own `bind()`), so a request value bound to an object no longer reaches SQL as the id.
+- **Lists and pickers** (risks, the generic and helpdesk selectors, contact companies, closure, monitoring and control, time planning, earnings manager tabs) show only what the user may view.
+- The raw-read baseline (`tools/checks/raw-input-baseline.txt`) went from 1008 reads in 218 files to 910 in 194.
+- Verified locally against MariaDB with PHP's built-in server: `docker/smoke.sh` (except the Apache-only checks), the full audit's steps 1-3 (45 add-ons, crawls as admin and worker, 65 forms saved as each, no SQL error or warning in the log), targeted attacks as the worker (account e-mail, sub-form include, earnings manager list, department filter, selectors), PHP tests, PHPStan unchanged.
+
+### After 3.2.1: next steps (proposed, to prioritise)
+What 3.2.0 and 3.2.1 left open, from the work above. None blocks an installation.
 1. **Dark theme on the real pages.** The colour filter was checked on markup samples, and a bug only real pages showed was fixed before the release (it skipped every page). Add `dotpulse-dark` to the audit suite's themes (`THEMES` and `LAYOUT_EXTRA` in `docker/tests/run.sh`), crawl it as admin and worker, and look for light islands: colours set by JavaScript (16 `style.background` or `.css('background')` calls in module scripts) are not filtered.
 2. **Light pop-ups in the dark theme:** the date pickers (flatpickr, jscalendar) and overlib tooltips keep their own light colours. They are legible, but a dark style would fit.
 3. **Contrast left in the light theme:** frappe-gantt draws its bar labels white on a light grey bar (1.8:1) and on its blue progress (2.3:1), and System Admin's control edges (`--a-line`) are 1.8:1 (fixed in the dark theme only). `make theme-contrast` could check the `--a-*` set too.
 4. **Bitmaps without an SVG:** helpdesk call types (`ct*.png`), annotation levels, the file-type icons of the files module and the theme decorations. Add them to `tools/icons/build.py`.
 5. **Translation review.** The 23 languages other than English and Spanish have 3,000-5,100 entries each marked `// MT` (`php tools/locales/check.php status`), and the old wrong terms listed above. The translation page drops every mark of a file when it saves it: keep the marks of the entries left unchanged, so that a review can be done in parts. Then review by priority (the languages of the installations in use first).
-6. **Hardening debt:** 1,008 raw superglobal reads in 218 files (`tools/checks/raw-input-baseline.txt`) and 468 PHPStan findings (`tools/phpstan/phpstan-baseline.neon`). Both checks only forbid new ones; reduce them module by module, starting with the active modules.
+6. **Hardening debt:** 910 raw superglobal reads in 194 files (`tools/checks/raw-input-baseline.txt`; 1,008 in 218 before 3.2.1) and 468 PHPStan findings (`tools/phpstan/phpstan-baseline.neon`). Both checks only forbid new ones; reduce them module by module, starting with the active modules.
 7. **Dormant modules** (below), when one is needed again.
 
 ### Nice to have: dormant modules (to be revived later)

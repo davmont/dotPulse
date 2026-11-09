@@ -18,7 +18,13 @@ $pdo->store();
 
 //Lets store the task lines
 $elements = $_POST;
-$project_id = $elements['project']; 
+// The tasks go into this project: one the user can see and add tasks to, as the task form
+// requires (it was taken from the request unchecked).
+$project_id = (int)$elements['project'];
+if (!$project_id || !getPermission('projects', 'view', $project_id) || !getPermission('tasks', 'add')) {
+	$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+	$AppUI->redirect('m=public&a=access_denied');
+}
 foreach ($elements as $element => $on) {
       if ((substr($element, 0, 14) == 'add_task_line_') && ($on != '')) {
             

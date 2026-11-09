@@ -106,7 +106,7 @@ if (($msg = $contact->store())) {
 		}
 		if (isset($_POST['user_role']) && $_POST['user_role']) {
 			$perms =& $AppUI->acl();
-			if ($perms->insertUserRole($_POST['user_role'], $obj->user_id)) {
+			if ($perms->insertUserRole(dPgetIntParam($_POST, 'user_role', 0), $obj->user_id)) {
 				$AppUI->setMsg('', UI_MSG_ALERT, true);
 			} else {
 				$AppUI->setMsg('failed to add role', UI_MSG_ERROR);

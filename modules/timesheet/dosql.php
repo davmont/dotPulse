@@ -114,7 +114,17 @@ if ($punchIn) {
 
 		$timesheet = new Timesheet();
 
-		$this_post['timesheet_id'] = $timesheet_id[$i];
+		// An existing row must be the user's own: any id could be posted and taken over.
+		$this_post['timesheet_id'] = (int)$timesheet_id[$i];
+		if ($this_post['timesheet_id']) {
+			$q = new DBQuery();
+			$q->addTable('timesheet');
+			$q->addQuery('user_id');
+			$q->addWhere('timesheet_id = ' . $this_post['timesheet_id']);
+			if ((int)$q->loadResult() != (int)$AppUI->user_id) {
+				continue;
+			}
+		}
 		$this_post['timesheet_date'] = $timesheet_date[$i];
 		$this_post['timesheet_time_in'] = $timesheet_time_in[$i];
 		$this_post['timesheet_time_out'] = $timesheet_time_out[$i];

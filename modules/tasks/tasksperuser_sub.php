@@ -14,8 +14,11 @@ $show_orphaned = (int)dPgetParam($_POST, 'show_orphaned', 0);
 $display_week_hours = (int)dPgetParam($_POST, 'display_week_hours', 0);
 $max_levels = dPgetCleanParam($_POST, 'max_levels', '');
 $log_userfilter = (int)dPgetParam($_POST, 'log_userfilter', 0);
-$company_id = dPgetCleanParam($_POST, 'company_id', 'all');
-$project_id = dPgetCleanParam($_POST, 'project_id', 'all');
+$company_id = dPgetParam($_POST, 'company_id', 'all');
+$company_id = ($company_id === 'all') ? 'all' : (int)$company_id;
+// 'all' or a project id.
+$project_id = dPgetParam($_POST, 'project_id', 'all');
+$project_id = ($project_id === 'all') ? 'all' : (int)$project_id;
 $report_type = dPgetCleanParam($_POST, 'report_type', '');
 
 require_once ($AppUI->getModuleClass('projects'));
@@ -252,7 +255,7 @@ if ($do_report) {
 	
 	$sql->addWhere('task_percent_complete < 100');
 	if ($project_id != 'all') {
-		$sql->addWhere('t.task_project = \''. $project_id . '\'');
+		$sql->addWhere('t.task_project = ' . (int)$project_id);
 	}
 		if ($company_id != 'all') {
 		$sql->addWhere('(p.project_company = ' . (int)$company_id . ' OR p.project_company_internal = ' . (int)$company_id . ')');

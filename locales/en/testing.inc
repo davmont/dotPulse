@@ -21,3 +21,4 @@
 "Duration",
 "Only the task owner, project owner, or system administrator is able to edit time related information.",
 "Non-executed Tests",
+"Test",

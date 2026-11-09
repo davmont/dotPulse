@@ -25,7 +25,8 @@ $taskLogActivityId = (int)$taskLogActivityId;
 dPrequireProjectEdit(dPgetParam($_POST, 'project_id', 0), array(array('tasks', 'task_id', 'task_project', $taskLogActivityId)));
 $taskLogDate = dPgetParam($_POST, "task_log_date_$taskLogActivityId");
 $taskLogHours = dPgetParam($_POST, "task_log_hours");
-$taskLogCreator = dPgetParam($_POST, "task_log_creator");
+// The log is the current user's own work, as the form sends.
+$taskLogCreator = (int)$AppUI->user_id;
 $activityConcluded = dPgetParam($_POST, "activity_concluded");
 
 $taskLog = new CTaskLog();
@@ -63,5 +64,5 @@ $task->store();
 
 $AppUI->setMsg($AppUI->_("LBL_ACTIVITY_TASK_LOG_REGISTERED"), UI_MSG_OK, true);
 
-$AppUI->redirect("m=projects&a=view&project_id=" . $_POST["project_id"] . "&tab=" . $_POST["tab"]);
+$AppUI->redirect("m=projects&a=view&project_id=" . dPgetIntParam($_POST, 'project_id', 0) . "&tab=" . dPgetIntParam($_POST, 'tab', 0));
 ?>

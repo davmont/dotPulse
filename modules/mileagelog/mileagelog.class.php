@@ -98,6 +98,13 @@ class CMileageLog {
 			return get_class( $this )."::bind failed";
 		} else {
 			bindHashToObject( $hash, $this );
+			// Ids are integers: the raw request value must not reach the SQL that uses them.
+			if (isset($this->mileage_log_id) && $this->mileage_log_id !== '') {
+				$this->mileage_log_id = (int)$this->mileage_log_id;
+			}
+			if (isset($this->mileage_log_user_id) && $this->mileage_log_user_id !== '') {
+				$this->mileage_log_user_id = (int)$this->mileage_log_user_id;
+			}
 			return NULL;
 		}
 	}
@@ -161,6 +168,13 @@ class CMileageLogPurpose {
 			return get_class( $this )."::bind failed";
 		} else {
 			bindHashToObject( $hash, $this );
+			// Ids are integers: the raw request value must not reach the SQL that uses them.
+			if (isset($this->mileage_log_purpose_id) && $this->mileage_log_purpose_id !== '') {
+				$this->mileage_log_purpose_id = (int)$this->mileage_log_purpose_id;
+			}
+			if (isset($this->mileage_log_id) && $this->mileage_log_id !== '') {
+				$this->mileage_log_id = (int)$this->mileage_log_id;
+			}
 			return NULL;
 		}
 	}

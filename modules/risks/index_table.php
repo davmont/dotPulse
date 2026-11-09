@@ -98,9 +98,9 @@ $valid_ordering = array(
     'risk_notes',
     'risk_potential_other_projects',
     'risk_lessons_learned',
-    `risk_strategy`,
-    `risk_prevention_action`,
-    `risk_contingency_plan`,
+    'risk_strategy',
+    'risk_prevention_action',
+    'risk_contingency_plan',
 );
 
 $orderdire = $AppUI->getState('RisksIdxOrderDir') ? $AppUI->getState('RisksIdxOrderDir') : 'desc';
@@ -119,6 +119,12 @@ if ($projectSelected != null) {
     $whereProject = ' and risk_project=' . $projectSelected;
 }
 $t = intval(dPgetParam($_GET, 'tab'));
+// Only risks of projects this user may see (and risks without a project).
+require_once $AppUI->getModuleClass('projects');
+$riskProjectFilter = new CProject();
+$riskAllowedProjects = array_map('intval', array_keys($riskProjectFilter->getAllowedRecords($AppUI->user_id, 'project_id,project_name')));
+$riskAllowedProjects[] = 0;
+$whereProject .= ' and risk_project IN (' . implode(',', $riskAllowedProjects) . ')';
 $q->clear();
 $q->addQuery('*');
 $q->addTable('risks');

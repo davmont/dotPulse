@@ -9,33 +9,56 @@ require_once("modules/mngdocument/files.class.php");
 $file_id = intval( dPgetParam( $_POST, 'file_id', 0 ) );
 $del = intval( dPgetParam( $_POST, 'del', 0 ) );
 $padre = intval( dPgetParam( $_POST, 'padre', 0 ) );
-$descripcion = dPgetParam( $_POST, 'descripcion', '' );
-$dirname = dPgetParam( $_POST, 'dirname', '' );
-$accion = dPgetParam( $_POST, 'accion', '' );
+$descripcion = dPgetCleanParam( $_POST, 'descripcion', '' );
+$dirname = dPgetCleanParam( $_POST, 'dirname', '' );
+$accion = dPvalidateOrder( dPgetParam( $_POST, 'accion', '' ), array('newdocument', 'newdirectory', 'deldirectory', 'deldocument'), '' );
 $actual = dPgetIntParam( $_POST, 'actual', 0 );
 $delall = dPgetParam( $_POST, 'delall', '' );
 
-
+// The form creates new records or deletes one; it never edits a record, so nothing is
+// bound from the request: the fields are set below for the action.
+if ($del) {
+	$accion = 'deldocument';
+	$actual = $file_id;
+	$delall = 1;
+}
+if ($accion === '') {
+	$AppUI->redirect();
+}
+if ($accion == 'deldirectory' || $accion == 'deldocument') {
+	dPrequireWritePermission('mngdocument', $actual, true);
+	// The record must exist and be of the kind the action deletes.
+	$q = new DBQuery();
+	$q->addTable('SGD');
+	$q->addQuery('SGD_type');
+	$q->addWhere('SGD_id = ' . (int)$actual);
+	$type = $q->loadResult();
+	if ($type === null || $type === false || (int)$type != ($accion == 'deldirectory' ? 1 : 0)) {
+		$AppUI->setMsg( 'File' );
+		$AppUI->setMsg( 'invalidID', UI_MSG_ERROR, true );
+		$AppUI->redirect();
+	}
+} else {
+	dPrequireWritePermission('mngdocument', 0, false);
+	// A new record goes into an existing directory the user may edit, or the top level.
+	if ($padre) {
+		$q = new DBQuery();
+		$q->addTable('SGD');
+		$q->addQuery('SGD_type');
+		$q->addWhere('SGD_id = ' . (int)$padre);
+		if ((int)$q->loadResult() !== 1 || !getPermission('mngdocument', 'edit', $padre)) {
+			$AppUI->setMsg( 'Access denied.', UI_MSG_ERROR );
+			$AppUI->redirect( 'm=public&a=access_denied' );
+		}
+	}
+}
 
 $obj = new CFile("SGD","SGD_id");
 
 $log = new CFileLog ("SGD_Logs","SGD_Log_id");
 
-if (!$obj->bind( $_POST )) {
-	$AppUI->setMsg( $obj->getError(), UI_MSG_ERROR );
-	$AppUI->redirect();
-}
-
 // prepare (and translate) the module name ready for the suffix
 $AppUI->setMsg( 'File' );
-// delete the file
-if ($del) {
-	$obj->load( $file_id );
-	if (($msg = $obj->delete())) {
-		$AppUI->setMsg( $msg, UI_MSG_ERROR );
-		$AppUI->redirect();
-	} 
-}
 
 set_time_limit( 600 );
 ignore_user_abort( 1 );
@@ -86,7 +109,7 @@ switch ($accion)
   $obj->SGD_description = $descripcion;
  break;
  case "deldirectory":
-  $sql="select SGD_id,SGD_type,SGD_name from " . dPgetConfig('dbprefix', '') . "SGD where SGD_parent=$actual";
+  $sql="select SGD_id,SGD_type,SGD_name from " . dPgetConfig('dbprefix', '') . "SGD where SGD_parent=" . (int)$actual;
   $resultado=db_exec($sql);
   if ($delall<>1 and db_num_rows($resultado)>0)
     $AppUI->setMsg( "El directorio contiene ficheros y/o subdirectorios. Imposible eliminar.", UI_MSG_ERROR );
@@ -138,6 +161,10 @@ function BorrarDirectorio($actual,$log)
    $AppUI->setMsg( $msg, UI_MSG_ERROR );
 }
 
+if (!$obj->SGD_name || (int)$obj->SGD_id !== 0) {
+	// Nothing to add (no upload, for example).
+	$AppUI->redirect();
+}
 if (($msg = $obj->store())) {
 	$AppUI->setMsg( $msg, UI_MSG_ERROR );
 } else {

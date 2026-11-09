@@ -27,9 +27,13 @@ if (!db_loadObject( $sql, $obj )) {
 	$AppUI->setMsg( 'earning' );
 	$AppUI->setMsg( "invalidID", UI_MSG_ERROR, true );
 	$AppUI->redirect('m=earnings');
-} else {
-	$AppUI->savePlace();
 }
+// Its owner, or an approver (user type below 7), as the module's lists and inv_aed.php allow.
+if ((int)$obj->earning_user_id !== (int)$AppUI->user_id
+		&& !($AppUI->user_type > 0 && $AppUI->user_type < 7)) {
+	$AppUI->redirect('m=public&a=access_denied');
+}
+$AppUI->savePlace();
 
 $timecard = 0;
 // If document from employee, switch to timecard display where appropriate

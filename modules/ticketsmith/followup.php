@@ -3,7 +3,9 @@ if (!defined('DP_BASE_DIR')) {
   die('You should not access this file directly.');
 }
 
-if (!$canRead) {
+// Posting a followup e-mails from the system's address: edit permission, as comment.php
+// requires (read was enough).
+if (!$canRead || !$canEdit) {
 	$AppUI->redirect("m=public&a=access_denied");
 }
 

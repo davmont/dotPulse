@@ -8,7 +8,7 @@ global $priority, $projects, $tab, $user_id, $min_view;
 
 $df = $AppUI->getPref('SHDATEFORMAT');
 
-$department = isset($_GET['dept_id']) ? $_GET['dept_id'] : (isset($department) ? $department : 0);
+$department = isset($_GET['dept_id']) ? dPgetIntParam($_GET, 'dept_id') : (isset($department) ? (int)$department : 0);
 
 $projFilter_extra = array('-4' => 'All w/o archived');
 

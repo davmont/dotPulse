@@ -18,6 +18,8 @@ if (!$project_name) {
 	$AppUI->setMsg('Invalid ID', UI_MSG_ERROR);
 	$AppUI->redirect('m=projects');
 }
+// Forms of a project: the user must be able to edit it.
+dPrequireProjectEdit($project_id);
 ?>
 <script src="./modules/monitoringandcontrol/js/baseline.js" > </script>
  <table width="100%" cellspacing="1" cellpadding="1" border="0">

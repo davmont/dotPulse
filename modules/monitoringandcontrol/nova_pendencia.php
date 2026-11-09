@@ -11,6 +11,8 @@ require_once (DP_BASE_DIR . "/modules/monitoringandcontrol/control/controller_ut
 header("Content-Type:text/html; charset=iso-8859-1",true);
  
 $project_id = dPgetIntParam( $_GET, 'project_id', 0 );
+// Part of a project's meeting form: the user must be able to edit the project.
+dPrequireProjectEdit($project_id);
 $titleBlock = new CTitleBlock('Ação Corretiva', 'graph-up.png', $m, $m . '.' . $a);
 $titleBlock->show();
 

@@ -38,7 +38,7 @@ function cleanText($text){
 
 require_once( $AppUI->getModuleClass( 'tasks' ) );
 
-$del = dPgetParam( $_POST, 'del', 0 );
+$del = dPgetIntParam($_POST, 'del', 0);
 
 $obj = new CTaskLog();
 
@@ -46,6 +46,8 @@ if (!$obj->bind( $_POST )) {
 	$AppUI->setMsg( $obj->getError(), UI_MSG_ERROR );
 	$AppUI->redirect();
 }
+// The same rights as the task's own log form: this handler only needed timecard edit.
+$obj->prepareWrite($del);
 
 if ($obj->task_log_date) {
 	$date = new CDate( $obj->task_log_date );

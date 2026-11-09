@@ -420,6 +420,16 @@ function dPgetIntParam(&$arr, $name, $def = 0)
 }
 
 /**
+ * The department filter of the project lists: a department id, or company_<id> for a
+ * whole company. Anything else becomes a department id (int), so the value can go into SQL.
+ */
+function dPdepartmentParam(&$arr, $name = 'department')
+{
+	$value = (string)dPgetParam($arr, $name, '');
+	return preg_match('/^company_(\d+)$/', $value, $m) ? 'company_' . (int)$m[1] : (int)$value;
+}
+
+/**
  * Escapes a value for HTML text or a quoted attribute (single or double quotes), in the
  * install's character set. Use it for every database or request value written into a page.
  */

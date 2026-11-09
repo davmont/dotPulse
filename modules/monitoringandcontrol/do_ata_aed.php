@@ -30,7 +30,10 @@ DB filelds - TABLE: 'monitoring_meeting_item_select' :
 	$project_id = (int)$project_id;
 	$meeting_id = (int)$meeting_id;
 	// The user must be able to edit this project, and the records named must belong to it.
-	dPrequireProjectEdit($project_id, array(array('monitoring_meeting', 'meeting_id', 'project_id', $meeting_id)));
+	// The change request a delete names must belong to the project too.
+	$change_id = (int)dPgetParam($_POST, 'change_id', 0);
+	dPrequireProjectEdit($project_id, array(array('monitoring_meeting', 'meeting_id', 'project_id', $meeting_id),
+		array('monitoring_change_request', 'change_id', 'project_id', $change_id)));
 	$dt_begin = dPgetParam($_POST,'dt_begin');	
 	$hr_begin = dPgetParam($_POST,'hr_begin');
 	$min_begin = dPgetParam($_POST,'min_begin');
@@ -64,7 +67,7 @@ DB filelds - TABLE: 'monitoring_meeting_item_select' :
 	$acao_corretiva = dPgetParam($_POST,'acao_corretiva');	
 	$user_id = dPgetParam($_POST,'user');	
 	$date_limit =  dPgetParam($_POST,'date_limit');
-	$change_id =  dPgetParam($_POST,'change_id');
+	// $change_id: read and checked above, with the project.
 	
 	if($dt_begin == ""){
 		 $dt_end = "";

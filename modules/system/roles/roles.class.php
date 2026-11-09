@@ -46,6 +46,10 @@ class CRole
 			return get_class($this) . "::bind failed";
 		} else {
 			bindHashToObject($hash, $this);
+			// Ids are integers: the raw request value must not reach the SQL that uses them.
+			if (isset($this->role_id) && $this->role_id !== '') {
+				$this->role_id = (int)$this->role_id;
+			}
 			return NULL;
 		}
 	}

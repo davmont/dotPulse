@@ -3,8 +3,8 @@ if (!defined('DP_BASE_DIR')){
 	die('You should not access this file directly');
 }
 
-$pma_id = dPgetParam($_GET, 'pma_id', 0);
-$project_name = dPgetParam($_GET, 'project_name', 0);
+$pma_id = dPgetIntParam($_GET, 'pma_id', 0);
+$project_name = (string)dPgetParam($_GET, 'project_name', '');
 
 
 $perms =& $AppUI->acl();
@@ -29,10 +29,11 @@ $participants = '';
 if($pma_id == 0){
  $q  = new DBQuery;
  $q->addTable('projects');
- $q->addQuery('project_target_budget, project_start_date, project_end_date, project_name');
+ $q->addQuery('project_id, project_target_budget, project_start_date, project_end_date, project_name');
  $q->addWhere('project_name=' . $q->quote($project_name));
  $res =& $q->exec();
- if ($res && !$res->EOF) {
+ // Only a project the user may edit, as saving the post mortem requires.
+ if ($res && !$res->EOF && getPermission('projects', 'edit', (int)$res->fields['project_id'])) {
  $row->planned_budget = $res->fields['project_target_budget'];
  $row->project_planned_start_date = $res->fields['project_start_date'];
  $row->project_planned_end_date = $res->fields['project_end_date'];
@@ -80,12 +81,16 @@ $titleBlock->show();
 
    $q  = new DBQuery;
    $q->addTable('projects');
-   $q->addQuery('project_name');
+   $q->addQuery('project_id, project_name');
    $p = $q->loadList();
    $projects = array();
    $i = 0;
+   // Projects the user may edit (saving requires it), plus the one this post mortem is about.
    foreach($p as $project){
-                     $projects[$project['project_name']] = $project['project_name'];
+                     if (getPermission('projects', 'edit', (int)$project['project_id'])
+                         || ($pma_id && $project['project_name'] === $row->project_name)) {
+                         $projects[$project['project_name']] = $project['project_name'];
+                     }
    }
 
    $q  = new DBQuery;

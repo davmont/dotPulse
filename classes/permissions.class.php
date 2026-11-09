@@ -1120,29 +1120,40 @@ class dPacl extends gacl_api
 		}
 
 		$mod_type = substr($_POST['permission_module'], 0, 4);
-		$mod_id = substr($_POST['permission_module'], 4);
+		// Ids are integers and the table one a module declares (phpGACL concatenates them).
+		$mod_id = (int)substr($_POST['permission_module'], 4);
+		$permission_item = (int)dPgetParam($_POST, 'permission_item', 0);
+		$permission_table = (string)dPgetParam($_POST, 'permission_table', '');
+		$q = new DBQuery();
+		$q->addTable('modules');
+		$q->addQuery('COUNT(*)');
+		$q->addWhere('permissions_item_table = ?', array($permission_table));
+		if ($permission_item && !$q->loadResult()) {
+			$this->debug_text('unknown permission table');
+			return false;
+		}
 		$mod_group = null;
 		$mod_mod = null;
 		if ($mod_type == 'grp,') {
 			$mod_group = array($mod_id);
-		} else if (isset($_POST['permission_item']) && $_POST['permission_item']) {
+		} else if ($permission_item) {
 			$mod_mod = array();
-			$mod_mod[$_POST['permission_table']][] = $_POST['permission_item'];
+			$mod_mod[$permission_table][] = $permission_item;
 			//First need to check if the section exists.
-			if (!($this->get_object_section_section_id(null, $_POST['permission_table'], 'axo'))) {
-				$this->addModuleSection($_POST['permission_table']);
+			if (!($this->get_object_section_section_id(null, $permission_table, 'axo'))) {
+				$this->addModuleSection($permission_table);
 			}
 			//check if the item already exists, if not create it.
 			if (
 				!($this->get_object_id(
-					$_POST['permission_table'],
-					$_POST['permission_item'],
+					$permission_table,
+					$permission_item,
 					'axo'
 				))
 			) {
 				$this->addModuleItem(
-					$_POST['permission_table'],
-					$_POST['permission_item'],
+					$permission_table,
+					$permission_item,
 					$_POST['permission_name']
 				);
 			}
@@ -1155,17 +1166,17 @@ class dPacl extends gacl_api
 
 		if (!(empty($_POST['role_id']))) {
 			$user_map = null;
-			$role_map = array($_POST['role_id']);
+			$role_map = array((int)$_POST['role_id']);
 		} else {
 			$role_map = null;
-			$aro_info = $this->get_object_data($_POST['permission_user'], 'aro');
+			$aro_info = $this->get_object_data((int)$_POST['permission_user'], 'aro');
 			$user_map = array();
 			$user_map[$aro_info[0][0]][] = $aro_info[0][1];
 		}
 		//Build the permissions info
 		$type_map = array();
 		foreach ($_POST['permission_type'] as $tid) {
-			$type = $this->get_object_data($tid, 'aco');
+			$type = $this->get_object_data((int)$tid, 'aco');
 			foreach ($type as $t) {
 				$type_map[$t[0]][] = $t[1];
 			}

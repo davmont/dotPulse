@@ -46,6 +46,12 @@ $error = 0;
 // Update dates for all non dynamic tasks
 if ( $bulk_task_id ) {
 	for ( $i=0; $i<count($task_id_list); $i++ ) {
+		// Each task changed: the user must be allowed to edit it (nothing was checked per task).
+		$task_id_list[$i] = (int)$task_id_list[$i];
+		if (!getPermission('tasks', 'edit', $task_id_list[$i])) {
+			$error++;
+			continue;
+		}
 		if ( !$obj->load($task_id_list[$i]) ) {
 			$AppUI->setMsg("InvalidID", UI_MSG_ERROR, true);
 			$AppUI->setMsg($task_id_list[$i], UI_MSG_ERROR, true);
@@ -54,9 +60,12 @@ if ( $bulk_task_id ) {
 		} else {
 			if ( $obj->task_dynamic != 1 ) {
 				$task_arr[$obj->task_id] = $obj;
-				if ( $task_start_date_list[$i] != "0000-00-00 00:00:00" )
+				$is_date = function ($d) {
+					return is_string($d) && preg_match('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $d);
+				};
+				if ( isset($task_start_date_list[$i]) && $is_date($task_start_date_list[$i]) && $task_start_date_list[$i] != "0000-00-00 00:00:00" )
 					$obj->task_start_date = $task_start_date_list[$i];
-				if ( $task_end_date_list[$i] != "0000-00-00 00:00:00" )
+				if ( isset($task_end_date_list[$i]) && $is_date($task_end_date_list[$i]) && $task_end_date_list[$i] != "0000-00-00 00:00:00" )
 					$obj->task_end_date = $task_end_date_list[$i];
 				$obj->store();
 			}
@@ -67,7 +76,14 @@ if ( $bulk_task_id ) {
 // Add new dependencies
 if ( $bulk_task_dependencies ) {
 	for ( $i=0; $i<count($task_dependencies); $i++ ) {
-		list ($task_req, $task_dep ) = explode( ",", $task_dependencies[$i] );
+		@list ($task_req, $task_dep ) = explode( ",", $task_dependencies[$i] );
+		// The dependent task changes (edit); the one it waits for must be visible.
+		$task_req = (int)$task_req;
+		$task_dep = (int)$task_dep;
+		if (!$task_req || !getPermission('tasks', 'edit', $task_dep) || !getPermission('tasks', 'view', $task_req)) {
+			$error++;
+			continue;
+		}
 		if ( ! $obj->load($task_dep) ) {
 			$AppUI->setMsg("InvalidID", UI_MSG_ERROR, true);
 			$AppUI->setMsg($task_dep, UI_MSG_ERROR, true);

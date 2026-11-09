@@ -74,27 +74,37 @@ $selected = dPgetCleanParam($_POST, 'selected_task', 0);
 
 $q = new DBQuery;
 if (is_array($selected) && count($selected)) {
+	// Only the tasks the user may change: edit to complete them or set their priority,
+	// delete to delete them.
+	$perm = ($task_priority == 'd') ? 'delete' : 'edit';
 	$safe_selected = array();
 	foreach ($selected as $val) {
-		$safe_selected[] = (int)$val;
+		if ((int)$val > 0 && getPermission('tasks', $perm, (int)$val)) {
+			$safe_selected[] = (int)$val;
+		}
 	}
 	$in_clause = implode(',', $safe_selected);
 
-	if ($task_priority == 'c') {
+	if (!count($safe_selected)) {
+		// nothing the user may change
+	} else if ($task_priority == 'c') {
 		// mark task as completed
 		$q->addTable('tasks');
 		$q->addUpdate('task_percent_complete', "'100'");
 		$q->addWhere('task_id IN (' . $in_clause . ')');
 		db_exec($q->prepare(true));
 	} else if ($task_priority == 'd') {
-		// delete task
-		$q->setDelete('tasks');
-		$q->addWhere('task_id IN (' . $in_clause . ')');
-		db_exec($q->prepare(true));
+		// delete task, with what CTask::delete() removes with it (children, assignments, logs)
+		foreach ($safe_selected as $task_id) {
+			$t = new CTask();
+			if ($t->load($task_id)) {
+				$t->delete();
+			}
+		}
 	} else if ($task_priority > -2 && $task_priority < 2) {
 		// set priority
 		$q->addTable('tasks');
-		$q->addUpdate('task_priority', $task_priority);
+		$q->addUpdate('task_priority', (int)$task_priority);
 		$q->addWhere('task_id IN (' . $in_clause . ')');
 		db_exec($q->prepare(true));
 	}

@@ -54,9 +54,16 @@ if (!defined('DP_BASE_DIR')) {
 	$show_sent_messages = false;
 	
 	if (dpGetParam($_POST, "task_description", "") != "") {
+		// A message is a new task outside any project: only its title and text come from
+		// the request. Binding the whole POST let a task_id overwrite any existing task.
 		$new_message = new CTask();
-		$new_message->bind($_POST);
-		
+		$new_message->bind(array(
+			'task_name' => dPgetParam($_POST, 'task_name', ''),
+			'task_description' => dPgetParam($_POST, 'task_description', ''),
+		));
+		$new_message->task_id = 0;
+		$new_message->task_project = 0;
+		$new_message->task_start_date = date('Y-m-d H:i:s');
 		$new_message->task_owner = $AppUI->user_id;
 		
 		$error_message = $new_message->store();
@@ -69,7 +76,7 @@ if (!defined('DP_BASE_DIR')) {
 			$q -> clear();
 			$q -> addTable('user_tasks');
 			$q -> addInsert('task_id', $new_message->task_id);
-			$q -> addInsert('user_id', $_POST["recipient_user_id"]);
+			$q -> addInsert('user_id', dPgetIntParam($_POST, 'recipient_user_id', 0));
 			$q -> exec();			
 			
 			$q -> clear();

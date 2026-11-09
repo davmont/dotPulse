@@ -9,6 +9,11 @@ require_once (DP_BASE_DIR . "/modules/timeplanning/model/project_minute.class.ph
 require_once (DP_BASE_DIR . "/modules/timeplanning/control/controller_project_minute.class.php");
 $controllerProjectMinute=new ControllerProjectMinute();
 $minuteId=dPgetIntParam($_GET, 'minute_id', 0);
+// Only a minute of the project shown (whose view permission projects/view.php checked).
+if ($minuteId > 0 && !dPrecordsBelongTo(dPgetIntParam($_GET, 'project_id', 0),
+		array(array('project_minutes', 'id', 'project_id', $minuteId)))) {
+	$minuteId = 0;
+}
 $date=""; 
 $description="";
 if($minuteId!='-1' && $minuteId!=""){

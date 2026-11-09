@@ -11,9 +11,17 @@ $dbprefix = dPgetConfig('dbprefix','');
 $ticket = (int)dPgetParam($_GET, 'ticket', '');
 $ticket_type = dPgetCleanParam($_GET, 'ticket_type', '');
 
-$type_toggle = dPgetCleanParam($_POST, 'type_toggle', '');
+// Changing a ticket's type, priority or assignee needs edit permission: this view only
+// required read. The type is one of the select's values.
+$type_toggle = dPvalidateOrder((string)dPgetParam($_POST, 'type_toggle', ''),
+	array('Open', 'Processing', 'Closed', 'Deleted'), '');
 $priority_toggle = (int)dPgetParam($_POST, 'priority_toggle', '');
 $assignment_toggle = (int)dPgetParam($_POST, 'assignment_toggle', '');
+if (!$canEdit) {
+	$type_toggle = '';
+	$priority_toggle = 0;
+	$assignment_toggle = 0;
+}
 
 // setup the title block
 $titleBlock = new CTitleBlock('View Ticket', 'gconf-app-icon.png', $m, "$m.$a");

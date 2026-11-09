@@ -296,26 +296,21 @@ if(dPgetParam( $_POST, "Save", '' )!=''){
 				$val="";
 				switch($value['type']){
 					case 'checkbox': 
-						$val = isset($_POST[$key])?"1":"0";
+						$val = dPgetParam($_POST, $key, null) !== null ? "1" : "0";
 						break;
 					case 'text': 
-						$val = isset($_POST[$key])?$_POST[$key]:"";
+						$val = (string)dPgetParam($_POST, $key, "");
 						break;
 					case 'select': 
-						$val = isset($_POST[$key])?$_POST[$key]:"0";
+						// Every list holds ids (statuses, a company, user types, a user): they reach SQL.
+						$val = dPgetIntParam($_POST, $key, 0);
 						break;
 					case 'multiselect':
-						if(isset($_POST[$key])){
-						  foreach ($_POST[$key] as $idx=>$watcher){
-						    $val .= $watcher.",";
-						  }
-						  $val=trim($val,',');
-						} else {
-						  $val=0;
-						}
+						$ids = dPgetParam($_POST, $key, null);
+						$val = is_array($ids) && count($ids) ? implode(',', array_map('intval', $ids)) : 0;
 						break;
 					case 'radio':
-						$val = $_POST[$key];
+						$val = dPgetIntParam($_POST, $key, 0);
 						break;
 					default:
 						break;

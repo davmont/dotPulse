@@ -51,6 +51,9 @@ if (!($obj->bind($_POST))) {
 	$AppUI->redirect();
 }
 
+// An existing log stays on its task and author; the user must be allowed to change it.
+$obj->prepareWrite($del);
+
 if ($obj->task_log_date) {
 	$date = new CDate($obj->task_log_date);
 	$obj->task_log_date = $date->format(FMT_DATETIME_MYSQL);
