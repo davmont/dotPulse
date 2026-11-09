@@ -21,7 +21,7 @@ global $priority, $macroprojects, $tab, $user_id, $min_view;
 
 $df = $AppUI->getPref('SHDATEFORMAT');
 
-$department = isset($_GET['dept_id']) ? $_GET['dept_id'] : (isset($department) ? $department : 0);
+$department = isset($_GET['dept_id']) ? dPgetIntParam($_GET, 'dept_id') : (isset($department) ? (int)$department : 0);
 
 $macroprojFilter_extra = array('-4' => 'All w/o archived');
 
@@ -34,7 +34,7 @@ if (isset($_GET['tab'])) {
 }
 
 if (isset($_POST['show_form'])) {
-	$AppUI->setState('addProjWithOwnerInDep',  dPgetParam($_POST, 'add_pwoid', 0));
+	$AppUI->setState('addProjWithOwnerInDep', dPgetIntParam($_POST, 'add_pwoid', 0));
 }
 $addPwOiD = $AppUI->getState('addProjWithOwnerInDep') ? $AppUI->getState('addProjWithOwnerInDep') : 0;
 

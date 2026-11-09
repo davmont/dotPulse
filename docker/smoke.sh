@@ -68,6 +68,7 @@ $DB -e "INSERT INTO dotp_gacl_groups_aro_map (group_id, aro_id) SELECT g.id, a.i
 I=http://127.0.0.1:8089/install
 IC="dbtype=mysqli&dbhost=db&dbname=dotproject&dbuser=dotproject&dbprefix=dotp_"
 check "installer hides DB password" "$(curl -s -X POST $I/db.php -d mode=upgrade | grep -o 'name="dbpass" value="[^"]*"')" 'name="dbpass" value=""'
+check "installer hides DB user" "$(curl -s -X POST $I/db.php -d mode=upgrade | grep -o 'name="dbuser" value="[^"]*"')" 'name="dbuser" value=""'
 check "installer refuses wrong password" "$(curl -s -X POST $I/do_install_db.php -d "mode=upgrade&dobackup=1&$IC&dbpass=wrong" | grep -o '^Security Check')" "Security Check"
 check "installer upgrade runs" "$(curl -s -X POST $I/do_install_db.php -d "mode=upgrade&do_db=1&$IC&dbpass=dotproject" | grep -o 'Updating version information' | head -1)" "Updating version information"
 

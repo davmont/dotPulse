@@ -67,7 +67,7 @@ class CHumanResourceAllocation extends CDpObject
 		$q = new DBQuery;
 		$q->addTable('user_tasks');
 		$q->addQuery('user_id');
-		$q->addWhere('task_id = ' . $task_id . ' and user_id = ' . (int)$user_id);
+		$q->addWhere('task_id = ' . (int)$task_id . ' and user_id = ' . (int)$user_id);
 		$sql = $q->prepare();
 		$user = db_loadList($sql);
 		$q->clear();
@@ -75,7 +75,7 @@ class CHumanResourceAllocation extends CDpObject
 		if (count($user) == 0) {
 			$q->addTable('user_tasks');
 			$q->addInsert('user_id', $user_id);
-			$q->addInsert('task_id', $task_id);
+			$q->addInsert('task_id', (int)$task_id);
 			$q->addInsert('perc_assignment', '100');
 			$q->exec();
 			$q->clear();
@@ -92,7 +92,7 @@ class CHumanResourceAllocation extends CDpObject
 	{
 		$q = new DBQuery;
 		$q->setDelete('user_tasks');
-		$q->addWhere('task_id = ' . $task_id . ' AND user_id = ' . (int)$user_id);
+		$q->addWhere('task_id = ' . (int)$task_id . ' AND user_id = ' . (int)$user_id);
 		$q->exec();
 		$q->clear();
 

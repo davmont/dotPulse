@@ -66,7 +66,7 @@ $company_id = (($AppUI->getState('MacroProjIdxCompany') !== NULL)
 $company_prefix = 'company_';
 
 if (isset($_POST['department'])) {
-	$AppUI->setState('MacroProjIdxDepartment', $_POST['department']);
+	$AppUI->setState('MacroProjIdxDepartment', dPdepartmentParam($_POST));
 	
 	//if department is set, ignore the company_id field
 	unset($company_id);

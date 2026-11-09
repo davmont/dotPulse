@@ -78,7 +78,9 @@ for ($i = 0; $i < sizeof($rolesIds); $i++) {
         foreach ($records as $record) {
             $allocationRoleHR= new CHumanResourceAllocation();
             $allocationRoleHR->load($record[0]);
-            $allocationRoleHR->delete($task_id, $user_id);
+            // This allocation and the user's assignment to the task (delete($task_id) deleted
+            // the allocation whose id was the task's).
+            $allocationRoleHR->deleteAllocation($task_id, $user_id);
         }
         
         //Get if of the estimated role for the task

@@ -13,11 +13,40 @@ if (!$obj->bind( $_POST )) {
 
 require_once(DP_BASE_DIR . '/classes/CustomFields.class.php');
 
-$del = dPgetParam( $_POST, 'del', 0 );
+$del = (int)dPgetParam( $_POST, 'del', 0 );
+$pma_id = (int)dPgetParam($_POST, 'pma_id', 0);
+// Permission on this record, as its addedit page checks.
+dPrequireWritePermission('closure', $pma_id, $del);
+
+if (!$del) {
+	// A post mortem belongs to a project by name: the user must be allowed to edit the
+	// project it is about, and the one it was about before (as CClosure::canDelete()).
+	$closure_names = array((string)$obj->project_name);
+	if ($pma_id) {
+		$stored = new CClosure();
+		if (!$stored->load($pma_id)) {
+			$AppUI->setMsg('Post Mortem');
+			$AppUI->setMsg('invalidID', UI_MSG_ERROR, true);
+			$AppUI->redirect();
+		}
+		$closure_names[] = (string)$stored->project_name;
+	}
+	foreach (array_unique($closure_names) as $closure_name) {
+		$q = new DBQuery();
+		$q->addTable('projects');
+		$q->addQuery('project_id');
+		$q->addWhere('project_name = ' . $q->quote($closure_name));
+		$closure_project = (int)$q->loadResult();
+		$q->clear();
+		// A stored name whose project is gone (renamed or deleted) does not block an edit.
+		if ($closure_project || $closure_name === (string)$obj->project_name) {
+			dPrequireProjectEdit($closure_project);
+		}
+	}
+}
 
 // prepare (and translate) the module name ready for the suffix
 if ($del) {
-	$pma_id = dPgetParam($_POST, 'pma_id', 0);
 	$canDelete = $obj->canDelete($msg, $pma_id);
 	if (!$canDelete) {
 		$AppUI->setMsg( $msg, UI_MSG_ERROR );

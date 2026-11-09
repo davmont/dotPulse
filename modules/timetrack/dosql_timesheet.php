@@ -2,86 +2,42 @@
 if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly.');
 }
-$del = isset($_POST['del']) ? $_POST['del'] : 0;
-
 $timesheet = new CTimeSheet();
 if (($msg = $timesheet->bind( $_POST ))) {
 	$AppUI->setMsg( $msg, UI_MSG_ERROR );
 	$AppUI->redirect();
 }
+// A timesheet is its user's. An existing one keeps its user and approvals, and only that
+// user may change it; the request could set tt_user_id and the approval fields, so anyone
+// approved their own timesheet. (The approve/reject branches that used to follow relied on
+// register_globals and never ran; they concatenated request values into SQL.)
+$tt_id = (int)$timesheet->tt_id;
+if ($tt_id) {
+	$loader = new CTimeSheet();
+	$existing = $loader->load($tt_id); // returns the row as an object
+	if (!$existing || (int)$existing->tt_user_id != (int)$AppUI->user_id) {
+		$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+	foreach (array('tt_user_id', 'tt_supervisor_approval', 'tt_pm_approval', 'tt_approve_note',
+			'tt_approve_note_date') as $field) {
+		$timesheet->$field = $existing->$field;
+	}
+} else {
+	$timesheet->tt_user_id = $AppUI->user_id;
+	$timesheet->tt_supervisor_approval = null;
+	$timesheet->tt_pm_approval = null;
+	$timesheet->tt_approve_note = null;
+	$timesheet->tt_approve_note_date = null;
+}
 // convert dates to SQL format first
 $timesheet->tt_start_date = db_unix2DateTime( $timesheet->tt_start_date );
 $timesheet->tt_end_date = db_unix2DateTime( $timesheet->tt_end_date );
 
-if (isset($sendin)) {
-	// I know it's not OO, but I need it working NOW
-	$sql = "UPDATE timetrack_idx SET tt_active = '0' WHERE tt_id = $timesheet_id";
-	$result = db_exec ($sql);
-	if (!$result) {
-		$AppUI->setMsg( $result, UI_MSG_ERROR );
-	} else {
-		$AppUI->setMsg( "Timesheet $timesheet_id sent in", UI_MSG_OK);
-	}
-	$AppUI->redirect();
-
-} elseif (isset($pmcomment)) {
-	if ($reject) {
-		// update timetrack_idx with $timesheet_id and make it $active
-		if ($AppUI->user_type < 5) {
-			$who_updates = 'tt_supervisor_approval';
-		} else {
-			$who_updates = 'tt_pm_approval';
-		}
-		
-		$sql = "
-		UPDATE timetrack_idx 
-		SET tt_active = '1',tt_approve_note = '$tt_approve_note', tt_approve_note_date = NOW(), $who_updates = ''
-		WHERE tt_id = $tt_id";
-		print "<PRE>$sql</PRE>";
-		
-		$result = db_exec ($sql);
-		if (!$result) {
-			$AppUI->setMsg( $result, UI_MSG_ERROR );
-			echo "some error occured [$result] " . mysql_error(); 
-		} else {
-			$AppUI->setMsg( "Timesheet $tt_id rejected", UI_MSG_OK);
-			echo "seems to have worked";
-		}
-	}
-	elseif (isset($accept)) {
-		// update timetrack_idx with $timesheet_id and make it $active
-		if ($AppUI->user_type < 5) {
-			$who_updates = 'tt_supervisor_approval';
-		} else {
-			$who_updates = 'tt_pm_approval';
-		}
-		
-		$sql = "
-		UPDATE timetrack_idx 
-		SET tt_active = '0',tt_approve_note = '$tt_approve_note', tt_approve_note_date = NOW(), $who_updates = NOW()
-		WHERE tt_id = $tt_id";
-		print "<PRE>$sql</PRE>";
-		
-		$result = db_exec ($sql);
-		if (!$result) {
-			$AppUI->setMsg( $result, UI_MSG_ERROR );
-			echo "some error occured [$result] " . mysql_error(); 
-		} else {
-			$AppUI->setMsg( "Timesheet $tt_id accepted", UI_MSG_OK);
-			echo "seems to have worked";
-		}
-	}
-	else { 
-		$AppUI->setMsg( "Stop trying to hack the system.", UI_MSG_ERROR );
-	}
-	$AppUI->redirect();
+if (($msg = $timesheet->store())) {
+	$AppUI->setMsg( $msg, UI_MSG_ERROR );
 } else {
-	$isNotNew = @$_POST['tt_id'];
-	if (($msg = $timesheet->store())) {
-		$AppUI->setMsg( $msg, UI_MSG_ERROR );
-	} else {
-		$AppUI->setMsg( "Timesheet ".($isNotNew ? 'updated' : 'inserted'), UI_MSG_OK );
-	}
-	$AppUI->redirect();
+	$AppUI->setMsg( "Timesheet ".($tt_id ? 'updated' : 'inserted'), UI_MSG_OK );
 }
+$AppUI->redirect();
 ?>

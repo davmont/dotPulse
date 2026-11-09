@@ -17,6 +17,23 @@ if (!$obj->bind($_POST)) {
 	$AppUI->setMsg($obj->getError(), UI_MSG_ERROR);
 	$AppUI->redirect();
 }
+// A risk of a project is changed by those who can edit the project: the one it is stored in
+// and the one the form names (only the risks module permission was checked).
+$risk_projects = array((int)$obj->risk_project);
+if ($risk_id) {
+	$stored = new CRisks();
+	if (!$stored->load($risk_id)) {
+		$AppUI->setMsg('invalidID', UI_MSG_ERROR, true);
+		$AppUI->redirect();
+	}
+	$risk_projects[] = (int)$stored->risk_project;
+}
+foreach ($risk_projects as $risk_project) {
+	if ($risk_project > 0 && !getPermission('projects', 'edit', $risk_project)) {
+		$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+}
 
 // prepare (and translate) the module name ready for the suffix
 $AppUI->setMsg('Risk');

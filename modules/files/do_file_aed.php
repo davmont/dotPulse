@@ -66,6 +66,54 @@ $obj->file_real_filename = $file_id ? $oldObj->file_real_filename : null;
 $obj->file_size = $file_id ? $oldObj->file_size : null;
 $obj->file_type = $file_id ? $oldObj->file_type : null;
 
+if (!$del && !$duplicate) {
+	$file_denied = false;
+	$file_sysadmin = getPermission('system', 'edit');
+	if ($file_id) {
+		// The owner and the version a file belongs to stay as stored.
+		$obj->file_owner = $oldObj->file_owner;
+		$obj->file_version_id = $oldObj->file_version_id;
+		// A file checked out by someone else stays locked, as files/addedit.php shows.
+		if ($oldObj->file_checkout && $oldObj->file_checkout != $AppUI->user_id
+				&& !($file_sysadmin || $oldObj->canAdmin())) {
+			$file_denied = true;
+		}
+	} elseif ($obj->file_version_id) {
+		// A new version (check-in): the user must have checked out a file of that version.
+		$q = new DBQuery();
+		$q->addTable('files');
+		$q->addQuery('file_id');
+		$q->addWhere('file_version_id = ' . (int)$obj->file_version_id);
+		$q->addWhere('file_checkout = ' . (int)$AppUI->user_id);
+		$co_file_id = (int)$q->loadResult();
+		if (!($co_file_id && getPermission('files', 'edit', $co_file_id))) {
+			$file_denied = true;
+		}
+	}
+	// The project, task and folder must be ones the user may put files in, as the form
+	// offers them (project and task view, folder edit); a task must be of the project.
+	$obj->file_project = (int)$obj->file_project;
+	$obj->file_task = (int)$obj->file_task;
+	$obj->file_folder = (int)$obj->file_folder;
+	if ($obj->file_project && !getPermission('projects', 'view', $obj->file_project)) {
+		$file_denied = true;
+	}
+	if ($obj->file_task && !(getPermission('tasks', 'view', $obj->file_task)
+			&& (!$obj->file_project
+				|| dPrecordsBelongTo($obj->file_project,
+					array(array('tasks', 'task_id', 'task_project', $obj->file_task)))))) {
+		$file_denied = true;
+	}
+	if ($obj->file_folder && (!$file_id || $obj->file_folder != $oldObj->file_folder)
+			&& !getPermission('file_folders', 'edit', $obj->file_folder)) {
+		$file_denied = true;
+	}
+	if ($file_denied) {
+		$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+}
+
 // prepare (and translate) the module name ready for the suffix
 $AppUI->setMsg('File');
 // duplicate a file

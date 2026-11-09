@@ -58,14 +58,15 @@ class CInvoice extends CDpObject
 		$q = new DBQuery();
 		$q->addTable('invoice_product');
 		$q->addQuery('product_id');
-		$q->addWhere('product_invoice = ' . $this->invoice_id);
+		$q->addWhere('product_invoice = ' . (int)$this->invoice_id);
 
 		$res = $q->exec();
 		if (db_num_rows($res)) {
 			return "You cannot delete a invoice that has products associated with it.";
 		} else {
 			$q->clear();
-			$q->addTable('invoices');
+			// It selected the invoice instead of deleting it.
+			$q->setDelete('invoices');
 			$q->addWhere('invoice_id = ' . (int)$this->invoice_id);
 			if (!$q->exec()) {
 				return db_error();

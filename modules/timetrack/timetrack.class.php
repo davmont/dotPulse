@@ -41,6 +41,13 @@ class CTimeSheet {
 			return get_class( $this )."::bind failed";
 		} else {
 			bindHashToObject( $hash, $this );
+			// Ids are integers: the raw request value must not reach the SQL that uses them.
+			if (isset($this->tt_id) && $this->tt_id !== '') {
+				$this->tt_id = (int)$this->tt_id;
+			}
+			if (isset($this->tt_user_id) && $this->tt_user_id !== '') {
+				$this->tt_user_id = (int)$this->tt_user_id;
+			}
 			return NULL;
 		}
 	}
@@ -120,6 +127,13 @@ class CTimeData {
 			return get_class( $this )."::bind failed";
 		} else {
 			bindHashToObject( $hash, $this );
+			// Ids are integers: the raw request value must not reach the SQL that uses them.
+			if (isset($this->tt_data_id) && $this->tt_data_id !== '') {
+				$this->tt_data_id = (int)$this->tt_data_id;
+			}
+			if (isset($this->tt_data_timesheet_id) && $this->tt_data_timesheet_id !== '') {
+				$this->tt_data_timesheet_id = (int)$this->tt_data_timesheet_id;
+			}
 			return NULL;
 		}
 	}

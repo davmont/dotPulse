@@ -5,7 +5,7 @@ if (!defined('DP_BASE_DIR')) {
 
 $AppUI->savePlace();
 $perms =& $AppUI->acl();
-$role_id = $_GET['role_id'];
+$role_id = dPgetIntParam($_GET, 'role_id', 0);
 $role = $perms->getRole($role_id);
 
 if (isset($_GET['tab'])) {

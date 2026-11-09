@@ -21,3 +21,4 @@
 "Duration"=>"Duración",
 "Only the task owner, project owner, or system administrator is able to edit time related information."=>"Solo el propietario de la tarea, el propietario del proyecto o el administrador del sistema puede editar la información relativa al tiempo.",
 "Non-executed Tests"=>"Pruebas no ejecutadas",
+"Test"=>"Prueba",

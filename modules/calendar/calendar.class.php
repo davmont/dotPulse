@@ -845,7 +845,8 @@ class CEvent extends CDpObject
 		global $AppUI, $locale_char_set, $dPconfig;
 
 		$mail_owner = $AppUI->getPref('MAILALL');
-		$assignee_list = explode(",", $assignees);
+		// User ids only: the list comes from the request (event_assigned) and goes into SQL.
+		$assignee_list = array_map('intval', explode(",", (string)$assignees));
 		$owner_is_assigned = in_array($this->event_owner, $assignee_list);
 		if ($mail_owner && !$owner_is_assigned && $this->event_owner) {
 			array_push($assignee_list, $this->event_owner);
@@ -992,7 +993,7 @@ class CEvent extends CDpObject
 			$q->addJoin('contacts', 'con', 'con.contact_id = u.user_contact');
 			$q->addQuery('u.user_id, CONCAT_WS(" ", con.contact_first_name, con.contact_last_name)'
 				. ' AS user_name');
-			$q->addWhere("user_id in (" . implode(",", $clash) . ")");
+			$q->addWhere("user_id in (" . implode(",", array_map('intval', $clash)) . ")");
 			return $q->loadHashList();
 		} else {
 			return false;

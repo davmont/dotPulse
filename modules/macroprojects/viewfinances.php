@@ -41,14 +41,14 @@ $company_prefix = 'c_';
 $today = new CDate();
 
 // Get the params
-$currency 	= dPgetParam($_POST, 'currency', 0);										// 0: *1, 1: *1k, 2: *1M  				Default: *1
-$display 	= dPgetParam($_POST, 'display', 0);											// 0: details, 1: subTotal, 2: total	Default: details
-$tax 		= dPgetParam($_POST, 'tax', 0);												// 0: without, 1: with	 				Default: without
+$currency 	= dPgetIntParam($_POST, 'currency', 0);										// 0: *1, 1: *1k, 2: *1M  				Default: *1
+$display 	= dPgetIntParam($_POST, 'display', 0);											// 0: details, 1: subTotal, 2: total	Default: details
+$tax 		= dPgetIntParam($_POST, 'tax', 0);												// 0: without, 1: with	 				Default: without
 $toExpand	= dPgetParam($_POST, 'expandedList', null);									// List of <tr> to re-expand			Default: none(null)
 $default[0] = $today->getYear();														// Default array for $years
-$years 		= dPgetParam($_POST, 'years', $default);									// (array)Years to display 				Default: this year
-$macroproject_status = dPgetParam($_POST, 'macroproject_status', 0);
-$macroproject_type = dPgetParam($_POST, 'macroproject_type', 0);
+$years 		= array_map('intval', (array)dPgetParam($_POST, 'years', $default));	// years only: they go into SQL									// (array)Years to display 				Default: this year
+$macroproject_status = dPgetIntParam($_POST, 'macroproject_status', 0);
+$macroproject_type = dPgetIntParam($_POST, 'macroproject_type', 0);
 // Edit the values if necessary
 if(dPgetParam($_POST, 'edit', 0))
 	foreach($_POST as $vblname => $value) updateValue($vblname, $value, $tax); // Check on $_POST value is made after
@@ -134,7 +134,7 @@ if(dPgetParam($_POST, 'edit', 0))
 					foreach($years as $y){
 						$yearsGET .= $y.'y';
 					}?>
-					<a href="?m=finances&amp;a=export_excel&amp;macroproject=1&amp;macroprojectStatus=<?php echo $macroproject_status;?>&amp;macroprojectType=<?php echo $macroproject_type;?>&amp;years=<?php echo $yearsGET;?>&amp;tax=<?php echo $tax;?>&amp;suppressHeaders=1">
+					<a href="?m=finances&amp;a=export_excel&amp;macroproject=1&amp;macroprojectStatus=<?php echo (int)$macroproject_status;?>&amp;macroprojectType=<?php echo (int)$macroproject_type;?>&amp;years=<?php echo rawurlencode($yearsGET);?>&amp;tax=<?php echo (int)$tax;?>&amp;suppressHeaders=1">
 					<?php echo $AppUI->_('Excel export');?></a>
 				</td>
 			</tr>

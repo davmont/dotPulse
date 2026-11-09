@@ -9,7 +9,7 @@ $hideNonWd = dPgetParam($_POST, 'hideNonWd', 0);
 $log_start_date = dPgetParam($_POST, 'log_start_date', 0);
 $log_end_date = dPgetParam($_POST, 'log_end_date', 0);
 $use_assigned_percentage = dPgetParam($_POST, 'use_assigned_percentage', 0);
-$user_id = dPgetParam($_POST, 'user_id', $AppUI->user_id);
+$user_id = dPgetIntParam($_POST, 'user_id', $AppUI->user_id);
 
 // create Date objects from the datetime fields
 $start_date = intval($log_start_date) ? new CDate($log_start_date) : new CDate(date('Y-m-01'));

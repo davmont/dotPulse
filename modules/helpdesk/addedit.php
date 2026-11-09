@@ -79,12 +79,14 @@ if ( (!$hditem) && (count($_GET) > 3) && (!$item_id) ) {
 $perms =& $AppUI->acl();
 $canView = $perms->checkModule( $m, 'view' );
 if ($item_id) {
-	$canEdit = $perms->checkModuleItem($m, 'edit', $item_id);
+	// And this item must be one the user may edit (its company).
+	$canEdit = $perms->checkModuleItem($m, 'edit', $item_id) && $hditem && hditemEditable($hditem);
 } else {
 	$canEdit = $perms->checkModule($m, 'add');
 }
 
-if (!$canView) {
+// The form edits the item: $canEdit was computed but never checked.
+if (!$canView || !$canEdit) {
 	$AppUI->redirect( "m=public&a=access_denied" );
 }
 

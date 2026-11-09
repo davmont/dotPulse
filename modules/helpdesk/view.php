@@ -50,9 +50,10 @@ if (!$hditem ) {
 } else {
   // Check permissions on this record
 
+  // This item's company decides (hditemReadable/hditemEditable); the module-wide edit
+  // right alone showed every item, with its requestor's contact details.
   $canRead = hditemReadable($hditem);
-  //ANDY $canEdit = hditemEditable($hditem);
-  //$canEdit = $perms->checkModule($m, 'edit') && hditemEditable($hditem);  
+  $canEdit = $canEdit && hditemEditable($hditem);
 
 
   if ($hditem["item_status"] == $HELPDESK_CONFIG['closed_status_id']) {
@@ -61,7 +62,7 @@ if (!$hditem ) {
       $issue_closed = false;
   }
 
-  if(!$canRead && !$canEdit){
+  if(!$canRead){
 	  $AppUI->redirect( "m=public&a=access_denied" );
   }
 

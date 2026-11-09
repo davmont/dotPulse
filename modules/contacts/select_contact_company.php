@@ -33,12 +33,25 @@ if (!defined('DP_BASE_DIR')) {
 	$q->addQuery("$id_field, $name_field");
 	if ($filter != null) { $q->addWhere($filter); }
 	$q->addOrder($name_field);
-	$company_list = array("0" => "") + $q->loadHashList();
+	// Only companies and departments the user may view (a department also needs its company).
+	$perm_module = ($table_name == "departments") ? "departments" : "companies";
+	if ($table_name == "departments" && $company_id && !getPermission('companies', 'view', $company_id)) {
+		$q->addWhere('1 = 0');
+	}
+	$company_list = array("0" => "");
+	foreach ($q->loadHashList() as $list_id => $list_name) {
+		if (getPermission($perm_module, 'view', $list_id)) {
+			$company_list[$list_id] = $list_name;
+		}
+	}
 
 ?>
 
 <?php
 	$posted_id = (int) dPgetCleanParam($_POST, $id_field, 0);
+	if ($posted_id != 0 && !isset($company_list[$posted_id])) {
+		$AppUI->redirect('m=public&a=access_denied');
+	}
 	if ($posted_id != 0) {
 		$q  = new DBQuery;
 		$q->addTable($table_name);

@@ -27,9 +27,26 @@ if (!$canEdit) {
 $action = ($_SERVER['REQUEST_METHOD'] === 'POST') ? dPgetCleanParam($_POST, 'action', '') : '';
 if($action) {
 	$AppUI->verifyCsrfToken();
-	$journal_description = $_POST["journal_description"];
-	$journal_project = $_POST["journal_project"];
+	$journal_description = dPgetParam($_POST, 'journal_description', '');
+	$journal_project = dPgetIntParam($_POST, 'journal_project', 0);
 	$userid = $AppUI->user_id;
+	// An entry is changed or deleted by its author (or a system administrator), and an entry
+	// goes into a project the user can see: any entry of any project could be changed.
+	$deny = ($action != 'del' && $journal_project && !getPermission('projects', 'view', $journal_project));
+	if ($action == 'update' || $action == 'del') {
+		$q = new DBQuery();
+		$q->addTable('journal');
+		$q->addQuery('journal_user');
+		$q->addWhere('journal_id = ' . (int)$journal_id);
+		$journal_user = $q->loadResult();
+		if ($journal_user === null || $journal_user === false
+				|| ((int)$journal_user != (int)$AppUI->user_id && !getPermission('system', 'edit'))) {
+			$deny = true;
+		}
+	}
+	if ($deny) {
+		$AppUI->redirect( "m=public&a=access_denied" );
+	}
 	$q = new DBQuery();	
 	if( $action == "add" ) {
 		$q -> addTable('journal'); // this is not out of the block because we have the setDelete and may cause problems

@@ -6,13 +6,13 @@ if (!defined('DP_BASE_DIR')) {
 $do_report = dPgetParam($_POST, 'do_report', 0);
 $log_start_date = dPgetParam($_POST, 'log_start_date', 0);
 $log_end_date = dPgetParam($_POST, 'log_end_date', 0);
-$log_all = dPgetParam($_POST['log_all'], 0);
-$use_period	= dPgetParam($_POST,'use_period',0); 
-$display_week_hours = dPgetParam($_POST,'display_week_hours',0); 
-$max_levels = dPgetParam($_POST,'max_levels', ''); 
-$log_userfilter = dPgetParam($_POST,'log_userfilter','');
-$log_open = dPgetParam($_POST,'log_open',0);
-$pdf_output = dPgetParam($_POST,'pdf_output',0);
+$log_all = dPgetIntParam($_POST, 'log_all', 0);
+$use_period	= dPgetIntParam($_POST, 'use_period', 0);
+$display_week_hours = dPgetIntParam($_POST, 'display_week_hours', 0);
+$max_levels = dPgetCleanParam($_POST, 'max_levels', '');
+$log_userfilter = dPgetIntParam($_POST, 'log_userfilter', 0);
+$log_open = dPgetIntParam($_POST, 'log_open', 0);
+$pdf_output = dPgetIntParam($_POST, 'pdf_output', 0);
 
 $table_header = '';
 $table_rows='';
@@ -51,8 +51,8 @@ function setCalendar(idate, fdate) {
 </script>
 
 <form name="editFrm" action="index.php?m=macroprojects&a=reports" method="post">
-<input type="hidden" name="macroproject_id" value="<?php echo $macroproject_id; ?>" />
-<input type="hidden" name="report_type" value="<?php echo $report_type; ?>" />
+<input type="hidden" name="macroproject_id" value="<?php echo (int)$macroproject_id; ?>" />
+<input type="hidden" name="report_type" value="<?php echo dPhtml($report_type); ?>" />
 
 <table cellspacing="0" cellpadding="4" border="0" width="100%" class="std">
 
@@ -76,7 +76,7 @@ echo arraySelect(dPgetUsers(), 'log_userfilter', 'class="text" style="width: 200
 	</td>
 	<td width="1%" nowrap="nowrap">
 		<input type="checkbox" name="use_period" id="use_period"<?php 
-echo (($use_period) ? ' checked="checked"' : ''); ?> value="use_period" />
+echo (($use_period) ? ' checked="checked"' : ''); ?> value="1" />
 		<label for="use_period"><?php echo $AppUI->_('Use the period'); ?></label>
 	</td> 
 	
@@ -100,11 +100,11 @@ echo ($AppUI->_('Calendar')); ?>" border="0" />
 	<td width="1%">
 		<?php echo ($AppUI->_('Levels to display')); ?>
 		<input type="text" name="max_levels" size="10" maxlength="3" value="<?php 
-echo (($max_levels) ? $max_levels : ''); ?>" />
+echo (($max_levels) ? dPhtml($max_levels) : ''); ?>" />
 	</td>
 	<td width="1%" nowrap="nowrap">
 		<input type="checkbox" name="display_week_hours" id="display_week_hours"<?php 
-echo (($display_week_hours) ? ' checked="checked"' : ''); ?> value="display_week_hours" />
+echo (($display_week_hours) ? ' checked="checked"' : ''); ?> value="1" />
 		<label for="display_week_hours"><?php echo $AppUI->_('Display allocated hours/week'); ?></label>
 	</td>
 </tr>

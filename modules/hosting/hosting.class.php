@@ -78,28 +78,64 @@ class CHosting extends CDpObject {
 	}
 
 	function store($updateNulls = false){
+		$domain_id = (int)$this->domain_id;
+		$domain = array(
+			'company_id' => (int)$this->company_id,
+			'domain_name' => $this->domain_name,
+			'domain_expiry_date' => $this->domain_expiry_date,
+			'domain_registrar' => $this->domain_registrar,
+			'domain_status' => $this->domain_status,
+			'domain_notes' => $this->domain_notes,
+		);
+		$hosting = array(
+			'hosting_package_name' => $this->hosting_package_name,
+			'hosting_expiry_date' => $this->hosting_expiry_date,
+			'hosting_status' => $this->hosting_status,
+			'hosting_notes' => $this->hosting_notes,
+		);
+
 		$q = new DBQuery;
 		$q->addTable('domains');
-		$q->addInsert('company_id', $this->company_id);
-		$q->addInsert('domain_name', $this->domain_name);
-		$q->addInsert('domain_expiry_date', $this->domain_expiry_date);
-		$q->addInsert('domain_registrar', $this->domain_registrar);
-		$q->addInsert('domain_status', $this->domain_status);
-		$q->addInsert('domain_notes', $this->domain_notes);
-		$q->exec();
+		if ($domain_id) {
+			// An existing domain is updated in place, so its id (and custom fields) stay.
+			foreach ($domain as $field => $value) {
+				$q->addUpdate($field, $value);
+			}
+			$q->addWhere('domain_id = ' . $domain_id);
+			$q->exec();
+			$q->clear();
 
-		$domainID = db_insert_id();
-
-		$q->clear();
+			$q->addTable('hosting');
+			$q->addQuery('COUNT(*)');
+			$q->addWhere('domain_id = ' . $domain_id);
+			$has_hosting = (int)$q->loadResult();
+			$q->clear();
+		} else {
+			foreach ($domain as $field => $value) {
+				$q->addInsert($field, $value);
+			}
+			$q->exec();
+			$domain_id = (int)db_insert_id();
+			$this->domain_id = $domain_id;
+			$q->clear();
+			$has_hosting = 0;
+		}
 
 		$q->addTable('hosting');
-		$q->addInsert('domain_id', $domainID);
-		$q->addInsert('hosting_package_name', $this->hosting_package_name);
-		$q->addInsert('hosting_expiry_date', $this->hosting_expiry_date);
-		$q->addInsert('hosting_status', $this->hosting_status);
-		$q->addInsert('hosting_notes', $this->hosting_notes);
+		if ($has_hosting) {
+			foreach ($hosting as $field => $value) {
+				$q->addUpdate($field, $value);
+			}
+			$q->addWhere('domain_id = ' . $domain_id);
+		} else {
+			$q->addInsert('domain_id', $domain_id);
+			foreach ($hosting as $field => $value) {
+				$q->addInsert($field, $value);
+			}
+		}
 		$q->exec();
 		$q->clear();
+		return null;
 	}
 }
 

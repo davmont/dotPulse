@@ -674,7 +674,7 @@ function projects_list_data($user_id = false)
 		$q->addTable('users', 'u');
 		$q->addQuery('u.user_id');
 		$q->addJoin('contacts', 'c', 'c.contact_id = u.user_contact');
-		$q->addWhere('c.contact_department = ' . $department);
+		$q->addWhere('c.contact_department = ' . (int)$department);
 		$owner_ids = $q->loadColumn();
 		$q->clear();
 	}
@@ -716,16 +716,16 @@ function projects_list_data($user_id = false)
 		$q->addJoin('tasks_users', 'tu', 'p.project_id = tu.task_project');
 	}
 	if (isset($project_status) && $currentTabId != 500) {
-		$q->addWhere('p.project_status = ' . $project_status);
+		$q->addWhere('p.project_status = ' . (int)$project_status);
 	}
 	if (isset($department)) {
 		$q->addJoin('project_departments', 'pd', 'pd.project_id = p.project_id');
 		if (!$addPwOiD) {
-			$q->addWhere('pd.department_id in (' . implode(',', $dept_ids) . ')');
+			$q->addWhere('pd.department_id in (' . implode(',', array_map('intval', $dept_ids)) . ')');
 		} else {
 			// Show Projects where the Project Owner is in the given department
 			$q->addWhere('p.project_owner IN ('
-				. ((!empty($owner_ids)) ? implode(',', $owner_ids) : 0) . ')');
+				. ((!empty($owner_ids)) ? implode(',', array_map('intval', $owner_ids)) : 0) . ')');
 		}
 	} else if ($company_id && !$addPwOiD) {
 		// The company's own projects and those it runs for clients (internal company).

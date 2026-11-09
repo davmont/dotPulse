@@ -14,7 +14,11 @@ global $db;
 $not = dPgetParam($_POST, 'notify', '0');
 if ($not!='0') $not='1';
 
+// Permission on this record (module level for charters, as index.php checks).
+dPrequireWritePermission('initiating', $initiating_id, $del);
+
 $obj = new CInitiating();
+$current = null;
 // A charter of a project the user cannot see is neither changed nor deleted.
 if ($initiating_id) {
 	$current = new CInitiating();
@@ -22,6 +26,13 @@ if ($initiating_id) {
 		$AppUI->redirect('m=public&a=access_denied');
 	}
 }
+
+if (!$obj->bind($_POST)) {
+	$AppUI->setMsg($obj->getError(), UI_MSG_ERROR);
+	$AppUI->redirect();
+}
+$obj->initiating_id = $initiating_id;
+
 // convert dates to SQL format first
 if ($obj->initiating_start_date) {
 	$date = new CDate($obj->initiating_start_date);
@@ -32,23 +43,32 @@ if ($obj->initiating_end_date) {
 	$obj->initiating_end_date = $date->format(FMT_DATETIME_MYSQL);
 }
 
-if (!$initiating_id) {
+// Who wrote the charter and when stay as stored; a new one is the current user's, now.
+if ($current) {
+	$obj->initiating_create_by = $current->initiating_create_by;
+	$obj->initiating_date_create = $current->initiating_date_create;
+} else {
 	$obj->initiating_date_create = str_replace("'", '', $db->DBTimeStamp(time()));
 	$obj->initiating_create_by = $AppUI->user_id;
-	if ($completed) {
-		$obj->initiating_completed = 1;
-	}
-	if ($approved) {
-		$obj->initiating_approved = 1;
-	}
-	if ($authorized) {
-		$obj->initiating_authorized = 1;
-	}
+	$obj->initiating_completed = $completed ? 1 : 0;
+	$obj->initiating_approved = $approved ? 1 : 0;
+	$obj->initiating_authorized = $authorized ? 1 : 0;
 }
 
-if (!$obj->bind($_POST)) {
-	$AppUI->setMsg($obj->getError(), UI_MSG_ERROR);
-	$AppUI->redirect();
+// A charter is part of its project: changing or deleting one needs edit on the project
+// it belongs to, and on the project it is moved to.
+$initiating_projects = array();
+if ($current && $current->initiating_project) {
+	$initiating_projects[] = (int)$current->initiating_project;
+}
+if (!$del && (int)$obj->initiating_project) {
+	$initiating_projects[] = (int)$obj->initiating_project;
+}
+foreach (array_unique($initiating_projects) as $initiating_project) {
+	if (!getPermission('projects', 'edit', $initiating_project)) {
+		$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+		$AppUI->redirect('m=public&a=access_denied');
+	}
 }
 
 // prepare (and translate) the module name ready for the suffix

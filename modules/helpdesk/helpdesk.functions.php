@@ -68,7 +68,7 @@ function getAllowedProjects($list=0, $activeOnly=0){
 		require_once( $AppUI->getModuleClass('projects'));
 		$project = new CProject;
 		if($activeOnly){
-			$active_arr = array('where' => 'project_status!='.$HELPDESK_CONFIG['archived_project_status_id']);
+			$active_arr = array('where' => 'project_status!='.(int)$HELPDESK_CONFIG['archived_project_status_id']);
 			$allowedProjects = $project->getAllowedRecords($AppUI->user_id, 'project_id, project_name','project_name','',$active_arr);
 		} else {
 			$allowedProjects = $project->getAllowedRecords($AppUI->user_id, 'project_id, project_name','project_name');
@@ -85,7 +85,7 @@ function getAllowedProjects($list=0, $activeOnly=0){
 		$q->addOrder('project_name');
 		$q->addWhere('project_company in (' . implode(',',array_keys(arrayMerge( array( 0 => '' ), getAllowedCompanies()))) .')');
 		if($activeOnly){
-			$q->addWhere('project_status!='.$HELPDESK_CONFIG['archived_project_status_id']);
+			$q->addWhere('project_status!='.(int)$HELPDESK_CONFIG['archived_project_status_id']);
 		}
 		if ($list) {
 			return $q->loadHashList();
@@ -115,7 +115,7 @@ function getAllowedProjectsForJavascript($activeonly=0){
   
   $whereclause = "project_id in (".implode(", ", $whereclause).")";
   if($activeonly)
-      $whereclause.=" and project_status!=".$HELPDESK_CONFIG['archived_project_status_id'];
+      $whereclause.=" and project_status!=".(int)$HELPDESK_CONFIG['archived_project_status_id'];
       
   $q = new DBQuery; 
   $q->addQuery('project_id, project_name, company_name, company_id');

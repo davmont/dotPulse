@@ -81,13 +81,16 @@ if(dPgetParam( $_POST, "Save", '' )!=''){
 				$val="";
 				switch($value['type']){
 					case 'checkbox': 
-						$val = isset($_POST[$key])?"1":"0";
+						$val = dPgetParam($_POST, $key, null) !== null ? "1" : "0";
 						break;
 					case 'text': 
-						$val = isset($_POST[$key])?$_POST[$key]:"";
+						// The only text option is a cost: keep it a number.
+						$val = (string)(float)str_replace(',', '.', (string)dPgetParam($_POST, $key, '0'));
 						break;
 					case 'select': 
-						$val = (isset($_POST[$key]) && $_POST[$key]<>"0")?$_POST[$key]:"9";
+						// A user type from the list.
+						$val = dPgetIntParam($_POST, $key, 9);
+						$val = isset($value['list'][$val]) && $val != 0 ? (string)$val : "9";
 						break;
 					default:
 						break;
@@ -139,7 +142,7 @@ foreach ($config_options as $key=>$value){
 				<?php
 				break;
 			case 'text': ?>
-				<input type="text" name="<?=$key?>" value="<?=$value['value']?>">
+				<input type="text" name="<?=$key?>" value="<?php echo dPhtml($value['value']); ?>">
 				<?php
 				break;
 			case 'select': 

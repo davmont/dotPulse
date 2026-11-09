@@ -23,6 +23,28 @@ if (!$obj->bind($_POST)) {
     $AppUI->setMsg($obj->getError(), UI_MSG_ERROR);
     $AppUI->redirect();
 }
+// A communication of a project is changed by those who can edit the project: the one it is
+// stored in and the one the request names (only the module permission was checked).
+$obj->communication_project_id = (int)$obj->communication_project_id;
+$communication_projects = array($obj->communication_project_id);
+if ($communication_id) {
+    $q = new DBQuery();
+    $q->addTable('communication');
+    $q->addQuery('communication_project_id');
+    $q->addWhere('communication_id = ' . (int)$communication_id);
+    $stored_project = $q->loadResult();
+    if ($stored_project === null || $stored_project === false) {
+        $AppUI->setMsg('invalidID', UI_MSG_ERROR, true);
+        $AppUI->redirect();
+    }
+    $communication_projects[] = (int)$stored_project;
+}
+foreach ($communication_projects as $communication_project) {
+    if ($communication_project > 0 && !getPermission('projects', 'edit', $communication_project)) {
+        $AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+        $AppUI->redirect('m=public&a=access_denied');
+    }
+}
 // prepare (and translate) the module name ready for the suffix
 $AppUI->setMsg('Communication');
 // delete the item

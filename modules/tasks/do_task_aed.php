@@ -36,14 +36,10 @@ function sendIcal($task_id, $lastUpdate)
 
 if ($sub_form) {
 	// in add-edit, so set it to what it should be
-	$AppUI->setState('TaskAeTabIdx', $_POST['newTab']);
-	if (isset($_POST['subform_processor'])) {
-		$mod = ((isset($_POST['subform_module']))
-				? $AppUI->checkFileName($_POST['subform_module']) 
-				: 'tasks');
-		$proc = $AppUI->checkFileName($_POST['subform_processor']);
-		include (DP_BASE_DIR . '/modules/' . $mod . '/' . $proc . '.php');
-	}
+	$AppUI->setState('TaskAeTabIdx', dPgetIntParam($_POST, 'newTab', 0));
+	// subform_module/subform_processor used to name a file of any module to include
+	// here, under the tasks module's permission check: a user who could add tasks ran
+	// System Admin's handlers. No form sends them; they are ignored.
 } else {
 	// Include any files for handling module-specific requirements
 	foreach (findTabModules('tasks', 'addedit') as $mod) {
@@ -71,10 +67,10 @@ if ($sub_form) {
 		$obj->load($task_id);
 		$task_end_date = new CDate($obj->task_end_date);
 	}
-	if ($_POST['task_start_date'] === '') {
+	if (($_POST['task_start_date'] ?? '') === '') {
 		$_POST['task_start_date'] = '000000000000';
 	}
-	if ($_POST['task_end_date'] === '') {
+	if (($_POST['task_end_date'] ?? '') === '') {
 		$_POST['task_end_date'] = '000000000000';
 	}
 	
@@ -95,6 +91,15 @@ if ($sub_form) {
 		$obj->task_parent  = $obj->task_id;
 		// Need to ensure any files that are associated with the task also
 		// get their project changed.
+	}
+	// The project comes from the request (task_project, new_task_project): it must be one the
+	// user can see, as tasks/addedit.php requires, or a task could be put into any project.
+	$obj->task_project = (int)$obj->task_project;
+	$obj->task_parent = (int)$obj->task_parent;
+	if (!$obj->task_project || !getPermission('projects', 'view', $obj->task_project)
+			|| ($move_files && !getPermission('projects', 'view', (int)$move_files))) {
+		$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+		$AppUI->redirect('m=public&a=access_denied');
 	}
 	
 	// Map task_dynamic checkboxes to task_dynamic values for task dependencies.

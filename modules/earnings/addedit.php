@@ -47,9 +47,12 @@ if ( isset( $_GET["earning_id"] ) ) {
 		$AppUI->setMsg( "invalidID", UI_MSG_ERROR, true );
 		// Not back to the saved place: that can be this page, which loops.
 		$AppUI->redirect('m=earnings');
-	} else {
-		$AppUI->savePlace();
 	}
+	// Only its owner edits an earning (inv_aed.php's editinv rule).
+	if ((int)$obj->earning_user_id !== (int)$AppUI->user_id) {
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+	$AppUI->savePlace();
 } else {
 	// Add Mode
 	$form_mode = 0;

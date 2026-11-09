@@ -21,17 +21,17 @@ function vw_idx_handler ($type) {
   	case 0:// newly created open ticket today
   		$date_field_title = $AppUI->_('Opened On');
   		$date_field_name = "item_created";
-		$where .= "(TO_DAYS(NOW()) - TO_DAYS(his.status_date) = 0) AND item_status != ".$HELPDESK_CONFIG['closed_status_id']." AND (his.status_code = 0)";
+		$where .= "(TO_DAYS(NOW()) - TO_DAYS(his.status_date) = 0) AND item_status != ".(int)$HELPDESK_CONFIG['closed_status_id']." AND (his.status_code = 0)";
   		break;
   	case 1:// Closed today
   		$date_field_title = $AppUI->_('Closed On');
   		$date_field_name = "status_date";
-		$where .= "item_status=".$HELPDESK_CONFIG['closed_status_id']." AND (TO_DAYS(NOW()) - TO_DAYS(status_date) = 0) AND status_code=11";
+		$where .= "item_status=".(int)$HELPDESK_CONFIG['closed_status_id']." AND (TO_DAYS(NOW()) - TO_DAYS(status_date) = 0) AND status_code=11";
   		break;
   	case 2: // Mine open
   		$date_field_title = $AppUI->_('Opened On');
   		$date_field_name = "item_created";
-      		$where .= "item_assigned_to=".$AppUI->user_id." AND item_status !=".$HELPDESK_CONFIG['closed_status_id'];
+      		$where .= "item_assigned_to=".$AppUI->user_id." AND item_status !=".(int)$HELPDESK_CONFIG['closed_status_id'];
   		break;
   	default:
       print "Shouldn't be here (for now)";

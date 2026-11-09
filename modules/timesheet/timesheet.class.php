@@ -34,6 +34,13 @@ class Timesheet {
 			return get_class( $this )."::bind failed";
 		} else {
 			bindHashToObject( $hash, $this );
+			// Ids are integers: the raw request value must not reach the SQL that uses them.
+			if (isset($this->timesheet_id) && $this->timesheet_id !== '') {
+				$this->timesheet_id = (int)$this->timesheet_id;
+			}
+			if (isset($this->user_id) && $this->user_id !== '') {
+				$this->user_id = (int)$this->user_id;
+			}
 			return NULL;
 		}
 	}
