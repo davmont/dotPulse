@@ -219,7 +219,7 @@ if ($AppUI->doLogin()) {
 	@include_once('./locales/' . $AppUI->user_locale . '/locales.php');
 	@include_once('./locales/core.php');
 	setlocale(LC_TIME, $AppUI->user_lang);
-	$redirect = (($_SERVER['QUERY_STRING']) ? strip_tags($_SERVER['QUERY_STRING']) : '');
+	$redirect = (!empty($_SERVER['QUERY_STRING']) ? strip_tags($_SERVER['QUERY_STRING']) : '');
 	if (mb_strpos($redirect, 'logout') !== false) {
 		$redirect = '';
 	}

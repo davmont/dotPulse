@@ -37,6 +37,8 @@ if ($modclass && file_exists ($modclass)) {
 $q = new DBQuery;
 $q->addTable($table, 'a');
 $query_result = false;
+// Indentation of tree lists (tasks), by key.
+$html_disp_offset = array();
 
 switch ($table) {
 	case 'companies':
@@ -239,7 +241,7 @@ selector.style.height = (wh - count - 5) + "px";
 		<?php
 if (count($list) > 1) {
 	foreach ($list as $key => $val) {
-		echo ('<li>' . $html_disp_offset[$key] . '<a href="#"'
+		echo ('<li>' . (isset($html_disp_offset[$key]) ? $html_disp_offset[$key] : '') . '<a href="#"'
 		      . dPaction('setClose', array((string)$key, (string)$val)) . '>' . $AppUI->___($val) 
 		      . "</a></li>\n");
 	}

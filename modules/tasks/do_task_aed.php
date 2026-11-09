@@ -67,10 +67,10 @@ if ($sub_form) {
 		$obj->load($task_id);
 		$task_end_date = new CDate($obj->task_end_date);
 	}
-	if ($_POST['task_start_date'] === '') {
+	if (($_POST['task_start_date'] ?? '') === '') {
 		$_POST['task_start_date'] = '000000000000';
 	}
-	if ($_POST['task_end_date'] === '') {
+	if (($_POST['task_end_date'] ?? '') === '') {
 		$_POST['task_end_date'] = '000000000000';
 	}
 	
