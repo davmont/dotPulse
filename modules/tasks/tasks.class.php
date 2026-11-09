@@ -1848,7 +1848,7 @@ class CTask extends CDpObject
 		$q = new DBQuery;
 		// delete all current entries
 		$q->setDelete('user_tasks');
-		$q->addWhere('task_id = ' . $this->task_id . ' AND user_id = ' . (int) $user_id);
+		$q->addWhere('task_id = ' . (int)$this->task_id . ' AND user_id = ' . (int) $user_id);
 		$q->exec();
 		$q->clear();
 	}
@@ -1876,7 +1876,7 @@ class CTask extends CDpObject
 			if (count($user_ids) > 0) {
 				$q = new DBQuery;
 				$q->setDelete('user_tasks');
-				$q->addWhere('task_id = ' . $this->task_id . ' AND user_id IN (' . implode(',', $user_ids) . ')');
+				$q->addWhere('task_id = ' . (int)$this->task_id . ' AND user_id IN (' . implode(',', array_map('intval', $user_ids)) . ')');
 				$q->exec();
 				$q->clear();
 			}
@@ -2156,7 +2156,7 @@ class CTask extends CDpObject
 
 		$q->addTable('projects');
 		$q->addQuery('project_name, project_short_name, project_color_identifier');
-		$q->addWhere("project_id = '" . $this->task_project . "'");
+		$q->addWhere('project_id = ' . (int)$this->task_project);
 		$sql = $q->prepare();
 		$q->clear();
 		$proj = db_loadHash($sql, $projects);
@@ -2170,7 +2170,7 @@ class CTask extends CDpObject
 
 		$q->addTable('tasks');
 		$q->addQuery('task_id');
-		$q->addWhere("task_id <> '" . $this->task_id . "' AND task_parent = '" . $this->task_id . "'");
+		$q->addWhere('task_id <> ' . (int)$this->task_id . ' AND task_parent = ' . (int)$this->task_id);
 		$sql = $q->prepare();
 		$q->clear();
 
@@ -2184,7 +2184,7 @@ class CTask extends CDpObject
 
 		$q->addTable('tasks');
 		$q->addQuery('task_id');
-		$q->addWhere("task_id <> '" . $this->task_id . "' AND task_parent = '" . $this->task_id . "'");
+		$q->addWhere('task_id <> ' . (int)$this->task_id . ' AND task_parent = ' . (int)$this->task_id);
 		$sql = $q->prepare();
 		$q->clear();
 		$children = db_loadColumn($sql);
@@ -2629,6 +2629,36 @@ class CTaskLog extends CDpObject
 	{
 		$this->task_log_hours = sprintf('%.3F', (float) $this->task_log_hours);
 		return NULL;
+	}
+
+	/**
+	 * For a write handler, after bind(): an existing log stays on its task and with its
+	 * author, a new one belongs to the user. Then stops the request unless the user may
+	 * change the task and its logs (the rights the log form, tasks/vw_log_update.php, asks).
+	 */
+	function prepareWrite($del = false)
+	{
+		global $AppUI;
+		$log_id = (int)$this->task_log_id;
+		if ($log_id) {
+			$existing = new CTaskLog();
+			if (!$existing->load($log_id)) {
+				$AppUI->setMsg('Task Log');
+				$AppUI->setMsg('invalidID', UI_MSG_ERROR, true);
+				$AppUI->redirect();
+			}
+			$this->task_log_task = $existing->task_log_task;
+			$this->task_log_creator = $existing->task_log_creator;
+		} else {
+			$this->task_log_task = (int)$this->task_log_task;
+			$this->task_log_creator = $AppUI->user_id;
+		}
+		$perm = $del ? 'delete' : ($log_id ? 'edit' : 'add');
+		if (!$this->task_log_task || !getPermission('tasks', 'edit', $this->task_log_task)
+				|| !getPermission('task_log', $perm, $this->task_log_task)) {
+			$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+			$AppUI->redirect('m=public&a=access_denied');
+		}
 	}
 }
 

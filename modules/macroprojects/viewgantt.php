@@ -204,7 +204,7 @@ if ($addPwOiD && $department > 0) {
     $q->addTable('users');
     $q->addQuery('user_id');
     $q->addJoin('contacts', 'c', 'c.contact_id = user_contact');
-    $q->addWhere('c.contact_department = ' . $department);
+    $q->addWhere('c.contact_department = ' . (int)$department);
     $owner_ids = $q->loadColumn();
     $q->clear();
 }

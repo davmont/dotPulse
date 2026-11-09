@@ -14,11 +14,12 @@ if (!defined('DP_BASE_DIR')) {
 $AppUI->savePlace();
 
 // Get current tab 
-if (isset( $_GET['tab'] ))
-{
-	$AppUI->setState( 'ProjIdxTab', $_GET['tab'] );
+// Its own state key: it shared the Projects index's (ProjIdxTab), which wrote a raw
+// value that the Projects list then put into SQL.
+if (isset($_GET['tab'])) {
+	$AppUI->setState('HolidayIdxTab', dPgetIntParam($_GET, 'tab', 0));
 }
-$tab = $AppUI->getState( 'ProjIdxTab' ) !== NULL ? $AppUI->getState( 'ProjIdxTab' ) : 0;
+$tab = (int)($AppUI->getState('HolidayIdxTab') ?? 0);
 
 // Create module header
 

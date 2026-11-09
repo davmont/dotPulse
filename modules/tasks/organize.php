@@ -9,7 +9,9 @@ $project_id = intval(dPgetParam($_GET, 'project_id', 0));
 $user_id = $AppUI->user_id;
 $no_modify = false;
 
-$sort = dPgetCleanParam($_REQUEST, 'sort', 'task_end_date');
+// A column of the list's header links: anything else could reach ORDER BY.
+$sort = dPvalidateOrder(dPgetParam($_REQUEST, 'sort', 'task_end_date'),
+	array('task_name', 'task_duration', 'task_end_date'), 'task_end_date');
 
 if (getPermission('admin', 'view')) { 
 	$other_users = true;
@@ -31,10 +33,25 @@ $action = dPgetCleanParam($_POST, 'action', 99);
 $selected = dPgetCleanParam($_POST, 'selected', 0);
 
 if ($selected && count($selected)) {
-	$new_task = dPgetParam($_POST, 'new_task', -1);
-	$new_project = dPgetParam($_POST, 'new_project', $project_id);
-	
+	$new_task = dPgetIntParam($_POST, 'new_task', -1);
+	$new_project = dPgetIntParam($_POST, 'new_project', $project_id);
+	// Moving or copying puts tasks into new_project: one the user can see and add tasks to.
+	if (($action == 'm' || $action == 'c')
+			&& !(getPermission('projects', 'view', $new_project) && getPermission('tasks', 'add'))) {
+		$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+	// The right each action needs on every selected task (only 'f' was checked): complete
+	// and set priority (-1, 0, 1) edit, delete delete, move edit, copy read.
+	$action_perm = array('f' => 'edit', 'd' => 'delete', 'm' => 'edit', 'c' => 'view',
+		'-1' => 'edit', '0' => 'edit', '1' => 'edit');
+	$perm = isset($action_perm[(string)$action]) ? $action_perm[(string)$action] : null;
+
 	foreach ($selected as $key => $val) {
+		$val = (int)$val;
+		if (!$val || !$perm || !getPermission('tasks', $perm, $val)) {
+			continue;
+		}
 		$t = new CTask();
 		$t->load($val);
 		if (isset($_POST['include_children']) && $_POST['include_children']) {
@@ -49,7 +66,7 @@ if ($selected && count($selected)) {
 			}
 			if (isset($children)) {
 				foreach ($children as $child_id) {
-					if (getPermission('tasks', 'edit', $child_t->task_id)) {
+					if (getPermission('tasks', 'edit', $child_id)) {
 						$child_t = new CTask();
 						$child_t->load($child_id);
 						$child_t->task_percent_complete = 100;

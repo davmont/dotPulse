@@ -98,9 +98,9 @@ $valid_ordering = array(
     'risk_notes',
     'risk_potential_other_projects',
     'risk_lessons_learned',
-    `risk_strategy`,
-    `risk_prevention_action`,
-    `risk_contingency_plan`,
+    'risk_strategy',
+    'risk_prevention_action',
+    'risk_contingency_plan',
 );
 
 $orderdire = $AppUI->getState('RisksIdxOrderDir') ? $AppUI->getState('RisksIdxOrderDir') : 'desc';

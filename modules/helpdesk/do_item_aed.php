@@ -9,10 +9,30 @@ require_once( $AppUI->getSystemClass('libmail') );
 include_once (DP_BASE_DIR."/modules/helpdesk/config.php");
 
 
-$del = dPgetParam($_POST, 'del', 0);
-$item_id = dPgetParam($_POST, 'item_id', 0);
-$do_task_log = dPgetParam($_POST, 'task_log', 0);
+$del = dPgetIntParam($_POST, 'del', 0);
+$item_id = dPgetIntParam($_POST, 'item_id', 0);
+$do_task_log = dPgetIntParam($_POST, 'task_log', 0);
 $new_item = !($item_id>0);
+
+// The item as stored, for hditemEditable(), which index.php does not call: module add or
+// edit was enough to change, delete or log time on any item.
+$hd_item_row = function ($id) {
+	$q = new DBQuery();
+	$q->addTable('helpdesk_items');
+	$q->addQuery('*');
+	$q->addWhere('item_id = ' . (int)$id);
+	return $q->loadHash();
+};
+$hd_deny = function () {
+	global $AppUI;
+	$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+	$AppUI->redirect('m=public&a=access_denied');
+};
+$existing_item = $new_item ? null : $hd_item_row($item_id);
+if ((!$new_item && !$existing_item) || ($existing_item && !hditemEditable($existing_item))
+		|| ($do_task_log && !$existing_item)) {
+	$hd_deny();
+}
 $updated_date = new CDate();
 $udate = $updated_date->format(FMT_DATETIME_MYSQL);
 $deadline=dPgetParam( $_POST, 'item_deadline', 0 );
@@ -91,6 +111,23 @@ if ($do_task_log) {
 		$AppUI->setMsg($obj->getError(), UI_MSG_ERROR);
 		$AppUI->redirect();
 	}
+	// The log is this item's (task_log is shared with project tasks): an existing one must
+	// belong to it and keeps its author; it is never a project task's log.
+	if ($obj->task_log_id) {
+		$q = new DBQuery();
+		$q->addTable('task_log');
+		$q->addQuery('task_log_help_desk_id, task_log_creator');
+		$q->addWhere('task_log_id = ' . (int)$obj->task_log_id);
+		$log_row = $q->loadHash();
+		if (!$log_row || (int)$log_row['task_log_help_desk_id'] !== $item_id) {
+			$hd_deny();
+		}
+		$obj->task_log_creator = $log_row['task_log_creator'];
+	} else {
+		$obj->task_log_creator = $AppUI->user_id;
+	}
+	$obj->task_log_help_desk_id = $item_id;
+	$obj->task_log_task = 0;
 
 	if ($obj->task_log_date) {
 		$date = new CDate($obj->task_log_date);
@@ -125,6 +162,12 @@ if ($do_task_log) {
 		if (!$hditem->bind($_POST)) {
 			$AppUI->setMsg($hditem->error, UI_MSG_ERROR);
 			$AppUI->redirect();
+		}
+		// The creator of an item does not change (it gives access to it); a new item is the
+		// user's. The item as it will be saved (company...) must still be one the user may edit.
+		$hditem->item_created_by = $existing_item ? $existing_item['item_created_by'] : $AppUI->user_id;
+		if (!hditemEditable(get_object_vars($hditem))) {
+			$hd_deny();
 		}
 
 		$AppUI->setMsg('Help Desk Item', UI_MSG_OK);

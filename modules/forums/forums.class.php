@@ -29,6 +29,7 @@ class CForum extends CDpObject {
 			return "CForum::bind failed";
 		} else {
 			bindHashToObject( $hash, $this );
+			$this->castKey(); // ids are integers (classes/dp.class.php)
 			return NULL;
 		}
 	}
@@ -71,7 +72,7 @@ class CForum extends CDpObject {
 	function delete($oid = NULL, $history_desc = '', $history_proj = 0) {
 		$q  = new DBQuery;
 		$q->setDelete('forum_visits');
-		$q->addWhere('visit_forum = '.$this->forum_id);
+		$q->addWhere('visit_forum = '.(int)$this->forum_id);
 		$q->exec(); // No error if this fails, it is not important.
 		$q->clear();
 		
@@ -83,7 +84,7 @@ class CForum extends CDpObject {
 		}
 		$q->clear();
 		$q->setDelete('forum_messages');
-		$q->addWhere('message_forum = '.$this->forum_id);
+		$q->addWhere('message_forum = '.(int)$this->forum_id);
 		if (!$q->exec()) {
 			$result =  db_error();
 		} else {
@@ -135,8 +136,32 @@ class CForumMessage {
 			return "CForumMessage::bind failed";
 		} else {
 			bindHashToObject( $hash, $this );
+			// Ids are integers: the raw request value must not reach the SQL that uses them.
+			if (isset($this->message_id) && $this->message_id !== '') {
+				$this->message_id = (int)$this->message_id;
+			}
+			if (isset($this->message_forum) && $this->message_forum !== '') {
+				$this->message_forum = (int)$this->message_forum;
+			}
+			if (isset($this->message_parent) && $this->message_parent !== '') {
+				$this->message_parent = (int)$this->message_parent;
+			}
 			return NULL;
 		}
+	}
+
+	/** Loads a stored message by id; false when there is none. */
+	function load($oid) {
+		$q = new DBQuery();
+		$q->addTable('forum_messages');
+		$q->addQuery('*');
+		$q->addWhere('message_id = ' . (int)$oid);
+		$row = $q->loadHash();
+		if (!$row) {
+			return false;
+		}
+		bindHashToObject($row, $this);
+		return true;
 	}
 
 	function check() {
@@ -157,7 +182,7 @@ class CForumMessage {
 			// First we need to remove any forum visits for this message
 			// otherwise nobody will see that it has changed.
 			$q->setDelete('forum_visits');
-			$q->addWhere('visit_message = '.$this->message_id);
+			$q->addWhere('visit_message = '.(int)$this->message_id);
 			$q->exec(); // No error if this fails, it is not important.
 			$ret = db_updateObject( 'forum_messages', $this, 'message_id', $updateNulls); // ! Don't update null values
 			$q->clear();
@@ -168,7 +193,7 @@ class CForumMessage {
 
 			$q->addTable('forum_messages');
 			$q->addQuery('count(message_id), MAX(message_date)');
-			$q->addWhere('message_forum = '.$this->message_forum);
+			$q->addWhere('message_forum = '.(int)$this->message_forum);
 
 			$res = $q->exec();
 			$reply = db_fetch_row( $res );
@@ -196,7 +221,7 @@ class CForumMessage {
 	function delete($oid = NULL, $history_desc = '', $history_proj = 0) {
 		$q  = new DBQuery;
 		$q->setDelete('forum_visits');
-		$q->addWhere('visit_message = '.$this->message_id);
+		$q->addWhere('visit_message = '.(int)$this->message_id);
 		$q->exec(); // No error if this fails, it is not important.
 		$q->clear();
 
@@ -285,7 +310,7 @@ class CForumMessage {
 		$body .= "\n\n" . $AppUI->_('Forum', UI_OUTPUT_RAW) . ": $forum_name";
 		$body .= "\n" . $AppUI->_('Subject', UI_OUTPUT_RAW) . ": {$this->message_title}";
 		$body .= "\n" . $AppUI->_('Message From', UI_OUTPUT_RAW) . ": $message_from";
-		$body .= "\n\n" . DP_BASE_URL . '/index.php?m=forums&a=viewer&forum_id='.$this->message_forum;
+		$body .= "\n\n" . DP_BASE_URL . '/index.php?m=forums&a=viewer&forum_id='.(int)$this->message_forum;
 		$body .= "\n\n$this->message_body";
  
 		$mail->Body( $body, isset( $GLOBALS['locale_char_set']) ? $GLOBALS['locale_char_set'] : ""  );

@@ -19,6 +19,11 @@ if (!defined('DP_BASE_DIR')) {
 $obj = new CMacroProject();
 $msg = '';
 
+// Permission on this macroproject, as do_project_aed.php checks for projects: only its
+// deletion was checked, so any macroproject could be overwritten by posting its id.
+dPrequireWritePermission('macroprojects', dPgetIntParam($_POST, 'macroproject_id', 0),
+	dPgetIntParam($_POST, 'del', 0));
+
 if (!$obj->bind($_POST)) {
 	$AppUI->setMsg($obj->getError(), UI_MSG_ERROR);
 	$AppUI->redirect();
@@ -42,7 +47,7 @@ if ($obj->macroproject_actual_end_date) {
 
 // let's check if there are some assigned departments to macroproject
 if (!dPgetParam($_POST, "macroproject_departments", 0)) {
-	$obj->macroproject_departments = implode(",", dPgetParam($_POST, "dept_ids", array()));
+	$obj->macroproject_departments = implode(",", array_map("intval", (array)dPgetParam($_POST, "dept_ids", array())));
 }
 
 $del = dPgetParam($_POST, 'del', 0);

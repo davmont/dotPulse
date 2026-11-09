@@ -9,7 +9,7 @@ $obj =& $AppUI->acl();
 
 $AppUI->setMsg('Permission');
 if ($del) {
-	if ($obj->del_acl($_REQUEST['permission_id'])) {
+	if ($obj->del_acl(dPgetIntParam($_REQUEST, 'permission_id', 0))) {
 		dPaudit('permission.removed', 'permission ' . dPgetIntParam($_REQUEST, 'permission_id') . ' of role ' . (int)dPgetParam($_POST, 'role_id', 0),
 			'roles', (int)dPgetParam($_POST, 'role_id', 0));
 		$AppUI->setMsg("deleted", UI_MSG_ALERT, true);

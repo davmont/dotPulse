@@ -30,6 +30,10 @@ class CPreferences {
 			return 'CPreferences::bind failed';
 		} else {
 			bindHashToObject($hash, $this);
+			// Ids are integers: the raw request value must not reach the SQL that uses them.
+			if (isset($this->pref_user) && $this->pref_user !== '') {
+				$this->pref_user = (int)$this->pref_user;
+			}
 			return NULL;
 		}
 	}
@@ -302,6 +306,7 @@ class bcode extends CDpObject {
 			return "Billing Code::bind failed";
 		} else {
 			bindHashToObject($hash, $this);
+			$this->castKey(); // ids are integers (classes/dp.class.php)
 			return NULL;
 		}
 	}

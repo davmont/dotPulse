@@ -31,6 +31,8 @@ $q->addTable('forum_messages', 'fm');
 $q->addJoin('users', 'u', 'fm.message_author = u.user_id');
 $q->addQuery('fm.*, u.user_username');
 $q->addWhere('fm.message_id = ' . ($message_id ? $message_id : $message_parent));
+// Only a message of this forum: the user's permission was checked on the forum.
+$q->addWhere('fm.message_forum = ' . $forum_id);
 $res = $q->exec();
 $message_info = $q->fetchRow();
 $q->clear();
@@ -39,6 +41,7 @@ $q->clear();
 if ($message_parent != -1) {
 	$q->addTable('forum_messages', 'fm');
 	$q->addWhere('fm.message_parent = ' . ($message_id ? $message_id : $message_parent));
+	$q->addWhere('fm.message_forum = ' . $forum_id);
 	$q->addOrder('fm.message_id DESC'); // fetch last message first
 	$q->setLimit(1);
 	$res = $q->exec();

@@ -7,14 +7,14 @@ if (!defined('DP_BASE_DIR')) {
 $forum_id = isset($_GET["forum_id"]) ? (int)$_GET["forum_id"] : 0;
 
 $message_id = isset($_GET["message_id"]) ? (int)$_GET["message_id"] : 0;
-$post_message = isset($_GET["post_message"]) ? $_GET["post_message"] : 0;
+$post_message = isset($_GET["post_message"]) ? (int)$_GET["post_message"] : 0;
 $f = dpGetParam($_POST, 'f', 0);
 
 // check permissions
 $canRead = getPermission($m, 'view', $forum_id);
 $canEdit = getPermission($m, 'edit', $forum_id);
 
-if (!$canRead || ($post_message & !$canEdit)) {
+if (!$canRead || ($post_message && !$canEdit)) {
 	$AppUI->redirect("m=public&a=access_denied");
 }
 

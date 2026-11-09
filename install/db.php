@@ -77,19 +77,21 @@ if ($_POST['mode'] == 'upgrade') {
 	</tr>
 	<tr>
 		<td class="item">Database Host Name</td>
-		<td align="left"><input class="text" type="text" name="dbhost" value="<?php echo htmlspecialchars($dPconfig['dbhost'], ENT_QUOTES); ?>" /></td>
+		<?php // An installed site's database settings are not shown to whoever opens the
+		// installer: enter them, with the password, from includes/config.php. ?>
+		<td align="left"><input class="text" type="text" name="dbhost" value="<?php echo is_file('../includes/config.php') ? '' : htmlspecialchars($dPconfig['dbhost'], ENT_QUOTES); ?>" /></td>
 	</tr>
 	<tr>
 		<td class="item">Database Name</td>
-		<td align="left"><input class="text" type="text" name="dbname" value="<?php echo htmlspecialchars($dPconfig['dbname'], ENT_QUOTES); ?>" /></td>
+		<td align="left"><input class="text" type="text" name="dbname" value="<?php echo is_file('../includes/config.php') ? '' : htmlspecialchars($dPconfig['dbname'], ENT_QUOTES); ?>" /></td>
 	</tr>
 	<tr>
 		<td class="item">Database Prefix</td>
-		<td align="left"><input class="text" type="text" name="dbprefix" value="<?php echo htmlspecialchars($dPconfig['dbprefix'], ENT_QUOTES); ?>" /></td>
+		<td align="left"><input class="text" type="text" name="dbprefix" value="<?php echo is_file('../includes/config.php') ? '' : htmlspecialchars($dPconfig['dbprefix'], ENT_QUOTES); ?>" /></td>
 	</tr>
 	<tr>
 		<td class="item">Database User Name</td>
-		<td align="left"><input class="text" type="text" name="dbuser" value="<?php echo htmlspecialchars($dPconfig['dbuser'], ENT_QUOTES); ?>" /></td>
+		<td align="left"><input class="text" type="text" name="dbuser" value="<?php echo is_file('../includes/config.php') ? '' : htmlspecialchars($dPconfig['dbuser'], ENT_QUOTES); ?>" /></td>
 	</tr>
 	<tr>
 		<td class="item">Database User Password</td>

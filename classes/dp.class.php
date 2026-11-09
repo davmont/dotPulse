@@ -101,10 +101,23 @@ class CDpObject {
 			}
 			
 			bindHashToObject($filtered_hash, $this);
+			$this->castKey();
 			return true;
 		}
 	}
 	
+	/**
+	 * After a bind: every table's primary key is an integer. Handlers check permissions on
+	 * (int) of the posted id and the models concatenate the key into SQL, so the raw value
+	 * ("5 OR 1=1") must not stay on the object. Subclasses with their own bind() call it too.
+	 */
+	protected function castKey() {
+		$k = $this->_tbl_key;
+		if ($k !== '' && isset($this->$k) && $this->$k !== '') {
+			$this->$k = (int)$this->$k;
+		}
+	}
+
 	/**
 	 *	Binds an array/hash to this object
 	 *	@param int $oid optional argument, if not specifed then the value of current key is used

@@ -16,6 +16,58 @@ if (isset( $_POST['inv_dosql'] ) ) {
 	if (!getPermission('earnings', 'edit')) {
 		$AppUI->redirect('m=public&a=access_denied');
 	}
+
+	// Each command acts on one earning (the URL's; an ad hoc item names its own) and is
+	// allowed by who the user is to it, as the module's pages offer the forms: its owner
+	// edits and submits it until it is approved; an approver (user type below 7) decides
+	// on others' submitted earnings; the owner or an approver marks an approved one paid.
+	// Module edit permission was the only check: anyone could approve their own earning.
+	$inv_cmd = (string)dPgetParam($_POST, 'inv_dosql', '');
+	if ($inv_cmd == 'adhoc') {
+		$earning_id = (int)dPgetParam($_POST, 'adhoc_earning_parent_id', 0);
+	}
+	$is_approver = ($AppUI->user_type > 0 && $AppUI->user_type < 7);
+	$earning_row = null;
+	if ($earning_id) {
+		$q = new DBQuery();
+		$q->addTable('earnings');
+		$q->addQuery('earning_user_id, earning_submitted, earning_approved, earning_paid'
+			. ', earning_submit_contact, earning_submit_email');
+		$q->addWhere('earning_id = ' . (int)$earning_id);
+		$earning_row = $q->loadHash();
+	}
+	$set = function ($date) {
+		return $date && $date != '0000-00-00 00:00:00';
+	};
+	if ($inv_cmd == 'addinv') {
+		$allowed = true;
+	} else if (!$earning_row) {
+		$allowed = false;
+	} else {
+		$own = ((int)$earning_row['earning_user_id'] == (int)$AppUI->user_id);
+		$approved = $set($earning_row['earning_approved']);
+		switch ($inv_cmd) {
+			case 'postsubmit':
+				$allowed = $own && !$approved;
+				break;
+			case 'postapprove':
+			case 'postdecline':
+				$allowed = $is_approver && !$own && $set($earning_row['earning_submitted']) && !$approved;
+				break;
+			case 'postpaid':
+				$allowed = ($own || $is_approver) && $approved && !$set($earning_row['earning_paid']);
+				break;
+			case 'updrates':
+				$allowed = ($own || $is_approver) && !$approved;
+				break;
+			default: // adhoc, remitem, additem, editinv, killearning
+				$allowed = $own && !$approved;
+		}
+	}
+	if (!$allowed) {
+		$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+		$AppUI->redirect('m=public&a=access_denied');
+	}
 	// Figure out what kind
 
 	// Add AdHoc Item
@@ -48,8 +100,8 @@ if (isset( $_POST['inv_dosql'] ) ) {
 		// Remove earning Item(s) From earning
 		$remove_items = "";
 		foreach ($_POST as $item) {
-			@list($item_action,$item_value) = explode(":",$item);
-			if ( $item_action = "remove" ) {
+			@list($item_action,$item_value) = explode(":",(string)$item);
+			if ( $item_action == "remove" ) {
 				if ( intval($item_value) > 0 ) {
 					if ( strlen($remove_items) > 0 ) {
 						$remove_items .= ",";
@@ -59,7 +111,7 @@ if (isset( $_POST['inv_dosql'] ) ) {
 			}
 		}
 		$sql = "DELETE FROM {$dbprefix}earnings_items WHERE earning_items_id IN (";
-		$sql .= $remove_items . ");";
+		$sql .= ($remove_items !== '' ? $remove_items : '0') . ") AND earning_parent_id = " . (int)$earning_id . ";";
 		if (!db_exec( $sql )) {
 		}
 		$AppUI->redirect();
@@ -84,7 +136,7 @@ if (isset( $_POST['inv_dosql'] ) ) {
 		if (count($ids) > 0) {
 			$sql = "UPDATE {$dbprefix}earnings_items SET earning_item_rate = CASE earning_items_id ";
 			$sql .= implode(" ", $cases);
-			$sql .= " END WHERE earning_items_id IN (" . implode(",", $ids) . ")";
+			$sql .= " END WHERE earning_items_id IN (" . implode(",", $ids) . ") AND earning_parent_id = " . (int)$earning_id;
 			if (!db_exec( $sql )) {
 			}
 		}
@@ -96,8 +148,8 @@ if (isset( $_POST['inv_dosql'] ) ) {
 	if ($_POST['inv_dosql'] == "additem") {
 		$add_items = "";
 		foreach ($_POST as $item) {
-			@list($item_action,$item_value) = explode(":",$item);
-			if ( $item_action = "add" ) {
+			@list($item_action,$item_value) = explode(":",(string)$item);
+			if ( $item_action == "add" ) {
 				if ( intval($item_value) > 0 ) {
 					if ( strlen($add_items) > 0 ) {
 						$add_items .= ",";
@@ -108,7 +160,8 @@ if (isset( $_POST['inv_dosql'] ) ) {
 		}
 		// First gather all the selected Task_log Items
 		$sql="SELECT task_log.*, tasks.*, projects.* FROM {$dbprefix}task_log AS task_log, {$dbprefix}tasks AS tasks, {$dbprefix}projects AS projects WHERE task_id = task_log_task AND project_id = task_project AND task_log_id IN (";
-		$sql .= $add_items . ");";
+		// Only the user's own task logs can be billed.
+		$sql .= ($add_items !== '' ? $add_items : '0') . ") AND task_log_creator = " . (int)$AppUI->user_id . ";";
 		$arc= db_exec( $sql );
 		$add_records = array();
 		while ($row = db_fetch_assoc($arc)) {
@@ -259,11 +312,21 @@ if (isset( $_POST['inv_dosql'] ) ) {
 	// Processing Activity Updates
 	if ( ($_POST['inv_dosql'] == "postsubmit") || ($_POST['inv_dosql'] == "postapprove") || ($_POST['inv_dosql'] == "postdecline") || ($_POST['inv_dosql'] == "postpaid") ) {
 		$notifyMail = new Mail;
+		// The owner's name and e-mail come from the database, not the request: the
+		// request named any address for the system to write to.
+		$q = new DBQuery();
+		$q->addTable('users', 'u');
+		$q->leftJoin('contacts', 'c', 'c.contact_id = u.user_contact');
+		$q->addQuery("CONCAT_WS(' ', c.contact_first_name, c.contact_last_name) AS name, c.contact_email AS email");
+		$q->addWhere('u.user_id = ' . (int)$earning_row['earning_user_id']);
+		$owner = $q->loadHash();
+		$owner_name = $owner ? $owner['name'] : '';
+		$owner_email = $owner ? $owner['email'] : '';
 		switch ($_POST['inv_dosql']) {
 			case "postsubmit":
 				$sql="UPDATE {$dbprefix}earnings SET earning_submitted_comment='" . db_escape($_POST["earning_submitted_comment"]) . "', earning_submitted='" . date("Ymd") . "', earning_approved='', earning_approved_comment='' WHERE earning_id=" . $earning_id . ";";
 				$notifyMail->From( $AppUI->user_first_name . " " . $AppUI->user_last_name . " <" . $AppUI->user_email . ">" );
-				$notifyMail->To( $_POST['earning_submit_contact'] . " <" . $_POST['earning_submit_email'] . ">" );
+				$notifyMail->To( $earning_row['earning_submit_contact'] . " <" . $earning_row['earning_submit_email'] . ">" );
 				$notifyMail->Subject( "Approval Requested from " . $AppUI->user_first_name . " " . $AppUI->user_last_name . "." );
 				$message = "A pay request (timecard or invoice) has been placed into the queue for your approval.  A synopsis follows:\n\n";
 				$message .= "Request Number: " . $_POST['earning_num'] . "\n";
@@ -281,7 +344,7 @@ if (isset( $_POST['inv_dosql'] ) ) {
 			case "postapprove":
 				$sql="UPDATE {$dbprefix}earnings SET earning_approved_comment='" . db_escape($_POST["earning_approved_comment"]) . "', earning_approved='" . date("Ymd") . "', earning_approved_by=" . $AppUI->user_id . " WHERE earning_id=" . $earning_id . ";";
 				$notifyMail->From( $AppUI->user_first_name . " " . $AppUI->user_last_name . " <" . $AppUI->user_email . ">" );
-				$notifyMail->To( $_POST['earning_user_name'] . " <" . $_POST['earning_user_email'] . ">" );
+				$notifyMail->To( $owner_name . " <" . $owner_email . ">" );
 				$notifyMail->Subject( "Approval Received from " . $AppUI->user_first_name . " " . $AppUI->user_last_name . "." );
 				$message = "Your pay request (timecard or invoice) was approved.  A synopsis follows:\n\n";
 				$message .= "Request Number: " . $_POST['earning_num'] . "\n";
@@ -303,7 +366,7 @@ if (isset( $_POST['inv_dosql'] ) ) {
 			case "postdecline":
 				$sql="UPDATE {$dbprefix}earnings SET earning_approved_comment='" . db_escape($_POST["earning_approved_comment"]) . "', earning_submitted='0000-00-00 00:00:00' WHERE earning_id=" . $earning_id . ";";
 				$notifyMail->From( $AppUI->user_first_name . " " . $AppUI->user_last_name . " <" . $AppUI->user_email . ">" );
-				$notifyMail->To( $_POST['earning_user_name'] . " <" . $_POST['earning_user_email'] . ">" );
+				$notifyMail->To( $owner_name . " <" . $owner_email . ">" );
 				$notifyMail->Subject( "Request Declined from " . $AppUI->user_first_name . " " . $AppUI->user_last_name . "." );
 				$message = "Your pay request (timecard or invoice) was declined.  A synopsis follows:\n\n";
 				$message .= "Request Number: " . $_POST['earning_num'] . "\n";
@@ -332,5 +395,5 @@ if (isset( $_POST['inv_dosql'] ) ) {
 
 }
 
-var_dump($_POST);
+
 

@@ -46,7 +46,7 @@ $display 	= dPgetParam($_POST, 'display', 0);											// 0: details, 1: subTot
 $tax 		= dPgetParam($_POST, 'tax', 0);												// 0: without, 1: with	 				Default: without
 $toExpand	= dPgetParam($_POST, 'expandedList', null);									// List of <tr> to re-expand			Default: none(null)
 $default[0] = $today->getYear();														// Default array for $years
-$years 		= dPgetParam($_POST, 'years', $default);									// (array)Years to display 				Default: this year
+$years 		= array_map('intval', (array)dPgetParam($_POST, 'years', $default));	// years only: they go into SQL									// (array)Years to display 				Default: this year
 $macroproject_status = dPgetParam($_POST, 'macroproject_status', 0);
 $macroproject_type = dPgetParam($_POST, 'macroproject_type', 0);
 // Edit the values if necessary

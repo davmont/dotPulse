@@ -549,21 +549,34 @@ class CustomFieldFilelink extends CustomField
 
 		// instantiate the file object and eventually load exsiting file data
 		$obj = new CFile();
-		if ($_POST[$this->field_name . '_id']) {
-			$obj->load($_POST[$this->field_name . '_id']);
+		// The file this field holds: the posted id is only taken when it is the field's own
+		// file or one the user may edit; any file id could be posted and overwritten.
+		$file_id = (int)dPgetParam($_POST, $this->field_name . '_id', 0);
+		$stored_file_id = 0;
+		if ($object_id) {
+			$q = new DBQuery;
+			$q->addTable('custom_fields_values');
+			$q->addQuery('value_charvalue');
+			$q->addWhere('value_field_id = ' . (int)$this->field_id);
+			$q->addWhere('value_object_id = ' . (int)$object_id);
+			$stored_file_id = (int)$q->loadResult();
+		}
+		if ($file_id && $file_id != $stored_file_id && !getPermission('files', 'edit', $file_id)) {
+			$file_id = 0;
+		}
+		if ($file_id) {
+			$obj->load($file_id);
 
 			// create an old object for the case that
 			// the file must be replaced
-			if ($_POST[$this->field_name . '_id'] > 0) {
-				$oldObj = new CFile();
-				$oldObj->load($_POST[$this->field_name . '_id']);
-			}
+			$oldObj = new CFile();
+			$oldObj->load($file_id);
 		}
 
 		// if the cf lives in the projects module
 		// affiliate the file to the suitable project
 		if ($m == 'projects' && !empty($_POST['project_id'])) {
-			$obj->file_project = $_POST['project_id'];
+			$obj->file_project = (int)$_POST['project_id'];
 		}
 		// todo: implement task affiliation here, too
 		if ($m == 'tasks' && $object_id) {

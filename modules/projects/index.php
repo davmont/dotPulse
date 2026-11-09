@@ -41,7 +41,8 @@ if (isset($_GET['tab'])) {
 	$AppUI->setState('ProjIdxTab', intval(dPgetCleanParam($_GET, 'tab')));
 }
 
-$tab = $AppUI->getState('ProjIdxTab') !== NULL ? $AppUI->getState('ProjIdxTab') : 500;
+// Cast on reading too: the state is shared by the session, not only written here.
+$tab = $AppUI->getState('ProjIdxTab') !== NULL ? (int)$AppUI->getState('ProjIdxTab') : 500;
 $currentTabId = $tab;
 $active = intval(!$AppUI->getState('ProjIdxTab'));
 
@@ -55,7 +56,7 @@ $company_id = (($AppUI->getState('ProjIdxCompany') !== NULL)
 $company_prefix = 'company_';
 
 if (isset($_POST['department'])) {
-	$AppUI->setState('ProjIdxDepartment', dPgetCleanParam($_POST, 'department'));
+	$AppUI->setState('ProjIdxDepartment', dPdepartmentParam($_POST));
 
 	//if department is set, ignore the company_id field
 	unset($company_id);

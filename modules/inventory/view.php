@@ -157,11 +157,11 @@ function delIt()
 		</TR>
 		<TR>
 			<TD ALIGN="right" NOWRAP><?php echo $AppUI->_('Brand');?>:</TD>
-			<TD CLASS="hilite"> <?php echo get_brand_name( $brand_list, $obj->inventory_brand ); ?></TD>
+			<TD CLASS="hilite"> <?php echo dPhtml(get_brand_name( $brand_list, $obj->inventory_brand )); ?></TD>
 		</TR>
 		<TR>
 			<TD ALIGN="right" NOWRAP><?php echo $AppUI->_('Category');?>:</TD>
-			<TD CLASS="hilite"> <?php echo get_category_name( $category_list, $obj->inventory_category ); ?></TD>
+			<TD CLASS="hilite"> <?php echo dPhtml(get_category_name( $category_list, $obj->inventory_category )); ?></TD>
 		</TR>
 		<TR><TD>&nbsp;</TD></TR>
 		<TR>

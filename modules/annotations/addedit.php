@@ -60,6 +60,28 @@ $AppUI->savePlace();	//save the workplace state (have a footprint on this site)
 			}
 		}
 	}
+	// Annotations belong to a project: the user must see it, and edit it to save or delete.
+	// The annotation's stored project counts, not only the one in the request.
+	$annotation_project_of = function ($id) {
+		$q = new DBQuery();
+		$q->addTable('annotations');
+		$q->addQuery('annotation_project');
+		$q->addWhere('annotation_id = ' . (int)$id);
+		return (int)$q->loadResult();
+	};
+	$anno_need = ($save_annotations == 1 || $save_annotations == -1) ? 'edit' : 'view';
+	$anno_projects = array();
+	if ($annotation_id > 0) {
+		$anno_projects[] = $annotation_project_of($annotation_id);
+	}
+	if ($project_id > 0) {
+		$anno_projects[] = $project_id;
+	}
+	foreach ($anno_projects as $anno_project) {
+		if ($anno_project > 0 && !getPermission('projects', $anno_need, $anno_project)) {
+			$AppUI->redirect( "m=public&a=access_denied" );
+		}
+	}
 	$tab= 					intval( dPgetParam( $_REQUEST, "tab", "-1") );   //came from projects view?
 	$addnew= 				intval( dPgetParam( $_REQUEST, "addnew", "0") );   //came from projects view?
 	// Presets come from the 'details' table of the Details module when it is installed.
@@ -160,6 +182,14 @@ if ($save_annotations == "1") {
 		// When we've already got an entry in the database - --> WELL SHOW IT!!    (otherwise there will be empty fields to fill in some detail)
 		die('cant save, no Post data');
 	}
+	// The posted annotation: in a project the user may edit, and it stays in it.
+	if ($obj->annotation_id > 0) {
+		$stored_project = $annotation_project_of($obj->annotation_id);
+		if (!$stored_project || !getPermission('projects', 'edit', $stored_project)) {
+			$AppUI->redirect( "m=public&a=access_denied" );
+		}
+		$obj->annotation_project = $stored_project;
+	}
 	// If annotation_must is unset, set it to 0!
 		if ( !$obj->annotation_must || $obj->annotation_must != "1" ) $obj->annotation_must = 0;
 		if ( !$obj->annotation_flag || $obj->annotation_flag != "1" ) $obj->annotation_flag = 0;
@@ -242,6 +272,14 @@ if ($save_annotations == "1") {
 		// Now, get values from the annos table to show
 		// When we've already got an entry in the database - --> WELL SHOW IT!!    (otherwise there will be empty fields to fill in some detail)
 		die(' cant delete');
+	}
+	// The posted annotation: in a project the user may edit, and it stays in it.
+	if ($obj->annotation_id > 0) {
+		$stored_project = $annotation_project_of($obj->annotation_id);
+		if (!$stored_project || !getPermission('projects', 'edit', $stored_project)) {
+			$AppUI->redirect( "m=public&a=access_denied" );
+		}
+		$obj->annotation_project = $stored_project;
 	}
 	$obj->delete();
 	$save_annotations="0";

@@ -43,12 +43,33 @@ $pdo->pd_option_view_addtasks = (int)dPgetParam( $_POST, 'opt_view_addtsks', 0 )
 $pdo->pd_option_view_files = (int)dPgetParam( $_POST, 'opt_view_files', 0 );
 $pdo->store();
 
+// Ids only for the fields that name a record (an empty value leaves the field alone).
+foreach (array('bulk_task_project', 'bulk_task_parent', 'bulk_task_dependency', 'bulk_task_assign',
+		'bulk_task_unassign', 'bulk_task_owner') as $id_field) {
+	if ($$id_field !== '') {
+		$$id_field = (int)$$id_field;
+	}
+}
+// Tasks moved into another project, or under another task, or made to depend on one: the
+// user must be able to see it.
+if (($bulk_task_project !== '' && $bulk_task_project && !getPermission('projects', 'view', $bulk_task_project))
+		|| ($bulk_task_parent !== '' && $bulk_task_parent && !getPermission('tasks', 'view', $bulk_task_parent))
+		|| ($bulk_task_dependency !== '' && $bulk_task_dependency && !getPermission('tasks', 'view', $bulk_task_dependency))) {
+	$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
+	$AppUI->redirect('m=public&a=access_denied');
+}
+
 if (is_array($selected) && count( $selected )) {
-	$upd_task = new CTask();
 	foreach ($selected as $key => $val) {
-		if ($key) {
-			$upd_task->load($key);
+		$key = (int)$key;
+		// Every action changes the task: the user must be allowed to edit it, and to
+		// delete it for the delete action. Nothing was checked per task.
+		if (!$key || !getPermission('tasks', 'edit', $key)
+				|| ($bulk_task_other == '99' && !getPermission('tasks', 'delete', $key))) {
+			continue;
 		}
+		$upd_task = new CTask();
+		$upd_task->load($key);
 
 //Action: Modify Percent Complete
 		if ( isset($_POST['bulk_task_percent_complete']) && $bulk_task_percent_complete!='' && $bulk_task_percent_complete) {
