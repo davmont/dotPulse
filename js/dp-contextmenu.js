@@ -29,6 +29,11 @@ var dpContextMenu = (function () {
 	var menus = {};
 	var box = null;
 
+	// The theme's version of a colour (js/dp-theme-colors.js: dark in the dark theme).
+	function tc(color, role) {
+		return window.dPthemeColor ? window.dPthemeColor(color, role) : color;
+	}
+
 	function close() {
 		if (box && box.parentNode) {
 			box.parentNode.removeChild(box);
@@ -42,8 +47,8 @@ var dpContextMenu = (function () {
 		row.setAttribute('data-dp-call', def.call);
 		row.style.cssText = 'padding:6px 12px 6px 8px;cursor:pointer;white-space:nowrap;border:1px solid transparent;';
 		row.addEventListener('mouseover', function () {
-			row.style.background = '#ECF4F9';
-			row.style.borderColor = '#316AC5';
+			row.style.background = tc('#ECF4F9', 'bg');
+			row.style.borderColor = tc('#316AC5', 'border');
 		});
 		row.addEventListener('mouseout', function () {
 			row.style.background = '';
@@ -65,8 +70,8 @@ var dpContextMenu = (function () {
 		box = document.createElement('div');
 		box.setAttribute('role', 'menu');
 		box.className = 'dp-contextmenu';
-		box.style.cssText = 'position:absolute;z-index:10000;background:#fff;border:1px solid #999;'
-			+ 'box-shadow:2px 2px 4px #777;font-family:arial,verdana,tahoma;font-size:100%;padding:2px;';
+		box.style.cssText = 'position:absolute;z-index:10000;background:' + tc('#fff', 'bg')
+			+ ';border:1px solid ' + tc('#999', 'border') + ';box-shadow:2px 2px 4px #777;font-family:arial,verdana,tahoma;font-size:100%;padding:2px;';
 		for (var i = 0; i < menus[name].length; i++) {
 			box.appendChild(item(menus[name][i]));
 		}

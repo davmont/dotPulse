@@ -60,15 +60,15 @@ for ($res; ! $res->EOF; $res->MoveNext()) {
 	}
 ?>
 <tr>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="index.php?m=human_resources&amp;a=view_hr&amp;user_id=<?php echo $user_id;?>&amp;contact_id=<?php echo $contact_id;?>&amp;company_id=<?php echo $company_id;?>">
 	<?php echo dPhtml($contact_name); ?>
 	</td>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="index.php?m=human_resources&amp;a=view_hr&amp;user_id=<?php echo $user_id;?>&amp;contact_id=<?php echo $contact_id;?>&amp;company_id=<?php echo $company_id;?>">
     <?php echo dPhtml($res->fields['user_username']); ?>
   </td>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="index.php?m=human_resources&amp;a=view_hr&amp;user_id=<?php echo $user_id;?>&amp;contact_id=<?php echo $contact_id;?>&amp;company_id=<?php echo $company_id;?>">
     <?php echo dPhtml($concat_roles_names); ?>
   </td>

@@ -10,21 +10,21 @@
 .dp-feedback-panel {
 	position: absolute; right: 0; top: 100%; z-index: 1000; margin-top: 4px;
 	width: 380px; max-width: calc(100vw - 32px); max-height: 70vh; overflow-y: auto;
-	background: #fff; color: #222; border: 1px solid #aaa; border-radius: 4px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); text-align: left; font-weight: normal;
+	background: var(--dp-surface, #fff); color: var(--dp-ink, #222); border: 1px solid var(--dp-line, #aaa); border-radius: 4px;
+	box-shadow: 0 4px 12px var(--dp-shadow, rgba(0, 0, 0, 0.2)); text-align: left; font-weight: normal;
 }
 /* Some themes (amp) colour every div, span and td directly, so inheriting is not enough. */
 .dp-feedback-panel, .dp-feedback-panel div, .dp-feedback-panel li, .dp-feedback-panel summary,
-.dp-feedback-panel span:not(.dp-feedback-area) { color: #222; }
-.dp-feedback-title { padding: 8px 10px; font-weight: bold; border-bottom: 1px solid #ddd; }
-.dp-feedback-panel .dp-feedback-empty { margin: 0; padding: 10px; color: #555; }
+.dp-feedback-panel span:not(.dp-feedback-area) { color: var(--dp-ink, #222); }
+.dp-feedback-title { padding: 8px 10px; font-weight: bold; border-bottom: 1px solid var(--dp-line-soft, #ddd); }
+.dp-feedback-panel .dp-feedback-empty { margin: 0; padding: 10px; color: var(--dp-slate, #555); }
 .dp-feedback-panel ul { list-style: none; margin: 0; padding: 0; }
-.dp-feedback-item { border-bottom: 1px solid #eee; }
+.dp-feedback-item { border-bottom: 1px solid var(--dp-line-soft, #eee); }
 .dp-feedback-item:last-child { border-bottom: none; }
 .dp-feedback-item summary { cursor: pointer; padding: 8px 10px; line-height: 1.4; }
-.dp-feedback-panel .dp-feedback-item p { margin: 0; padding: 0 10px 6px 10px; line-height: 1.4; color: #333; }
+.dp-feedback-panel .dp-feedback-item p { margin: 0; padding: 0 10px 6px 10px; line-height: 1.4; color: var(--dp-ink, #333); }
 .dp-feedback-item form { margin: 0; padding: 0 10px 8px 10px; text-align: right; }
-.dp-feedback-panel .dp-feedback-read summary { color: #777; }
+.dp-feedback-panel .dp-feedback-read summary { color: var(--dp-slate, #777); }
 .dp-feedback-area {
 	display: inline-block; padding: 0 5px; border-radius: 3px; margin-right: 4px;
 	font-size: 10px; text-transform: uppercase; letter-spacing: 0.03em; color: #fff; background: #607d8b;

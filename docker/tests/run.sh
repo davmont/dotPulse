@@ -8,7 +8,8 @@
 #   3  fill and save every add/edit form as admin and as worker; crawl again with that data
 #   4  layout in each theme (THEMES, at 1366x768) and at LAYOUT_EXTRA (theme@WxH ...; dotpulse
 #      also at phone width);
-#      pop-ups at their window sizes and task form tab switching in each theme
+#      pop-ups at their window sizes and task form tab switching in each theme;
+#      dark theme: no light patches or unreadable text, as admin and as worker
 #   5  remove every add-on, crawl the core without them, reinstall them all
 #
 # Each step also checks the PHP log (SQL errors, fatals, warnings, notices,
@@ -17,7 +18,7 @@
 # Environment: STEPS (default "1 2 3 4 5"), THEMES, LAYOUT_EXTRA, CHROME, ALLOW_DEPRECATED=1.
 . "$(dirname "$0")/lib.sh"
 STEPS=${STEPS:-1 2 3 4 5}
-THEMES=${THEMES:-dotpulse default amp dp-grey-theme material wps-redmond}
+THEMES=${THEMES:-dotpulse dotpulse-dark default amp dp-grey-theme material wps-redmond}
 LAYOUT_EXTRA=${LAYOUT_EXTRA:-dotpulse@1024x768 dotpulse@390x844 dp-grey-theme@1024x768 material@1024x768 default@1920x1080}
 FAILED=()
 step() { echo; echo "== $*"; }
@@ -81,6 +82,10 @@ if has 4; then
 		set_theme "$theme"
 		run "pop-ups and tabs $theme" node "$BROWSER/popups.js" admin passwd "$theme" "$T"
 	done
+	[ -s "$OUT/urls-worker.txt" ] || "$TESTS_DIR/crawl.py" worker worker "$OUT/urls-worker.txt" "$OUT/extra-urls.txt" >/dev/null
+	set_theme dotpulse-dark
+	run "dark theme admin" node "$BROWSER/dark.js" admin passwd "$OUT/urls-admin.txt" "$OUT/dark-admin.jsonl" "$TESTS_DIR/dark-known.txt"
+	run "dark theme worker" node "$BROWSER/dark.js" worker worker "$OUT/urls-worker.txt" "$OUT/dark-worker.jsonl" "$TESTS_DIR/dark-known.txt"
 	set_theme dotpulse
 fi
 

@@ -247,22 +247,22 @@ if($allocated_user_id || $human_resource_allocation_id) {
 			}			
 			?>		
 			<tr>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo dPhtml($human_resource_task_project->project_name); ?></a>
 			</td>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo dPhtml($human_resource_task['task_name']); ?></a>
 			</td>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo dPhtml($estimated_role_names); ?></a>
 			</td>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo $human_resource_task['task_start_date']; ?></a>
 			</td>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo $human_resource_task['task_end_date']; ?></a>
 			</td>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo $human_resource_task['task_duration']; ?></a>
 			</td>
 			<td align='center'> <?php echo	$conflict_image; ?>
@@ -378,26 +378,26 @@ for ($i = 0; $i < count($ordered_hrs); $i++) {
 	$style = ($same_role[$i] == 1) ? 'background-color:#60E564; font-weight:bold' : 'background-color:#F7FC64;';
 ?>
 <tr>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="?m=human_resources&amp;a=addedit_allocation&amp;human_resource_allocation_id=<?php echo $human_resource_allocation_id;?>&amp;project_tasks_estimated_roles_id=<?php echo $project_tasks_estimated_roles_id;?>&amp;task_id=<?php echo $task_id;?>&amp;project_id=<?php echo $project_id;?>&amp;allocated_user_id=<?php echo $user_id;?>">
 	<?php echo dPhtml($user->user_username);?></a>
   </td>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="?m=human_resources&amp;a=addedit_allocation&amp;human_resource_allocation_id=<?php echo $human_resource_allocation_id;?>&amp;project_tasks_estimated_roles_id=<?php echo $project_tasks_estimated_roles_id;?>&amp;task_id=<?php echo $task_id;?>&amp;project_id=<?php echo $project_id;?>&amp;allocated_user_id=<?php echo $user_id;?>">
     <?php echo dPhtml($contact->contact_last_name . ', ' . $contact->contact_first_name);?></a>
   </td>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="?m=human_resources&amp;a=addedit_allocation&amp;human_resource_allocation_id=<?php echo $human_resource_allocation_id;?>&amp;project_tasks_estimated_roles_id=<?php echo $project_tasks_estimated_roles_id;?>&amp;task_id=<?php echo $task_id;?>&amp;project_id=<?php echo $project_id;?>&amp;allocated_user_id=<?php echo $user_id;?>">
     <?php echo dPhtml($role_names[$i]);?></a>
   </td>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="?m=human_resources&amp;a=addedit_allocation&amp;human_resource_allocation_id=<?php echo $human_resource_allocation_id;?>&amp;project_tasks_estimated_roles_id=<?php echo $project_tasks_estimated_roles_id;?>&amp;task_id=<?php echo $task_id;?>&amp;project_id=<?php echo $project_id;?>&amp;allocated_user_id=<?php echo $user_id;?>">
     <?php echo dPhtml($weekday_working_hours);?></a>
   </td>
   <?php 
   if($hr->human_resource_lattes_url) {
   ?>
-  <td style=<?php echo $style;?> align='center'>
+  <td style="<?php echo $style;?>" align='center'>
 	<a href="#"<?php echo dPaction('window.open', array(dPsafeUrl($hr->human_resource_lattes_url))); ?>><?php echo dPshowImage( './modules/human_resources/images/lattes.png', 16, 16, '' ); ?>
 	</a>
   </td>
@@ -405,7 +405,7 @@ for ($i = 0; $i < count($ordered_hrs); $i++) {
   }
   else {
   ?>
-  <td style=<?php echo $style;?>>&nbsp;</td>
+  <td style="<?php echo $style;?>">&nbsp;</td>
   <?php
   }
   ?>

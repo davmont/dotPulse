@@ -619,8 +619,8 @@ var oldProj = <?php echo dPjs($obj->project_name.':');?>;
                   echo '<a href="#fp" name="fp" style="display:block"' . dPaction('expand_colapse', array('project', 'tblProjects')) . '>'
            	?>
             	<?php
-            		echo '<font color="' . bestColor( $obj->project_color_identifier ) . '"><strong>'
-            			. $AppUI->_('Project') . ': ' . dPhtml($obj->project_name) .'<strong></font>';
+            		echo '<span style="color:' . dPhtml(bestColor($obj->project_color_identifier)) . '"><strong>'
+            			. $AppUI->_('Project') . ': ' . dPhtml($obj->project_name) .'</strong></span>';
             	?>
            	<?php
                   echo '</a>'
