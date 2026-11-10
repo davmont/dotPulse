@@ -609,11 +609,11 @@ function highlight_tds(row, high, id) {
                   cell_name = tcs[j].id;
                   if(!(cell_name.indexOf('ignore_td_') >= 0)) {
                         if (high == 3)
-                              tcs[j].style.background = '#FFFFCC';
+                              tcs[j].style.background = dPthemeColor('#FFFFCC', 'bg');
                         else if (high == 2 || check)
-                              tcs[j].style.background = '#FFCCCC';
+                              tcs[j].style.background = dPthemeColor('#FFCCCC', 'bg');
                         else if (high == 1)
-                              tcs[j].style.background = '#FFFFCC';
+                              tcs[j].style.background = dPthemeColor('#FFFFCC', 'bg');
                         else
                               tcs[j].style.background = original_bgc;
                   }

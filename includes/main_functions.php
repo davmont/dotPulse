@@ -22,7 +22,22 @@ function bestColor($bg, $lt = '#ffffff', $dk = '#000000')
 	$bg = str_replace('#', '', $bg);
 	$dk = str_replace('#', '', $dk);
 	$base = new CSS_Color($bg);
-	return '#' . $base->calcFG($bg, $dk);
+	$fg = '#' . $base->calcFG($bg, $dk);
+	if (dPdarkTheme()) {
+		require_once DP_BASE_DIR . '/includes/dark_colors.php';
+		// The dark theme's output filter darkens a light background: light text then.
+		if (dPdarkColor('#' . $bg, 'bg') !== null) {
+			return DP_DARK_INK;
+		}
+		// A kept background (a project colour): the text sits on it, so dark text stays
+		// dark. rgb() is the spelling the filter does not touch (it would lighten a hex
+		// black as if it were on the page), so use it only in style attributes.
+		$rgb = dPdarkParseColor($fg);
+		if ($rgb !== null && dPdarkLuminance($rgb) < 0.2) {
+			return 'rgb(' . implode(', ', $rgb) . ')';
+		}
+	}
+	return $fg;
 }
 
 ##

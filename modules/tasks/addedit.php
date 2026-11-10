@@ -313,10 +313,10 @@ echo $obj->task_contacts; ?>" />
 <tr>
 	<td colspan="2" style="border: outset #eeeeee 1px;background-color:#<?php 
 echo $project->project_color_identifier; ?>" >
-		<font color="<?php echo bestColor($project->project_color_identifier); ?>">
+		<span style="color:<?php echo dPhtml(bestColor($project->project_color_identifier)); ?>">
 			<strong><?php echo $AppUI->_('Project'); ?>: <?php 
-echo @$project->project_name; ?></strong>
-		</font>
+echo dPhtml(@$project->project_name); ?></strong>
+		</span>
 	</td>
 </tr>
 

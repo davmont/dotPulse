@@ -8,7 +8,7 @@ $company_name = dPgetConfig('company_name', 'dotPulse');
 $page_title = dPgetConfig('page_title', 'dotPulse');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"<?php echo empty($dp_theme_dark) ? '' : ' data-theme="dark"'; ?>>
 
 <head>
 	<meta charset="UTF-8">

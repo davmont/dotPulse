@@ -112,3 +112,8 @@ body .gantt .handle { fill: var(--dp-slate); }
 form[name=budgetFrm] input[disabled] { background-color: var(--dp-surface-alt); color: var(--dp-muted); }
 .gtbl { background: var(--dp-surface) !important; }
 .gtbl, .gtbl td, .gtbl th { border-color: var(--dp-line) !important; }
+
+/* Text on a kept light-ish colour (a project colour such as #17BECF) that sets no text
+   colour of its own: includes/dark_colors.php marks the tag. */
+[data-dp-ink="dark"], [data-dp-ink="dark"] a:link, [data-dp-ink="dark"] a:visited,
+[data-dp-ink="dark"] font:not([color]), [data-dp-ink="dark"] span, [data-dp-ink="dark"] center { color: var(--dp-surface); }

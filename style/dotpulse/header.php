@@ -6,7 +6,7 @@ $dialog = (int) dPgetParam($_GET, 'dialog', 0);
 $current_module = isset($m) ? $m : '';
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo dPhtml(substr((string)$AppUI->user_locale, 0, 2) ?: 'en'); ?>">
+<html lang="<?php echo dPhtml(substr((string)$AppUI->user_locale, 0, 2) ?: 'en'); ?>"<?php echo empty($dp_theme_dark) ? '' : ' data-theme="dark"'; ?>>
 
 <head>
 	<meta http-equiv="Content-Type"
