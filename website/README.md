@@ -33,3 +33,11 @@ Shots with a `note` need more than that; the note says what:
   uses the sandbox itself.
 
 Take one or a few again with `node tools/browser/screenshots.js website/screenshots.json website/docs/img <name> ...`.
+
+## Licence
+
+The documentation (text and screenshots in `website/`) is under
+[Creative Commons Attribution-ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Code examples in it (commands, configuration, PHP) are under the code's licence,
+GPL-2.0-or-later, so they can be copied into the program. By contributing to these
+pages you agree to publish your changes under these terms.

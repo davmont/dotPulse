@@ -6,7 +6,10 @@ site_url: https://www.dotpulse.org/
 repo_url: https://github.com/davmont/dotPulse
 repo_name: davmont/dotPulse
 edit_uri: edit/devel/website/docs/
-copyright: dotPulse is free software under the GNU GPL. Documentation under CC BY-SA 4.0.
+copyright: >-
+  dotPulse is free software under the GNU GPL v2 or later.
+  Documentation under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>;
+  code examples in it under the GPL, like the code.
 
 theme:
   name: material
