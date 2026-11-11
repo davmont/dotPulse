@@ -25,6 +25,16 @@ class contacts extends smartsearch
 	                            'contact_city', 'contact_state', 'contact_zip', 'contact_country', 
 	                            'contact_notes');
 	
+	// Only the contacts the contacts list would show this user (private ones to their owner).
+	function __construct() {
+		global $AppUI;
+		if (is_callable('parent::__construct')) {
+			parent::__construct();
+		}
+		require_once $AppUI->getModuleClass('contacts');
+		$this->table_extra = CContact::visibleWhere($AppUI->user_id);
+	}
+
 	function ccontacts() {
 		return new contacts();
 	}

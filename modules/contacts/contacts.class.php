@@ -63,6 +63,28 @@ class CContact extends CDpObject{
 		return NULL; // object is ok
 	}
 	
+	/**
+	 * SQL condition for the contacts a user may see, as the contacts list shows them:
+	 * private contacts only to their owner, and only contacts of companies the user may
+	 * view (or of no company). $alias is the contacts table alias with its dot ('c.').
+	 */
+	public static function visibleWhere($user_id = null, $alias = '')
+	{
+		global $AppUI;
+		$uid = (int)($user_id === null ? $AppUI->user_id : $user_id);
+		$where = '(' . $alias . 'contact_private = 0 OR ' . $alias . 'contact_owner = ' . $uid
+			. ' OR ' . $alias . 'contact_owner IS NULL OR ' . $alias . 'contact_owner = 0)';
+		require_once $AppUI->getModuleClass('companies');
+		$company = new CCompany();
+		$allowed = $company->getAllowedSQL($uid, $alias . 'contact_company');
+		if (count($allowed)) {
+			$where .= ' AND ((' . implode(' AND ', $allowed) . ') OR ' . $alias . 'contact_company = 0'
+				. ' OR ' . $alias . 'contact_company IS NULL)';
+		}
+		return $where;
+	}
+
+
 	function canDelete(&$msg, $oid=null, $joins=null) {
 		global $AppUI;
 		if ($oid) {
