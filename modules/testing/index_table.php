@@ -30,7 +30,7 @@ if (!$canRead) {			// lock out users that do not have at least readPermission on
 <?php
 // retrieving some dynamic content using an easy database query
 $tab = $AppUI->getState( 'TestingIdxTab' ) !== NULL ? $AppUI->getState( 'TestingIdxTab' ) : "";
-$sql = "SELECT unittest_id,unittest_name,unittest_passed,unittest_description,unittest_lasttested ,task_name
+$sql = "SELECT unittest_id,unittest_name,unittest_passed,unittest_description,unittest_actualresult,unittest_lasttested ,task_name
 				FROM " . dPgetConfig('dbprefix', '') . "unittest
 				LEFT OUTER JOIN " . dPgetConfig('dbprefix', '') . "tasks ON unittest_task_id = task_id";	// prepare the sqlQuery command to get all quotes from the einstein table
 $sql.="	WHERE 1=1";
@@ -92,7 +92,7 @@ foreach ($quotes as $row) {		//parse the array of einstein quotes
 	</td>
 	<td >
 	<?php
-	echo dPhtml($row["unittest_result"]);		
+	echo dPhtml($row["unittest_actualresult"]);		
 	?>
 	</td>
 	<td >

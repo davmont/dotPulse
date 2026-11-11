@@ -25,7 +25,7 @@ $field_count = count($field_list);
 
 $colList = array();
 foreach ($allowedTables as $table) {
-  $cols = $db->MetaColumns($table);
+  $cols = $db->MetaColumns(dPgetConfig('dbprefix', '') . $table) ?: array();
   $colList[$table] = array();
   foreach ($cols as $col) {
     $colList[$table][] = $col->name;
@@ -33,6 +33,7 @@ foreach ($allowedTables as $table) {
 }
 
 $titleBlock = new CTitleBlock('Data Import', 'companies.gif', $m, $m.'.'.$a);
+$perms =& $AppUI->acl();
 $canDelete = $perms->checkModuleItem($m, 'delete', $diconfig_id);
 $msg = '';
 if ($diconfig_id && $canDelete)

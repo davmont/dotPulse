@@ -10,7 +10,7 @@ require_once( "./modules/mileagelog/mileagelog.class.php" );
 global $MILEAGELOG_CONFIG;
 // (index.php loads it, but this page is requested on its own)
 $MILEAGELOG_CONFIG = array();
-require_once DP_BASE_DIR . '/modules/mileagelog/config.php';
+require DP_BASE_DIR . '/modules/mileagelog/config.php'; // not _once: the array is reset above
 
 // check permissions
 $m = $AppUI->checkFileName(dPgetParam( $_GET, 'm', getReadableModule() ));
