@@ -57,7 +57,7 @@ class CTabBox extends CTabBox_core
 			echo "</table>\n";
 		} else {
 			// tabbed view: links styled as tabs (main.css), no images
-			if (count($this->tabs) - 1 < $this->active) {
+			if (!isset($this->tabs[$this->active])) { // keys need not be 0..n-1 (projects: 500, 501)
 				//Last selected tab is not available in this view. eg. Child tasks
 				$this->active = 0;
 			}

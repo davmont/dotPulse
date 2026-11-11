@@ -3,7 +3,7 @@ if (!defined('DP_BASE_DIR')) {
   die('You should not access this file directly.');
 }
 
-global $AppUI, $task_id, $df, $m;
+global $AppUI, $task_id, $df, $m, $tab;
 
 if (!(getPermission('task_log', 'access'))) {
 	$AppUI->redirect('m=public&a=access_denied');

@@ -48,7 +48,7 @@ class CTabBox extends CTabBox_core {
 			$s = '<table width="100%" border="0" cellpadding="0" cellspacing="0">';
 			$s .= '<tr><td><div class="tabrow">';
 			
-			if ( count($this->tabs)-1 < $this->active ) {
+			if (!isset($this->tabs[$this->active])) { // keys need not be 0..n-1 (projects: 500, 501)
 				//Last selected tab is not available in this view. eg. Child tasks
 				$this->active = 0;
 			}
