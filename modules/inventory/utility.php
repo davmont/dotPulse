@@ -247,7 +247,7 @@ function display_item( &$item, $indent, $children = 0 )
 	}
 	else printf( "%06d", $item['inventory_id'] );
 
-	echo "</TD><TD WIDTH='100%' NOWRAP>";
+	echo "</TD><TD WIDTH='100%'>";
 	for ($y=0; $y < $indent; $y++) {
 		if ($y+1 == $indent) {
 			echo '<img src="./images/corner-dots.gif" width="16" height="12" border="0">';
@@ -264,25 +264,25 @@ function display_item( &$item, $indent, $children = 0 )
 	}
 	echo "</A>";
 
-	echo "</TD><TD NOWRAP>";
+	echo "</TD><TD>";
 	echo dPhtml( dPgetParam( $item, 'inventory_brand_name', $AppUI->_( "Unknown" ) ) );
 
-	echo "</TD><TD NOWRAP>";
+	echo "</TD><TD>";
 	echo dPhtml( dPgetParam( $item, 'inventory_category_name', $AppUI->_( "Unknown" ) ) );
 
 /* lookup of company-name */
 
-	echo "</TD><TD NOWRAP>";
+	echo "</TD><TD>";
 	echo dPhtml( dPgetParam( $item, 'inventory_company_name', $AppUI->_( "Unknown" ) ) );
 
 /* lookup of department name */
 
-	echo "</TD><TD NOWRAP>";
+	echo "</TD><TD>";
 	echo dPhtml( dPgetParam( $item, 'inventory_department_name', $AppUI->_( "Unknown" ) ) );
 
 /* lookup of user-name */
 
-	echo "</TD><TD NOWRAP>";
+	echo "</TD><TD>";
 	$username = dPgetParam( $item, 'inventory_user_username', '' );
 	if ( $username != '' )
 	{
@@ -298,7 +298,7 @@ function display_item( &$item, $indent, $children = 0 )
 
 /* lookup of project-name */
 
-	echo "</TD><TD NOWRAP>";
+	echo "</TD><TD>";
 	$projname = dPgetParam( $item, 'inventory_project_name', '' );
 	if ( $projname != '' )
 	{
@@ -405,7 +405,7 @@ function sortHeader( $header, $field )
 
 	if ( !isset( $sort_state ) ) $sort_state = getSortState();
 
-	echo "<TH NOWRAP>";
+	echo "<TH>";
 
 	$order = SORT_ASC;
 	if ( isset( $sort_state[ 'sort_item1' ] ) && $sort_state[ 'sort_item1' ] == $field )

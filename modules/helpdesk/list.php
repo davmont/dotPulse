@@ -497,7 +497,7 @@ function newItemFromList() {
   }
 ?>
 <br />
-<table width="100%" border="0" cellpadding="2" cellspacing="1" class="tbl">
+<table width="100%" border="0" cellpadding="2" cellspacing="1" class="tbl" style="overflow-wrap:anywhere">
 <tr>
 	<td align="right" nowrap="nowrap">&nbsp;</td>
 	<th nowrap="nowrap"><?php echo sort_header("item_id", $AppUI->_('Number')); ?></th>

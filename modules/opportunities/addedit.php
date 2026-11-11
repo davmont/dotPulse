@@ -288,7 +288,7 @@ $titleBlock->show();
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Opportunity');?></td>
 			<td width="100%">
-			<input type="text" name="opportunity_name" value="<?php echo dPformSafe($obj->opportunity_name);?>" size="60" maxlength="60" class="text" />
+			<input type="text" name="opportunity_name" value="<?php echo dPformSafe($obj->opportunity_name);?>" size="60" maxlength="60" class="text" style="width:100%; box-sizing:border-box" />
 			</td>
 		</tr>
 		<tr>
@@ -321,7 +321,7 @@ $titleBlock->show();
 		</tr>
 		<tr><td align="right" nowrap="nowrap"> <?php echo $AppUI->_('Rationale');?></td>
 			<td width="100%">
-				<textarea type="TEXT" name="opportunity_must_rationale" cols="70" rows="4"><?php echo dPformSafe($obj->opportunity_must_rationale); ?></textarea>
+				<textarea type="TEXT" name="opportunity_must_rationale" cols="70" style="width:100%; box-sizing:border-box" rows="4"><?php echo dPformSafe($obj->opportunity_must_rationale); ?></textarea>
 			</td>
 		</tr>
 
@@ -339,25 +339,25 @@ $titleBlock->show();
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Description');?></td>
 			<td width="100%">
-			<textarea name="opportunity_desc" cols="70" style="height:100px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_desc); ?></textarea>
+			<textarea name="opportunity_desc" cols="70" style="width:100%; box-sizing:border-box; height:100px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_desc); ?></textarea>
 			</td>
 		</tr>
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Boundaries');?></td>
 			<td width="100%">
-			<textarea name="opportunity_boundaries" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_boundaries);?></textarea>
+			<textarea name="opportunity_boundaries" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_boundaries);?></textarea>
 			</td> 
 		</tr>
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Background');?></td>
 			<td width="100%">
-			<textarea name="opportunity_background" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_background);?></textarea>
+			<textarea name="opportunity_background" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_background);?></textarea>
 			</td> 
 		</tr>
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Current Way');?></td>
 			<td width="100%">
-			<textarea name="opportunity_curway" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_curway);?></textarea>
+			<textarea name="opportunity_curway" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_curway);?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -449,7 +449,7 @@ $titleBlock->show();
 			<?php
 			// the following textarea will either be empty (new quote) or contain the quotes content (edit)
 			?>
-			<textarea name="opportunity_rationale" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_rationale);?></textarea>
+			<textarea name="opportunity_rationale" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_rationale);?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -474,7 +474,7 @@ $titleBlock->show();
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('PreStudy Outcome');?></td>
 			<td width="100%">
-			<textarea name="opportunity_preout" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_preout);?></textarea>
+			<textarea name="opportunity_preout" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_preout);?></textarea>
 			</td>
 		</tr>
 		
@@ -539,14 +539,14 @@ $titleBlock->show();
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Observations');?></td>
 			<td width="100%">
-			<textarea name="opportunity_comments" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_comments);?></textarea>
+			<textarea name="opportunity_comments" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_comments);?></textarea>
 			</td>
 		</tr>
 
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Proposal');?></td>
 			<td width="100%">
-			<textarea name="opportunity_proposal" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_proposal);?></textarea>
+			<textarea name="opportunity_proposal" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_proposal);?></textarea>
 			</td>
 		</tr>
 			

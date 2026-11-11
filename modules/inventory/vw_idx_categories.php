@@ -45,7 +45,7 @@ function renameWindow( _id, _name, _type )
 ?>
 
 
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" CLASS="tbl" >
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" CLASS="tbl" style="overflow-wrap:anywhere">
 <TBODY>
 <TR>
 	<TD WIDTH="50%" STYLE="padding: 4px;" VALIGN="top" >
