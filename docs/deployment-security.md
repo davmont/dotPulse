@@ -1,6 +1,6 @@
 # Deployment security notes
 
-dotProject serves every page through `index.php` (plus `fileviewer.php` for
+dotPulse serves every page through `index.php` (plus `fileviewer.php` for
 downloads and `install/` for the installer). Everything else in the tree is
 either included by those entry points or not meant for the web at all.
 
@@ -10,7 +10,7 @@ either included by those entry points or not meant for the web at all.
 
 The repository ships `.htaccess` files that enforce this. They need
 `AllowOverride All` (or at least `AuthConfig Limit Options FileInfo`) for the
-dotProject directory; without it Apache ignores them silently.
+dotPulse directory; without it Apache ignores them silently.
 
 | Path | Rule |
 |---|---|
@@ -35,7 +35,7 @@ location ~ ^/(composer\.(json|lock)|package(-lock)?\.json|Makefile)$ { deny all;
 location ~ \.md$ { deny all; }
 ```
 
-Prefix the paths if dotProject is installed in a subdirectory.
+Prefix the paths if dotPulse is installed in a subdirectory.
 
 ### Checking a deployment
 
@@ -58,8 +58,8 @@ rules above refuse it before PHP runs). Run it from cron as the web server
 user, with the site's public URL so that the links in the mails work:
 
 ```cron
-# /etc/cron.d/dotproject
-*/5 * * * * www-data php /var/www/dotproject/queuescanner.php --base-url=https://pm.example.com
+# /etc/cron.d/dotpulse
+*/5 * * * * www-data php /var/www/dotpulse/queuescanner.php --base-url=https://pm.example.com
 ```
 
 - `--base-url` (or the `DP_BASE_URL` environment variable) is required; the
@@ -67,7 +67,7 @@ user, with the site's public URL so that the links in the mails work:
 - Overlapping runs are skipped through a lock on
   `files/temp/queuescanner.lock`; status 1 means that file could not be
   opened (wrong user or permissions).
-- Output goes to cron's mail, or append `>> /var/log/dotproject-queue.log 2>&1`.
+- Output goes to cron's mail, or append `>> /var/log/dotpulse-queue.log 2>&1`.
 
 Sites that fetched `queuescanner.php` over HTTP (`wget`/`curl` in a cron job)
 must switch to the command above.
@@ -78,7 +78,7 @@ cannot be sent is logged as `dotPulse mail: not sent (...)` and stays queued.
 
 ## Mail
 
-Set these under System Admin > System Configuration > Mail:
+Set these under **System Admin › Notifications and email** (*Mail server*):
 
 - **Sender address** (`mail_from`): the address all mail is sent from, for
   example `notifications@example.com`, on a domain whose SPF/DKIM records allow
@@ -98,7 +98,7 @@ it off in their preferences ("Email me when I am assigned to a task").
 System Admin > **Audit log** lists logins (also failed ones and blocked addresses),
 two-step login and password events, API tokens and the changes administrators make;
 see [audit-log.md](audit-log.md). Review it after an incident, and set how long it is
-kept with **audit_log_days** (System Configuration, default 365 days). The IP
+kept under **System Admin › Security and sessions** (*API and audit*, default 365 days). The IP
 addresses are those PHP sees: behind a reverse proxy configure Apache's `mod_remoteip`
 (or nginx's `real_ip`) so they are the clients' and not the proxy's.
 
@@ -121,7 +121,8 @@ the login page asks for the 6-digit code (or a recovery code) within 5 minutes.
 
 ## REST API (`api.php`)
 
-The API is off until **Enable the REST API** is ticked in System Configuration; leave
+The API is off until **Enable the REST API** is ticked under **System Admin › Security and
+sessions** (*API and audit*); leave
 it off if nothing uses it. When it is on:
 
 - serve the site over HTTPS only, since tokens travel in every request;

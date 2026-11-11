@@ -30,7 +30,7 @@ if (!defined('DP_BASE_DIR')) {
 
 $config = array();
 $config['mod_name'] = 'MacroProjects';
-$config['mod_version'] = '1.0';
+$config['mod_version'] = '1.1';
 $config['mod_directory'] = 'macroprojects';
 $config['mod_setup_class'] = 'CSetupMacroProjects';
 $config['mod_type'] = 'user';
@@ -77,7 +77,11 @@ class CSetupMacroProjects {
 		return $success;
 	}
   
-	function upgrade($old_version) { return true; }
+	function upgrade($old_version) {
+		// 1.1: tables in utf8mb4 (they were latin1: text outside Latin-1 was lost).
+		return dPconvertTablesToUtf8mb4(array('macroprojects', 'macroproject_contacts', 'macroproject_departments',
+			'macroproject_macroproject', 'macroproject_project'));
+	}
 
 	function install() { $dbprefix = dPgetConfig('dbprefix', '');
 		$success = 1;
@@ -114,27 +118,27 @@ class CSetupMacroProjects {
 				  KEY `idx_macroproject_owner` (`macroproject_owner`),
 				  KEY `idx_macroproj1` (`macroproject_company`),
 				  KEY `macroproject_short_name` (`macroproject_short_name`)
-				) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;";
+				) ENGINE=MyISAM AUTO_INCREMENT=7 ;";
 		$bulk_sql[1] = "
                  CREATE TABLE IF NOT EXISTS `{$dbprefix}macroproject_contacts` (
 				  `macroproject_id` int(10) NOT NULL,
 				  `contact_id` int(10) NOT NULL
-				) ENGINE=MyISAM DEFAULT CHARSET=latin1;";
+				) ENGINE=MyISAM;";
 		$bulk_sql[2] = "
                   CREATE TABLE IF NOT EXISTS `{$dbprefix}macroproject_departments` (
 				  `macroproject_id` int(10) NOT NULL,
 				  `department_id` int(10) NOT NULL
-				) ENGINE=MyISAM DEFAULT CHARSET=latin1;";
+				) ENGINE=MyISAM;";
 		$bulk_sql[3] = "
                   CREATE TABLE IF NOT EXISTS `{$dbprefix}macroproject_project` (
 				  `macroproject_id` int(10) NOT NULL,
 				  `project_id` int(10) NOT NULL
-				) ENGINE=MyISAM DEFAULT CHARSET=latin1;";
+				) ENGINE=MyISAM;";
 		$bulk_sql[4] = "
 		  CREATE TABLE IF NOT EXISTS `{$dbprefix}macroproject_macroproject` (
 		  `macroproject_father` int(10) NOT NULL,
 		  `macroproject_son` int(10) NOT NULL
-		) ENGINE=MyISAM DEFAULT CHARSET=latin1;";
+		) ENGINE=MyISAM;";
 		$bulk_sql[5] = "
                   INSERT INTO `{$dbprefix}sysvals` (`sysval_id`, `sysval_key_id`, `sysval_title`, `sysval_value`) VALUES
 				(46, 1, 'MacroProjectStatus', '0|Not Defined\r\n1|Proposed\r\n2|In Planning\r\n3|In Progress\r\n4|On Hold\r\n5|Complete\r\n6|Template\r\n7|Archived'),

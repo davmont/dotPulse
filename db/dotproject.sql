@@ -1297,7 +1297,7 @@ CREATE TABLE IF NOT EXISTS `%dbprefix%budget` (
 	`intangible_operation` decimal(15,2) DEFAULT '0',
 	`service_operation` decimal(15,2) DEFAULT '0',
 	PRIMARY KEY (`budget_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM AUTO_INCREMENT=1 ;
 # =============================================================
 # phpGACL permissions seed data
 # Initialises the ACL system so the admin user has full access.

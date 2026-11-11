@@ -60,7 +60,7 @@ dPadminHeading('Audit log', 'Logins, two-step login, passwords, API tokens and t
 	<input type="submit" class="button" value="<?php echo $AppUI->_('filter'); ?>" />
 	<a href="?m=system&amp;a=auditlog"><?php echo $AppUI->_('Reset'); ?></a>
 </form>
-<p><?php echo $days > 0 ? sprintf($AppUI->_('Entries are kept %d days (audit_log_days in System Configuration).'), $days)
+<p><?php echo $days > 0 ? sprintf($AppUI->_('Entries are kept %d days (setting in System Admin > Security and sessions).'), $days)
 	: $AppUI->_('Entries are kept forever (audit_log_days is 0).'); ?></p>
 <table class="tbl" width="100%" cellpadding="3" cellspacing="1">
 	<tr>

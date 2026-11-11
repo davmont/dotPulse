@@ -29,6 +29,21 @@ $db_version = isset($db_info['version']) ? preg_replace('/^(\d+\.\d+).*$/', '$1'
 $db_name = (isset($db_info['description']) && stripos($db_info['description'], 'mariadb') !== false)
 	|| stripos((string)(isset($db_info['version']) ? $db_info['version'] : ''), 'mariadb') !== false ? 'MariaDB' : 'MySQL';
 
+// The installer creates admin with the password "passwd" and nothing forces a change.
+$q = new DBQuery();
+$q->addTable('users');
+$q->addQuery('user_id, user_password');
+$q->addWhere("user_username = 'admin'");
+$default_admin = $q->loadHash();
+$q->clear();
+$default_admin_id = 0;
+if ($default_admin) {
+	$stored = (string)$default_admin['user_password'];
+	if (password_verify('passwd', $stored) || (strlen($stored) === 32 && hash_equals($stored, md5('passwd')))) {
+		$default_admin_id = (int)$default_admin['user_id'];
+	}
+}
+
 $transport = dPgetConfig('mail_transport', 'php');
 $mail_from = (string)dPgetConfig('mail_from', '');
 
@@ -44,6 +59,13 @@ dPadminOpen('home');
 	<div class="dpa-stat dpa-warn">
 		<span class="dpa-stat-label"><?php echo $AppUI->_('Attention'); ?></span>
 		<span><?php echo $AppUI->_('The install directory is still on the server: remove it or deny access to it.'); ?></span>
+	</div>
+	<?php } ?>
+	<?php if ($default_admin_id) { ?>
+	<div class="dpa-stat dpa-warn">
+		<span class="dpa-stat-label"><?php echo $AppUI->_('Attention'); ?></span>
+		<span><?php echo $AppUI->_('The admin account still has the password set by the installer: change it.'); ?></span>
+		<a class="dpa-stat-more" href="?m=admin&amp;a=viewuser&amp;user_id=<?php echo $default_admin_id; ?>">admin</a>
 	</div>
 	<?php } ?>
 	<div class="dpa-stat">

@@ -385,6 +385,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Configuració, persones i mòduls d'aquesta instal·lació.", // MT
 "Attention"=>"Atenció", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"El directori d'instal·lació encara és al servidor: elimineu-lo o denegueu-hi l'accés.", // MT
+"The admin account still has the password set by the installer: change it."=>"El compte admin encara té la contrasenya que va posar l'instal·lador: canvieu-la.", // MT
 "Active modules"=>"Mòduls actius", // MT
 "upgrade to install"=>"actualització per instal·lar", // MT
 "upgrades to install"=>"actualitzacions per instal·lar", // MT
@@ -508,7 +509,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Utilitza la configuració desada: deseu primer els canvis.", // MT
 "Email me when I am assigned to a task"=>"Enviar-me un correu quan se m'assigni una tasca", // MT
 "Reset"=>"Restablir", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Les entrades es conserven %d dies (audit_log_days a la configuració del sistema).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Les entrades es conserven %d dies (audit_log_days a la configuració del sistema).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Les entrades es conserven per sempre (audit_log_days és 0).", // MT
 "IP address"=>"Adreça IP", // MT
 "No entries."=>"No hi ha entrades.", // MT

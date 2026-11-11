@@ -385,6 +385,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"本系统的设置、人员和模块。", // MT
 "Attention"=>"注意", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"install 目录仍在服务器上：请删除它或禁止访问。", // MT
+"The admin account still has the password set by the installer: change it."=>"admin 账户仍在使用安装程序设置的密码：请更改。", // MT
 "Active modules"=>"活动模块", // MT
 "upgrade to install"=>"个升级待安装", // MT
 "upgrades to install"=>"个升级待安装", // MT
@@ -508,7 +509,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"使用已保存的设置：请先保存您的更改。", // MT
 "Email me when I am assigned to a task"=>"当我被分配到任务时给我发邮件", // MT
 "Reset"=>"重置", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"条目保留 %d 天（系统配置中的 audit_log_days）。", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"条目保留 %d 天（系统配置中的 audit_log_days）。", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"条目永久保留（audit_log_days 为 0）。", // MT
 "IP address"=>"IP 地址", // MT
 "No entries."=>"没有条目。", // MT

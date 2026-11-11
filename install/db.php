@@ -67,12 +67,8 @@ if ($_POST['mode'] == 'upgrade') {
 	<tr>
 		<td class="item">Database Server Type</td>
 		<td align="left">
-		<select name="dbtype" size="1" class="text">
-			<option value="mysqli" <?php if("mysqli"== $dPconfig['dbtype'] || "mysql" == $dPconfig['dbtype']){ ?>selected="selected"<?php } ?>>MySQL/MariaDB - Recommended</option>
-			<option value="mysqlt" <?php if("mysqlt"== $dPconfig['dbtype']){ ?>selected="selected"<?php } ?>>MySQL With Transactions</option>
-			<option value="postgres" <?php if("postgres"== $dPconfig['dbtype']){ ?>selected="selected"<?php } ?>>PostgreSQL</option>
-		</select>
-		<div style="font-size: 11px; color: #d32f2f; margin-top: 4px;">Note: MariaDB is fully supported via the mysqli driver.</div>
+		<input type="hidden" name="dbtype" value="mysqli" />
+		MySQL or MariaDB <span style="font-size: 11px;">(the only database dotPulse supports)</span>
 		</td>
 	</tr>
 	<tr>
