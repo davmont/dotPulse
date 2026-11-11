@@ -2,7 +2,7 @@
 # Published to GitHub Pages by .github/workflows/docs.yml.
 site_name: dotPulse documentation
 site_description: Open-source project management for PHP 8, continuing dotProject.
-site_url: https://davmont.github.io/dotPulse/
+site_url: https://www.dotpulse.org/
 repo_url: https://github.com/davmont/dotPulse
 repo_name: davmont/dotPulse
 edit_uri: edit/devel/website/docs/

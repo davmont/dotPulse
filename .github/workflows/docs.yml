@@ -1,5 +1,7 @@
 # Documentation website (website/, MkDocs Material): built on every change, published to
-# GitHub Pages from master, so the site matches the latest release.
+# GitHub Pages (www.dotpulse.org) from master, so the site matches the latest release.
+# A manual run (Run workflow) publishes the chosen branch, if the github-pages environment
+# allows that branch.
 name: Docs
 
 on:
@@ -29,13 +31,13 @@ jobs:
           docker run --rm --user "$(id -u):$(id -g)" -v "$PWD/website:/docs"
           squidfunk/mkdocs-material:9.6.14 build --strict
       - uses: actions/upload-pages-artifact@v3
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
         with:
           path: website/site
 
   deploy:
     name: Publish to GitHub Pages
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
     needs: build
     runs-on: ubuntu-latest
     permissions:
