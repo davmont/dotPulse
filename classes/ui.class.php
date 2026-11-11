@@ -1200,7 +1200,7 @@ class CTabBox_core
 		} else {
 			// tabbed view
 			$s = '<table width="100%" border="0" cellpadding="3" cellspacing="0">' . "\n" . '<tr>';
-			if (count($this->tabs) - 1 < $this->active) {
+			if (!isset($this->tabs[$this->active])) { // keys need not be 0..n-1 (projects: 500, 501)
 				//Last selected tab is not available in this view. eg. Child tasks
 				// Breaks classic view.
 				// $this->active = 0;
