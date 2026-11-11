@@ -1,0 +1,81 @@
+# dotPulse documentation website: `make docs` (build) or `make docs-serve` (preview on :8000).
+# Published to GitHub Pages by .github/workflows/docs.yml.
+site_name: dotPulse documentation
+site_description: Open-source project management for PHP 8, continuing dotProject.
+site_url: https://www.dotpulse.org/
+repo_url: https://github.com/davmont/dotPulse
+repo_name: davmont/dotPulse
+edit_uri: edit/devel/website/docs/
+copyright: dotPulse is free software under the GNU GPL. Documentation under CC BY-SA 4.0.
+
+theme:
+  name: material
+  logo: assets/mark.svg
+  favicon: assets/favicon.svg
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+    - content.code.copy
+    - toc.follow
+
+extra_css:
+  - stylesheets/dotpulse.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.keys
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - getting-started/index.md
+      - Requirements: getting-started/requirements.md
+      - Installing: getting-started/install.md
+      - Upgrading: getting-started/upgrade.md
+      - First steps: getting-started/first-steps.md
+  - User guide:
+      - user-guide/index.md
+      - The interface: user-guide/interface.md
+      - Your dashboard: user-guide/dashboard.md
+      - Your account and preferences: user-guide/preferences.md
+      - Companies, departments and contacts: user-guide/companies-contacts.md
+      - Projects: user-guide/projects.md
+      - Tasks: user-guide/tasks.md
+      - Gantt chart and board: user-guide/gantt-board.md
+      - Logging work: user-guide/task-logs.md
+      - Calendar: user-guide/calendar.md
+      - Files, forums and links: user-guide/files-forums-links.md
+      - Search: user-guide/search.md
