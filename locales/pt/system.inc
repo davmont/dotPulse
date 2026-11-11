@@ -438,6 +438,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Definições, pessoas e módulos desta instalação.", // MT
 "Attention"=>"Atenção", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"A pasta de instalação ainda está no servidor: remova-a ou bloqueie o acesso a ela.", // MT
+"The admin account still has the password set by the installer: change it."=>"A conta admin ainda tem a palavra-passe definida pelo instalador: altere-a.", // MT
 "Active modules"=>"Módulos activos", // MT
 "upgrade to install"=>"actualização por instalar", // MT
 "upgrades to install"=>"actualizações por instalar", // MT
@@ -561,7 +562,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Usa as definições guardadas: guarde primeiro as suas alterações.", // MT
 "Email me when I am assigned to a task"=>"Enviar-me um email quando me for atribuída uma tarefa", // MT
 "Reset"=>"Repor", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"As entradas são mantidas durante %d dias (audit_log_days na Configuração do Sistema).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"As entradas são mantidas durante %d dias (audit_log_days na Configuração do Sistema).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"As entradas são mantidas para sempre (audit_log_days é 0).", // MT
 "IP address"=>"Endereço IP", // MT
 "No entries."=>"Sem entradas.", // MT

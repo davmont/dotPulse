@@ -391,6 +391,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"此安裝的設定、人員和模組。", // MT
 "Attention"=>"注意", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"安裝目錄仍在伺服器上：請移除它或拒絕對它的存取。", // MT
+"The admin account still has the password set by the installer: change it."=>"admin 帳戶仍在使用安裝程式設定的密碼：請變更。", // MT
 "Active modules"=>"使用中的模組", // MT
 "upgrade to install"=>"個升級待安裝", // MT
 "upgrades to install"=>"個升級待安裝", // MT
@@ -514,7 +515,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"使用已儲存的設定：請先儲存您的變更。", // MT
 "Email me when I am assigned to a task"=>"當我被指派工作時寄電子郵件給我", // MT
 "Reset"=>"重設", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"項目保留 %d 天（系統設定中的 audit_log_days）。", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"項目保留 %d 天（系統設定中的 audit_log_days）。", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"項目永久保留（audit_log_days 為 0）。", // MT
 "IP address"=>"IP 位址", // MT
 "No entries."=>"沒有項目。", // MT

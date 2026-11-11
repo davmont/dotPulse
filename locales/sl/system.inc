@@ -385,6 +385,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Nastavitve, osebe in moduli te namestitve.", // MT
 "Attention"=>"Pozor", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Namestitveni imenik je še vedno na strežniku: odstranite ga ali prepovejte dostop do njega.", // MT
+"The admin account still has the password set by the installer: change it."=>"Račun admin ima še vedno geslo, ki ga je nastavil namestitveni program: spremenite ga.", // MT
 "Active modules"=>"Aktivni moduli", // MT
 "upgrade to install"=>"nadgradnja za namestitev", // MT
 "upgrades to install"=>"nadgradenj za namestitev", // MT
@@ -508,7 +509,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Uporabi shranjene nastavitve: najprej shranite spremembe.", // MT
 "Email me when I am assigned to a task"=>"Pošlji mi e-pošto, ko sem dodeljen opravilu", // MT
 "Reset"=>"Ponastavi", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Vnosi se hranijo %d dni (audit_log_days v nastavitvah sistema).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Vnosi se hranijo %d dni (audit_log_days v nastavitvah sistema).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Vnosi se hranijo za vedno (audit_log_days je 0).", // MT
 "IP address"=>"Naslov IP", // MT
 "No entries."=>"Ni vnosov.", // MT

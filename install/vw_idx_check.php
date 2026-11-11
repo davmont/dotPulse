@@ -1,10 +1,9 @@
 <?php // $Id: vw_idx_check.php 4304 2006-06-05 14:53:06Z gregorerhardt $
 
-global $cfgDir, $cfgFile, $failedImg, $filesDir, $locEnDir, $okImg, $tblwidth, $tmpDir, $cacheDir, $baseDir;
+global $cfgDir, $cfgFile, $failedImg, $filesDir, $locEnDir, $okImg, $tblwidth, $tmpDir, $baseDir;
 $cfgDir = isset($cfgDir) ? $cfgDir : "$baseDir/includes";
 $cfgFile = isset($cfgFile) ? $cfgFile : "$baseDir/includes/config.php";
 $filesDir = isset($filesDir) ? $filesDir : "$baseDir/files";
-$cacheDir = isset($cacheDir) ? $cacheDir : "$baseDir/files/cache";
 $tmpDir = isset($tmpDir) ? $tmpDir : "$baseDir/files/temp";
 $locEnDir = isset($locEnDir) ? $locEnDir : "$baseDir/locales/en";
 $tblwidth = isset($tblwidth) ? $tblwidth : '100%';
@@ -55,10 +54,18 @@ function dPgetIniSize($val)
 
 	<tr>
 		<td class="item">
-			<li>GD Support (for GANTT Charts)</li>
+			<li>GD Support (for images in PDF reports)</li>
 		</td>
 		<td align="left">
-			<?php echo extension_loaded('gd') ? '<b class="ok">' . $okImg . '</b>' : '<b class="error">' . $failedImg . '</b> GANTT Chart functionality may not work correctly.'; ?>
+			<?php echo extension_loaded('gd') ? '<b class="ok">' . $okImg . '</b>' : '<b class="error">' . $failedImg . '</b> Images in PDF reports may not show.'; ?>
+		</td>
+	</tr>
+	<tr>
+		<td class="item">
+			<li>Multibyte string Support (mbstring)</li>
+		</td>
+		<td align="left">
+			<?php echo extension_loaded('mbstring') ? '<b class="ok">' . $okImg . '</b>' : '<b class="error">' . $failedImg . ' Not available: dotPulse needs the mbstring extension</b>'; ?>
 		</td>
 	</tr>
 	<tr>
@@ -74,7 +81,7 @@ function dPgetIniSize($val)
 			<li>UTF8 Decode Support</li>
 		</td>
 		<td align="left">
-			<?php echo function_exists('utf8_decode') ? '<b class="ok">' . $okImg . '</b>' : '<b class="error">' . $failedImg . '</b> utf8_decode function not found, URL handling may be broken, check that the php-xml support is loaded (PHP < 7.2)</b>'; ?>
+			<?php echo function_exists('utf8_decode') ? '<b class="ok">' . $okImg . '</b>' : '<b class="error">' . $failedImg . '</b> utf8_decode function not found: some reports may show wrong characters'; ?>
 		</td>
 	</tr>
 	<?php
@@ -116,103 +123,22 @@ function dPgetIniSize($val)
 		</td>
 	</tr>
 	<tr>
-		<td class="title" colspan="2"><br />Database Connectors</td>
+		<td class="title" colspan="2"><br />Database and directory</td>
 	</tr>
 	<tr>
-		<td class="item" colspan="2">
-			<p>The next tests check for database support compiled with php. We use the ADODB database abstraction layer
-				which comes with drivers for
-				many databases. Consult the ADODB documentation for details.
-			<p>For the moment only MySQL is fully supported, so you need to make sure it
-				is available.</p>
+		<td class="item">
+			<li>MySQL/MariaDB Support (mysqli)</li>
+		</td>
+		<td align="left">
+			<?php echo function_exists('mysqli_connect') ? '<b class="ok">' . $okImg . '</b>' : '<b class="error">' . $failedImg . ' Not available: dotPulse needs the mysqli extension</b>'; ?>
 		</td>
 	</tr>
 	<tr>
 		<td class="item">
-			<li>iBase Support</li>
+			<li>LDAP Support (optional, for LDAP login)</li>
 		</td>
 		<td align="left">
-			<?php echo (function_exists('ibase_connect') && function_exists('ibase_server_info')) ? '<b class="ok">' . $okImg . '</b><span class="item"> (' . ibase_server_info() . ')</span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="item">
-			<li>Informix Support</li>
-		</td>
-		<td align="left">
-			<?php echo function_exists('ifx_connect') ? '<b class="ok">' . $okImg . '</b><span class="item"> </span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="item">
-			<li>LDAP Support</li>
-		</td>
-		<td align="left">
-			<?php echo function_exists('ldap_connect') ? '<b class="ok">' . $okImg . '</b><span class="item"> </span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="item">
-			<li>mSQL Support</li>
-		</td>
-		<td align="left">
-			<?php echo function_exists('msql_connect') ? '<b class="ok">' . $okImg . '</b><span class="item"></span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="item">
-			<li>MSSQL Server Support</li>
-		</td>
-		<td align="left">
-			<?php echo function_exists('mssql_connect') ? '<b class="ok">' . $okImg . '</b><span class="item"></span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="item">
-			MySQL/MariaDB Support
-		</td>
-		<td align="left">
-			<?php echo (function_exists('mysql_connect') || function_exists('mysqli_connect')) ? '<b class="ok">' . $okImg . '</b><span class="item"> (mysqli available)</span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="item">
-			<li>ODBC Support</li>
-		</td>
-		<td align="left">
-			<?php echo function_exists('odbc_connect') ? '<b class="ok">' . $okImg . '</b><span class="item"></span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="item">
-			<li>Oracle Support</li>
-		</td>
-		<td align="left">
-			<?php echo function_exists('oci_connect') ? '<b class="ok">' . $okImg . '</b><span class="item"> (' . ociserverversion() . ')</span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="item">
-			<li>PostgreSQL Support</li>
-		</td>
-		<td align="left">
-			<?php echo function_exists('pg_connect') ? '<b class="ok">' . $okImg . '</b><span class="item"></span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="item">
-			<li>SQLite Support</li>
-		</td>
-		<td align="left">
-			<?php echo function_exists('sqlite_open') ? '<b class="ok">' . $okImg . '</b><span class="item"> (' . sqlite_libversion() . ')</span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="item">
-			<li>Sybase Support</li>
-		</td>
-		<td align="left">
-			<?php echo function_exists('sybase_connect') ? '<b class="ok">' . $okImg . '</b><span class="item"> </span>' : '<span class="warning">' . $failedImg . ' Not available</span>'; ?>
+			<?php echo function_exists('ldap_connect') ? '<b class="ok">' . $okImg . '</b>' : '<span class="warning">' . $failedImg . ' Not available: only needed for LDAP login</span>'; ?>
 		</td>
 	</tr>
 	<tr>
@@ -222,55 +148,6 @@ function dPgetIniSize($val)
 		<td class="item" colspan="2">If the message 'World Writable' appears after a file/directory, then Permissions
 			for this File have been set to allow all users to write to this file/directory.
 			Consider changing this to a more restrictive setting to improve security. You will need to do this manually.
-		</td>
-	</tr>
-	<?php
-	$okMessage = "";
-	if ((file_exists($cfgFile) && !is_writable($cfgFile)) || (!file_exists($cfgFile) && !(is_writable($cfgDir)))) {
-		@chmod($cfgFile, $chmod);
-		@chmod($cfgDir, $chmod);
-		$filemode = @fileperms($cfgFile);
-		if ($filemode & 2) {
-			$okMessage = "<span class='ok'> World Writable</span>";
-		}
-	}
-	?>
-	<tr>
-		<td class="item">./includes/config.php writable?</td>
-		<td align="left">
-			<?php echo (is_writable($cfgFile) || is_writable($cfgDir)) ? '<b class="ok">' . $okImg . '</b>' . $okMessage : '<b class="error">' . $failedImg . '</b><span class="warning"> Configuration process can still be continued. Configuration file will be displayed at the end, just copy & paste this and upload.</span>'; ?>
-		</td>
-	</tr>
-	<?php
-	$okMessage = "";
-	if (!is_writable($filesDir)) {
-		@chmod($filesDir, $chmod);
-	}
-	$filemode = @fileperms($filesDir);
-	if ($filemode & 2) {
-		$okMessage = "<span class='ok'> World Writable</span>";
-	}
-	?>
-	<tr>
-		<td class="item">./files writable?</td>
-		<td align="left">
-			<?php echo is_writable($filesDir) ? '<b class="ok">' . $okImg . '</b>' . $okMessage : '<b class="error">' . $failedImg . '</b><span class="warning"> File upload functionality will be disabled</span>'; ?>
-		</td>
-	</tr>
-	<?php
-	$okMessage = "";
-	if (!is_writable($cacheDir)) {
-		@chmod($cacheDir, $chmod);
-	}
-	$filemode = @fileperms($cacheDir);
-	if ($filemode & 2) {
-		$okMessage = "<span class='ok'> World Writable</span>";
-	}
-	?>
-	<tr>
-		<td class="item">./files/cache writable?</td>
-		<td align="left">
-			<?php echo is_writable($cacheDir) ? '<b class="ok">' . $okImg . '</b>' . $okMessage : '<b class="error">' . $failedImg . '</b><span class="warning"> caching will be disabled</span>'; ?>
 		</td>
 	</tr>
 	<?php
@@ -321,9 +198,9 @@ function dPgetIniSize($val)
 		</td>
 	</tr>
 	<tr>
-		<td class="item">Session AutoStart = ON?</td>
+		<td class="item">Session AutoStart = OFF?</td>
 		<td align="left">
-			<?php echo ini_get('session.auto_start') ? '<b class="ok">' . $okImg . '</b>' : '<b class="error">' . $failedImg . '</b><span class="warning"> Try setting to ON if you are experiencing a WhiteScreenOfDeath</span>'; ?>
+			<?php echo !ini_get('session.auto_start') ? '<b class="ok">' . $okImg . '</b>' : '<b class="error">' . $failedImg . '</b><span class="warning"> Set session.auto_start to Off: dotPulse starts its own session</span>'; ?>
 		</td>
 	</tr>
 	<tr>

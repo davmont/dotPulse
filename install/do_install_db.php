@@ -28,7 +28,9 @@ $cFileMsg = 'Not Created';
 $dbErr = false;
 $cFileErr = false;
 
-$dbtype = trim(dPInstallGetParam($_POST, 'dbtype', ''));
+// MySQL/MariaDB through mysqli is the only database dotPulse supports (the old 'mysql'
+// value of existing configurations means the same).
+$dbtype = 'mysqli';
 $dbprefix = trim(dPInstallGetParam($_POST, 'dbprefix', ''));
 $dbhost = trim(dPInstallGetParam($_POST, 'dbhost', ''));
 $dbname = trim(dPInstallGetParam($_POST, 'dbname', ''));

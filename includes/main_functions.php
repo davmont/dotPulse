@@ -1462,4 +1462,26 @@ function dPsendCspHeader()
 	$name = dPgetConfig('csp_report_only') ? 'Content-Security-Policy-Report-Only' : 'Content-Security-Policy';
 	header($name . ': ' . dPcspPolicy());
 }
+
+/**
+ * Converts module tables still in latin1 to the database's utf8mb4, for a module's
+ * upgrade(). Some add-ons created their tables as latin1 while the connection is utf8mb4,
+ * so text outside Latin-1 (Japanese, Russian, Czech...) was stored as '?'. Latin-1 fits in
+ * utf8mb4, so nothing is lost; tables already converted, or missing, are skipped.
+ * Returns false on the first table that fails.
+ */
+function dPconvertTablesToUtf8mb4($tables)
+{
+	$prefix = dPgetConfig('dbprefix', '');
+	foreach ($tables as $table) {
+		$name = $prefix . $table;
+		$collation = db_loadResult("SELECT table_collation FROM information_schema.tables"
+			. " WHERE table_schema = DATABASE() AND table_name = '" . db_escape($name) . "'");
+		if ($collation && stripos($collation, 'latin1') === 0
+			&& !db_exec('ALTER TABLE `' . str_replace('`', '', $name) . '` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci')) {
+			return false;
+		}
+	}
+	return true;
+}
 ?>

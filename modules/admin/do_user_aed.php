@@ -124,29 +124,30 @@ function notifyNewUser($address, $username, $logname) {
 	global $AppUI, $dPconfig;
 	$mail = new Mail;
 	if ($mail->ValidEmail($address)) {
-		if ($mail->ValidEmail($AppUI->user_email)) {
-			$email = $AppUI->user_email;
-		} else {
-			$email = 'dotproject@' . $AppUI->cfg['site_domain'];
-		}
+		// The administrator's address; without one the mail class uses no-reply@<site domain>.
+		// With a Sender address (mail_from) set, the message leaves from that one.
+		$email = $mail->ValidEmail($AppUI->user_email) ? $AppUI->user_email : '';
+		$product = dPgetConfig('page_title', 'dotPulse') ?: 'dotPulse';
 		
 		$name = $AppUI->user_first_name .' ' . $AppUI->user_last_name;
 		// Security Mitigation: Removed password from email body.
 		$body = $username.',
-		
-An access account has been created for you in our dotProject project management system.
+
+An access account has been created for you in our ' . $product . ' project management system.
 
 You can access it here at ' . $dPconfig['base_url'] . '
 
 Your username is: ' . $logname . '
 
-To set your password, please use the "Forgot Password" link on the login page.
+To set your password, use the forgotten-password link on the login page.
 
 This account will allow you to see and interact with projects. If you have any questions please contact us.';
 		
-		$mail->From('"'.$name.'" <'.$email.'>');
+		if ($email !== '') {
+			$mail->From('"' . $name . '" <' . $email . '>');
+		}
 		$mail->To($address);
-		$mail->Subject('New Account Created - dotProject Project Management System');
+		$mail->Subject('New Account Created - ' . $product . ' Project Management System');
 		$mail->Body($body);
 		$mail->Send();
 	}

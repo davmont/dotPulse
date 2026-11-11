@@ -385,6 +385,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Bu kurulumun ayarları, kişileri ve modülleri.", // MT
 "Attention"=>"Dikkat", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Kurulum dizini hâlâ sunucuda: kaldırın veya erişimi engelleyin.", // MT
+"The admin account still has the password set by the installer: change it."=>"admin hesabı hâlâ kurulum programının belirlediği parolayı kullanıyor: değiştirin.", // MT
 "Active modules"=>"Etkin modüller", // MT
 "upgrade to install"=>"yüklenecek yükseltme", // MT
 "upgrades to install"=>"yüklenecek yükseltme", // MT
@@ -508,7 +509,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Kaydedilmiş ayarları kullanır: önce değişikliklerinizi kaydedin.", // MT
 "Email me when I am assigned to a task"=>"Bir göreve atandığımda bana e-posta gönder", // MT
 "Reset"=>"Sıfırla", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Kayıtlar %d gün saklanır (Sistem Yapılandırması'nda audit_log_days).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Kayıtlar %d gün saklanır (Sistem Yapılandırması'nda audit_log_days).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Kayıtlar süresiz saklanır (audit_log_days 0).", // MT
 "IP address"=>"IP adresi", // MT
 "No entries."=>"Kayıt yok.", // MT

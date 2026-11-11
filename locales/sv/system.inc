@@ -385,6 +385,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Inställningar, personer och moduler i den här installationen.", // MT
 "Attention"=>"Observera", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Installationskatalogen finns fortfarande på servern: ta bort den eller neka åtkomst till den.", // MT
+"The admin account still has the password set by the installer: change it."=>"Kontot admin har fortfarande lösenordet som installationsprogrammet satte: byt det.", // MT
 "Active modules"=>"Aktiva moduler", // MT
 "upgrade to install"=>"uppgradering att installera", // MT
 "upgrades to install"=>"uppgraderingar att installera", // MT
@@ -508,7 +509,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Använder de sparade inställningarna: spara dina ändringar först.", // MT
 "Email me when I am assigned to a task"=>"Mejla mig när jag tilldelas en aktivitet", // MT
 "Reset"=>"Återställ", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Poster sparas i %d dagar (audit_log_days i Systemkonfiguration).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Poster sparas i %d dagar (audit_log_days i Systemkonfiguration).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Poster sparas för alltid (audit_log_days är 0).", // MT
 "IP address"=>"IP-adress", // MT
 "No entries."=>"Inga poster.", // MT

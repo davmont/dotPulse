@@ -30,7 +30,7 @@ if (!defined('DP_BASE_DIR')) {
 // MODULE CONFIGURATION DEFINITION
 $config = array();
 $config['mod_name'] = 'Annotations';				// name the module
-$config['mod_version'] = '0.2.7';					// add a version number
+$config['mod_version'] = '0.2.8';					// add a version number
 $config['mod_directory'] = 'annotations';			// tell dotProject where to find this module
 $config['mod_setup_class'] = 'CSetupAnnotations';	// the name of the PHP setup class (used below)
 $config['mod_type'] = 'user';						// 'core' for modules distributed with dP by standard, 'user' for additional modules from dotmods
@@ -92,7 +92,7 @@ class CSetupAnnotations {
 			", annotation_team TEXT NULL ".
 			", annotation_subject TEXT NULL ".
 			", PRIMARY KEY  (annotation_id)" .			
-			") ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+			") ENGINE=MyISAM;");
 		$ok = $ok && $q->exec();
 		
 		// Create History table
@@ -124,7 +124,7 @@ class CSetupAnnotations {
 				 annotation_history_must_rationale text,
 				 annotation_history_project int(11) NOT NULL,
 				  PRIMARY KEY  (annotation_history_id)
-				) ENGINE=MyISAM DEFAULT CHARSET=latin1 ;');
+				) ENGINE=MyISAM ;');
 
 		$ok = $ok && $q -> exec();
 		db_error();
@@ -160,8 +160,9 @@ class CSetupAnnotations {
 	
 	//needed ?
 	
-	function upgrade() {
-		return null;
+	function upgrade($old_version = null) {
+		// 0.2.8: tables in utf8mb4 (they were latin1: text outside Latin-1 was lost).
+		return dPconvertTablesToUtf8mb4(array('annotations', 'annotations_histories'));
 	}
 }
 

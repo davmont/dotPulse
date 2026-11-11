@@ -391,6 +391,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"このインストール環境の設定、ユーザ、モジュール。", // MT
 "Attention"=>"注意", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"install ディレクトリがまだサーバ上にあります。削除するか、アクセスを拒否してください。", // MT
+"The admin account still has the password set by the installer: change it."=>"admin アカウントのパスワードはインストーラーが設定したままです。変更してください。", // MT
 "Active modules"=>"有効なモジュール", // MT
 "upgrade to install"=>"件のアップグレードがあります", // MT
 "upgrades to install"=>"件のアップグレードがあります", // MT
@@ -514,7 +515,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"保存済みの設定を使用します。先に変更を保存してください。", // MT
 "Email me when I am assigned to a task"=>"タスクに割り当てられたらメールで通知する", // MT
 "Reset"=>"リセット", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"エントリは %d 日間保存されます (システム設定の audit_log_days)。", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"エントリは %d 日間保存されます (システム設定の audit_log_days)。", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"エントリは無期限に保存されます (audit_log_days が 0)。", // MT
 "IP address"=>"IP アドレス", // MT
 "No entries."=>"エントリはありません。", // MT

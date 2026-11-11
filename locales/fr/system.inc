@@ -359,6 +359,7 @@
 "Settings, people and modules of this installation."=>"Paramètres, personnes et modules de cette installation.", // MT
 "Attention"=>"Attention",
 "The install directory is still on the server: remove it or deny access to it."=>"Le répertoire install est toujours présent sur le serveur : supprimez-le ou interdisez-en l'accès.", // MT
+"The admin account still has the password set by the installer: change it."=>"Le compte admin a toujours le mot de passe défini par l'installateur : changez-le.", // MT
 "Active modules"=>"Modules actifs", // MT
 "upgrade to install"=>"mise à niveau à installer", // MT
 "upgrades to install"=>"mises à niveau à installer", // MT
@@ -482,7 +483,7 @@
 "Uses the saved settings: save your changes first."=>"Utilise les paramètres enregistrés : enregistrez d'abord vos modifications.", // MT
 "Email me when I am assigned to a task"=>"M'envoyer un e-mail quand une tâche m'est assignée", // MT
 "Reset"=>"Réinitialiser", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Les entrées sont conservées %d jours (audit_log_days dans la configuration du système).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Les entrées sont conservées %d jours (audit_log_days dans la configuration du système).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Les entrées sont conservées indéfiniment (audit_log_days vaut 0).", // MT
 "IP address"=>"Adresse IP", // MT
 "No entries."=>"Aucune entrée.", // MT

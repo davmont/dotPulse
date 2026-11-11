@@ -391,6 +391,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Cài đặt, người dùng và mô-đun của hệ thống này.", // MT
 "Attention"=>"Chú ý", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Thư mục cài đặt vẫn còn trên máy chủ: hãy xoá hoặc chặn truy cập vào nó.", // MT
+"The admin account still has the password set by the installer: change it."=>"Tài khoản admin vẫn dùng mật khẩu do trình cài đặt đặt: hãy đổi mật khẩu.", // MT
 "Active modules"=>"Mô-đun đang hoạt động", // MT
 "upgrade to install"=>"bản nâng cấp cần cài đặt", // MT
 "upgrades to install"=>"bản nâng cấp cần cài đặt", // MT
@@ -514,7 +515,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Dùng các thiết lập đã lưu: hãy lưu thay đổi trước.", // MT
 "Email me when I am assigned to a task"=>"Gửi email cho tôi khi tôi được giao nhiệm vụ", // MT
 "Reset"=>"Đặt lại", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Các mục được lưu %d ngày (audit_log_days trong Cấu hình hệ thống).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Các mục được lưu %d ngày (audit_log_days trong Cấu hình hệ thống).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Các mục được lưu vĩnh viễn (audit_log_days là 0).", // MT
 "IP address"=>"Địa chỉ IP", // MT
 "No entries."=>"Không có mục nào.", // MT

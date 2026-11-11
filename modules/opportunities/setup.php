@@ -14,7 +14,7 @@ if (!defined('DP_BASE_DIR')) {
 // MODULE CONFIGURATION DEFINITION
 $config = array();
 $config['mod_name'] = 'Opportunities';		// name the module
-$config['mod_version'] = '0.1.3';		// add a version number
+$config['mod_version'] = '0.1.4';		// add a version number
 $config['mod_directory'] = 'opportunities';		// tell dotProject where to find this module
 $config['mod_setup_class'] = 'CSetupOpportunity';	// the name of the PHP setup class (used below)
 $config['mod_type'] = 'user';			// 'core' for modules distributed with dP by standard, 'user' for additional modules from dotmods
@@ -66,9 +66,9 @@ class CSetupOpportunity {
 	}
 
 
-	function upgrade( $old_version ) {	// use this to provide upgrade functionality between different versions; not relevant here
-
-		return false;
+	function upgrade( $old_version ) {
+		// 0.1.4: tables in utf8mb4 (they were latin1: text outside Latin-1 was lost).
+		return dPconvertTablesToUtf8mb4(array('opportunities', 'opportunities_histories', 'opportunities_projects'));
 	}
 
 	function install() {
@@ -108,7 +108,7 @@ class CSetupOpportunity {
 		  " opportunity_must_rationale TEXT default NULL, ".	
 		  " PRIMARY KEY  (opportunity_id), ".
 		  " UNIQUE KEY opportunity_id (opportunity_id) ".
-		" ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 ;");
+		" ) ENGINE=MyISAM ;");
 		
 		$q -> exec();
 		
@@ -123,7 +123,7 @@ class CSetupOpportunity {
 					  opportunity_project_description text,
 					  PRIMARY KEY  (opportunity_project_id),
 					  UNIQUE KEY opportunity_project_id (opportunity_project_id)
-				) ENGINE=MyISAM  DEFAULT CHARSET=latin1;");
+				) ENGINE=MyISAM;");
 		$q -> exec();
 		
 		// Creating an history table
@@ -170,7 +170,7 @@ class CSetupOpportunity {
 				  opportunity_history_opportunity int(11) default NULL,
 				  opportunity_history_proposal text,
 				  PRIMARY KEY  (opportunity_history_id)
-			) ENGINE=MyISAM DEFAULT CHARSET=latin1;');
+			) ENGINE=MyISAM;');
 			
 		$q -> exec();
 		}
