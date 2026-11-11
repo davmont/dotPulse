@@ -246,6 +246,8 @@ foreach ($files as $tmp) {
 	$search_opts['show_empty'] = $show_empty;
 	
 	$search_opts['keywords'] = $keywords;
+	// highlight() (smartsearch.class.php) reads the options from this global.
+	$GLOBALS['ssearch'] = $search_opts;
 	  
 	if ($mod_selection != 'on' || $mod_select[$temp] == 'on') {
 		$class_search = new $temp();
