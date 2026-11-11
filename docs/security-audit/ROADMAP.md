@@ -435,6 +435,18 @@ The dark theme had only been checked on markup samples. `tools/browser/dark.js` 
 - **Colours set by scripts:** `js/dp-theme-colors.js` (`dPthemeColor(colour, role)`, the PHP mapping ported and pinned to it by a Jest test) for the context menu, Project Designer's row highlight, resource_m's cells and the annotations team pop-up. The dark pages carry `<html data-theme="dark">`.
 - Checked: 301 pages as admin and 276 as worker, plus the 214 more pages of the modules the audit crawl does not reach (item 8 below); hover and click colours in a browser.
 
+### Audit: every module in the menu (`fix/audit-all-modules`, 2026-11-11)
+Activating an add-on does not show it in the menu, and the audit crawl only follows links: after step 1, 46 of the 59 active modules were hidden and steps 2-4 checked 301 pages as admin. Step 1 (and step 5 after reinstalling) now shows every add-on (`docker/tests/modules.sh menu`, the System > Modules "visible" switch); the crawl reaches about 530 pages as admin and 490 as worker.
+- **Fatal:** `m=dataimport` (first-time configuration) used `$perms` without setting it and looked up the columns of `projects` and `tasks` without the table prefix.
+- **timesheet:** a day with both times was a fatal error on PHP 8 (`$time_daily` was null when written to); the "has a row" test looked at the task-log query (`$q` reused), so a day with time logs and no timesheet row read missing columns; the week number was read before it was set; the "Add New Row" and "Send In" rows tested `$tg_data`, never set (copied from timetrack): removed, they could never show.
+- **mileagelog:** the edit form emptied its configuration and then loaded it with `require_once`, so when it was already loaded every setting was off (no purpose fields, edit rights from the default).
+- **journal:** the project filter on the journal page never worked (`$project_id` was only read on the project tab).
+- **informer:** the month's possible hours added each day's value before setting it (one day behind, the last day missing).
+- **invoices:** the product form queried a `costcodes` table no installer creates: it now lists the billing codes, as the task log does; the products total started undefined.
+- **reports** (billing view): a typo put PHP arrays into its JavaScript; **testing:** the result column was never selected (and the filter passed an undefined variable); **helpdesk** handler view read `status_date`, selected as `sd`.
+- **Layout** of the pages now reached (1024 px windows): the finances and resource management filter bars had 12 and 11 columns in a row (now three rows); the opportunities and communication forms had 70- and 100-column text boxes (now as wide as their column); inventory and helpdesk lists had unwrappable cells (`nowrap`, long words); communication's new channel and new frequency buttons moved to the crumb row.
+- Not part of the checks: with every add-on in the menu, the dotPulse top bar takes about ten rows at 1024 px. Real installations show fewer modules.
+
 ### After 3.2.1: next steps (proposed, to prioritise)
 What 3.2.0 and 3.2.1 left open, from the work above. None blocks an installation.
 1. ~~**Dark theme on the real pages.**~~ Done (2026-11-10, `feature/dark-theme-audit`): see "Dark theme on the real pages" below.
@@ -444,7 +456,7 @@ What 3.2.0 and 3.2.1 left open, from the work above. None blocks an installation
 5. **Translation review.** The 23 languages other than English and Spanish have 3,000-5,100 entries each marked `// MT` (`php tools/locales/check.php status`), and the old wrong terms listed above. The translation page drops every mark of a file when it saves it: keep the marks of the entries left unchanged, so that a review can be done in parts. Then review by priority (the languages of the installations in use first).
 6. **Hardening debt:** 910 raw superglobal reads in 194 files (`tools/checks/raw-input-baseline.txt`; 1,008 in 218 before 3.2.1) and 468 PHPStan findings (`tools/phpstan/phpstan-baseline.neon`). Both checks only forbid new ones; reduce them module by module, starting with the active modules.
 7. **Dormant modules** (below), when one is needed again.
-8. **The audit crawl misses most add-on modules.** After step 1 of `docker/tests/run.sh`, 46 of the 59 active modules are hidden from the menu (`mod_ui_active=0`) and the crawl only follows links, so it reaches 301 pages as admin. With every module shown it reaches 507, and finds a fatal error in `m=dataimport` (`$perms` null in `config.php`) and PHP warnings in timesheet, mileagelog, reports (`vw_billing.php`), informer (`vw_monthly.php`), testing and journal. Show every active module in step 1, fix what the crawl then finds, and run the checks of steps 2-4 on the full set.
+8. ~~**The audit crawl misses most add-on modules.**~~ Done (2026-11-11, `fix/audit-all-modules`): see "Audit: every module in the menu" below.
 
 ### Nice to have: dormant modules (to be revived later)
 Phase 8 converted them for the CSP, fixed the XSS/SQL injection found on the way and made most of them load on PHP 8 (see above). What is left for a real revival:
