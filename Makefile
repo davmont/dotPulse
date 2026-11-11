@@ -20,7 +20,7 @@ DOCKER_RUN := docker run --rm --user $(shell id -u):$(shell id -g) --security-op
 export DP_UID := $(shell id -u)
 export DP_GID := $(shell id -g)
 
-.PHONY: check lint phpstan phpstan-baseline raw-input inline-js locales theme-contrast php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse
+.PHONY: check lint phpstan phpstan-baseline raw-input inline-js locales theme-contrast php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse docs docs-serve docs-screenshots
 
 check: lint phpstan raw-input inline-js locales theme-contrast php-test js-test vendor-check
 
@@ -116,3 +116,16 @@ rehearse:
 	docker/up.sh
 	@for i in $$(seq 30); do curl -s -o /dev/null http://127.0.0.1:8089/index.php && break; sleep 1; done
 	docker/rehearse.sh "$(DUMP)" $(ADMIN)
+
+# Documentation website (website/, MkDocs Material). docs fails on broken links like CI.
+MKDOCS := docker run --rm --user $(shell id -u):$(shell id -g) --security-opt label=disable -v $(CURDIR)/website:/docs squidfunk/mkdocs-material:9.6.14
+docs:
+	$(MKDOCS) build --strict
+
+docs-serve:
+	docker run --rm -it --user $(shell id -u):$(shell id -g) --security-opt label=disable -p 8000:8000 -v $(CURDIR)/website:/docs squidfunk/mkdocs-material:9.6.14
+
+# Screenshots for the website from the sandbox with the sample data (docker/up.sh first).
+docs-screenshots:
+	node tools/browser/screenshots.js website/screenshots.json website/docs/img
+	@command -v pngquant >/dev/null && pngquant --quality=80-95 --skip-if-larger --strip --force --ext .png website/docs/img/*.png || echo 'pngquant not found: images left uncompressed'
