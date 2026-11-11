@@ -200,12 +200,12 @@ $titleBlock->show();
 			<tr> 
 				<td align="left" colspan=5 nowrap>
 					<?php
+					// Only the projects this user may see.
+					require_once $AppUI->getModuleClass('projects');
+					$obj_project = new CProject();
+					$projectRows = array(0 => $AppUI->_('All Projects', UI_OUTPUT_RAW))
+						+ $obj_project->getAllowedRecords($AppUI->user_id, 'project_id,project_name', 'project_name');
 					$q = new DBQuery();
-					$q->addTable('projects', 'p');
-					$q->addQuery('project_id');
-					$q->addQuery('project_name AS label');
-					$q->addOrder('project_name');
-					$projectRows = array(0 => $AppUI->_('All Projects', UI_OUTPUT_RAW)) + $q->loadHashList();
 					echo arraySelect($projectRows, 'project_id', 'class="text"' . dPaction('submitWithExpandList', array('$this')), $project_id); ?>
 				</td>
 				<td align="right" nowrap><?php echo $AppUI->_('Company').'/'.$AppUI->_('Division').':'; ?></td>
@@ -255,7 +255,12 @@ $titleBlock->show();
 				</td>
 				<td align="left" colspan=3 nowrap>
 					<?php
+					// The users (rows of the chart) whose contact this user may see.
+					require_once $AppUI->getModuleClass('contacts');
+					$q->clear();
 					$q->addTable('contacts', 'c');
+					$q->innerJoin('users', 'u', 'u.user_contact = c.contact_id');
+					$q->addWhere(CContact::visibleWhere($AppUI->user_id, 'c.'));
 					$q->addQuery('contact_id');
 					$q->addQuery("CONCAT(contact_last_name, ' ', contact_first_name) AS label");
 					$q->addOrder('contact_last_name, contact_first_name');

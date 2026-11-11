@@ -55,38 +55,43 @@ if (1 == 1) {
 	$q->addQuery('con.*');
 	$q->addQuery('co.company_name');
 	$q->addQuery('de.dept_name');
+	// Only the contacts this user may see in the contacts list (private ones are their owner's).
+	require_once $AppUI->getModuleClass('contacts');
+	$q->addWhere(CContact::visibleWhere($AppUI->user_id, 'con.'));
 	$contacts = $q->loadList();
+	// A quoted CSV value; a leading = + - @ is neutralised so spreadsheets do not run it as a formula.
+	$c = function ($v) {
+		$v = (string)$v;
+		if ($v !== '' && strpos("=+-@\t\r", $v[0]) !== false) {
+			$v = "'" . $v;
+		}
+		return '"' . str_replace('"', '""', $v) . '"';
+	};
+	$product = dPgetConfig('page_title', 'dotPulse') ?: 'dotPulse';
 	foreach ($contacts as $row) {
-		// Fields 1- 10
-		$text .= ('"","' . $row['contact_first_name'] . '","","' . $row['contact_last_name'] 
-				  . '","","' . $row['company_name'] . '","' . $row['dept_name'] . '","' 
-				  . $row['contact_title'] . '","' . $row['contact_address1'] . '","' 
-				  . $row['contact_address2'] . '",');
+		// Fields 1- 10: Title, First Name, Middle Name, Last Name, Suffix, Company, Department,
+		// Job Title, Business Street, Business Street 2
+		$text .= $c($row['contact_title']) . ',' . $c($row['contact_first_name']) . ',"",' . $c($row['contact_last_name'])
+			. ',"",' . $c($row['company_name']) . ',' . $c($row['dept_name']) . ',' . $c($row['contact_job'])
+			. ',' . $c($row['contact_address1']) . ',' . $c($row['contact_address2']) . ',';
 		// Fields 11- 20
-		//$text .= ('"","","","","","","","","","",');
-		$text .= (',"' . $row['contact_city'] . '","' . $row['contact_state'] . '","' 
-		          . $row['contact_zip'] . '",,,,,,,');
+		$text .= (',' . $c($row['contact_city']) . ',' . $c($row['contact_state']) . ','
+		          . $c($row['contact_zip']) . ',,,,,,,');
 		// Fields 21- 30
 		$text .= (',,,,,,,,,,');
 		// Fields 31- 40
-		$text .= (',"' . $row['contact_phone'] . '",,,,,,,,,');
+		$text .= (',' . $c($row['contact_phone']) . ',,,,,,,,,');
 		// Fields 41- 50
-		settype($row['contact_mobile'], 'string');
-		$text .= ('"' .  $row['contact_mobile'] . '",,,,,,,,"","0/0/00",');
+		$text .= ($c($row['contact_mobile']) . ',,,,,,,,"","0/0/00",');
 		// Fields 51- 60
-		if ($row['contact_type'] != '') {
-		   $categories = ('dotProject; ' . $row['contact_type']);
-		} else {
-		   $categories = 'dotProject;';
-		}
-		$text .= (',,"' . $row['contact_birthday'] . '","' . $categories . '",,,"' 
-		          . $row['contact_email'] . '","SMTP","' 
-		          . ($row['contact_first_name'] . ' ' . $row['contact_last_name']) . '",,');
+		$categories = $product . ';' . ($row['contact_type'] != '' ? ' ' . $row['contact_type'] : '');
+		$text .= (',,' . $c($row['contact_birthday']) . ',' . $c($categories) . ',,,'
+		          . $c($row['contact_email']) . ',"SMTP",'
+		          . $c($row['contact_first_name'] . ' ' . $row['contact_last_name']) . ',,');
 		// Fields 61- 70
 		$text .= (',,,,,"Unspecified",,,,,');
 		// Fields 71- 80
-		$notes = str_replace('"', '""', $row['contact_notes']);
-		$text .= ('"","","",,,"' . $notes . '",,,,"Normal",');
+		$text .= ('"","","",,,' . $c($row['contact_notes']) . ',,,,"Normal",');
 		// Fields 81- 90
 		$text .= ('"False",,,"Normal",,,,,,' . "\r\n");
 	}
