@@ -321,3 +321,4 @@
 // "projectsValidName" => "Vnesi ime projekta",
 "Calculated from the task costs"=>"Izračunano iz stroškov opravil", // MT
 "projectDeleteTasks"=>"Izbrisana bodo tudi vsa opravila tega projekta in njihovi dnevniki.", // MT
+"projectLogsLimit"=>"Prikazanih je le 500 najstarejših dnevnikov opravil in skupne ure štejejo samo te. Seznam zožite s filtri zgoraj.", // MT

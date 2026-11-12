@@ -401,3 +401,4 @@
 // "Risks" => "Riesgos",
 "Calculated from the task costs"=>"Calculado a partir de los costes de las tareas",
 "projectDeleteTasks"=>"También se eliminarán todas las tareas de este proyecto y sus registros de tareas.",
+"projectLogsLimit"=>"Solo se muestran los 500 registros de tareas más antiguos, y el Total de horas cuenta solo esos. Use los filtros de arriba para acotar la lista.",

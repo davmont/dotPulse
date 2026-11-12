@@ -324,3 +324,4 @@
 // "projectsValidName" => "Siusplau, introduexi un nom de projecte vàlid",
 "Calculated from the task costs"=>"Calculat a partir dels costos de les tasques", // MT
 "projectDeleteTasks"=>"També s'eliminaran totes les tasques d'aquest projecte i els seus registres de tasques.", // MT
+"projectLogsLimit"=>"Només es mostren els 500 registres de tasques més antics, i el total d'hores només compta aquests. Feu servir els filtres de dalt per acotar la llista.", // MT

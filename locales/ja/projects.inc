@@ -320,3 +320,4 @@
 // "projectsValidName" => "Please enter a valid Project Name",
 "Calculated from the task costs"=>"タスクの費用から算出", // MT
 "projectDeleteTasks"=>"このプロジェクトのすべてのタスクとそのタスクログも削除されます。", // MT
+"projectLogsLimit"=>"最も古い 500 件のタスクログのみ表示され、合計時間もそれらだけを数えます。上のフィルターで一覧を絞り込んでください。", // MT

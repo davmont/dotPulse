@@ -319,3 +319,4 @@
 // "projectsValidName" => "請輸入一個有效的專案名稱",
 "Calculated from the task costs"=>"由工作成本計算", // MT
 "projectDeleteTasks"=>"此專案的所有任務及其任務日誌也將被刪除。", // MT
+"projectLogsLimit"=>"僅顯示最早的 500 筆任務日誌，總時數也只計算這些。請使用上方的篩選條件縮小清單。", // MT

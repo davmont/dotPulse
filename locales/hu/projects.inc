@@ -319,3 +319,4 @@
 // "projectsValidName" => "Kérem adja meg helyesen a projekt nevét",
 "Calculated from the task costs"=>"A feladatok költségeiből számítva", // MT
 "projectDeleteTasks"=>"A projekt összes feladata és azok naplóbejegyzései is törlődnek.", // MT
+"projectLogsLimit"=>"Csak a 500 legrégebbi feladatnapló látható, és az összes óra csak ezeket számolja. A fenti szűrőkkel szűkítheti a listát.", // MT

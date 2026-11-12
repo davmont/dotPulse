@@ -385,3 +385,4 @@
 // "Último Post" => "Último Post",
 "Calculated from the task costs"=>"Calculado a partir dos custos das tarefas", // MT
 "projectDeleteTasks"=>"Todas as tarefas deste projeto e os respetivos registos também serão eliminados.", // MT
+"projectLogsLimit"=>"Só são mostrados os 500 registos de tarefas mais antigos, e o total de horas conta apenas esses. Use os filtros acima para restringir a lista.", // MT

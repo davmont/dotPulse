@@ -320,3 +320,4 @@
 // "projectsValidName" => "Bitte einen gültigen Projektnamen eingeben",
 "Calculated from the task costs"=>"Aus den Aufgabenkosten berechnet", // MT
 "projectDeleteTasks"=>"Alle Aufgaben dieses Projekts und ihre Aufgabenprotokolle werden ebenfalls gelöscht.", // MT
+"projectLogsLimit"=>"Nur die 500 ältesten Aufgabenprotokolle werden angezeigt, und die Gesamtstunden zählen nur diese. Grenzen Sie die Liste mit den Filtern oben ein.", // MT

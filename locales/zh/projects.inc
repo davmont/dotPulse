@@ -319,3 +319,4 @@
 // "projectsValidName" => "请输入有效的项目名称",
 "Calculated from the task costs"=>"根据任务成本计算", // MT
 "projectDeleteTasks"=>"此项目的所有任务及其任务日志也将被删除。", // MT
+"projectLogsLimit"=>"仅显示最早的 500 条任务日志，总工时也只统计这些。请使用上方的筛选条件缩小列表。", // MT

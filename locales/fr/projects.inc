@@ -365,3 +365,4 @@
 // "You can not set the budget of a dynamic task" => "Vous ne pouvez pas éditer le budget d\\'une tâche dynamique",
 "Calculated from the task costs"=>"Calculé à partir des coûts des tâches", // MT
 "projectDeleteTasks"=>"Toutes les tâches de ce projet et leurs journaux seront également supprimés.", // MT
+"projectLogsLimit"=>"Seuls les 500 journaux de tâches les plus anciens sont affichés, et le total des heures ne compte que ceux-ci. Utilisez les filtres ci-dessus pour affiner la liste.", // MT

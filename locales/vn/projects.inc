@@ -319,3 +319,4 @@
 // "projectsValidName" => "Xin nhập vào tên hợp lệ cho dự án",
 "Calculated from the task costs"=>"Tính từ chi phí của các nhiệm vụ", // MT
 "projectDeleteTasks"=>"Tất cả công việc của dự án này và nhật ký của chúng cũng sẽ bị xóa.", // MT
+"projectLogsLimit"=>"Chỉ hiển thị 500 nhật ký công việc cũ nhất và Tổng số giờ chỉ tính những nhật ký đó. Dùng bộ lọc ở trên để thu hẹp danh sách.", // MT

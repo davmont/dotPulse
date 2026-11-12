@@ -321,3 +321,4 @@
 // "projectsValidName" => "Prosím zadejte platné jméno projektu.",
 "Calculated from the task costs"=>"Vypočteno z nákladů úkolů", // MT
 "projectDeleteTasks"=>"Budou smazány také všechny úkoly tohoto projektu a jejich záznamy.", // MT
+"projectLogsLimit"=>"Zobrazuje se jen 500 nejstarších záznamů úkolů a celkové hodiny počítají jen je. Seznam zúžíte filtry výše.", // MT
