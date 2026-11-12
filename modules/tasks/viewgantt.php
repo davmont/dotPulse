@@ -436,7 +436,8 @@ if ($a == 'todo') {
     $q->addWhere('t.task_status > -1');
     if ($project_id)              $q->addWhere('t.task_project = ' . intval($project_id));
     if ($showNoMilestones == '1') $q->addWhere('t.task_milestone != 1');
-    if ($display_option == 'custom') {
+    // custom period or this month (the dates set above); 'all' shows everything
+    if ($display_option != 'all') {
         $q->addWhere('t.task_start_date <= "' . $end_date->format('%Y-%m-%d') . ' 23:59:59"');
         $q->addWhere('(t.task_end_date   >= "' . $start_date->format('%Y-%m-%d') . ' 00:00:00" OR t.task_end_date = "0000-00-00 00:00:00")');
     }

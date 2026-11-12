@@ -44,7 +44,8 @@ if (!(empty($projFilter_extra))) {
 natsort($projFilter);
 
 $scroll_date    = 1;
-$display_option = dPgetCleanParam($_POST, 'display_option', 'this_month');
+// the company and department tabs ($min_view) have no date form: show all there
+$display_option = dPgetCleanParam($_POST, 'display_option', @$min_view ? 'all' : 'this_month');
 $df             = $AppUI->getPref('SHDATEFORMAT');
 
 if ($display_option == 'custom') {
@@ -256,7 +257,8 @@ if ($showInactive != '1') $q->addWhere('project_status != 7');
 $pjobj->setAllowedSQL($AppUI->user_id, $q, null, 'p');
 $q->addGroup('p.project_id');
 
-if ($display_option == 'custom') {
+// custom period or this month (the dates set above); 'all' shows everything
+if ($display_option != 'all') {
     $q->addWhere('p.project_start_date <= "' . $end_date->format('%Y-%m-%d') . ' 23:59:59"');
     $q->addWhere('(p.project_end_date >= "' . $start_date->format('%Y-%m-%d') . ' 00:00:00"'
         . ' OR p.project_end_date = "0000-00-00 00:00:00")');
