@@ -237,8 +237,10 @@ $titleBlock->show();
 			<td>
 				<a title="<?php echo $AppUI->___($AppUI->_('Export vCard for') . ' ' . $contact_name); ?>"
 					href="?m=contacts&amp;a=vcardexport&amp;suppressHeaders=true&amp;contact_id=<?php echo $contactid; ?>">(vCard)</a>&nbsp;
+				<?php if (getPermission('contacts', 'edit', $contactid)) { ?>
 				<a title="<?php echo $AppUI->_('Edit'); ?>"
 					href="?m=contacts&amp;a=addedit&amp;contact_id=<?php echo $contactid; ?>"><?php echo $AppUI->_('Edit'); ?></a>
+				<?php } ?>
 			</td>
 		</tr>
 	<?php } ?>
