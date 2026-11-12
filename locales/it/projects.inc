@@ -320,3 +320,4 @@
 // "projectsColor" => "",
 // "projectsValidName" => "",
 "Calculated from the task costs"=>"Calcolato dai costi delle attività", // MT
+"projectDeleteTasks"=>"Verranno eliminate anche tutte le attività di questo progetto e i relativi registri.", // MT

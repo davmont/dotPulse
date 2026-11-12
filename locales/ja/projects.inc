@@ -319,3 +319,4 @@
 // "projectsColor" => "Please select a color to identify this project.",
 // "projectsValidName" => "Please enter a valid Project Name",
 "Calculated from the task costs"=>"タスクの費用から算出", // MT
+"projectDeleteTasks"=>"このプロジェクトのすべてのタスクとそのタスクログも削除されます。", // MT

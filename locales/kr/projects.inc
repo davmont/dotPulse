@@ -318,3 +318,4 @@
 // "projectsColor" => "프로젝트 식별할 색 선정",
 // "projectsValidName" => "유효한 프로젝트명 입력",
 "Calculated from the task costs"=>"작업 비용에서 계산됨", // MT
+"projectDeleteTasks"=>"이 프로젝트의 모든 작업과 작업 로그도 함께 삭제됩니다.", // MT

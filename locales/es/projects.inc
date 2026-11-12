@@ -400,3 +400,4 @@
 // "projectsValidName" => "¿Por favor, introduzca un nombre de proyecto válido?",
 // "Risks" => "Riesgos",
 "Calculated from the task costs"=>"Calculado a partir de los costes de las tareas",
+"projectDeleteTasks"=>"También se eliminarán todas las tareas de este proyecto y sus registros de tareas.",

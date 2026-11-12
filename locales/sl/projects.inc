@@ -320,3 +320,4 @@
 // "projectsColor" => "Izberi barvo za identifikacijo projekta.",
 // "projectsValidName" => "Vnesi ime projekta",
 "Calculated from the task costs"=>"Izračunano iz stroškov opravil", // MT
+"projectDeleteTasks"=>"Izbrisana bodo tudi vsa opravila tega projekta in njihovi dnevniki.", // MT

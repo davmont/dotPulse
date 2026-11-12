@@ -318,3 +318,4 @@
 // "projectsColor" => "Kérem válasszon egy színt a projekt jelöléséhez!",
 // "projectsValidName" => "Kérem adja meg helyesen a projekt nevét",
 "Calculated from the task costs"=>"A feladatok költségeiből számítva", // MT
+"projectDeleteTasks"=>"A projekt összes feladata és azok naplóbejegyzései is törlődnek.", // MT

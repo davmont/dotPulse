@@ -318,3 +318,4 @@
 // "projectsColor" => "Välj en färgkod för projektidentifiering.",
 // "projectsValidName" => "Mata in ett giltigt projektnamn",
 "Calculated from the task costs"=>"Beräknat utifrån aktiviteternas kostnader", // MT
+"projectDeleteTasks"=>"Alla uppgifter i detta projekt och deras uppgiftsloggar raderas också.", // MT

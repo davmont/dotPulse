@@ -311,3 +311,4 @@
 "5LBLCUSTO"=>"Cost",
 "6LBLCRONOGRAMA"=>"Schedule",
 "7LBLQUALIDADE"=>"Quality",
+"projectDeleteTasks"=>"All the tasks of this project and their task logs will be deleted too.",

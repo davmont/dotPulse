@@ -384,3 +384,4 @@
 // "Ver Projecto" => "Ver Projecto",
 // "Último Post" => "Último Post",
 "Calculated from the task costs"=>"Calculado a partir dos custos das tarefas", // MT
+"projectDeleteTasks"=>"Todas as tarefas deste projeto e os respetivos registos também serão eliminados.", // MT

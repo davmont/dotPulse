@@ -318,3 +318,4 @@
 // "projectsColor" => "Lütfen projeyi tanımlayacak bir renk seçiniz",
 // "projectsValidName" => "Lütfen geçerli bir proje ismi giriniz.",
 "Calculated from the task costs"=>"Görev maliyetlerinden hesaplanır", // MT
+"projectDeleteTasks"=>"Bu projenin tüm görevleri ve görev kayıtları da silinecek.", // MT

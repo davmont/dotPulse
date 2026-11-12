@@ -318,3 +318,4 @@
 // "projectsColor" => "Vælg en farve til at idenficere dette projekt.",
 // "projectsValidName" => "Indtast et gyldigt projektnavn",
 "Calculated from the task costs"=>"Beregnet ud fra opgavernes omkostninger", // MT
+"projectDeleteTasks"=>"Alle projektets opgaver og deres opgavelogge bliver også slettet.", // MT

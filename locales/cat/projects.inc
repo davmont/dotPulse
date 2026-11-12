@@ -323,3 +323,4 @@
 // "projectsColor" => "Siusplau, seleccioni un color per identificar aquest projecte.",
 // "projectsValidName" => "Siusplau, introduexi un nom de projecte vàlid",
 "Calculated from the task costs"=>"Calculat a partir dels costos de les tasques", // MT
+"projectDeleteTasks"=>"També s'eliminaran totes les tasques d'aquest projecte i els seus registres de tasques.", // MT

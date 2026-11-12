@@ -318,3 +318,4 @@
 // "projectsColor" => "Selecteer een kleur om dit project te identificeren",
 // "projectsValidName" => "Vul een geldige naam in bij Naam Project",
 "Calculated from the task costs"=>"Berekend uit de taakkosten", // MT
+"projectDeleteTasks"=>"Alle taken van dit project en hun taaklogboeken worden ook verwijderd.", // MT

@@ -320,3 +320,4 @@
 // "projectsColor" => "Por favor selecione uma cor para identificar este projeto.",
 // "projectsValidName" => "Por favor insira um nome de Projeto valido",
 "Calculated from the task costs"=>"Calculado a partir dos custos das tarefas", // MT
+"projectDeleteTasks"=>"Todas as tarefas deste projeto e seus registros também serão excluídos.", // MT

@@ -217,6 +217,7 @@ smartUpdateProjectPercentComplete($project_id);
 			var projectName = <?php echo dPjs($obj->project_name); ?>;
 			var wroteName = prompt(<?php
 			echo dPjs($AppUI->_('confirmDelete', UI_OUTPUT_RAW) . ' "' . $obj->project_name . '" ' . "\n"
+				. $AppUI->_('projectDeleteTasks', UI_OUTPUT_RAW) . "\n"
 				. $AppUI->_('writeProjectName', UI_OUTPUT_RAW) . "\n" . $AppUI->_('canCopyPaste', UI_OUTPUT_RAW)); ?>, <?php
 			echo dPjs($AppUI->_('projectName', UI_OUTPUT_RAW)); ?>);
 			if (projectName == wroteName) {

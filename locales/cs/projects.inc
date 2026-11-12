@@ -320,3 +320,4 @@
 // "projectsColor" => "Prosím vyberte barvu pro zobrazování tohoto projektu.",
 // "projectsValidName" => "Prosím zadejte platné jméno projektu.",
 "Calculated from the task costs"=>"Vypočteno z nákladů úkolů", // MT
+"projectDeleteTasks"=>"Budou smazány také všechny úkoly tohoto projektu a jejich záznamy.", // MT

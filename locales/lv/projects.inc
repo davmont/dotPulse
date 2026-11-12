@@ -318,3 +318,4 @@
 // "projectsColor" => "Lūdzu izvēlieties krāsu, lai identificētu šo projektu",
 // "projectsValidName" => "Lūdzu ievadiet derīgu projekta nosaukumu",
 "Calculated from the task costs"=>"Aprēķināts no uzdevumu izmaksām", // MT
+"projectDeleteTasks"=>"Tiks dzēsti arī visi šī projekta uzdevumi un to žurnāli.", // MT

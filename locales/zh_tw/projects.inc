@@ -318,3 +318,4 @@
 // "projectsColor" => "請選擇一個代表這個專案的顏色.",
 // "projectsValidName" => "請輸入一個有效的專案名稱",
 "Calculated from the task costs"=>"由工作成本計算", // MT
+"projectDeleteTasks"=>"此專案的所有任務及其任務日誌也將被刪除。", // MT

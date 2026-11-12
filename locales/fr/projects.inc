@@ -364,3 +364,4 @@
 // "Use MonoSpace Font" => "Fonte MonoSpace",
 // "You can not set the budget of a dynamic task" => "Vous ne pouvez pas éditer le budget d\\'une tâche dynamique",
 "Calculated from the task costs"=>"Calculé à partir des coûts des tâches", // MT
+"projectDeleteTasks"=>"Toutes les tâches de ce projet et leurs journaux seront également supprimés.", // MT

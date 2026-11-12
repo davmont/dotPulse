@@ -318,3 +318,4 @@
 // "projectsColor" => "Xin lựa chọn màu để nhận biết dự án này.",
 // "projectsValidName" => "Xin nhập vào tên hợp lệ cho dự án",
 "Calculated from the task costs"=>"Tính từ chi phí của các nhiệm vụ", // MT
+"projectDeleteTasks"=>"Tất cả công việc của dự án này và nhật ký của chúng cũng sẽ bị xóa.", // MT
