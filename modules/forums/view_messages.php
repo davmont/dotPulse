@@ -89,7 +89,7 @@ $thispage = "?m=$m&amp;a=viewer&amp;forum_id=$forum_id&amp;message_id=$message_i
 	<?php 
 if ($canEdit && ($AppUI->user_id == $forum['forum_moderated'] 
                  || (isset($messages[0]) && $AppUI->user_id == $messages[0]['message_author']) 
-                 || getPermission('project', 'edit', $forum['forum_project']) 
+                 || getPermission('projects', 'edit', $forum['forum_project']) 
                  || !($forum['forum_project']))) { 
 ?>
 		<input type="button" class="button" value="<?php echo $AppUI->_('Post Reply');?>"<?php echo dPaction(null, array(), null, array('href' => './index.php?m=forums&a=viewer&forum_id=' . (int)$forum_id . '&message_parent=' . (int)$message_id . '&post_message=1')); ?> />
@@ -280,7 +280,7 @@ if ($viewtype == 'single') {
 		<?php 
 if ($canEdit && ($AppUI->user_id == $forum['forum_moderated'] 
                  || (isset($messages[0]) && $AppUI->user_id == $messages[0]['message_author']) 
-                 || getPermission('project', 'edit', $forum['forum_project']) 
+                 || getPermission('projects', 'edit', $forum['forum_project']) 
                  || !($forum['forum_project']))) { 
 ?>
 		<input type="button" class="button" value="<?php echo $AppUI->_('Post Reply');?>"<?php echo dPaction(null, array(), null, array('href' => './index.php?m=forums&a=viewer&forum_id=' . (int)$forum_id . '&message_parent=' . (int)$message_id . '&post_message=1')); ?> />
