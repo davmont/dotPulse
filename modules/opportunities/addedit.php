@@ -411,32 +411,33 @@ $titleBlock->show();
 		<tr><td>&nbsp;</td><td><table><tr>
 		<?php
 			include '6Vexplanation.php';
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['strategy']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 400), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';			
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['strategy']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 400), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';			
 				echo $AppUI->_('Strategy');
 				echo arraySelect( $points, 'opportunity_strategy', 'class="text" size="1"', array_search($obj->opportunity_strategy, $points) );
 			echo '</td>';
 			
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['sholders']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 400), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['sholders']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 400), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
 				echo $AppUI->_('Sholders');
 				echo arraySelect( $points, 'opportunity_sholders', 'class="text" size="1"', array_search($obj->opportunity_sholders, $points) );
 			echo '</td>';
 			
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['risks']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['risks']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
 				echo $AppUI->_('Risks');
 				echo arraySelect( $points, 'opportunity_risks', 'class="text" size="1"', array_search($obj->opportunity_risks, $points) );			
 			echo '</td>';
+			echo '</tr><tr>'; // three per row: six in one row do not fit a 1024 px window
 
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['sizing']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['sizing']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
 				echo $AppUI->_('Size');
 				echo arraySelect( $points, 'opportunity_sizing', 'class="text" size="1"', array_search($obj->opportunity_sizing, $points) );
 			echo '</td>';
 			
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['horizontality']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['horizontality']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
 				echo $AppUI->_('Horiz');
 				echo arraySelect( $points, 'opportunity_horizontality', 'class="text" size="1"', array_search($obj->opportunity_horizontality, $points) );
 			echo '</td>';
 			
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['costbenefit']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['costbenefit']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
 				echo $AppUI->_('Benefit/Cost');
 				echo arraySelect( $points, 'opportunity_costbenefit', 'class="text" size="1"', array_search($obj->opportunity_costbenefit, $points) );
 			echo '</td>';
@@ -515,7 +516,7 @@ $titleBlock->show();
 					$aRelated = $q->loadList();
 					$q->clear();
 				$i = 0;
-				echo '<select type="TEXT" name="EmptyName" size="7" style="width:360px; color: #A0A0A0; " MULTIPLE="MULTIPLE"' . dPaction('CheckForInputRelProjs', array(), 'click') . '>';
+				echo '<select type="TEXT" name="EmptyName" size="7" style="width:100%; max-width:360px; box-sizing:border-box; color: #A0A0A0; " MULTIPLE="MULTIPLE"' . dPaction('CheckForInputRelProjs', array(), 'click') . '>';
 					foreach ($aRelated as $r) {
 						echo '<option value="'.(int)$r['opportunity_project_projects'].'">'.dPhtml(@$projects[$r['opportunity_project_projects']]).'</option>';
 						$i++;
