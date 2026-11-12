@@ -307,6 +307,23 @@ function dPdarkTheme()
 }
 
 /**
+ * The user interface styles (the folders of style/) for a select list: folder => its name
+ * in locales/[locale]/styles.inc (the folder's own name when it has none), sorted by name.
+ */
+function dPstyleOptions()
+{
+	global $AppUI;
+	$styles = array();
+	$warn = $AppUI->setWarning(false);
+	foreach ($AppUI->readDirs('style') as $dir) {
+		$styles[$dir] = $AppUI->_($dir, UI_OUTPUT_RAW);
+	}
+	$AppUI->setWarning($warn);
+	natcasesort($styles);
+	return $styles;
+}
+
+/**
  * The vector icon to serve for a file path without its extension (".../stock_edit-16"): its
  * dark version in a dark theme where there is one, else the SVG; the extension, or null.
  */

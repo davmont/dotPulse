@@ -6,3 +6,4 @@
 "demo1"=>"Demo stils",
 "dp-grey-theme"=>"Pelēkais plānais stils", // MT
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse tumšais", // MT

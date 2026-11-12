@@ -6,3 +6,4 @@
 "demo1"=>"En demostil", // MT
 "dp-grey-theme"=>"Grå slank stil", // MT
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse mørk", // MT

@@ -6,3 +6,4 @@
 "dp-grey-theme"=>"Grey Slimline style",
 "demo1"=>"A demo style",
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse dark",

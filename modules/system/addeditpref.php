@@ -158,10 +158,8 @@ function submitIt() {
 	<td>
 <?php
         $uis = !empty($prefs['UISTYLE']) ? $prefs['UISTYLE'] : dPgetConfig('host_style', 'dotpulse');
-	$styles = $AppUI->readDirs('style');
-	$temp = $AppUI->setWarning(false);
-	echo arraySelect($styles, 'pref_name[UISTYLE]', 'class="text" size="1"', $uis, true , true);
-	$AppUI->setWarning($temp);
+	$styles = dPstyleOptions();
+	echo arraySelect($styles, 'pref_name[UISTYLE]', 'class="text" size="1"', $uis);
 ?>
 	</td>
 </tr>
