@@ -20,6 +20,10 @@ if (isset($_POST['clash_action'])) {
 		include $do_include;
 	}
 } else {
+	// Only the event handler includes this page, with the event that clashes.
+	if (!isset($obj) || !is_object($obj)) {
+		$AppUI->redirect('m=calendar');
+	}
 
 ?>
 <script type="text/javascript" language="javascript" nonce="<?php echo dPcspNonce(); ?>">

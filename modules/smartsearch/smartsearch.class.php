@@ -49,7 +49,7 @@ class smartsearch  {
 		}
 		
 		if (isset($this->table_link2) && isset($this->table_key2)) {
-			$tmplink = ($this->table_link . $records[$this->table_key] . $this->table_link2 
+			$tmplink = ($this->table_link . $records[preg_replace('/^.*\.([^\.]+)$/', '$1', $this->table_key)] . $this->table_link2 
 			            . $records[preg_replace('/^.*\.([^\.]+)$/', '$1', $this->table_key2)]);
 		}
 		return $tmplink;
@@ -66,8 +66,21 @@ class smartsearch  {
 		}
 		$results = $this->_searchResults();
 		if ($results) {
+			$shown = array();
 			foreach ($results as $records) {
-				if (getPermission($this->table_module, 'view', $records[$this->table_key])) {
+				// The column comes back without its table alias (projects: p.project_id); a missing
+				// id would check only the module, not the record.
+				$key = preg_replace('/^.*\.([^\.]+)$/', '$1', $this->table_key);
+				// A record joined to several matching rows (a project's contacts) is listed once.
+				$row_id = $records[$key] ?? null;
+				if (isset($this->table_key2)) { // task logs: the task, then the log
+					$row_id .= '/' . ($records[preg_replace('/^.*\.([^\.]+)$/', '$1', $this->table_key2)] ?? '');
+				}
+				if (empty($records[$key]) || isset($shown[$row_id])) {
+					continue;
+				}
+				$shown[$row_id] = true;
+				if (getPermission($this->table_module, 'view', $records[$key])) {
 					$module_count++;
 					$record_count++;
 					$ii = 0;
