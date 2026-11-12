@@ -64,7 +64,7 @@ $titleBlock->show();
 	<td align="left"><?php echo $AppUI->_('Owner');?>:</td>
 	<td nowrap><?php
 		echo $AppUI->___($forum['contact_first_name'] . ' ' . $forum['contact_last_name']);
-		if (intval($forum["forum_id"]) <> 0) {
+		if (intval($forum["forum_moderated"]) <> 0) {
 			echo " (".$AppUI->_('moderated').") ";
 		}?>
 	</td>
