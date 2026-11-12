@@ -493,7 +493,6 @@ smartUpdateProjectPercentComplete($project_id);
 <?php
 //set default
 if (!isset($_GET["tab"])) {
-	$tab = 1;
 	$_SESSION["user_choosen_feature"] = "/modules/dotproject_plus/projects_tab.planning_and_monitoring.php";
 } else {
 	if (isset($_POST["user_choosen_feature"])) {
@@ -530,6 +529,11 @@ if (getPermission('forums', 'access')) {
 }
 
 $tabBox->loadExtras($m);
+// The saved tab may not exist here (journal/initiating switched off, add-on
+// removed): open the first tab instead of an empty box.
+if ($tab >= 0 && !isset($tabBox->tabs[$tab])) {
+	$tabBox->active = array_key_first($tabBox->tabs) ?? 0;
+}
 $f = 'all';
 $min_view = true;
 
