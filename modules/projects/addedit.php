@@ -99,7 +99,7 @@ $titleBlock = new CTitleBlock($ttl, 'applet3-48.png', $m, "$m.$a");
 $titleBlock->addBreadcrumb("?m=projects", "Projects");
 if ($project_id != 0){
 	$titleBlock->addBreadcrumb("?m=projects&amp;a=view&amp;project_id=$project_id", $row->project_name, 'applet3-48.png');
-	$titleBlock->addBreadcrumb('', 'Edition', 'icons/pencil.gif');
+	$titleBlock->addBreadcrumb('', 'Edit Project', 'icons/pencil.gif');
 }else $titleBlock->addBreadcrumb('', 'New Project');
 $titleBlock->show();
 

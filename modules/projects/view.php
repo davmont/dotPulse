@@ -286,7 +286,7 @@ smartUpdateProjectPercentComplete($project_id);
 					</td>
 				</tr>
 				<tr>
-					<td align="right" nowrap><?php echo $AppUI->_('Internal Company'); ?>:</td>
+					<td align="right" nowrap><?php echo $AppUI->_('Internal Division'); ?>:</td>
 					<td class="hilite" width="100%">
 						<?php
 						echo (((getPermission('companies', 'view', $obj->project_company_internal))
