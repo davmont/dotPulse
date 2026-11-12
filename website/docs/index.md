@@ -39,3 +39,5 @@ dotPulse continues [dotProject](https://github.com/dotproject/dotProject). Upstr
 - Release notes for each version: [GitHub releases](https://github.com/davmont/dotPulse/releases)
 
 dotPulse is free software under the GNU General Public License, like dotProject before it.
+This documentation is under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/);
+its code examples are under the GPL, like the code.
