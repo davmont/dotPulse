@@ -260,7 +260,7 @@ switch ($f) {
 		$where .= ' AND ut4.task_id IS NULL';
 		break;
 	case 'taskcreated':
-		$where .= ' AND tsk.task_owner = ' . $user_id;
+		$where .= ' AND tsk.task_creator = ' . (int)$user_id;
 		break;
 	default:
 		$from = $dbprefix . 'user_tasks as ut5, ' . $from;
