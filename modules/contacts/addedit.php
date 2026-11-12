@@ -200,7 +200,7 @@ function companyChange() {
 				<input type="text" class="text" name="contact_company_name" value="<?php 
 					echo dPhtml($company_detail['company_name']);
 					?>" maxlength="100" size="25" />
-				<input type="button" class="button" value="<?php echo $AppUI->_('select company...');?>..."<?php echo dPaction('popCompany'); ?> />
+				<input type="button" class="button" value="<?php echo $AppUI->_('select company...');?>"<?php echo dPaction('popCompany'); ?> />
 				<input type='hidden' name='contact_company' value="<?php echo $company_detail['company_id']; ?>" />
 				<a href="#"<?php echo dPaction('orderByName', array('company')); ?>>[<?php echo $AppUI->_('use in display');?>]</a>
 				</td>
