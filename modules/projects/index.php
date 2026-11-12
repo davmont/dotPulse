@@ -31,8 +31,6 @@ if (
 		$q->exec();
 		$q->clear();
 	}
-	// Insert our closing for the select
-	$bufferUser .= '</select>' . "\n";
 }
 
 // End of project status update
