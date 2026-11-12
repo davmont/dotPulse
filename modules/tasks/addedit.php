@@ -353,7 +353,8 @@ echo arraySelect($percent, 'task_percent_complete', 'size="1" class="text"',
 echo $AppUI->_('Milestone'); ?>?</label></td>
 			<td>
 				<input type="checkbox" value="1" name="task_milestone" id="task_milestone"<?php 
-echo (($obj->task_milestone) ? ' checked="checked"' : ''); ?> />
+echo (($obj->task_milestone) ? ' checked="checked"' : '') 
+     . dPaction('setMilestoneEndDate', array('$this'), 'change'); ?> />
 			</td>
 		</tr>
 		</table>
