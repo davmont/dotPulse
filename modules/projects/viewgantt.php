@@ -285,7 +285,7 @@ foreach ((array)$projects_list as $p) {
 
     if ($showAllGantt) {
         $q->addTable('tasks', 't');
-        $q->addQuery('t.task_id, t.task_name, t.task_start_date, t.task_end_date');
+        $q->addQuery('t.task_id, t.task_name, t.task_start_date, t.task_end_date, t.task_percent_complete');
         $q->addWhere('t.task_project = ' . intval($p['project_id']));
         $q->addOrder($sortTasksByName ? 't.task_name ASC' : 't.task_end_date ASC');
         $ptasks = $q->loadList();
@@ -302,7 +302,7 @@ foreach ((array)$projects_list as $p) {
                 'name'         => '  ↳ ' . $t['task_name'],
                 'start'        => $ts,
                 'end'          => $te,
-                'progress'     => 0,
+                'progress'     => intval($t['task_percent_complete']),
                 'dependencies' => ''
             ];
         }
