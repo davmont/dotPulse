@@ -46,7 +46,10 @@ if (isset($_FILES['vcf']) && isset($_GET['suppressHeaders']) && ($_GET['suppress
 				$q->addWhere('company_name = ' . $q->quote($v('ORG', 0, 0)));
 				$contactValues["contact_company"] = (int)$q->loadResult();
 			}
-			$contactValues["contact_type"] = $v('N', 0, 2);
+			// The contact type travels as the card's first category (older exports put it
+			// in the middle-name slot of N, so it is not read from there). A middle name has no
+			// contact field and is not imported.
+			$contactValues["contact_type"] = $v('CATEGORIES', 0, 0);
 			$contactValues["contact_email"] = $v('EMAIL', 0, 0);
 			$contactValues["contact_email2"] = $v('EMAIL', 1, 0);
 			$contactValues["contact_phone"] = $v('TEL', 0, 0);
