@@ -447,6 +447,12 @@ Activating an add-on does not show it in the menu, and the audit crawl only foll
 - **Layout** of the pages now reached (1024 px windows): the finances and resource management filter bars had 12 and 11 columns in a row (now three rows); the opportunities and communication forms had 70- and 100-column text boxes (now as wide as their column); inventory and helpdesk lists had unwrappable cells (`nowrap`, long words); communication's new channel and new frequency buttons moved to the crumb row.
 - Not part of the checks: with every add-on in the menu, the dotPulse top bar takes about ten rows at 1024 px. Real installations show fewer modules.
 
+### 3.2.2: security release (2026-11-12)
+Advisory [GHSA-mhjh-m8pc-7x79](https://github.com/davmont/dotPulse/security/advisories/GHSA-mhjh-m8pc-7x79), [release notes](../release-notes/v3.2.2.md). Found while writing the user guide (the docs website, #333); fixed in public on devel (#334), then released from master with only that fix, the version shown after an upgrade (#327) and the projects list's All and Gantt tabs (#332).
+- **Private contacts:** the contacts CSV export, smart search, the calendar's birthdays and resource management's filters ignored the contacts list's rule. `CContact::visibleWhere()` holds it and all four use it.
+- **CSV injection** in the export: values are quoted and formulas neutralised.
+- Verified in the sandbox as a non-owner (nothing shown) and as the owner (shown), and by CI on the release branch.
+
 ### After 3.2.1: next steps (proposed, to prioritise)
 What 3.2.0 and 3.2.1 left open, from the work above. None blocks an installation.
 1. ~~**Dark theme on the real pages.**~~ Done (2026-11-10, `feature/dark-theme-audit`): see "Dark theme on the real pages" below.
@@ -457,6 +463,7 @@ What 3.2.0 and 3.2.1 left open, from the work above. None blocks an installation
 6. **Hardening debt:** 910 raw superglobal reads in 194 files (`tools/checks/raw-input-baseline.txt`; 1,008 in 218 before 3.2.1) and 468 PHPStan findings (`tools/phpstan/phpstan-baseline.neon`). Both checks only forbid new ones; reduce them module by module, starting with the active modules.
 7. **Dormant modules** (below), when one is needed again.
 8. ~~**The audit crawl misses most add-on modules.**~~ Done (2026-11-11, `fix/audit-all-modules`): see "Audit: every module in the menu" below.
+9. **Bugs found while writing the documentation** (about 40, none security): e.g. forums always say "(moderated)", deleting a project deletes its tasks without saying so, Gantt's "show this month" does nothing, the project view opens on "Tasks (Inactive)", the two-step login page is not dark. Fix in batches by module.
 
 ### Nice to have: dormant modules (to be revived later)
 Phase 8 converted them for the CSP, fixed the XSS/SQL injection found on the way and made most of them load on PHP 8 (see above). What is left for a real revival:
