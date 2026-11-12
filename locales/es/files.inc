@@ -110,3 +110,4 @@
 "back to root folder"=>"volver a la carpeta raíz",
 "back to parent folder"=>"volver a la carpeta superior",
 "edit folder"=>"editar carpeta",
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Un fichero subido aquí reemplaza al actual, que no se conserva. Para conservar las versiones anteriores, extraiga el fichero desde la lista de ficheros y suba la nueva versión al devolverlo.",

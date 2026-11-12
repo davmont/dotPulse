@@ -101,3 +101,4 @@
 "back to root folder"=>"vissza a gyökérmappához", // MT
 "back to parent folder"=>"vissza a szülőmappához", // MT
 "edit folder"=>"mappa szerkesztése", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Az itt feltöltött fájl lecseréli a jelenlegit, amely nem marad meg. A korábbi verziók megőrzéséhez vegye ki a fájlt a fájllistából, és a visszaadáskor töltse fel az új verziót.", // MT

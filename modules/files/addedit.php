@@ -236,7 +236,14 @@ echo htmlspecialchars((string)$obj->file_description, ENT_QUOTES); ?></textarea>
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Upload File'); ?>:</td>
 			<td align="left"><input type="File" class="button" name="formfile" style="width:270px" /></td>
-		</tr>
+		</tr><?php 
+if ($file_id) { ?>
+		<tr>
+			<td>&nbsp;</td>
+			<td align="left" style="width:270px"><small><?php 
+	echo $AppUI->_('A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in.'); ?></small></td>
+		</tr><?php 
+} ?>
 		<?php 
 if (!($file_id) || $ci || ($canAdmin && $obj->file_checkout == 'final')) { ?>
 		<tr>

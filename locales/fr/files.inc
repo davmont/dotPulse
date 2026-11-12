@@ -110,3 +110,4 @@
 "back to root folder"=>"retour au dossier racine", // MT
 "back to parent folder"=>"retour au dossier parent", // MT
 "edit folder"=>"éditer le dossier", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Un fichier chargé ici remplace le fichier actuel, qui n'est pas conservé. Pour conserver les versions précédentes, extrayez le fichier depuis la liste des fichiers et chargez la nouvelle version lors de sa réintégration.", // MT

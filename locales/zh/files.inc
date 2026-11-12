@@ -101,3 +101,4 @@
 "back to root folder"=>"返回根文件夹", // MT
 "back to parent folder"=>"返回上级文件夹", // MT
 "edit folder"=>"编辑文件夹", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"在此上传的文件会替换当前文件，原文件不会保留。若要保留以前的版本，请在文件列表中签出该文件，并在签入时上传新版本。", // MT

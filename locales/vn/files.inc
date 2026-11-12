@@ -113,3 +113,4 @@
 "back to root folder"=>"quay lại thư mục gốc", // MT
 "back to parent folder"=>"quay lại thư mục cha", // MT
 "edit folder"=>"sửa thư mục", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Tệp tải lên ở đây sẽ thay thế tệp hiện tại và tệp cũ không được giữ lại. Để giữ các phiên bản trước, hãy lấy tệp ra (checkout) từ danh sách tệp và tải lên phiên bản mới khi trả tệp vào.", // MT

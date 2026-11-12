@@ -101,3 +101,4 @@
 "back to root folder",
 "back to parent folder",
 "edit folder",
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in.",

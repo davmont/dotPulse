@@ -123,3 +123,4 @@
 "back to root folder"=>"voltar à pasta raiz", // MT
 "back to parent folder"=>"voltar à pasta superior", // MT
 "edit folder"=>"editar pasta", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Um ficheiro enviado aqui substitui o atual, que não é guardado. Para manter as versões anteriores, reserve o ficheiro na lista de ficheiros e envie a nova versão ao devolvê-lo.", // MT

@@ -110,3 +110,4 @@
 "back to root folder"=>"tornar a la carpeta arrel", // MT
 "back to parent folder"=>"tornar a la carpeta pare", // MT
 "edit folder"=>"editar carpeta", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Un fitxer pujat aquí substitueix l'actual, que no es conserva. Per conservar les versions anteriors, extraieu el fitxer des de la llista de fitxers i pugeu la nova versió en tornar-lo.", // MT

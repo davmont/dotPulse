@@ -101,3 +101,4 @@
 "back to root folder"=>"nazaj v korensko mapo", // MT
 "back to parent folder"=>"nazaj v nadrejeno mapo", // MT
 "edit folder"=>"uredi mapo", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Datoteka, naložena tukaj, nadomesti trenutno, ki se ne ohrani. Če želite ohraniti prejšnje različice, datoteko na seznamu datotek odjavite in novo različico naložite ob prijavi.", // MT

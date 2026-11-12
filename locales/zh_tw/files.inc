@@ -101,3 +101,4 @@
 "back to root folder"=>"返回根資料夾", // MT
 "back to parent folder"=>"返回上層資料夾", // MT
 "edit folder"=>"編輯資料夾", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"在此上傳的檔案會取代目前的檔案，原檔案不會保留。若要保留先前的版本，請在檔案列表中簽出該檔案，並在簽入時上傳新版本。", // MT

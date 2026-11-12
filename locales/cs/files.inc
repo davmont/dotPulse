@@ -101,3 +101,4 @@
 "back to root folder"=>"zpět do kořenové složky", // MT
 "back to parent folder"=>"zpět do nadřazené složky", // MT
 "edit folder"=>"upravit složku", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Soubor nahraný zde nahradí stávající, který se neuchová. Chcete-li zachovat dřívější verze, vyzvedněte soubor (checkout) ze seznamu souborů a novou verzi nahrajte při jeho vrácení.", // MT
