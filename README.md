@@ -29,9 +29,12 @@ tables keep working unchanged.
 
 Work happens on the **`devel`** branch; **`master`** only receives stable releases.
 
-- Current release: **dotPulse 3.2.1**, a security release: upgrade every installation of 3.2.0
-  or earlier ([release notes v3.2.1](docs/release-notes/v3.2.1.md)).
-- Previous releases: 3.2.0, with holiday calendars per workplace, the dotPulse theme by
+- Current release: **dotPulse 3.2.2**, a security release: private contacts stayed visible
+  to other users in the contacts CSV export, smart search, the calendar and resource
+  management. Upgrade every installation of 3.2.1 or earlier
+  ([release notes v3.2.2](docs/release-notes/v3.2.2.md)).
+- Previous releases: 3.2.1, security fixes (permissions, SQL injection, account takeover)
+  ([release notes v3.2.1](docs/release-notes/v3.2.1.md)); 3.2.0, with holiday calendars per workplace, the dotPulse theme by
   default with a redesigned System Admin, a phone layout, vector icons and a dark variant, and
   all 25 languages complete, PHP 8.2 or later
   ([release notes v3.2.0](docs/release-notes/v3.2.0.md)); 3.1.1, maintenance: outdated
