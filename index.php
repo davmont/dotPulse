@@ -339,6 +339,11 @@ $canDelete = getPermission($m, 'delete');
 $dosql = isset($_REQUEST['dosql']) ? $_REQUEST['dosql'] : '';
 $ownAccount = ($m == 'admin' && $a == 'viewuser' && !$dosql
 		&& (int)dPgetParam($_GET, 'user_id', 0) == $AppUI->user_id)
+	// Their own account details (do_user_aed saves only name, e-mail, signature and password).
+	|| ($m == 'admin' && $a == 'addedituser' && !$dosql
+		&& (int)dPgetParam($_GET, 'user_id', 0) == $AppUI->user_id)
+	|| ($m == 'admin' && $dosql == 'do_user_aed' && !dPgetParam($_POST, 'del', 0)
+		&& (int)dPgetParam($_POST, 'user_id', 0) == $AppUI->user_id)
 	|| ($m == 'system' && $a == 'addeditpref' && !$dosql
 		&& (int)dPgetParam($_GET, 'user_id', 0) == $AppUI->user_id)
 	|| ($m == 'system' && $dosql == 'do_preference_aed'

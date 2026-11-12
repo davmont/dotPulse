@@ -17,11 +17,15 @@ one (see [Companies, departments and contacts](companies-contacts.md#contacts-an
 
 ### Change your details
 
-- If you may edit contacts, open **Contacts**, find yourself and click **Edit**.
-  Change your name, phone numbers, address or email, then click **submit**.
-- Your user account itself (login name, user type, company, signature) is
-  managed by your administrator. Administrators see an **edit this user** link
-  on this page; if you don't, ask your administrator to make the change.
+1. On your account page, click **edit this user**.
+2. Change your **Name**, **Email** or email **Signature**. To change your email
+   address (or your password here), also enter your **Old Password**: a
+   password reset is sent to that address.
+3. Click **submit**.
+
+Your login name, user type, company and department are managed by your
+administrator. If you may edit contacts, you can also change your phone numbers
+and address: open **Contacts**, find yourself and click **Edit**.
 
 ## Change your password
 

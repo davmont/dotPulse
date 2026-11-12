@@ -72,7 +72,7 @@ else {
 	if ($canRead) {
 		$titleBlock->addCrumb('?m=admin', 'users list');
 	}
-	if ($canEdit) {
+	if ($canEdit || $user_id == $AppUI->user_id) { // users may edit their own account
 		$titleBlock->addCrumb('?m=admin&amp;a=addedituser&amp;user_id=' . $user_id,
 			'edit this user');
 	}
@@ -81,6 +81,8 @@ else {
 			'edit preferences');
 		$titleBlock->addCrumbRight('<a href="#"' . dPaction('popChgPwd') . '>'
 			. $AppUI->_('change password') . '</a>');
+	}
+	if (getPermission('admin', 'add') && getPermission('users', 'add')) {
 		$titleBlock->addCell('<input type="button" class=button value="' . $AppUI->_('add user')
 			. '"' . dPaction(null, array(), null, array('href' => './index.php?m=admin&a=addedituser')) . ' />');
 	}

@@ -61,8 +61,29 @@ if ($del) {
 	
 	$contact->contact_owner = $AppUI->user_id;
 } else if (! getPermission('admin', 'edit') || ! getPermission('users', 'edit', $user_id_aed)) {
-	$AppUI->redirect('m=public&a=access_denied');
+	if ($user_id_aed != $AppUI->user_id) {
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+	// Their own account, without the right to edit users: only the name, e-mail, signature and
+	// password; the login name, type, role, company and department stay as they are.
+	$ownAccountOnly = true;
+	$obj = new CUser();
+	$contact = new CContact();
+	if (!$obj->load($user_id_aed) || !$contact->load($obj->user_contact)) {
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+	foreach (array('contact_first_name', 'contact_last_name', 'contact_email') as $field) {
+		$value = trim((string)dPgetParam($_POST, $field, ''));
+		if ($value !== '') {
+			$contact->$field = $value;
+		}
+	}
+	$obj->user_signature = (string)dPgetParam($_POST, 'user_signature', '');
+	if ((string)dPgetParam($_POST, 'user_password', '') !== '') {
+		$obj->user_password = (string)dPgetParam($_POST, 'user_password', '');
+	}
 }
+$ownAccountOnly = $ownAccountOnly ?? false;
 
 if (!$isNewUser && $AppUI->user_id == $user_id_aed) {
 	$q = new DBQuery;
@@ -71,7 +92,14 @@ if (!$isNewUser && $AppUI->user_id == $user_id_aed) {
 	$q->addWhere("user_id = $user_id_aed");
 	$db_pwd = $q->loadResult();
 	
-	if (!empty($_POST['user_password']) && $db_pwd != $_POST['user_password']) {
+	// The current password is needed to change the password or the e-mail address (where a
+	// password reset goes).
+	$q = new DBQuery;
+	$q->addTable('contacts');
+	$q->addQuery('contact_email');
+	$q->addWhere('contact_id = ' . (int)$contact->contact_id);
+	$emailChanged = ((string)$q->loadResult() !== (string)$contact->contact_email);
+	if ((!empty($_POST['user_password']) && $db_pwd != $_POST['user_password']) || $emailChanged) {
 		if (!isset($_POST['old_password']) || (!password_verify($_POST['old_password'], $db_pwd) && md5($_POST['old_password']) !== $db_pwd)) {
 			$AppUI->setMsg('Invalid old password', UI_MSG_ERROR, true);
 			$AppUI->redirect();
@@ -104,7 +132,7 @@ if (($msg = $contact->store())) {
 			notifyNewUser($contact->contact_email, $contact->contact_first_name, 
 			              $obj->user_username);
 		}
-		if (isset($_POST['user_role']) && $_POST['user_role']) {
+		if (!$ownAccountOnly && isset($_POST['user_role']) && $_POST['user_role']) {
 			$perms =& $AppUI->acl();
 			if ($perms->insertUserRole(dPgetIntParam($_POST, 'user_role', 0), $obj->user_id)) {
 				$AppUI->setMsg('', UI_MSG_ALERT, true);
