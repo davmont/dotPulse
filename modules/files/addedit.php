@@ -57,7 +57,8 @@ if ($file_id > 0) {
 
 // If the file is checked out, check a few things, like if the user 
 // is trying to check it in, or if they are trying to overwrite.
-if ($obj->file_checkout) {
+// A final version is not checked out; it is handled below (admins only).
+if ($obj->file_checkout && $obj->file_checkout != 'final') {
 	if ( ! $ci || $obj->file_checkout != $AppUI->user_id) {
 		$AppUI->setMsg('File is currently checked out - it must be checked in first');
 		$AppUI->redirect('m=public&a=access_denied');
