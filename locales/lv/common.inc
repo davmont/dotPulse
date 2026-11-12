@@ -352,3 +352,9 @@
 "Warning"=>"Brīdinājums", // MT
 "Too many password reset requests. Please wait before trying again."=>"Pārāk daudz paroles atiestatīšanas pieprasījumu. Lūdzu, pagaidiet, pirms mēģināt vēlreiz.", // MT
 "Invalid request method."=>"Nederīga pieprasījuma metode.", // MT
+"View"=>"Skatīt", // MT
+"Day"=>"Diena", // MT
+"Week"=>"Nedēļa", // MT
+"Month"=>"Mēnesis", // MT
+"Print"=>"Drukāt", // MT
+"No items to display."=>"Nav vienumu, ko parādīt.", // MT

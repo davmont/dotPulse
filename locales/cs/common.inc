@@ -352,3 +352,9 @@
 "Warning"=>"Upozornění", // MT
 "Too many password reset requests. Please wait before trying again."=>"Příliš mnoho žádostí o obnovení hesla. Před dalším pokusem prosím počkejte.", // MT
 "Invalid request method."=>"Neplatná metoda požadavku.", // MT
+"View"=>"Zobrazit", // MT
+"Day"=>"Den", // MT
+"Week"=>"Týden", // MT
+"Month"=>"Měsíc", // MT
+"Print"=>"Tisk", // MT
+"No items to display."=>"Žádné položky k zobrazení.", // MT

@@ -352,3 +352,9 @@
 "Warning"=>"警告", // MT
 "Too many password reset requests. Please wait before trying again."=>"密碼重設要求過多。請稍候再試。", // MT
 "Invalid request method."=>"無效的要求方法。", // MT
+"View"=>"檢視", // MT
+"Day"=>"日", // MT
+"Week"=>"週", // MT
+"Month"=>"月", // MT
+"Print"=>"列印", // MT
+"No items to display."=>"沒有可顯示的項目。", // MT

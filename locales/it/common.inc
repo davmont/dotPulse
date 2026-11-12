@@ -352,3 +352,9 @@
 "Warning"=>"Attenzione", // MT
 "Too many password reset requests. Please wait before trying again."=>"Troppe richieste di reimpostazione della password. Attendi prima di riprovare.", // MT
 "Invalid request method."=>"Metodo di richiesta non valido.", // MT
+"View"=>"Visualizza", // MT
+"Day"=>"Giorno", // MT
+"Week"=>"Settimana", // MT
+"Month"=>"Mese", // MT
+"Print"=>"Stampa", // MT
+"No items to display."=>"Nessun elemento da visualizzare.", // MT

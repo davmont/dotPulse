@@ -352,3 +352,9 @@
 "Warning"=>"Avís", // MT
 "Too many password reset requests. Please wait before trying again."=>"Massa sol·licituds de restabliment de contrasenya. Espereu abans de tornar-ho a provar.", // MT
 "Invalid request method."=>"Mètode de sol·licitud no vàlid.", // MT
+"View"=>"Veure", // MT
+"Day"=>"Dia", // MT
+"Week"=>"Setmana", // MT
+"Month"=>"Mes", // MT
+"Print"=>"Imprimeix", // MT
+"No items to display."=>"No hi ha elements per mostrar.", // MT

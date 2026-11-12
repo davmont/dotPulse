@@ -366,3 +366,4 @@
 "Task Due"=>"Aktivitet förfaller", // MT
 "TODAY"=>"IDAG", // MT
 "TOMORROW"=>"IMORGON", // MT
+"To Do Options"=>"Alternativ för att göra-listan", // MT

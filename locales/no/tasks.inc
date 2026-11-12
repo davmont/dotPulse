@@ -357,3 +357,4 @@
 "Task Due"=>"Oppgave forfaller", // MT
 "TODAY"=>"I DAG", // MT
 "TOMORROW"=>"I MORGEN", // MT
+"To Do Options"=>"Alternativer for gjøremål", // MT

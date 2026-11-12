@@ -494,3 +494,9 @@ Das neue Passwort lautet:",
 "Warning"=>"Warnung", // MT
 "Too many password reset requests. Please wait before trying again."=>"Zu viele Anfragen zum Zurücksetzen des Passworts. Bitte warten Sie, bevor Sie es erneut versuchen.", // MT
 "Invalid request method."=>"Ungültige Anfragemethode.", // MT
+"Day"=>"Tag", // MT
+"Week"=>"Woche", // MT
+"Month"=>"Monat", // MT
+"Print"=>"Drucken", // MT
+"No items to display."=>"Keine Einträge vorhanden.", // MT
+"View"=>"Anzeigen", // MT

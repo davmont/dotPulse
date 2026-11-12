@@ -370,3 +370,4 @@
 "Task Due"=>"Aufgabe fällig", // MT
 "TODAY"=>"HEUTE", // MT
 "TOMORROW"=>"MORGEN", // MT
+"To Do Options"=>"Optionen der Aufgabenliste", // MT

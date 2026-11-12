@@ -366,3 +366,4 @@
 "Task Due"=>"Venciment de la tasca", // MT
 "TODAY"=>"AVUI", // MT
 "TOMORROW"=>"DEMÀ", // MT
+"To Do Options"=>"Opcions de pendents", // MT

@@ -352,3 +352,9 @@
 "Warning"=>"Figyelmeztetés", // MT
 "Too many password reset requests. Please wait before trying again."=>"Túl sok jelszó-visszaállítási kérés. Várjon, mielőtt újra próbálkozik.", // MT
 "Invalid request method."=>"Érvénytelen kérési metódus.", // MT
+"View"=>"Megtekintés", // MT
+"Day"=>"Nap", // MT
+"Week"=>"Hét", // MT
+"Month"=>"Hónap", // MT
+"Print"=>"Nyomtatás", // MT
+"No items to display."=>"Nincs megjeleníthető elem.", // MT

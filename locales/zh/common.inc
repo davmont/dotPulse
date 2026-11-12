@@ -355,3 +355,9 @@
 "Warning"=>"警告", // MT
 "Too many password reset requests. Please wait before trying again."=>"密码重置请求过多。请稍后再试。", // MT
 "Invalid request method."=>"无效的请求方法。", // MT
+"View"=>"查看", // MT
+"Day"=>"天", // MT
+"Week"=>"周", // MT
+"Month"=>"月", // MT
+"Print"=>"打印", // MT
+"No items to display."=>"没有可显示的项目。", // MT

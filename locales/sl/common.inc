@@ -352,3 +352,9 @@
 "Warning"=>"Opozorilo", // MT
 "Too many password reset requests. Please wait before trying again."=>"Preveč zahtev za ponastavitev gesla. Počakajte, preden poskusite znova.", // MT
 "Invalid request method."=>"Neveljavna metoda zahteve.", // MT
+"View"=>"Pogled", // MT
+"Day"=>"Dan", // MT
+"Week"=>"Teden", // MT
+"Month"=>"Mesec", // MT
+"Print"=>"Natisni", // MT
+"No items to display."=>"Ni elementov za prikaz.", // MT

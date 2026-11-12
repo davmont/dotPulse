@@ -225,10 +225,10 @@ if (!@$min_view) {
 		col = document.getElementById("x" + item);
 		if (obj.style.display == "none") {
 			obj.style.display = "block";
-			col.innerHTML = "Hide Additional Gantt Options";
+			col.textContent = <?php echo dPjs($AppUI->_('Hide Additional Gantt Options', UI_OUTPUT_RAW)); ?>;
 		} else {
 			obj.style.display = "none";
-			col.innerHTML = "Show Additional Gantt Options";
+			col.textContent = <?php echo dPjs($AppUI->_('Show Additional Gantt Options', UI_OUTPUT_RAW)); ?>;
 		}
 	}
 	//]]>
@@ -242,7 +242,7 @@ if (!@$min_view) {
 		<input type="hidden" name="caller" value="<?php echo $a; ?>" />
 		<table border="0" align="center" class="tbl" cellpadding="2" cellspacing="0" width="100%">
 			<tr>
-				<td align="right"><em>Date Filter:</em></td>
+				<td align="right"><em><?php echo $AppUI->_('Date Filter'); ?>:</em></td>
 				<td align="right">
 					<table border="0" cellpadding="4" cellspacing="0">
 						<tr>
@@ -293,7 +293,7 @@ if (!@$min_view) {
 				<td colspan="2">&nbsp;</td>
 			</tr>
 			<tr>
-				<td align="right"><em>Quick Date Filter:</em></td>
+				<td align="right"><em><?php echo $AppUI->_('Quick Date Filter'); ?>:</em></td>
 				<td colspan="3" align="left">
 					<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
@@ -315,7 +315,7 @@ if (!@$min_view) {
 			</tr>
 
 			<tr>
-				<td align="right"><em>Task Filter:</em></td>
+				<td align="right"><em><?php echo $AppUI->_('Task Filter'); ?>:</em></td>
 				<td align="right">
 					<table border="0" cellpadding="4" cellspacing="0">
 						<tr>
@@ -323,7 +323,7 @@ if (!@$min_view) {
 								<select name="ganttTaskFilter" id="ganttTaskFilter" class="text"
 									<?php echo dPaction('submitIt'); ?> size="1">
 									<?php
-									echo '<option value="0" ' . (($ganttTaskFilter == '' || $ganttTaskFilter == 0) ? ' selected="selected">' : '>') . '&lt;Show all tasks&gt; </option>';
+									echo '<option value="0" ' . (($ganttTaskFilter == '' || $ganttTaskFilter == 0) ? ' selected="selected">' : '>') . '&lt;' . $AppUI->_('Show all tasks') . '&gt; </option>';
 									for ($i = 0; $i < count($filter_task_list); $i++) {
 										$filter_task_name  = $filter_task_list[$i][0]['task_name'];
 										$filter_task_level = $filter_task_list[$i][1];
@@ -348,7 +348,7 @@ if (!@$min_view) {
 
 			<tr align="left">
 				<th colspan="4" align="left"><em><a class="hdr" href="#"<?php echo dPaction('doMenu', array('ganttoptions')); ?>
-							id="xganttoptions">Show Additional Gantt Options</a></em></th>
+							id="xganttoptions"><?php echo $AppUI->_('Show Additional Gantt Options'); ?></a></em></th>
 			</tr>
 			<tr align="left">
 				<td colspan="4">
@@ -357,7 +357,7 @@ if (!@$min_view) {
 							<td width="100%">
 								<table border="0" cellpadding="2" cellspacing="0" width="100%" align="center">
 									<tr>
-										<td>&nbsp;Tasks&nbsp;:</td>
+										<td>&nbsp;<?php echo $AppUI->_('Tasks'); ?>&nbsp;:</td>
 										<td valign="top">
 											<input type="checkbox" name="sortByName" id="sortByName" <?php echo (($sortByName == 1) ? 'checked="checked"' : ''); ?> />
 											<label for="sortByName"><?php echo $AppUI->_('Sort by Name'); ?></label>
@@ -375,7 +375,7 @@ if (!@$min_view) {
 									<?php if ($a == 'todo') { ?>
 										<input type="hidden" name="show_form" value="1" />
 									<tr>
-										<td>&nbsp;To Do Options:&nbsp;</td>
+										<td>&nbsp;<?php echo $AppUI->_('To Do Options'); ?>:&nbsp;</td>
 										<td valign="bottom" nowrap="nowrap">
 											<input type="checkbox" name="showPinned" id="showPinned" <?php echo $showPinned ? 'checked="checked"' : ''; ?> />
 											<label for="showPinned"><?php echo $AppUI->_('Pinned Only'); ?></label>

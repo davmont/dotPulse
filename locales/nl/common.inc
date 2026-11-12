@@ -352,3 +352,9 @@
 "Warning"=>"Waarschuwing", // MT
 "Too many password reset requests. Please wait before trying again."=>"Te veel verzoeken om wachtwoordreset. Wacht even voordat u het opnieuw probeert.", // MT
 "Invalid request method."=>"Ongeldige aanvraagmethode.", // MT
+"View"=>"Bekijken", // MT
+"Day"=>"Dag", // MT
+"Week"=>"Week", // MT
+"Month"=>"Maand", // MT
+"Print"=>"Afdrukken", // MT
+"No items to display."=>"Geen items om weer te geven.", // MT

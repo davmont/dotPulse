@@ -362,3 +362,9 @@ Om du ej har begärt ändringen av lösenordet behöver du ej oroa dig. Detta me
 "Warning"=>"Varning", // MT
 "Too many password reset requests. Please wait before trying again."=>"För många begäranden om lösenordsåterställning. Vänta en stund innan du försöker igen.", // MT
 "Invalid request method."=>"Ogiltig förfrågningsmetod.", // MT
+"View"=>"Visa", // MT
+"Day"=>"Dag", // MT
+"Week"=>"Vecka", // MT
+"Month"=>"Månad", // MT
+"Print"=>"Skriv ut", // MT
+"No items to display."=>"Inga objekt att visa.", // MT

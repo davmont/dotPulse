@@ -363,3 +363,4 @@
 "Task Due"=>"タスクの期限", // MT
 "TODAY"=>"今日", // MT
 "TOMORROW"=>"明日", // MT
+"To Do Options"=>"ToDo オプション", // MT

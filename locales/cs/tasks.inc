@@ -357,3 +357,4 @@
 "Task Due"=>"Termín úkolu", // MT
 "TODAY"=>"DNES", // MT
 "TOMORROW"=>"ZÍTRA", // MT
+"To Do Options"=>"Možnosti úkolů k provedení", // MT

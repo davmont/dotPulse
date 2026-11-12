@@ -352,3 +352,9 @@
 "Warning"=>"Advarsel", // MT
 "Too many password reset requests. Please wait before trying again."=>"For mange forespørsler om tilbakestilling av passord. Vent litt før du prøver igjen.", // MT
 "Invalid request method."=>"Ugyldig forespørselsmetode.", // MT
+"View"=>"Vis", // MT
+"Day"=>"Dag", // MT
+"Week"=>"Uke", // MT
+"Month"=>"Måned", // MT
+"Print"=>"Skriv ut", // MT
+"No items to display."=>"Ingen elementer å vise.", // MT

@@ -363,3 +363,4 @@
 "Task Due"=>"Termin zadania", // MT
 "TODAY"=>"DZISIAJ", // MT
 "TOMORROW"=>"JUTRO", // MT
+"To Do Options"=>"Opcje listy zadań do wykonania", // MT

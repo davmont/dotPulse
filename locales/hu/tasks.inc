@@ -357,3 +357,4 @@
 "Task Due"=>"Esedékes feladat", // MT
 "TODAY"=>"MA", // MT
 "TOMORROW"=>"HOLNAP", // MT
+"To Do Options"=>"Teendőlista beállításai", // MT

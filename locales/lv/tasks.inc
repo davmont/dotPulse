@@ -357,3 +357,4 @@
 "Task Due"=>"Uzdevuma termiņš", // MT
 "TODAY"=>"ŠODIEN", // MT
 "TOMORROW"=>"RĪT", // MT
+"To Do Options"=>"Darāmo darbu opcijas", // MT

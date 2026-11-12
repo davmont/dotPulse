@@ -357,3 +357,4 @@
 "Task Due"=>"Rok opravila", // MT
 "TODAY"=>"DANES", // MT
 "TOMORROW"=>"JUTRI", // MT
+"To Do Options"=>"Možnosti seznama opravil", // MT

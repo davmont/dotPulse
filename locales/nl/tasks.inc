@@ -357,3 +357,4 @@
 "Task Due"=>"Taak vervalt", // MT
 "TODAY"=>"VANDAAG", // MT
 "TOMORROW"=>"MORGEN", // MT
+"To Do Options"=>"Opties takenlijst", // MT
