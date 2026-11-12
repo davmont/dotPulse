@@ -12,7 +12,7 @@ class forum_messages extends smartsearch
 	var $table_module = 'forums';
 	var $table_key = 'message_id';			// primary key
 	var $table_link = '?m=forums&amp;a=viewer&amp;message_id=';
-	var $table_title = 'Forum messages';
+	var $table_title = 'Forum Messages';
 	var $table_orderby = 'message_title';
 	var $search_fields = array ('message_title', 'message_body');
 	var $display_fields = array ('message_title', 'message_body');
