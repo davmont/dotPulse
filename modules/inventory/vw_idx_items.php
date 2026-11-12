@@ -44,7 +44,7 @@ load_all_items();
 ?>
 
 
-<TABLE BORDER="0" CELLPADDING="3" CELLSPACING="1" CLASS="tbl" WIDTH="100%" >
+<TABLE BORDER="0" CELLPADDING="3" CELLSPACING="1" CLASS="tbl" WIDTH="100%" style="overflow-wrap:anywhere">
 <FORM ACTION="?m=inventory" METHOD="post" ID="markForm">
 	<THEAD>
 	

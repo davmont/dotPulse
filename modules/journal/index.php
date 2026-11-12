@@ -14,10 +14,9 @@ if (!defined('DP_BASE_DIR')) {
 $AppUI->savePlace();
 $module = dPgetParam($_GET, "m", 0);
 
-//if module is not journal get the project_id for filter
-if ($module <> "journal") {
-	$project_id = intval(dPgetParam($_GET, "project_id", 0));
-}
+// The project filter: the project tab's project, or the one picked on the journal page (POST).
+$project_id = ($module <> "journal") ? intval(dPgetParam($_GET, "project_id", 0))
+	: intval(dPgetParam($_POST, "project_id", 0));
 
 //get stuff from db
 $q = new DBQuery();

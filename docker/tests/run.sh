@@ -2,7 +2,7 @@
 # Full audit of the sandbox: every add-on installed, used and removed with no SQL
 # error, PHP warning or broken layout. Run by `make audit-full` after docker/up.sh.
 #
-#   1  reinstall the database; install and activate every add-on module; load the
+#   1  reinstall the database; install, activate and show in the menu every add-on module; load the
 #      sample data (db/sample) and the seed data
 #   2  crawl every page as admin and as worker
 #   3  fill and save every add/edit form as admin and as worker; crawl again with that data
@@ -45,6 +45,7 @@ if has 1; then
 	(cd "$DOCKER_DIR" && ./reset-db.sh) >"$OUT/reset-db.txt" 2>&1 || FAILED+=("reset-db")
 	run "install add-ons" "$TESTS_DIR/modules.sh" install
 	run "activate add-ons" "$TESTS_DIR/modules.sh" toggle
+	run "show add-ons in the menu" "$TESTS_DIR/modules.sh" menu
 	log_mark
 	run "sample data" dc exec -T web php db/sample/sample-data.php
 	run "sample data (log)" log_check "sample data"
@@ -96,6 +97,7 @@ if has 5; then
 	logged "crawl without add-ons" "$TESTS_DIR/crawl.py" admin passwd "$OUT/urls-core.txt" "$OUT/extra-urls.txt"
 	run "reinstall add-ons" "$TESTS_DIR/modules.sh" install
 	run "reactivate add-ons" "$TESTS_DIR/modules.sh" toggle
+	run "show add-ons in the menu again" "$TESTS_DIR/modules.sh" menu
 	logged "crawl after reinstall" "$TESTS_DIR/crawl.py" admin passwd "$OUT/urls-reinstall.txt" "$OUT/extra-urls.txt"
 fi
 

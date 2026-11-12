@@ -193,9 +193,6 @@ $titleBlock->show();
 				<td align="right" nowrap><?php echo $AppUI->_("Display").':'; ?></td>
 				<td align="left" nowrap><?php echo $AppUI->_("%"); ?><input type="radio" name="aff_style" value=0<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if(!$aff_style) echo 'checked'; ?>/></td>
 				<td align="left" nowrap><?php echo $AppUI->_("Daily assigned hours"); ?><input type="radio" name="aff_style" value=1<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if($aff_style) echo 'checked'; ?>/></td>
-				<td align="right" nowrap><?php echo $AppUI->_("Dynamic tasks").':'; ?></td>
-				<td align="left" nowrap><?php echo $AppUI->_("Show"); ?><input type="radio" name="dyna" value=0<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if(!$dyna) echo 'checked'; ?>/></td>
-				<td align="left" nowrap><?php echo $AppUI->_("Hide"); ?><input type="radio" name="dyna" value=1<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if($dyna) echo 'checked'; ?>/></td>
 			</tr>
 			<tr> 
 				<td align="left" colspan=5 nowrap>
@@ -253,7 +250,9 @@ $titleBlock->show();
 					$cBuffer .= '</select>';
 					echo $cBuffer; ?>
 				</td>
-				<td align="left" colspan=3 nowrap>
+			</tr>
+			<tr>
+				<td align="left" colspan=5 nowrap>
 					<?php
 					// The users (rows of the chart) whose contact this user may see.
 					require_once $AppUI->getModuleClass('contacts');
@@ -267,6 +266,9 @@ $titleBlock->show();
 					$userRows = array(0 => $AppUI->_('All Users', UI_OUTPUT_RAW)) + $q->loadHashList();
 					echo arraySelect($userRows, 'contact_id', 'class="text"' . dPaction('submitWithExpandList', array('$this')), $contact_id); ?>
 				</td>				
+				<td align="right" nowrap><?php echo $AppUI->_("Dynamic tasks").':'; ?></td>
+				<td align="left" nowrap><?php echo $AppUI->_("Show"); ?><input type="radio" name="dyna" value=0<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if(!$dyna) echo 'checked'; ?>/></td>
+				<td align="left" nowrap><?php echo $AppUI->_("Hide"); ?><input type="radio" name="dyna" value=1<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if($dyna) echo 'checked'; ?>/></td>
 			</tr>
 		</tbody>
 	</table>

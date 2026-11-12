@@ -31,7 +31,7 @@ $ainfo = "Opportunities is a new 'dotmod' (dotproject module) aiming at capturin
 		?>
 		</td>
 		<td>
-			<textarea name="about" cols="120" readonly="readonly" style="height:100px; font-size:8pt"><?php
+			<textarea name="about" cols="120" readonly="readonly" style="width:100%; box-sizing:border-box; height:100px; font-size:8pt"><?php
 
 				echo dPformSafe($ainfo); 	// use dPformSafe to run several safings on the text used in forms (i18n, htmlspecialchars)
 

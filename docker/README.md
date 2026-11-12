@@ -27,7 +27,7 @@ Notes
 
 `docker/tests/run.sh` checks every add-on module end to end in the sandbox (about an hour locally; CI job `audit-full`):
 
-1. reinstall the database, install and activate every add-on through System > Modules, seed data (`seed.sh`);
+1. reinstall the database, install and activate every add-on through System > Modules and show it in the menu (the crawl only follows links), seed data (`seed.sh`);
 2. crawl every page as admin and as worker (`crawl.py`);
 3. fill and save every add/edit form as admin and as worker (`tools/browser/forms.js`), then crawl again with the saved data;
 4. layout in each theme at 1366x768 plus `LAYOUT_EXTRA` (`tools/browser/layout.js`: no sideways scrolling, no control outside the window; `layout-known.txt` lists accepted exceptions), pop-ups at their window sizes and the task form's tab switching (`tools/browser/popups.js`); the dark theme as admin and as worker (`tools/browser/dark.js`: no light patches, no text under 3:1 on the background it is drawn on, also where scripts set the colour; `dark-known.txt` lists accepted exceptions);

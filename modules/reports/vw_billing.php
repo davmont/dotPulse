@@ -52,8 +52,8 @@ $employees = $qu -> loadList();
 
 //$tasks = array( '0' => "[0, 0, 'All']");
 $tasks = array();
-//$project = array( '0' => "[0, 0, 'All']");
-$project = array();
+//$projects = array( '0' => "[0, 0, 'All']");
+$projects = array();
 $companies = array( '0' => "All");
 $departments = array( '0' => "All");
 //$employees = array( '0' => "[0, 0, 'All']" );

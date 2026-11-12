@@ -45,6 +45,7 @@ $logs = $q -> loadList();
 
 $s = '';
 $hrs = 0;
+$ttl = 0;
 foreach ($logs as $row) {
 	$s .= '<tr bgcolor="white" valign="top">';
 	$s .= "\n\t<td>";

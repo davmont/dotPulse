@@ -38,11 +38,11 @@ if ($domain_id && !$row->load($domain_id)) {
 
 <tr>
 	<td width="50%" valign="top">
-		<table cellspacing="0" cellpadding="2" border="0">
+		<table cellspacing="0" cellpadding="2" border="0" width="100%">
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Domain Name');?></td>
 			<td width="100%" colspan="2">
-				<input type="text" name="domain_name" value="<?php echo dPformSafe( $row->domain_name );?>" size="100" maxlength="150" class="text" />
+				<input type="text" name="domain_name" value="<?php echo dPformSafe( $row->domain_name );?>" size="100" maxlength="150" class="text" style="width:100%; box-sizing:border-box" />
 			</td>
 		</tr>
 		<tr>
@@ -61,13 +61,13 @@ if ($domain_id && !$row->load($domain_id)) {
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Registrar');?></td>
 			<td width="100%" colspan="2">
-				<input type="text" name="domain_registrar" value="<?php echo dPformSafe( $row->domain_status );?>" size="100" maxlength="150" class="text" />
+				<input type="text" name="domain_registrar" value="<?php echo dPformSafe( $row->domain_registrar );?>" size="100" maxlength="150" class="text" style="width:100%; box-sizing:border-box" />
 			</td>
 		</tr>
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Registration Status');?></td>
 			<td width="100%" colspan="2">
-				<input type="text" name="domain_status" value="<?php echo dPformSafe( $row->domain_status );?>" size="100" maxlength="150" class="text" />
+				<input type="text" name="domain_status" value="<?php echo dPformSafe( $row->domain_status );?>" size="100" maxlength="150" class="text" style="width:100%; box-sizing:border-box" />
 			</td>
 		</tr>
 		<tr>
@@ -75,18 +75,18 @@ if ($domain_id && !$row->load($domain_id)) {
 				<?php echo $AppUI->_('Domain Notes');?>
 			</td>
 			<td width="100%" colspan="2">
-				<textarea name="domain_notes" cols="50" rows="10" wrap="virtual" class="textarea"><?php echo dPformSafe( @$row->domain_notes );?></textarea>
+				<textarea name="domain_notes" style="width:100%; box-sizing:border-box" cols="50" rows="10" wrap="virtual" class="textarea"><?php echo dPformSafe( @$row->domain_notes );?></textarea>
 			</td>
 		</tr>
 		</table>
 		<br />
 		<hr /> <!--    .....................  -->
 		<br />
-		<table cellspacing="0" cellpadding="2" border="0">
+		<table cellspacing="0" cellpadding="2" border="0" width="100%">
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Hosting Package');?></td>
 			<td width="100%" colspan="2">
-				<input type="text" name="hosting_package_name" value="<?php echo dPformSafe( $row->hosting_package_name );?>" size="100" maxlength="150" class="text" />
+				<input type="text" name="hosting_package_name" value="<?php echo dPformSafe( $row->hosting_package_name );?>" size="100" maxlength="150" class="text" style="width:100%; box-sizing:border-box" />
 			</td>
 		</tr>
 		
@@ -99,7 +99,7 @@ if ($domain_id && !$row->load($domain_id)) {
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Registration Status');?></td>
 			<td width="100%" colspan="2">
-				<input type="text" name="hosting_status" value="<?php echo dPformSafe( $row->hosting_status );?>" size="100" maxlength="150" class="text" />
+				<input type="text" name="hosting_status" value="<?php echo dPformSafe( $row->hosting_status );?>" size="100" maxlength="150" class="text" style="width:100%; box-sizing:border-box" />
 			</td>
 		</tr>
 		<tr>
@@ -107,7 +107,7 @@ if ($domain_id && !$row->load($domain_id)) {
 				<?php echo $AppUI->_('Hosting Notes');?>
 			</td>
 			<td width="100%" colspan="2">
-				<textarea name="hosting_notes" cols="50" rows="10" wrap="virtual" class="textarea"><?php echo dPformSafe( $row->hosting_notes );?></textarea>
+				<textarea name="hosting_notes" style="width:100%; box-sizing:border-box" cols="50" rows="10" wrap="virtual" class="textarea"><?php echo dPformSafe( $row->hosting_notes );?></textarea>
 			</td>
 		</tr>
 		<tr>

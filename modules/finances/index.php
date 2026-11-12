@@ -127,23 +127,20 @@ if(dPgetParam($_POST, 'edit', 0))
 				<td align="left" nowrap><label for="currency2"><input type="radio" name="currency" id="currency2" value="2"<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if($currency == "2") echo 'checked'; ?> /><?php echo "M".$dPconfig['currency_symbol']; ?></label></td>
 				<td align="right" nowrap><?php echo $AppUI->_("Projects").': '; ?></td>
 				<td align="left" nowrap>
-					<select class="text" name="hideNull" id="hideNull"<?php echo dPaction('submitWithExpandList', array('$this')); ?>>
+					<select class="text" name="hideNull" id="hideNull" style="max-width:180px"<?php echo dPaction('submitWithExpandList', array('$this')); ?>>
 						<option value="0" <?php echo ($hideNull==0)?'selected="selected"':''; ?>><?php echo $AppUI->_("All"); ?></option>
 						<option value="1" <?php echo ($hideNull==1)?'selected="selected"':''; ?>><?php echo $AppUI->_("Only valued projects and tasks"); ?></option>
 						<option value="2" <?php echo ($hideNull==2)?'selected="selected"':''; ?>><?php echo $AppUI->_("Only valued projects"); ?></option>
 						<option value="3" <?php echo ($hideNull==3)?'selected="selected"':''; ?>><?php echo $AppUI->_("Only projects with null budget"); ?></option>
 					</select>
 				</td>
-				<td align="right" nowrap><?php echo $AppUI->_("Amounts").': '; ?></td>	
-				<td align="left" nowrap><label for="tax0"><input type="radio" name="tax" id="tax0" value="0"<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if($tax == "0") echo 'checked'; ?> /><?php echo $AppUI->_("without tax"); ?></label></td>
-				<td align="left" nowrap><label for="tax1"><input type="radio" name="tax" id="tax1" value="1"<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if($tax == "1") echo 'checked'; ?> /><?php echo $AppUI->_("with tax"); ?></label></td>
 			</tr>
 			<tr>
 				<td align="left" nowrap><label for="display0"><input type="radio" name="display" id="display0" value="0"<?php echo dPaction('financesShowDisplay', array(0)); ?> /><?php echo $AppUI->_('Detail'); ?></label></td>
 				<td align="left" nowrap><label for="display1"><input type="radio" name="display" id="display1" value="1"<?php echo dPaction('financesShowDisplay', array(1)); ?> /><?php echo $AppUI->_('Sub Total'); ?></label></td>
 				<td align="left" nowrap><label for="display2"><input type="radio" name="display" id="display2" value="2"<?php echo dPaction('financesShowDisplay', array(2)); ?> /><?php echo $AppUI->_('Total'); ?></label></td>
 				<td align="right" nowrap><?php echo $AppUI->_('Company').'/'.$AppUI->_('Division').':'; ?></td>
-				<td align="left" colspan="4" nowrap>
+				<td align="left" nowrap>
 					<?php
 					$obj_company 	= new CCompany();
 					$companies 		= $obj_company->getAllowedRecords($AppUI->user_id, 'company_id,company_name', 'company_name');
@@ -164,7 +161,7 @@ if(dPgetParam($_POST, 'edit', 0))
 					$rows = $q->loadList();
 					
 					//display the select list
-					$cBuffer = '<select name="company_id"' . dPaction('submitWithExpandList', array('$this')) . ' class="text">';
+					$cBuffer = '<select name="company_id" style="max-width:180px"' . dPaction('submitWithExpandList', array('$this')) . ' class="text">';
 					$cBuffer .= ('<option value="0" style="font-weight:bold;">' . $AppUI->_('All') 
 								 . '</option>'."\n");
 					$cBuffer .= ('<option value="-1" style="font-weight:bold;" '
@@ -192,6 +189,13 @@ if(dPgetParam($_POST, 'edit', 0))
 					echo $cBuffer; ?>
 				</td>
 			</tr>
+			<tr>
+				<td colspan="3"></td>
+				<td align="right" nowrap><?php echo $AppUI->_("Amounts").': '; ?></td>
+				<td align="left" nowrap><label for="tax0"><input type="radio" name="tax" id="tax0" value="0"<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if($tax == "0") echo 'checked'; ?> /><?php echo $AppUI->_("without tax"); ?></label></td>
+				<td align="left" nowrap><label for="tax1"><input type="radio" name="tax" id="tax1" value="1"<?php echo dPaction('submitWithExpandList', array('$this'), 'change'); ?> <?php if($tax == "1") echo 'checked'; ?> /><?php echo $AppUI->_("with tax"); ?></label></td>
+				<td colspan="3"></td>
+			</tr>
 			<?php 
 				$ptypeTemp = dPgetSysVal('ProjectType');
 				$pstatusTemp = dPgetSysVal('ProjectStatus');
@@ -202,14 +206,14 @@ if(dPgetParam($_POST, 'edit', 0))
 			?>
 			<tr>
 				
-				<td align="right" colspan="6">
+				<td align="right" colspan="5">
 					<?php echo $AppUI->_('Project Type').' : ';?>
 					<?php echo arraySelect($ptype, 'project_type', 'id="project_type" size="1" class="text"' . dPaction('submitWithExpandList', array('$this')), $project_type, true);?> 
 				</td>
 				<td align="right" colspan="2">
 					<?php echo $AppUI->_('Project Status').' : ';?> 
 				</td>
-				<td align="left" colspan="3">
+				<td align="left">
 					<?php echo arraySelect($pstatus, 'project_status', 'id="project_status" size="1" class="text"' . dPaction('submitWithExpandList', array('$this')), $project_status, true); ?>		
 				</td>
 				<td align="left" colspan="1">

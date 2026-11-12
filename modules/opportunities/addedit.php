@@ -288,7 +288,7 @@ $titleBlock->show();
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Opportunity');?></td>
 			<td width="100%">
-			<input type="text" name="opportunity_name" value="<?php echo dPformSafe($obj->opportunity_name);?>" size="60" maxlength="60" class="text" />
+			<input type="text" name="opportunity_name" value="<?php echo dPformSafe($obj->opportunity_name);?>" size="60" maxlength="60" class="text" style="width:100%; box-sizing:border-box" />
 			</td>
 		</tr>
 		<tr>
@@ -321,7 +321,7 @@ $titleBlock->show();
 		</tr>
 		<tr><td align="right" nowrap="nowrap"> <?php echo $AppUI->_('Rationale');?></td>
 			<td width="100%">
-				<textarea type="TEXT" name="opportunity_must_rationale" cols="70" rows="4"><?php echo dPformSafe($obj->opportunity_must_rationale); ?></textarea>
+				<textarea type="TEXT" name="opportunity_must_rationale" cols="70" style="width:100%; box-sizing:border-box" rows="4"><?php echo dPformSafe($obj->opportunity_must_rationale); ?></textarea>
 			</td>
 		</tr>
 
@@ -339,25 +339,25 @@ $titleBlock->show();
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Description');?></td>
 			<td width="100%">
-			<textarea name="opportunity_desc" cols="70" style="height:100px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_desc); ?></textarea>
+			<textarea name="opportunity_desc" cols="70" style="width:100%; box-sizing:border-box; height:100px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_desc); ?></textarea>
 			</td>
 		</tr>
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Boundaries');?></td>
 			<td width="100%">
-			<textarea name="opportunity_boundaries" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_boundaries);?></textarea>
+			<textarea name="opportunity_boundaries" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_boundaries);?></textarea>
 			</td> 
 		</tr>
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Background');?></td>
 			<td width="100%">
-			<textarea name="opportunity_background" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_background);?></textarea>
+			<textarea name="opportunity_background" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_background);?></textarea>
 			</td> 
 		</tr>
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Current Way');?></td>
 			<td width="100%">
-			<textarea name="opportunity_curway" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_curway);?></textarea>
+			<textarea name="opportunity_curway" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_curway);?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -411,32 +411,33 @@ $titleBlock->show();
 		<tr><td>&nbsp;</td><td><table><tr>
 		<?php
 			include '6Vexplanation.php';
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['strategy']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 400), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';			
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['strategy']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 400), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';			
 				echo $AppUI->_('Strategy');
 				echo arraySelect( $points, 'opportunity_strategy', 'class="text" size="1"', array_search($obj->opportunity_strategy, $points) );
 			echo '</td>';
 			
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['sholders']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 400), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['sholders']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 400), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
 				echo $AppUI->_('Sholders');
 				echo arraySelect( $points, 'opportunity_sholders', 'class="text" size="1"', array_search($obj->opportunity_sholders, $points) );
 			echo '</td>';
 			
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['risks']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['risks']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 7, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
 				echo $AppUI->_('Risks');
 				echo arraySelect( $points, 'opportunity_risks', 'class="text" size="1"', array_search($obj->opportunity_risks, $points) );			
 			echo '</td>';
+			echo '</tr><tr>'; // three per row: six in one row do not fit a 1024 px window
 
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['sizing']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['sizing']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
 				echo $AppUI->_('Size');
 				echo arraySelect( $points, 'opportunity_sizing', 'class="text" size="1"', array_search($obj->opportunity_sizing, $points) );
 			echo '</td>';
 			
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['horizontality']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['horizontality']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
 				echo $AppUI->_('Horiz');
 				echo arraySelect( $points, 'opportunity_horizontality', 'class="text" size="1"', array_search($obj->opportunity_horizontality, $points) );
 			echo '</td>';
 			
-			echo '<td width="100%" nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['costbenefit']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
+			echo '<td nowrap="nowrap"' . dPaction('overlib', array('<p>' . str_replace(array("\r\n"), '<br>', $explanation['costbenefit']) . '</p>', 1, $AppUI->_('Description', UI_OUTPUT_RAW), 5, 8, 350), 'mouseover mouseout', array('call-mouseout' => 'nd')) . '>';
 				echo $AppUI->_('Benefit/Cost');
 				echo arraySelect( $points, 'opportunity_costbenefit', 'class="text" size="1"', array_search($obj->opportunity_costbenefit, $points) );
 			echo '</td>';
@@ -449,7 +450,7 @@ $titleBlock->show();
 			<?php
 			// the following textarea will either be empty (new quote) or contain the quotes content (edit)
 			?>
-			<textarea name="opportunity_rationale" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_rationale);?></textarea>
+			<textarea name="opportunity_rationale" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_rationale);?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -474,7 +475,7 @@ $titleBlock->show();
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('PreStudy Outcome');?></td>
 			<td width="100%">
-			<textarea name="opportunity_preout" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_preout);?></textarea>
+			<textarea name="opportunity_preout" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_preout);?></textarea>
 			</td>
 		</tr>
 		
@@ -515,7 +516,7 @@ $titleBlock->show();
 					$aRelated = $q->loadList();
 					$q->clear();
 				$i = 0;
-				echo '<select type="TEXT" name="EmptyName" size="7" style="width:360px; color: #A0A0A0; " MULTIPLE="MULTIPLE"' . dPaction('CheckForInputRelProjs', array(), 'click') . '>';
+				echo '<select type="TEXT" name="EmptyName" size="7" style="width:100%; max-width:360px; box-sizing:border-box; color: #A0A0A0; " MULTIPLE="MULTIPLE"' . dPaction('CheckForInputRelProjs', array(), 'click') . '>';
 					foreach ($aRelated as $r) {
 						echo '<option value="'.(int)$r['opportunity_project_projects'].'">'.dPhtml(@$projects[$r['opportunity_project_projects']]).'</option>';
 						$i++;
@@ -539,14 +540,14 @@ $titleBlock->show();
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Observations');?></td>
 			<td width="100%">
-			<textarea name="opportunity_comments" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_comments);?></textarea>
+			<textarea name="opportunity_comments" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_comments);?></textarea>
 			</td>
 		</tr>
 
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Proposal');?></td>
 			<td width="100%">
-			<textarea name="opportunity_proposal" cols="70" style="height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_proposal);?></textarea>
+			<textarea name="opportunity_proposal" cols="70" style="width:100%; box-sizing:border-box; height:50px; font-size:8pt"><?php echo dPformSafe($obj->opportunity_proposal);?></textarea>
 			</td>
 		</tr>
 			
