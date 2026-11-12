@@ -167,19 +167,22 @@ class CAppUI
 	 */
 	function getVersion()
 	{
-		global $dPconfig;
-		if (!(isset($this->version_major))) {
-			include_once(DP_BASE_DIR . '/includes/version.php');
-			$this->version_major = $dp_version_major;
-			$this->version_minor = $dp_version_minor;
-			$this->version_patch = $dp_version_patch;
-			$this->version_string = ($this->version_major . '.' . $this->version_minor);
-			if (isset($this->version_patch)) {
-				$this->version_string .= '.' . $this->version_patch;
-			}
-			if (isset($dp_version_prepatch)) {
-				$this->version_string .= '-' . $dp_version_prepatch;
-			}
+		// Read on every request: this object lives in the session, so a value
+		// cached on it would keep showing the version the user logged in under.
+		static $version = null;
+		if ($version === null) {
+			// include, not include_once: the installer may have loaded it already.
+			include(DP_BASE_DIR . '/includes/version.php');
+			$version = array($dp_version_major, $dp_version_minor,
+				$dp_version_patch ?? null, $dp_version_prepatch ?? null);
+		}
+		list($this->version_major, $this->version_minor, $this->version_patch) = $version;
+		$this->version_string = ($this->version_major . '.' . $this->version_minor);
+		if (isset($this->version_patch)) {
+			$this->version_string .= '.' . $this->version_patch;
+		}
+		if (isset($version[3])) {
+			$this->version_string .= '-' . $version[3];
 		}
 		return $this->version_string;
 	}
@@ -1200,7 +1203,7 @@ class CTabBox_core
 		} else {
 			// tabbed view
 			$s = '<table width="100%" border="0" cellpadding="3" cellspacing="0">' . "\n" . '<tr>';
-			if (count($this->tabs) - 1 < $this->active) {
+			if (!isset($this->tabs[$this->active])) { // keys need not be 0..n-1 (projects: 500, 501)
 				//Last selected tab is not available in this view. eg. Child tasks
 				// Breaks classic view.
 				// $this->active = 0;

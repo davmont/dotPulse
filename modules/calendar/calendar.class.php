@@ -324,6 +324,8 @@ class CMonthCalendar
 			$q->addQuery('contact_birthday, contact_last_name, contact_first_name, contact_id');
 			$m = str_pad($this_month, 2, '0', STR_PAD_LEFT);
 			$q->addWhere("contact_birthday LIKE '%-$m-%'");
+			// Only contacts this user may see (private ones are their owner's).
+			$q->addWhere(dPcalendarVisibleContacts());
 			$rows = $q->loadList();
 			if ($rows) {
 				foreach ($rows as $row) {
@@ -464,6 +466,8 @@ class CMonthCalendar
 			$q->addQuery('contact_birthday, contact_last_name, contact_first_name, contact_id');
 			$m_str = str_pad((string)$m, 2, '0', STR_PAD_LEFT);
 			$q->addWhere("contact_birthday LIKE '%-$m_str-%'");
+			// Only contacts this user may see (private ones are their owner's).
+			$q->addWhere(dPcalendarVisibleContacts());
 			$month_rows = $q->loadList();
 			if ($month_rows) {
 				foreach ($month_rows as $row) {
@@ -1005,4 +1009,11 @@ class CEvent extends CDpObject
 
 $event_filter_list = array('my' => 'My Events', 'own' => 'Events I Created', 'all' => 'All Events');
 
+/** Birthdays: the contacts the contacts list would show the current user. */
+function dPcalendarVisibleContacts()
+{
+	global $AppUI;
+	require_once $AppUI->getModuleClass('contacts');
+	return CContact::visibleWhere($AppUI->user_id, 'con.');
+}
 ?>
