@@ -201,7 +201,7 @@
 "back",
 "cancel",
 "canCopyPaste"=>"(You can use copy/paste)",
-"chgpwNoMatch"=>"The new password don\'t match",
+"chgpwNoMatch"=>"The new passwords don\'t match",
 "chgpwUpdated"=>"Your password has been updated",
 "chgpwValidNew"=>"Please enter a valid new password with minimal length of ",
 "chgpwValidOld"=>"Please enter a valid old password",

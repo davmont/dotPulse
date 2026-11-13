@@ -6,3 +6,4 @@
 "demo1"=>"範例風格",
 "dp-grey-theme"=>"灰色細線樣式", // MT
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse 深色", // MT

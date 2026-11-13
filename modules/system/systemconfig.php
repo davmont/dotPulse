@@ -80,7 +80,7 @@ function dPconfigControl($c, $dPcfg)
 		return arraySelect($steps, $field, 'id="' . $id . '"', (int)$value);
 	}
 	if ($name == 'host_style' || $name == 'host_locale') {
-		$options = $AppUI->readDirs($name == 'host_style' ? 'style' : 'locales');
+		$options = (($name == 'host_style') ? dPstyleOptions() : $AppUI->readDirs('locales'));
 		unset($options['CVS'], $options['.svn']);
 		if (!isset($options[$value])) {
 			$options[$value] = $value;

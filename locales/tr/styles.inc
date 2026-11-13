@@ -6,3 +6,4 @@
 "demo1"=>"Demo sitili",
 "dp-grey-theme"=>"Gri İnce stil", // MT
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse koyu", // MT

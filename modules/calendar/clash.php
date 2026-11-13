@@ -20,6 +20,10 @@ if (isset($_POST['clash_action'])) {
 		include $do_include;
 	}
 } else {
+	// Only the event handler includes this page, with the event that clashes.
+	if (!isset($obj) || !is_object($obj)) {
+		$AppUI->redirect('m=calendar');
+	}
 
 ?>
 <script type="text/javascript" language="javascript" nonce="<?php echo dPcspNonce(); ?>">
@@ -42,7 +46,7 @@ if (isset($_POST['clash_action'])) {
 	$_SESSION['add_event_attendees'] = $_POST['event_assigned'];
 	$_SESSION['add_event_mail'] = isset($_POST['mail_invited']) ? $_POST['mail_invited'] : 'off';
 	
-	echo '<table width="100%" summary="Attendee Clash" class="std"><tr><td><b>' . $AppUI->_('clashEvent') . '</b></tr></tr>';
+	echo '<table width="100%" summary="Attendee Clash" class="std"><tr><td><b>' . $AppUI->_('clashEvent') . '</b></td></tr>';
 	foreach ($clash as $user) {
 		echo '<tr><td>' . htmlspecialchars((string)$user, ENT_QUOTES) . "</td></tr>\n";
 	}

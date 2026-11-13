@@ -64,9 +64,10 @@ function getTaskLinks($startPeriod, $endPeriod, &$links, $strMaxLen, $company_id
 			$links[$start->format(FMT_TIMESTAMP_DATE)][] = $temp;
 		}
 		if (
-			$end && ((!$start || $start->before($end))
+			$end
+			&& (!$start || $start->before($end))
 			&& ($end->after($startPeriod) || $end->equals($startPeriod))
-			|| ($end->before($endPeriod) || $end->equals($endPeriod)))
+			&& ($end->before($endPeriod) || $end->equals($endPeriod))
 		) {
 			$temp = $link;
 			$temp['alt'] = ("FINISH\n" . $link['alt']);

@@ -6,3 +6,4 @@
 "demo1"=>"Een demo stijl",
 "dp-grey-theme"=>"Grijze slimline-stijl", // MT
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse donker", // MT

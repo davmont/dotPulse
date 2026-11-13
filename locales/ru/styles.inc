@@ -6,3 +6,4 @@
 "demo1"=>"Демо стиль",
 "dp-grey-theme"=>"Серый узкий стиль", // MT
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse тёмный", // MT
