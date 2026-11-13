@@ -358,3 +358,8 @@
 "TODAY"=>"오늘", // MT
 "TOMORROW"=>"내일", // MT
 "To Do Options"=>"할 일 옵션", // MT
+"Task not found."=>"작업을 찾을 수 없습니다.", // MT
+"You may not edit this task."=>"이 작업을 편집할 수 없습니다.", // MT
+"The dates and progress of a task group come from its tasks."=>"작업 그룹의 날짜와 진행률은 하위 작업에서 정해집니다.", // MT
+"Invalid dates."=>"날짜가 올바르지 않습니다.", // MT
+"Nothing to save."=>"저장할 내용이 없습니다.", // MT

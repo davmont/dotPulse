@@ -358,3 +358,8 @@
 "Month"=>"Mese", // MT
 "Print"=>"Stampa", // MT
 "No items to display."=>"Nessun elemento da visualizzare.", // MT
+"Saving..."=>"Salvataggio...", // MT
+"Saved."=>"Salvato.", // MT
+"The change could not be saved."=>"Impossibile salvare la modifica.", // MT
+"Only task bars can be moved here."=>"Qui si possono spostare solo le barre delle attività.", // MT
+"This chart only shows the dates."=>"Questo grafico mostra solo le date.", // MT

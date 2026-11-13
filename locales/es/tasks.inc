@@ -384,3 +384,6 @@
 "TODAY"=>"HOY",
 "TOMORROW"=>"MAÑANA",
 "To Do Options"=>"Opciones de tareas a realizar",
+"The dates and progress of a task group come from its tasks."=>"Las fechas y el progreso de un grupo de tareas vienen de sus tareas.",
+"Invalid dates."=>"Fechas no válidas.",
+"Nothing to save."=>"Nada que guardar.",

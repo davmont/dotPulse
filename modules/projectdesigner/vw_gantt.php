@@ -14,7 +14,7 @@ $projectStatus = dPgetSysVal( 'ProjectStatus' );
     <td align="center" colspan="20">
 <?php
       require_once DP_BASE_DIR . '/classes/gantt_renderer.class.php';
-      GanttRenderer::render('dp-pd-gantt', GanttRenderer::projectTaskRows($project_id), '', 'Week');
+      GanttRenderer::render('dp-pd-gantt', GanttRenderer::projectTaskRows($project_id), '', 'Week', true);
 ?>
 </td>
 </table>

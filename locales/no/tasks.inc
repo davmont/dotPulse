@@ -358,3 +358,8 @@
 "TODAY"=>"I DAG", // MT
 "TOMORROW"=>"I MORGEN", // MT
 "To Do Options"=>"Alternativer for gjøremål", // MT
+"Task not found."=>"Fant ikke oppgaven.", // MT
+"You may not edit this task."=>"Du kan ikke redigere denne oppgaven.", // MT
+"The dates and progress of a task group come from its tasks."=>"Datoene og fremdriften til en oppgavegruppe kommer fra oppgavene i den.", // MT
+"Invalid dates."=>"Ugyldige datoer.", // MT
+"Nothing to save."=>"Ingenting å lagre.", // MT

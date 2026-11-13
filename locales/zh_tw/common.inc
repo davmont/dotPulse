@@ -358,3 +358,8 @@
 "Month"=>"月", // MT
 "Print"=>"列印", // MT
 "No items to display."=>"沒有可顯示的項目。", // MT
+"Saving..."=>"儲存中...", // MT
+"Saved."=>"已儲存。", // MT
+"The change could not be saved."=>"無法儲存變更。", // MT
+"Only task bars can be moved here."=>"這裡只能移動任務列。", // MT
+"This chart only shows the dates."=>"此圖表僅顯示日期。", // MT

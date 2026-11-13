@@ -367,3 +367,8 @@
 "TODAY"=>"ДНЕС", // MT
 "TOMORROW"=>"УТРЕ", // MT
 "To Do Options"=>"Опции за задачи за изпълнение", // MT
+"Task not found."=>"Задачата не е намерена.", // MT
+"You may not edit this task."=>"Нямате право да редактирате тази задача.", // MT
+"The dates and progress of a task group come from its tasks."=>"Датите и напредъкът на група задачи идват от нейните задачи.", // MT
+"Invalid dates."=>"Невалидни дати.", // MT
+"Nothing to save."=>"Няма нищо за записване.", // MT

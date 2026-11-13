@@ -312,7 +312,7 @@ foreach ((array)$projects_list as $p) {
 }
 
 if (!empty($gantt_tasks)) {
-    GanttRenderer::render('dp-projects-gantt', $gantt_tasks, '', 'Week');
+    GanttRenderer::render('dp-projects-gantt', $gantt_tasks, '', 'Week', true);
 } else {
     echo '<p>' . $AppUI->_('No projects found') . '</p>';
 }

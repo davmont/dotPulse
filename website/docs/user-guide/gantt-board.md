@@ -25,8 +25,15 @@ You find Gantt charts in several places:
 - On task charts, arrows link a task to the tasks it depends on.
 - **Print** prints the page.
 
-!!! note
-    The chart is for viewing. Dragging a bar does not change the task. To change dates, edit the task.
+### Change dates and progress on the chart
+
+If you may edit a task, you can change it on a task chart (a project's **Gantt Chart** tab, the tasks Gantt, or the projects chart with **Show Tasks**):
+
+- **Drag a bar** to move the task: it keeps its length and its start and end times of day.
+- **Drag either end of a bar** to change the start or the finish day.
+- **Drag the progress handle** (the small triangle under the bar) to change the percent complete.
+
+The change is saved at once, and the line under the chart says **Saved.** A task group's bar follows its tasks, so it cannot be dragged; nor can a project's bar. Tasks set to track their dependencies move with the task they depend on, and the page reloads to show them. If the change cannot be saved, the bar goes back and the line under the chart says why.
 
 A bar with no start date starts today (on the projects chart, a task with no start date starts with its project). A bar with no end date, or an end date before its start, is drawn one day long.
 

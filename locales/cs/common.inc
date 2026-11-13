@@ -358,3 +358,8 @@
 "Month"=>"Měsíc", // MT
 "Print"=>"Tisk", // MT
 "No items to display."=>"Žádné položky k zobrazení.", // MT
+"Saving..."=>"Ukládání...", // MT
+"Saved."=>"Uloženo.", // MT
+"The change could not be saved."=>"Změnu se nepodařilo uložit.", // MT
+"Only task bars can be moved here."=>"Zde lze přesouvat jen pruhy úkolů.", // MT
+"This chart only shows the dates."=>"Tento graf data jen zobrazuje.", // MT

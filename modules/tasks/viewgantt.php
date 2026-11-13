@@ -459,7 +459,7 @@ $q->clear();
 $gantt_tasks = GanttRenderer::taskRows($raw_tasks);
 
 if (!empty($gantt_tasks)) {
-    GanttRenderer::render('dp-task-gantt', $gantt_tasks, '', 'Week');
+    GanttRenderer::render('dp-task-gantt', $gantt_tasks, '', 'Week', true);
 } else {
     echo '<p>' . $AppUI->_('No tasks to display') . '</p>';
 }

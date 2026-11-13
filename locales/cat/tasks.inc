@@ -367,3 +367,8 @@
 "TODAY"=>"AVUI", // MT
 "TOMORROW"=>"DEMÀ", // MT
 "To Do Options"=>"Opcions de pendents", // MT
+"Task not found."=>"No s'ha trobat la tasca.", // MT
+"You may not edit this task."=>"No podeu editar aquesta tasca.", // MT
+"The dates and progress of a task group come from its tasks."=>"Les dates i el progrés d'un grup de tasques vénen de les seves tasques.", // MT
+"Invalid dates."=>"Dates no vàlides.", // MT
+"Nothing to save."=>"No hi ha res a desar.", // MT

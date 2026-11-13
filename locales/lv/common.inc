@@ -358,3 +358,8 @@
 "Month"=>"Mēnesis", // MT
 "Print"=>"Drukāt", // MT
 "No items to display."=>"Nav vienumu, ko parādīt.", // MT
+"Saving..."=>"Saglabā...", // MT
+"Saved."=>"Saglabāts.", // MT
+"The change could not be saved."=>"Izmaiņas neizdevās saglabāt.", // MT
+"Only task bars can be moved here."=>"Šeit var pārvietot tikai uzdevumu joslas.", // MT
+"This chart only shows the dates."=>"Šī diagramma tikai parāda datumus.", // MT

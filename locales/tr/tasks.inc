@@ -358,3 +358,8 @@
 "TODAY"=>"BUGÜN", // MT
 "TOMORROW"=>"YARIN", // MT
 "To Do Options"=>"Yapılacaklar seçenekleri", // MT
+"Task not found."=>"Görev bulunamadı.", // MT
+"You may not edit this task."=>"Bu görevi düzenleyemezsiniz.", // MT
+"The dates and progress of a task group come from its tasks."=>"Bir görev grubunun tarihleri ve ilerlemesi görevlerinden gelir.", // MT
+"Invalid dates."=>"Geçersiz tarihler.", // MT
+"Nothing to save."=>"Kaydedilecek bir şey yok.", // MT

@@ -370,3 +370,8 @@
 "TODAY"=>"今天", // MT
 "TOMORROW"=>"明天", // MT
 "To Do Options"=>"待办选项", // MT
+"Task not found."=>"找不到任务。", // MT
+"You may not edit this task."=>"您不能编辑此任务。", // MT
+"The dates and progress of a task group come from its tasks."=>"任务组的日期和进度来自其任务。", // MT
+"Invalid dates."=>"日期无效。", // MT
+"Nothing to save."=>"没有要保存的内容。", // MT

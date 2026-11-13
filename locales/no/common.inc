@@ -358,3 +358,8 @@
 "Month"=>"Måned", // MT
 "Print"=>"Skriv ut", // MT
 "No items to display."=>"Ingen elementer å vise.", // MT
+"Saving..."=>"Lagrer...", // MT
+"Saved."=>"Lagret.", // MT
+"The change could not be saved."=>"Endringen kunne ikke lagres.", // MT
+"Only task bars can be moved here."=>"Her kan bare oppgavestolper flyttes.", // MT
+"This chart only shows the dates."=>"Dette diagrammet viser bare datoene.", // MT

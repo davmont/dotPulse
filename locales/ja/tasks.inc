@@ -364,3 +364,8 @@
 "TODAY"=>"今日", // MT
 "TOMORROW"=>"明日", // MT
 "To Do Options"=>"ToDo オプション", // MT
+"Task not found."=>"タスクが見つかりません。", // MT
+"You may not edit this task."=>"このタスクを編集する権限がありません。", // MT
+"The dates and progress of a task group come from its tasks."=>"タスクグループの日付と進捗はそのタスクから決まります。", // MT
+"Invalid dates."=>"日付が無効です。", // MT
+"Nothing to save."=>"保存するものがありません。", // MT

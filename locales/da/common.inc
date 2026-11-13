@@ -358,3 +358,8 @@
 "Month"=>"Måned", // MT
 "Print"=>"Udskriv", // MT
 "No items to display."=>"Ingen elementer at vise.", // MT
+"Saving..."=>"Gemmer...", // MT
+"Saved."=>"Gemt.", // MT
+"The change could not be saved."=>"Ændringen kunne ikke gemmes.", // MT
+"Only task bars can be moved here."=>"Her kan kun opgavebjælker flyttes.", // MT
+"This chart only shows the dates."=>"Dette diagram viser kun datoerne.", // MT

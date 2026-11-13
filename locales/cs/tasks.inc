@@ -358,3 +358,8 @@
 "TODAY"=>"DNES", // MT
 "TOMORROW"=>"ZÍTRA", // MT
 "To Do Options"=>"Možnosti úkolů k provedení", // MT
+"Task not found."=>"Úkol nenalezen.", // MT
+"You may not edit this task."=>"Tento úkol nemůžete upravovat.", // MT
+"The dates and progress of a task group come from its tasks."=>"Data a postup skupiny úkolů vycházejí z jejích úkolů.", // MT
+"Invalid dates."=>"Neplatná data.", // MT
+"Nothing to save."=>"Není co uložit.", // MT

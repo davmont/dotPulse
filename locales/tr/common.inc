@@ -358,3 +358,8 @@
 "Month"=>"Ay", // MT
 "Print"=>"Yazdır", // MT
 "No items to display."=>"Görüntülenecek öğe yok.", // MT
+"Saving..."=>"Kaydediliyor...", // MT
+"Saved."=>"Kaydedildi.", // MT
+"The change could not be saved."=>"Değişiklik kaydedilemedi.", // MT
+"Only task bars can be moved here."=>"Burada yalnızca görev çubukları taşınabilir.", // MT
+"This chart only shows the dates."=>"Bu grafik yalnızca tarihleri gösterir.", // MT
