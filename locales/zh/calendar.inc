@@ -110,3 +110,4 @@
 "next day"=>"后一天", // MT
 "previous week"=>"上一周", // MT
 "next week"=>"下一周", // MT
+"Holiday"=>"节假日", // MT

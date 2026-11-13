@@ -161,6 +161,13 @@ calendar you change its dates on the task itself. See [Tasks](tasks.md).
 
 ## Holidays
 
-The calendar doesn't mark public holidays. If your administrator uses the
-holiday module, holidays count as non-working days in the rest of dotPulse: for
-example, **Suggest Alternative** skips them when it looks for a free slot.
+If your administrator uses the holiday module, the calendar marks the holidays
+of your workplace (your holiday calendar, see
+[Set up holiday calendars](../getting-started/first-steps.md#6-set-up-holiday-calendars)):
+
+- in the month and week views, a holiday is shaded and shows its name;
+- in the small month calendars, it is shaded and shows its name when you point at it;
+- in the day view, its name follows the date.
+
+Holidays also count as non-working days in the rest of dotPulse: for example,
+**Suggest Alternative** skips them when it looks for a free slot.

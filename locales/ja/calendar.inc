@@ -116,3 +116,4 @@
 "next day"=>"翌日", // MT
 "previous week"=>"前週", // MT
 "next week"=>"翌週", // MT
+"Holiday"=>"祝日", // MT

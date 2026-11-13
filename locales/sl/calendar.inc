@@ -110,3 +110,4 @@
 "next day"=>"naslednji dan", // MT
 "previous week"=>"prejšnji teden", // MT
 "next week"=>"naslednji teden", // MT
+"Holiday"=>"Praznik", // MT

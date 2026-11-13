@@ -23,6 +23,7 @@
 	--dp-row-line: #EDF1F6;
 	--dp-today: #E3ECFB;
 	--dp-weekend: #F7F8FB;
+	--dp-holiday: #FBF3E2;
 	--dp-muted: #8A93A1;
 	--dp-faint: #7F8897;
 	/* Edges of form controls and the focus ring: 3:1 on the page (tools/checks/theme-contrast.py). */
@@ -404,3 +405,9 @@ table.minical .event { font-weight: 700; }
 	body:not(.dp-dialog) .dp-page img { max-width: 100%; height: auto; }
 	body:not(.dp-dialog) .dp-page pre { white-space: pre-wrap; word-break: break-word; }
 }
+
+/* Holidays of the user's workplace (modules/calendar/calendar.class.php) */
+table.mocal td.holiday:not(.today), table.minical td.holiday:not(.today), table.popcal td.holiday:not(.today),
+td.weekDay.holiday { background-color: var(--dp-holiday); }
+div.holiday, span.holiday { font-size: 12px; font-style: italic; color: var(--dp-ink); margin: 2px 0; }
+span.holiday { margin-left: 8px; }

@@ -110,7 +110,11 @@ echo dPshowImage(dPfindImage('prev.gif'), 16, 16, $AppUI->_('previous day')); ?>
 						</td>
 						<th width="100%">
 					<?php 
-echo ($AppUI->_($this_day->format('%A')) . ', ' . $this_day->format($df)); ?>
+echo ($AppUI->_($this_day->format('%A')) . ', ' . $this_day->format($df));
+$day_holidays = dPcalendarHolidays($this_day->format('%Y-%m-%d'), $this_day->format('%Y-%m-%d'));
+if ($day_holidays) {
+	echo ' <span class="holiday">' . dPhtml(reset($day_holidays)) . '</span>';
+} ?>
 						</th>
 						<td>
 					<a href="<?php 
