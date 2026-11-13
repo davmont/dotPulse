@@ -81,7 +81,8 @@ Below it, a thinner bar greets you by name and has these links:
 
 - **Project tips**: a bell that appears on the pages of a project. See
   [Your dashboard](dashboard.md#project-tips).
-- **Help**: opens dotPulse's help in a small window.
+- **Help**: opens this documentation in a new tab, at the page about the part of
+  dotPulse you are in (the projects list opens [Projects](projects.md), for example).
 - **My Info**: your account page. See [Your account and preferences](preferences.md).
 - **Todo**: your list of tasks to do (**My Tasks To Do**).
 - **Today**: today in the calendar's day view.
@@ -104,7 +105,7 @@ Each page starts with a title block.
   list you came from.
 - **A delete link**, such as **delete company**, sits on the right of that line
   when you are allowed to delete the item. dotPulse asks you to confirm first.
-- **The help icon**, at the far right of the title, opens the help for the page.
+- **The help icon**, at the far right of the title, opens the documentation for the page.
 
 ## Messages
 

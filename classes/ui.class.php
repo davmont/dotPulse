@@ -1446,8 +1446,7 @@ class CTitleBlock_core
 									. 'border="0" alt="'.$AppUI->_('Help').'" />'), 
 								   $this->helpref));
 			*/
-			$s .= ("\n\t" . '<a href="#' . $this->helpref . '"'
-				. dPaction('window.open', array('?m=help&dialog=1&hid=' . $this->helpref, 'contexthelp', 'width=400,height=400,left=50,top=50,scrollbars=yes,resizable=yes'))
+			$s .= ("\n\t" . '<a href="' . dPhtml(dPhelpUrl($this->helpref ?: ($this->module . '.' . $GLOBALS['a']))) . '" target="_blank" rel="noopener"'
 				. ' title="' . $AppUI->_('Help') . '">');
 			$s .= "\n\t\t" . dPshowImage(
 				'./images/icons/stock_help-16.png',

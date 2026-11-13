@@ -186,15 +186,62 @@ function breadCrumbs(&$arr)
 	return implode(' <strong>:</strong> ', $crumbs);
 }
 
+/**
+ * The documentation page for a page of the application: $ref is "module.action" (the help
+ * reference of a title block, "projects.view"), or a module alone. The documentation is the
+ * website (https://www.dotpulse.org/); $dPconfig['help_url'] in includes/config.php points
+ * the links at another copy of it.
+ */
+function dPhelpUrl($ref = '')
+{
+	$base = rtrim((string)dPgetConfig('help_url', 'https://www.dotpulse.org/'), '/') . '/';
+	$parts = explode('.', (string)$ref);
+	$mod = $parts[0];
+	$act = isset($parts[1]) ? $parts[1] : '';
+	// Pages with their own section first, then each module's page.
+	$pages = array(
+		'projects.viewgantt' => 'user-guide/gantt-board/#the-projects-chart',
+		'tasks.viewgantt' => 'user-guide/gantt-board/',
+		'tasks.todo' => 'user-guide/tasks/',
+		'admin.viewuser' => 'user-guide/preferences/',
+		'admin.addedituser' => 'user-guide/preferences/#change-your-details',
+		'system.addeditpref' => 'user-guide/preferences/',
+		'public.chpwd' => 'user-guide/preferences/#change-your-password',
+	);
+	$modules = array(
+		'dashboard' => 'user-guide/dashboard/',
+		'projects' => 'user-guide/projects/',
+		'tasks' => 'user-guide/tasks/',
+		'companies' => 'user-guide/companies-contacts/',
+		'departments' => 'user-guide/companies-contacts/',
+		'contacts' => 'user-guide/companies-contacts/',
+		'calendar' => 'user-guide/calendar/',
+		'files' => 'user-guide/files-forums-links/#files',
+		'forums' => 'user-guide/files-forums-links/#forums',
+		'links' => 'user-guide/files-forums-links/#links',
+		'smartsearch' => 'user-guide/search/',
+		'holiday' => 'getting-started/first-steps/#6-set-up-holiday-calendars',
+		'admin' => 'getting-started/first-steps/#4-add-your-users',
+		'system' => 'getting-started/first-steps/',
+	);
+	if (isset($pages[$mod . '.' . $act])) {
+		return $base . $pages[$mod . '.' . $act];
+	}
+	return $base . (isset($modules[$mod]) ? $modules[$mod] : 'user-guide/');
+}
+
 ##
-## generate link for context help
+## generate link for context help: the documentation of the page shown (or of $link,
+## "module.action"), in a new tab
 ##
 function dPcontextHelp($title, $link = '')
 {
-	global $AppUI;
-	return ('<a href="#' . $AppUI->___($link) . '"'
-		. dPaction('window.open', array('?m=help&dialog=1&hid=' . $link, 'contexthelp', 'width=400,height=400,left=50,top=50,scrollbars=yes,resizable=yes'))
-		. '>' . $AppUI->_($title) . '</a>');
+	global $AppUI, $m, $a;
+	if ($link === '') {
+		$link = $m . '.' . $a;
+	}
+	return ('<a href="' . dPhtml(dPhelpUrl($link)) . '" target="_blank" rel="noopener">'
+		. $AppUI->_($title) . '</a>');
 }
 
 /**
