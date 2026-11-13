@@ -89,7 +89,7 @@ $thispage = "?m=$m&amp;a=viewer&amp;forum_id=$forum_id&amp;message_id=$message_i
 	<?php 
 if ($canEdit && ($AppUI->user_id == $forum['forum_moderated'] 
                  || (isset($messages[0]) && $AppUI->user_id == $messages[0]['message_author']) 
-                 || getPermission('project', 'edit', $forum['forum_project']) 
+                 || getPermission('projects', 'edit', $forum['forum_project']) 
                  || !($forum['forum_project']))) { 
 ?>
 		<input type="button" class="button" value="<?php echo $AppUI->_('Post Reply');?>"<?php echo dPaction(null, array(), null, array('href' => './index.php?m=forums&a=viewer&forum_id=' . (int)$forum_id . '&message_parent=' . (int)$message_id . '&post_message=1')); ?> />
@@ -127,6 +127,7 @@ if ($viewtype == 'single') {
 }
 
 $new_messages = array();
+$canDeleteMsg = getPermission('forums', 'delete', $forum_id);
 
 foreach ($messages as $row) {
 	// Find the parent message - the topic.
@@ -190,24 +191,29 @@ foreach ($messages as $row) {
 		       .$date->format("$df $tf") . '</td>');
 		$s .= '<td valign="top" align="right" style="' . $style . '">';
 		
-		//the following users are allowed to edit/delete a forum message: 
-		//1. the forum creator  2. a superuser with read-write access to 'all' 3. the message author
-		$canEdit = getPermission('forums', 'edit', $row['message_id']);
-		if ($canEdit && ($AppUI->user_id == $row['forum_moderated'] 
-		                 || $AppUI->user_id == $row['message_author'] 
-		                 || getPermission('admin', 'edit'))) {
+		// Who may edit or delete a message, as do_post_aed.php checks: an editor of the
+		// forum who is the message author, the forum owner or moderator, or an editor of
+		// the forum's project; deleting also needs delete permission on the forum.
+		$canChangeMsg = $canEdit && ($AppUI->user_id == $row['message_author'] 
+		                 || $AppUI->user_id == $forum['forum_owner'] 
+		                 || $AppUI->user_id == $forum['forum_moderated'] 
+		                 || ($forum['forum_project'] 
+		                     && getPermission('projects', 'edit', $forum['forum_project'])));
+		if ($canChangeMsg) {
 			$s .= '<table cellspacing="0" cellpadding="0" border="0"><tr>';
 			// edit message
 			$s .= ('<td><a href="?m=forums&amp;a=viewer&amp;post_message=1&amp;forum_id=' . $row['message_forum'] 
 			       . '&amp;message_parent=' . $row['message_parent'] . '&amp;message_id=' . $row['message_id'] . '" title="' 
 			       . $AppUI->_('Edit') . ' ' . $AppUI->_('Message') . '">');
 			$s .= dPshowImage('./images/icons/stock_edit-16.png', '16', '16');
-			$s .= '</td><td>';
-			// delete message
-			$s .= '<a href="#"' . dPaction('delIt', array((int)$row['message_id'])) . ' title="' . $AppUI->_('delete') . '">';
-			$s .= dPshowImage('./images/icons/stock_delete-16.png', '16', '16');
-			$s .= '</a>';
-			$s .= '</td></tr></table>';
+			$s .= '</a></td>';
+			if ($canDeleteMsg) {
+				// delete message
+				$s .= '<td><a href="#"' . dPaction('delIt', array((int)$row['message_id'])) . ' title="' . $AppUI->_('delete') . '">';
+				$s .= dPshowImage('./images/icons/stock_delete-16.png', '16', '16');
+				$s .= '</a></td>';
+			}
+			$s .= '</tr></table>';
 		}
 		$s .= '</td>';
 		$s .= '</tr>';
@@ -280,7 +286,7 @@ if ($viewtype == 'single') {
 		<?php 
 if ($canEdit && ($AppUI->user_id == $forum['forum_moderated'] 
                  || (isset($messages[0]) && $AppUI->user_id == $messages[0]['message_author']) 
-                 || getPermission('project', 'edit', $forum['forum_project']) 
+                 || getPermission('projects', 'edit', $forum['forum_project']) 
                  || !($forum['forum_project']))) { 
 ?>
 		<input type="button" class="button" value="<?php echo $AppUI->_('Post Reply');?>"<?php echo dPaction(null, array(), null, array('href' => './index.php?m=forums&a=viewer&forum_id=' . (int)$forum_id . '&message_parent=' . (int)$message_id . '&post_message=1')); ?> />

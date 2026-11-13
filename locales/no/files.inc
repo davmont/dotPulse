@@ -101,3 +101,4 @@
 "back to root folder"=>"tilbake til rotmappen", // MT
 "back to parent folder"=>"tilbake til overordnet mappe", // MT
 "edit folder"=>"endre mappe", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"En fil som lastes opp her, erstatter den nåværende, som ikke beholdes. For å beholde tidligere versjoner, sjekk ut filen fra fillisten og last opp den nye versjonen når du sjekker den inn.", // MT

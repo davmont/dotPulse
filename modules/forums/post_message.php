@@ -181,8 +181,8 @@ if ($message_parent > -1) {
 					if (
 						$canEdit && ($forum_info['forum_owner'] == $AppUI->user_id
 							|| $forum_info['forum_moderated'] == $AppUI->user_id
-							|| (getPermission('projects', 'edit', $forum_info['project_id'])
-								&& !($forum_info['project_id']))
+							|| ($forum_info['project_id']
+								&& getPermission('projects', 'edit', $forum_info['project_id']))
 							|| (is_array($message_info) && $message_info['message_author'] == $AppUI->user_id)
 							|| !($message_id))
 					) {

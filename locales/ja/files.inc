@@ -107,3 +107,4 @@
 "back to root folder"=>"ルートフォルダに戻る", // MT
 "back to parent folder"=>"親フォルダに戻る", // MT
 "edit folder"=>"フォルダを編集", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"ここでアップロードしたファイルは現在のファイルを置き換え、以前のファイルは保持されません。以前のバージョンを残すには、ファイル一覧からファイルをチェックアウトし、チェックイン時に新しいバージョンをアップロードしてください。", // MT

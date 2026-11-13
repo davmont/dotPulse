@@ -137,7 +137,7 @@ function setTask(key, val) {
 			</td>
 		</tr>
 		<tr>
-			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Uploaded By');?>:</td>
+			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Owner');?>:</td>
 			<td align="left" class="hilite"><?php echo dPhtml($obj->contact_first_name . ' '. $obj->contact_last_name);?></td>
 	<?php } ?>
 		</tr>

@@ -57,7 +57,8 @@ if ($file_id > 0) {
 
 // If the file is checked out, check a few things, like if the user 
 // is trying to check it in, or if they are trying to overwrite.
-if ($obj->file_checkout) {
+// A final version is not checked out; it is handled below (admins only).
+if ($obj->file_checkout && $obj->file_checkout != 'final') {
 	if ( ! $ci || $obj->file_checkout != $AppUI->user_id) {
 		$AppUI->setMsg('File is currently checked out - it must be checked in first');
 		$AppUI->redirect('m=public&a=access_denied');
@@ -235,7 +236,14 @@ echo htmlspecialchars((string)$obj->file_description, ENT_QUOTES); ?></textarea>
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Upload File'); ?>:</td>
 			<td align="left"><input type="File" class="button" name="formfile" style="width:270px" /></td>
-		</tr>
+		</tr><?php 
+if ($file_id) { ?>
+		<tr>
+			<td>&nbsp;</td>
+			<td align="left" style="width:270px"><small><?php 
+	echo $AppUI->_('A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in.'); ?></small></td>
+		</tr><?php 
+} ?>
 		<?php 
 if (!($file_id) || $ci || ($canAdmin && $obj->file_checkout == 'final')) { ?>
 		<tr>

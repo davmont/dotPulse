@@ -101,3 +101,4 @@
 "back to root folder"=>"terug naar hoofdmap", // MT
 "back to parent folder"=>"terug naar bovenliggende map", // MT
 "edit folder"=>"map wijzigen", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Een hier geüpload bestand vervangt het huidige, dat niet bewaard blijft. Om eerdere versies te bewaren, checkt u het bestand uit vanuit de bestandenlijst en uploadt u de nieuwe versie bij het inchecken.", // MT
