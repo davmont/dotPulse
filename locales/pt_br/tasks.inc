@@ -358,3 +358,8 @@
 "TODAY"=>"HOJE", // MT
 "TOMORROW"=>"AMANHÃ", // MT
 "To Do Options"=>"Opções de tarefas pendentes", // MT
+"Task not found."=>"Tarefa não encontrada.", // MT
+"You may not edit this task."=>"Você não pode editar esta tarefa.", // MT
+"The dates and progress of a task group come from its tasks."=>"As datas e o progresso de um grupo de tarefas vêm das suas tarefas.", // MT
+"Invalid dates."=>"Datas inválidas.", // MT
+"Nothing to save."=>"Nada para salvar.", // MT

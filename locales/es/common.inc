@@ -368,3 +368,8 @@
 "Month"=>"Mes",
 "Print"=>"Imprimir",
 "No items to display."=>"No hay elementos que mostrar.",
+"Saving..."=>"Guardando...",
+"Saved."=>"Guardado.",
+"The change could not be saved."=>"No se ha podido guardar el cambio.",
+"Only task bars can be moved here."=>"Aquí solo se pueden mover las barras de tareas.",
+"This chart only shows the dates."=>"Este gráfico solo muestra las fechas.",

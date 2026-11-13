@@ -369,3 +369,8 @@
 "TODAY",
 "TOMORROW",
 "To Do Options",
+"Task not found.",
+"You may not edit this task.",
+"The dates and progress of a task group come from its tasks.",
+"Invalid dates.",
+"Nothing to save.",

@@ -363,3 +363,8 @@
 "Month"=>"月", // MT
 "Print"=>"印刷", // MT
 "No items to display."=>"表示する項目がありません。", // MT
+"Saving..."=>"保存中...", // MT
+"Saved."=>"保存しました。", // MT
+"The change could not be saved."=>"変更を保存できませんでした。", // MT
+"Only task bars can be moved here."=>"ここで移動できるのはタスクのバーだけです。", // MT
+"This chart only shows the dates."=>"このチャートは日付を表示するだけです。", // MT

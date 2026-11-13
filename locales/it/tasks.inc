@@ -358,3 +358,8 @@
 "TODAY"=>"OGGI", // MT
 "TOMORROW"=>"DOMANI", // MT
 "To Do Options"=>"Opzioni attività da fare", // MT
+"Task not found."=>"Attività non trovata.", // MT
+"You may not edit this task."=>"Non puoi modificare questa attività.", // MT
+"The dates and progress of a task group come from its tasks."=>"Le date e l'avanzamento di un gruppo di attività derivano dalle sue attività.", // MT
+"Invalid dates."=>"Date non valide.", // MT
+"Nothing to save."=>"Niente da salvare.", // MT

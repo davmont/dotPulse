@@ -81,8 +81,10 @@ class GanttRenderer {
      * @param array  $tasks        Rows: {id, name, start (YYYY-MM-DD), end (YYYY-MM-DD), progress, dependencies (csv)}.
      * @param string $title        Optional heading text.
      * @param string $viewMode     Initial view: Day|Week|Month.
+     * @param bool   $editable     Save task bars the user drags (tasks/do_gantt_dates.php checks
+     *                             each task); otherwise a dragged bar moves back.
      */
-    static function render($containerId, array $tasks, $title = '', $viewMode = 'Week') {
+    static function render($containerId, array $tasks, $title = '', $viewMode = 'Week', $editable = false) {
         global $AppUI;
         self::assets();
         if (empty($tasks)) {
@@ -120,7 +122,18 @@ class GanttRenderer {
   <svg id="<?php echo $cid; ?>"></svg>
 </div>
 <?php // Drawn by js/dp-gantt.js; a JSON data block is not executed, so it needs no CSP nonce. ?>
-<script type="application/json" class="dp-gantt-data" data-target="<?php echo $cid; ?>" data-view-mode="<?php echo $vm; ?>"><?php echo $json; ?></script>
+<p class="dp-gantt-status" data-for="<?php echo $cid; ?>" role="status" aria-live="polite" style="margin:4px 0;font-size:12px;min-height:1em;"></p>
+<script type="application/json" class="dp-gantt-data" data-target="<?php echo $cid; ?>" data-view-mode="<?php echo $vm; ?>"<?php
+        if ($editable && getPermission('tasks', 'edit')) {
+            echo ' data-save-url="?m=tasks&amp;a=do_gantt_dates&amp;suppressHeaders=1"'
+                . ' data-saving="' . $AppUI->_('Saving...', UI_OUTPUT_HTML) . '"'
+                . ' data-saved="' . $AppUI->_('Saved.', UI_OUTPUT_HTML) . '"'
+                . ' data-error="' . $AppUI->_('The change could not be saved.', UI_OUTPUT_HTML) . '"'
+                . ' data-not-task="' . $AppUI->_('Only task bars can be moved here.', UI_OUTPUT_HTML) . '"';
+        } else {
+            echo ' data-readonly="' . $AppUI->_('This chart only shows the dates.', UI_OUTPUT_HTML) . '"';
+        }
+        ?>><?php echo $json; ?></script>
         <?php
     }
 }

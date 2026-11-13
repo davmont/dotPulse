@@ -500,3 +500,8 @@ Das neue Passwort lautet:",
 "Print"=>"Drucken", // MT
 "No items to display."=>"Keine Einträge vorhanden.", // MT
 "View"=>"Anzeigen", // MT
+"Saving..."=>"Speichern...", // MT
+"Saved."=>"Gespeichert.", // MT
+"The change could not be saved."=>"Die Änderung konnte nicht gespeichert werden.", // MT
+"Only task bars can be moved here."=>"Hier lassen sich nur Aufgabenbalken verschieben.", // MT
+"This chart only shows the dates."=>"Dieses Diagramm zeigt die Termine nur an.", // MT

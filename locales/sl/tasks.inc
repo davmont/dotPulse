@@ -358,3 +358,8 @@
 "TODAY"=>"DANES", // MT
 "TOMORROW"=>"JUTRI", // MT
 "To Do Options"=>"Možnosti seznama opravil", // MT
+"Task not found."=>"Opravila ni mogoče najti.", // MT
+"You may not edit this task."=>"Tega opravila ne smete urejati.", // MT
+"The dates and progress of a task group come from its tasks."=>"Datumi in napredek skupine opravil izhajajo iz njenih opravil.", // MT
+"Invalid dates."=>"Neveljavni datumi.", // MT
+"Nothing to save."=>"Ničesar ni za shraniti.", // MT

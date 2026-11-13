@@ -358,3 +358,8 @@
 "TODAY"=>"ŠODIEN", // MT
 "TOMORROW"=>"RĪT", // MT
 "To Do Options"=>"Darāmo darbu opcijas", // MT
+"Task not found."=>"Uzdevums nav atrasts.", // MT
+"You may not edit this task."=>"Jūs nevarat rediģēt šo uzdevumu.", // MT
+"The dates and progress of a task group come from its tasks."=>"Uzdevumu grupas datumi un progress izriet no tās uzdevumiem.", // MT
+"Invalid dates."=>"Nederīgi datumi.", // MT
+"Nothing to save."=>"Nav ko saglabāt.", // MT

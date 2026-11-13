@@ -365,3 +365,8 @@
 "Month"=>"Tháng", // MT
 "Print"=>"In", // MT
 "No items to display."=>"Không có mục nào để hiển thị.", // MT
+"Saving..."=>"Đang lưu...", // MT
+"Saved."=>"Đã lưu.", // MT
+"The change could not be saved."=>"Không thể lưu thay đổi.", // MT
+"Only task bars can be moved here."=>"Ở đây chỉ có thể di chuyển thanh công việc.", // MT
+"This chart only shows the dates."=>"Biểu đồ này chỉ hiển thị ngày.", // MT

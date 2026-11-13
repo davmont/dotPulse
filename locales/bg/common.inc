@@ -384,3 +384,8 @@
 "Month"=>"Месец", // MT
 "No items to display."=>"Няма елементи за показване.", // MT
 "Print"=>"Печат", // MT
+"Saving..."=>"Записване...", // MT
+"Saved."=>"Записано.", // MT
+"The change could not be saved."=>"Промяната не можа да бъде записана.", // MT
+"Only task bars can be moved here."=>"Тук могат да се местят само лентите на задачите.", // MT
+"This chart only shows the dates."=>"Тази диаграма само показва датите.", // MT

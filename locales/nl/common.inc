@@ -358,3 +358,8 @@
 "Month"=>"Maand", // MT
 "Print"=>"Afdrukken", // MT
 "No items to display."=>"Geen items om weer te geven.", // MT
+"Saving..."=>"Opslaan...", // MT
+"Saved."=>"Opgeslagen.", // MT
+"The change could not be saved."=>"De wijziging kon niet worden opgeslagen.", // MT
+"Only task bars can be moved here."=>"Hier kunnen alleen taakbalken worden verplaatst.", // MT
+"This chart only shows the dates."=>"Deze grafiek toont alleen de datums.", // MT

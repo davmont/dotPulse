@@ -383,3 +383,8 @@
 "TODAY"=>"AUJOURD'HUI", // MT
 "TOMORROW"=>"DEMAIN", // MT
 "To Do Options"=>"Options de la liste des tâches à faire", // MT
+"Task not found."=>"Tâche introuvable.", // MT
+"You may not edit this task."=>"Vous ne pouvez pas modifier cette tâche.", // MT
+"The dates and progress of a task group come from its tasks."=>"Les dates et l'avancement d'un groupe de tâches viennent de ses tâches.", // MT
+"Invalid dates."=>"Dates non valides.", // MT
+"Nothing to save."=>"Rien à enregistrer.", // MT

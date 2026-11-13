@@ -364,3 +364,8 @@
 "TODAY"=>"DZISIAJ", // MT
 "TOMORROW"=>"JUTRO", // MT
 "To Do Options"=>"Opcje listy zadań do wykonania", // MT
+"Task not found."=>"Nie znaleziono zadania.", // MT
+"You may not edit this task."=>"Nie możesz edytować tego zadania.", // MT
+"The dates and progress of a task group come from its tasks."=>"Daty i postęp grupy zadań wynikają z jej zadań.", // MT
+"Invalid dates."=>"Nieprawidłowe daty.", // MT
+"Nothing to save."=>"Nie ma nic do zapisania.", // MT

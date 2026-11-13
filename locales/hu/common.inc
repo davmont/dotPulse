@@ -358,3 +358,8 @@
 "Month"=>"Hónap", // MT
 "Print"=>"Nyomtatás", // MT
 "No items to display."=>"Nincs megjeleníthető elem.", // MT
+"Saving..."=>"Mentés...", // MT
+"Saved."=>"Mentve.", // MT
+"The change could not be saved."=>"A módosítást nem sikerült menteni.", // MT
+"Only task bars can be moved here."=>"Itt csak a feladatsávok mozgathatók.", // MT
+"This chart only shows the dates."=>"Ez a diagram csak megjeleníti a dátumokat.", // MT

@@ -358,3 +358,8 @@
 "TODAY"=>"СЕГОДНЯ", // MT
 "TOMORROW"=>"ЗАВТРА", // MT
 "To Do Options"=>"Параметры списка дел", // MT
+"Task not found."=>"Задача не найдена.", // MT
+"You may not edit this task."=>"Вы не можете изменять эту задачу.", // MT
+"The dates and progress of a task group come from its tasks."=>"Даты и ход выполнения группы задач определяются её задачами.", // MT
+"Invalid dates."=>"Неверные даты.", // MT
+"Nothing to save."=>"Нечего сохранять.", // MT

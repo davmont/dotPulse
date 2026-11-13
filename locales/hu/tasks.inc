@@ -358,3 +358,8 @@
 "TODAY"=>"MA", // MT
 "TOMORROW"=>"HOLNAP", // MT
 "To Do Options"=>"Teendőlista beállításai", // MT
+"Task not found."=>"A feladat nem található.", // MT
+"You may not edit this task."=>"Ezt a feladatot nem szerkesztheti.", // MT
+"The dates and progress of a task group come from its tasks."=>"Egy feladatcsoport dátumai és előrehaladása a feladataiból adódnak.", // MT
+"Invalid dates."=>"Érvénytelen dátumok.", // MT
+"Nothing to save."=>"Nincs mit menteni.", // MT

@@ -483,3 +483,8 @@
 "Month"=>"Mês", // MT
 "Print"=>"Imprimir", // MT
 "No items to display."=>"Não há itens para mostrar.", // MT
+"Saving..."=>"A guardar...", // MT
+"Saved."=>"Guardado.", // MT
+"The change could not be saved."=>"Não foi possível guardar a alteração.", // MT
+"Only task bars can be moved here."=>"Aqui só se podem mover as barras das tarefas.", // MT
+"This chart only shows the dates."=>"Este gráfico apenas mostra as datas.", // MT

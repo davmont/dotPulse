@@ -358,3 +358,8 @@
 "TODAY"=>"VANDAAG", // MT
 "TOMORROW"=>"MORGEN", // MT
 "To Do Options"=>"Opties takenlijst", // MT
+"Task not found."=>"Taak niet gevonden.", // MT
+"You may not edit this task."=>"U mag deze taak niet bewerken.", // MT
+"The dates and progress of a task group come from its tasks."=>"De datums en voortgang van een taakgroep komen van de taken erin.", // MT
+"Invalid dates."=>"Ongeldige datums.", // MT
+"Nothing to save."=>"Niets om op te slaan.", // MT

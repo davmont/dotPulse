@@ -361,3 +361,8 @@
 "Month"=>"月", // MT
 "Print"=>"打印", // MT
 "No items to display."=>"没有可显示的项目。", // MT
+"Saving..."=>"正在保存...", // MT
+"Saved."=>"已保存。", // MT
+"The change could not be saved."=>"无法保存更改。", // MT
+"Only task bars can be moved here."=>"这里只能移动任务条。", // MT
+"This chart only shows the dates."=>"此图表仅显示日期。", // MT

@@ -358,3 +358,8 @@
 "Month"=>"Mes", // MT
 "Print"=>"Imprimeix", // MT
 "No items to display."=>"No hi ha elements per mostrar.", // MT
+"Saving..."=>"Desant...", // MT
+"Saved."=>"Desat.", // MT
+"The change could not be saved."=>"No s'ha pogut desar el canvi.", // MT
+"Only task bars can be moved here."=>"Aquí només es poden moure les barres de tasques.", // MT
+"This chart only shows the dates."=>"Aquest diagrama només mostra les dates.", // MT

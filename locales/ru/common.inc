@@ -358,3 +358,8 @@
 "Month"=>"Месяц", // MT
 "Print"=>"Печать", // MT
 "No items to display."=>"Нет элементов для отображения.", // MT
+"Saving..."=>"Сохранение...", // MT
+"Saved."=>"Сохранено.", // MT
+"The change could not be saved."=>"Не удалось сохранить изменение.", // MT
+"Only task bars can be moved here."=>"Здесь можно перемещать только полосы задач.", // MT
+"This chart only shows the dates."=>"Эта диаграмма только показывает даты.", // MT

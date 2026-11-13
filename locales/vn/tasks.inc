@@ -358,3 +358,8 @@
 "TODAY"=>"HÔM NAY", // MT
 "TOMORROW"=>"NGÀY MAI", // MT
 "To Do Options"=>"Tùy chọn việc cần làm", // MT
+"Task not found."=>"Không tìm thấy công việc.", // MT
+"You may not edit this task."=>"Bạn không được sửa công việc này.", // MT
+"The dates and progress of a task group come from its tasks."=>"Ngày và tiến độ của nhóm công việc lấy từ các công việc của nó.", // MT
+"Invalid dates."=>"Ngày không hợp lệ.", // MT
+"Nothing to save."=>"Không có gì để lưu.", // MT

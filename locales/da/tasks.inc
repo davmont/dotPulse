@@ -358,3 +358,8 @@
 "TODAY"=>"I DAG", // MT
 "TOMORROW"=>"I MORGEN", // MT
 "To Do Options"=>"Indstillinger for opgaveliste", // MT
+"Task not found."=>"Opgaven blev ikke fundet.", // MT
+"You may not edit this task."=>"Du må ikke redigere denne opgave.", // MT
+"The dates and progress of a task group come from its tasks."=>"Datoer og fremdrift for en opgavegruppe kommer fra dens opgaver.", // MT
+"Invalid dates."=>"Ugyldige datoer.", // MT
+"Nothing to save."=>"Intet at gemme.", // MT
