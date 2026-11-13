@@ -162,7 +162,7 @@ if ($canReadProject) {
 }else $titleBlock->addBreadcrumb('?m=tasks', 'Tasks');
 if ($task_id > 0) {
 	$titleBlock->addBreadcrumb(('?m=tasks&a=view&task_id=' . $obj->task_id), $obj->task_name, 'applet-48.png');
-	$titleBlock->addBreadcrumb('', 'Edition', 'icons/pencil.gif');
+	$titleBlock->addBreadcrumb('', 'Edit Task', 'icons/pencil.gif');
 } else $titleBlock->addBreadcrumb('', 'New Task');
 
 if ($canEdit) {
@@ -353,7 +353,8 @@ echo arraySelect($percent, 'task_percent_complete', 'size="1" class="text"',
 echo $AppUI->_('Milestone'); ?>?</label></td>
 			<td>
 				<input type="checkbox" value="1" name="task_milestone" id="task_milestone"<?php 
-echo (($obj->task_milestone) ? ' checked="checked"' : ''); ?> />
+echo (($obj->task_milestone) ? ' checked="checked"' : '') 
+     . dPaction('setMilestoneEndDate', array('$this'), 'change'); ?> />
 			</td>
 		</tr>
 		</table>

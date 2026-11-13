@@ -357,3 +357,4 @@
 "Task Due"=>"Nhiệm vụ đến hạn", // MT
 "TODAY"=>"HÔM NAY", // MT
 "TOMORROW"=>"NGÀY MAI", // MT
+"To Do Options"=>"Tùy chọn việc cần làm", // MT

@@ -352,3 +352,9 @@
 "Warning"=>"Предупреждение", // MT
 "Too many password reset requests. Please wait before trying again."=>"Слишком много запросов на сброс пароля. Подождите, прежде чем пробовать снова.", // MT
 "Invalid request method."=>"Недопустимый метод запроса.", // MT
+"View"=>"Просмотр", // MT
+"Day"=>"День", // MT
+"Week"=>"Неделя", // MT
+"Month"=>"Месяц", // MT
+"Print"=>"Печать", // MT
+"No items to display."=>"Нет элементов для отображения.", // MT

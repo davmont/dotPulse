@@ -318,3 +318,5 @@
 // "projectsColor" => "Välj en färgkod för projektidentifiering.",
 // "projectsValidName" => "Mata in ett giltigt projektnamn",
 "Calculated from the task costs"=>"Beräknat utifrån aktiviteternas kostnader", // MT
+"projectDeleteTasks"=>"Alla uppgifter i detta projekt och deras uppgiftsloggar raderas också.", // MT
+"projectLogsLimit"=>"Endast de 500 äldsta uppgiftsloggarna visas, och Totalt antal timmar räknar bara dem. Använd filtren ovan för att begränsa listan.", // MT

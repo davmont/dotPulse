@@ -2,11 +2,17 @@
 var calendarField = '';
 var calWin = null;
 
-function setMilestoneEndDate(checked){
-    if(checked){
-        document.datesFrm.end_date.value      = document.datesFrm.start_date.value;
-        document.datesFrm.task_end_date.value = document.datesFrm.task_start_date.value;
-    } 
+// Milestone ticked: it ends when it starts (the Dates tab is absent when the
+// user may not edit the dates).
+function setMilestoneEndDate(box){
+    var f = document.datesFrm;
+    if (box.checked && f && f.task_end_date) {
+        f.end_date.value      = f.start_date.value;
+        f.task_end_date.value = f.task_start_date.value;
+        f.end_hour.value      = f.start_hour.value;
+        f.end_minute.value    = f.start_minute.value;
+        setAMPM(f.end_hour);
+    }
 }
 
 /**

@@ -357,3 +357,9 @@
 "Warning"=>"警告", // MT
 "Too many password reset requests. Please wait before trying again."=>"パスワードリセットのリクエストが多すぎます。しばらく待ってから再試行してください。", // MT
 "Invalid request method."=>"無効なリクエストメソッドです。", // MT
+"View"=>"表示", // MT
+"Day"=>"日", // MT
+"Week"=>"週", // MT
+"Month"=>"月", // MT
+"Print"=>"印刷", // MT
+"No items to display."=>"表示する項目がありません。", // MT

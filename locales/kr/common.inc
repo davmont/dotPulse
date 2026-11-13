@@ -360,3 +360,9 @@
 "Warning"=>"경고", // MT
 "Too many password reset requests. Please wait before trying again."=>"비밀번호 재설정 요청이 너무 많습니다. 잠시 후 다시 시도하십시오.", // MT
 "Invalid request method."=>"잘못된 요청 방식입니다.", // MT
+"View"=>"보기", // MT
+"Day"=>"일", // MT
+"Week"=>"주", // MT
+"Month"=>"월", // MT
+"Print"=>"인쇄", // MT
+"No items to display."=>"표시할 항목이 없습니다.", // MT

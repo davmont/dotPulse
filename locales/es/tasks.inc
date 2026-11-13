@@ -383,3 +383,4 @@
 "Task Due"=>"Vencimiento de la tarea",
 "TODAY"=>"HOY",
 "TOMORROW"=>"MAÑANA",
+"To Do Options"=>"Opciones de tareas a realizar",

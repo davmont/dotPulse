@@ -357,3 +357,4 @@
 "Task Due"=>"Vencimento da Tarefa", // MT
 "TODAY"=>"HOJE", // MT
 "TOMORROW"=>"AMANHÃ", // MT
+"To Do Options"=>"Opções de tarefas pendentes", // MT

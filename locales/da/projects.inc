@@ -318,3 +318,5 @@
 // "projectsColor" => "Vælg en farve til at idenficere dette projekt.",
 // "projectsValidName" => "Indtast et gyldigt projektnavn",
 "Calculated from the task costs"=>"Beregnet ud fra opgavernes omkostninger", // MT
+"projectDeleteTasks"=>"Alle projektets opgaver og deres opgavelogge bliver også slettet.", // MT
+"projectLogsLimit"=>"Kun de 500 ældste opgavelogge vises, og Timer i alt tæller kun dem. Brug filtrene ovenfor til at indsnævre listen.", // MT

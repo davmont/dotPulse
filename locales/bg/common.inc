@@ -378,3 +378,9 @@
 "Warning"=>"Предупреждение", // MT
 "Too many password reset requests. Please wait before trying again."=>"Твърде много заявки за нулиране на паролата. Моля, изчакайте, преди да опитате отново.", // MT
 "Invalid request method."=>"Невалиден метод на заявката.", // MT
+"View"=>"Виж", // MT
+"Day"=>"Ден", // MT
+"Week"=>"Седмица", // MT
+"Month"=>"Месец", // MT
+"No items to display."=>"Няма елементи за показване.", // MT
+"Print"=>"Печат", // MT

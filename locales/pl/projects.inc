@@ -319,3 +319,5 @@
 // "projectsColor" => "Proszę wybrać kolor do identyfikacji tego projektu.",
 // "projectsValidName" => "Proszę podać właściwą nazwę projektu",
 "Calculated from the task costs"=>"Obliczane na podstawie kosztów zadań", // MT
+"projectDeleteTasks"=>"Wszystkie zadania tego projektu i ich dzienniki również zostaną usunięte.", // MT
+"projectLogsLimit"=>"Wyświetlane jest tylko 500 najstarszych dzienników zadań, a suma godzin obejmuje tylko je. Użyj filtrów powyżej, aby zawęzić listę.", // MT

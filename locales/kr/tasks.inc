@@ -357,3 +357,4 @@
 "Task Due"=>"작업 기한", // MT
 "TODAY"=>"오늘", // MT
 "TOMORROW"=>"내일", // MT
+"To Do Options"=>"할 일 옵션", // MT

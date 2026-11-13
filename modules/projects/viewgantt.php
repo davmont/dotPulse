@@ -44,7 +44,8 @@ if (!(empty($projFilter_extra))) {
 natsort($projFilter);
 
 $scroll_date    = 1;
-$display_option = dPgetCleanParam($_POST, 'display_option', 'this_month');
+// the company and department tabs ($min_view) have no date form: show all there
+$display_option = dPgetCleanParam($_POST, 'display_option', @$min_view ? 'all' : 'this_month');
 $df             = $AppUI->getPref('SHDATEFORMAT');
 
 if ($display_option == 'custom') {
@@ -256,7 +257,8 @@ if ($showInactive != '1') $q->addWhere('project_status != 7');
 $pjobj->setAllowedSQL($AppUI->user_id, $q, null, 'p');
 $q->addGroup('p.project_id');
 
-if ($display_option == 'custom') {
+// custom period or this month (the dates set above); 'all' shows everything
+if ($display_option != 'all') {
     $q->addWhere('p.project_start_date <= "' . $end_date->format('%Y-%m-%d') . ' 23:59:59"');
     $q->addWhere('(p.project_end_date >= "' . $start_date->format('%Y-%m-%d') . ' 00:00:00"'
         . ' OR p.project_end_date = "0000-00-00 00:00:00")');
@@ -285,7 +287,7 @@ foreach ((array)$projects_list as $p) {
 
     if ($showAllGantt) {
         $q->addTable('tasks', 't');
-        $q->addQuery('t.task_id, t.task_name, t.task_start_date, t.task_end_date');
+        $q->addQuery('t.task_id, t.task_name, t.task_start_date, t.task_end_date, t.task_percent_complete');
         $q->addWhere('t.task_project = ' . intval($p['project_id']));
         $q->addOrder($sortTasksByName ? 't.task_name ASC' : 't.task_end_date ASC');
         $ptasks = $q->loadList();
@@ -302,7 +304,7 @@ foreach ((array)$projects_list as $p) {
                 'name'         => '  ↳ ' . $t['task_name'],
                 'start'        => $ts,
                 'end'          => $te,
-                'progress'     => 0,
+                'progress'     => intval($t['task_percent_complete']),
                 'dependencies' => ''
             ];
         }

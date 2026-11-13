@@ -382,3 +382,4 @@
 "Task Due"=>"Échéance de la tâche", // MT
 "TODAY"=>"AUJOURD'HUI", // MT
 "TOMORROW"=>"DEMAIN", // MT
+"To Do Options"=>"Options de la liste des tâches à faire", // MT

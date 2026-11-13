@@ -359,3 +359,9 @@
 "Warning"=>"Cảnh báo", // MT
 "Too many password reset requests. Please wait before trying again."=>"Quá nhiều yêu cầu đặt lại mật khẩu. Vui lòng chờ trước khi thử lại.", // MT
 "Invalid request method."=>"Phương thức yêu cầu không hợp lệ.", // MT
+"View"=>"Xem", // MT
+"Day"=>"Ngày", // MT
+"Week"=>"Tuần", // MT
+"Month"=>"Tháng", // MT
+"Print"=>"In", // MT
+"No items to display."=>"Không có mục nào để hiển thị.", // MT

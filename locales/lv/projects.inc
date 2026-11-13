@@ -318,3 +318,5 @@
 // "projectsColor" => "Lūdzu izvēlieties krāsu, lai identificētu šo projektu",
 // "projectsValidName" => "Lūdzu ievadiet derīgu projekta nosaukumu",
 "Calculated from the task costs"=>"Aprēķināts no uzdevumu izmaksām", // MT
+"projectDeleteTasks"=>"Tiks dzēsti arī visi šī projekta uzdevumi un to žurnāli.", // MT
+"projectLogsLimit"=>"Tiek rādīti tikai 500 vecākie uzdevumu žurnāli, un kopējās stundas ietver tikai tos. Izmantojiet filtrus augšā, lai sašaurinātu sarakstu.", // MT

@@ -320,3 +320,5 @@
 // "projectsColor" => "Por favor selecione uma cor para identificar este projeto.",
 // "projectsValidName" => "Por favor insira um nome de Projeto valido",
 "Calculated from the task costs"=>"Calculado a partir dos custos das tarefas", // MT
+"projectDeleteTasks"=>"Todas as tarefas deste projeto e seus registros também serão excluídos.", // MT
+"projectLogsLimit"=>"Somente os 500 registros de tarefas mais antigos são exibidos, e o total de horas conta apenas esses. Use os filtros acima para restringir a lista.", // MT

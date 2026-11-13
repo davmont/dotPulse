@@ -352,3 +352,9 @@
 "Warning"=>"Uyarı", // MT
 "Too many password reset requests. Please wait before trying again."=>"Çok fazla şifre sıfırlama isteği. Lütfen tekrar denemeden önce bekleyin.", // MT
 "Invalid request method."=>"Geçersiz istek yöntemi.", // MT
+"View"=>"Görüntüle", // MT
+"Day"=>"Gün", // MT
+"Week"=>"Hafta", // MT
+"Month"=>"Ay", // MT
+"Print"=>"Yazdır", // MT
+"No items to display."=>"Görüntülenecek öğe yok.", // MT

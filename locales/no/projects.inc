@@ -318,3 +318,5 @@
 // "projectsColor" => "Velg en farge til å identifisere prosjektet.",
 // "projectsValidName" => "Skriv inn et navn på prosjektet",
 "Calculated from the task costs"=>"Beregnet fra oppgavekostnadene", // MT
+"projectDeleteTasks"=>"Alle oppgavene i dette prosjektet og oppgaveloggene deres blir også slettet.", // MT
+"projectLogsLimit"=>"Bare de 500 eldste oppgaveloggene vises, og Totalt antall timer teller bare dem. Bruk filtrene over for å begrense listen.", // MT

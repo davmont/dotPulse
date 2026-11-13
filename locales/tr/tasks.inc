@@ -357,3 +357,4 @@
 "Task Due"=>"Görev Vadesi", // MT
 "TODAY"=>"BUGÜN", // MT
 "TOMORROW"=>"YARIN", // MT
+"To Do Options"=>"Yapılacaklar seçenekleri", // MT

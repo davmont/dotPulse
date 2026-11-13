@@ -83,11 +83,12 @@ class GanttRenderer {
      * @param string $viewMode     Initial view: Day|Week|Month.
      */
     static function render($containerId, array $tasks, $title = '', $viewMode = 'Week') {
+        global $AppUI;
         self::assets();
         if (empty($tasks)) {
             echo '<p style="padding:10px;color:#666;">';
             if ($title) echo htmlspecialchars($title) . ': ';
-            echo 'No items to display.</p>';
+            echo $AppUI->_('No items to display.') . '</p>';
             return;
         }
         // frappe-gantt writes the name into the bar label and the popup with
@@ -109,11 +110,11 @@ class GanttRenderer {
 <h3 style="margin:8px 0 4px;font-size:14px;"><?php echo htmlspecialchars($title); ?></h3>
 <?php endif; ?>
 <div style="margin:0 0 4px;font-size:12px;">
-  <strong><?php echo 'View:'; ?></strong>
+  <strong><?php echo $AppUI->_('View'); ?>:</strong>
   <?php foreach (['Day', 'Week', 'Month'] as $v): ?>
-  <button type="button"<?php echo dPaction('dpGanttViewMode', array($containerId, $v)); ?> style="margin:0 2px;padding:2px 8px;cursor:pointer;"><?php echo $v; ?></button>
+  <button type="button"<?php echo dPaction('dpGanttViewMode', array($containerId, $v)); ?> style="margin:0 2px;padding:2px 8px;cursor:pointer;"><?php echo $AppUI->_($v); ?></button>
   <?php endforeach; ?>
-  &nbsp;&nbsp;<button type="button"<?php echo dPaction('window.print'); ?> style="padding:2px 8px;cursor:pointer;">Print</button>
+  &nbsp;&nbsp;<button type="button"<?php echo dPaction('window.print'); ?> style="padding:2px 8px;cursor:pointer;"><?php echo $AppUI->_('Print'); ?></button>
 </div>
 <div style="overflow-x:auto;background:#fff;padding:10px;border:1px solid #ccc;box-sizing:border-box;width:0;min-width:100%;">
   <svg id="<?php echo $cid; ?>"></svg>

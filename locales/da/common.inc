@@ -352,3 +352,9 @@
 "Warning"=>"Advarsel", // MT
 "Too many password reset requests. Please wait before trying again."=>"For mange anmodninger om nulstilling af adgangskode. Vent, før du prøver igen.", // MT
 "Invalid request method."=>"Ugyldig anmodningsmetode.", // MT
+"View"=>"Vis", // MT
+"Day"=>"Dag", // MT
+"Week"=>"Uge", // MT
+"Month"=>"Måned", // MT
+"Print"=>"Udskriv", // MT
+"No items to display."=>"Ingen elementer at vise.", // MT

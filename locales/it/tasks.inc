@@ -357,3 +357,4 @@
 "Task Due"=>"Scadenza attività", // MT
 "TODAY"=>"OGGI", // MT
 "TOMORROW"=>"DOMANI", // MT
+"To Do Options"=>"Opzioni attività da fare", // MT

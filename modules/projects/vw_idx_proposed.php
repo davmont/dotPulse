@@ -89,7 +89,7 @@ if ($added_cols) {
 if ($show_all_projects) {
 ?>
 	<th nowrap="nowrap">
-		<a href="?m=projects&amp;orderby=total_tasks" class="hdr"><?php echo $AppUI->_('Status');?></a>
+		<a href="?m=projects&amp;orderby=project_status" class="hdr"><?php echo $AppUI->_('Status');?></a>
 	</th>
 <?php 
 }

@@ -357,3 +357,4 @@
 "Task Due"=>"Opgave forfalder", // MT
 "TODAY"=>"I DAG", // MT
 "TOMORROW"=>"I MORGEN", // MT
+"To Do Options"=>"Indstillinger for opgaveliste", // MT
