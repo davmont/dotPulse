@@ -363,3 +363,9 @@
 "The change could not be saved."=>"Izmaiņas neizdevās saglabāt.", // MT
 "Only task bars can be moved here."=>"Šeit var pārvietot tikai uzdevumu joslas.", // MT
 "This chart only shows the dates."=>"Šī diagramma tikai parāda datumus.", // MT
+"Overview"=>"Pārskats", // MT
+"Contents"=>"Saturs", // MT
+"This help page does not exist."=>"Šī palīdzības lapa nepastāv.", // MT
+"The documentation is in English."=>"Dokumentācija ir angļu valodā.", // MT
+"Read this page on the documentation website"=>"Lasīt šo lapu dokumentācijas vietnē", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentācija ar CC BY-SA 4.0 licenci.", // MT

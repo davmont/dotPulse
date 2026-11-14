@@ -363,3 +363,9 @@
 "The change could not be saved."=>"De wijziging kon niet worden opgeslagen.", // MT
 "Only task bars can be moved here."=>"Hier kunnen alleen taakbalken worden verplaatst.", // MT
 "This chart only shows the dates."=>"Deze grafiek toont alleen de datums.", // MT
+"Overview"=>"Overzicht", // MT
+"Contents"=>"Inhoud", // MT
+"This help page does not exist."=>"Deze helppagina bestaat niet.", // MT
+"The documentation is in English."=>"De documentatie is in het Engels.", // MT
+"Read this page on the documentation website"=>"Deze pagina lezen op de documentatiewebsite", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Documentatie onder de licentie CC BY-SA 4.0.", // MT

@@ -363,3 +363,9 @@
 "The change could not be saved."=>"Ændringen kunne ikke gemmes.", // MT
 "Only task bars can be moved here."=>"Her kan kun opgavebjælker flyttes.", // MT
 "This chart only shows the dates."=>"Dette diagram viser kun datoerne.", // MT
+"Overview"=>"Oversigt", // MT
+"Contents"=>"Indhold", // MT
+"This help page does not exist."=>"Denne hjælpeside findes ikke.", // MT
+"The documentation is in English."=>"Dokumentationen er på engelsk.", // MT
+"Read this page on the documentation website"=>"Læs denne side på dokumentationens websted", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentation under licensen CC BY-SA 4.0.", // MT

@@ -505,3 +505,9 @@ Das neue Passwort lautet:",
 "The change could not be saved."=>"Die Änderung konnte nicht gespeichert werden.", // MT
 "Only task bars can be moved here."=>"Hier lassen sich nur Aufgabenbalken verschieben.", // MT
 "This chart only shows the dates."=>"Dieses Diagramm zeigt die Termine nur an.", // MT
+"Overview"=>"Überblick", // MT
+"Contents"=>"Inhalt", // MT
+"This help page does not exist."=>"Diese Hilfeseite gibt es nicht.", // MT
+"The documentation is in English."=>"Die Dokumentation ist auf Englisch.", // MT
+"Read this page on the documentation website"=>"Diese Seite auf der Dokumentations-Website lesen", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentation unter der Lizenz CC BY-SA 4.0.", // MT

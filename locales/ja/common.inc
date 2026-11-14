@@ -368,3 +368,9 @@
 "The change could not be saved."=>"変更を保存できませんでした。", // MT
 "Only task bars can be moved here."=>"ここで移動できるのはタスクのバーだけです。", // MT
 "This chart only shows the dates."=>"このチャートは日付を表示するだけです。", // MT
+"Overview"=>"概要", // MT
+"Contents"=>"目次", // MT
+"This help page does not exist."=>"このヘルプページは存在しません。", // MT
+"The documentation is in English."=>"ドキュメントは英語です。", // MT
+"Read this page on the documentation website"=>"このページをドキュメントのウェブサイトで読む", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"ドキュメントは CC BY-SA 4.0 ライセンスです。", // MT

@@ -389,3 +389,9 @@
 "The change could not be saved."=>"Промяната не можа да бъде записана.", // MT
 "Only task bars can be moved here."=>"Тук могат да се местят само лентите на задачите.", // MT
 "This chart only shows the dates."=>"Тази диаграма само показва датите.", // MT
+"Overview"=>"Общ преглед", // MT
+"Contents"=>"Съдържание", // MT
+"This help page does not exist."=>"Тази страница от помощта не съществува.", // MT
+"The documentation is in English."=>"Документацията е на английски.", // MT
+"Read this page on the documentation website"=>"Прочетете тази страница на уебсайта с документацията", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Документация под лиценз CC BY-SA 4.0.", // MT

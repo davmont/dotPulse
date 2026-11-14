@@ -363,3 +363,9 @@
 "The change could not be saved."=>"No s'ha pogut desar el canvi.", // MT
 "Only task bars can be moved here."=>"Aquí només es poden moure les barres de tasques.", // MT
 "This chart only shows the dates."=>"Aquest diagrama només mostra les dates.", // MT
+"Overview"=>"Introducció", // MT
+"Contents"=>"Contingut", // MT
+"This help page does not exist."=>"Aquesta pàgina d'ajuda no existeix.", // MT
+"The documentation is in English."=>"La documentació és en anglès.", // MT
+"Read this page on the documentation website"=>"Llegiu aquesta pàgina al lloc web de la documentació", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Documentació sota la llicència CC BY-SA 4.0.", // MT

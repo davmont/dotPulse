@@ -363,3 +363,9 @@
 "The change could not be saved."=>"Не удалось сохранить изменение.", // MT
 "Only task bars can be moved here."=>"Здесь можно перемещать только полосы задач.", // MT
 "This chart only shows the dates."=>"Эта диаграмма только показывает даты.", // MT
+"Overview"=>"Обзор", // MT
+"Contents"=>"Содержание", // MT
+"This help page does not exist."=>"Такой страницы справки нет.", // MT
+"The documentation is in English."=>"Документация на английском языке.", // MT
+"Read this page on the documentation website"=>"Читать эту страницу на сайте документации", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Документация распространяется по лицензии CC BY-SA 4.0.", // MT

@@ -366,3 +366,9 @@
 "The change could not be saved."=>"无法保存更改。", // MT
 "Only task bars can be moved here."=>"这里只能移动任务条。", // MT
 "This chart only shows the dates."=>"此图表仅显示日期。", // MT
+"Overview"=>"概述", // MT
+"Contents"=>"目录", // MT
+"This help page does not exist."=>"此帮助页面不存在。", // MT
+"The documentation is in English."=>"文档为英文。", // MT
+"Read this page on the documentation website"=>"在文档网站上阅读此页面", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"文档采用 CC BY-SA 4.0 许可。", // MT

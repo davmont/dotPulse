@@ -368,3 +368,9 @@
 "The change could not be saved."=>"La modification n'a pas pu être enregistrée.", // MT
 "Only task bars can be moved here."=>"Seules les barres des tâches peuvent être déplacées ici.", // MT
 "This chart only shows the dates."=>"Ce graphique affiche seulement les dates.", // MT
+"Overview"=>"Présentation", // MT
+"Contents"=>"Sommaire", // MT
+"This help page does not exist."=>"Cette page d'aide n'existe pas.", // MT
+"The documentation is in English."=>"La documentation est en anglais.", // MT
+"Read this page on the documentation website"=>"Lire cette page sur le site de la documentation", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Documentation sous licence CC BY-SA 4.0.", // MT

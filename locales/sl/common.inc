@@ -363,3 +363,9 @@
 "The change could not be saved."=>"Spremembe ni bilo mogoče shraniti.", // MT
 "Only task bars can be moved here."=>"Tu je mogoče premikati le vrstice opravil.", // MT
 "This chart only shows the dates."=>"Ta grafikon datume le prikazuje.", // MT
+"Overview"=>"Pregled", // MT
+"Contents"=>"Vsebina", // MT
+"This help page does not exist."=>"Ta stran pomoči ne obstaja.", // MT
+"The documentation is in English."=>"Dokumentacija je v angleščini.", // MT
+"Read this page on the documentation website"=>"Preberite to stran na spletnem mestu dokumentacije", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentacija pod licenco CC BY-SA 4.0.", // MT

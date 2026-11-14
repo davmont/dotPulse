@@ -363,3 +363,9 @@
 "The change could not be saved."=>"Endringen kunne ikke lagres.", // MT
 "Only task bars can be moved here."=>"Her kan bare oppgavestolper flyttes.", // MT
 "This chart only shows the dates."=>"Dette diagrammet viser bare datoene.", // MT
+"Overview"=>"Oversikt", // MT
+"Contents"=>"Innhold", // MT
+"This help page does not exist."=>"Denne hjelpesiden finnes ikke.", // MT
+"The documentation is in English."=>"Dokumentasjonen er på engelsk.", // MT
+"Read this page on the documentation website"=>"Les denne siden på dokumentasjonens nettsted", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentasjon under lisensen CC BY-SA 4.0.", // MT

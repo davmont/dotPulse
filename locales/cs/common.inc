@@ -363,3 +363,9 @@
 "The change could not be saved."=>"Změnu se nepodařilo uložit.", // MT
 "Only task bars can be moved here."=>"Zde lze přesouvat jen pruhy úkolů.", // MT
 "This chart only shows the dates."=>"Tento graf data jen zobrazuje.", // MT
+"Overview"=>"Přehled", // MT
+"Contents"=>"Obsah", // MT
+"This help page does not exist."=>"Tato stránka nápovědy neexistuje.", // MT
+"The documentation is in English."=>"Dokumentace je v angličtině.", // MT
+"Read this page on the documentation website"=>"Přečtěte si tuto stránku na webu dokumentace", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentace pod licencí CC BY-SA 4.0.", // MT

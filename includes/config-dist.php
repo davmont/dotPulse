@@ -51,8 +51,9 @@ $dPconfig['dbpersist'] = false;
 // blocking them, while a page that breaks under the policy is fixed (docs/csp.md).
 // $dPconfig['csp_report_only'] = true;
 
-// The Help links open the documentation website at the page for the part of dotPulse shown.
-// Point them at another copy of the documentation (your own build of website/):
+// Help shows the documentation that comes with dotPulse; each page also links to the same
+// page on the documentation website. Point those links at another copy (your own build of
+// website/):
 // $dPconfig['help_url'] = 'https://docs.example.com/dotpulse/';
 
 /***************** Configuration for DEVELOPERS use only! ******/

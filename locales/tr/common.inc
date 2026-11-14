@@ -363,3 +363,9 @@
 "The change could not be saved."=>"Değişiklik kaydedilemedi.", // MT
 "Only task bars can be moved here."=>"Burada yalnızca görev çubukları taşınabilir.", // MT
 "This chart only shows the dates."=>"Bu grafik yalnızca tarihleri gösterir.", // MT
+"Overview"=>"Genel bakış", // MT
+"Contents"=>"İçindekiler", // MT
+"This help page does not exist."=>"Bu yardım sayfası yok.", // MT
+"The documentation is in English."=>"Belgeler İngilizcedir.", // MT
+"Read this page on the documentation website"=>"Bu sayfayı belge web sitesinde okuyun", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Belgeler CC BY-SA 4.0 lisansı altındadır.", // MT

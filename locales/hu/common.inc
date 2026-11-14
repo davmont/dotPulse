@@ -363,3 +363,9 @@
 "The change could not be saved."=>"A módosítást nem sikerült menteni.", // MT
 "Only task bars can be moved here."=>"Itt csak a feladatsávok mozgathatók.", // MT
 "This chart only shows the dates."=>"Ez a diagram csak megjeleníti a dátumokat.", // MT
+"Overview"=>"Áttekintés", // MT
+"Contents"=>"Tartalom", // MT
+"This help page does not exist."=>"Ez a súgóoldal nem létezik.", // MT
+"The documentation is in English."=>"A dokumentáció angol nyelvű.", // MT
+"Read this page on the documentation website"=>"Az oldal elolvasása a dokumentáció webhelyén", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"A dokumentáció a CC BY-SA 4.0 licenc alatt érhető el.", // MT
