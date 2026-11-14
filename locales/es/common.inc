@@ -373,3 +373,6 @@
 "The change could not be saved."=>"No se ha podido guardar el cambio.",
 "Only task bars can be moved here."=>"Aquí solo se pueden mover las barras de tareas.",
 "This chart only shows the dates."=>"Este gráfico solo muestra las fechas.",
+"Undo"=>"Deshacer",
+"The change was undone."=>"Se ha deshecho el cambio.",
+"Move cancelled."=>"Movimiento cancelado.",

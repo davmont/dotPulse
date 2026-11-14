@@ -368,3 +368,6 @@
 "The change could not be saved."=>"変更を保存できませんでした。", // MT
 "Only task bars can be moved here."=>"ここで移動できるのはタスクのバーだけです。", // MT
 "This chart only shows the dates."=>"このチャートは日付を表示するだけです。", // MT
+"Undo"=>"元に戻す", // MT
+"The change was undone."=>"変更を元に戻しました。", // MT
+"Move cancelled."=>"移動を取り消しました。", // MT

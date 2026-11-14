@@ -35,6 +35,8 @@ If you may edit a task, you can change it on a task chart (a project's **Gantt C
 
 The change is saved at once, and the line under the chart says **Saved.** A task group's bar follows its tasks, so it cannot be dragged; nor can a project's bar. Tasks set to track their dependencies move with the task they depend on, and the page reloads to show them. If the change cannot be saved, the bar goes back and the line under the chart says why.
 
+To cancel a drag, press **Esc** before you release the mouse button: the bar goes back and nothing is saved. After a change is saved, the line under the chart offers **Undo**, which saves the bar's previous dates or percent complete.
+
 A bar with no start date starts today (on the projects chart, a task with no start date starts with its project). A bar with no end date, or an end date before its start, is drawn one day long.
 
 ### Filter a task chart

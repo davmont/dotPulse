@@ -3,12 +3,15 @@
  * <script type="application/json" class="dp-gantt-data"> blocks (was an inline
  * script per chart). The task rows arrive HTML-escaped from the server, since
  * frappe-gantt inserts them with innerHTML; do not escape them again here.
- * Charts the user may change save dragged bars (see saveChange()).
+ * Charts the user may change save dragged bars (see saveChange()). Esc during a drag
+ * puts the bar back without saving; after a save, "Undo" saves the previous dates.
  */
 (function () {
 	'use strict';
 
 	var charts = {};
+	// Per chart: a mouse button is down on it (dragging), and Esc cancelled that drag.
+	var drags = {};
 
 	function popup(task) {
 		return '<div style="padding:8px 10px;max-width:240px;"><strong>' + task.name + '</strong><br>'
@@ -59,10 +62,36 @@
 		return day(d);
 	}
 
-	function status(id, text) {
+	/** The line under a chart: a message, and optionally a button (label, onclick). */
+	function status(id, text, label, action) {
 		var el = document.querySelector('.dp-gantt-status[data-for="' + id + '"]');
-		if (el) {
-			el.textContent = text || '';
+		if (!el) {
+			return;
+		}
+		el.textContent = text || '';
+		if (label && action) {
+			var button = document.createElement('button');
+			button.type = 'button';
+			button.className = 'dp-gantt-undo';
+			button.textContent = label;
+			button.style.marginLeft = '8px';
+			button.style.padding = '0 8px';
+			button.style.cursor = 'pointer';
+			button.addEventListener('click', function () {
+				button.disabled = true;
+				action();
+			});
+			el.appendChild(button);
+		}
+	}
+
+	/** Draw a chart again from its rows; refresh() starts from the first day, so keep the scroll. */
+	function redraw(id, rows) {
+		var box = charts[id].$svg && charts[id].$svg.parentElement;
+		var left = box ? box.scrollLeft : 0;
+		charts[id].refresh(JSON.parse(JSON.stringify(rows)));
+		if (box) {
+			box.scrollLeft = left;
 		}
 	}
 
@@ -70,21 +99,20 @@
 	 * Charts with a data-save-url save what is dragged: a bar's dates (moved or resized)
 	 * or its progress, for task bars (ids "12" or "t12"; project bars only move back).
 	 * When the server refuses, the chart goes back to what it showed; when other tasks may
-	 * have moved with it (dependencies, task groups), the page reloads.
+	 * have moved with it (dependencies, task groups), the page reloads. Then the line under
+	 * the chart offers to undo the change, which saves the bar's previous values (isUndo:
+	 * draw them once saved, and offer nothing more); across a reload, see noteAfterReload().
 	 */
-	function saveChange(block, id, rows, task, fields) {
+	function saveChange(block, id, rows, task, fields, isUndo) {
 		var url = block.getAttribute('data-save-url');
 		var m = /^t?(\d+)$/.exec(String(task.id));
 		var undo = function (message) {
-			// refresh() redraws from the first day: keep the part of the chart in view.
-			var box = charts[id].$svg && charts[id].$svg.parentElement;
-			var left = box ? box.scrollLeft : 0;
-			charts[id].refresh(JSON.parse(JSON.stringify(rows)));
-			if (box) {
-				box.scrollLeft = left;
-			}
+			redraw(id, rows);
 			status(id, message);
 		};
+		if (!isUndo && drags[id] && drags[id].cancelled) {
+			return; // Esc already put the chart back.
+		}
 		if (!url || !m) {
 			undo(block.getAttribute(url ? 'data-not-task' : 'data-readonly') || '');
 			return;
@@ -109,27 +137,110 @@
 			return { status: 'error' };
 		}).then(function (result) {
 			if (result && result.status === 'ok') {
-				if (result.reload) {
-					window.location.reload();
-					return;
-				}
 				// Keep the saved state, so a later refusal goes back to it.
+				var before = null;
 				rows.forEach(function (row) {
-					if (row.id === task.id) {
+					if (String(row.id) === String(task.id)) {
+						before = {};
 						if (fields.start) {
+							before.start = row.start;
+							before.end = row.end;
 							row.start = fields.start;
 							row.end = fields.end;
 						}
 						if (fields.progress !== undefined) {
+							before.progress = row.progress;
 							row.progress = fields.progress;
 						}
 					}
 				});
-				status(id, block.getAttribute('data-saved') || '');
+				if (result.reload) {
+					remember(id, { task: String(task.id), before: isUndo ? null : before });
+					window.location.reload();
+				} else if (isUndo) {
+					redraw(id, rows);
+					status(id, block.getAttribute('data-undone') || '');
+				} else if (before && block.getAttribute('data-undo')) {
+					status(id, block.getAttribute('data-saved') || '', block.getAttribute('data-undo'), function () {
+						saveChange(block, id, rows, task, before, true);
+					});
+				} else {
+					status(id, block.getAttribute('data-saved') || '');
+				}
 				return;
 			}
 			undo((result && result.message) || block.getAttribute('data-error') || 'Error');
 		});
+	}
+
+	/**
+	 * Esc while dragging a bar or its progress handle puts the chart back as it was. The
+	 * chart still reports the change when the button is released; saveChange() ignores it.
+	 */
+	function watchDrags(id) {
+		var svg = document.getElementById(id);
+		drags[id] = { down: false, cancelled: false };
+		// Capture: runs before frappe-gantt's own mousedown handler.
+		svg.addEventListener('mousedown', function () {
+			drags[id].down = true;
+			drags[id].cancelled = false;
+		}, true);
+		document.addEventListener('mouseup', function () {
+			drags[id].down = false;
+		});
+	}
+
+	document.addEventListener('keydown', function (event) {
+		if (event.key !== 'Escape' && event.key !== 'Esc') {
+			return;
+		}
+		Object.keys(drags).forEach(function (id) {
+			var d = drags[id];
+			if (d.down && !d.cancelled && d.rows) {
+				d.cancelled = true;
+				redraw(id, d.rows);
+				status(id, d.block.getAttribute('data-cancelled') || '');
+				event.preventDefault();
+			}
+		});
+	});
+
+	/**
+	 * What to say under a chart after the page reloads to show a saved change: kept for the
+	 * tab in sessionStorage (which may be unavailable; the message is then lost).
+	 */
+	var NOTE = 'dpGanttNote';
+
+	function remember(id, note) {
+		note.chart = id;
+		note.page = window.location.href;
+		try {
+			window.sessionStorage.setItem(NOTE, JSON.stringify(note));
+		} catch (e) {
+			// No storage: no message after the reload.
+		}
+	}
+
+	function noteAfterReload(block, id, rows) {
+		var note = null;
+		try {
+			note = JSON.parse(window.sessionStorage.getItem(NOTE) || 'null');
+			if (note && note.chart === id) {
+				window.sessionStorage.removeItem(NOTE);
+			}
+		} catch (e) {
+			return;
+		}
+		if (!note || note.chart !== id || note.page !== window.location.href) {
+			return;
+		}
+		if (!note.before) {
+			status(id, block.getAttribute('data-undone') || '');
+		} else if (block.getAttribute('data-undo')) {
+			status(id, block.getAttribute('data-saved') || '', block.getAttribute('data-undo'), function () {
+				saveChange(block, id, rows, { id: note.task }, note.before, true);
+			});
+		}
 	}
 
 	function init() {
@@ -161,6 +272,10 @@
 				}(block, id, rows))
 			});
 			scrollToToday(charts[id]);
+			watchDrags(id);
+			drags[id].rows = rows;
+			drags[id].block = block;
+			noteAfterReload(block, id, rows);
 		}
 	}
 

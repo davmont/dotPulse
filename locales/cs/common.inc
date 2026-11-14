@@ -363,3 +363,6 @@
 "The change could not be saved."=>"Změnu se nepodařilo uložit.", // MT
 "Only task bars can be moved here."=>"Zde lze přesouvat jen pruhy úkolů.", // MT
 "This chart only shows the dates."=>"Tento graf data jen zobrazuje.", // MT
+"Undo"=>"Zpět", // MT
+"The change was undone."=>"Změna byla vrácena.", // MT
+"Move cancelled."=>"Přesun zrušen.", // MT
