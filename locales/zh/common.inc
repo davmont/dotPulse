@@ -369,3 +369,9 @@
 "Undo"=>"撤销", // MT
 "The change was undone."=>"已撤销更改。", // MT
 "Move cancelled."=>"已取消移动。", // MT
+"Overview"=>"概述", // MT
+"Contents"=>"目录", // MT
+"This help page does not exist."=>"此帮助页面不存在。", // MT
+"The documentation is in English."=>"文档为英文。", // MT
+"Read this page on the documentation website"=>"在文档网站上阅读此页面", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"文档采用 CC BY-SA 4.0 许可。", // MT

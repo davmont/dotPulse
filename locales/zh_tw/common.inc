@@ -366,3 +366,9 @@
 "Undo"=>"復原", // MT
 "The change was undone."=>"已復原變更。", // MT
 "Move cancelled."=>"已取消移動。", // MT
+"Overview"=>"概覽", // MT
+"Contents"=>"目錄", // MT
+"This help page does not exist."=>"此說明頁面不存在。", // MT
+"The documentation is in English."=>"文件為英文。", // MT
+"Read this page on the documentation website"=>"在文件網站上閱讀此頁面", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"文件採用 CC BY-SA 4.0 授權。", // MT

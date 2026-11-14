@@ -376,3 +376,9 @@ Om du ej har begärt ändringen av lösenordet behöver du ej oroa dig. Detta me
 "Undo"=>"Ångra", // MT
 "The change was undone."=>"Ändringen har ångrats.", // MT
 "Move cancelled."=>"Flytten avbröts.", // MT
+"Overview"=>"Översikt", // MT
+"Contents"=>"Innehåll", // MT
+"This help page does not exist."=>"Den här hjälpsidan finns inte.", // MT
+"The documentation is in English."=>"Dokumentationen är på engelska.", // MT
+"Read this page on the documentation website"=>"Läs den här sidan på dokumentationens webbplats", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentation under licensen CC BY-SA 4.0.", // MT

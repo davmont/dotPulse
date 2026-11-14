@@ -366,3 +366,9 @@
 "Undo"=>"Geri al", // MT
 "The change was undone."=>"Değişiklik geri alındı.", // MT
 "Move cancelled."=>"Taşıma iptal edildi.", // MT
+"Overview"=>"Genel bakış", // MT
+"Contents"=>"İçindekiler", // MT
+"This help page does not exist."=>"Bu yardım sayfası yok.", // MT
+"The documentation is in English."=>"Belgeler İngilizcedir.", // MT
+"Read this page on the documentation website"=>"Bu sayfayı belge web sitesinde okuyun", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Belgeler CC BY-SA 4.0 lisansı altındadır.", // MT

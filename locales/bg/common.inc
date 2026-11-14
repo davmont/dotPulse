@@ -392,3 +392,9 @@
 "Undo"=>"Отмяна", // MT
 "The change was undone."=>"Промяната е отменена.", // MT
 "Move cancelled."=>"Преместването е отказано.", // MT
+"Overview"=>"Общ преглед", // MT
+"Contents"=>"Съдържание", // MT
+"This help page does not exist."=>"Тази страница от помощта не съществува.", // MT
+"The documentation is in English."=>"Документацията е на английски.", // MT
+"Read this page on the documentation website"=>"Прочетете тази страница на уебсайта с документацията", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Документация под лиценз CC BY-SA 4.0.", // MT

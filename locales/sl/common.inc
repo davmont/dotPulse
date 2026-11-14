@@ -366,3 +366,9 @@
 "Undo"=>"Razveljavi", // MT
 "The change was undone."=>"Sprememba je razveljavljena.", // MT
 "Move cancelled."=>"Premik je preklican.", // MT
+"Overview"=>"Pregled", // MT
+"Contents"=>"Vsebina", // MT
+"This help page does not exist."=>"Ta stran pomoči ne obstaja.", // MT
+"The documentation is in English."=>"Dokumentacija je v angleščini.", // MT
+"Read this page on the documentation website"=>"Preberite to stran na spletnem mestu dokumentacije", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentacija pod licenco CC BY-SA 4.0.", // MT

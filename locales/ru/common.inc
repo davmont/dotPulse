@@ -366,3 +366,9 @@
 "Undo"=>"Отменить", // MT
 "The change was undone."=>"Изменение отменено.", // MT
 "Move cancelled."=>"Перемещение отменено.", // MT
+"Overview"=>"Обзор", // MT
+"Contents"=>"Содержание", // MT
+"This help page does not exist."=>"Такой страницы справки нет.", // MT
+"The documentation is in English."=>"Документация на английском языке.", // MT
+"Read this page on the documentation website"=>"Читать эту страницу на сайте документации", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Документация распространяется по лицензии CC BY-SA 4.0.", // MT

@@ -187,14 +187,32 @@ function breadCrumbs(&$arr)
 }
 
 /**
- * The documentation page for a page of the application: $ref is "module.action" (the help
- * reference of a title block, "projects.view"), or a module alone. The documentation is the
- * website (https://www.dotpulse.org/); $dPconfig['help_url'] in includes/config.php points
- * the links at another copy of it.
+ * The Help link for a page of the application: $ref is "module.action" (the help reference
+ * of a title block, "projects.view"), or a module alone. Help shows the documentation that
+ * comes with dotPulse (website/docs, the source of https://www.dotpulse.org/) inside the
+ * Help module (classes/help.class.php).
  */
 function dPhelpUrl($ref = '')
 {
+	list($page, $anchor) = dPhelpPage($ref);
+	require_once DP_BASE_DIR . '/classes/help.class.php';
+	return './index.php' . CHelp::url($page, $anchor);
+}
+
+/**
+ * The same page of the documentation website, for "read it online" links;
+ * $dPconfig['help_url'] in includes/config.php points them at another copy of it.
+ */
+function dPhelpOnlineUrl($page, $anchor = '')
+{
 	$base = rtrim((string)dPgetConfig('help_url', 'https://www.dotpulse.org/'), '/') . '/';
+	$page = preg_replace('#(^|/)index$#', '', $page);
+	return $base . ($page !== '' ? $page . '/' : '') . ($anchor !== '' ? '#' . $anchor : '');
+}
+
+/** The documentation page (and #anchor) for "module.action": array(page, anchor). */
+function dPhelpPage($ref = '')
+{
 	$parts = explode('.', (string)$ref);
 	$mod = $parts[0];
 	$act = isset($parts[1]) ? $parts[1] : '';
@@ -225,9 +243,12 @@ function dPhelpUrl($ref = '')
 		'system' => 'getting-started/first-steps/',
 	);
 	if (isset($pages[$mod . '.' . $act])) {
-		return $base . $pages[$mod . '.' . $act];
+		$target = $pages[$mod . '.' . $act];
+	} else {
+		$target = isset($modules[$mod]) ? $modules[$mod] : 'user-guide/';
 	}
-	return $base . (isset($modules[$mod]) ? $modules[$mod] : 'user-guide/');
+	$parts = explode('#', $target, 2);
+	return array(trim($parts[0], '/'), isset($parts[1]) ? $parts[1] : '');
 }
 
 ##

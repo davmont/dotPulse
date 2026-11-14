@@ -366,3 +366,9 @@
 "Undo"=>"Fortryd", // MT
 "The change was undone."=>"Ændringen er fortrudt.", // MT
 "Move cancelled."=>"Flytning annulleret.", // MT
+"Overview"=>"Oversigt", // MT
+"Contents"=>"Indhold", // MT
+"This help page does not exist."=>"Denne hjælpeside findes ikke.", // MT
+"The documentation is in English."=>"Dokumentationen er på engelsk.", // MT
+"Read this page on the documentation website"=>"Læs denne side på dokumentationens websted", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentation under licensen CC BY-SA 4.0.", // MT

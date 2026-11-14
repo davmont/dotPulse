@@ -371,3 +371,9 @@
 "Undo"=>"Cofnij", // MT
 "The change was undone."=>"Zmiana została cofnięta.", // MT
 "Move cancelled."=>"Przesuwanie anulowane.", // MT
+"Overview"=>"Przegląd", // MT
+"Contents"=>"Spis treści", // MT
+"This help page does not exist."=>"Ta strona pomocy nie istnieje.", // MT
+"The documentation is in English."=>"Dokumentacja jest w języku angielskim.", // MT
+"Read this page on the documentation website"=>"Przeczytaj tę stronę w witrynie dokumentacji", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentacja na licencji CC BY-SA 4.0.", // MT

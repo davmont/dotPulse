@@ -374,3 +374,9 @@
 "Undo"=>"실행 취소", // MT
 "The change was undone."=>"변경을 취소했습니다.", // MT
 "Move cancelled."=>"이동을 취소했습니다.", // MT
+"Overview"=>"개요", // MT
+"Contents"=>"목차", // MT
+"This help page does not exist."=>"이 도움말 페이지는 없습니다.", // MT
+"The documentation is in English."=>"문서는 영어로 되어 있습니다.", // MT
+"Read this page on the documentation website"=>"문서 웹사이트에서 이 페이지 읽기", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"문서는 CC BY-SA 4.0 라이선스를 따릅니다.", // MT
