@@ -129,9 +129,13 @@ class GanttRenderer {
                 . ' data-saving="' . $AppUI->_('Saving...', UI_OUTPUT_HTML) . '"'
                 . ' data-saved="' . $AppUI->_('Saved.', UI_OUTPUT_HTML) . '"'
                 . ' data-error="' . $AppUI->_('The change could not be saved.', UI_OUTPUT_HTML) . '"'
-                . ' data-not-task="' . $AppUI->_('Only task bars can be moved here.', UI_OUTPUT_HTML) . '"';
+                . ' data-not-task="' . $AppUI->_('Only task bars can be moved here.', UI_OUTPUT_HTML) . '"'
+                . ' data-undo="' . $AppUI->_('Undo', UI_OUTPUT_HTML) . '"'
+                . ' data-undone="' . $AppUI->_('The change was undone.', UI_OUTPUT_HTML) . '"'
+                . ' data-cancelled="' . $AppUI->_('Move cancelled.', UI_OUTPUT_HTML) . '"';
         } else {
-            echo ' data-readonly="' . $AppUI->_('This chart only shows the dates.', UI_OUTPUT_HTML) . '"';
+            echo ' data-readonly="' . $AppUI->_('This chart only shows the dates.', UI_OUTPUT_HTML) . '"'
+                . ' data-cancelled="' . $AppUI->_('Move cancelled.', UI_OUTPUT_HTML) . '"';
         }
         ?>><?php echo $json; ?></script>
         <?php

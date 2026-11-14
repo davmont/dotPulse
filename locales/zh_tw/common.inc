@@ -363,6 +363,9 @@
 "The change could not be saved."=>"無法儲存變更。", // MT
 "Only task bars can be moved here."=>"這裡只能移動任務列。", // MT
 "This chart only shows the dates."=>"此圖表僅顯示日期。", // MT
+"Undo"=>"復原", // MT
+"The change was undone."=>"已復原變更。", // MT
+"Move cancelled."=>"已取消移動。", // MT
 "Overview"=>"概覽", // MT
 "Contents"=>"目錄", // MT
 "This help page does not exist."=>"此說明頁面不存在。", // MT

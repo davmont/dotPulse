@@ -505,6 +505,9 @@ Das neue Passwort lautet:",
 "The change could not be saved."=>"Die Änderung konnte nicht gespeichert werden.", // MT
 "Only task bars can be moved here."=>"Hier lassen sich nur Aufgabenbalken verschieben.", // MT
 "This chart only shows the dates."=>"Dieses Diagramm zeigt die Termine nur an.", // MT
+"Undo"=>"Rückgängig", // MT
+"The change was undone."=>"Die Änderung wurde rückgängig gemacht.", // MT
+"Move cancelled."=>"Verschieben abgebrochen.", // MT
 "Overview"=>"Überblick", // MT
 "Contents"=>"Inhalt", // MT
 "This help page does not exist."=>"Diese Hilfeseite gibt es nicht.", // MT

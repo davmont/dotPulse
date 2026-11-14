@@ -363,6 +363,9 @@
 "The change could not be saved."=>"Değişiklik kaydedilemedi.", // MT
 "Only task bars can be moved here."=>"Burada yalnızca görev çubukları taşınabilir.", // MT
 "This chart only shows the dates."=>"Bu grafik yalnızca tarihleri gösterir.", // MT
+"Undo"=>"Geri al", // MT
+"The change was undone."=>"Değişiklik geri alındı.", // MT
+"Move cancelled."=>"Taşıma iptal edildi.", // MT
 "Overview"=>"Genel bakış", // MT
 "Contents"=>"İçindekiler", // MT
 "This help page does not exist."=>"Bu yardım sayfası yok.", // MT

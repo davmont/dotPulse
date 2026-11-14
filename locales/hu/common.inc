@@ -363,6 +363,9 @@
 "The change could not be saved."=>"A módosítást nem sikerült menteni.", // MT
 "Only task bars can be moved here."=>"Itt csak a feladatsávok mozgathatók.", // MT
 "This chart only shows the dates."=>"Ez a diagram csak megjeleníti a dátumokat.", // MT
+"Undo"=>"Visszavonás", // MT
+"The change was undone."=>"A módosítás visszavonva.", // MT
+"Move cancelled."=>"Áthelyezés megszakítva.", // MT
 "Overview"=>"Áttekintés", // MT
 "Contents"=>"Tartalom", // MT
 "This help page does not exist."=>"Ez a súgóoldal nem létezik.", // MT

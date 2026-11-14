@@ -363,6 +363,9 @@
 "The change could not be saved."=>"De wijziging kon niet worden opgeslagen.", // MT
 "Only task bars can be moved here."=>"Hier kunnen alleen taakbalken worden verplaatst.", // MT
 "This chart only shows the dates."=>"Deze grafiek toont alleen de datums.", // MT
+"Undo"=>"Ongedaan maken", // MT
+"The change was undone."=>"De wijziging is ongedaan gemaakt.", // MT
+"Move cancelled."=>"Verplaatsen geannuleerd.", // MT
 "Overview"=>"Overzicht", // MT
 "Contents"=>"Inhoud", // MT
 "This help page does not exist."=>"Deze helppagina bestaat niet.", // MT

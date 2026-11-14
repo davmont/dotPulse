@@ -370,6 +370,9 @@
 "The change could not be saved."=>"Không thể lưu thay đổi.", // MT
 "Only task bars can be moved here."=>"Ở đây chỉ có thể di chuyển thanh công việc.", // MT
 "This chart only shows the dates."=>"Biểu đồ này chỉ hiển thị ngày.", // MT
+"Undo"=>"Hoàn tác", // MT
+"The change was undone."=>"Đã hoàn tác thay đổi.", // MT
+"Move cancelled."=>"Đã hủy di chuyển.", // MT
 "Overview"=>"Tổng quan", // MT
 "Contents"=>"Mục lục", // MT
 "This help page does not exist."=>"Trang trợ giúp này không tồn tại.", // MT

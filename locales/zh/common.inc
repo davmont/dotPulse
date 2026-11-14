@@ -366,6 +366,9 @@
 "The change could not be saved."=>"无法保存更改。", // MT
 "Only task bars can be moved here."=>"这里只能移动任务条。", // MT
 "This chart only shows the dates."=>"此图表仅显示日期。", // MT
+"Undo"=>"撤销", // MT
+"The change was undone."=>"已撤销更改。", // MT
+"Move cancelled."=>"已取消移动。", // MT
 "Overview"=>"概述", // MT
 "Contents"=>"目录", // MT
 "This help page does not exist."=>"此帮助页面不存在。", // MT

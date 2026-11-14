@@ -363,6 +363,9 @@
 "The change could not be saved."=>"Ændringen kunne ikke gemmes.", // MT
 "Only task bars can be moved here."=>"Her kan kun opgavebjælker flyttes.", // MT
 "This chart only shows the dates."=>"Dette diagram viser kun datoerne.", // MT
+"Undo"=>"Fortryd", // MT
+"The change was undone."=>"Ændringen er fortrudt.", // MT
+"Move cancelled."=>"Flytning annulleret.", // MT
 "Overview"=>"Oversigt", // MT
 "Contents"=>"Indhold", // MT
 "This help page does not exist."=>"Denne hjælpeside findes ikke.", // MT

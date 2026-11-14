@@ -363,6 +363,9 @@
 "The change could not be saved."=>"Não foi possível salvar a alteração.", // MT
 "Only task bars can be moved here."=>"Aqui só é possível mover as barras das tarefas.", // MT
 "This chart only shows the dates."=>"Este gráfico apenas mostra as datas.", // MT
+"Undo"=>"Desfazer", // MT
+"The change was undone."=>"A alteração foi desfeita.", // MT
+"Move cancelled."=>"Movimentação cancelada.", // MT
 "Overview"=>"Visão geral", // MT
 "Contents"=>"Sumário", // MT
 "This help page does not exist."=>"Esta página de ajuda não existe.", // MT

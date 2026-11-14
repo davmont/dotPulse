@@ -363,6 +363,9 @@
 "The change could not be saved."=>"Не удалось сохранить изменение.", // MT
 "Only task bars can be moved here."=>"Здесь можно перемещать только полосы задач.", // MT
 "This chart only shows the dates."=>"Эта диаграмма только показывает даты.", // MT
+"Undo"=>"Отменить", // MT
+"The change was undone."=>"Изменение отменено.", // MT
+"Move cancelled."=>"Перемещение отменено.", // MT
 "Overview"=>"Обзор", // MT
 "Contents"=>"Содержание", // MT
 "This help page does not exist."=>"Такой страницы справки нет.", // MT
