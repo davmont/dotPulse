@@ -83,6 +83,8 @@ Below it, a thinner bar greets you by name and has these links:
   [Your dashboard](dashboard.md#project-tips).
 - **Help**: opens this documentation in a new tab, at the page about the part of
   dotPulse you are in (the projects list opens [Projects](projects.md), for example).
+  dotPulse shows the copy of the documentation that comes with it, so it matches your
+  version and needs no Internet access; the list on the left leads to every page.
 - **My Info**: your account page. See [Your account and preferences](preferences.md).
 - **Todo**: your list of tasks to do (**My Tasks To Do**).
 - **Today**: today in the calendar's day view.

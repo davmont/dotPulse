@@ -366,3 +366,9 @@
 "Undo"=>"Annulla", // MT
 "The change was undone."=>"La modifica è stata annullata.", // MT
 "Move cancelled."=>"Spostamento annullato.", // MT
+"Overview"=>"Panoramica", // MT
+"Contents"=>"Indice", // MT
+"This help page does not exist."=>"Questa pagina della guida non esiste.", // MT
+"The documentation is in English."=>"La documentazione è in inglese.", // MT
+"Read this page on the documentation website"=>"Leggi questa pagina sul sito della documentazione", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Documentazione con licenza CC BY-SA 4.0.", // MT

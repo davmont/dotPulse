@@ -366,3 +366,9 @@
 "Undo"=>"Zpět", // MT
 "The change was undone."=>"Změna byla vrácena.", // MT
 "Move cancelled."=>"Přesun zrušen.", // MT
+"Overview"=>"Přehled", // MT
+"Contents"=>"Obsah", // MT
+"This help page does not exist."=>"Tato stránka nápovědy neexistuje.", // MT
+"The documentation is in English."=>"Dokumentace je v angličtině.", // MT
+"Read this page on the documentation website"=>"Přečtěte si tuto stránku na webu dokumentace", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentace pod licencí CC BY-SA 4.0.", // MT

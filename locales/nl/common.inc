@@ -366,3 +366,9 @@
 "Undo"=>"Ongedaan maken", // MT
 "The change was undone."=>"De wijziging is ongedaan gemaakt.", // MT
 "Move cancelled."=>"Verplaatsen geannuleerd.", // MT
+"Overview"=>"Overzicht", // MT
+"Contents"=>"Inhoud", // MT
+"This help page does not exist."=>"Deze helppagina bestaat niet.", // MT
+"The documentation is in English."=>"De documentatie is in het Engels.", // MT
+"Read this page on the documentation website"=>"Deze pagina lezen op de documentatiewebsite", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Documentatie onder de licentie CC BY-SA 4.0.", // MT

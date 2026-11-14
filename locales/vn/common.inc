@@ -373,3 +373,9 @@
 "Undo"=>"Hoàn tác", // MT
 "The change was undone."=>"Đã hoàn tác thay đổi.", // MT
 "Move cancelled."=>"Đã hủy di chuyển.", // MT
+"Overview"=>"Tổng quan", // MT
+"Contents"=>"Mục lục", // MT
+"This help page does not exist."=>"Trang trợ giúp này không tồn tại.", // MT
+"The documentation is in English."=>"Tài liệu bằng tiếng Anh.", // MT
+"Read this page on the documentation website"=>"Đọc trang này trên trang web tài liệu", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Tài liệu theo giấy phép CC BY-SA 4.0.", // MT

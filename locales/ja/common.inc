@@ -371,3 +371,9 @@
 "Undo"=>"元に戻す", // MT
 "The change was undone."=>"変更を元に戻しました。", // MT
 "Move cancelled."=>"移動を取り消しました。", // MT
+"Overview"=>"概要", // MT
+"Contents"=>"目次", // MT
+"This help page does not exist."=>"このヘルプページは存在しません。", // MT
+"The documentation is in English."=>"ドキュメントは英語です。", // MT
+"Read this page on the documentation website"=>"このページをドキュメントのウェブサイトで読む", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"ドキュメントは CC BY-SA 4.0 ライセンスです。", // MT

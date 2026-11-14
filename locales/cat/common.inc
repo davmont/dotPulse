@@ -366,3 +366,9 @@
 "Undo"=>"Desfés", // MT
 "The change was undone."=>"S'ha desfet el canvi.", // MT
 "Move cancelled."=>"Moviment cancel·lat.", // MT
+"Overview"=>"Introducció", // MT
+"Contents"=>"Contingut", // MT
+"This help page does not exist."=>"Aquesta pàgina d'ajuda no existeix.", // MT
+"The documentation is in English."=>"La documentació és en anglès.", // MT
+"Read this page on the documentation website"=>"Llegiu aquesta pàgina al lloc web de la documentació", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Documentació sota la llicència CC BY-SA 4.0.", // MT

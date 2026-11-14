@@ -508,3 +508,9 @@ Das neue Passwort lautet:",
 "Undo"=>"Rückgängig", // MT
 "The change was undone."=>"Die Änderung wurde rückgängig gemacht.", // MT
 "Move cancelled."=>"Verschieben abgebrochen.", // MT
+"Overview"=>"Überblick", // MT
+"Contents"=>"Inhalt", // MT
+"This help page does not exist."=>"Diese Hilfeseite gibt es nicht.", // MT
+"The documentation is in English."=>"Die Dokumentation ist auf Englisch.", // MT
+"Read this page on the documentation website"=>"Diese Seite auf der Dokumentations-Website lesen", // MT
+"Documentation under the CC BY-SA 4.0 licence."=>"Dokumentation unter der Lizenz CC BY-SA 4.0.", // MT
