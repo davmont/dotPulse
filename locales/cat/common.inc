@@ -363,3 +363,6 @@
 "The change could not be saved."=>"No s'ha pogut desar el canvi.", // MT
 "Only task bars can be moved here."=>"Aquí només es poden moure les barres de tasques.", // MT
 "This chart only shows the dates."=>"Aquest diagrama només mostra les dates.", // MT
+"Undo"=>"Desfés", // MT
+"The change was undone."=>"S'ha desfet el canvi.", // MT
+"Move cancelled."=>"Moviment cancel·lat.", // MT

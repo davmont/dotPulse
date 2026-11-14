@@ -373,3 +373,6 @@ Om du ej har begärt ändringen av lösenordet behöver du ej oroa dig. Detta me
 "The change could not be saved."=>"Ändringen kunde inte sparas.", // MT
 "Only task bars can be moved here."=>"Här kan bara uppgiftsstaplar flyttas.", // MT
 "This chart only shows the dates."=>"Det här diagrammet visar bara datumen.", // MT
+"Undo"=>"Ångra", // MT
+"The change was undone."=>"Ändringen har ångrats.", // MT
+"Move cancelled."=>"Flytten avbröts.", // MT

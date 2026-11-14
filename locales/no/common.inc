@@ -363,3 +363,6 @@
 "The change could not be saved."=>"Endringen kunne ikke lagres.", // MT
 "Only task bars can be moved here."=>"Her kan bare oppgavestolper flyttes.", // MT
 "This chart only shows the dates."=>"Dette diagrammet viser bare datoene.", // MT
+"Undo"=>"Angre", // MT
+"The change was undone."=>"Endringen er angret.", // MT
+"Move cancelled."=>"Flyttingen er avbrutt.", // MT

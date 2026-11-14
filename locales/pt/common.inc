@@ -488,3 +488,6 @@
 "The change could not be saved."=>"Não foi possível guardar a alteração.", // MT
 "Only task bars can be moved here."=>"Aqui só se podem mover as barras das tarefas.", // MT
 "This chart only shows the dates."=>"Este gráfico apenas mostra as datas.", // MT
+"Undo"=>"Anular", // MT
+"The change was undone."=>"A alteração foi anulada.", // MT
+"Move cancelled."=>"Deslocação cancelada.", // MT

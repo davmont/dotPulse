@@ -363,3 +363,6 @@
 "The change could not be saved."=>"Izmaiņas neizdevās saglabāt.", // MT
 "Only task bars can be moved here."=>"Šeit var pārvietot tikai uzdevumu joslas.", // MT
 "This chart only shows the dates."=>"Šī diagramma tikai parāda datumus.", // MT
+"Undo"=>"Atsaukt", // MT
+"The change was undone."=>"Izmaiņas ir atsauktas.", // MT
+"Move cancelled."=>"Pārvietošana atcelta.", // MT

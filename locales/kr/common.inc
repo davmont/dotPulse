@@ -371,3 +371,6 @@
 "The change could not be saved."=>"변경 사항을 저장할 수 없습니다.", // MT
 "Only task bars can be moved here."=>"여기서는 작업 막대만 옮길 수 있습니다.", // MT
 "This chart only shows the dates."=>"이 차트는 날짜만 보여 줍니다.", // MT
+"Undo"=>"실행 취소", // MT
+"The change was undone."=>"변경을 취소했습니다.", // MT
+"Move cancelled."=>"이동을 취소했습니다.", // MT

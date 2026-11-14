@@ -363,3 +363,6 @@
 "The change could not be saved."=>"Spremembe ni bilo mogoče shraniti.", // MT
 "Only task bars can be moved here."=>"Tu je mogoče premikati le vrstice opravil.", // MT
 "This chart only shows the dates."=>"Ta grafikon datume le prikazuje.", // MT
+"Undo"=>"Razveljavi", // MT
+"The change was undone."=>"Sprememba je razveljavljena.", // MT
+"Move cancelled."=>"Premik je preklican.", // MT
