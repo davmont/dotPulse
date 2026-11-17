@@ -3,7 +3,7 @@ if (!defined('DP_BASE_DIR')) {
   die('You should not access this file directly.');
 }
 
-$del = isset($_POST['del']) ? $_POST['del'] : 0;
+$del = dPgetParam($_POST, 'del', 0);
 
 $obj =& $AppUI->acl();
 

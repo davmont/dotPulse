@@ -3,7 +3,7 @@ if (!defined('DP_BASE_DIR')) {
   die('You should not access this file directly.');
 }
 
-$del = (isset($_POST['del']) ? $_POST['del'] : 0);
+$del = dPgetParam($_POST, 'del', 0);
 
 $obj =& $AppUI->acl();
 
@@ -13,7 +13,7 @@ if ($del) {
 	if (! $obj->checkModule($m, 'delete')) {
 		$AppUI->redirect('m=public&a=access_denied');
 	}
-	if ($obj->del_acl(intval($_REQUEST['permission_id']))) {
+	if ($obj->del_acl(dPgetIntParam($_REQUEST, 'permission_id'))) {
 		dPaudit('permission.removed', 'permission ' . dPgetIntParam($_REQUEST, 'permission_id') . ' of user ' . (int)dPgetParam($_POST, 'user_id', 0),
 			'users', (int)dPgetParam($_POST, 'user_id', 0));
 		$AppUI->setMsg('deleted', UI_MSG_ALERT, true);

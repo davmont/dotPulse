@@ -9,8 +9,8 @@ $showEditCheckbox = true;
 // Project status from sysval, defined as a constant
 $project_on_hold_status = 4;
 
-if (isset($_GET['tab'])) {
-	$AppUI->setState('ToDoTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('ToDoTab', dPgetParam($_GET, 'tab'));
 }
 $tab = $AppUI->getState('ToDoTab') !== NULL ? $AppUI->getState('ToDoTab') : 0;
 
@@ -42,7 +42,7 @@ if (getPermission('admin','view')) {
 $canEdit = getPermission($m, 'edit');
 
 // retrieve any state parameters
-if (isset($_POST['show_form'])) {
+if (dPgetParam($_POST, 'show_form') !== null) {
 	$AppUI->setState('TaskDayShowArc', (int)dPgetParam($_POST, 'show_arc_proj', 0));
 	$AppUI->setState('TaskDayShowLow', (int)dPgetParam($_POST, 'show_low_task', 0));
 	$AppUI->setState('TaskDayShowHold', (int)dPgetParam($_POST, 'show_hold_proj', 0));

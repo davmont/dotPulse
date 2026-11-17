@@ -19,18 +19,18 @@ if (getPermission('admin', 'view')) { // Only sysadmins are able to change users
 	}
 }
 
-if (isset($_POST['f'])) {
-	$AppUI->setState('TaskIdxFilter', $_POST['f']);
+if (dPgetParam($_POST, 'f') !== null) {
+	$AppUI->setState('TaskIdxFilter', dPgetParam($_POST, 'f'));
 }
 $f = $AppUI->getState('TaskIdxFilter') ? $AppUI->getState('TaskIdxFilter') : 'myunfinished';
 
-if (isset($_POST['f2'])) {
-	$AppUI->setState('CompanyIdxFilter', $_POST['f2']);
+if (dPgetParam($_POST, 'f2') !== null) {
+	$AppUI->setState('CompanyIdxFilter', dPgetParam($_POST, 'f2'));
 }
 $f2 = $AppUI->getState('CompanyIdxFilter') ? $AppUI->getState('CompanyIdxFilter') : 'all';
 
-if (isset($_GET['project_id'])) {
-	$AppUI->setState('TaskIdxProject', (int)$_GET['project_id']);
+if (dPgetParam($_GET, 'project_id') !== null) {
+	$AppUI->setState('TaskIdxProject', dPgetIntParam($_GET, 'project_id'));
 }
 $project_id = (int)$AppUI->getState('TaskIdxProject');
 
@@ -44,8 +44,8 @@ $filters2 = arrayMerge(array('all' => $AppUI->_('All Companies', UI_OUTPUT_RAW))
 $titleBlock = new CTitleBlock('Tasks', 'applet-48.png', $m, "$m.$a");
 
 // patch 2.12.04 text to search entry box
-if (isset($_POST['searchtext'])) {
-	$AppUI->setState('searchtext', $_POST['searchtext']);
+if (dPgetParam($_POST, 'searchtext') !== null) {
+	$AppUI->setState('searchtext', dPgetParam($_POST, 'searchtext'));
 }
 
 

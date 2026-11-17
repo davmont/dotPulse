@@ -13,7 +13,7 @@ if ($user_id != $AppUI->user_id
 
 $AppUI->savePlace();
 
-if (isset($_POST['show_form'])) {
+if (dPgetParam($_POST, 'show_form') !== null) {
 	$add_pwt = (int)dPgetParam($_POST, 'add_pwt', 0);
 	$AppUI->setState('addProjWithTasks', $add_pwt);
 }
@@ -27,7 +27,7 @@ $company_id = $AppUI->getState('UsrProjIdxCompany') !== NULL ? $AppUI->getState(
 
 $company_prefix = 'company_';
 
-if (isset($_POST['department'])) {
+if (dPgetParam($_POST, 'department') !== null) {
 	$AppUI->setState('UsrProjIdxDepartment', dPdepartmentParam($_POST));
 
 	//if department is set, ignore the company_id field
@@ -43,8 +43,8 @@ if (!(mb_strpos($department, $company_prefix) === false)) {
 	unset($department);
 }
 
-if (isset($_GET['tab'])) {
-	$AppUI->setState('UserVwTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('UserVwTab', dPgetParam($_GET, 'tab'));
 }
 $tab = $AppUI->getState('UserVwTab') !== NULL ? $AppUI->getState('UserVwTab') : 0;
 

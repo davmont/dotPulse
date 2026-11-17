@@ -99,8 +99,8 @@ if (!$isNewUser && $AppUI->user_id == $user_id_aed) {
 	$q->addQuery('contact_email');
 	$q->addWhere('contact_id = ' . (int)$contact->contact_id);
 	$emailChanged = ((string)$q->loadResult() !== (string)$contact->contact_email);
-	if ((!empty($_POST['user_password']) && $db_pwd != $_POST['user_password']) || $emailChanged) {
-		if (!isset($_POST['old_password']) || (!password_verify($_POST['old_password'], $db_pwd) && md5($_POST['old_password']) !== $db_pwd)) {
+	if (((bool)dPgetParam($_POST, 'user_password') && $db_pwd != dPgetParam($_POST, 'user_password')) || $emailChanged) {
+		if (dPgetParam($_POST, 'old_password') === null || (!password_verify(dPgetParam($_POST, 'old_password'), $db_pwd) && md5(dPgetParam($_POST, 'old_password')) !== $db_pwd)) {
 			$AppUI->setMsg('Invalid old password', UI_MSG_ERROR, true);
 			$AppUI->redirect();
 		}
@@ -127,12 +127,12 @@ if (($msg = $contact->store())) {
 	if (($msg = $obj->store())) {
 		$AppUI->setMsg($msg, UI_MSG_ERROR);
 	} else {
-		if ($isNewUser && isset($_POST['send_user_mail']) && $_POST['send_user_mail']) {
+		if ($isNewUser && (dPgetParam($_POST, 'send_user_mail') !== null) && dPgetParam($_POST, 'send_user_mail')) {
 			// Security Mitigation: Do not send password in email.
 			notifyNewUser($contact->contact_email, $contact->contact_first_name, 
 			              $obj->user_username);
 		}
-		if (!$ownAccountOnly && isset($_POST['user_role']) && $_POST['user_role']) {
+		if (!$ownAccountOnly && (dPgetParam($_POST, 'user_role') !== null) && dPgetParam($_POST, 'user_role')) {
 			$perms =& $AppUI->acl();
 			if ($perms->insertUserRole(dPgetIntParam($_POST, 'user_role', 0), $obj->user_id)) {
 				$AppUI->setMsg('', UI_MSG_ALERT, true);

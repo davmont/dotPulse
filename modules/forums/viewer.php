@@ -4,10 +4,10 @@ if (!defined('DP_BASE_DIR')) {
 }
 
 //view posts
-$forum_id = isset($_GET["forum_id"]) ? (int)$_GET["forum_id"] : 0;
+$forum_id = dPgetIntParam($_GET, "forum_id");
 
-$message_id = isset($_GET["message_id"]) ? (int)$_GET["message_id"] : 0;
-$post_message = isset($_GET["post_message"]) ? (int)$_GET["post_message"] : 0;
+$message_id = dPgetIntParam($_GET, "message_id");
+$post_message = dPgetIntParam($_GET, "post_message");
 $f = dpGetParam($_POST, 'f', 0);
 
 // check permissions

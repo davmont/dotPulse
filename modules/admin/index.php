@@ -12,16 +12,16 @@ if (!(getPermission('users', 'view'))) {
 
 $AppUI->savePlace();
 
-if (isset($_GET['tab'])) {
-    $AppUI->setState('UserIdxTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+    $AppUI->setState('UserIdxTab', dPgetParam($_GET, 'tab'));
 }
 $tab = (($AppUI->getState('UserIdxTab') !== NULL) ? $AppUI->getState('UserIdxTab') : 0);
 
-if (isset($_GET['stub'])) {
-    $AppUI->setState('UserIdxStub', $_GET['stub']);
+if (dPgetParam($_GET, 'stub') !== null) {
+    $AppUI->setState('UserIdxStub', dPgetParam($_GET, 'stub'));
     $AppUI->setState('UserIdxWhere', '');
-} else if (isset($_POST['where'])) { 
-    $AppUI->setState('UserIdxWhere', $_POST['where']);
+} else if (dPgetParam($_POST, 'where') !== null) { 
+    $AppUI->setState('UserIdxWhere', dPgetParam($_POST, 'where'));
     $AppUI->setState('UserIdxStub', '');
 }
 $stub = $AppUI->getState('UserIdxStub');
@@ -34,8 +34,8 @@ $valid_ordering = array(
 	'date_time_in',
 	'user_ip',
 );
-if (isset($_GET['orderby']) && in_array($_GET['orderby'], $valid_ordering)) {
-    $AppUI->setState('UserIdxOrderby', $_GET['orderby']);
+if ((dPgetParam($_GET, 'orderby') !== null) && in_array(dPgetParam($_GET, 'orderby'), $valid_ordering)) {
+    $AppUI->setState('UserIdxOrderby', dPgetParam($_GET, 'orderby'));
 }
 $orderby = (($AppUI->getState('UserIdxOrderby')) ? $AppUI->getState('UserIdxOrderby') 
             : 'user_username');

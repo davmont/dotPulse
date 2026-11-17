@@ -17,7 +17,7 @@ function cleanText($text) {
 	return mb_substr(mb_scrub((string)$text, 'UTF-8'), 0, 8, 'UTF-8');
 }
 
-$notify_owner = ((isset($_POST['task_log_notify_owner'])) ? $_POST['task_log_notify_owner'] : 0);
+$notify_owner = ((dPgetParam($_POST, 'task_log_notify_owner') !== null) ? dPgetParam($_POST, 'task_log_notify_owner') : 0);
 
 $del = (int)dPgetParam($_POST, 'del', 0);
 
@@ -76,7 +76,7 @@ if ($del) {
 		foreach ($post_log_store as $post_log_function) {
 			$post_log_function($obj);
 		}
-		$AppUI->setMsg(@$_POST['task_log_id'] ? 'updated' : 'inserted', UI_MSG_OK, true);
+		$AppUI->setMsg(dPgetParam($_POST, 'task_log_id') ? 'updated' : 'inserted', UI_MSG_OK, true);
 	}
 }
 $task = new CTask();
@@ -87,7 +87,7 @@ $task_end_date = new CDate($task->task_end_date);
 $task->task_percent_complete = dPgetCleanParam($_POST, 'task_percent_complete', null);
 
 if (dPgetCleanParam($_POST, 'task_end_date', '') != '') {
-	$new_date = new CDate($_POST['task_end_date']);
+	$new_date = new CDate(dPgetParam($_POST, 'task_end_date'));
 	$new_date->setTime($task_end_date->hour, $task_end_date->minute, $task_end_date->second);
 	$task->task_end_date = $new_date->format(FMT_DATETIME_MYSQL);
 }

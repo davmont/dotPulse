@@ -3,7 +3,7 @@ if (!defined('DP_BASE_DIR')) {
   die('You should not access this file directly.');
 }
 
-$del = isset($_POST['del']) ? $_POST['del'] : 0;
+$del = dPgetParam($_POST, 'del', 0);
 
 $role = new CRole();
 
@@ -23,7 +23,7 @@ if ($del) {
 	if (($msg = $role->store())) {
 		$AppUI->setMsg($msg, UI_MSG_ERROR);
 	} else {
-		$isNotNew = @$_POST['role_id'];
+		$isNotNew = dPgetParam($_POST, 'role_id');
 		dPaudit('role.saved', (string)$role->role_name, 'roles', (int)$role->role_id);
 		$AppUI->setMsg("Role ".($isNotNew ? 'updated' : 'inserted'), UI_MSG_OK);
 	}

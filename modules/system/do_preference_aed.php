@@ -3,12 +3,12 @@ if (!defined('DP_BASE_DIR')) {
   die('You should not access this file directly.');
 }
 
-$del = isset($_POST['del']) ? $_POST['del'] : 0;
+$del = dPgetParam($_POST, 'del', 0);
 
 $obj = new CPreferences();
-$obj->pref_user = isset($_POST['pref_user']) ? $_POST['pref_user'] : 0;
+$obj->pref_user = dPgetParam($_POST, 'pref_user', 0);
 
-foreach ($_POST['pref_name'] as $name => $value) {
+foreach (dPgetParam($_POST, 'pref_name') as $name => $value) {
 	$obj->pref_name = $name;
 	$obj->pref_value = $value;
 

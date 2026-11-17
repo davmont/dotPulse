@@ -19,8 +19,8 @@ $folder = intval(dPgetParam($_GET, 'folder', 0));
 // "Project" filters info
 require_once ($AppUI->getModuleClass('projects'));
 // retrieve any state parameters
-if (isset($_REQUEST['project_id'])) {
-	$AppUI->setState('FileIdxProject', $_REQUEST['project_id']);
+if (dPgetParam($_REQUEST, 'project_id') !== null) {
+	$AppUI->setState('FileIdxProject', dPgetParam($_REQUEST, 'project_id'));
 }
 $project_id = $AppUI->getState('FileIdxProject', 0);
 
