@@ -69,6 +69,7 @@ class GanttRenderer {
         $q->addQuery('t.task_id, t.task_name, t.task_start_date, t.task_end_date, t.task_percent_complete');
         $q->addWhere('t.task_project = ' . (int)$project_id);
         $q->addOrder('t.task_start_date, t.task_id');
+        require_once $AppUI->getModuleClass('tasks');
         $task = new CTask;
         $task->setAllowedSQL($AppUI->user_id, $q);
         return self::taskRows($q->loadList());

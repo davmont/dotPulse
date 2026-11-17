@@ -68,8 +68,10 @@ function cal_work_day_conv($val) {
 	setlocale(LC_ALL, $AppUI->user_lang);
 	
 	$day_name = $wk[($val - LOCALE_FIRST_DAY)%7];
-	if ($locale_char_set == "utf-8" && function_exists("utf8_encode")) {
-	    $day_name = utf8_encode($day_name);
+	// strftime() gives the name in the locale's encoding: Latin-1 for a locale without
+	// .UTF-8 (utf8_encode() also double-encoded names that were UTF-8 already).
+	if (strtolower($locale_char_set) == 'utf-8' && !mb_check_encoding($day_name, 'UTF-8')) {
+	    $day_name = mb_convert_encoding($day_name, 'UTF-8', 'ISO-8859-1');
 	}
 	return htmlentities($day_name, ENT_COMPAT, $locale_char_set);
 }
