@@ -6,6 +6,8 @@ if (!defined('DP_BASE_DIR')) {
 $del = dPgetParam($_POST, 'del', 0);
 
 $obj =& $AppUI->acl();
+// The form only adds permissions; an existing one is deleted, not edited.
+$isNotNew = false;
 
 $AppUI->setMsg('Permission');
 
@@ -18,7 +20,7 @@ if ($del) {
 			'users', (int)dPgetParam($_POST, 'user_id', 0));
 		$AppUI->setMsg('deleted', UI_MSG_ALERT, true);
 	} else {
-		$AppUI->setMsg($msg, UI_MSG_ERROR);
+		$AppUI->setMsg($obj->msg(), UI_MSG_ERROR);
 	}
 	$AppUI->redirect();
 } else {
@@ -32,7 +34,7 @@ if ($del) {
 			'users', (int)dPgetParam($_POST, 'user_id', 0));
 		$AppUI->setMsg($isNotNew ? 'updated' : 'added', UI_MSG_OK, true);
 	} else {
-		$AppUI->setMsg($msg, UI_MSG_ERROR);
+		$AppUI->setMsg($obj->msg(), UI_MSG_ERROR);
 	}
 	$AppUI->redirect();
 }

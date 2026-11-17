@@ -1119,9 +1119,11 @@ class dPacl extends gacl_api
 			return false;
 		}
 
-		$mod_type = substr(dPgetParam($_POST, 'permission_module'), 0, 4);
+		$module = dPgetParam($_POST, 'permission_module', '');
+		$module = is_string($module) ? $module : '';
+		$mod_type = substr($module, 0, 4);
 		// Ids are integers and the table one a module declares (phpGACL concatenates them).
-		$mod_id = (int)substr(dPgetParam($_POST, 'permission_module'), 4);
+		$mod_id = (int)substr($module, 4);
 		$permission_item = (int)dPgetParam($_POST, 'permission_item', 0);
 		$permission_table = (string)dPgetParam($_POST, 'permission_table', '');
 		$q = new DBQuery();
@@ -1160,6 +1162,10 @@ class dPacl extends gacl_api
 		} else {
 			//Get the module information
 			$mod_info = $this->get_object_data($mod_id, 'axo');
+			if (empty($mod_info)) {
+				$this->debug_text('unknown module');
+				return false;
+			}
 			$mod_mod = array();
 			$mod_mod[$mod_info[0][0]][] = $mod_info[0][1];
 		}
@@ -1170,6 +1176,10 @@ class dPacl extends gacl_api
 		} else {
 			$role_map = null;
 			$aro_info = $this->get_object_data(dPgetIntParam($_POST, 'permission_user'), 'aro');
+			if (empty($aro_info)) {
+				$this->debug_text('unknown user');
+				return false;
+			}
 			$user_map = array();
 			$user_map[$aro_info[0][0]][] = $aro_info[0][1];
 		}
