@@ -138,7 +138,7 @@ if ($lang == 'en') {
 } else {
 	echo $langs['english'];
 	echo ('<input type="hidden" name="trans[' . $index . '][english]" value="' 
-	      . ($k ? $k : $langs['english']) .'" size="20" class="text" />');
+	      . dPformSafe($k ? $k : $langs['english']) .'" size="20" class="text" />');
 }
 ?></td>
 	<td><?php

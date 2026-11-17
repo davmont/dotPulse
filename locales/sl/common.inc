@@ -29,7 +29,7 @@
 "back"=>"Nazaj",
 "Backup"=>"Varnostna kopija", // MT
 "Birthday"=>"Rojstni dan",
-"Calendar"=>"Kolendar",
+"Calendar"=>"Koledar",
 "cancel"=>"Prekli&#269;i",
 "canCopyPaste"=>"(Lahko uporabite kopiraj/prilepi)", // MT
 "Change User Password"=>"Spremeni geslo uporabnika",

@@ -101,11 +101,11 @@
 "Submit Trouble Ticket"=>"Skicka felkort",
 "There are no"=>"Det existerar inga",
 "There were"=>"Det är",
-"Ticket"=>"Kort",
+"Ticket"=>"Ärende",
 "Ticket assigned to you"=>"Felkort som tillordnats dig",
 "Ticket ID"=>"Kortnummer (ID)",
 "Ticket Updated - "=>"Ärende uppdaterat - ", // MT
-"tickets"=>"Kort",
+"tickets"=>"Ärenden",
 "tickets list"=>"Kortlista",
 "ticketsmithValidDetail"=>"Mata in följande detaljer före försändelse",
 "To"=>"Till",

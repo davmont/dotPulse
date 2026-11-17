@@ -128,7 +128,7 @@
 "Last Update"=>"Dernière mise à jour",
 "Levels to display"=>"Niveau a montrer",
 "Links"=>"Liens",
-"Log"=>"Connexion",
+"Log"=>"Journal",
 "Log All"=>"Connecter tous",
 "Log All Projects"=>"Connecter tous les projets",
 "Make PDF"=>"convertir en PDF",

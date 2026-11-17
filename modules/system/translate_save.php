@@ -42,6 +42,9 @@ if (file_exists($core_filename)) {
 		$filename = $core_filename;
 }
 
+// The marks of the file as it is, read before it is rewritten.
+$review = ($lang == 'en') ? array() : dPlocaleReviewMarks($filename);
+
 $fp = fopen ($filename, 'wt');
 
 if (!$fp) {
@@ -66,12 +69,14 @@ if ($lang == 'en') {
 		}
 	}
 } else {
-// editing the translation
+// editing the translation: an entry still machine translated ("// MT") keeps its mark while
+// its translation is left as it was, so a review can be done in parts.
 	foreach ($trans as $langs) {
 		if (empty($langs['del'])) {
 			$langs['english'] = stripslashes($langs['english']);
 			$langs['lang'] = stripslashes($langs['lang']);
-			$txt .= var_export($langs['english'], true) . '=>' . var_export($langs['lang'], true) . ',' . "\n";
+			$mark = (isset($review[$langs['english']]) && $review[$langs['english']] === $langs['lang']) ? ' // MT' : '';
+			$txt .= var_export($langs['english'], true) . '=>' . var_export($langs['lang'], true) . ',' . $mark . "\n";
 		}
 	}
 }

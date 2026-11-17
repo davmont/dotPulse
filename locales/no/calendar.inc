@@ -36,7 +36,7 @@
 "Every 6 months"=>"Hver 6. måned", // MT
 "Every Month"=>"Hver måned", // MT
 "Every Year"=>"Hvert år", // MT
-"Finish Date"=>"Slutt dato",
+"Finish Date"=>"Sluttdato",
 "Future Task"=>"Framtidig oppgave",
 "Hourly"=>"Hver time", // MT
 "in advance"=>"på forhånd",
@@ -74,7 +74,7 @@
 "Show Events for"=>"Vis hendelser for", // MT
 "Show only on Working Days"=>"Vis bare på arbeidsdager", // MT
 "Show Todo for"=>"Vis gjøremål for", // MT
-"Start Date"=>"Start dato",
+"Start Date"=>"Startdato",
 "Start-Date >= End-Date, please correct"=>"Startdato >= sluttdato, rett opp", // MT
 "Started and on time"=>"Startet på, og følger skjema",
 "Starts"=>"Starter",

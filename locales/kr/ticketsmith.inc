@@ -101,11 +101,11 @@
 "Submit Trouble Ticket"=>"문제 표를 제출",
 "There are no"=>"거기에 없음",
 "There were"=>"거기에 있음",
-"Ticket"=>"표",
+"Ticket"=>"티켓",
 "Ticket assigned to you"=>"티켓은 당신에게 정함",
 "Ticket ID"=>"표 아이디",
 "Ticket Updated - "=>"티켓 업데이트됨 - ", // MT
-"tickets"=>"표",
+"tickets"=>"티켓",
 "tickets list"=>"표 목록",
 "ticketsmithValidDetail"=>"아래의 내용을 제공하세요.",
 "To"=>"수신",

@@ -107,7 +107,7 @@
 "Extra Recipients"=>"Ekstra mottakere", // MT
 "Filter"=>"Filter",
 "Finish"=>"Slutt", // MT
-"Finish Date"=>"Ferdig dato",
+"Finish Date"=>"Ferdigdato",
 "finish date"=>"dato ferdig",
 "Fix date ranges for task groups according to subtasks dates"=>"Juster datointervaller for oppgavegrupper etter underoppgavenes datoer", // MT
 "For period"=>"For perioden", // MT
@@ -254,7 +254,7 @@
 "Sort by Name"=>"Sorter etter navn", // MT
 "Start"=>"Start",
 "start"=>"start",
-"Start Date"=>"Start dato",
+"Start Date"=>"Startdato",
 "Start Time"=>"Starttid", // MT
 "Started and on time"=>"Startet på, og følger skjema",
 "Status"=>"Status",
@@ -307,7 +307,7 @@
 "tasksPercent"=>"Prosent fullført må være et tall",
 "tasksPercentValue"=>"Prosent fullført må være mellom 0 og 100",
 "taskValidEndDate"=>"Skriv inn en gyldig sluttdato", // MT
-"taskValidStartDate"=>"Skriv inn en gyldig start dato",
+"taskValidStartDate"=>"Skriv inn en gyldig startdato",
 "Tax"=>"Mva.", // MT
 "This task is only financial"=>"Denne oppgaven er bare økonomisk", // MT
 "Time Worked"=>"Timer brukt",

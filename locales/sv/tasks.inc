@@ -145,7 +145,7 @@
 "low resolution"=>"låg upplösning", // MT
 "Mark as Finished"=>"Markera som avslutad", // MT
 "mark as finished"=>"markera som avslutad",
-"Milestone"=>"Milstone",
+"Milestone"=>"Milstolpe",
 "Milestone (completed)"=>"Milstolpe (avslutad)", // MT
 "Milestone (in progress)"=>"Milstolpe (pågående)", // MT
 "Milestone (overdue)"=>"Milstolpe (försenad)", // MT

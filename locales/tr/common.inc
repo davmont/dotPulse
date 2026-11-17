@@ -78,7 +78,7 @@
 "doDelete"=>"Bunu silmek istediğinizden emin misiniz?",
 "Done"=>"Tamamlandı", // MT
 "Dynamic Tasks"=>"Dinamik Görevler", // MT
-"Edit"=>"Düzelt",
+"Edit"=>"Düzenle",
 "Edition"=>"Baskı", // MT
 "either"=>"hangi biri",
 "EMail"=>"E-posta", // MT

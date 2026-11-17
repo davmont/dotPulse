@@ -1569,4 +1569,35 @@ function dPconvertTablesToUtf8mb4($tables)
 	}
 	return true;
 }
+/**
+ * The entries of a locale file still marked "// MT" (machine translated, to review), as
+ * English => translation. The translation page keeps the mark on an entry it saves unchanged
+ * (modules/system/translate_save.php). Each marked line is read with the PHP tokenizer, not
+ * run: "key"=>"value", // MT
+ */
+function dPlocaleReviewMarks($file)
+{
+	$marks = array();
+	if (!is_readable($file)) {
+		return $marks;
+	}
+	foreach (file($file) as $line) {
+		if (!preg_match('#^(.*?),?[ \t]*// MT[ \t]*$#', rtrim($line, "\r\n"), $m)) {
+			continue;
+		}
+		$strings = array();
+		foreach (token_get_all('<?php ' . $m[1] . ';') as $token) {
+			if (is_array($token) && $token[0] === T_CONSTANT_ENCAPSED_STRING) {
+				$literal = $token[1];
+				$body = substr($literal, 1, -1);
+				$strings[] = ($literal[0] === "'") ? strtr($body, array("\\\\" => "\\", "\\'" => "'"))
+					: stripcslashes($body);
+			}
+		}
+		if (count($strings) === 2) {
+			$marks[$strings[0]] = $strings[1];
+		}
+	}
+	return $marks;
+}
 ?>

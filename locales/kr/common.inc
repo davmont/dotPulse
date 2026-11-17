@@ -251,7 +251,7 @@
 "Supplier"=>"제공자",
 "Suppliers"=>"제공자",
 "System Admin"=>"시스템 관리",
-"tabbed"=>"표",
+"tabbed"=>"탭",
 "table"=>"표", // MT
 "Task"=>"작업",
 "Tasks"=>"작업",

@@ -145,7 +145,7 @@
 "low resolution"=>"baixa resolució", // MT
 "Mark as Finished"=>"Marcar com a acabada", // MT
 "mark as finished"=>"marcar com finalitzada",
-"Milestone"=>"Hito",
+"Milestone"=>"Fita",
 "Milestone (completed)"=>"Fita (completada)", // MT
 "Milestone (in progress)"=>"Fita (en curs)", // MT
 "Milestone (overdue)"=>"Fita (endarrerida)", // MT
