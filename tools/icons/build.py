@@ -21,7 +21,7 @@ DP_VECTOR_ICONS (dotpulse, dotpulse-dark) show them: dPfindImage() prefers the S
 dPvectorIconFilter() swaps the bitmaps in the page, taking the dark versions in a theme
 that defines DP_DARK_THEME; the classic themes keep the bitmaps.
 """
-import os, sys
+import os, re, sys
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 
@@ -153,6 +153,33 @@ glyph('clock', 'M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18zM12 7.5V12l3 2')
 glyph('task-start', 'M9 5H6v14h3M11 12h8M16 9l3 3-3 3')
 glyph('task-end', 'M15 5h3v14h-3M5 12h8M10 9l3 3-3 3')
 glyph('dot', '', fill='M12 5a7 7 0 1 1 0 14 7 7 0 0 1 0-14z')
+glyph('star', 'M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z')
+glyph('star-fill', 'M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z', fill='M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z')
+glyph('bulb', 'M9.5 18h5M10.5 21h3M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.1V16h5v-.1c0-.8.4-1.6 1.1-2.1A6 6 0 0 0 12 3z')
+glyph('frown', 'M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18zM8.5 16.5a4.5 4.5 0 0 1 7 0M9 9.5v.5M15 9.5v.5')
+glyph('exchange', 'M4 8.5h15M15 4.5l4 4-4 4M20 15.5H5M9 11.5l-4 4 4 4')
+glyph('arrow-left', 'M20 12H5M11 6l-6 6 6 6')
+glyph('home', 'M3.5 11L12 4l8.5 7M6 9v10.5A1.5 1.5 0 0 0 7.5 21h3v-6h3v6h3a1.5 1.5 0 0 0 1.5-1.5V9')
+glyph('folder-plus', 'M3.5 7V5.5A1.5 1.5 0 0 1 5 4h4.5l2 2.5H19A1.5 1.5 0 0 1 20.5 8v10.5A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5zM12 10v7M8.5 13.5h7')
+# The tree corner before a subtask (16x12 in the lists): a dotted L.
+glyph('corner', 'M7 2v.5M7 5v.5M7 8v.5M7 11h.5M10 11h.5M13 11h.5M16 11h.5')
+# File types (modules/files/images/icons/, 16 px): a page with what it holds.
+FILE = 'M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8zM14 3v5h5'
+glyph('file-blank', FILE)
+glyph('file-text', FILE + 'M8.5 13h7M8.5 17h5')
+glyph('file-sheet', FILE + 'M8.5 12h7v6.5h-7zM8.5 15.25h7M12 12v6.5')
+glyph('file-slides', FILE + 'M8.5 12h7v4.5h-7zM12 16.5v2.5')
+glyph('file-image', FILE + 'M8.5 18.5l2.5-3.5 2 2.5 1.2-1.2 1.8 2.2', fill='M10 11.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z')
+glyph('file-audio', FILE + 'M13 18v-6.5l2.5 1M11.5 16.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z')
+glyph('file-video', FILE, fill='M10 11.5v6.5l5.5-3.25z')
+glyph('file-archive', FILE + 'M10 6h1.5M10 9h1.5M10 12h1.5M9.5 15h3v3.5h-3z')
+glyph('file-code', FILE + 'M10.5 12.5l-2.5 2.75 2.5 2.75M13.5 12.5l2.5 2.75-2.5 2.75')
+glyph('file-exec', FILE + 'M8.5 12h7v6.5h-7zM8.5 14.5h7')
+glyph('file-font', FILE + 'M9.5 18.5l2.5-6.5 2.5 6.5M10.3 16.5h3.4')
+glyph('file-lock', FILE + 'M9.5 15h5v3.5h-5zM10.5 15v-1.5a1.5 1.5 0 0 1 3 0V15')
+glyph('file-calendar', FILE + 'M8.5 12.5h7v6h-7zM8.5 14.5h7')
+glyph('file-contact', FILE + 'M12 11.5a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zM9.2 18.5a2.8 2.8 0 0 1 5.6 0')
+glyph('file-disc', FILE + 'M12 11.5a3.25 3.25 0 1 1 0 6.5 3.25 3.25 0 0 1 0-6.5zM12 14.6v.3')
 glyph('smartfolder', 'M3.5 7V5.5A1.5 1.5 0 0 1 5 4h4.5l2 2.5H19A1.5 1.5 0 0 1 20.5 8v10.5A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5zM11 10.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM13 15l2.5 2.5')
 
 
@@ -357,7 +384,98 @@ SMALL = [
     ('modules/macroprojects/images/minus.svg', 'remove-circle', R, 18),
     ('modules/human_resources/images/ok.svg', 'check', T, 16),
     ('modules/human_resources/images/not.svg', 'x-circle', R, 16),
+    # Shared pictures still drawn as bitmaps.
+    ('images/corner-dots.svg', 'corner', S, 16),
+    ('images/icons/posticon.svg', 'document', S, 14),
+    ('images/icons/rc-gui-status-downgr.svg', 'warning-small', C['coral_icon'], 16),
+    # Tasks per user: give, take back, hand over.
+    ('modules/tasks/images/add.svg', 'plus-square', T, 16),
+    ('modules/tasks/images/remove.svg', 'minus-square', R, 16),
+    ('modules/tasks/images/exchange.svg', 'exchange', B, 16),
+    # Files: folder navigation.
+    ('modules/files/images/back.svg', 'arrow-left', B, 16),
+    ('modules/files/images/up.svg', 'arrow-up', B, 16),
+    ('modules/files/images/down.svg', 'arrow-down', B, 16),
+    ('modules/files/images/home.svg', 'home', S, 16),
+    ('modules/files/images/edit_add.svg', 'plus-circle', T, 16),
+    ('modules/files/images/folder_new.svg', 'folder-plus', T, 16),
+    # Project Designer: move, remove, save.
+    ('modules/projectdesigner/images/up.svg', 'arrow-up', B, 16),
+    ('modules/projectdesigner/images/down.svg', 'arrow-down', B, 16),
+    ('modules/projectdesigner/images/remove.svg', 'x-circle', R, 16),
+    ('modules/projectdesigner/images/filesave.svg', 'save', S, 16),
+    # Help desk: the call types (sysval HelpDeskCallType 0-4) and the history toggle.
+    ('modules/helpdesk/images/ct0.svg', 'help', S, 16),
+    ('modules/helpdesk/images/ct1.svg', 'bug', R, 16),
+    ('modules/helpdesk/images/ct2.svg', 'bulb', C['amber'], 16),
+    ('modules/helpdesk/images/ct3.svg', 'frown', C['coral_icon'], 16),
+    ('modules/helpdesk/images/ct4.svg', 'star', T, 16),
+    ('modules/helpdesk/images/toggle.svg', 'exchange', S, 16),
+    # Annotations: the levels 0-3 of scope, resources and time (an empty star, then red,
+    # amber and green), and its copies of the calendar navigation.
+    ('modules/annotations/images/0.svg', 'star', C['grey_icon'], 20),
+    ('modules/annotations/images/1.svg', 'star-fill', R, 20),
+    ('modules/annotations/images/2.svg', 'star-fill', C['amber'], 20),
+    ('modules/annotations/images/3.svg', 'star-fill', C['green'], 20),
+    ('modules/annotations/images/arrow-up.svg', 'caret-up', S, 12),
+    ('modules/annotations/images/calendar.svg', 'calendar', B, 16),
+    ('modules/annotations/images/navfirst.svg', 'chev-first', S, 16),
+    ('modules/annotations/images/navlast.svg', 'chev-last', S, 16),
+    ('modules/annotations/images/navleft.svg', 'chev-left', S, 16),
+    ('modules/annotations/images/navright.svg', 'chev-right', S, 16),
+    ('modules/annotations/images/view.week.svg', 'week', S, 16),
 ]
+
+# File-type icons (modules/files/images/icons/, chosen by files.class.php getIcon()): each
+# bitmap gets the glyph and colour of its kind, from the parts of its name (split at - _ . +);
+# a word matches a part that equals it, or (5 letters or more) a part that contains it. The
+# first rule that matches wins; the rest (empty, unknown, misc...) get a blank page.
+FILE_KINDS = [
+    (('directory', 'smb'), 'folder', S),
+    (('recycled',), 'trash', S),
+    (('help', 'info'), 'help', B),
+    (('encrypted', 'pgp', 'certificate', 'locked', 'keys'), 'file-lock', S),
+    (('pdf', 'postscript', 'ps'), 'file-text', R),
+    (('spreadsheet', 'excel', 'calc', 'gnumeric', 'lotus', 'chart', 'formula', 'database'), 'file-sheet', C['green']),
+    (('presentation', 'powerpoint', 'impress', 'magicpoint'), 'file-slides', C['amber']),
+    (('calendar', 'vcalendar', 'schedule'), 'file-calendar', B),
+    (('address',), 'file-contact', B),
+    (('font', 'truetype'), 'file-font', S),
+    (('video', 'quicktime', 'mpeg', 'msvideo', 'wmv', 'asf'), 'file-video', C['coral_icon']),
+    (('cdimage', 'cd', 'cdbo', 'ipod'), 'file-disc', S),
+    (('image', 'bmp', 'gif', 'jpeg', 'jpg', 'png', 'tiff', 'tga', 'psd', 'xcf', 'xfig', 'pix', 'rgb', 'ief', 'svg',
+      'colorscm', 'colorset', 'drawing', 'graphics', 'draw', 'dia', 'cdr', 'xbitmap', 'xpixmap'), 'file-image', T),
+    (('audio', 'sound', 'wav', 'mp3', 'midi', 'ac3', 'aiff', 'voc', 'ulaw', 's3m', 'stm', 'mod', 'xm', 'xi', 'it',
+      'cdtrack', 'ogg', 'basic'), 'file-audio', B),
+    (('zip', 'rar', 'tar', 'gz', 'tgz', 'gzip', 'bz2', 'bzip', 'arj', 'lha', 'lhz', 'cpio', 'compress', 'compressed',
+      'deb', 'rpm', 'package', 'jar', 'par', 'par2', 'cbz', 'archive', 'bittorrent'), 'file-archive', C['amber']),
+    (('msword', 'wordperfect', 'abiword', 'writer', 'rtf', 'koffice'), 'file-text', B),
+    (('source', 'php', 'perl', 'python', 'pyc', 'script', 'shellscript', 'java', 'csrc', 'chdr', 'header', 'c',
+      'src', 'csharp', 'csh', 'haskell', 'scheme', 'css', 'html', 'xml', 'tex', 'class', 'bytecode', 'desktop',
+      'objcsrc', 'web'), 'file-code', S),
+    (('executable', 'exec', 'binary', 'sharedlib', 'library', 'vmlinuz', 'wine1', 'firmware'), 'file-exec', S),
+    (('text', 'msword', 'word', 'wordperfect', 'rtf', 'abiword', 'writer', 'document', 'documents', 'documents2',
+      'txt', 'ascii', 'readme', 'authors', 'credits', 'install', 'nfo', 'message', 'koffice', 'template', 'plain',
+      'generic'), 'file-text', B),
+]
+
+
+def file_kind(name):
+    parts = [x for x in re.split(r'[-_.+]', name[:-4].lower()) if x]
+    for words, glyph_name, colour in FILE_KINDS:
+        for w in words:
+            if any(w == x or (len(w) >= 5 and w in x) for x in parts):
+                return glyph_name, colour
+    return 'file-blank', S
+
+
+def file_type_icons():
+    folder = os.path.join(ROOT, 'modules', 'files', 'images', 'icons')
+    return [('modules/files/images/icons/' + n[:-4] + '.svg', *file_kind(n), 16)
+            for n in sorted(os.listdir(folder)) if n.endswith('.png')]
+
+
+SMALL += file_type_icons()
 
 
 # Small icons in a dark theme (style/dotpulse-dark): the same meaning colours, in the light
