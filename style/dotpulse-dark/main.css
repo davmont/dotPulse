@@ -72,8 +72,9 @@ body .dpa {
 	--a-teal-line: #2A6B6B;
 	--a-ink: #E9EDF3;
 	--a-slate: #A9B4C4;
-	--a-line: #707C90;
 	--a-line-soft: #2C3443;
+	--a-control-line: #707C90;
+	--a-focus: #7BA9F7;
 	--a-surface: #1A202B;
 	--a-surface-head: #1F2633;
 	--a-row-line: #252D3A;

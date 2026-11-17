@@ -78,6 +78,7 @@ $json_tasks = json_encode($gantt_tasks, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_A
 	<title><?php echo $AppUI->_('Interactive Gantt chart'); ?></title>
 	<!-- Frappe Gantt CSS -->
 	<link rel="stylesheet" href="<?php echo DP_BASE_URL; ?>/lib/frappe-gantt/frappe-gantt.min.css" />
+	<link rel="stylesheet" href="<?php echo DP_BASE_URL; ?>/style/gantt.css" />
 	<style>
 		body {
 			font-family: Arial, sans-serif;
