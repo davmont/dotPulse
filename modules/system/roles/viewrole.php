@@ -8,8 +8,8 @@ $perms =& $AppUI->acl();
 $role_id = dPgetIntParam($_GET, 'role_id', 0);
 $role = $perms->getRole($role_id);
 
-if (isset($_GET['tab'])) {
-	$AppUI->setState('RoleVwTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('RoleVwTab', dPgetParam($_GET, 'tab'));
 }
 $tab = $AppUI->getState('RoleVwTab') !== NULL ? $AppUI->getState('RoleVwTab') : 0;
 

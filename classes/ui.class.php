@@ -572,8 +572,9 @@ class CAppUI
 
 	function verifyCsrfToken()
 	{
-		$submitted = isset($_POST['csrf_token']) ? $_POST['csrf_token'] : '';
-		if (!$this->_csrf_token || !hash_equals($this->_csrf_token, $submitted)) {
+		$submitted = dPgetParam($_POST, 'csrf_token', '');
+		if (!$this->_csrf_token || !is_string($submitted)
+			|| !hash_equals($this->_csrf_token, $submitted)) {
 			$this->setMsg('Invalid or missing security token.', UI_MSG_ERROR);
 			$this->redirect('m=public&a=access_denied');
 		}
@@ -791,9 +792,9 @@ class CAppUI
 
 		$auth_method = dPgetConfig('auth_method', 'sql');
 		if (
-			@$_POST['login'] != 'login'
-			&& @$_POST['login'] != $this->_('login', UI_OUTPUT_RAW)
-			&& $_REQUEST['login'] != $auth_method
+			dPgetParam($_POST, 'login') != 'login'
+			&& dPgetParam($_POST, 'login') != $this->_('login', UI_OUTPUT_RAW)
+			&& dPgetParam($_REQUEST, 'login') != $auth_method
 		) {
 			die('You have chosen to log in using an unsupported or disabled login method');
 		}

@@ -59,8 +59,8 @@ if ($reminded) {
 }
 
 // retrieve any state parameters
-if (isset($_GET['tab'])) {
-	$AppUI->setState('TaskLogVwTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('TaskLogVwTab', dPgetParam($_GET, 'tab'));
 }
 $tab = $AppUI->getState('TaskLogVwTab') !== NULL ? $AppUI->getState('TaskLogVwTab') : 0;
 

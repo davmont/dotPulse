@@ -15,8 +15,8 @@ if (!$canRead) {
 }
 
 // retrieve any state parameters
-if (isset($_GET['tab'])) {
-	$AppUI->setState('CompVwTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('CompVwTab', dPgetParam($_GET, 'tab'));
 }
 $tab = (($AppUI->getState('CompVwTab') !== NULL) ? $AppUI->getState('CompVwTab') : 0);
 
@@ -202,7 +202,7 @@ $titleBlock->show();
 <br />
 <hr />
 <div id="rh_div"
-	style="display:<?php echo (isset($_GET["rh_config"]) && $_GET["rh_config"] == "1") ? "block" : "none" ?>">
+	style="display:<?php echo ((dPgetParam($_GET, "rh_config") !== null) && dPgetParam($_GET, "rh_config") == "1") ? "block" : "none" ?>">
 	<?php
 	// Parts of these add-on modules, only when they are active (their tables
 	// are gone once they are removed).

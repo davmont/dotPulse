@@ -4,7 +4,7 @@ if (!defined('DP_BASE_DIR')) {
 }
 
 global $department, $min_view;
-$dept_id = intval(isset($_GET['dept_id']) ? $_GET['dept_id'] : (isset($department) ? $department : 0));
+$dept_id = intval((dPgetParam($_GET, 'dept_id') !== null) ? dPgetParam($_GET, 'dept_id') : (isset($department) ? $department : 0));
 
 // check permissions
 $canRead = getPermission($m, 'view', $dept_id);
@@ -24,8 +24,8 @@ $dept_id = (($AppUI->getState('DeptIdxDepartment') !== NULL)
 	: (($AppUI->user_department > 0) ? $AppUI->user_department
 		: $company_prefix . $AppUI->user_company));
 
-if (isset($_GET['tab'])) {
-	$AppUI->setState('DeptVwTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('DeptVwTab', dPgetParam($_GET, 'tab'));
 }
 $tab = $AppUI->getState('DeptVwTab') !== NULL ? $AppUI->getState('DeptVwTab') : 0;
 

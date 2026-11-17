@@ -12,10 +12,10 @@ $AppUI->savePlace();
 $valid_ordering = array('company_name', 'countp', 'inactive', 'company_type');
 
 // retrieve any state parameters
-if (isset($_GET['orderby']) && in_array($_GET['orderby'], $valid_ordering)) {
+if ((dPgetParam($_GET, 'orderby') !== null) && in_array(dPgetParam($_GET, 'orderby'), $valid_ordering)) {
 	$orderdir = (($AppUI->getState('CompIdxOrderDir') 
 				  ? (($AppUI->getState('CompIdxOrderDir') == 'asc') ? 'desc' : 'asc') : 'desc'));
-	$AppUI->setState('CompIdxOrderBy', $_GET['orderby']);
+	$AppUI->setState('CompIdxOrderBy', dPgetParam($_GET, 'orderby'));
     $AppUI->setState('CompIdxOrderDir', $orderdir);
 }
 $orderby = (($AppUI->getState('CompIdxOrderBy')) 
@@ -76,8 +76,8 @@ if ($canEdit) {
 }
 $titleBlock->show();
 
-if (isset($_GET['tab'])) {
-	$AppUI->setState('CompaniesIdxTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('CompaniesIdxTab', dPgetParam($_GET, 'tab'));
 }
 $companiesTypeTab = defVal($AppUI->getState('CompaniesIdxTab'),  0);
 

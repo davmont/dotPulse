@@ -21,7 +21,7 @@ if ($task_id > 0 && !$obj->load($task_id)) {
 	$AppUI->redirect();
 }
 
-$task_parent = isset($_REQUEST['task_parent'])? $_REQUEST['task_parent'] : $obj->task_parent;
+$task_parent = (dPgetParam($_REQUEST, 'task_parent') !== null)? dPgetParam($_REQUEST, 'task_parent') : $obj->task_parent;
 
 //check for a valid project parent
 $task_project = intval($obj->task_project);
@@ -388,7 +388,7 @@ echo $AppUI->_('save'); ?>"<?php echo dPaction('submitEditFrm'); ?> />
 </table>
 </form>
 <?php
-if (isset($_GET['tab'])) {
+if (dPgetParam($_GET, 'tab') !== null) {
 	$AppUI->setState('TaskAeTabIdx', (int)dPgetParam($_GET, 'tab', 0));
 }
 $tab = $AppUI->getState('TaskAeTabIdx', 0);

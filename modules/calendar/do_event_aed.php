@@ -17,11 +17,11 @@ if (!$obj->bind($_POST)) {
 }
 // configure the date and times to insert into the db table
 if ($obj->event_start_date) {
-	$start_date = new CDate($obj->event_start_date.$_POST['start_time']);
+	$start_date = new CDate($obj->event_start_date.dPgetParam($_POST, 'start_time'));
 	$obj->event_start_date = $start_date->format(FMT_DATETIME_MYSQL);
 }
 if ($obj->event_end_date) {
-	$end_date = new CDate($obj->event_end_date.$_POST['end_time']);
+	$end_date = new CDate($obj->event_end_date.dPgetParam($_POST, 'end_time'));
 	$obj->event_end_date = $end_date->format(FMT_DATETIME_MYSQL);
 }
 
@@ -48,12 +48,12 @@ if ($del) {
 	}
 	$AppUI->redirect('m=calendar');
 } else {
-	$isNotNew = @$_POST['event_id'];
+	$isNotNew = dPgetParam($_POST, 'event_id');
 	if (!$isNotNew) {
 		$obj->event_owner = $AppUI->user_id;
 	}
 	// Check for existence of clashes.
-	if ($_POST['event_assigned'] > '' && ($clash = $obj->checkClash($_POST['event_assigned']))) {
+	if (dPgetParam($_POST, 'event_assigned') > '' && ($clash = $obj->checkClash(dPgetParam($_POST, 'event_assigned')))) {
 	  $last_a = $a;
 	  $GLOBALS['a'] = "clash";
 	  $do_redirect = false;
@@ -68,11 +68,11 @@ if ($del) {
 			$sql = $custom_fields->store($obj->event_id); // Store Custom Fields
 			
 			$AppUI->setMsg($isNotNew ? 'updated' : 'added', UI_MSG_OK, true);
-			if (isset($_POST['event_assigned'])) {
-		    	$obj->updateAssigned(explode(',', $_POST['event_assigned']));
+			if (dPgetParam($_POST, 'event_assigned') !== null) {
+		    	$obj->updateAssigned(explode(',', dPgetParam($_POST, 'event_assigned')));
 			}
-			if (isset($_POST['mail_invited'])) {
-		    	$obj->notify($_POST['event_assigned'], $isNotNew);
+			if (dPgetParam($_POST, 'mail_invited') !== null) {
+		    	$obj->notify(dPgetParam($_POST, 'event_assigned'), $isNotNew);
 			}
 		}
 	}
