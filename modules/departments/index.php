@@ -6,16 +6,16 @@ if (!defined('DP_BASE_DIR')) {
 // load the companies class
 require_once($AppUI->getModuleClass('companies'));
 
-if (isset($_POST['company_id']))
-	$AppUI->setState('DeptIdxCompany', intval($_POST['company_id']));
+if (dPgetParam($_POST, 'company_id') !== null)
+	$AppUI->setState('DeptIdxCompany', dPgetIntParam($_POST, 'company_id'));
 
 $company = $company_id = (($AppUI->getState('DeptIdxCompany') !== NULL)
 	? $AppUI->getState('DeptIdxCompany') : $AppUI->user_company);
 
 $company_prefix = 'company_';
 
-if (isset($_POST['department'])) {
-	$AppUI->setState('DeptIdxDepartment', intval($_POST['department']));
+if (dPgetParam($_POST, 'department') !== null) {
+	$AppUI->setState('DeptIdxDepartment', dPgetIntParam($_POST, 'department'));
 
 	//if department is set, ignore the company_id field
 	unset($company_id);

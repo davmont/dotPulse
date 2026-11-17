@@ -15,8 +15,8 @@ $projFilter_extra = array('-4' => 'All w/o archived');
 require_once($AppUI->getModuleClass('companies'));
 
 // retrieve any state parameters
-if (isset($_GET['tab'])) {
-	$AppUI->setState('DeptProjIdxTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('DeptProjIdxTab', dPgetParam($_GET, 'tab'));
 }
 
 ?>

@@ -10,8 +10,8 @@ $df = $AppUI->getPref('SHDATEFORMAT');
 
 $pstatus =  dPgetSysVal('ProjectStatus');
 
-if (isset($_POST['proFilter'])) {
-	$AppUI->setState('UsrProjectIdxFilter',  $_POST['proFilter']);
+if (dPgetParam($_POST, 'proFilter') !== null) {
+	$AppUI->setState('UsrProjectIdxFilter',  dPgetParam($_POST, 'proFilter'));
 }
 $proFilter = (($AppUI->getState('UsrProjectIdxFilter') !== NULL) 
               ? $AppUI->getState('UsrProjectIdxFilter') : '-3');
@@ -25,8 +25,8 @@ natsort($projFilter);
 require_once ($AppUI->getModuleClass('companies'));
 
 // retrieve any state parameters
-if (isset($_GET['tab'])) {
-	$AppUI->setState('UsrProjIdxTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('UsrProjIdxTab', dPgetParam($_GET, 'tab'));
 }
 
 $valid_ordering = array(
@@ -43,10 +43,10 @@ $valid_ordering = array(
 	'project_status',
 );
 
-if (isset($_GET['orderby']) && in_array($_GET['orderby'], $valid_ordering)) {
+if ((dPgetParam($_GET, 'orderby') !== null) && in_array(dPgetParam($_GET, 'orderby'), $valid_ordering)) {
     $orderdir = ($AppUI->getState('UsrProjIdxOrderDir') 
                  ? ($AppUI->getState('UsrProjIdxOrderDir')== 'asc' ? 'desc' : 'asc') : 'desc');    
-    $AppUI->setState('UsrProjIdxOrderBy', $_GET['orderby']);
+    $AppUI->setState('UsrProjIdxOrderBy', dPgetParam($_GET, 'orderby'));
     $AppUI->setState('UsrProjIdxOrderDir', $orderdir);
 }
 $orderby  = ($AppUI->getState('UsrProjIdxOrderBy') 

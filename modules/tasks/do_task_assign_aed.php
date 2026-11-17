@@ -18,7 +18,7 @@ foreach (explode(',', (string)dPgetParam($_POST, 'hassign', '')) as $uid) {
 		$hperc_assign_ar[(int)$uid] = $percentage_assignment;
 	}
 }
-$hassign = isset($_POST['hassign']) ? implode(',', array_keys($hperc_assign_ar)) : null;
+$hassign = (dPgetParam($_POST, 'hassign') !== null) ? implode(',', array_keys($hperc_assign_ar)) : null;
 
 // The tasks to process.
 $htasks_ar = array();

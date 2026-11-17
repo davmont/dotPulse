@@ -9,7 +9,7 @@ if (!($canAuthor)) {
 }
 
 // check whether vCard file should be fetched from source or parsed for vCardKeys; criteria: get parameters
-if (isset($_FILES['vcf']) && isset($_GET['suppressHeaders']) && ($_GET['suppressHeaders']=='true')) {	//parse and store vCard file
+if (isset($_FILES['vcf']) && (dPgetParam($_GET, 'suppressHeaders') !== null) && (dPgetParam($_GET, 'suppressHeaders')=='true')) {	//parse and store vCard file
 
 	// This view stores contacts: same CSRF rule as the dosql handlers.
 	$AppUI->verifyCsrfToken();
@@ -91,7 +91,7 @@ if (isset($_FILES['vcf']) && isset($_GET['suppressHeaders']) && ($_GET['suppress
 		$AppUI->redirect();
 	}
 }
-else if (isset($_GET['dialog']) && ($_GET['dialog']=='0')) {	//file upload formular
+else if ((dPgetParam($_GET, 'dialog') !== null) && (dPgetParam($_GET, 'dialog')=='0')) {	//file upload formular
 
 $titleBlock = new CTitleBlock('Import vCard', 'monkeychat-48.png', $m, "$m.$a");
 $titleBlock->addCrumb("?m=contacts", "contacts list");

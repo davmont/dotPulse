@@ -54,7 +54,7 @@ if ($selected && count($selected)) {
 		}
 		$t = new CTask();
 		$t->load($val);
-		if (isset($_POST['include_children']) && $_POST['include_children']) {
+		if ((dPgetParam($_POST, 'include_children') !== null) && dPgetParam($_POST, 'include_children')) {
 			$children = $t->getDeepChildren();
 		}
 		

@@ -67,10 +67,10 @@ if ($sub_form) {
 		$obj->load($task_id);
 		$task_end_date = new CDate($obj->task_end_date);
 	}
-	if (($_POST['task_start_date'] ?? '') === '') {
+	if ((dPgetParam($_POST, 'task_start_date') ?? '') === '') {
 		$_POST['task_start_date'] = '000000000000';
 	}
-	if (($_POST['task_end_date'] ?? '') === '') {
+	if ((dPgetParam($_POST, 'task_end_date') ?? '') === '') {
 		$_POST['task_end_date'] = '000000000000';
 	}
 	
@@ -85,9 +85,9 @@ if ($sub_form) {
 	
 	// Check to see if the task_project has changed
 	$move_files = false;
-	if (isset($_POST['new_task_project']) && $_POST['new_task_project'] && ($obj->task_project != $_POST['new_task_project'])) {
+	if ((dPgetParam($_POST, 'new_task_project') !== null) && dPgetParam($_POST, 'new_task_project') && ($obj->task_project != dPgetParam($_POST, 'new_task_project'))) {
 		$move_files = $obj->task_project;
-		$obj->task_project = $_POST['new_task_project'];
+		$obj->task_project = dPgetParam($_POST, 'new_task_project');
 		$obj->task_parent  = $obj->task_id;
 		// Need to ensure any files that are associated with the task also
 		// get their project changed.

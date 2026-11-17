@@ -85,7 +85,7 @@ else {
 	if (($msg = $obj->store())) {
 		$AppUI->setMsg($msg, UI_MSG_ERROR);
 	} else {
-		$isNotNew = @$_POST['project_id'];
+		$isNotNew = dPgetParam($_POST, 'project_id');
 
 		// Copying a project's tasks reads them: only from a project the user can see.
 		if (($importTask_projectId = (int)dPgetParam($_POST, 'import_tasks_from', '0'))
