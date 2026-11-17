@@ -1,0 +1,5 @@
+/* Gantt charts (lib/frappe-gantt) in every theme: frappe-gantt writes its bar labels
+   white on light bars (#b8c2cc, 1.8:1) and on its light progress (#a3a3ff, 2.3:1). Dark
+   labels read on both (9:1, 7:1). The dark theme draws dark bars with white labels
+   (style/dotpulse-dark/main.css). Loaded after frappe-gantt's stylesheet. */
+.gantt .bar-label { fill: #23262B; }
