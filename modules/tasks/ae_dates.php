@@ -52,16 +52,9 @@ $cwd_conv = array_map('cal_work_day_conv', $cwd);
 $cwd_hr = implode(', ', $cwd_conv);
 
 function cal_work_day_conv($val) {
-	global $locale_char_set, $AppUI;
-	$AppUI->setBaseLocale();
-	$wk = CDate::weekdayNames();
-	setlocale(LC_ALL, $AppUI->user_lang);
-	
-	$day_name = $wk[($val - LOCALE_FIRST_DAY)%7];
-	if ($locale_char_set == "utf-8" && function_exists("utf8_encode")) {
-	    $day_name = utf8_encode($day_name);
-	}
-	return htmlentities($day_name, ENT_COMPAT, $locale_char_set);
+	global $AppUI;
+	$days = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+	return $AppUI->_($days[(((int)$val % 7) + 7) % 7]);
 }
 ?>
 <form name="datesFrm" action="?m=tasks&a=addedit&task_project=<?php echo $task_project;?>" method="post">

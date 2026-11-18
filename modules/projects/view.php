@@ -518,7 +518,9 @@ if (isset($AppUI->getActiveModules()['initiating'])) {
 
 if ($canAccessTask) {
 	$tabBox->add(DP_BASE_DIR . '/modules/tasks/tasks', $AppUI->_('Tasks'));
-	$tabBox->add(DP_BASE_DIR . '/modules/tasks/tasks', $AppUI->_('Tasks (Inactive)'));
+	// Untranslated: tasks.php shows the inactive tasks on the tab whose name has "inactive"
+	// (the tab box translates it when it draws the tab).
+	$tabBox->add(DP_BASE_DIR . '/modules/tasks/tasks', 'Tasks (Inactive)');
 	$tabBox->add(DP_BASE_DIR . '/modules/tasks/viewgantt', $AppUI->_('Gantt Chart'));
 	$tabBox->add(DP_BASE_DIR . '/modules/projects/vw_board', $AppUI->_('Board'));
 	if ($canAccessTaskLog) {
