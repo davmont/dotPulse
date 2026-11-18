@@ -2,8 +2,9 @@
 """Contrast of the dotPulse themes (make theme-contrast).
 
 Reads the colour variables of style/dotpulse/main.css and style/dotpulse-dark/main.css
-(the dark one on top of the light one, as the browser does) and checks the pairs the
-stylesheets use: text 4.5:1 on what it sits on, lines, focus rings and disabled text
+(the dark one on top of the light one, as the browser does), and System Admin's own set
+(modules/system/admin.css, redefined by the dark theme's "body .dpa" block), and checks
+the pairs the stylesheets use: text 4.5:1 on what it sits on, lines, focus rings and disabled text
 3:1 (WCAG 2.1 AA, 1.4.3 and 1.4.11). The icons are checked by tools/icons/build.py.
 """
 import os, re, sys
@@ -30,10 +31,25 @@ PAIRS = [
 ]
 
 
-def variables(css_file):
+# System Admin (--a-* variables): the same rules.
+ADMIN_PAIRS = [
+    *[('ink', bg, 4.5) for bg in ('surface', 'surface-head', 'tint', 'wash', 'off', 'coral-wash', 'teal-wash')],
+    *[('slate', bg, 4.5) for bg in ('surface', 'surface-head', 'tint', 'wash')],
+    *[('blue', bg, 4.5) for bg in ('surface', 'tint', 'wash')],
+    ('blue-deep', 'wash', 4.5),
+    *[('coral-text', bg, 4.5) for bg in ('surface', 'coral-wash')],
+    *[('teal', bg, 4.5) for bg in ('surface', 'teal-wash')],
+    ('on-primary', 'primary', 4.5), ('on-primary', 'primary-deep', 4.5),
+    ('faint', 'surface', 3),
+    # Edges of inputs, buttons, switches and the day picker; the focus ring.
+    ('control-line', 'surface', 3), ('control-line', 'surface-head', 3), ('focus', 'surface', 3),
+]
+
+
+def variables(css_file, block=r':root', prefix='dp'):
     css = open(os.path.join(ROOT, css_file), encoding='utf-8').read()
-    root = re.search(r':root\s*\{(.*?)\}', css, re.S).group(1)
-    return dict(re.findall(r'--dp-([a-z-]+)\s*:\s*(#[0-9A-Fa-f]{6})\s*;', root))
+    root = re.search(block + r'\s*\{(.*?)\}', css, re.S).group(1)
+    return dict(re.findall(r'--' + prefix + r'-([a-z-]+)\s*:\s*(#[0-9A-Fa-f]{6})\s*;', root))
 
 
 def luminance(hex_colour):
@@ -47,19 +63,32 @@ def contrast(a, b):
     return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
 
 
+def check(label, prefix, pairs, v):
+    failed = 0
+    for fg, bg, minimum in pairs:
+        ratio = contrast(v[fg], v[bg])
+        if ratio < minimum:
+            failed += 1
+            print(f'{label}: --{prefix}-{fg} {v[fg]} on --{prefix}-{bg} {v[bg]} is {ratio:.2f}:1, needs {minimum}:1')
+    return failed
+
+
 def main():
     light = variables('style/dotpulse/main.css')
-    themes = {'dotpulse': light, 'dotpulse-dark': {**light, **variables('style/dotpulse-dark/main.css')}}
+    admin = variables('modules/system/admin.css', r'\.dpa', 'a')
+    themes = {
+        'dotpulse': (light, admin),
+        'dotpulse-dark': ({**light, **variables('style/dotpulse-dark/main.css')},
+                          {**admin, **variables('style/dotpulse-dark/main.css', r'body \.dpa', 'a')}),
+    }
     failed = 0
-    for theme, v in themes.items():
-        for fg, bg, minimum in PAIRS:
-            ratio = contrast(v[fg], v[bg])
-            if ratio < minimum:
-                failed += 1
-                print(f'{theme}: --dp-{fg} {v[fg]} on --dp-{bg} {v[bg]} is {ratio:.2f}:1, needs {minimum}:1')
+    for theme, (v, a) in themes.items():
+        failed += check(theme, 'dp', PAIRS, v)
+        failed += check(theme + ' System Admin', 'a', ADMIN_PAIRS, a)
     if failed:
         sys.exit(f'FAIL: {failed} colour pairs below the WCAG AA minimum.')
-    print(f'OK: {len(PAIRS)} colour pairs reach WCAG AA in dotpulse and dotpulse-dark.')
+    print(f'OK: {len(PAIRS) + len(ADMIN_PAIRS)} colour pairs reach WCAG AA in dotpulse and dotpulse-dark'
+          ' (System Admin included).')
 
 
 if __name__ == '__main__':

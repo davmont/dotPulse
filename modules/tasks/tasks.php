@@ -48,7 +48,7 @@ $tasks_opened = (($AppUI->getState('tasks_opened')) ? $AppUI->getState('tasks_op
 
 $task_id = intval(dPgetParam($_GET, 'task_id', 0));
 $pinned_only = intval(dPgetParam($_GET, 'pinned', 0));
-if (isset($_GET['pin'])) {
+if (dPgetParam($_GET, 'pin') !== null) {
 	$pin = intval(dPgetParam($_GET, 'pin', 0));
 
 	$msg = '';
@@ -102,7 +102,7 @@ $task_sort_order1 = intval(dPgetParam($_GET, 'task_sort_order1', 0));
 $task_sort_item2 = dPgetCleanParam($_GET, 'task_sort_item2', '');
 $task_sort_type2 = dPgetCleanParam($_GET, 'task_sort_type2', 0);
 $task_sort_order2 = intval(dPgetParam($_GET, 'task_sort_order2', 0));
-if (isset($_POST['show_task_options'])) {
+if (dPgetParam($_POST, 'show_task_options') !== null) {
 	$AppUI->setState('TaskListShowIncomplete', (int) dPgetParam($_POST, 'show_incomplete', 0));
 }
 $showIncomplete = $AppUI->getState('TaskListShowIncomplete', 0);
@@ -274,7 +274,7 @@ if ($project_id && $showIncomplete) {
 }
 
 $task_status = 0;
-if ($min_view && isset($_GET['task_status'])) {
+if ($min_view && (dPgetParam($_GET, 'task_status') !== null)) {
 	$task_status = intval(dPgetParam($_GET, 'task_status', null));
 } else if (!($currentTabName)) {
 	// If we aren't tabbed we are in the tasks list.

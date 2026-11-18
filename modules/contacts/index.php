@@ -24,8 +24,8 @@ if ($search_string) {
 		. " OR company_name LIKE " . $get_search
 		. " OR contact_notes LIKE " . $get_search
 		. " OR contact_email LIKE " . $get_search);
-} else if (isset($_GET['where'])) {
-	$AppUI->setState('ContIdxWhere', $_GET['where']);
+} else if (dPgetParam($_GET, 'where') !== null) {
+	$AppUI->setState('ContIdxWhere', dPgetParam($_GET, 'where'));
 }
 
 $where = $q->quote_sanitised($AppUI->getState('ContIdxWhere') ? ($AppUI->getState('ContIdxWhere') . '%') : '%');

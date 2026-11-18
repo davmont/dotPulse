@@ -9,15 +9,15 @@ global $locale_char_set;
 require_once($AppUI->getModuleClass('tasks'));
 
 // retrieve any state parameters
-if (isset($_REQUEST['company_id'])) {
-	$AppUI->setState('CalIdxCompany', intval($_REQUEST['company_id']));
+if (dPgetParam($_REQUEST, 'company_id') !== null) {
+	$AppUI->setState('CalIdxCompany', dPgetIntParam($_REQUEST, 'company_id'));
 }
 $company_id = ($AppUI->getState('CalIdxCompany') !== NULL ? $AppUI->getState('CalIdxCompany')
 	: $AppUI->user_company);
 
 $event_filter = $AppUI->checkPrefState(
 	'CalIdxFilter',
-	@$_REQUEST['event_filter'],
+	dPgetParam($_REQUEST, 'event_filter'),
 	'EVENTFILTER',
 	'my'
 );

@@ -20,8 +20,8 @@ function php4_clone($object) {
 }
 
 // retrieve any state parameters
-if (isset($_REQUEST['company_id'])) {
-	$AppUI->setState('CalIdxCompany', intval($_REQUEST['company_id']));
+if (dPgetParam($_REQUEST, 'company_id') !== null) {
+	$AppUI->setState('CalIdxCompany', dPgetIntParam($_REQUEST, 'company_id'));
 }
 $company_id = $AppUI->getState('CalIdxCompany', $AppUI->user_company);
 

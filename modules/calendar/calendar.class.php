@@ -230,7 +230,7 @@ class CMonthCalendar
 	{
 		global $AppUI, $m, $a, $locale_char_set;
 		$url = ('index.php?m=' . $m . (($a) ? ('&amp;a=' . $a) : '')
-			. (isset($_GET['dialog']) ? '&amp;dialog=1' : ''));
+			. ((dPgetParam($_GET, 'dialog') !== null) ? '&amp;dialog=1' : ''));
 
 		$s = ("\n" . '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="'
 			. $AppUI->___($this->styleTitle) . '">');

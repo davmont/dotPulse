@@ -9,7 +9,7 @@ global $AppUI;
 ## add or edit a user preferences
 ##
 $company_id=0;
-$company_id = isset($_REQUEST['company_id']) ? (int)$_REQUEST['company_id'] : 0;
+$company_id = dPgetIntParam($_REQUEST, 'company_id');
 // Check permissions
 if (!$canEdit) {
   $AppUI->redirect('m=public&a=access_denied');
@@ -88,7 +88,7 @@ foreach ($billingcodes as $code) {
 	$code_name = htmlspecialchars($code['billingcode_name']);
 	$code_value = htmlspecialchars($code['billingcode_value']);
 	$code_desc = htmlspecialchars($code['billingcode_desc']);
-	if ($code['billingcode_id'] == $_GET['billingcode_id']) {
+	if ($code['billingcode_id'] == dPgetParam($_GET, 'billingcode_id')) {
 ?>
 <tr>
   <td><input type="hidden" name="billingcode_id" value="<?php echo $code_id; ?>" /></td>
@@ -126,7 +126,7 @@ foreach ($billingcodes as $code) {
 	}
 }
 
-if (!(isset($_GET['billingcode_id']))) {
+if (dPgetParam($_GET, 'billingcode_id') === null) {
 ?>
 <tr>
   <td><input type="hidden" name="billingcode_id" value="" /></td>

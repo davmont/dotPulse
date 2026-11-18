@@ -8,7 +8,7 @@ global $priority, $projects, $tab, $user_id, $min_view;
 
 $df = $AppUI->getPref('SHDATEFORMAT');
 
-$department = isset($_GET['dept_id']) ? dPgetIntParam($_GET, 'dept_id') : (isset($department) ? (int)$department : 0);
+$department = (dPgetParam($_GET, 'dept_id') !== null) ? dPgetIntParam($_GET, 'dept_id') : (isset($department) ? (int)$department : 0);
 
 $projFilter_extra = array('-4' => 'All w/o archived');
 
@@ -16,11 +16,11 @@ $projFilter_extra = array('-4' => 'All w/o archived');
 require_once($AppUI->getModuleClass('companies'));
 
 // retrieve any state parameters
-if (isset($_GET['tab'])) {
-	$AppUI->setState('DeptProjIdxTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('DeptProjIdxTab', dPgetParam($_GET, 'tab'));
 }
 
-if (isset($_POST['show_form'])) {
+if (dPgetParam($_POST, 'show_form') !== null) {
 	$AppUI->setState('addProjWithOwnerInDep',  (int)dPgetParam($_POST, 'add_pwoid', 0));
 }
 $addPwOiD = $AppUI->getState('addProjWithOwnerInDep') ? $AppUI->getState('addProjWithOwnerInDep') : 0;

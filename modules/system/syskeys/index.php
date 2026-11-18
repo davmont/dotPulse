@@ -20,7 +20,7 @@ $q->addWhere('sysval_key_id = syskey_id');
 $q->addOrder('sysval_title');
 $values = $q->loadList();
 
-$sysval_id = isset($_GET['sysval_id']) ? $_GET['sysval_id'] : 0;
+$sysval_id = dPgetParam($_GET, 'sysval_id', 0);
 
 require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
 dPadminOpen('syskeys');

@@ -40,15 +40,15 @@ $q->clear();
 
 $cost_code = dPgetCleanParam($_GET, 'cost_code', '0');
 
-if (isset($_GET['user_id'])) {
-	$AppUI->setState('ProjectsTaskLogsUserFilter', $_GET['user_id']);
+if (dPgetParam($_GET, 'user_id') !== null) {
+	$AppUI->setState('ProjectsTaskLogsUserFilter', dPgetParam($_GET, 'user_id'));
 }
 $user_id = $AppUI->getState('ProjectsTaskLogsUserFilter') ? $AppUI->getState('ProjectsTaskLogsUserFilter') : $AppUI->user_id;
 
-$AppUI->setState('ProjectsTaskLogsHideArchived', (isset($_GET['hide_inactive']) ? true : false));
+$AppUI->setState('ProjectsTaskLogsHideArchived', ((dPgetParam($_GET, 'hide_inactive') !== null) ? true : false));
 $hide_inactive = $AppUI->getState('ProjectsTaskLogsHideArchived');
 
-$AppUI->setState('ProjectsTaskLogsHideComplete', (isset($_GET['hide_complete']) ? true : false));
+$AppUI->setState('ProjectsTaskLogsHideComplete', ((dPgetParam($_GET, 'hide_complete') !== null) ? true : false));
 $hide_complete = $AppUI->getState('ProjectsTaskLogsHideComplete');
 	
 ?>

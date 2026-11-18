@@ -4,8 +4,8 @@ if (!defined('DP_BASE_DIR')) {
 }
 
 // Add / Edit forum
-$message_id = isset($_GET['message_id']) ? (int)$_GET['message_id'] : 0;
-$message_parent = isset($_GET['message_parent']) ? (int)$_GET['message_parent'] : -1;
+$message_id = dPgetIntParam($_GET, 'message_id');
+$message_parent = (dPgetParam($_GET, 'message_parent') !== null) ? dPgetIntParam($_GET, 'message_parent') : -1;
 $forum_id = (int) dPgetParam($_REQUEST, 'forum_id', 0);
 
 $canEdit = getPermission('forums', 'edit', $forum_id);

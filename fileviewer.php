@@ -43,7 +43,7 @@ dPsessionStart();
 
 // check if session has previously been initialised
 // if no ask for logging and do redirect
-if (!isset($_SESSION['AppUI']) || isset($_GET['logout'])) {
+if (!isset($_SESSION['AppUI']) || (dPgetParam($_GET, 'logout') !== null)) {
     $_SESSION['AppUI'] = new CAppUI();
 	$AppUI =& $_SESSION['AppUI'];
 	$AppUI->checkStyle();
@@ -53,7 +53,7 @@ if (!isset($_SESSION['AppUI']) || isset($_GET['logout'])) {
 
 	if ($AppUI->doLogin()) $AppUI->loadPrefs(0);
 	// check if the user is trying to log in
-	if (isset($_REQUEST['login'])) {
+	if (dPgetParam($_REQUEST, 'login') !== null) {
 		// The same failed-login limit as index.php (this login used to have none).
 		require_once DP_BASE_DIR . '/classes/ratelimiter.class.php';
 		$rateLimiter = new RateLimiter('login');
@@ -115,7 +115,7 @@ $AppUI =& $_SESSION['AppUI'];
 
 // PDF reports are written to files/temp/temp<user_id>.pdf. files/ is not served
 // directly (the names are predictable), so each user fetches their own report here.
-if (isset($_GET['report'])) {
+if (dPgetParam($_GET, 'report') !== null) {
 	if ($AppUI->doLogin()) {
 		$AppUI->redirect('m=public&a=access_denied');
 	}
@@ -145,7 +145,7 @@ if (!$canRead) {
 	$AppUI->redirect('m=public&a=access_denied');
 }
 
-$file_id = isset($_GET['file_id']) ? (int)$_GET['file_id'] : 0;
+$file_id = dPgetIntParam($_GET, 'file_id');
 
 if ($file_id) {
 	// projects tat are denied access

@@ -11,15 +11,15 @@ global $dPconfig, $canEdit, $canDelete, $stub, $where, $orderby;
  */
 $logoutUserFlag = true;
 
-if (!empty($_POST['out_user_id']) && !empty($_POST['out_name']) && $canEdit && $canDelete) {
-    $boot_user_id = (int)$_POST['out_user_id'];
-    $boot_user_name = $_POST['out_name'];
+if ((bool)dPgetParam($_POST, 'out_user_id') && (bool)dPgetParam($_POST, 'out_name') && $canEdit && $canDelete) {
+    $boot_user_id = dPgetIntParam($_POST, 'out_user_id');
+    $boot_user_name = dPgetParam($_POST, 'out_name');
     $details = $boot_user_name . ' by ' . $AppUI->user_first_name . ' ' . $AppUI->user_last_name;
 
     // one session or many?
-    if ($_POST['out_session'] && $_POST['out_user_log_id']) {
-        $boot_user_session = $_POST['out_session'];
-        $boot_user_log_id = (int)$_POST['out_user_log_id'];
+    if (dPgetParam($_POST, 'out_session') && dPgetParam($_POST, 'out_user_log_id')) {
+        $boot_user_session = dPgetParam($_POST, 'out_session');
+        $boot_user_log_id = dPgetIntParam($_POST, 'out_user_log_id');
         $boot_query_row = false;
     } else if ($canEdit && $canDelete && $logoutUserFlag) {
         // query for all sessions open for a given user
@@ -40,7 +40,7 @@ if (!empty($_POST['out_user_id']) && !empty($_POST['out_name']) && $canEdit && $
     }
 
     do {
-        if ($boot_user_id == $AppUI->user_id && $boot_user_session == $_COOKIE['PHPSESSID']) {
+        if ($boot_user_id == $AppUI->user_id && $boot_user_session == dPgetParam($_COOKIE, 'PHPSESSID')) {
             $AppUI->resetPlace();
             $AppUI->redirect('logout=-1');
         } else {

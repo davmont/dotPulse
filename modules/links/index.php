@@ -6,8 +6,8 @@ if (!defined('DP_BASE_DIR')) {
 $AppUI->savePlace();
 
 // retrieve any state parameters
-if (isset($_REQUEST['project_id'])) {
-	$AppUI->setState('LinkIdxProject', intval($_REQUEST['project_id']));
+if (dPgetParam($_REQUEST, 'project_id') !== null) {
+	$AppUI->setState('LinkIdxProject', dPgetIntParam($_REQUEST, 'project_id'));
 }
 
 $project_id = $AppUI->getState('LinkIdxProject') !== NULL ? $AppUI->getState('LinkIdxProject') : 0;
