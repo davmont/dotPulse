@@ -62,18 +62,9 @@ $cwd[6] = '7';
 $cwd_conv = array_map('cal_work_day_conv', $cwd);
 
 function cal_work_day_conv($val) {
-	global $locale_char_set;
-	setlocale(LC_ALL, 'en_AU'.(($locale_char_set)? ('.' . $locale_char_set) : '.utf8'));
-	$wk = CDate::weekdayNames();
-	setlocale(LC_ALL, $AppUI->user_lang);
-	
-	$day_name = $wk[($val - LOCALE_FIRST_DAY)%7];
-	// strftime() gives the name in the locale's encoding: Latin-1 for a locale without
-	// .UTF-8 (utf8_encode() also double-encoded names that were UTF-8 already).
-	if (strtolower($locale_char_set) == 'utf-8' && !mb_check_encoding($day_name, 'UTF-8')) {
-	    $day_name = mb_convert_encoding($day_name, 'UTF-8', 'ISO-8859-1');
-	}
-	return htmlentities($day_name, ENT_COMPAT, $locale_char_set);
+	global $AppUI;
+	$days = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+	return $AppUI->_($days[(((int)$val % 7) + 7) % 7]);
 }
 
 $allocated_user_id = intval(dPgetParam($_GET, 'allocated_user_id', 0));

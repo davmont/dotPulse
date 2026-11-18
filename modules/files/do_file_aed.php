@@ -245,9 +245,7 @@ if (($msg = $obj->store())) {
 		if (($oldObj->deleteFile())) {
 			$AppUI->setMsg('replaced', UI_MSG_OK, true);
 		} else {
-			// "." binds before "?:": the note was only added to "added".
-			$AppUI->setMsg(($file_id ? 'updated' : 'added') . '; unable to delete existing file',
-			               UI_MSG_WARNING, true);
+			$AppUI->setMsg('updated; unable to delete existing file', UI_MSG_WARNING, true);
 		}
 	} else {
 		$AppUI->setMsg($file_id ? 'updated' : 'added', UI_MSG_OK, true);
