@@ -6,14 +6,14 @@ if (!defined('DP_BASE_DIR')) {
 global $a, $addPwOiD, $addPwT, $AppUI, $cBuffer, $company_id, $department, $min_view, $m, $priority;
 global $projects, $tab, $user_id, $orderdir, $orderby, $dept_ids;
 
-$department = (int)(isset($_GET['dept_id']) ? $_GET['dept_id'] : (isset($department) ? $department : 0));
+$department = (int)((dPgetParam($_GET, 'dept_id') !== null) ? dPgetParam($_GET, 'dept_id') : (isset($department) ? $department : 0));
 
 $df = $AppUI->getPref('SHDATEFORMAT');
 
 $pstatus =  dPgetSysVal('ProjectStatus');
 
-if (isset($_POST['proFilter'])) {
-	$AppUI->setState('DeptProjectIdxFilter',  $_POST['proFilter']);
+if (dPgetParam($_POST, 'proFilter') !== null) {
+	$AppUI->setState('DeptProjectIdxFilter',  dPgetParam($_POST, 'proFilter'));
 }
 $proFilter = (($AppUI->getState('DeptProjectIdxFilter') !== NULL) 
               ? $AppUI->getState('DeptProjectIdxFilter') : '-3');
@@ -27,8 +27,8 @@ natsort($projFilter);
 require_once($AppUI->getModuleClass('companies'));
 
 // retrieve any state parameters
-if (isset($_GET['tab'])) {
-	$AppUI->setState('DeptProjIdxTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('DeptProjIdxTab', dPgetParam($_GET, 'tab'));
 }
 
 $valid_ordering = array(
@@ -45,15 +45,15 @@ $valid_ordering = array(
 	'my_tasks',
 	'project_status',
 );
-if (isset($_GET['orderby']) && in_array($_GET['orderby'], $valid_ordering)) {
+if ((dPgetParam($_GET, 'orderby') !== null) && in_array(dPgetParam($_GET, 'orderby'), $valid_ordering)) {
     $orderdir = $AppUI->getState('DeptProjIdxOrderDir') ? ($AppUI->getState('DeptProjIdxOrderDir')== 'asc' ? 'desc' : 'asc') : 'desc';    
-    $AppUI->setState('DeptProjIdxOrderBy', $_GET['orderby']);
+    $AppUI->setState('DeptProjIdxOrderBy', dPgetParam($_GET, 'orderby'));
     $AppUI->setState('DeptProjIdxOrderDir', $orderdir);
 }
 $orderby  = $AppUI->getState('DeptProjIdxOrderBy') ? $AppUI->getState('DeptProjIdxOrderBy') : 'project_end_date';
 $orderdir = $AppUI->getState('DeptProjIdxOrderDir') ? $AppUI->getState('DeptProjIdxOrderDir') : 'asc';
 
-if (isset($_POST['show_form'])) {
+if (dPgetParam($_POST, 'show_form') !== null) {
 	$AppUI->setState('addProjWithTasks',  (int)dPgetParam($_POST, 'add_pwt', 0));
 	$AppUI->setState('addProjWithOwnerInDep',  (int)dPgetParam($_POST, 'add_pwoid', 0));
 }

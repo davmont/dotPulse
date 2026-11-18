@@ -10,7 +10,7 @@ require_once DP_BASE_DIR . '/classes/gantt_renderer.class.php';
 $base_url = dPgetConfig('base_url');
 $min_view = defVal(@$min_view, false);
 
-$project_id = (int)defVal(@$_GET['project_id'], 0);
+$project_id = (int)defVal(dPgetParam($_GET, 'project_id'), 0);
 
 $sdate = dPgetParam($_POST, 'sdate', 0);
 $edate = dPgetParam($_POST, 'edate', 0);
@@ -29,7 +29,7 @@ if ($sortByName == '1') {
 $sortByName = (($sortByName != '0') ? '1' : $sortByName);
 
 if ($a == 'todo') {
-    if (isset($_POST['show_form'])) {
+    if (dPgetParam($_POST, 'show_form') !== null) {
         $AppUI->setState('TaskDayShowArc',  dPgetParam($_POST, 'showArcProjs', 0));
         $AppUI->setState('TaskDayShowLow',  dPgetParam($_POST, 'showLowTasks', 0));
         $AppUI->setState('TaskDayShowHold', dPgetParam($_POST, 'showHoldProjs', 0));
@@ -414,7 +414,7 @@ if (!@$min_view) {
 $q = new DBQuery;
 
 if ($a == 'todo') {
-    $todo_user_id = intval(defVal(@$_REQUEST['user_id'], $AppUI->user_id));
+    $todo_user_id = intval(defVal(dPgetParam($_REQUEST, 'user_id'), $AppUI->user_id));
     $q->addTable('tasks', 't');
     $q->innerJoin('projects', 'p', 'p.project_id = t.task_project');
     $q->innerJoin('user_tasks', 'ut', 'ut.task_id = t.task_id AND ut.user_id = ' . (int)$todo_user_id);

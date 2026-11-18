@@ -21,8 +21,8 @@ if (!($canRead)) {
 }
 
 //retrieve any state parameters
-if (isset($_GET['tab'])) {
-	$AppUI->setState('ProjVwTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('ProjVwTab', dPgetParam($_GET, 'tab'));
 }
 $tab = $AppUI->getState('ProjVwTab') !== NULL ? $AppUI->getState('ProjVwTab') : 0;
 
@@ -156,8 +156,8 @@ $style = ((($actual_end_date > $end_date) && !empty($end_date))
 $titleBlock = new CTitleBlock('View Project', 'applet3-48.png', $m, "$m.$a");
 
 //patch 2.12.04 text to search entry box
-if (isset($_POST['searchtext'])) {
-	$AppUI->setState('searchtext', $_POST['searchtext']);
+if (dPgetParam($_POST, 'searchtext') !== null) {
+	$AppUI->setState('searchtext', dPgetParam($_POST, 'searchtext'));
 }
 
 $search_text = (($AppUI->getState('searchtext')) ? $AppUI->getState('searchtext') : '');
@@ -493,11 +493,11 @@ smartUpdateProjectPercentComplete($project_id);
 
 <?php
 //set default
-if (!isset($_GET["tab"])) {
+if (dPgetParam($_GET, "tab") === null) {
 	$_SESSION["user_choosen_feature"] = "/modules/dotproject_plus/projects_tab.planning_and_monitoring.php";
 } else {
-	if (isset($_POST["user_choosen_feature"])) {
-		$_SESSION["user_choosen_feature"] = $_POST["user_choosen_feature"];
+	if (dPgetParam($_POST, "user_choosen_feature") !== null) {
+		$_SESSION["user_choosen_feature"] = dPgetParam($_POST, "user_choosen_feature");
 	}
 }
 

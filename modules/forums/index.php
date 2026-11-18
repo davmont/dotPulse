@@ -14,9 +14,9 @@ $valid_ordering = array(
 );
 
 // retrieve any state parameters
-if (isset($_GET['orderby']) && in_array($_GET['orderby'], $valid_ordering)) {
+if ((dPgetParam($_GET, 'orderby') !== null) && in_array(dPgetParam($_GET, 'orderby'), $valid_ordering)) {
     $orderdir = $AppUI->getState('ForumIdxOrderDir') ? ($AppUI->getState('ForumIdxOrderDir')== 'asc' ? 'desc' : 'asc') : 'desc';
-	$AppUI->setState('ForumIdxOrderBy', $_GET['orderby']);
+	$AppUI->setState('ForumIdxOrderBy', dPgetParam($_GET, 'orderby'));
     $AppUI->setState('ForumIdxOrderDir', $orderdir);
 }
 $orderby         = $AppUI->getState('ForumIdxOrderBy') ? $AppUI->getState('ForumIdxOrderBy') : 'forum_name';

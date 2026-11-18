@@ -3,7 +3,7 @@ if (!defined('DP_BASE_DIR')){
 	die('You should not access this file directly');
 }
 
-$del = isset($_POST['del']) ? $_POST['del'] : 0;
+$del = dPgetParam($_POST, 'del', 0);
 // Permission on this record, as its addedit page checks.
 dPrequireWritePermission('forums', dPgetParam($_POST, 'forum_id', 0), $del);
 
@@ -28,7 +28,7 @@ if ($del) {
 	if (($msg = $obj->store())) {
 		$AppUI->setMsg( $msg, UI_MSG_ERROR );
 	} else {
-		$isNotNew = @$_POST['forum_id'];
+		$isNotNew = dPgetParam($_POST, 'forum_id');
 		$AppUI->setMsg( $isNotNew ? 'updated' : 'added', UI_MSG_OK, true );
 	}
 	$AppUI->redirect();

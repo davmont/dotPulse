@@ -11,6 +11,7 @@ class GanttRenderer {
         self::$assetsLoaded = true;
         $base = DP_BASE_URL . '/lib/frappe-gantt/';
         echo '<link rel="stylesheet" href="' . $base . 'frappe-gantt.min.css" />' . "\n";
+        echo '<link rel="stylesheet" href="' . DP_BASE_URL . '/style/gantt.css" />' . "\n";
         echo '<script src="' . $base . 'frappe-gantt.min.js"></script>' . "\n";
     }
 

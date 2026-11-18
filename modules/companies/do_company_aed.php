@@ -39,7 +39,7 @@ else {
  		$custom_fields = New CustomFields($m, 'addedit', $obj->company_id, 'edit');
  		$custom_fields->bind($_POST);
  		$sql = $custom_fields->store($obj->company_id); // Store Custom Fields
-		$AppUI->setMsg(((@$_POST['company_id']) ? 'updated' : 'added'), UI_MSG_OK, true);
+		$AppUI->setMsg(((dPgetParam($_POST, 'company_id')) ? 'updated' : 'added'), UI_MSG_OK, true);
 	}
 	$AppUI->redirect();
 }

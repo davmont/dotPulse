@@ -35,7 +35,7 @@ if (
 
 // End of project status update
 // retrieve any state parameters
-if (isset($_GET['tab'])) {
+if (dPgetParam($_GET, 'tab') !== null) {
 	$AppUI->setState('ProjIdxTab', intval(dPgetCleanParam($_GET, 'tab')));
 }
 
@@ -44,8 +44,8 @@ $tab = $AppUI->getState('ProjIdxTab') !== NULL ? (int)$AppUI->getState('ProjIdxT
 $currentTabId = $tab;
 $active = intval(!$AppUI->getState('ProjIdxTab'));
 
-if (isset($_POST['company_id'])) {
-	$AppUI->setState('ProjIdxCompany', intval($_POST['company_id']));
+if (dPgetParam($_POST, 'company_id') !== null) {
+	$AppUI->setState('ProjIdxCompany', dPgetIntParam($_POST, 'company_id'));
 }
 $company_id = (($AppUI->getState('ProjIdxCompany') !== NULL)
 	? $AppUI->getState('ProjIdxCompany')
@@ -53,7 +53,7 @@ $company_id = (($AppUI->getState('ProjIdxCompany') !== NULL)
 
 $company_prefix = 'company_';
 
-if (isset($_POST['department'])) {
+if (dPgetParam($_POST, 'department') !== null) {
 	$AppUI->setState('ProjIdxDepartment', dPdepartmentParam($_POST));
 
 	//if department is set, ignore the company_id field
@@ -91,19 +91,19 @@ $valid_ordering = array(
 );
 
 $orderdir = $AppUI->getState('ProjIdxOrderDir') ? $AppUI->getState('ProjIdxOrderDir') : 'asc';
-if (isset($_GET['orderby']) && in_array($_GET['orderby'], $valid_ordering)) {
+if ((dPgetParam($_GET, 'orderby') !== null) && in_array(dPgetParam($_GET, 'orderby'), $valid_ordering)) {
 	$orderdir = (($AppUI->getState('ProjIdxOrderDir') == 'asc') ? 'desc' : 'asc');
-	$AppUI->setState('ProjIdxOrderBy', $_GET['orderby']);
+	$AppUI->setState('ProjIdxOrderBy', dPgetParam($_GET, 'orderby'));
 }
 $orderby = (($AppUI->getState('ProjIdxOrderBy'))
 	? $AppUI->getState('ProjIdxOrderBy') : 'project_end_date');
 $AppUI->setState('ProjIdxOrderDir', $orderdir);
 
 // prepare the users filter
-if (isset($_GET['show_owner'])) {
-	$AppUI->setState('ProjIdxowner', intval($_GET['show_owner']));
-} else if (isset($_POST['show_owner'])) {
-	$AppUI->setState('ProjIdxowner', intval($_POST['show_owner']));
+if (dPgetParam($_GET, 'show_owner') !== null) {
+	$AppUI->setState('ProjIdxowner', dPgetIntParam($_GET, 'show_owner'));
+} else if (dPgetParam($_POST, 'show_owner') !== null) {
+	$AppUI->setState('ProjIdxowner', dPgetIntParam($_POST, 'show_owner'));
 }
 $owner = $AppUI->getState('ProjIdxowner') !== NULL ? $AppUI->getState('ProjIdxowner') : $AppUI->user_id;
 

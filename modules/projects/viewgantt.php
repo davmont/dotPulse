@@ -28,8 +28,8 @@ if ($showLabels    != '0') $showLabels    = '1';
 if ($showInactive  != '0') $showInactive  = '1';
 if ($showAllGantt  != '0') $showAllGantt  = '1';
 
-if (isset($_POST['proFilter'])) {
-    $AppUI->setState('ProjectIdxFilter', $_POST['proFilter']);
+if (dPgetParam($_POST, 'proFilter') !== null) {
+    $AppUI->setState('ProjectIdxFilter', dPgetParam($_POST, 'proFilter'));
 }
 $proFilter = (($AppUI->getState('ProjectIdxFilter') !== NULL)
               ? $AppUI->getState('ProjectIdxFilter') : '-1');

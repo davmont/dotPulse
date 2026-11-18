@@ -40,33 +40,33 @@ dPadminOpen('contacts_ldap');
 dPadminHeading('Import contacts', 'Contacts from an LDAP directory.');
 
 
-if (isset($_POST['server'])) {
-	$AppUI->setState('LDAPServer', $_POST['server']);
+if (dPgetParam($_POST, 'server') !== null) {
+	$AppUI->setState('LDAPServer', dPgetParam($_POST, 'server'));
 }
 $server = $AppUI->getState('LDAPServer', '');
 //$server = 'KMP00';
 
-if (isset($_POST['bind_name'])) {
-	$AppUI->setState('LDAPBindName', $_POST['bind_name']);
+if (dPgetParam($_POST, 'bind_name') !== null) {
+	$AppUI->setState('LDAPBindName', dPgetParam($_POST, 'bind_name'));
 }
 $bind_name = $AppUI->getState('LDAPBindName', '');
 //$bind_name = 'dcordes';
 
 $bind_password = dPgetCleanParam($_POST,'bind_password', '');
 
-if (isset($_POST['port'])) {
-	$AppUI->setState('LDAPPort', $_POST['port']);
+if (dPgetParam($_POST, 'port') !== null) {
+	$AppUI->setState('LDAPPort', dPgetParam($_POST, 'port'));
 }
 $port = $AppUI->getState('LDAPPort', '389');
 
-if (isset($_POST['dn'])) {
-	$AppUI->setState('LDAPDN', $_POST['dn']);
+if (dPgetParam($_POST, 'dn') !== null) {
+	$AppUI->setState('LDAPDN', dPgetParam($_POST, 'dn'));
 }
 $dn = $AppUI->getState('LDAPDN', '');
 //$dn = 'OU=USA,O=MINEBEA';
 
-if (isset($_POST['filter'])) {
-	$AppUI->setState('LDAPFilter', $_POST['filter']);
+if (dPgetParam($_POST, 'filter') !== null) {
+	$AppUI->setState('LDAPFilter', dPgetParam($_POST, 'filter'));
 }
 $filter = $AppUI->getState('LDAPFilter',  '(objectclass=Person)');
 //$filter = '(objectclass=dominoPerson)'; 

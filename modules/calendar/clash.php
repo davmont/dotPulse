@@ -4,9 +4,9 @@ if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly.');
 }
 
-if (isset($_POST['clash_action'])) {
+if (dPgetParam($_POST, 'clash_action') !== null) {
 	$do_include = false;
-	switch ($_POST['clash_action']) {
+	switch (dPgetParam($_POST, 'clash_action')) {
 		case 'suggest': clash_suggest(); break;
 		case 'process':  clash_process(); break;
 		case 'cancel':  clash_cancel(); break;
@@ -43,8 +43,8 @@ if (isset($_POST['clash_action'])) {
 	$_SESSION['add_event_post'] = get_object_vars($obj);
 	$_SESSION['add_event_clash'] = implode(',', array_keys($clash));
 	$_SESSION['add_event_caller'] = $last_a;
-	$_SESSION['add_event_attendees'] = $_POST['event_assigned'];
-	$_SESSION['add_event_mail'] = isset($_POST['mail_invited']) ? $_POST['mail_invited'] : 'off';
+	$_SESSION['add_event_attendees'] = dPgetParam($_POST, 'event_assigned');
+	$_SESSION['add_event_mail'] = dPgetParam($_POST, 'mail_invited', 'off');
 	
 	echo '<table width="100%" summary="Attendee Clash" class="std"><tr><td><b>' . $AppUI->_('clashEvent') . '</b></td></tr>';
 	foreach ($clash as $user) {
@@ -221,10 +221,10 @@ function clash_process() {
 	
 	
 	// First find any events in the range requested.
-	$start_date = new CDate($_POST['event_start_date'] . $_POST['start_time']);
-	$end_date = new CDate($_POST['event_start_date'] . $_POST['start_time']);
-	$end_date->addSeconds($_POST['duration'] * 60);
-	$final_date = new CDate($_POST['event_end_date'] . $_POST['end_time']);
+	$start_date = new CDate(dPgetParam($_POST, 'event_start_date') . dPgetParam($_POST, 'start_time'));
+	$end_date = new CDate(dPgetParam($_POST, 'event_start_date') . dPgetParam($_POST, 'start_time'));
+	$end_date->addSeconds(dPgetParam($_POST, 'duration') * 60);
+	$final_date = new CDate(dPgetParam($_POST, 'event_end_date') . dPgetParam($_POST, 'end_time'));
 	
 	$original_event_start = $obj->event_start_date;
 	$original_event_end = $obj->event_end_date;
@@ -237,12 +237,12 @@ function clash_process() {
 	// the end time stipulation, find the first hole in the times.
 	
 	// Determine the duration in hours/minutes.
-	$start_hour = (int)($_POST['start_time'] / 10000);
-	$start_minutes = (int)(($_POST['start_time'] % 10000) / 100);
+	$start_hour = (int)(dPgetParam($_POST, 'start_time') / 10000);
+	$start_minutes = (int)((dPgetParam($_POST, 'start_time') % 10000) / 100);
 	$start_min_offset = ($start_hour * 60) + $start_minutes;
-	$end_hour = (int)($_POST['end_time'] / 10000);
-	$end_minutes = (int)(($_POST['end_time'] % 10000) / 100);
-	$end_min_offset = (($end_hour * 60) + $end_minutes) - $_POST['duration'];
+	$end_hour = (int)(dPgetParam($_POST, 'end_time') / 10000);
+	$end_minutes = (int)((dPgetParam($_POST, 'end_time') % 10000) / 100);
+	$end_min_offset = (($end_hour * 60) + $end_minutes) - dPgetParam($_POST, 'duration');
 	
 	// First, build a set of "slots" that give us the duration
 	// and start/end times we need
@@ -261,7 +261,7 @@ function clash_process() {
 				$slot_start_date = new CDate($curr_date);
 				$slot_start_date->addSeconds($j * 60);
 				$slot_end_date = new CDate($slot_start_date);
-				$slot_end_date->addSeconds($_POST['duration'] * 60);
+				$slot_end_date->addSeconds(dPgetParam($_POST, 'duration') * 60);
 				
 				$obj->event_start_date = $slot_start_date->format('%Y-%m-%d %T');
 				$obj->event_end_date = $slot_end_date->format('%Y-%m-%d %T');
@@ -300,7 +300,7 @@ function clash_mail() {
 	if (! $obj->bind ($_SESSION['add_event_post'])) {
 		$AppUI->setMsg($obj->getError(), UI_MSG_ERROR);
 	} else {
-		$obj->notify(@$_SESSION['add_event_attendees'], $_REQUEST['event_id'] ? false : true, true);
+		$obj->notify(@$_SESSION['add_event_attendees'], dPgetParam($_REQUEST, 'event_id') ? false : true, true);
 		$AppUI->setMsg("Mail sent", UI_MSG_OK);
 	}
 	clear_clash();

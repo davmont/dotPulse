@@ -4,14 +4,14 @@ if (!defined('DP_BASE_DIR')) {
 }
 
 // get GETPARAMETER for contact_id
-$contact_id = intval($_GET['contact_id']);
+$contact_id = dPgetIntParam($_GET, 'contact_id');
 
 $canRead = getPermission('contacts', 'view', $contact_id);
 if (!$canRead) {
 	$AppUI->redirect("m=public&a=access_denied");
 }
 
-if (isset($_GET['contact_id']) && !($_GET['contact_id']=='')) {
+if ((dPgetParam($_GET, 'contact_id') !== null) && !(dPgetParam($_GET, 'contact_id')=='')) {
 
 	//pull data for this contact
 	$q  = new DBQuery;
