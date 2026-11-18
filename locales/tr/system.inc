@@ -191,7 +191,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "ldap_user_filter_tooltip"=>"LDAP sorgularında eşleşen kullanıcıları belirlemek için kullanılacak kullanıcı filtresi.  Ayrıntılar için site yöneticinize danışın.", // MT
 "ldap_version_title"=>"LDAP Sürümü", // MT
 "ldap_version_tooltip"=>"LDAP sunucusunun anladığı LDAP sürümü. Emin değilseniz varsayılan 3 değerinde bırakın.", // MT
-"link_tickets_kludge_title"=>"Bilet Yeniden Bağlamaya İzin Ver", // MT
+"link_tickets_kludge_title"=>"Talep Yeniden Bağlamaya İzin Ver", // MT
 "link_tickets_kludge_tooltip"=>"Bu seçenek açıkken Ticketsmith'te biletleri istediğiniz bir üst bilete yeniden bağlayabilirsiniz.  E-postayla oluşturulan biletler için yararlı olabilir.", // MT
 "List of Options"=>"Seçenek Listesi", // MT
 "Locale"=>"Dil dosyaları",
@@ -452,7 +452,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "LDAP directory"=>"LDAP dizini", // MT
 "Versions, indexing of file contents and the programs that extract their text."=>"Sürümler, dosya içeriklerinin dizinlenmesi ve metinlerini çıkaran programlar.", // MT
 "Indexing"=>"Dizinleme", // MT
-"Tickets"=>"Biletler", // MT
+"Tickets"=>"Talepler", // MT
 "Permission cache, change log, debugging and translation checks. Change them only if you know their effect."=>"İzin önbelleği, değişiklik kaydı, hata ayıklama ve çeviri denetimleri. Yalnızca etkilerini biliyorsanız değiştirin.", // MT
 "Permissions cache"=>"İzin önbelleği", // MT
 "Logs and debugging"=>"Kayıtlar ve hata ayıklama", // MT

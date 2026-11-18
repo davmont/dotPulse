@@ -59,7 +59,7 @@
 "My Tickets"=>"Benim Fişlerim",
 "my tickets"=>"biletlerim", // MT
 "Name"=>"İsim", // MT
-"New Ticket"=>"Yeni Bilet", // MT
+"New Ticket"=>"Yeni Talep", // MT
 "new ticket"=>"yeni fiş",
 "newer"=>"daha yeni",
 "no results"=>"sonuç yok",
@@ -104,7 +104,7 @@
 "Ticket"=>"Fiş",
 "Ticket assigned to you"=>"size verilen fiş",
 "Ticket ID"=>"Fiş ID",
-"Ticket Updated - "=>"Bilet Güncellendi - ", // MT
+"Ticket Updated - "=>"Talep Güncellendi - ", // MT
 "tickets"=>"Fişler",
 "tickets list"=>"Fişlerin listesi",
 "ticketsmithValidDetail"=>"Göndermeden önce lütfen aşağıdaki detayları  doldurun",
@@ -114,8 +114,8 @@
 "Trouble ticket"=>"Sorun Fişi",
 "Trouble ticket assigned to you"=>"Size verilen Sorun Fişi",
 "Trouble Ticket Management"=>"Sorun Fişleri Yönetimi",
-"Trouble Ticket Management -"=>"Sorun Bileti Yönetimi -", // MT
-"Trouble Ticket Management - New Ticket"=>"Sorun Bileti Yönetimi - Yeni Bilet", // MT
+"Trouble Ticket Management -"=>"Sorun Talebi Yönetimi -", // MT
+"Trouble Ticket Management - New Ticket"=>"Sorun Talebi Yönetimi - Yeni Talep", // MT
 "Type"=>"Tipi",
 "View"=>"Göster",
 "view this ticket"=>"bu fişi göster",
@@ -124,6 +124,6 @@
 "weeks"=>"hafta",
 "year"=>"yıl",
 "years"=>"yıllar",
-"\$type Ticket Report"=>"\$type Bilet Raporu", // MT
-"Ticket added"=>"Bilet eklendi", // MT
+"\$type Ticket Report"=>"\$type Talep Raporu", // MT
+"Ticket added"=>"Talep eklendi", // MT
 "ticket list"=>"bilet listesi", // MT

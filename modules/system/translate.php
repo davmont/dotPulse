@@ -107,51 +107,45 @@ if ($lang == 'en') {
 }
 
 $index++;
+// Values are escaped with htmlspecialchars() only (dPformSafe() also strips backslashes), so
+// an entry submitted untouched comes back as the file has it and translate_save.php keeps it.
+// A text box drops line breaks: a value with one gets a textarea whatever its length.
+function dPtranslateField($name, $value, $size)
+{
+	$value = (string)$value;
+	$html = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+	if (mb_strlen($value) < 40 && strpos($value, "\n") === false) {
+		return '<input type="text" name="' . $name . '" value="' . $html . '" size="' . $size . '" class="text" />';
+	}
+	$rows = round(mb_strlen($value) / 35) + 1 + substr_count($value, "\n");
+	return '<textarea name="' . $name . '" cols="40" class="small" rows="' . $rows . '">' . $html . '</textarea>';
+}
 foreach ($trans as $k => $langs) {
+	$k = (string)$k;
+	$english = (string)@$langs['english'];
 ?>
 <tr>
 	<td><?php
-if ($k != @$langs['english']) {
-	$k = dPformSafe($k);
-	if ($lang == 'en') {
-		echo ('<input type="text" name="trans[' . $index . '][abbrev]" value="' . $k 
-			  . '" size="20" class="text" />');
-	} else {
-		echo $k;
-	}
+if ($k !== $english) {
+	echo ($lang == 'en') ? dPtranslateField('trans[' . $index . '][abbrev]', $k, 20)
+		: htmlspecialchars($k, ENT_QUOTES, 'UTF-8');
 } else {
 	echo '&nbsp;';
 }
 ?></td>
 	<td><?php
-//$langs['english'] = htmlspecialchars(@$langs['english'], ENT_QUOTES);
-$langs['english'] = dPformSafe(@$langs['english']);
 if ($lang == 'en') {
-	if (mb_strlen($langs['english']) < 40) {
-		echo ('<input type="text" name="trans[' . $index . '][english]" value="' 
-		      . $langs['english'] . '" size="40" class="text" />');
-	} else {
-		$rows = round(mb_strlen($langs['english']) / 35) + 1;
-		echo ('<textarea name="trans[' . $index . '][english]" cols="40" class="small" rows="' 
-		      . $rows . '">' . $langs['english'] . '</textarea>');
-	}
+	echo dPtranslateField('trans[' . $index . '][english]', $english, 40);
 } else {
-	echo $langs['english'];
-	echo ('<input type="hidden" name="trans[' . $index . '][english]" value="' 
-	      . ($k ? $k : $langs['english']) .'" size="20" class="text" />');
+	// The key the translation is saved under: the abbreviation, or the English text.
+	echo nl2br(htmlspecialchars($english, ENT_QUOTES, 'UTF-8'));
+	echo '<input type="hidden" name="trans[' . $index . '][english]" value="'
+		. htmlspecialchars($k, ENT_QUOTES, 'UTF-8') . '" />';
 }
 ?></td>
 	<td><?php
 if ($lang != 'en') {
-	$langs['lang'] = dPformSafe(@$langs['lang']);
-	if (mb_strlen($langs['lang']) < 40) {
-		echo ('<input type="text" name="trans[' . $index . '][lang]" value="' . $langs['lang'] 
-		      . '" size="40" class="text" />');
-	} else {
-		$rows = round(mb_strlen($langs['lang'] / 35)) +1 ;
-		echo ('<textarea name="trans[' . $index . '][lang]" cols="40" class="small" rows="' 
-		      . $rows . '">' . $langs['lang'] . '</textarea>');
-	}
+	echo dPtranslateField('trans[' . $index . '][lang]', @$langs['lang'], 40);
 }
 ?></td>
 	<td align="center"><input type="checkbox" name="trans[<?php echo $index; ?>][del]" /></td>

@@ -17,7 +17,8 @@
  * must also be in the Spanish one, and an English key that is an identifier (noDeletePermission)
  * needs an English text. An empty value counts as missing. The other languages are not checked:
  * their strings were machine translated and each such entry ends in "// MT" until someone reviews
- * it (the translation page of System Admin rewrites the file without the marks when it saves).
+ * it (the translation page of System Admin keeps the mark of an entry it saves unchanged, and
+ * drops it from an entry whose translation was edited).
  * Strings without a letter, and those in tools/locales/ignore.txt, are left out.
  */
 $root = dirname(__DIR__, 2);

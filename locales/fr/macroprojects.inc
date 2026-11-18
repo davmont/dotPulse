@@ -95,7 +95,7 @@
 "Last activity date"=>"Date de dernière activité",
 "Levels to display"=>"Niveau a montrer",
 "Links"=>"Liens",
-"Log"=>"Connexion",
+"Log"=>"Journal",
 "Log All"=>"Connecter tous",
 "Log All MacroProjects"=>"Connecter tous les MacroProjets",
 "MacroProject"=>"MacroProjet",

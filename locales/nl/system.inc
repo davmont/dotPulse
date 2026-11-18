@@ -303,7 +303,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "session_max_lifetime_tooltip"=>"De maximale tijd dat een sessie kan bestaan voordat deze wordt verwijderd, ongeacht hoe actief deze is.", // MT
 "session_name_title"=>"Sessie-/cookienaam", // MT
 "session_name_tooltip"=>"Definieer uw eigen cookienaam. Let op: het wijzigen van de sessienaam meldt alle gebruikers direct af! Ze moeten zich opnieuw aanmelden.", // MT
-"Short Date Format"=>"Korte Datum Formaat",
+"Short Date Format"=>"Korte datumnotatie",
 "show_all_task_assignees_title"=>"Alle toegewezenen van taak tonen", // MT
 "show_all_task_assignees_tooltip"=>"Schakel deze optie in als u alle namen van toegewezenen in de takenlijst van het project wilt tonen, of uit als u alleen de naam van de hoofdtoegewezene wilt zien met tussen haakjes het aantal andere toegewezenen.", // MT
 "show_all_tasks_title"=>"Taken van andere gebruikers tonen", // MT

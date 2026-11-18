@@ -1569,4 +1569,83 @@ function dPconvertTablesToUtf8mb4($tables)
 	}
 	return true;
 }
+/**
+ * The entries of a locale file as key => array('text' => ..., 'mt' => bool): "key"=>"text",
+ * or "text", alone (English files), and 'mt' when the entry ends with "// MT" (machine
+ * translated, to review). The file is read with the PHP tokenizer, not run; an entry that is
+ * not made of plain string literals is left out. The translation page writes an entry back as
+ * it is when it is submitted unchanged, mark included (modules/system/translate_save.php).
+ */
+function dPlocaleEntries($file)
+{
+	$entries = array();
+	if (!is_readable($file)) {
+		return $entries;
+	}
+	$tokens = token_get_all('<?php ' . file_get_contents($file));
+	$n = count($tokens);
+	$strings = array();
+	$plain = true;
+	$arrow = 0;
+	for ($i = 1; $i < $n; $i++) {
+		$t = $tokens[$i];
+		$id = is_array($t) ? $t[0] : $t;
+		if ($id === T_WHITESPACE || ($id === T_COMMENT && !$strings)) {
+			continue;
+		}
+		if ($id === T_CONSTANT_ENCAPSED_STRING) {
+			$strings[] = dPlocaleLiteral($t[1]);
+		} elseif ($id === T_DOUBLE_ARROW) {
+			$arrow++;
+		} elseif ($id === ',') {
+			// The mark: a "// MT" comment on the same line as the comma.
+			$mt = false;
+			for ($j = $i + 1; $j < $n; $j++) {
+				$u = $tokens[$j];
+				if (is_array($u) && $u[0] === T_WHITESPACE && strpos($u[1], "\n") === false) {
+					continue;
+				}
+				$mt = is_array($u) && $u[0] === T_COMMENT && preg_match('#^//[ \t]*MT[ \t]*$#', rtrim($u[1]));
+				break;
+			}
+			$count = count($strings);
+			if ($plain && (($count === 2 && $arrow === 1) || ($count === 1 && $arrow === 0))) {
+				$entries[$strings[0]] = array('text' => $strings[$count - 1], 'mt' => (bool)$mt);
+			}
+			$strings = array();
+			$plain = true;
+			$arrow = 0;
+		} elseif ($id !== T_COMMENT) {
+			$plain = false;
+		}
+	}
+	return $entries;
+}
+
+/**
+ * The value of a PHP string literal, as PHP reads it: single quotes take \\ and \' only,
+ * double quotes the escapes PHP knows (an unknown one keeps its backslash).
+ */
+function dPlocaleLiteral($literal)
+{
+	$body = substr($literal, 1, -1);
+	if ($literal[0] === "'") {
+		return preg_replace('/\\\\([\\\\\'])/', '$1', $body);
+	}
+	$simple = array('n' => "\n", 't' => "\t", 'r' => "\r", 'v' => "\v", 'e' => "\x1B", 'f' => "\f",
+		'\\' => '\\', '$' => '$', '"' => '"');
+	return preg_replace_callback('/\\\\(?:([ntrvef\\\\$"])|([0-7]{1,3})|x([0-9A-Fa-f]{1,2})|u\{([0-9A-Fa-f]+)\})/',
+		function ($m) use ($simple) {
+			if (isset($m[1]) && $m[1] !== '') {
+				return $simple[$m[1]];
+			}
+			if (isset($m[2]) && $m[2] !== '') {
+				return chr(octdec($m[2]) & 255);
+			}
+			if (isset($m[3]) && $m[3] !== '') {
+				return chr(hexdec($m[3]));
+			}
+			return mb_chr(hexdec($m[4]), 'UTF-8');
+		}, $body);
+}
 ?>

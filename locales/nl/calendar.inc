@@ -24,7 +24,7 @@
 "Earliest Start Time"=>"Vroegste begintijd", // MT
 "Edit Event"=>"Wijzig Evenement",
 "edit this event"=>"wijzig dit evenement",
-"End Date"=>"Eind Datum",
+"End Date"=>"Einddatum",
 "Ends"=>"Eindigt", // MT
 "Event"=>"Evenement", // MT
 "Event Cancelled"=>"Evenement geannuleerd", // MT
@@ -36,7 +36,7 @@
 "Every 6 months"=>"Elke 6 maanden", // MT
 "Every Month"=>"Elke maand", // MT
 "Every Year"=>"Elk jaar", // MT
-"Finish Date"=>"Afronding Datum",
+"Finish Date"=>"Einddatum",
 "Future Task"=>"Toekomstige Taak",
 "Hourly"=>"Elk uur", // MT
 "in advance"=>"vooruitlopend",
@@ -74,7 +74,7 @@
 "Show Events for"=>"Evenementen tonen voor", // MT
 "Show only on Working Days"=>"Alleen op werkdagen tonen", // MT
 "Show Todo for"=>"Takenlijst tonen voor", // MT
-"Start Date"=>"Start Datum",
+"Start Date"=>"Startdatum",
 "Start-Date >= End-Date, please correct"=>"Startdatum >= einddatum, corrigeer dit", // MT
 "Started and on time"=>"Gestart op tijd",
 "Starts"=>"Start",

@@ -260,7 +260,7 @@
 "Role Name"=>"Nom Rôle",
 "Role updated"=>"Rôle mis a jour",
 "Roles"=>"Rôles",
-"Save"=>"Enregistré",
+"Save"=>"Enregistrer",
 "Select Company"=>"Sélectionner une société",
 "Select List"=>"Sélectionner liste",
 "Selects"=>"Sélectionner",
