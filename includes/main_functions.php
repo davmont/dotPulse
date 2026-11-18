@@ -1570,6 +1570,19 @@ function dPconvertTablesToUtf8mb4($tables)
 	return true;
 }
 /**
+ * The file the translation page reads and saves for a module and language: the module's own
+ * (modules/[module]/locales/[lang].inc) when it ships an English one, locales/[lang]/[module].inc
+ * otherwise. A module can have both; locales/core.php reads both, the page edits the first.
+ */
+function dPtranslationFile($module, $lang)
+{
+	if (file_exists(DP_BASE_DIR . '/modules/' . $module . '/locales/en.inc')) {
+		return DP_BASE_DIR . '/modules/' . $module . '/locales/' . $lang . '.inc';
+	}
+	return DP_BASE_DIR . '/locales/' . $lang . '/' . $module . '.inc';
+}
+
+/**
  * The entries of a locale file as key => array('text' => ..., 'mt' => bool): "key"=>"text",
  * or "text", alone (English files), and 'mt' when the entry ends with "// MT" (machine
  * translated, to review). The file is read with the PHP tokenizer, not run; an entry that is

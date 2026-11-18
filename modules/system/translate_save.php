@@ -31,19 +31,9 @@ if (!isset($modules[$module]) || !in_array($lang, $AppUI->readDirs('locales'), t
 $trans = dPgetParam($_POST, 'trans', array());
 $trans = is_array($trans) ? $trans : array();
 
-// save to core locales if a translation exists there, otherwise save
-// into the module's local locale area if it exists.  If not then
-// the core table is updated.
-$core_filename = DP_BASE_DIR.'/locales/'.$lang.'/'.$module.'.inc';
-if (file_exists($core_filename)) {
-	$filename = $core_filename;
-} else {
-	$mod_locale = DP_BASE_DIR.'/modules/'.$module.'/locales';
-	if (is_dir($mod_locale))
-		$filename = DP_BASE_DIR.'/modules/'.$module.'/locales/'.$lang.'.inc';
-	else
-		$filename = $core_filename;
-}
+// The file translate.php showed: saving another one (the core file of a module that has its
+// own) replaced its entries with the page's.
+$filename = dPtranslationFile($module, $lang);
 
 // The file as it is, read before it is rewritten.
 $current = dPlocaleEntries($filename);
