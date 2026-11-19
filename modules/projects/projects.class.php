@@ -181,7 +181,7 @@ class CProject extends CDpObject
 
 	/**	Import tasks from another project
 	 *
-	 *	@param	int		Project ID of the tasks come from.
+	 *	@param	int $from_project_id Project ID of the tasks come from.
 	 *	@return	bool
 	 **/
 	function importTasks($from_project_id, $scale_project = false)

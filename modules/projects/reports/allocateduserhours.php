@@ -482,4 +482,4 @@ function showDays() {
 	$total_hours_capacity = $working_days_count*dPgetConfig('daily_working_hours')*count($user_usage);
 	$total_hours_capacity_all = $working_days_count*dPgetConfig('daily_working_hours')*count($user_list);
 }
-?>		
+?>

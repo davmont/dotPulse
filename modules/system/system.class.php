@@ -238,6 +238,7 @@ class CModule extends CDpObject {
 class CConfig extends CDpObject {
 	var $config_name = NULL;
 	var $config_value = NULL;
+	var $config_id = NULL;
 	
 	function __construct() {
 		parent::__construct('config', 'config_id');

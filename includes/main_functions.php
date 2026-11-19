@@ -114,11 +114,11 @@ function tree_recurse($id, $indent, $list, $children)
 /**
 **	Provide Projects Selectbox sorted by Companies
 **	@author gregorerhardt with special thanks to original author aramis
-**	@param	int			userID
-**	@param	string	HTML select box name identifier
-**	@param	string	HTML attributes
-**	@param	int			Proejct ID for preselection
-**	@param	int			Project ID which will be excluded from the list 
+**	@param	int $user_id userID
+**	@param	string $select_name HTML select box name identifier
+**	@param	string $select_attribs HTML attributes
+**	@param	int $selected Proejct ID for preselection
+**	@param	int $excludeProjWithId Project ID which will be excluded from the list 
 **									(e.g. in the tasks import list exclude the project to import into)
 **	@return	string	HTML selectbox
 
@@ -297,8 +297,8 @@ function dPheaderWidgets($separator)
 
 /**
  * Retrieves a configuration setting.
- * @param $key string The name of a configuration setting
- * @param $default string The default value to return if the key not found.
+ * @param string $key The name of a configuration setting
+ * @param string $default The default value to return if the key not found.
  * @return mixed The value of the setting, or the default value if not found.
  */
 function dPgetConfig($key, $default = null)
@@ -437,8 +437,8 @@ function dPvectorIconFilter($html)
 
 /**
  *	Function to recussively find an image in a number of places
- *	@param string The name of the image
- *	@param string Optional name of the current module
+ *	@param string $name The name of the image
+ *	@param string $module Optional name of the current module
  *	@return string location for image, "default" location returned if not found elsewhere (even if not present there).
  */
 function dPfindImage($name, $module = null)
@@ -474,10 +474,10 @@ function dPfindImage($name, $module = null)
 }
 
 /**
- *	@param string The name of the image
- *	@param string The image width
- *	@param string The image height
- *	@param string The alt text for the image
+ *	@param string $src The name of the image
+ *	@param string $wid The image width
+ *	@param string $hgt The image height
+ *	@param string $alt The alt text for the image
  */
 function dPshowImage($src, $wid = '', $hgt = '', $alt = '', $title = '')
 {
@@ -883,7 +883,7 @@ function dPuserHasRole($name)
 
 
 /**
- *	@param int number of hours to format
+ *	@param int $x number of hours to format
  *	@return string 
  */
 function dPformatDuration($x)

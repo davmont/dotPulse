@@ -26,6 +26,11 @@ class CMonthCalendar
 	var $next_month;
 	var $prev_year;
 	var $next_year;
+	/** @var array events by day, highlighted days, css classes; @var bool title shown */
+	var $events = array();
+	var $highlightedDays = array();
+	var $classes = array();
+	var $showTitle = true;
 	/**#@-*/
 
 	/** @var string The css style name of the Title */
@@ -104,7 +109,7 @@ class CMonthCalendar
 	 *
 	 * { Description }
 	 *
-	 * @param [type] $date
+	 * @param mixed $date
 	 */
 	function setDate($date = null)
 	{
@@ -589,7 +594,7 @@ class CEvent extends CDpObject
 			$q->setDelete('user_events');
 			$q->addWhere('event_id = ' . (int)$this->event_id);
 			$deleted = ((!$q->exec()) ? $AppUI->_('Could not delete Event-User relationship') . '. ' . db_error() : null);
-			$q->clear;
+			$q->clear();
 		}
 
 		return $deleted;
@@ -597,13 +602,13 @@ class CEvent extends CDpObject
 
 	/**
 	 * Calculating if an recurrent date is in the given period
-	 * @param Date Start date of the period
-	 * @param Date End date of the period
-	 * @param Date Start date of the Date Object
-	 * @param Date End date of the Date Object
-	 * @param integer Type of Recurrence
-	 * @param integer Times of Recurrence
-	 * @param integer Time of Recurrence
+	 * @param CDate $start_date Start date of the period
+	 * @param CDate $end_date End date of the period
+	 * @param CDate $event_start_date Start date of the Date Object
+	 * @param CDate $event_end_date End date of the Date Object
+	 * @param integer $event_recurs Type of Recurrence
+	 * @param integer $event_times_recuring Times of Recurrence
+	 * @param integer $j Time of Recurrence
 	 * @return array Calculated Start and End Dates for the recurrent Event for the given Period
 	 */
 	static function getRecurrentEventforPeriod(
@@ -676,8 +681,8 @@ class CEvent extends CDpObject
 
 	/**
 	 * Utility function to return an array of events with a period
-	 * @param Date Start date of the period
-	 * @param Date End date of the period
+	 * @param CDate $start_date Start date of the period
+	 * @param CDate $end_date End date of the period
 	 * @return array A list of events
 	 */
 	static function getEventsForPeriod(

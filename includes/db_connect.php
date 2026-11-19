@@ -52,7 +52,7 @@ if ($rs) { // Won't work in install mode.
 /**
  * This global function loads the first field of the first row returned by the query.
  *
- * @param string The SQL query
+ * @param string $sql The SQL query
  * @return mixed The value returned in the query or null if the query failed.
  */
 function db_loadResult($sql)
@@ -74,8 +74,8 @@ function db_loadResult($sql)
  *
  * If an object is passed to this function, the returned row is bound to the existing elements of <var>object</var>.
  * If <var>object</var> has a value of null, then all of the returned query fields returned in the object.
- * @param string The SQL query
- * @param object The address of variable
+ * @param string $sql The SQL query
+ * @param object $object The address of variable
  */
 function db_loadObject($sql, &$object, $bindAll = false, $strip = true)
 {
@@ -104,9 +104,9 @@ function db_loadObject($sql, &$object, $bindAll = false, $strip = true)
 /**
  * This global function return a result row as an associative array
  *
- * @param string The SQL query
- * @param array An array for the result to be return in
- * @return <b>True</b> is the query was successful, <b>False</b> otherwise
+ * @param string $sql The SQL query
+ * @param array $hash An array for the result to be return in
+ * @return bool True if the query was successful, false otherwise
  */
 function db_loadHash($sql, &$hash)
 {
@@ -145,7 +145,7 @@ function db_loadHashList($sql, $index = '')
  *
  * { Description }
  *
- * @param [type] $maxrows
+ * @param mixed $maxrows
  */
 function db_loadList($sql, $maxrows = NULL)
 {
@@ -172,7 +172,7 @@ function db_loadList($sql, $maxrows = NULL)
  *
  * { Description }
  *
- * @param [type] $maxrows
+ * @param mixed $maxrows
  */
 function db_loadColumn($sql, $maxrows = NULL)
 {
@@ -241,7 +241,7 @@ function db_loadObjectList($sql, $object, $maxrows = NULL)
  *
  * { Description }
  *
- * @param [type] $verbose
+ * @param mixed $verbose
  */
 function db_insertArray($table, &$hash, $verbose = false)
 {
@@ -279,7 +279,7 @@ function db_insertArray($table, &$hash, $verbose = false)
  *
  * { Description }
  *
- * @param [type] $verbose
+ * @param mixed $verbose
  */
 function db_updateArray($table, &$hash, $keyName, $verbose = false)
 {
@@ -337,8 +337,8 @@ function db_delete($table, $keyName, $keyValue)
  *
  * { Description }
  *
- * @param [type] $keyName
- * @param [type] $verbose
+ * @param mixed $keyName
+ * @param mixed $verbose
  */
 function db_insertObject($table, &$object, $keyName = NULL, $verbose = false)
 {
@@ -387,7 +387,7 @@ function db_insertObject($table, &$object, $keyName = NULL, $verbose = false)
  *
  * { Description }
  *
- * @param [type] $updateNulls
+ * @param mixed $updateNulls
  */
 function db_updateObject($table, &$object, $keyName, $updateNulls = true, $descriptionField = NULL)
 {
@@ -477,7 +477,7 @@ function db_dateConvert($src, &$dest, $srcFmt)
  *
  * { Description }
  *
- * @param [type] $timestamp
+ * @param mixed $timestamp
  */
 function db_datetime($timestamp = NULL)
 {

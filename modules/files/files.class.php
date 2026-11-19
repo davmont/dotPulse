@@ -19,6 +19,8 @@ if ($helpdesk_available = $AppUI->isActiveModule('helpdesk')) {
  */
 class CFile extends CDpObject
 {
+	/** @var CHelpDeskItem|null the helpdesk item a file is attached to (not a column) */
+	var $_hditem = NULL;
 
 	var $file_id = NULL;
 	var $file_version_id = NULL;
@@ -590,13 +592,14 @@ class CFile extends CDpObject
  */
 class CFileFolder extends CDpObject
 {
-	/** @param int file_folder_id **/
+	/** @var int|null */
 	var $file_folder_id = null;
-	/** @param int file_folder_parent The id of the parent folder **/
+	/** @var int|null The id of the parent folder */
 	var $file_folder_parent = null;
-	/** @param string file_folder_name The folder's name **/
+	var $__message = null;
+	/** @var string|null The folder's name */
 	var $file_folder_name = null;
-	/** @param string file_folder_description The folder's description **/
+	/** @var string|null The folder's description */
 	var $file_folder_description = null;
 
 	function __construct()
