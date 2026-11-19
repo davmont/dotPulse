@@ -3,7 +3,7 @@ if (!defined('DP_BASE_DIR')) {
   die('You should not access this file directly.');
 }
 
-$history_id = (int)defVal(@$_GET["history_id"], 0);
+$history_id = dPgetIntParam($_GET, 'history_id', 0);
 
 /*
 // check permissions

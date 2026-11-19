@@ -38,7 +38,9 @@ The full text of the GPL is in the COPYING file.
 // 5. It is an upgrade - there must be a config.php and a database.
 
 $baseDir = dirname(dirname(__FILE__));
-define('DP_BASE_DIR', $baseDir);
+if (!defined('DP_BASE_DIR')) { // install/db.php defines it first
+	define('DP_BASE_DIR', $baseDir);
+}
 // Same security headers as base.php sends for the application pages.
 if (!headers_sent()) {
 	header('X-Content-Type-Options: nosniff');
