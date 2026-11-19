@@ -1,5 +1,3 @@
-install/db.php:5
-install/do_install_db.php:5
 modules/annotations/index.php:5
 modules/annotations/projects_tab.annotations.php:2
 modules/calendar/clash.php:1
@@ -36,8 +34,6 @@ modules/helpdesk/index.php:4
 modules/helpdesk/list.php:30
 modules/helpdesk/view.php:4
 modules/helpdesk/vw_history.php:2
-modules/history/addedit.php:1
-modules/history/index.php:5
 modules/holiday/addedit.php:2
 modules/holiday/index.php:1
 modules/hosting/index.php:8
@@ -102,8 +98,6 @@ modules/projectdesigner/vw_projecttask.php:4
 modules/projectdesigner/vw_tasks.php:4
 modules/reports/index.php:37
 modules/resource_m/index.php:6
-modules/resources/do_resource_aed.php:1
-modules/resources/index.php:2
 modules/risks/index.php:2
 modules/risks/indexProjectView.php:2
 modules/risks/index_table.php:2
@@ -128,4 +122,3 @@ modules/timetrack/dosql.php:1
 modules/timetrack/index.php:2
 modules/timetrack/review.php:1
 modules/timetrack/view.php:1
-style/amp/header.php:1
