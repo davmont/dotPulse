@@ -28,7 +28,7 @@
 </div>
 <div id="container_header">
 	<ul>
-		<?php foreach($nav as $module) { if($perms->checkModule($module['mod_directory'],'access')) { if(isset($_REQUEST["m"]) and ($_REQUEST["m"] == $module['mod_directory'])) { ?>
+		<?php foreach($nav as $module) { if($perms->checkModule($module['mod_directory'],'access')) { if($m == $module['mod_directory']) { ?>
 		<li class="open">
 			<div class="content"><?php echo $AppUI->_($module['mod_ui_name']); ?></div>
 		</li>
