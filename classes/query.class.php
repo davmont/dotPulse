@@ -867,13 +867,13 @@ class DBQuery
 
 		include_once DP_BASE_DIR . '/lib/adodb/adodb-xmlschema.inc.php';
 		$schema = new adoSchema($db);
-		$schema->setUpgradeMode($mode);
+		$schema->SetUpgradeMethod($mode);
 		if (isset($this->_table_prefix) && $this->_table_prefix) {
 			$schema->setPrefix($this->_table_prefix, false);
 		}
 		$schema->ContinueOnError(true);
-		if (($sql = $scheme->ParseSchemaString($xml)) == false) {
-			$AppUI->setMsg(array('Error in XML Schema', 'Error', $db->ErrorMsg()), UI_MSG_ERR);
+		if (($sql = $schema->ParseSchemaString($xml)) == false) {
+			$AppUI->setMsg(array('Error in XML Schema', 'Error', $db->ErrorMsg()), UI_MSG_ERROR);
 			return false;
 		}
 

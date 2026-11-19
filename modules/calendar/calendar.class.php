@@ -511,7 +511,7 @@ class CMonthCalendar
 		if ($rows) {
 			$html .= '<div class="event">';
 			foreach ($rows as $row) {
-				$years = $y - substr($row['contact_birthday'], 0, 4);
+				$years = $y - (int)substr($row['contact_birthday'], 0, 4);
 				$html .= dPshowImage(dPfindImage('birthday.png', 'calendar'), 16, 16, '');
 				$html .= ('<a href="index.php?m=contacts&a=view&contact_id=' . $row['contact_id']
 					. '">' . $AppUI->___($row["contact_first_name"] . ' '

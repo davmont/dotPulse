@@ -193,7 +193,7 @@ if ($do_report) {
 		echo '<h4>' . $AppUI->_('Total capacity for shown users') . '</h4>';
 		echo $AppUI->_('Allocated hours').': '.number_format($allocated_hours_sum,2).'<br />';
 		echo $AppUI->_('Total capacity').': '.number_format($total_hours_capacity,2).'<br />';
-		echo $AppUI->_('Percentage used').': '. (($total_hours_capacity > 0) ? number_format($allocated_hours_sum/$total_hours_capacity,2)*100 : 0) .'%<br />';
+		echo $AppUI->_('Percentage used').': '. (($total_hours_capacity > 0) ? number_format($allocated_hours_sum/$total_hours_capacity*100) : 0) .'%<br />';
 	?>
 			</td>
 			<td align="center">
@@ -203,7 +203,7 @@ if ($do_report) {
 			echo '<h4>' . $AppUI->_('Total capacity for all users') . '</h4>';
 			echo $AppUI->_('Allocated hours').': '.number_format($allocated_hours_sum,2).'<br />';
 			echo $AppUI->_('Total capacity').': '.number_format($total_hours_capacity_all,2).'<br />';
-			echo $AppUI->_('Percentage used').': '.(($total_hours_capacity_all > 0) ? number_format($allocated_hours_sum/$total_hours_capacity_all,2)*100 : 0).'%<br />';
+			echo $AppUI->_('Percentage used').': '.(($total_hours_capacity_all > 0) ? number_format($allocated_hours_sum/$total_hours_capacity_all*100) : 0).'%<br />';
 	}		
 ?>
 			</td>

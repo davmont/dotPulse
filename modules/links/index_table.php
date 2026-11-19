@@ -67,7 +67,7 @@ function shownavbar_links($xpg_totalrecs, $xpg_pagesize, $xpg_total_pages, $page
 	} else { // or we dont have any files..
 		echo '<td align="center">';
 		if ($xpg_next_page > $xpg_total_pages) {
-			echo ($xpg_sqlrecs . ' ' . $m . ' ');
+			echo ($xpg_totalrecs . ' ' . $m . ' ');
 		}
 		echo '</td></tr>';
 	} 

@@ -25,7 +25,7 @@ if (!in_array($table, array('companies', 'departments', 'files', 'file_folders',
 }
 $user_id = (int)dPgetParam($_GET, 'user_id', 0);
 
-$ok = $callback & $table;
+$ok = $callback && $table;
 
 $title = "Generic Selector";
 

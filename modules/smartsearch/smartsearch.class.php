@@ -208,7 +208,7 @@ function highlight($text, $keyval) {
 								 ('<span style="background:' . $hicolor[$key[1]] .'" >\0</span>'), 
 								 $txt);
 			} else {
-				$txt = preg_replace('/'.sql_regcase($key[0]).'/i', 
+				$txt = preg_replace('/'.preg_quote(dPhtml($key[0]), '/').'/i', 
 								 ('<span style="background:' . $hicolor[$key[1]] .'" >\0</span>'), 
 								 $txt);
 			}

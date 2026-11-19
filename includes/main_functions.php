@@ -299,7 +299,7 @@ function dPheaderWidgets($separator)
  * Retrieves a configuration setting.
  * @param $key string The name of a configuration setting
  * @param $default string The default value to return if the key not found.
- * @return The value of the setting, or the default value if not found.
+ * @return mixed The value of the setting, or the default value if not found.
  */
 function dPgetConfig($key, $default = null)
 {
@@ -439,7 +439,7 @@ function dPvectorIconFilter($html)
  *	Function to recussively find an image in a number of places
  *	@param string The name of the image
  *	@param string Optional name of the current module
- *	@return location for image, "default" location returned if not found elsewhere (even if not present there).
+ *	@return string location for image, "default" location returned if not found elsewhere (even if not present there).
  */
 function dPfindImage($name, $module = null)
 {
@@ -1167,7 +1167,7 @@ function findTabModules($module, $file = null)
 /**
  * @return void
  * @param mixed $var
- * @param char $title
+ * @param string $title
  * @desc Show an estructure (array/object) formatted
  */
 function showFVar(&$var, $title = "")

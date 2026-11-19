@@ -34,7 +34,7 @@ class CDepartment extends CDpObject {
 		$q->addWhere('dep.dept_id = '.(int)$oid);
 		$sql = $q->prepare();
 		$q->clear();
-		return db_loadObject($sql, $this,false,$trip);
+		return db_loadObject($sql, $this, false, $strip);
 	}
 
 	function bind($hash) {

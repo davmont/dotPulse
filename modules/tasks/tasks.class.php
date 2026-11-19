@@ -527,7 +527,7 @@ class CTask extends CDpObject
 			$new_child_ids = array();
 			foreach ($children as $child) {
 				$tempTask->peek($child);
-				$tempTask->htmlDecode($child);
+				$tempTask->htmlDecode();
 				$newChild = $tempTask->deepCopy($destProject_id, $newObj->task_id);
 				$newChild->store();
 
@@ -579,7 +579,7 @@ class CTask extends CDpObject
 			foreach ($children as $child) {
 				$tempChild = new CTask();
 				$tempChild->peek($child);
-				$tempChild->htmlDecode($child);
+				$tempChild->htmlDecode();
 				$tempChild->deepMove($destProject_id, $this->task_id);
 				$tempChild->store();
 			}
@@ -2710,7 +2710,7 @@ function openClosedTaskRecursive($task_id)
 		$open_task->peek($task_id);
 		$children_to_open = $open_task->getChildren();
 		foreach ($children_to_open as $to_open) {
-			openClosedTaskRecursive($to);
+			openClosedTaskRecursive($to_open);
 		}
 	}
 }

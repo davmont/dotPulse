@@ -143,18 +143,11 @@ function InstallLoadSql($sqlfile, $last_update = null)
  // Don't complain about missing files.
  if (! file_exists($sqlfile))
 	return;
-if(version_compare(PHP_VERSION, '5.3.0', '<')){
- $mqr = @get_magic_quotes_runtime();
- @set_magic_quotes_runtime(0);
-}
  $pieces = array();
  if ($sqlfile) {
   $query = fread(fopen($sqlfile, "r"), filesize($sqlfile));
   $pieces  = InstallSplitSql($query, $last_update);
  }
-if(version_compare(PHP_VERSION, '5.3.0', '<')){
-	@set_magic_quotes_runtime($mqr);
-}
  $errors = 0;
  $piece_count = count($pieces);
 

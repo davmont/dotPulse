@@ -39,6 +39,7 @@ class CustomFieldsParser{
 				$this->id_field_name = 'company_id';
 				break;
 			default:
+				global $AppUI;
 				$AppUI->setMsg("Invalid custom field record type: $custom_record_type");
 				break;
 		}
@@ -160,7 +161,7 @@ class CustomFieldsParser{
 			case 'href':
 				$parsed .= ('<td class="hilite"><a href="' 
 				            . dPformSafe((isset($this->previous_data[$key]) 
-				                          ? $this->previous_data[$key] : ''), false, true) 
+				                          ? $this->previous_data[$key] : ''), DP_FORM_URI) 
 				            . '">' 
 				            . dPformSafe((isset($this->previous_data[$key]) 
 				                          ? $this->previous_data[$key] : '')) . '</a></td>');

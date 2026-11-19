@@ -143,7 +143,7 @@ function fixate_task($task_index, $time, $dep_on_task)
 				if (isset($option_check_vital_users) && $option_check_vital_users) {
 					$q = new DBQuery;
 					$q->addTable('user_tasks');
-					$q->addQuery('count(*)', 'num_users');
+					$q->addQuery('count(*) AS num_users');
 					$q->addWhere("task_id=$t1 or task_id=$t2");
 					$q->addGroup('task_id having num_users <= 2');
 					$q->includeCount();
@@ -151,7 +151,7 @@ function fixate_task($task_index, $time, $dep_on_task)
 					$count1 = $q->foundRows();
 					$q->clear();
 					$q->addTable('user_tasks');
-					$q->addQuery('count(*)', 'frec');
+					$q->addQuery('count(*) AS frec');
 					$q->addWhere("task_id=$t1 or task_id=$t2");
 					$q->addGroup('user_id having frec = 2');
 					$q->includeCount();
@@ -468,7 +468,7 @@ if ($set_dynamic) {
 		$q = new DBQuery;
 
 		$q->addTable('tasks', 'a');
-		$q->addQuery('!a.task_dynamic', 'fixed');
+		$q->addQuery('!a.task_dynamic AS fixed');
 		$q->leftJoin('tasks', 'b', 'a.task_id = b.task_parent AND a.task_id != b.task_id');
 		$q->addWhere('(b.task_id IS NULL or b.task_id = b.task_parent)');
 		$q->addOrder('a.task_priority desc, a.task_order desc');
@@ -514,7 +514,7 @@ if ($set_dynamic) {
 				if (!$row["task_dynamic"] && $row["task_percent_complete"] == 0) {
 					// nothing has be done yet
 					$end_time = new CDate(db_dateTime2unix($row["task_end_date"]));
-					if ($end_time < time()) {
+					if ($end_time->getTime() < time()) {
 						if ($option_check_delayed_tasks) {
 							log_warning(
 								"Task " . task_link($row) . " started on " . $row["task_start_date"] . " and ended on " . formatTime($end_time) . ".",

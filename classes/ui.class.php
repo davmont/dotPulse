@@ -127,38 +127,41 @@ class CAppUI
 	/**
 	 * Used to load a php class file from the system classes directory
 	 * @param string $name The class root file name (excluding .class.php)
-	 * @return string The path to the include file
+	 * @return string|null The path to the include file, null without a name
 	 */
 	function getSystemClass($name = null)
 	{
 		if ($name) {
 			return DP_BASE_DIR . '/classes/' . $name . '.class.php';
 		}
+		return null;
 	}
 
 	/**
 	 * Used to load a php class file from the lib directory
 	 *
 	 * @param string $name The class root file name (excluding .class.php)
-	 * @return string The path to the include file
+	 * @return string|null The path to the include file, null without a name
 	 */
 	function getLibraryClass($name = null)
 	{
 		if ($name) {
 			return DP_BASE_DIR . '/lib/' . $name . '.php';
 		}
+		return null;
 	}
 
 	/**
 	 * Used to load a php class file from the module directory
 	 * @param string $name The class root file name (excluding .class.php)
-	 * @return string The path to the include file
+	 * @return string|null The path to the include file, null without a name
 	 */
 	function getModuleClass($name = null)
 	{
 		if ($name) {
 			return (DP_BASE_DIR . '/modules/' . $name . '/' . $name . '.class.php');
 		}
+		return null;
 	}
 
 	/**
