@@ -15,7 +15,9 @@
 #   make rehearse DUMP=prod.sql.gz [ADMIN=user]
 #                      upgrade a copy of a production database in docker/ (docker/rehearse.sh)
 
-PHPSTAN_IMAGE := ghcr.io/phpstan/phpstan:2
+# Pinned (2.3.7): the baseline must match exactly (reportUnmatchedIgnoredErrors), and a new
+# PHPStan release changes what it reports. Update the digest and run make phpstan-baseline together.
+PHPSTAN_IMAGE := ghcr.io/phpstan/phpstan:2@sha256:a37607d838fa6e25d1debdd0f774021c2be91248e74126c32283c3d6d2ed1a0b
 DOCKER_RUN := docker run --rm --user $(shell id -u):$(shell id -g) --security-opt label=disable -v $(CURDIR):/app -w /app
 export DP_UID := $(shell id -u)
 export DP_GID := $(shell id -g)
