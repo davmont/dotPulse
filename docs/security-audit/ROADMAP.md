@@ -454,7 +454,7 @@ Advisory [GHSA-mhjh-m8pc-7x79](https://github.com/davmont/dotPulse/security/advi
 - Verified in the sandbox as a non-owner (nothing shown) and as the owner (shown), and by CI on the release branch.
 
 ### 3.3.0 (2026-11-20)
-Gantt drag with Esc and Undo, holidays in the calendar, Help inside dotPulse, users edit their own account, the docs review fixes, the core's request input through the helpers, and PHPStan's findings in the core (659 recorded, 214 left). See `docs/release-notes/v3.3.0.md`.
+Gantt drag with Esc and Undo, holidays in the calendar, Help inside dotPulse, users edit their own account, the docs review fixes, the core's request input through the helpers, and PHPStan's findings in the core (659 recorded, 213 left). See `docs/release-notes/v3.3.0.md`.
 
 ### After 3.2.1: next steps (proposed, to prioritise)
 What 3.2.0 and 3.2.1 left open, from the work above. None blocks an installation.
