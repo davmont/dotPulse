@@ -206,7 +206,7 @@ class CDpObject {
 	 *
 	 *	@param object Object to trim class variables for
 	 *	Can be overloaded/supplemented by the child class
-	 *	@return none
+	 *	@return void
 	 */
 	public function dPTrimAll() {
 		$trim_arr = get_object_vars($this);

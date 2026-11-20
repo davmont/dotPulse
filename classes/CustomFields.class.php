@@ -138,7 +138,7 @@ class CustomField
 
 	function value()
 	{
-		return charValue();
+		return $this->charValue();
 	}
 
 	function setValueId($v)
@@ -460,7 +460,7 @@ class CustomFieldWeblink extends CustomField
 
 	function getHTML($mode)
 	{
-		$html .= '<td nowrap="nowrap">';
+		$html = '<td nowrap="nowrap">';
 		switch ($mode) {
 			case 'edit':
 				$html .= ($this->fieldDescriptionHTML() . ': </td><td><input type="text" name="'

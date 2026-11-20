@@ -1,86 +1,8 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Access to an undefined property CFile\:\:\$file_date\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_name\.$#'
-			identifier: property.notFound
-			count: 3
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_owner\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_project\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_real_filename\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_size\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_task\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_type\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_version\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_version_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../classes/CustomFields.class.php
-
-		-
 			message: '#^Constructor of class CustomFields has an unused parameter \$a\.$#'
 			identifier: constructor.unusedParameter
-			count: 1
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Function charValue not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Undefined variable\: \$html$#'
-			identifier: variable.undefined
 			count: 1
 			path: ../../classes/CustomFields.class.php
 
@@ -91,26 +13,8 @@ parameters:
 			path: ../../classes/authenticator.class.php
 
 		-
-			message: '#^Access to an undefined property PostNukeAuthenticator\:\:\$fallback\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../classes/authenticator.class.php
-
-		-
-			message: '#^Call to an undefined static method PEAR\:\:raiseError\(\)\.$#'
-			identifier: staticMethod.notFound
-			count: 1
-			path: ../../classes/csscolor.class.php
-
-		-
 			message: '#^Access to an undefined property CustomFieldsParser\:\:\$visible_keys\.$#'
 			identifier: property.notFound
-			count: 1
-			path: ../../classes/customfieldsparser.class.php
-
-		-
-			message: '#^Function dPformSafe invoked with 3 parameters, 1\-2 required\.$#'
-			identifier: arguments.count
 			count: 1
 			path: ../../classes/customfieldsparser.class.php
 
@@ -119,24 +23,6 @@ parameters:
 			identifier: phpDoc.parseError
 			count: 1
 			path: ../../classes/customfieldsparser.class.php
-
-		-
-			message: '#^Undefined variable\: \$AppUI$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../classes/customfieldsparser.class.php
-
-		-
-			message: '#^Class Date_Calc referenced with incorrect case\: Date_calc\.$#'
-			identifier: class.nameCase
-			count: 1
-			path: ../../classes/date.class.php
-
-		-
-			message: '#^PHPDoc tag @param has invalid value \(Date The date to compare to\)\: Unexpected token "The", expected variable at offset 77 on line 3$#'
-			identifier: phpDoc.parseError
-			count: 1
-			path: ../../classes/date.class.php
 
 		-
 			message: '#^PHPDoc tag @param has invalid value \(int hour\)\: Unexpected token "hour", expected variable at offset 81 on line 3$#'
@@ -155,24 +41,6 @@ parameters:
 			identifier: phpDoc.parseError
 			count: 1
 			path: ../../classes/date.class.php
-
-		-
-			message: '#^Undefined variable\: \$full_working_day$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../classes/date.class.php
-
-		-
-			message: '#^Method CDpObject\:\:dPTrimAll\(\) has invalid return type none\.$#'
-			identifier: class.notFound
-			count: 1
-			path: ../../classes/dp.class.php
-
-		-
-			message: '#^Method CDpObject\:\:dPTrimAll\(\) should return none but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: ../../classes/dp.class.php
 
 		-
 			message: '#^PHPDoc tag @param has invalid value \(array Optional array of additional sql parameters \(from and where supported\)\)\: Unexpected token "Optional", expected variable at offset 300 on line 7$#'
@@ -235,30 +103,6 @@ parameters:
 			path: ../../classes/dp.class.php
 
 		-
-			message: '#^Access to an undefined property dPacl\:\:\$_debug_msg\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../classes/permissions.class.php
-
-		-
-			message: '#^Access to an undefined property dPacl\:\:\$_original_db_prefix\.$#'
-			identifier: property.notFound
-			count: 6
-			path: ../../classes/permissions.class.php
-
-		-
-			message: '#^Access to an undefined property dPacl\:\:\$db\.$#'
-			identifier: property.notFound
-			count: 4
-			path: ../../classes/permissions.class.php
-
-		-
-			message: '#^Comparison operation "\>" between The and 10 results in an error\.$#'
-			identifier: greater.invalid
-			count: 1
-			path: ../../classes/permissions.class.php
-
-		-
 			message: '#^Method dPacl\:\:debug_text\(\) should return bool but return statement is missing\.$#'
 			identifier: return.missing
 			count: 1
@@ -269,18 +113,6 @@ parameters:
 			identifier: isset.variable
 			count: 1
 			path: ../../classes/permissions.class.php
-
-		-
-			message: '#^Call to an undefined method adoSchema\:\:setUpgradeMode\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../classes/query.class.php
-
-		-
-			message: '#^Constant UI_MSG_ERR not found\.$#'
-			identifier: constant.notFound
-			count: 1
-			path: ../../classes/query.class.php
 
 		-
 			message: '#^PHPDoc tag @param references unknown parameter\: \$clause$#'
@@ -307,12 +139,6 @@ parameters:
 			path: ../../classes/query.class.php
 
 		-
-			message: '#^Access to an undefined property CAppUI\:\:\$_csrf_token\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../classes/ui.class.php
-
-		-
 			message: '#^Access to an undefined property CAppUI\:\:\$macroproject_id\.$#'
 			identifier: property.notFound
 			count: 1
@@ -321,54 +147,6 @@ parameters:
 		-
 			message: '#^Access to an undefined property CAppUI\:\:\$project_id\.$#'
 			identifier: property.notFound
-			count: 1
-			path: ../../classes/ui.class.php
-
-		-
-			message: '#^Access to an undefined property CTitleBlock_core\:\:\$breadcrumbs\.$#'
-			identifier: property.notFound
-			count: 4
-			path: ../../classes/ui.class.php
-
-		-
-			message: '#^Access to an undefined property CTitleBlock_core\:\:\$cells1\.$#'
-			identifier: property.notFound
-			count: 3
-			path: ../../classes/ui.class.php
-
-		-
-			message: '#^Access to an undefined property CTitleBlock_core\:\:\$cells2\.$#'
-			identifier: property.notFound
-			count: 4
-			path: ../../classes/ui.class.php
-
-		-
-			message: '#^Access to an undefined property CTitleBlock_core\:\:\$crumbs\.$#'
-			identifier: property.notFound
-			count: 4
-			path: ../../classes/ui.class.php
-
-		-
-			message: '#^Access to an undefined property CTitleBlock_core\:\:\$showhelp\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../classes/ui.class.php
-
-		-
-			message: '#^Method CAppUI\:\:getLibraryClass\(\) should return string but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: ../../classes/ui.class.php
-
-		-
-			message: '#^Method CAppUI\:\:getModuleClass\(\) should return string but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: ../../classes/ui.class.php
-
-		-
-			message: '#^Method CAppUI\:\:getSystemClass\(\) should return string but return statement is missing\.$#'
-			identifier: return.missing
 			count: 1
 			path: ../../classes/ui.class.php
 
@@ -574,18 +352,6 @@ parameters:
 			path: ../../db/upgrade_contacts.php
 
 		-
-			message: '#^Access to an undefined property CFile\:\:\$file_project\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../fileviewer.php
-
-		-
-			message: '#^Function db_loadResult\(\) has invalid return type The\.$#'
-			identifier: class.notFound
-			count: 1
-			path: ../../includes/db_connect.php
-
-		-
 			message: '#^PHPDoc tag @param has invalid value \(\[type\] \$keyName\)\: Unexpected token "\[", expected type at offset 70 on line 6$#'
 			identifier: phpDoc.parseError
 			count: 1
@@ -662,36 +428,6 @@ parameters:
 			identifier: phpDoc.parseError
 			count: 1
 			path: ../../includes/db_connect.php
-
-		-
-			message: '#^Undefined variable\: \$error_str$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../includes/db_connect.php
-
-		-
-			message: '#^Binary operation "&" between \(array\<string\>\|string\) and 63 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 3
-			path: ../../includes/filter.php
-
-		-
-			message: '#^Binary operation "\>\>" between \(array\<string\>\|string\) and 12 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: ../../includes/filter.php
-
-		-
-			message: '#^Binary operation "\>\>" between \(array\<string\>\|string\) and 18 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: ../../includes/filter.php
-
-		-
-			message: '#^Binary operation "\>\>" between \(array\<string\>\|string\) and 6 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 3
-			path: ../../includes/filter.php
 
 		-
 			message: '''
@@ -799,24 +535,6 @@ parameters:
 			path: ../../includes/htmLawed.php
 
 		-
-			message: '#^Default value of the parameter \#2 \$title \(string\) of function showFVar\(\) is incompatible with type char\.$#'
-			identifier: parameter.defaultValue
-			count: 1
-			path: ../../includes/main_functions.php
-
-		-
-			message: '#^Function dPfindImage\(\) has invalid return type location\.$#'
-			identifier: class.notFound
-			count: 1
-			path: ../../includes/main_functions.php
-
-		-
-			message: '#^Function dPgetConfig\(\) has invalid return type The\.$#'
-			identifier: class.notFound
-			count: 1
-			path: ../../includes/main_functions.php
-
-		-
 			message: '#^PHPDoc tag @param has invalid value \(int number of hours to format\)\: Unexpected token "number", expected variable at offset 18 on line 2$#'
 			identifier: phpDoc.parseError
 			count: 1
@@ -859,42 +577,6 @@ parameters:
 			path: ../../includes/main_functions.php
 
 		-
-			message: '#^Parameter \$title of function showFVar\(\) has invalid type char\.$#'
-			identifier: class.notFound
-			count: 1
-			path: ../../includes/main_functions.php
-
-		-
-			message: '#^Function mysql_get_server_info not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: ../../install/docs/check.php
-
-		-
-			message: '#^Function mysql_select_db not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: ../../install/docs/check.php
-
-		-
-			message: '#^Function set_magic_quotes_runtime not found\.$#'
-			identifier: function.notFound
-			count: 2
-			path: ../../install/install.inc.php
-
-		-
-			message: '#^Function ibase_server_info invoked with 0 parameters, 2 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../install/vw_idx_check.php
-
-		-
-			message: '#^Function ociserverversion invoked with 0 parameters, 1 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../install/vw_idx_check.php
-
-		-
 			message: '#^Variable \$let in empty\(\) always exists and is not falsy\.$#'
 			identifier: empty.variable
 			count: 1
@@ -923,12 +605,6 @@ parameters:
 			identifier: arguments.count
 			count: 4
 			path: ../../modules/annotations/index.php
-
-		-
-			message: '#^Constant Ymd not found\.$#'
-			identifier: constant.notFound
-			count: 2
-			path: ../../modules/annotations/projects_tab.annotations.php
 
 		-
 			message: '#^Method DBQuery\:\:prepareSelect\(\) invoked with 1 parameter, 0 required\.$#'
@@ -997,12 +673,6 @@ parameters:
 			path: ../../modules/calendar/calendar.class.php
 
 		-
-			message: '#^Binary operation "\-" between int and string results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: ../../modules/calendar/calendar.class.php
-
-		-
 			message: '#^PHPDoc tag @param has invalid value \(Date End date of the Date Object\)\: Unexpected token "End", expected variable at offset 206 on line 6$#'
 			identifier: phpDoc.parseError
 			count: 1
@@ -1063,36 +733,6 @@ parameters:
 			path: ../../modules/calendar/calendar.class.php
 
 		-
-			message: '#^Static method Date_Calc\:\:getCalendarMonth\(\) invoked with 4 parameters, 0\-3 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/calendar/calendar.class.php
-
-		-
-			message: '#^Static method Date_Calc\:\:getCalendarWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/calendar/calendar.class.php
-
-		-
-			message: '#^Binary operation "\-" between string and string results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: ../../modules/calendar/clash.php
-
-		-
-			message: '#^Class Date_Calc referenced with incorrect case\: Date_calc\.$#'
-			identifier: class.nameCase
-			count: 3
-			path: ../../modules/calendar/day_view.php
-
-		-
-			message: '#^Static method Date_Calc\:\:beginOfWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/calendar/day_view.php
-
-		-
 			message: '#^PHPDoc tag @param has invalid value \(Date the ending date of the period\)\: Unexpected token "the", expected variable at offset 116 on line 4$#'
 			identifier: phpDoc.parseError
 			count: 1
@@ -1147,94 +787,16 @@ parameters:
 			path: ../../modules/calendar/links_tasks.php
 
 		-
-			message: '#^Binary operation "\+" between string and 1 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: ../../modules/calendar/vw_day_events.php
-
-		-
-			message: '#^Class Date_Calc referenced with incorrect case\: Date_calc\.$#'
-			identifier: class.nameCase
-			count: 4
-			path: ../../modules/calendar/week_view.php
-
-		-
-			message: '#^Static method Date_Calc\:\:beginOfNextWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/calendar/week_view.php
-
-		-
-			message: '#^Static method Date_Calc\:\:beginOfPrevWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/calendar/week_view.php
-
-		-
-			message: '#^Static method Date_Calc\:\:beginOfWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/calendar/week_view.php
-
-		-
-			message: '#^Static method Date_Calc\:\:endOfWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/calendar/week_view.php
-
-		-
-			message: '#^Access to an undefined property CClosure\:\:\$weaknesses\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/closure/addedit.php
-
-		-
-			message: '#^Access to an undefined property CClosure\:\:\$resource_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/closure/view.php
-
-		-
-			message: '#^Undefined variable\: \$sql$#'
-			identifier: variable.undefined
-			count: 5
-			path: ../../modules/communication/setup.php
-
-		-
-			message: '#^Variable \$tmp_user in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: ../../modules/contacts/view.php
-
-		-
-			message: '#^Access to protected property CBudget\:\:\$_message\.$#'
-			identifier: property.protected
-			count: 2
-			path: ../../modules/costs/do_budget_aed.php
-
-		-
 			message: '#^Call to an undefined method CBudget\:\:notify\(\)\.$#'
 			identifier: method.notFound
 			count: 2
 			path: ../../modules/costs/do_budget_aed.php
 
 		-
-			message: '#^Access to protected property CBudgetReserve\:\:\$_message\.$#'
-			identifier: property.protected
-			count: 2
-			path: ../../modules/costs/do_budget_reserve_aed.php
-
-		-
 			message: '#^Call to an undefined method CBudgetReserve\:\:notify\(\)\.$#'
 			identifier: method.notFound
 			count: 2
 			path: ../../modules/costs/do_budget_reserve_aed.php
-
-		-
-			message: '#^Access to protected property CCosts\:\:\$_message\.$#'
-			identifier: property.protected
-			count: 2
-			path: ../../modules/costs/do_costs_aed.php
 
 		-
 			message: '#^Call to an undefined method CCosts\:\:notify\(\)\.$#'
@@ -1253,12 +815,6 @@ parameters:
 			identifier: constant.notFound
 			count: 1
 			path: ../../modules/dataimport/do_config.php
-
-		-
-			message: '#^Undefined variable\: \$trip$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/departments/departments.class.php
 
 		-
 			message: '#^Variable \$dept_id in isset\(\) always exists and is not nullable\.$#'
@@ -1315,346 +871,10 @@ parameters:
 			path: ../../modules/earnings/items.php
 
 		-
-			message: '#^Function mysql_free_result not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: ../../modules/earnings/items.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_checkout\.$#'
-			identifier: property.notFound
-			count: 3
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_description\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_folder\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/addedit.php
-
-		-
 			message: '#^Access to an undefined property CFile\:\:\$file_helpdesk_item\.$#'
 			identifier: property.notFound
 			count: 1
 			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_name\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_project\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_size\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_task\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_type\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_version_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:canAdmin\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:getOwner\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:getTaskName\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/addedit.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_checkout\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_co_reason\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_name\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_project\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_size\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_task\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_type\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_version_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:canAdmin\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:getOwner\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:getTaskName\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/co.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_checkout\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_folder\.$#'
-			identifier: property.notFound
-			count: 3
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_task\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:canAdmin\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_checkout\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/do_file_co.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_category\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_date\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_id\.$#'
-			identifier: property.notFound
-			count: 3
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_owner\.$#'
-			identifier: property.notFound
-			count: 3
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_project\.$#'
-			identifier: property.notFound
-			count: 6
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_real_filename\.$#'
-			identifier: property.notFound
-			count: 4
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_size\.$#'
-			identifier: property.notFound
-			count: 4
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_type\.$#'
-			identifier: property.notFound
-			count: 4
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_version_id\.$#'
-			identifier: property.notFound
-			count: 4
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:duplicateFile\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:indexStrings\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:moveFile\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:notify\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:notifyContacts\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:setMessage\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Comparison operation "\<" between The and 0 results in an error\.$#'
-			identifier: smaller.invalid
-			count: 1
-			path: ../../modules/files/do_file_aed.php
-
-		-
-			message: '#^Access to protected property CFile\:\:\$_message\.$#'
-			identifier: property.protected
-			count: 1
-			path: ../../modules/files/do_file_co.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:checkout\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: ../../modules/files/do_file_co.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:notify\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/do_file_co.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:notifyContacts\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/do_file_co.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_folder\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/do_files_bulk_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../modules/files/do_files_bulk_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_project\.$#'
-			identifier: property.notFound
-			count: 3
-			path: ../../modules/files/do_files_bulk_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_real_filename\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/files/do_files_bulk_aed.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:moveFile\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/files/do_files_bulk_aed.php
 
 		-
 			message: '#^Access to an undefined property CFileFolder\:\:\$__message\.$#'
@@ -1672,24 +892,6 @@ parameters:
 			message: '#^Access to an undefined property CFile\:\:\$file_helpdesk_item\.$#'
 			identifier: property.notFound
 			count: 5
-			path: ../../modules/files/files.class.php
-
-		-
-			message: '#^Comparison operation "\>" between The and 0 results in an error\.$#'
-			identifier: greater.invalid
-			count: 2
-			path: ../../modules/files/files.class.php
-
-		-
-			message: '#^Constant UI_MSG_ALLERT not found\.$#'
-			identifier: constant.notFound
-			count: 3
-			path: ../../modules/files/files.class.php
-
-		-
-			message: '#^Method CFile\:\:store\(\) should return string\|null but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
 			path: ../../modules/files/files.class.php
 
 		-
@@ -1717,48 +919,6 @@ parameters:
 			path: ../../modules/files/files.class.php
 
 		-
-			message: '#^Undefined variable\: \$__message$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/files/files.class.php
-
-		-
-			message: '#^Undefined variable\: \$file_category$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/files/files.class.php
-
-		-
-			message: '#^Undefined variable\: \$obj$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/files/files.class.php
-
-		-
-			message: '#^Method DBQuery\:\:addQuery\(\) invoked with 2 parameters, 1 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/files/folders_table.php
-
-		-
-			message: '#^Undefined variable\: \$canAdmin$#'
-			identifier: variable.undefined
-			count: 4
-			path: ../../modules/files/folders_table.php
-
-		-
-			message: '#^Undefined variable\: \$file_row$#'
-			identifier: variable.undefined
-			count: 2
-			path: ../../modules/files/folders_table.php
-
-		-
-			message: '#^Undefined variable\: \$open_folder$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/files/folders_table.php
-
-		-
 			message: '#^Method CBudget\:\:store\(\) should return string\|null but return statement is missing\.$#'
 			identifier: return.missing
 			count: 1
@@ -1769,24 +929,6 @@ parameters:
 			identifier: class.nameCase
 			count: 1
 			path: ../../modules/finances/macroprojects_tab.detailed_budget.php
-
-		-
-			message: '#^Undefined variable\: \$sucess$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/finances/setup.php
-
-		-
-			message: '#^Call to an undefined method CForumMessage\:\:load\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/forums/do_post_aed.php
-
-		-
-			message: '#^Call to an undefined static method CDpObject\:\:search\(\)\.$#'
-			identifier: staticMethod.notFound
-			count: 1
-			path: ../../modules/forums/forums.class.php
 
 		-
 			message: '#^Call to static method handleRequest\(\) on an unknown class GalleryEmbed\.$#'
@@ -1817,18 +959,6 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: ../../modules/helpdesk/do_item_aed.php
-
-		-
-			message: '#^Undefined variable\: \$del$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/helpdesk/do_item_aed.php
-
-		-
-			message: '#^Function split not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: ../../modules/helpdesk/helpdesk.functions.php
 
 		-
 			message: '#^Array has 2 duplicate keys with value ''where'' \(''where'', ''where''\)\.$#'
@@ -1867,26 +997,8 @@ parameters:
 			path: ../../modules/helpdesk/list.php
 
 		-
-			message: '#^Constant helpdesk_items not found\.$#'
-			identifier: constant.notFound
-			count: 1
-			path: ../../modules/helpdesk/reports/helpdesklist.php
-
-		-
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
 			identifier: whitespace.fileEnd
-			count: 1
-			path: ../../modules/helpdesk/selector.php
-
-		-
-			message: '#^Function selPermWhere invoked with 2 parameters, 3\-4 required\.$#'
-			identifier: arguments.count
-			count: 3
-			path: ../../modules/helpdesk/selector.php
-
-		-
-			message: '#^Method DBQuery\:\:addQuery\(\) invoked with 2 parameters, 1 required\.$#'
-			identifier: arguments.count
 			count: 1
 			path: ../../modules/helpdesk/selector.php
 
@@ -1894,12 +1006,6 @@ parameters:
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
 			identifier: whitespace.fileEnd
 			count: 1
-			path: ../../modules/helpdesk/setup.php
-
-		-
-			message: '#^Undefined variable\: \$CONFIG_FILE$#'
-			identifier: variable.undefined
-			count: 2
 			path: ../../modules/helpdesk/setup.php
 
 		-
@@ -1933,98 +1039,14 @@ parameters:
 			path: ../../modules/holiday/setup.php
 
 		-
-			message: '#^Variable \$domain_id in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../modules/hosting/addedit.php
-
-		-
-			message: '#^Access to an undefined property CHosting\:\:\$project_end_date\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/hosting/do_hosting_aed.php
-
-		-
 			message: '#^Method CHosting\:\:delete\(\) should return string\|null but return statement is missing\.$#'
 			identifier: return.missing
 			count: 1
 			path: ../../modules/hosting/hosting.class.php
 
 		-
-			message: '#^Method CHosting\:\:store\(\) should return string\|null but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: ../../modules/hosting/hosting.class.php
-
-		-
-			message: '#^Comparison operation "\!\=" between \*NEVER\* and 0 results in an error\.$#'
-			identifier: notEqual.invalid
-			count: 1
-			path: ../../modules/hosting/vw_all.php
-
-		-
-			message: '#^Function mktime invoked with 0 parameters, 1\-6 required\.$#'
-			identifier: arguments.count
-			count: 4
-			path: ../../modules/hosting/vw_expiring.php
-
-		-
-			message: '#^Static method Date_Calc\:\:getCalendarWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/human_resources/addedit_allocation.php
-
-		-
-			message: '#^Undefined variable\: \$AppUI$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/human_resources/addedit_allocation.php
-
-		-
-			message: '#^Static method Date_Calc\:\:getCalendarWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/human_resources/addedit_hr.php
-
-		-
-			message: '#^Undefined variable\: \$AppUI$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/human_resources/addedit_hr.php
-
-		-
-			message: '#^Method CHumanResourceAllocation\:\:store\(\) invoked with 2 parameters, 0\-1 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/human_resources/do_allocation_aed.php
-
-		-
-			message: '#^Method CHumanResourceRoles\:\:store\(\) invoked with 2 parameters, 0\-1 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/human_resources/do_hr_aed.php
-
-		-
-			message: '#^Undefined variable\: \$human_resource_lattes_url$#'
-			identifier: variable.undefined
-			count: 2
-			path: ../../modules/human_resources/human_resources.class.php
-
-		-
 			message: '#^Method CHumanResource\:\:canDelete\(\) invoked with 0 parameters, 1\-3 required\.$#'
 			identifier: arguments.count
-			count: 1
-			path: ../../modules/human_resources/view_hr.php
-
-		-
-			message: '#^Static method Date_Calc\:\:getCalendarWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/human_resources/view_hr.php
-
-		-
-			message: '#^Undefined variable\: \$AppUI$#'
-			identifier: variable.undefined
 			count: 1
 			path: ../../modules/human_resources/view_hr.php
 
@@ -2039,12 +1061,6 @@ parameters:
 			identifier: whitespace.fileEnd
 			count: 1
 			path: ../../modules/informer/informer.config.php
-
-		-
-			message: '#^Access to protected property CInitiating\:\:\$_message\.$#'
-			identifier: property.protected
-			count: 2
-			path: ../../modules/initiating/do_initiating_aed.php
 
 		-
 			message: '#^Call to an undefined method CInitiating\:\:notify\(\)\.$#'
@@ -2105,18 +1121,6 @@ parameters:
 			identifier: whitespace.fileEnd
 			count: 1
 			path: ../../modules/journal/setup.php
-
-		-
-			message: '#^Undefined variable\: \$xpg_sqlrecs$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/links/index_table.php
-
-		-
-			message: '#^Undefined variable\: \$sql$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/links/setup.php
 
 		-
 			message: '#^Variable \$extraGet in isset\(\) always exists and is not nullable\.$#'
@@ -2191,22 +1195,10 @@ parameters:
 			path: ../../modules/macroprojects/reports/tasksperuser.php
 
 		-
-			message: '#^Call to an undefined method CMileageLog\:\:getError\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/mileagelog/do_mileagelog_aed.php
-
-		-
 			message: '#^Function writeDayTotal invoked with 3 parameters, 5 required\.$#'
 			identifier: arguments.count
 			count: 1
 			path: ../../modules/mileagelog/vw_mileagelog.php
-
-		-
-			message: '#^Class CFile constructor invoked with 2 parameters, 0 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/mngdocument/do_file_aed.php
 
 		-
 			message: '#^Class CFileLog constructor invoked with 2 parameters, 0 required\.$#'
@@ -2215,7 +1207,13 @@ parameters:
 			path: ../../modules/mngdocument/do_file_aed.php
 
 		-
-			message: '#^Access to an undefined property CFile\:\:\$_filepath\.$#'
+			message: '#^Class CMngDocumentFile constructor invoked with 2 parameters, 0 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: ../../modules/mngdocument/do_file_aed.php
+
+		-
+			message: '#^Access to an undefined property CMngDocumentFile\:\:\$_filepath\.$#'
 			identifier: property.notFound
 			count: 1
 			path: ../../modules/mngdocument/files.class.php
@@ -2299,18 +1297,6 @@ parameters:
 			path: ../../modules/opportunities/addedit.php
 
 		-
-			message: '#^Access to an undefined property COpportunities\:\:\$opportunity_email\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/opportunities/do_opportunities_aed.php
-
-		-
-			message: '#^Comparison operation "\<\=" between int\<0, max\> and The results in an error\.$#'
-			identifier: smallerOrEqual.invalid
-			count: 1
-			path: ../../modules/opportunities/vw_childofproject.php
-
-		-
 			message: '#^Method DBQuery\:\:prepareSelect\(\) invoked with 1 parameter, 0 required\.$#'
 			identifier: arguments.count
 			count: 2
@@ -2389,12 +1375,6 @@ parameters:
 			path: ../../modules/projects/projects.class.php
 
 		-
-			message: '#^Binary operation "\*" between string and 100 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: ../../modules/projects/reports/allocateduserhours.php
-
-		-
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
 			identifier: whitespace.fileEnd
 			count: 1
@@ -2405,18 +1385,6 @@ parameters:
 			identifier: whitespace.fileEnd
 			count: 1
 			path: ../../modules/projects/reports/taskenddate.php
-
-		-
-			message: '#^Method DBQuery\:\:addOrder\(\) invoked with 4 parameters, 1 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/projects/reports/tasklist.php
-
-		-
-			message: '#^Function redirect not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: ../../modules/projects/reports/tasklogs.php
 
 		-
 			message: '#^Function doChildren invoked with 10 parameters, 8 required\.$#'
@@ -2435,12 +1403,6 @@ parameters:
 			identifier: arguments.count
 			count: 1
 			path: ../../modules/projects/reports/tasksperuser.php
-
-		-
-			message: '#^Binary operation "&" between \(array\<string\>\|string\|null\) and ''''\|''companies''\|''departments''\|''file_folders''\|''files''\|''forums''\|''helpdesk_items''\|''projects''\|''SGD''\|''tasks''\|''users'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: ../../modules/public/selector.php
 
 		-
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
@@ -2479,28 +1441,10 @@ parameters:
 			path: ../../modules/resource_m/resource_m.class.php
 
 		-
-			message: '#^Method DBQuery\:\:addOrder\(\) invoked with 2 parameters, 1 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/resources/tasks_tab.addedit.other_resources.php
-
-		-
 			message: '#^Call to an undefined method CRisks\:\:notify\(\)\.$#'
 			identifier: method.notFound
 			count: 2
 			path: ../../modules/risks/do_risks_aed.php
-
-		-
-			message: '#^Function sql_regcase not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: ../../modules/smartsearch/smartsearch.class.php
-
-		-
-			message: '#^Function arraySelect invoked with 6 parameters, 4\-5 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/system/addeditpref.php
 
 		-
 			message: '#^Access to an undefined property CConfig\:\:\$config_id\.$#'
@@ -2521,76 +1465,16 @@ parameters:
 			path: ../../modules/system/system.class.php
 
 		-
-			message: '#^Method bcode\:\:store\(\) should return string\|null but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: ../../modules/system/system.class.php
-
-		-
 			message: '#^Binary operation "\+\=" between string and int results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
 			path: ../../modules/tasks/ae_dates.php
 
 		-
-			message: '#^Static method Date_Calc\:\:getCalendarWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/tasks/ae_dates.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_project\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/do_task_aed.php
-
-		-
-			message: '#^Access to an undefined property CFile\:\:\$file_real_filename\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/do_task_aed.php
-
-		-
-			message: '#^Call to an undefined method CFile\:\:moveFile\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/tasks/do_task_aed.php
-
-		-
-			message: '#^Function setIcalEvent invoked with 2 parameters, 3 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/tasks/do_task_aed.php
-
-		-
 			message: '#^Variable \$_POST in isset\(\) always exists and is not nullable\.$#'
 			identifier: isset.variable
 			count: 1
 			path: ../../modules/tasks/do_task_aed.php
-
-		-
-			message: '#^Array has 46 duplicate keys with value ''�'' \(''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�'', ''�''\)\.$#'
-			identifier: array.duplicateKey
-			count: 1
-			path: ../../modules/tasks/do_updatetask.php
-
-		-
-			message: '#^Access to an undefined property CTitleBlock\:\:\$showhelp\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/index.php
-
-		-
-			message: '#^Comparison operation "\<" between CDate and int\<1, max\> results in an error\.$#'
-			identifier: smaller.invalid
-			count: 1
-			path: ../../modules/tasks/organizer.php
-
-		-
-			message: '#^Method DBQuery\:\:addQuery\(\) invoked with 2 parameters, 1 required\.$#'
-			identifier: arguments.count
-			count: 3
-			path: ../../modules/tasks/organizer.php
 
 		-
 			message: '#^Undefined variable\: \$option_check_vital_users$#'
@@ -2631,48 +1515,6 @@ parameters:
 		-
 			message: '#^Access to an undefined property CTask\:\:\$type\.$#'
 			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Access to an undefined property CUser\:\:\$user_email\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Access to an undefined property CUser\:\:\$user_first_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Access to an undefined property CUser\:\:\$user_last_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Comparison operation "\>" between The and 0 results in an error\.$#'
-			identifier: greater.invalid
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Method CDpObject\:\:htmlDecode\(\) invoked with 1 parameter, 0 required\.$#'
-			identifier: arguments.count
-			count: 2
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Method CTaskLog\:\:dPTrimAll\(\) has invalid return type none\.$#'
-			identifier: class.notFound
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Method CTaskLog\:\:dPTrimAll\(\) should return none but return statement is missing\.$#'
-			identifier: return.missing
 			count: 1
 			path: ../../modules/tasks/tasks.class.php
 
@@ -2731,18 +1573,6 @@ parameters:
 			path: ../../modules/tasks/tasks.class.php
 
 		-
-			message: '#^Undefined variable\: \$intersect$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Undefined variable\: \$to$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
 			message: '#^Variable \$summaries in isset\(\) always exists and is not nullable\.$#'
 			identifier: isset.variable
 			count: 1
@@ -2753,42 +1583,6 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: ../../modules/tasks/tasksperuser_sub.php
-
-		-
-			message: '#^Access to an undefined property CTesting\:\:\$test_task\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/testing/addedit.php
-
-		-
-			message: '#^Call to an undefined method CTesting\:\:getTaskName\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: ../../modules/testing/addedit.php
-
-		-
-			message: '#^Static method Date_Calc\:\:getCalendarWeek\(\) invoked with 5 parameters, 0\-4 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/testing/ae_dates.php
-
-		-
-			message: '#^Path in require\(\) "/appmodules/ticketsmith/common\.inc\.php" is not a file or it does not exist\.$#'
-			identifier: require.fileNotFound
-			count: 1
-			path: ../../modules/ticketsmith/login.php
-
-		-
-			message: '#^Path in require\(\) "/appmodules/ticketsmith/config\.inc\.php" is not a file or it does not exist\.$#'
-			identifier: require.fileNotFound
-			count: 1
-			path: ../../modules/ticketsmith/login.php
-
-		-
-			message: '#^Constant UI_MSG_ERR not found\.$#'
-			identifier: constant.notFound
-			count: 1
-			path: ../../modules/ticketsmith/pdf.php
 
 		-
 			message: '#^Variable \$newparent in isset\(\) always exists and is not nullable\.$#'
@@ -2831,12 +1625,6 @@ parameters:
 			identifier: staticMethod.notFound
 			count: 1
 			path: ../../modules/timetrack/addedit.php
-
-		-
-			message: '#^Function mysql_error not found\.$#'
-			identifier: function.notFound
-			count: 2
-			path: ../../modules/timetrack/dosql_timesheet.php
 
 		-
 			message: '#^Call to an undefined method CDate\:\:compareTo\(\)\.$#'

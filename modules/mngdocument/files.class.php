@@ -10,7 +10,7 @@ require_once( $AppUI->getModuleClass( 'projects' ) );
 /**
 * File Class
 */
-class CFile extends CDpObject {
+class CMngDocumentFile extends CDpObject {
 
 	var $SGD_id = NULL;
 	var $SGD_name = NULL;

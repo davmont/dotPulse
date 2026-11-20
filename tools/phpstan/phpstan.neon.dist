@@ -37,4 +37,5 @@ parameters:
     # variables are still reported.
     checkMaybeUndefinedVariables: false
     tmpDir: ../../.phpstan-cache
-    reportUnmatchedIgnoredErrors: false
+    # A fixed finding must leave the baseline too (make phpstan-baseline).
+    reportUnmatchedIgnoredErrors: true

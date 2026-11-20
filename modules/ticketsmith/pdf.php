@@ -42,7 +42,7 @@ $q->addOrder(urlencode($column) . " " . $direction);
 
 $ticketlist = $q->loadHashList('ticket');
 if ($err = db_error()) {
-	$AppUI->setMsg($err, UI_MSG_ERR);
+	$AppUI->setMsg($err, UI_MSG_ERROR);
 	$AppUI->redirect();
 }
 

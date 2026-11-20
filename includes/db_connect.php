@@ -53,7 +53,7 @@ if ($rs) { // Won't work in install mode.
  * This global function loads the first field of the first row returned by the query.
  *
  * @param string The SQL query
- * @return The value returned in the query or null if the query failed.
+ * @return mixed The value returned in the query or null if the query failed.
  */
 function db_loadResult($sql)
 {
@@ -529,6 +529,7 @@ function bindHashToObject($hash, &$obj, $prefix = NULL, $checkSlashes = true, $b
 	 * to check on this should the funtion be called independently of bind()
 	 */
 
+	$error_str = '';
 	foreach ($hash as $k => $v) {
 		if (is_object($hash[$k])) {
 			$error_str .= ('bindHashToObject : non-object expected for hash value with key '

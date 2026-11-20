@@ -180,7 +180,7 @@ if ($do_report) {
 	if (count($allowedTasks)) {
 		$obj->getAllowedSQL($AppUI->user_id, $q);
 	}
-	$q->addOrder('project_start_date', 'task_project', 'task_parent', 'task_start_date');
+	$q->addOrder('project_start_date, task_project, task_parent, task_start_date');
 	$Task_List = $q->exec();
 ?>
 
