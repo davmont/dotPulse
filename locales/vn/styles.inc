@@ -6,3 +6,4 @@
 "demo1"=>"Kiểu giao diện mẫu", // MT
 "dp-grey-theme"=>"Kiểu Grey Slimline", // MT
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse tối", // MT

@@ -68,8 +68,8 @@ header('Pragma: no-cache');	// HTTP/1.0
 dPsendCspHeader();
 
 // check if session has previously been initialised
-if (!(isset($_SESSION['AppUI'])) || isset($_GET['logout'])) {
-	if (isset($_GET['logout']) && isset($_SESSION['AppUI']->user_id)) {
+if (!(isset($_SESSION['AppUI'])) || (dPgetParam($_GET, 'logout') !== null)) {
+	if ((dPgetParam($_GET, 'logout') !== null) && isset($_SESSION['AppUI']->user_id)) {
 		$AppUI =& $_SESSION['AppUI'];
 		$AppUI->registerLogout($AppUI->user_id);
 		if ($AppUI->user_id > 0) {
@@ -145,7 +145,7 @@ if (dPgetParam($_REQUEST, 'resetpass', 0)) {
 // check if the user is trying to log in
 // Note the change to REQUEST instead of POST.  This is so that we can
 // support alternative authentication methods such as HTTP auth.
-if (isset($_REQUEST['login'])) {
+if (dPgetParam($_REQUEST, 'login') !== null) {
 	// Security Mitigation: Rate limit login attempts to prevent brute-force attacks.
 	require_once(DP_BASE_DIR . '/classes/ratelimiter.class.php');
 	$rateLimiter = new RateLimiter('login');
@@ -242,7 +242,7 @@ require_once(DP_BASE_DIR . '/includes/permissions.php');
 
 
 $def_a = 'index';
-if (!(isset($_GET['m']) || empty($dPconfig['default_view_m']))) {
+if (!((dPgetParam($_GET, 'm') !== null) || empty($dPconfig['default_view_m']))) {
 	$m = $dPconfig['default_view_m'];
 	$def_a = ((!empty($dPconfig['default_view_a'])) ? $dPconfig['default_view_a'] : $def_a);
 	$tab = $dPconfig['default_view_tab'];
@@ -336,9 +336,14 @@ $canDelete = getPermission($m, 'delete');
 // Module access is required before any of the module's write handlers or views run.
 // The public module (login, password change, selectors, access denied) stays open, and
 // every user can view their own account and edit their own preferences.
-$dosql = isset($_REQUEST['dosql']) ? $_REQUEST['dosql'] : '';
+$dosql = dPgetParam($_REQUEST, 'dosql', '');
 $ownAccount = ($m == 'admin' && $a == 'viewuser' && !$dosql
 		&& (int)dPgetParam($_GET, 'user_id', 0) == $AppUI->user_id)
+	// Their own account details (do_user_aed saves only name, e-mail, signature and password).
+	|| ($m == 'admin' && $a == 'addedituser' && !$dosql
+		&& (int)dPgetParam($_GET, 'user_id', 0) == $AppUI->user_id)
+	|| ($m == 'admin' && $dosql == 'do_user_aed' && !dPgetParam($_POST, 'del', 0)
+		&& (int)dPgetParam($_POST, 'user_id', 0) == $AppUI->user_id)
 	|| ($m == 'system' && $a == 'addeditpref' && !$dosql
 		&& (int)dPgetParam($_GET, 'user_id', 0) == $AppUI->user_id)
 	|| ($m == 'system' && $dosql == 'do_preference_aed'
@@ -381,7 +386,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // do some db work if dosql is set
 // TODO - MUST MOVE THESE INTO THE MODULE DIRECTORY
-if (isset($_REQUEST['dosql'])) {
+if (dPgetParam($_REQUEST, 'dosql') !== null) {
 	// Write handlers run only for POST requests that carry the session's CSRF token.
 	if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 		$AppUI->setMsg('Invalid request method.', UI_MSG_ERROR);
@@ -394,9 +399,9 @@ if (isset($_REQUEST['dosql'])) {
 		$AppUI->setMsg('Access denied.', UI_MSG_ERROR);
 		$AppUI->redirect('m=public&a=access_denied');
 	}
-	//require('./dosql/' . $_REQUEST['dosql'] . '.php');
+	//require('./dosql/' . dPgetParam($_REQUEST, 'dosql') . '.php');
 	require(DP_BASE_DIR . '/modules/' . $m . '/' . ($u ? ($u . '/') : '')
-		. $AppUI->checkFileName($_REQUEST['dosql']) . '.php');
+		. $AppUI->checkFileName(dPgetParam($_REQUEST, 'dosql')) . '.php');
 }
 
 // Views named do_*, dosql* or domodsql are write handlers too: same POST, token and

@@ -30,7 +30,7 @@ if (!defined('DP_BASE_DIR')) {
 
 $config = array();
 $config['mod_name'] = 'Finances';
-$config['mod_version'] = '1.1';
+$config['mod_version'] = '1.2';
 $config['mod_directory'] = 'finances';
 $config['mod_setup_class'] = 'CSetupFinances';
 $config['mod_type'] = 'user';
@@ -60,10 +60,11 @@ class CSetupFinances {
 	function upgrade($old_version) {
 		// 1.1: when the costs module was installed first, 'budget' was its table
 		// and ours was never created (see install()).
-		if (version_compare($old_version, '1.1', '<')) {
-			return $this->install() === null;
+		if (version_compare($old_version, '1.1', '<') && $this->install() !== null) {
+			return false;
 		}
-		return true;
+		// 1.2: the budget table in utf8mb4 like the rest (it was latin1).
+		return dPconvertTablesToUtf8mb4(array('budget'));
 	}
 
 	function install() { 
@@ -96,7 +97,7 @@ class CSetupFinances {
 				  `intangible_operation` decimal(15,2) DEFAULT '0',
 				  `service_operation` decimal(15,2) DEFAULT '0',
 				  PRIMARY KEY (`budget_id`)
-				) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;");
+				) ENGINE=MyISAM AUTO_INCREMENT=7 ;");
 		if ($q -> exec()) {
 			return null;
 		}

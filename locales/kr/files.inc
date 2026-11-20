@@ -101,3 +101,4 @@
 "back to root folder"=>"루트 폴더로 돌아가기", // MT
 "back to parent folder"=>"상위 폴더로 돌아가기", // MT
 "edit folder"=>"폴더 편집", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"여기에서 업로드한 파일은 현재 파일을 대체하며 이전 파일은 보관되지 않습니다. 이전 버전을 유지하려면 파일 목록에서 파일을 체크아웃하고 체크인할 때 새 버전을 업로드하십시오.", // MT

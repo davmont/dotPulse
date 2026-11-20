@@ -151,6 +151,11 @@ class CProject extends CDpObject
 			$q->addWhere('dependencies_req_task_id IN (' . implode(',', $tasks_to_delete) . ')');
 			$q->exec();
 			$q->clear();
+			// the task logs go with their tasks, as CTask::delete() does
+			$q->setDelete('task_log');
+			$q->addWhere('task_log_task IN (' . implode(',', $tasks_to_delete) . ')');
+			$q->exec();
+			$q->clear();
 		}
 		$q->setDelete('tasks');
 		$q->addWhere('task_project =' . (int)$this->project_id);
@@ -176,7 +181,7 @@ class CProject extends CDpObject
 
 	/**	Import tasks from another project
 	 *
-	 *	@param	int		Project ID of the tasks come from.
+	 *	@param	int $from_project_id Project ID of the tasks come from.
 	 *	@return	bool
 	 **/
 	function importTasks($from_project_id, $scale_project = false)

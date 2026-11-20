@@ -1,7 +1,7 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Advanced search"=>"Advanced search",
+"Advanced search"=>"Búsqueda avanzada",
 "All words"=>"Todas las palabras",
 "Display all fields"=>"Mostrar todos los campos",
 "Empty"=>"Vacío",

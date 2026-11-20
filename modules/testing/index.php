@@ -38,7 +38,7 @@ $titleBlock->addCell();
 
 require_once( $AppUI->getModuleClass( 'projects' ) );
 $project = new CProject();
-$projects = $project->getAllowedRecords( $AppUI->user_id, 'project_id,project_name', 'project_name', null, $extra );
+$projects = $project->getAllowedRecords( $AppUI->user_id, 'project_id,project_name', 'project_name' );
 $allowedProjects = array_keys($projects);
 $projects = arrayMerge( array( '0'=>$AppUI->_('All', UI_OUTPUT_RAW) ), $projects );
 

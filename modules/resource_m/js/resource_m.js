@@ -60,12 +60,12 @@ function completeTd(scale, title_string)
 					title_string = $('#convert').text();
 					this.title = title_string;
 					if (sum>scale)
-						this.style.backgroundColor = '#CC6666';
+						this.style.backgroundColor = dPthemeColor('#CC6666', 'bg');
 					else
-						this.style.backgroundColor = 'rgb('+buffR+','+buffG+','+buffB+')';
+						this.style.backgroundColor = dPthemeColor('rgb('+buffR+','+buffG+','+buffB+')', 'bg');
 				}else{
 					this.innerHTML = '';
-					this.style.backgroundColor = '#ECECEC';
+					this.style.backgroundColor = dPthemeColor('#ECECEC', 'bg');
 				}
 				
 				$(this).removeClass("todo");

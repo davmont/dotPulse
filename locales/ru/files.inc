@@ -101,3 +101,4 @@
 "back to root folder"=>"назад в корневую папку", // MT
 "back to parent folder"=>"назад в родительскую папку", // MT
 "edit folder"=>"редактировать папку", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Файл, загруженный здесь, заменяет текущий, который не сохраняется. Чтобы сохранить предыдущие версии, извлеките файл из списка файлов и загрузите новую версию при его возврате.", // MT

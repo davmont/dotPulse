@@ -15,8 +15,8 @@ if ($canAuthor) {
 }
 $titleBlock->show();
 
-if (isset($_GET['tab'])) {
-    $AppUI->setState('ResourcesIdxTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+    $AppUI->setState('ResourcesIdxTab', dPgetIntParam($_GET, 'tab', 0));
 }
 $resourceTab = $AppUI->getState('ResourcesIdxTab', 0);
 $tabBox = new CTabBox("?m=resources", DP_BASE_DIR.'/modules/resources/', $resourceTab);

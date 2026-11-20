@@ -9,15 +9,15 @@ global $locale_char_set;
 require_once($AppUI->getModuleClass('tasks'));
 
 // retrieve any state parameters
-if (isset($_REQUEST['company_id'])) {
-	$AppUI->setState('CalIdxCompany', intval($_REQUEST['company_id']));
+if (dPgetParam($_REQUEST, 'company_id') !== null) {
+	$AppUI->setState('CalIdxCompany', dPgetIntParam($_REQUEST, 'company_id'));
 }
 $company_id = ($AppUI->getState('CalIdxCompany') !== NULL ? $AppUI->getState('CalIdxCompany')
 	: $AppUI->user_company);
 
 $event_filter = $AppUI->checkPrefState(
 	'CalIdxFilter',
-	@$_REQUEST['event_filter'],
+	dPgetParam($_REQUEST, 'event_filter'),
 	'EVENTFILTER',
 	'my'
 );
@@ -59,6 +59,9 @@ getEventLinks($first_time, $last_time, $links, 50);
 
 $cal_week = new CMonthCalendar($date);
 $cal_week->setEvents($links);
+// The week can span two months.
+$cal_week->holidays = dPcalendarHolidays($week_time->format('%Y-%m-%d'),
+	(new CDate(CDate::endOfWeek($dd, $mm, $yy)))->format('%Y-%m-%d'));
 
 // get the list of visible companies
 $company = new CCompany();
@@ -117,6 +120,10 @@ $titleBlock->show();
 		background-color: #f0f8ff;
 	}
 
+	TD.weekDay.holiday {
+		background-color: #f6f1e4;
+	}
+
 	table.weekTable {
 		border-collapse: collapse;
 		width: 100%;
@@ -164,7 +171,8 @@ $titleBlock->show();
 		if ($column == 0) {
 			$s .= "\t<tr>\n";
 		}
-		$s .= "\t\t" . '<td class="weekDay" style="width:50%;">' . "\n";
+		$s .= ("\t\t" . '<td class="weekDay' . (isset($cal_week->holidays[$dayStamp]) ? ' holiday' : '')
+			. '" style="width:50%;">' . "\n");
 
 		$s .= "\t\t" . '<table style="width:100%;border-spacing:0;">' . "\n";
 		$s .= ("\t\t\t" . '<tr><td align="' . (($column == 0) ? 'left' : 'right')
@@ -179,7 +187,8 @@ $titleBlock->show();
 		$s .= (($dayStamp == $today) ? '</span>' : '');
 		$s .= "\t\t\t" . '</a></td></tr>' . "\n";
 
-		$s .= "\t\t\t" . '<tr><td>' . $cal_week->_drawBirthdays($dayStamp) . $cal_week->_drawEvents($dayStamp) . '</td></tr>' . "\n";
+		$s .= ("\t\t\t" . '<tr><td>' . $cal_week->_drawHoliday($dayStamp) . $cal_week->_drawBirthdays($dayStamp)
+			. $cal_week->_drawEvents($dayStamp) . '</td></tr>' . "\n");
 
 		$s .= "\t\t</table>\n";
 

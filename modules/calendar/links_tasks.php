@@ -7,11 +7,11 @@ if (!defined('DP_BASE_DIR')) {
 /**
  * Sub-function to collect tasks within a period
  *
- * @param Date the starting date of the period
- * @param Date the ending date of the period
- * @param array by-ref an array of links to append new items to
- * @param int the length to truncate entries by
- * @param int the company id to filter by
+ * @param CDate $startPeriod the starting date of the period
+ * @param CDate $endPeriod the ending date of the period
+ * @param array $links by-ref an array of links to append new items to
+ * @param int $strMaxLen the length to truncate entries by
+ * @param int $company_id the company id to filter by
  * @author Andrew Eddie <eddieajau@users.sourceforge.net>
  */
 function getTaskLinks($startPeriod, $endPeriod, &$links, $strMaxLen, $company_id = 0)
@@ -64,9 +64,10 @@ function getTaskLinks($startPeriod, $endPeriod, &$links, $strMaxLen, $company_id
 			$links[$start->format(FMT_TIMESTAMP_DATE)][] = $temp;
 		}
 		if (
-			$end && ((!$start || $start->before($end))
+			$end
+			&& (!$start || $start->before($end))
 			&& ($end->after($startPeriod) || $end->equals($startPeriod))
-			|| ($end->before($endPeriod) || $end->equals($endPeriod)))
+			&& ($end->before($endPeriod) || $end->equals($endPeriod))
 		) {
 			$temp = $link;
 			$temp['alt'] = ("FINISH\n" . $link['alt']);

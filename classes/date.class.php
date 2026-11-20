@@ -537,9 +537,9 @@ class CDate {
 
 /**
 * New method that sets hour, minute and second in a single call
-* @param int hour
-* @param int minute
-* @param int second
+* @param int $h hour
+* @param int $m minute
+* @param int $s second
 * @author Andrew Eddie <eddieajau@users.sourceforge.net>
 */
 	function setTime($h=0, $m=0, $s=0) {
@@ -701,7 +701,7 @@ class CDate {
 	 ** Respects non-working days
 	 ** @param	int	duration	(positive = forward, negative = backward)
 	 ** @param	int	durationType; 1 = hour; 24 = day;
-	 ** @return	obj	Shifted DateObj
+	 ** @return	mixed obj	Shifted DateObj
 	 */ 
 	
 	function addDuration($duration = '8', $durationType ='1') {

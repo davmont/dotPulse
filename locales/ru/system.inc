@@ -391,6 +391,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Настройки, люди и модули этой установки.", // MT
 "Attention"=>"Внимание", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Каталог install всё ещё на сервере: удалите его или запретите к нему доступ.", // MT
+"The admin account still has the password set by the installer: change it."=>"У учётной записи admin всё ещё пароль, заданный установщиком: смените его.", // MT
 "Active modules"=>"Активные модули", // MT
 "upgrade to install"=>"обновление к установке", // MT
 "upgrades to install"=>"обновления к установке", // MT
@@ -514,7 +515,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Используются сохранённые настройки: сначала сохраните изменения.", // MT
 "Email me when I am assigned to a task"=>"Сообщать мне по почте, когда меня назначают на задачу", // MT
 "Reset"=>"Сбросить", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Записи хранятся %d дн. (audit_log_days в настройке системы).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Записи хранятся %d дн. (audit_log_days в настройке системы).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Записи хранятся вечно (audit_log_days равно 0).", // MT
 "IP address"=>"IP-адрес", // MT
 "No entries."=>"Нет записей.", // MT

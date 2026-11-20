@@ -117,12 +117,8 @@ if (!defined('DP_BASE_DIR')) {
 <?php
 	(float) $weeksum = (float) $month_hours = 0;
 	foreach( $data as $day => $ddata ) {
-		if( $weekdate->isWorkingDay() ) {
-			$month_hours += $day_hours;
-			$day_hours = $opp_hours;
-		} else {
-			$day_hours = 0;
-		}
+		$day_hours = $weekdate->isWorkingDay() ? $opp_hours : 0;
+		$month_hours += $day_hours;
 		?>
 		<tr>
 			<td colspan="5" align="left" style="background-color:#D7EAFF;">

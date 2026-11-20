@@ -10,7 +10,7 @@ tried), the IP address, the event and details. Passwords, tokens and configurati
 values are never written: a configuration change lists the names of the settings that
 changed.
 
-Entries older than **audit_log_days** (System Configuration, default 365; 0 keeps them
+Entries older than **Days to keep the audit log** (System Admin › Security and sessions, default 365; 0 keeps them
 forever) are deleted from time to time.
 
 ## Events
@@ -37,7 +37,7 @@ forever) are deleted from time to time.
 | `user.transferred` | A user's projects and tasks transferred to another user |
 | `permission.added`, `permission.removed` | Permissions of a user or of a role |
 | `role.saved`, `role.deleted` | Roles |
-| `config.changed` | System Configuration saved (names of the changed settings) |
+| `config.changed` | System Admin settings saved (names of the changed settings) |
 | `module.changed` | A module installed, removed, upgraded, switched on or off, or configured |
 
 ## For developers

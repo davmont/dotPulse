@@ -6,3 +6,4 @@
 "demo1"=>"デモ用スタイル", // MT
 "dp-grey-theme"=>"グレーのスリムなスタイル", // MT
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse ダーク", // MT

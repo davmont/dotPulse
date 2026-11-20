@@ -116,3 +116,4 @@
 "next day"=>"następny dzień", // MT
 "previous week"=>"poprzedni tydzień", // MT
 "next week"=>"następny tydzień", // MT
+"Holiday"=>"Święto", // MT

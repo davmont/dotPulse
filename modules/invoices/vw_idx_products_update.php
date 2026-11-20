@@ -19,11 +19,13 @@ if ($product_id) {
 	$log->product_invoice = $invoice_id;
 }
 
-// select costcodes for pull down
+// select cost codes for pull down: the billing codes, as in the task log
+// (there is no costcodes table)
 $q = new DBQuery();
-$q -> addTable('costcodes');
-$q -> addQuery('costcode_id, costcode_name');
-$q -> addOrder('costcode_id');
+$q -> addTable('billingcode');
+$q -> addQuery('billingcode_id, billingcode_name');
+$q -> addWhere('billingcode_status = 0');
+$q -> addOrder('billingcode_name');
 $product_costcodes = arrayMerge( array( 0=>$AppUI->_('Select')), $q -> loadHashList() );
 
 

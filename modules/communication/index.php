@@ -38,7 +38,7 @@ $titleBlock = new CTitleBlock("LBL_COMMUNICATION", 'applet3-48.png', $m, "$m.$a"
 
 $titleBlock->addCell($AppUI->_("LBL_FILTER") . ':');
 $titleBlock->addCell(
-	arraySelect($projects, 'project_id', 'size="1" class="text"' . dPaction(null, array(), null, array('submit' => '')), $project_id), '',
+	arraySelect($projects, 'project_id', 'size="1" class="text" style="max-width:220px"' . dPaction(null, array(), null, array('submit' => '')), $project_id), '',
 	'<form name="pickProject" action="?m=communication" method="post">', '</form>'
 );
 
@@ -47,15 +47,10 @@ $titleBlock->addCell(
 		'<form action="?m=communication&a=addedit" method="post">', '</form>'
 	);
 
-$titleBlock->addCell(
-		'<input type="submit" class="button" value="'.$AppUI->_("LBL_NEW_CCHANNEL").'">', '',
-		'<form action="?m=communication&a=addedit_channel" method="post">', '</form>'
-	);
-
-$titleBlock->addCell(
-		'<input type="submit" class="button" value="'.$AppUI->_("LBL_NEW_CFREQUENCY").'">', '',
-		'<form action="?m=communication&a=addedit_frequency" method="post">', '</form>'
-	);
+// Channels and frequencies are set up rarely: links in the crumb row keep the title row
+// narrow enough for a 1024 px window.
+$titleBlock->addCrumb('?m=communication&a=addedit_channel', 'LBL_NEW_CCHANNEL');
+$titleBlock->addCrumb('?m=communication&a=addedit_frequency', 'LBL_NEW_CFREQUENCY');
 
 $titleBlock->show();
 

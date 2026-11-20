@@ -10,7 +10,7 @@ require_once DP_BASE_DIR . '/classes/gantt_renderer.class.php';
 $base_url = dPgetConfig('base_url');
 $min_view = defVal(@$min_view, false);
 
-$project_id = (int)defVal(@$_GET['project_id'], 0);
+$project_id = (int)defVal(dPgetParam($_GET, 'project_id'), 0);
 
 $sdate = dPgetParam($_POST, 'sdate', 0);
 $edate = dPgetParam($_POST, 'edate', 0);
@@ -29,7 +29,7 @@ if ($sortByName == '1') {
 $sortByName = (($sortByName != '0') ? '1' : $sortByName);
 
 if ($a == 'todo') {
-    if (isset($_POST['show_form'])) {
+    if (dPgetParam($_POST, 'show_form') !== null) {
         $AppUI->setState('TaskDayShowArc',  dPgetParam($_POST, 'showArcProjs', 0));
         $AppUI->setState('TaskDayShowLow',  dPgetParam($_POST, 'showLowTasks', 0));
         $AppUI->setState('TaskDayShowHold', dPgetParam($_POST, 'showHoldProjs', 0));
@@ -225,10 +225,10 @@ if (!@$min_view) {
 		col = document.getElementById("x" + item);
 		if (obj.style.display == "none") {
 			obj.style.display = "block";
-			col.innerHTML = "Hide Additional Gantt Options";
+			col.textContent = <?php echo dPjs($AppUI->_('Hide Additional Gantt Options', UI_OUTPUT_RAW)); ?>;
 		} else {
 			obj.style.display = "none";
-			col.innerHTML = "Show Additional Gantt Options";
+			col.textContent = <?php echo dPjs($AppUI->_('Show Additional Gantt Options', UI_OUTPUT_RAW)); ?>;
 		}
 	}
 	//]]>
@@ -242,7 +242,7 @@ if (!@$min_view) {
 		<input type="hidden" name="caller" value="<?php echo $a; ?>" />
 		<table border="0" align="center" class="tbl" cellpadding="2" cellspacing="0" width="100%">
 			<tr>
-				<td align="right"><em>Date Filter:</em></td>
+				<td align="right"><em><?php echo $AppUI->_('Date Filter'); ?>:</em></td>
 				<td align="right">
 					<table border="0" cellpadding="4" cellspacing="0">
 						<tr>
@@ -293,7 +293,7 @@ if (!@$min_view) {
 				<td colspan="2">&nbsp;</td>
 			</tr>
 			<tr>
-				<td align="right"><em>Quick Date Filter:</em></td>
+				<td align="right"><em><?php echo $AppUI->_('Quick Date Filter'); ?>:</em></td>
 				<td colspan="3" align="left">
 					<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
@@ -315,7 +315,7 @@ if (!@$min_view) {
 			</tr>
 
 			<tr>
-				<td align="right"><em>Task Filter:</em></td>
+				<td align="right"><em><?php echo $AppUI->_('Task Filter'); ?>:</em></td>
 				<td align="right">
 					<table border="0" cellpadding="4" cellspacing="0">
 						<tr>
@@ -323,7 +323,7 @@ if (!@$min_view) {
 								<select name="ganttTaskFilter" id="ganttTaskFilter" class="text"
 									<?php echo dPaction('submitIt'); ?> size="1">
 									<?php
-									echo '<option value="0" ' . (($ganttTaskFilter == '' || $ganttTaskFilter == 0) ? ' selected="selected">' : '>') . '&lt;Show all tasks&gt; </option>';
+									echo '<option value="0" ' . (($ganttTaskFilter == '' || $ganttTaskFilter == 0) ? ' selected="selected">' : '>') . '&lt;' . $AppUI->_('Show all tasks') . '&gt; </option>';
 									for ($i = 0; $i < count($filter_task_list); $i++) {
 										$filter_task_name  = $filter_task_list[$i][0]['task_name'];
 										$filter_task_level = $filter_task_list[$i][1];
@@ -348,7 +348,7 @@ if (!@$min_view) {
 
 			<tr align="left">
 				<th colspan="4" align="left"><em><a class="hdr" href="#"<?php echo dPaction('doMenu', array('ganttoptions')); ?>
-							id="xganttoptions">Show Additional Gantt Options</a></em></th>
+							id="xganttoptions"><?php echo $AppUI->_('Show Additional Gantt Options'); ?></a></em></th>
 			</tr>
 			<tr align="left">
 				<td colspan="4">
@@ -357,7 +357,7 @@ if (!@$min_view) {
 							<td width="100%">
 								<table border="0" cellpadding="2" cellspacing="0" width="100%" align="center">
 									<tr>
-										<td>&nbsp;Tasks&nbsp;:</td>
+										<td>&nbsp;<?php echo $AppUI->_('Tasks'); ?>&nbsp;:</td>
 										<td valign="top">
 											<input type="checkbox" name="sortByName" id="sortByName" <?php echo (($sortByName == 1) ? 'checked="checked"' : ''); ?> />
 											<label for="sortByName"><?php echo $AppUI->_('Sort by Name'); ?></label>
@@ -375,7 +375,7 @@ if (!@$min_view) {
 									<?php if ($a == 'todo') { ?>
 										<input type="hidden" name="show_form" value="1" />
 									<tr>
-										<td>&nbsp;To Do Options:&nbsp;</td>
+										<td>&nbsp;<?php echo $AppUI->_('To Do Options'); ?>:&nbsp;</td>
 										<td valign="bottom" nowrap="nowrap">
 											<input type="checkbox" name="showPinned" id="showPinned" <?php echo $showPinned ? 'checked="checked"' : ''; ?> />
 											<label for="showPinned"><?php echo $AppUI->_('Pinned Only'); ?></label>
@@ -414,7 +414,7 @@ if (!@$min_view) {
 $q = new DBQuery;
 
 if ($a == 'todo') {
-    $todo_user_id = intval(defVal(@$_REQUEST['user_id'], $AppUI->user_id));
+    $todo_user_id = intval(defVal(dPgetParam($_REQUEST, 'user_id'), $AppUI->user_id));
     $q->addTable('tasks', 't');
     $q->innerJoin('projects', 'p', 'p.project_id = t.task_project');
     $q->innerJoin('user_tasks', 'ut', 'ut.task_id = t.task_id AND ut.user_id = ' . (int)$todo_user_id);
@@ -436,7 +436,8 @@ if ($a == 'todo') {
     $q->addWhere('t.task_status > -1');
     if ($project_id)              $q->addWhere('t.task_project = ' . intval($project_id));
     if ($showNoMilestones == '1') $q->addWhere('t.task_milestone != 1');
-    if ($display_option == 'custom') {
+    // custom period or this month (the dates set above); 'all' shows everything
+    if ($display_option != 'all') {
         $q->addWhere('t.task_start_date <= "' . $end_date->format('%Y-%m-%d') . ' 23:59:59"');
         $q->addWhere('(t.task_end_date   >= "' . $start_date->format('%Y-%m-%d') . ' 00:00:00" OR t.task_end_date = "0000-00-00 00:00:00")');
     }
@@ -458,7 +459,7 @@ $q->clear();
 $gantt_tasks = GanttRenderer::taskRows($raw_tasks);
 
 if (!empty($gantt_tasks)) {
-    GanttRenderer::render('dp-task-gantt', $gantt_tasks, '', 'Week');
+    GanttRenderer::render('dp-task-gantt', $gantt_tasks, '', 'Week', true);
 } else {
     echo '<p>' . $AppUI->_('No tasks to display') . '</p>';
 }

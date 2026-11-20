@@ -203,7 +203,7 @@ function displayFolders($folder_id = 0, $level = 0)
 
 		if ($file_count > 0) {
 			echo ('<div class="files-list" id="files_' . $folder_id . '" style="display:'
-				. (($level || $open_folder) ? 'none' : 'block') . ';">');
+				. ($level ? 'none' : 'block') . ';">');
 			displayFiles($folder_id);
 			echo '</div>';
 		} else if ($folder && !($folder_id && $level)) {
@@ -243,7 +243,7 @@ function countFiles($folder_id)
 	$q->addJoin('projects', 'p', 'p.project_id = f.file_project');
 	$q->addJoin('tasks', 't', 't.task_id = f.file_task');
 	$q->addJoin('file_folders', 'ff', 'ff.file_folder_id = f.file_folder');
-	$q->addQuery('count(f.file_id)', 'file_in_folder');
+	$q->addQuery('count(f.file_id) AS file_in_folder');
 	$q->addWhere('f.file_folder = ' . $folder_id);
 	if (is_array($allowedFolders) && count($allowedFolders)) {
 		$q->addWhere('((' . implode(' AND ', $allowedFolders) . ') OR f.file_folder = 0)');
@@ -280,7 +280,7 @@ function displayFiles($folder_id)
 	global $AppUI, $m, $a, $tab, $page;
 	global $current_uri;
 
-	global $canAccess, $canRead, $canEdit, $canAuthor, $canDelete;
+	global $canAccess, $canRead, $canEdit, $canAuthor, $canDelete, $canAdmin;
 	global $canAccess_folders, $canRead_folders, $canEdit_folders;
 	global $canAuthor_folders, $canDelete_folders;
 
@@ -678,7 +678,7 @@ function displayFiles($folder_id)
 						$bulk_op = dPaction('toggleBulkComponent', array('$this', (int)$row['file_id']), 'change');
 						?>
 						<input type="checkbox" <?php echo $bulk_op; ?> name="chk_sub_sel_file_<?php
-							echo $file_row['file_id']; ?>" />
+							echo (int)$row['file_id']; ?>" />
 						<?php
 					}
 					?>
@@ -839,7 +839,7 @@ function displayFiles($folder_id)
 												$bulk_op = dPaction('toggleBulkComponent', array('$this', (int)$row['file_id']), 'change');
 												?>
 												<input type="checkbox" <?php echo $bulk_op; ?> name="chk_sub_sel_file_<?php
-													echo $file_row['file_id']; ?>" />
+													echo (int)$file['file_id']; ?>" />
 												<?php
 											}
 											?>

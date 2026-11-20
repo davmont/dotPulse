@@ -67,7 +67,7 @@ function shownavbar_links($xpg_totalrecs, $xpg_pagesize, $xpg_total_pages, $page
 	} else { // or we dont have any files..
 		echo '<td align="center">';
 		if ($xpg_next_page > $xpg_total_pages) {
-			echo ($xpg_sqlrecs . ' ' . $m . ' ');
+			echo ($xpg_totalrecs . ' ' . $m . ' ');
 		}
 		echo '</td></tr>';
 	} 
@@ -201,8 +201,8 @@ for ($i=($page-1)*$xpg_pagesize, $pmax=$page*$xpg_pagesize; $i<$pmax && $i<$xpg_
 	<tr>
 		<td colspan="10" style="background-color:#<?php 
 			echo preg_replace('/[^0-9a-fA-F]/', '', $row['project_color_identifier']); ?>" style="border: outset 2px #eeeeee">
-			<font color="<?php 
-			echo (bestColor($row['project_color_identifier'])); ?>">
+			<span style="color:<?php
+			echo dPhtml(bestColor($row['project_color_identifier'])); ?>">
 			<?php
 			if ($row['link_project'] > 0) {
 				echo ('<a href="?m=projects&amp;a=view&amp;project_id=' . (int)$row['link_project'] 
@@ -211,7 +211,7 @@ for ($i=($page-1)*$xpg_pagesize, $pmax=$page*$xpg_pagesize; $i<$pmax && $i<$xpg_
 				echo (dPhtml($row['project_name']));
 			}
 ?>
-			</font>
+			</span>
 		</td>
 	</tr>
 <?php

@@ -391,6 +391,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"A telepítés beállításai, felhasználói és moduljai.", // MT
 "Attention"=>"Figyelem", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Az install könyvtár még a szerveren van: távolítsa el, vagy tiltsa le a hozzáférést.", // MT
+"The admin account still has the password set by the installer: change it."=>"Az admin fiók jelszava még a telepítő által beállított jelszó: változtassa meg.", // MT
 "Active modules"=>"Aktív modulok", // MT
 "upgrade to install"=>"telepítendő frissítés", // MT
 "upgrades to install"=>"telepítendő frissítés", // MT
@@ -514,7 +515,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"A mentett beállításokat használja: előbb mentse a módosításokat.", // MT
 "Email me when I am assigned to a task"=>"E-mailt kérek, ha feladathoz rendelnek", // MT
 "Reset"=>"Visszaállítás", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"A bejegyzések %d napig maradnak meg (audit_log_days a Rendszerbeállításokban).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"A bejegyzések %d napig maradnak meg (audit_log_days a Rendszerbeállításokban).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"A bejegyzések örökre megmaradnak (az audit_log_days értéke 0).", // MT
 "IP address"=>"IP-cím", // MT
 "No entries."=>"Nincsenek bejegyzések.", // MT

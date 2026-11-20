@@ -30,7 +30,7 @@ for ($res; ! $res->EOF; $res->MoveNext()) {
 	$style = $configured ? '' : 'background-color:#ED9A9A; font-weight:bold';
 ?>
 <tr>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
 	<a href="index.php?m=human_resources&amp;a=view_company_users&amp;company_id=<?php echo $company_id;?>">
 		<?php echo dPhtml($res->fields['company_name']); ?>
     </a>

@@ -6,14 +6,14 @@ VERSION:2.0
 DTSTART:20130120T080000
 DTEND:20130121T140000
 DTSTAMP:20130120T194254
-UID:20130120194254@dotproject.com
-ORGANIZER;CN=David Montero:MAILTO:david.montero.isusi@gmail.com
+UID:20130120194254@example.com
+ORGANIZER;CN=Example Organizer:MAILTO:organizer@example.com
 CREATED:20130120T194254
-DESCRIPTION:Anà¡lisis y diseà±o de las modificaciones.<br><br>Â¿Preparacià³n de matriz?
+DESCRIPTION:Sample task description.
 LAST-MODIFIED:20130120T194254
-LOCATION:Shinigami
+LOCATION:Meeting room
 SEQUENCE:0
-SUMMARY:Anà¡lisis y diseà±o del mà³dulo de riesgos Adaptacià³n del programa de gestià³n de proyectos
+SUMMARY:Sample task
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 ATTENDEE;ROLE=REQ-PARTICIPANT

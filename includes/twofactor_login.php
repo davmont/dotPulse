@@ -71,10 +71,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && dPgetParam($_POST, 'twofactor_code'
 }
 
 $uistyle = $uistyle ?: dPgetConfig('host_style');
+// As on the login page (style/dotpulse/login.php): the dark theme's logo and data-theme.
+$dp_theme_dark = ($uistyle === 'dotpulse-dark');
 header('Content-Type: text/html; charset=' . (isset($locale_char_set) ? $locale_char_set : 'UTF-8'));
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo dPhtml(substr($AppUI->user_locale, 0, 2)); ?>">
+<html lang="<?php echo dPhtml(substr($AppUI->user_locale, 0, 2)); ?>"<?php echo $dp_theme_dark ? ' data-theme="dark"' : ''; ?>>
 <head>
 	<meta charset="<?php echo isset($locale_char_set) ? dPhtml($locale_char_set) : 'UTF-8'; ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -82,26 +84,30 @@ header('Content-Type: text/html; charset=' . (isset($locale_char_set) ? $locale_
 	<link rel="stylesheet" type="text/css" href="./style/<?php echo dPhtml($uistyle); ?>/main.css" media="all" />
 	<link rel="icon" href="./images/brand/favicon.svg" type="image/svg+xml" />
 	<style type="text/css">
-		body { background: #f0f2f5 !important; margin: 0; font-family: Arial, sans-serif; color: #23262B;
+		/* The dotPulse themes' colours (--dp-*, style/dotpulse/main.css and the dark theme's), so the dark theme
+		   applies; the fallbacks are dotPulse's light ones, for themes without them. */
+		body { background: var(--dp-ground, #f0f2f5) !important; margin: 0; font-family: Arial, sans-serif;
+			color: var(--dp-ink, #23262B);
 			min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-		.tf-box { background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, .1);
+		.tf-box { background: var(--dp-surface, #fff); border-radius: 8px; box-shadow: 0 4px 15px var(--dp-shadow, rgba(0, 0, 0, .1));
 			padding: 28px 32px; width: 100%; max-width: 380px; box-sizing: border-box; margin: 16px; }
 		.tf-box img { height: 36px; display: block; margin: 0 auto 18px; }
-		.tf-box h1 { font-size: 1.2em; margin: 0 0 8px; text-align: center; }
+		.tf-box h1 { font-size: 1.2em; margin: 0 0 8px; text-align: center; color: var(--dp-ink, #23262B); }
 		.tf-box p { margin: 0 0 14px; line-height: 1.4; }
 		.tf-box input.text { width: 100%; padding: 10px; font-size: 1.4em; letter-spacing: .2em; text-align: center;
-			border: 1px solid #B8C3D4; border-radius: 4px; box-sizing: border-box; margin-bottom: 12px; }
-		.tf-box .button { width: 100%; padding: 10px; border: 0; border-radius: 4px; background: #1B4F9C; color: #fff;
-			font-weight: bold; font-size: 1em; cursor: pointer; }
-		.tf-box .button:hover { background: #123A73; }
-		.tf-error { color: #C93D27; font-weight: bold; }
-		.tf-help { font-size: .9em; color: #5A6474; }
-		.tf-cancel { background: none; border: 0; color: #1B4F9C; text-decoration: underline; cursor: pointer; padding: 0; font-size: .9em; }
+			background: var(--dp-surface, #fff); color: var(--dp-ink, #23262B);
+			border: 1px solid var(--dp-control-line, #B8C3D4); border-radius: 4px; box-sizing: border-box; margin-bottom: 12px; }
+		.tf-box .button { width: 100%; padding: 10px; border: 0; border-radius: 4px; background: var(--dp-primary, #1B4F9C);
+			color: var(--dp-on-primary, #fff); font-weight: bold; font-size: 1em; cursor: pointer; }
+		.tf-box .button:hover { background: var(--dp-primary-hover, #123A73); }
+		.tf-error { color: var(--dp-coral-text, #C93D27); font-weight: bold; }
+		.tf-help { font-size: .9em; color: var(--dp-slate, #5A6474); }
+		.tf-cancel { background: none; border: 0; color: var(--dp-blue, #1B4F9C); text-decoration: underline; cursor: pointer; padding: 0; font-size: .9em; }
 	</style>
 </head>
 <body>
 	<div class="tf-box">
-		<img src="./images/brand/logo.svg" alt="dotPulse" />
+		<img src="./images/brand/<?php echo $dp_theme_dark ? 'logo-dark.svg' : 'logo.svg'; ?>" alt="dotPulse" />
 		<h1><?php echo $AppUI->_('Two-step login'); ?></h1>
 		<p><?php echo $AppUI->_('Enter the 6-digit code from the authenticator app on your phone.'); ?></p>
 		<?php if ($message) { ?><p class="tf-error" role="alert"><?php echo $message; ?></p><?php } ?>

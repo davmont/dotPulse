@@ -74,7 +74,7 @@ function vw_idx_handler ($type) {
   $items = $q->loadList();
 
   ?>
-  <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tbl">
+  <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tbl" style="overflow-wrap:anywhere">
   <tr>
     <th><?php echo $AppUI->_('Number'); ?></th>
     <th><?php echo $AppUI->_('Requestor'); ?></th>
@@ -100,8 +100,8 @@ function vw_idx_handler ($type) {
     } else {
       $tc = ' ';
     }
-    if ($row['status_date']) {
-      $datesd = new CDate( $row['status_date'] );
+    if (!empty($row['sd'])) {
+      $datesd = new CDate( $row['sd'] );
       $sd = $datesd->format( $format );
     } else {
       $sd = ' ';

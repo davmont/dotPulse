@@ -385,6 +385,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Indstillinger, personer og moduler i denne installation.", // MT
 "Attention"=>"Bemærk", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Installationsmappen findes stadig på serveren: fjern den, eller nægt adgang til den.", // MT
+"The admin account still has the password set by the installer: change it."=>"Kontoen admin har stadig den adgangskode, installationsprogrammet satte: skift den.", // MT
 "Active modules"=>"Aktive moduler", // MT
 "upgrade to install"=>"opgradering at installere", // MT
 "upgrades to install"=>"opgraderinger at installere", // MT
@@ -508,7 +509,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Bruger de gemte indstillinger: gem dine ændringer først.", // MT
 "Email me when I am assigned to a task"=>"Send mig en e-mail, når jeg bliver tildelt en opgave", // MT
 "Reset"=>"Nulstil", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Poster gemmes i %d dage (audit_log_days i systemkonfigurationen).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Poster gemmes i %d dage (audit_log_days i systemkonfigurationen).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Poster gemmes for altid (audit_log_days er 0).", // MT
 "IP address"=>"IP-adresse", // MT
 "No entries."=>"Ingen poster.", // MT

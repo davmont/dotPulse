@@ -13,7 +13,7 @@ if ($user_id != $AppUI->user_id
 
 $AppUI->savePlace();
 
-if (isset($_POST['show_form'])) {
+if (dPgetParam($_POST, 'show_form') !== null) {
 	$add_pwt = (int)dPgetParam($_POST, 'add_pwt', 0);
 	$AppUI->setState('addProjWithTasks', $add_pwt);
 }
@@ -27,7 +27,7 @@ $company_id = $AppUI->getState('UsrProjIdxCompany') !== NULL ? $AppUI->getState(
 
 $company_prefix = 'company_';
 
-if (isset($_POST['department'])) {
+if (dPgetParam($_POST, 'department') !== null) {
 	$AppUI->setState('UsrProjIdxDepartment', dPdepartmentParam($_POST));
 
 	//if department is set, ignore the company_id field
@@ -43,8 +43,8 @@ if (!(mb_strpos($department, $company_prefix) === false)) {
 	unset($department);
 }
 
-if (isset($_GET['tab'])) {
-	$AppUI->setState('UserVwTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('UserVwTab', dPgetParam($_GET, 'tab'));
 }
 $tab = $AppUI->getState('UserVwTab') !== NULL ? $AppUI->getState('UserVwTab') : 0;
 
@@ -72,7 +72,7 @@ else {
 	if ($canRead) {
 		$titleBlock->addCrumb('?m=admin', 'users list');
 	}
-	if ($canEdit) {
+	if ($canEdit || $user_id == $AppUI->user_id) { // users may edit their own account
 		$titleBlock->addCrumb('?m=admin&amp;a=addedituser&amp;user_id=' . $user_id,
 			'edit this user');
 	}
@@ -81,6 +81,8 @@ else {
 			'edit preferences');
 		$titleBlock->addCrumbRight('<a href="#"' . dPaction('popChgPwd') . '>'
 			. $AppUI->_('change password') . '</a>');
+	}
+	if (getPermission('admin', 'add') && getPermission('users', 'add')) {
 		$titleBlock->addCell('<input type="button" class=button value="' . $AppUI->_('add user')
 			. '"' . dPaction(null, array(), null, array('href' => './index.php?m=admin&a=addedituser')) . ' />');
 	}

@@ -178,7 +178,6 @@ if ($obj->canUserEditTimeInformation()) {
   <input type="hidden" name="task_log_task" value="<?php echo $log->task_log_task; ?>" />
   <input type="hidden" name="task_log_creator" value="<?php 
 echo(($log->task_log_creator == 0) ? $AppUI->user_id : $log->task_log_creator) ?>" />
-  <input type="hidden" name="task_log_name" value="Update :<?php echo dPhtml($log->task_log_name); ?>" />
 <table cellspacing="1" cellpadding="2" border="0" width="100%">
 <tr>
   <td width='40%' valign='top' align='center'>

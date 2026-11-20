@@ -21,8 +21,8 @@ if (!($canRead)) {
 }
 
 //retrieve any state parameters
-if (isset($_GET['tab'])) {
-	$AppUI->setState('ProjVwTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('ProjVwTab', dPgetParam($_GET, 'tab'));
 }
 $tab = $AppUI->getState('ProjVwTab') !== NULL ? $AppUI->getState('ProjVwTab') : 0;
 
@@ -156,8 +156,8 @@ $style = ((($actual_end_date > $end_date) && !empty($end_date))
 $titleBlock = new CTitleBlock('View Project', 'applet3-48.png', $m, "$m.$a");
 
 //patch 2.12.04 text to search entry box
-if (isset($_POST['searchtext'])) {
-	$AppUI->setState('searchtext', $_POST['searchtext']);
+if (dPgetParam($_POST, 'searchtext') !== null) {
+	$AppUI->setState('searchtext', dPgetParam($_POST, 'searchtext'));
 }
 
 $search_text = (($AppUI->getState('searchtext')) ? $AppUI->getState('searchtext') : '');
@@ -217,6 +217,7 @@ smartUpdateProjectPercentComplete($project_id);
 			var projectName = <?php echo dPjs($obj->project_name); ?>;
 			var wroteName = prompt(<?php
 			echo dPjs($AppUI->_('confirmDelete', UI_OUTPUT_RAW) . ' "' . $obj->project_name . '" ' . "\n"
+				. $AppUI->_('projectDeleteTasks', UI_OUTPUT_RAW) . "\n"
 				. $AppUI->_('writeProjectName', UI_OUTPUT_RAW) . "\n" . $AppUI->_('canCopyPaste', UI_OUTPUT_RAW)); ?>, <?php
 			echo dPjs($AppUI->_('projectName', UI_OUTPUT_RAW)); ?>);
 			if (projectName == wroteName) {
@@ -286,7 +287,7 @@ smartUpdateProjectPercentComplete($project_id);
 					</td>
 				</tr>
 				<tr>
-					<td align="right" nowrap><?php echo $AppUI->_('Internal Company'); ?>:</td>
+					<td align="right" nowrap><?php echo $AppUI->_('Internal Division'); ?>:</td>
 					<td class="hilite" width="100%">
 						<?php
 						echo (((getPermission('companies', 'view', $obj->project_company_internal))
@@ -492,12 +493,11 @@ smartUpdateProjectPercentComplete($project_id);
 
 <?php
 //set default
-if (!isset($_GET["tab"])) {
-	$tab = 1;
+if (dPgetParam($_GET, "tab") === null) {
 	$_SESSION["user_choosen_feature"] = "/modules/dotproject_plus/projects_tab.planning_and_monitoring.php";
 } else {
-	if (isset($_POST["user_choosen_feature"])) {
-		$_SESSION["user_choosen_feature"] = $_POST["user_choosen_feature"];
+	if (dPgetParam($_POST, "user_choosen_feature") !== null) {
+		$_SESSION["user_choosen_feature"] = dPgetParam($_POST, "user_choosen_feature");
 	}
 }
 
@@ -518,7 +518,9 @@ if (isset($AppUI->getActiveModules()['initiating'])) {
 
 if ($canAccessTask) {
 	$tabBox->add(DP_BASE_DIR . '/modules/tasks/tasks', $AppUI->_('Tasks'));
-	$tabBox->add(DP_BASE_DIR . '/modules/tasks/tasks', $AppUI->_('Tasks (Inactive)'));
+	// Untranslated: tasks.php shows the inactive tasks on the tab whose name has "inactive"
+	// (the tab box translates it when it draws the tab).
+	$tabBox->add(DP_BASE_DIR . '/modules/tasks/tasks', 'Tasks (Inactive)');
 	$tabBox->add(DP_BASE_DIR . '/modules/tasks/viewgantt', $AppUI->_('Gantt Chart'));
 	$tabBox->add(DP_BASE_DIR . '/modules/projects/vw_board', $AppUI->_('Board'));
 	if ($canAccessTaskLog) {
@@ -530,6 +532,11 @@ if (getPermission('forums', 'access')) {
 }
 
 $tabBox->loadExtras($m);
+// The saved tab may not exist here (journal/initiating switched off, add-on
+// removed): open the first tab instead of an empty box.
+if ($tab >= 0 && !isset($tabBox->tabs[$tab])) {
+	$tabBox->active = array_key_first($tabBox->tabs) ?? 0;
+}
 $f = 'all';
 $min_view = true;
 

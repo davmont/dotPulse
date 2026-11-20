@@ -114,7 +114,11 @@ function selectTeam(names, labels) {
 
 	doc.title = labels.title || '';
 	var body = doc.body || doc.documentElement.appendChild(doc.createElement('body'));
-	body.style.backgroundColor = '#ffebcd';
+	body.style.backgroundColor = dPthemeColor('#ffebcd', 'bg');
+	if (dPthemeIsDark()) {
+		// Light default text, links and buttons on the dark background.
+		doc.documentElement.style.colorScheme = 'dark';
+	}
 	body.appendChild(el('center', labels.hint));
 	var form = body.appendChild(doc.createElement('form'));
 	var index = form.appendChild(doc.createElement('center'));

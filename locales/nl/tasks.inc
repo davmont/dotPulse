@@ -107,8 +107,8 @@
 "Extra Recipients"=>"Extra ontvangers", // MT
 "Filter"=>"Filter",
 "Finish"=>"Einde", // MT
-"Finish Date"=>"Afrond Datum",
-"finish date"=>"Afrond Datum",
+"Finish Date"=>"Einddatum",
+"finish date"=>"Einddatum",
 "Fix date ranges for task groups according to subtasks dates"=>"Datumbereik van taakgroepen aanpassen aan de datums van de subtaken", // MT
 "For period"=>"Voor periode", // MT
 "Free Capacity"=>"Vrije capaciteit", // MT
@@ -254,7 +254,7 @@
 "Sort by Name"=>"Sorteren op naam", // MT
 "Start"=>"Start",
 "start"=>"start",
-"Start Date"=>"Start Datum",
+"Start Date"=>"Startdatum",
 "Start Time"=>"Begintijd", // MT
 "Started and on time"=>"Op tijd gestart",
 "Status"=>"Status",
@@ -357,3 +357,9 @@
 "Task Due"=>"Taak vervalt", // MT
 "TODAY"=>"VANDAAG", // MT
 "TOMORROW"=>"MORGEN", // MT
+"To Do Options"=>"Opties takenlijst", // MT
+"Task not found."=>"Taak niet gevonden.", // MT
+"You may not edit this task."=>"U mag deze taak niet bewerken.", // MT
+"The dates and progress of a task group come from its tasks."=>"De datums en voortgang van een taakgroep komen van de taken erin.", // MT
+"Invalid dates."=>"Ongeldige datums.", // MT
+"Nothing to save."=>"Niets om op te slaan.", // MT

@@ -405,7 +405,7 @@ $projectStatus = dPgetSysVal( 'ProjectStatus' );
 <?php
       require_once DP_BASE_DIR . '/classes/gantt_renderer.class.php';
       GanttRenderer::scripts(); // the print view has no theme header
-      GanttRenderer::render('dp-pd-gantt', GanttRenderer::projectTaskRows($project_id), '', 'Week');
+      GanttRenderer::render('dp-pd-gantt', GanttRenderer::projectTaskRows($project_id), '', 'Week', true);
 ?>
 </td>
 </table>

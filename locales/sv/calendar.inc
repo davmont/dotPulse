@@ -110,3 +110,4 @@
 "next day"=>"nästa dag", // MT
 "previous week"=>"föregående vecka", // MT
 "next week"=>"nästa vecka", // MT
+"Holiday"=>"Helgdag", // MT

@@ -29,7 +29,7 @@ function changeList() {
 $ipr = dPgetSysVal('HelpDeskPriority');
 $ist = dPgetSysVal('HelpDeskStatus');
 ?>
-<table width="100%" border="0" cellpadding="2" cellspacing="1" class="tbl">
+<table width="100%" border="0" cellpadding="2" cellspacing="1" class="tbl" style="overflow-wrap:anywhere">
 <tr>
 	<!--<td align="right" nowrap>&nbsp;</td>-->
 	<th nowrap="nowrap"><?php echo $AppUI->_('Number')?></th>

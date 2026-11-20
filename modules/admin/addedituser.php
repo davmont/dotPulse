@@ -14,8 +14,10 @@ if ($canEdit) {
 	$canEdit = getPermission('users', ($user_id ? 'edit' : 'add'), $user_id);
 }
 
-// check permissions
-if (!$canEdit) {
+// Users who may not edit users may still edit their own account: name, e-mail, signature and
+// password (do_user_aed.php saves only those for them).
+$ownAccount = ($user_id > 0 && $user_id == $AppUI->user_id);
+if (!$canEdit && !$ownAccount) {
 	$AppUI->redirect('m=public&a=access_denied');
 }
 
@@ -86,8 +88,9 @@ function submitIt() {
     } else if (form.user_password.value != form.password_check.value) {
         alert("<?php echo $AppUI->_('adminPasswordsDiffer', UI_OUTPUT_JS);?>");
         form.user_password.focus();
-    <?php if ($user_id > 0 && $AppUI->user_id == $user_id) { ?>
-    } else if (form.user_password.value.length > 0 && (!form.old_password || form.old_password.value.length < 1)) {
+    <?php if ($ownAccount) { ?>
+    } else if ((form.user_password.value.length > 0 || form.contact_email.value != form.contact_email.defaultValue)
+               && (!form.old_password || form.old_password.value.length < 1)) {
         alert("<?php echo $AppUI->_('Invalid old password', UI_OUTPUT_JS);?>");
         if (form.old_password) form.old_password.focus();
     <?php } ?>
@@ -190,7 +193,7 @@ function setDept(key, val) {
 </tr>
 <?php }
 ?>
-<?php if ($user_id > 0 && $AppUI->user_id == $user_id) { ?>
+<?php if ($ownAccount) { ?>
 <tr>
     <td align="right">* <?php echo $AppUI->_('Old Password');?>:</td>
     <td><input type="password" class="text" name="old_password" value="" size="32" /> </td>
@@ -224,12 +227,16 @@ echo arraySelect($companies, 'contact_company', 'class="text" size="1"', ($user[
 <tr>
     <td align="right"><?php echo $AppUI->_('Department');?>:</td>
     <td>
+<?php if ($canEdit) { ?>
         <input type="hidden" name="contact_department" value="<?php 
 echo (int)@$user['contact_department'];?>" />
         <input type="text" class="text" name="dept_name" value="<?php 
 echo dPhtml(@$user['dept_name']);?>" size="40" disabled="disabled" />
         <input type="button" class="button" value="<?php 
 echo $AppUI->_('select dept');?>..." <?php echo dPaction('popDept'); ?> />
+<?php } else { ?>
+        <?php echo dPhtml(@$user['dept_name']); ?>
+<?php } ?>
     </td>
 </tr>
 <tr>
@@ -243,7 +250,7 @@ echo dPhtml(@$user['contact_email']);?>" maxlength="255" size="40" /> </td>
 echo dPhtml(@$user['user_signature']);?></textarea></td>
 </tr>
 <tr>
-	<td align="right"><?php if (!empty($user['user_contact'])) { ?>
+	<td align="right"><?php if (!empty($user['user_contact']) && getPermission('contacts', 'edit', $user['user_contact'])) { ?>
 		<a href="?m=contacts&amp;a=addedit&amp;contact_id=<?php 
 echo (int)$user['user_contact']; ?>"><?php echo $AppUI->_(array('edit', 'contact info')); ?></a>
 	<?php } ?></td>

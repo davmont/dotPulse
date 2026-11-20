@@ -61,12 +61,11 @@ function hoursToTime($total_hours) {
 function splitTime( $time ) {
     $hhmm = explode( ":", $time );
     
-    if ( count($hhmm) > 1 ) {
-        $hhmm['hour'] = $hhmm[0];
-        $hhmm['minute'] = $hhmm[1];
-    }
-     
-    return (object) $hhmm;
+    // Always hour and minute (0 for an empty or malformed time).
+    return (object) array(
+        'hour' => count($hhmm) > 1 ? (int) $hhmm[0] : 0,
+        'minute' => count($hhmm) > 1 ? (int) $hhmm[1] : 0,
+    );
 }
 
 function padTime( $time ) {
@@ -112,7 +111,7 @@ $titleBlock->show();
 if (isset( $_GET['wk'] ) ) {
 	$AppUI->setState( 'TmsWk', (int) $_GET['wk'] );
 }
-$wk = $AppUI->getState( 'TmsWk') !== NULL && $wk >= 0 ? $AppUI->getState( 'TmsWk' ) : 0;
+$wk = max(0, (int) $AppUI->getState('TmsWk'));
 
 if ( $wk == 0 )
 	$week_text = $AppUI->_("Current week");
@@ -161,6 +160,8 @@ $total_hours_logged = 0;
 
 // loop through the week
 for ($day = 0; $day < 7; $day++) {
+$timeIn = $timeOut = $timeBreak = null;
+$time_daily = (object) array('hour' => 0, 'minute' => 0);
 	
 $date_temp = $time_set -> format("%Y-%m-%d");
 
@@ -171,7 +172,7 @@ $q -> addQuery('*');
 $q -> addWhere("timesheet_date = '$date_temp' AND user_id = $AppUI->user_id");
 
 $result = $q->exec();
-$timesheet_row = $q -> fetchRow();
+$timesheet_row = $q -> fetchRow() ?: array(); // no row yet for this day
 
 $q -> clear();
 $q -> addTable('task_log','l');
@@ -203,35 +204,35 @@ foreach ($logs as $log_row) {
 <tr> 
 	<td nowrap><?php 
 		echo $time_set->format("%A %b %e, %Y");
-		echo '<input type="hidden" name="timesheet_date[]" value="' . ($timesheet_row["timesheet_date"] ? $timesheet_row["timesheet_date"] : $time_set->format("%Y-%m-%d")) . '">';
+		echo '<input type="hidden" name="timesheet_date[]" value="' . (!empty($timesheet_row["timesheet_date"]) ? $timesheet_row["timesheet_date"] : $time_set->format("%Y-%m-%d")) . '">';
 		?>
-		<input name="timesheet_id[]" value="<?php echo $timesheet_row["timesheet_id"] ?>" type="hidden">
+		<input name="timesheet_id[]" value="<?php echo (int) ($timesheet_row["timesheet_id"] ?? 0); ?>" type="hidden">
 	</td> 
 	<td nowrap><input type="text" size="5" name="timesheet_time_in[]" value="<?php 
-		if ($q ->foundRows()) {
+		if ($timesheet_row) {
 			$timeIn = splitTime( $timesheet_row["timesheet_time_in"] );
-			if (intval($timeIn->hour) or intval($timeIn->minute)) echo "$timeIn->hour:$timeIn->minute";
+			if ($timeIn->hour || $timeIn->minute) echo padTime($timeIn);
 		}
 		?>">
 	</td> 
 	<td nowrap><input type="text" size="5" name="timesheet_time_out[]" value="<?php 
-		if ($q ->foundRows()) {
+		if ($timesheet_row) {
 			$timeOut = splitTime( $timesheet_row["timesheet_time_out"] );
-			if (intval($timeOut->hour) or intval($timeOut->minute)) echo "$timeOut->hour:$timeOut->minute";
+			if ($timeOut->hour || $timeOut->minute) echo padTime($timeOut);
 		}
 		?>">
 	</td> 
 	<td nowrap><input type="text" size="5" name="timesheet_time_break[]" value="<?php 
-		if ($q ->foundRows()) {
+		if ($timesheet_row) {
 			$timeBreak = splitTime( $timesheet_row["timesheet_time_break"] );
-			if (intval($timeBreak->hour) or intval($timeBreak->minute)) echo "$timeBreak->hour:$timeBreak->minute";
+			if ($timeBreak->hour || $timeBreak->minute) echo padTime($timeBreak);
 		}
 		?>">
 	</td> 
 	<td nowrap align="center"><?php 
-		if ((intval($timeOut->hour) or intval($timeOut->minute)) and (intval($timeIn->hour) or intval($timeIn->minute))) {
-			
-			$minutes_daily = ($timeOut->hour - $timeIn->hour - $timeBreak->hour)*60 + ($timeOut->minute - $timeIn->minute - $timeBreak->minute);
+		if ($timeIn && $timeOut && ($timeOut->hour || $timeOut->minute) && ($timeIn->hour || $timeIn->minute)) {
+			$break = $timeBreak ? $timeBreak->hour * 60 + $timeBreak->minute : 0;
+			$minutes_daily = ($timeOut->hour - $timeIn->hour) * 60 + ($timeOut->minute - $timeIn->minute) - $break;
 			
 			$time_daily->hour = (int)( $minutes_daily / 60 );
 			$time_daily->minute = $minutes_daily % 60;
@@ -268,11 +269,6 @@ $total_time_worked->hour += $time_daily->hour + floor( ($total_time_worked->minu
 $total_time_worked->minute = ( $total_time_worked->minute + $time_daily->minute ) % 60;
 $total_hours_logged += $logged_hours;
 
-// reset times
-$timeIn = null;
-$timeOut = null;
-$timeBreak = null;
-$time_daily = null;
 }
 ?>
 <tr>
@@ -282,23 +278,5 @@ $time_daily = null;
 	<td nowrap align="center"><b><?php echo hoursToTime($total_hours_logged); ?></b></td>
 	<td nowrap align="right"><input type="submit" name="update" value="Update" class="button"></td>
 </tr>
-<?php
-if ($tg_data['tt_active'] > 0 ) { 
-?>
-<tr> 
-	<td colspan="8" align="right">
-	<a href="index.php?m=timesheet&a=addedit&timesheet_id=<?php echo $timesheet_id;?>&addrow=1&tid=0">Add New Row</a>
-	</td>
-</tr> 
-<?php 
-}
-if ($tg_data['tt_active'] > 0 ) { 
-?>
-<tr bgcolor="#FFFFFF">
-	<td colspan="8" bgcolor="#FFFFFF" align="right">
-	<input class="button" type="Button" value="Send In"<?php echo dPaction('sendIt'); ?>>
-	</td>
-</tr>
-<?php } ?>
 </table> 
 </form>

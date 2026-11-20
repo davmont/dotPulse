@@ -145,7 +145,7 @@
 "low resolution"=>"låg upplösning", // MT
 "Mark as Finished"=>"Markera som avslutad", // MT
 "mark as finished"=>"markera som avslutad",
-"Milestone"=>"Milstone",
+"Milestone"=>"Milstolpe",
 "Milestone (completed)"=>"Milstolpe (avslutad)", // MT
 "Milestone (in progress)"=>"Milstolpe (pågående)", // MT
 "Milestone (overdue)"=>"Milstolpe (försenad)", // MT
@@ -366,3 +366,9 @@
 "Task Due"=>"Aktivitet förfaller", // MT
 "TODAY"=>"IDAG", // MT
 "TOMORROW"=>"IMORGON", // MT
+"To Do Options"=>"Alternativ för att göra-listan", // MT
+"Task not found."=>"Uppgiften hittades inte.", // MT
+"You may not edit this task."=>"Du får inte redigera den här uppgiften.", // MT
+"The dates and progress of a task group come from its tasks."=>"Datum och förlopp för en uppgiftsgrupp kommer från dess uppgifter.", // MT
+"Invalid dates."=>"Ogiltiga datum.", // MT
+"Nothing to save."=>"Inget att spara.", // MT

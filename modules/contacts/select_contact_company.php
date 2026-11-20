@@ -61,7 +61,7 @@ if (!defined('DP_BASE_DIR')) {
 		$q->clear();
 		db_loadHash($sql, $r_data);
 		$data_update_script = "";
-		$update_address     = isset($_POST["overwrite_address"]);
+		$update_address     = (dPgetParam($_POST, "overwrite_address") !== null);
 			
 		if ($table_name == "companies") {
 			$update_fields = array();

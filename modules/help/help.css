@@ -1,0 +1,38 @@
+/* Help (modules/help/index.php): the documentation of website/docs. Colours through the
+   theme's variables where it has them (dotpulse, dotpulse-dark); narrows to one column. */
+.dp-help { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 24px; margin: 8px 4px 24px;
+	color: var(--dp-ink, #23262B); }
+@media (max-width: 800px) { .dp-help { grid-template-columns: minmax(0, 1fr); } }
+
+.dp-help-nav { font-size: 13px; }
+.dp-help-nav ul { list-style: none; margin: 0; padding: 0; }
+.dp-help-nav li { margin: 0; }
+.dp-help-nav a { display: block; padding: 3px 8px; border-radius: 4px; text-decoration: none; }
+.dp-help-nav a:hover { background: var(--dp-blue-wash, #E8EDF5); }
+.dp-help-nav a.dp-help-current { background: var(--dp-blue-wash, #E8EDF5); font-weight: bold; }
+.dp-help-section > span { display: block; margin: 12px 0 2px; padding: 0 8px; font-weight: bold;
+	color: var(--dp-slate, #5A6474); text-transform: uppercase; font-size: 11px; letter-spacing: .04em; }
+
+.dp-help-page { max-width: 820px; font-size: 14px; line-height: 1.55; }
+.dp-help-page h1 { font-size: 1.7em; margin: 0 0 12px; color: var(--dp-blue-deep, #123A73); }
+.dp-help-page h2 { font-size: 1.3em; margin: 28px 0 8px; color: var(--dp-blue-deep, #123A73); }
+.dp-help-page h3 { font-size: 1.1em; margin: 20px 0 6px; }
+.dp-help-page img { max-width: 100%; height: auto; }
+.dp-help-page img.dp-help-shot { border: 1px solid var(--dp-line, #D5DAE3); border-radius: 4px; margin: 4px 0; }
+.dp-help-page table { border-collapse: collapse; margin: 8px 0 16px; }
+.dp-help-page th, .dp-help-page td { border: 1px solid var(--dp-line, #D5DAE3); padding: 4px 8px; text-align: left;
+	vertical-align: top; }
+.dp-help-page th { background: var(--dp-blue-wash, #E8EDF5); }
+.dp-help-page code { font-size: .92em; background: var(--dp-surface-alt, #F2F4F8); padding: 1px 4px; border-radius: 3px; }
+.dp-help-page pre { background: var(--dp-surface-alt, #F2F4F8); padding: 10px 12px; border-radius: 4px; overflow-x: auto; }
+.dp-help-page pre code { background: none; padding: 0; }
+.dp-help-page kbd { font: inherit; font-size: .9em; padding: 0 5px; border: 1px solid var(--dp-line, #D5DAE3);
+	border-bottom-width: 2px; border-radius: 3px; background: var(--dp-surface, #fff); }
+.dp-help-note { margin: 12px 0; padding: 8px 12px; border-left: 4px solid var(--dp-blue, #1B4F9C);
+	background: var(--dp-blue-wash, #E8EDF5); border-radius: 0 4px 4px 0; }
+.dp-help-note > p { margin: 4px 0; }
+.dp-help-note-title { font-weight: bold; }
+.dp-help-tip { border-left-color: var(--dp-teal, #0A8080); background: var(--dp-teal-wash, #E3F2F2); }
+.dp-help-warning { border-left-color: var(--dp-coral-text, #C93D27); background: var(--dp-coral-wash, #FDECE8); }
+.dp-help-foot { margin-top: 32px; padding-top: 8px; border-top: 1px solid var(--dp-line, #D5DAE3);
+	font-size: 12px; color: var(--dp-slate, #5A6474); }

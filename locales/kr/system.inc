@@ -385,6 +385,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"이 설치 환경의 설정, 사용자 및 모듈.", // MT
 "Attention"=>"주의", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"설치 디렉터리가 아직 서버에 있습니다. 삭제하거나 접근을 차단하십시오.", // MT
+"The admin account still has the password set by the installer: change it."=>"admin 계정의 비밀번호가 아직 설치 프로그램이 설정한 그대로입니다. 변경하세요.", // MT
 "Active modules"=>"활성 모듈", // MT
 "upgrade to install"=>"설치할 업그레이드", // MT
 "upgrades to install"=>"설치할 업그레이드", // MT
@@ -508,7 +509,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"저장된 설정을 사용합니다. 먼저 변경 사항을 저장하십시오.", // MT
 "Email me when I am assigned to a task"=>"작업에 할당되면 이메일 받기", // MT
 "Reset"=>"초기화", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"항목은 %d일 동안 보관됩니다 (시스템 구성의 audit_log_days).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"항목은 %d일 동안 보관됩니다 (시스템 구성의 audit_log_days).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"항목은 영구 보관됩니다 (audit_log_days가 0).", // MT
 "IP address"=>"IP 주소", // MT
 "No entries."=>"항목이 없습니다.", // MT

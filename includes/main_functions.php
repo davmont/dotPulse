@@ -22,7 +22,22 @@ function bestColor($bg, $lt = '#ffffff', $dk = '#000000')
 	$bg = str_replace('#', '', $bg);
 	$dk = str_replace('#', '', $dk);
 	$base = new CSS_Color($bg);
-	return '#' . $base->calcFG($bg, $dk);
+	$fg = '#' . $base->calcFG($bg, $dk);
+	if (dPdarkTheme()) {
+		require_once DP_BASE_DIR . '/includes/dark_colors.php';
+		// The dark theme's output filter darkens a light background: light text then.
+		if (dPdarkColor('#' . $bg, 'bg') !== null) {
+			return DP_DARK_INK;
+		}
+		// A kept background (a project colour): the text sits on it, so dark text stays
+		// dark. rgb() is the spelling the filter does not touch (it would lighten a hex
+		// black as if it were on the page), so use it only in style attributes.
+		$rgb = dPdarkParseColor($fg);
+		if ($rgb !== null && dPdarkLuminance($rgb) < 0.2) {
+			return 'rgb(' . implode(', ', $rgb) . ')';
+		}
+	}
+	return $fg;
 }
 
 ##
@@ -99,11 +114,11 @@ function tree_recurse($id, $indent, $list, $children)
 /**
 **	Provide Projects Selectbox sorted by Companies
 **	@author gregorerhardt with special thanks to original author aramis
-**	@param	int			userID
-**	@param	string	HTML select box name identifier
-**	@param	string	HTML attributes
-**	@param	int			Proejct ID for preselection
-**	@param	int			Project ID which will be excluded from the list 
+**	@param	int $user_id userID
+**	@param	string $select_name HTML select box name identifier
+**	@param	string $select_attribs HTML attributes
+**	@param	int $selected Proejct ID for preselection
+**	@param	int $excludeProjWithId Project ID which will be excluded from the list 
 **									(e.g. in the tasks import list exclude the project to import into)
 **	@return	string	HTML selectbox
 
@@ -171,15 +186,83 @@ function breadCrumbs(&$arr)
 	return implode(' <strong>:</strong> ', $crumbs);
 }
 
+/**
+ * The Help link for a page of the application: $ref is "module.action" (the help reference
+ * of a title block, "projects.view"), or a module alone. Help shows the documentation that
+ * comes with dotPulse (website/docs, the source of https://www.dotpulse.org/) inside the
+ * Help module (classes/help.class.php).
+ */
+function dPhelpUrl($ref = '')
+{
+	list($page, $anchor) = dPhelpPage($ref);
+	require_once DP_BASE_DIR . '/classes/help.class.php';
+	return './index.php' . CHelp::url($page, $anchor);
+}
+
+/**
+ * The same page of the documentation website, for "read it online" links;
+ * $dPconfig['help_url'] in includes/config.php points them at another copy of it.
+ */
+function dPhelpOnlineUrl($page, $anchor = '')
+{
+	$base = rtrim((string)dPgetConfig('help_url', 'https://www.dotpulse.org/'), '/') . '/';
+	$page = preg_replace('#(^|/)index$#', '', $page);
+	return $base . ($page !== '' ? $page . '/' : '') . ($anchor !== '' ? '#' . $anchor : '');
+}
+
+/** The documentation page (and #anchor) for "module.action": array(page, anchor). */
+function dPhelpPage($ref = '')
+{
+	$parts = explode('.', (string)$ref);
+	$mod = $parts[0];
+	$act = isset($parts[1]) ? $parts[1] : '';
+	// Pages with their own section first, then each module's page.
+	$pages = array(
+		'projects.viewgantt' => 'user-guide/gantt-board/#the-projects-chart',
+		'tasks.viewgantt' => 'user-guide/gantt-board/',
+		'tasks.todo' => 'user-guide/tasks/',
+		'admin.viewuser' => 'user-guide/preferences/',
+		'admin.addedituser' => 'user-guide/preferences/#change-your-details',
+		'system.addeditpref' => 'user-guide/preferences/',
+		'public.chpwd' => 'user-guide/preferences/#change-your-password',
+	);
+	$modules = array(
+		'dashboard' => 'user-guide/dashboard/',
+		'projects' => 'user-guide/projects/',
+		'tasks' => 'user-guide/tasks/',
+		'companies' => 'user-guide/companies-contacts/',
+		'departments' => 'user-guide/companies-contacts/',
+		'contacts' => 'user-guide/companies-contacts/',
+		'calendar' => 'user-guide/calendar/',
+		'files' => 'user-guide/files-forums-links/#files',
+		'forums' => 'user-guide/files-forums-links/#forums',
+		'links' => 'user-guide/files-forums-links/#links',
+		'smartsearch' => 'user-guide/search/',
+		'holiday' => 'getting-started/first-steps/#6-set-up-holiday-calendars',
+		'admin' => 'getting-started/first-steps/#4-add-your-users',
+		'system' => 'getting-started/first-steps/',
+	);
+	if (isset($pages[$mod . '.' . $act])) {
+		$target = $pages[$mod . '.' . $act];
+	} else {
+		$target = isset($modules[$mod]) ? $modules[$mod] : 'user-guide/';
+	}
+	$parts = explode('#', $target, 2);
+	return array(trim($parts[0], '/'), isset($parts[1]) ? $parts[1] : '');
+}
+
 ##
-## generate link for context help
+## generate link for context help: the documentation of the page shown (or of $link,
+## "module.action"), in a new tab
 ##
 function dPcontextHelp($title, $link = '')
 {
-	global $AppUI;
-	return ('<a href="#' . $AppUI->___($link) . '"'
-		. dPaction('window.open', array('?m=help&dialog=1&hid=' . $link, 'contexthelp', 'width=400,height=400,left=50,top=50,scrollbars=yes,resizable=yes'))
-		. '>' . $AppUI->_($title) . '</a>');
+	global $AppUI, $m, $a;
+	if ($link === '') {
+		$link = $m . '.' . $a;
+	}
+	return ('<a href="' . dPhtml(dPhelpUrl($link)) . '" target="_blank" rel="noopener">'
+		. $AppUI->_($title) . '</a>');
 }
 
 /**
@@ -214,9 +297,9 @@ function dPheaderWidgets($separator)
 
 /**
  * Retrieves a configuration setting.
- * @param $key string The name of a configuration setting
- * @param $default string The default value to return if the key not found.
- * @return The value of the setting, or the default value if not found.
+ * @param string $key The name of a configuration setting
+ * @param string $default The default value to return if the key not found.
+ * @return mixed The value of the setting, or the default value if not found.
  */
 function dPgetConfig($key, $default = null)
 {
@@ -292,6 +375,23 @@ function dPdarkTheme()
 }
 
 /**
+ * The user interface styles (the folders of style/) for a select list: folder => its name
+ * in locales/[locale]/styles.inc (the folder's own name when it has none), sorted by name.
+ */
+function dPstyleOptions()
+{
+	global $AppUI;
+	$styles = array();
+	$warn = $AppUI->setWarning(false);
+	foreach ($AppUI->readDirs('style') as $dir) {
+		$styles[$dir] = $AppUI->_($dir, UI_OUTPUT_RAW);
+	}
+	$AppUI->setWarning($warn);
+	natcasesort($styles);
+	return $styles;
+}
+
+/**
  * The vector icon to serve for a file path without its extension (".../stock_edit-16"): its
  * dark version in a dark theme where there is one, else the SVG; the extension, or null.
  */
@@ -337,9 +437,9 @@ function dPvectorIconFilter($html)
 
 /**
  *	Function to recussively find an image in a number of places
- *	@param string The name of the image
- *	@param string Optional name of the current module
- *	@return location for image, "default" location returned if not found elsewhere (even if not present there).
+ *	@param string $name The name of the image
+ *	@param string $module Optional name of the current module
+ *	@return string location for image, "default" location returned if not found elsewhere (even if not present there).
  */
 function dPfindImage($name, $module = null)
 {
@@ -374,10 +474,10 @@ function dPfindImage($name, $module = null)
 }
 
 /**
- *	@param string The name of the image
- *	@param string The image width
- *	@param string The image height
- *	@param string The alt text for the image
+ *	@param string $src The name of the image
+ *	@param string $wid The image width
+ *	@param string $hgt The image height
+ *	@param string $alt The alt text for the image
  */
 function dPshowImage($src, $wid = '', $hgt = '', $alt = '', $title = '')
 {
@@ -783,7 +883,7 @@ function dPuserHasRole($name)
 
 
 /**
- *	@param int number of hours to format
+ *	@param int $x number of hours to format
  *	@return string 
  */
 function dPformatDuration($x)
@@ -1067,7 +1167,7 @@ function findTabModules($module, $file = null)
 /**
  * @return void
  * @param mixed $var
- * @param char $title
+ * @param string $title
  * @desc Show an estructure (array/object) formatted
  */
 function showFVar(&$var, $title = "")
@@ -1446,5 +1546,119 @@ function dPsendCspHeader()
 	}
 	$name = dPgetConfig('csp_report_only') ? 'Content-Security-Policy-Report-Only' : 'Content-Security-Policy';
 	header($name . ': ' . dPcspPolicy());
+}
+
+/**
+ * Converts module tables still in latin1 to the database's utf8mb4, for a module's
+ * upgrade(). Some add-ons created their tables as latin1 while the connection is utf8mb4,
+ * so text outside Latin-1 (Japanese, Russian, Czech...) was stored as '?'. Latin-1 fits in
+ * utf8mb4, so nothing is lost; tables already converted, or missing, are skipped.
+ * Returns false on the first table that fails.
+ */
+function dPconvertTablesToUtf8mb4($tables)
+{
+	$prefix = dPgetConfig('dbprefix', '');
+	foreach ($tables as $table) {
+		$name = $prefix . $table;
+		$collation = db_loadResult("SELECT table_collation FROM information_schema.tables"
+			. " WHERE table_schema = DATABASE() AND table_name = '" . db_escape($name) . "'");
+		if ($collation && stripos($collation, 'latin1') === 0
+			&& !db_exec('ALTER TABLE `' . str_replace('`', '', $name) . '` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci')) {
+			return false;
+		}
+	}
+	return true;
+}
+/**
+ * The file the translation page reads and saves for a module and language: the module's own
+ * (modules/[module]/locales/[lang].inc) when it ships an English one, locales/[lang]/[module].inc
+ * otherwise. A module can have both; locales/core.php reads both, the page edits the first.
+ */
+function dPtranslationFile($module, $lang)
+{
+	if (file_exists(DP_BASE_DIR . '/modules/' . $module . '/locales/en.inc')) {
+		return DP_BASE_DIR . '/modules/' . $module . '/locales/' . $lang . '.inc';
+	}
+	return DP_BASE_DIR . '/locales/' . $lang . '/' . $module . '.inc';
+}
+
+/**
+ * The entries of a locale file as key => array('text' => ..., 'mt' => bool): "key"=>"text",
+ * or "text", alone (English files), and 'mt' when the entry ends with "// MT" (machine
+ * translated, to review). The file is read with the PHP tokenizer, not run; an entry that is
+ * not made of plain string literals is left out. The translation page writes an entry back as
+ * it is when it is submitted unchanged, mark included (modules/system/translate_save.php).
+ */
+function dPlocaleEntries($file)
+{
+	$entries = array();
+	if (!is_readable($file)) {
+		return $entries;
+	}
+	$tokens = token_get_all('<?php ' . file_get_contents($file));
+	$n = count($tokens);
+	$strings = array();
+	$plain = true;
+	$arrow = 0;
+	for ($i = 1; $i < $n; $i++) {
+		$t = $tokens[$i];
+		$id = is_array($t) ? $t[0] : $t;
+		if ($id === T_WHITESPACE || ($id === T_COMMENT && !$strings)) {
+			continue;
+		}
+		if ($id === T_CONSTANT_ENCAPSED_STRING) {
+			$strings[] = dPlocaleLiteral($t[1]);
+		} elseif ($id === T_DOUBLE_ARROW) {
+			$arrow++;
+		} elseif ($id === ',') {
+			// The mark: a "// MT" comment on the same line as the comma.
+			$mt = false;
+			for ($j = $i + 1; $j < $n; $j++) {
+				$u = $tokens[$j];
+				if (is_array($u) && $u[0] === T_WHITESPACE && strpos($u[1], "\n") === false) {
+					continue;
+				}
+				$mt = is_array($u) && $u[0] === T_COMMENT && preg_match('#^//[ \t]*MT[ \t]*$#', rtrim($u[1]));
+				break;
+			}
+			$count = count($strings);
+			if ($plain && (($count === 2 && $arrow === 1) || ($count === 1 && $arrow === 0))) {
+				$entries[$strings[0]] = array('text' => $strings[$count - 1], 'mt' => (bool)$mt);
+			}
+			$strings = array();
+			$plain = true;
+			$arrow = 0;
+		} elseif ($id !== T_COMMENT) {
+			$plain = false;
+		}
+	}
+	return $entries;
+}
+
+/**
+ * The value of a PHP string literal, as PHP reads it: single quotes take \\ and \' only,
+ * double quotes the escapes PHP knows (an unknown one keeps its backslash).
+ */
+function dPlocaleLiteral($literal)
+{
+	$body = substr($literal, 1, -1);
+	if ($literal[0] === "'") {
+		return preg_replace('/\\\\([\\\\\'])/', '$1', $body);
+	}
+	$simple = array('n' => "\n", 't' => "\t", 'r' => "\r", 'v' => "\v", 'e' => "\x1B", 'f' => "\f",
+		'\\' => '\\', '$' => '$', '"' => '"');
+	return preg_replace_callback('/\\\\(?:([ntrvef\\\\$"])|([0-7]{1,3})|x([0-9A-Fa-f]{1,2})|u\{([0-9A-Fa-f]+)\})/',
+		function ($m) use ($simple) {
+			if (isset($m[1]) && $m[1] !== '') {
+				return $simple[$m[1]];
+			}
+			if (isset($m[2]) && $m[2] !== '') {
+				return chr(octdec($m[2]) & 255);
+			}
+			if (isset($m[3]) && $m[3] !== '') {
+				return chr(hexdec($m[3]));
+			}
+			return mb_chr(hexdec($m[4]), 'UTF-8');
+		}, $body);
 }
 ?>

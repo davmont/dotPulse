@@ -28,6 +28,7 @@
 	--dp-row-line: #252D3A;
 	--dp-today: #22324D;
 	--dp-weekend: #171D27;
+	--dp-holiday: #2B2519;
 	--dp-muted: #8F9AAD;
 	--dp-faint: #7F8BA0;
 	--dp-control-line: #707C90;
@@ -71,8 +72,9 @@ body .dpa {
 	--a-teal-line: #2A6B6B;
 	--a-ink: #E9EDF3;
 	--a-slate: #A9B4C4;
-	--a-line: #707C90;
 	--a-line-soft: #2C3443;
+	--a-control-line: #707C90;
+	--a-focus: #7BA9F7;
 	--a-surface: #1A202B;
 	--a-surface-head: #1F2633;
 	--a-row-line: #252D3A;
@@ -101,6 +103,46 @@ body .gantt .upper-text { fill: var(--dp-slate); }
 body .gantt .lower-text { fill: var(--dp-ink); }
 body .gantt .handle { fill: var(--dp-slate); }
 
+/* Date picker (lib/flatpickr; lib/calendar/calendar.js opens it too): its stylesheet draws
+   a white pop-up with dark text. */
+body .flatpickr-calendar { background: var(--dp-surface); color: var(--dp-ink);
+	box-shadow: 0 0 0 1px var(--dp-line), 0 6px 18px var(--dp-shadow); }
+body .flatpickr-calendar.arrowTop::before { border-bottom-color: var(--dp-line); }
+body .flatpickr-calendar.arrowTop::after { border-bottom-color: var(--dp-surface); }
+body .flatpickr-calendar.arrowBottom::before { border-top-color: var(--dp-line); }
+body .flatpickr-calendar.arrowBottom::after { border-top-color: var(--dp-surface); }
+body .flatpickr-months .flatpickr-month, body .flatpickr-months .flatpickr-prev-month,
+body .flatpickr-months .flatpickr-next-month { color: var(--dp-ink); fill: var(--dp-ink); }
+body .flatpickr-months .flatpickr-prev-month:hover svg, body .flatpickr-months .flatpickr-next-month:hover svg { fill: var(--dp-coral); }
+body .flatpickr-current-month .flatpickr-monthDropdown-months,
+body .flatpickr-current-month .flatpickr-monthDropdown-months option { background: var(--dp-surface); color: var(--dp-ink); }
+body .flatpickr-current-month input.cur-year { color: var(--dp-ink); background: transparent; }
+body .flatpickr-current-month .flatpickr-monthDropdown-months:hover, body .numInputWrapper:hover,
+body .flatpickr-current-month span.cur-month:hover { background: var(--dp-blue-wash); }
+body .flatpickr-current-month .numInputWrapper span.arrowUp::after { border-bottom-color: var(--dp-ink); }
+body .flatpickr-current-month .numInputWrapper span.arrowDown::after { border-top-color: var(--dp-ink); }
+body .numInputWrapper span { border-color: var(--dp-line-soft); }
+body span.flatpickr-weekday { color: var(--dp-slate); }
+body .flatpickr-day { color: var(--dp-ink); }
+body .flatpickr-day.prevMonthDay, body .flatpickr-day.nextMonthDay { color: var(--dp-faint); }
+body .flatpickr-day:hover, body .flatpickr-day:focus, body .flatpickr-day.prevMonthDay:hover,
+body .flatpickr-day.nextMonthDay:hover, body .flatpickr-day.prevMonthDay:focus,
+body .flatpickr-day.nextMonthDay:focus { background: var(--dp-blue-wash); border-color: var(--dp-blue-wash); }
+body .flatpickr-day.today { border-color: var(--dp-coral); }
+body .flatpickr-day.today:hover, body .flatpickr-day.today:focus { background: var(--dp-coral-wash); border-color: var(--dp-coral); color: var(--dp-ink); }
+/* After the other-month colour, and with .selected.prevMonthDay: flatpickr's own rule for a
+   selected day of the next or previous month has three classes. */
+body .flatpickr-day.selected, body .flatpickr-day.selected:hover, body .flatpickr-day.selected:focus,
+body .flatpickr-day.selected.prevMonthDay, body .flatpickr-day.selected.nextMonthDay {
+	background: var(--dp-primary); border-color: var(--dp-primary); color: var(--dp-on-primary); }
+body .flatpickr-day.flatpickr-disabled, body .flatpickr-day.flatpickr-disabled:hover { color: var(--dp-line); }
+body .flatpickr-calendar.hasTime .flatpickr-time { border-top-color: var(--dp-line-soft); }
+body .flatpickr-time input, body .flatpickr-time .flatpickr-time-separator, body .flatpickr-time .flatpickr-am-pm { color: var(--dp-ink); }
+body .flatpickr-time input:hover, body .flatpickr-time input:focus, body .flatpickr-time .flatpickr-am-pm:hover,
+body .flatpickr-time .flatpickr-am-pm:focus { background: var(--dp-blue-wash); }
+body .flatpickr-time .numInputWrapper span.arrowUp::after { border-bottom-color: var(--dp-ink); }
+body .flatpickr-time .numInputWrapper span.arrowDown::after { border-top-color: var(--dp-ink); }
+
 /* Module widgets drawn on a fixed light background. */
 .modal-content { background-color: var(--dp-surface) !important; color: var(--dp-ink); border-color: var(--dp-line) !important; }
 .treeTable { background-color: var(--dp-surface) !important; }
@@ -112,3 +154,8 @@ body .gantt .handle { fill: var(--dp-slate); }
 form[name=budgetFrm] input[disabled] { background-color: var(--dp-surface-alt); color: var(--dp-muted); }
 .gtbl { background: var(--dp-surface) !important; }
 .gtbl, .gtbl td, .gtbl th { border-color: var(--dp-line) !important; }
+
+/* Text on a kept light-ish colour (a project colour such as #17BECF) that sets no text
+   colour of its own: includes/dark_colors.php marks the tag. */
+[data-dp-ink="dark"], [data-dp-ink="dark"] a:link, [data-dp-ink="dark"] a:visited,
+[data-dp-ink="dark"] font:not([color]), [data-dp-ink="dark"] span, [data-dp-ink="dark"] center { color: var(--dp-surface); }

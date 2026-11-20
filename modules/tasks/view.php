@@ -59,8 +59,8 @@ if ($reminded) {
 }
 
 // retrieve any state parameters
-if (isset($_GET['tab'])) {
-	$AppUI->setState('TaskLogVwTab', $_GET['tab']);
+if (dPgetParam($_GET, 'tab') !== null) {
+	$AppUI->setState('TaskLogVwTab', dPgetParam($_GET, 'tab'));
 }
 $tab = $AppUI->getState('TaskLogVwTab') !== NULL ? $AppUI->getState('TaskLogVwTab') : 0;
 
@@ -198,9 +198,9 @@ function delIt() {
 		<tr>
 			<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Project');?>:</td>
 			<td style="background-color:#<?php echo $obj->project_color_identifier;?>">
-				<font color="<?php echo bestColor($obj->project_color_identifier); ?>">
+				<span style="color:<?php echo dPhtml(bestColor($obj->project_color_identifier)); ?>">
 					<?php echo dPhtml(@$obj->project_name);?>
-				</font>
+				</span>
 			</td>
 		</tr>
 		<tr>

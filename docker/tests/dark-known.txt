@@ -1,0 +1,3 @@
+# Known dark theme issues (tools/browser/dark.js): reported, not failing.
+# url-regex  element-path-regex  # why
+# Add an entry only for a box that has to stay light, and say why.

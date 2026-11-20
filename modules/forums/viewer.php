@@ -4,10 +4,10 @@ if (!defined('DP_BASE_DIR')) {
 }
 
 //view posts
-$forum_id = isset($_GET["forum_id"]) ? (int)$_GET["forum_id"] : 0;
+$forum_id = dPgetIntParam($_GET, "forum_id");
 
-$message_id = isset($_GET["message_id"]) ? (int)$_GET["message_id"] : 0;
-$post_message = isset($_GET["post_message"]) ? (int)$_GET["post_message"] : 0;
+$message_id = dPgetIntParam($_GET, "message_id");
+$post_message = dPgetIntParam($_GET, "post_message");
 $f = dpGetParam($_POST, 'f', 0);
 
 // check permissions
@@ -49,7 +49,7 @@ $titleBlock->show();
 <table width="100%" cellspacing="0" cellpadding="2" border="0" class="std">
 <tr>
 	<td height="20" colspan="3" style="border: outset #D1D1CD 1px;background-color:#<?php echo $forum["project_color_identifier"];?>">
-		<font size="2" color=<?php echo bestColor($forum["project_color_identifier"]);?>><strong><?php echo $AppUI->___(@$forum["forum_name"]);?></strong></font>
+		<span style="font-size:small; color:<?php echo dPhtml(bestColor($forum["project_color_identifier"])); ?>"><strong><?php echo $AppUI->___(@$forum["forum_name"]);?></strong></span>
 	</td>
 </tr>
 <tr>
@@ -64,7 +64,7 @@ $titleBlock->show();
 	<td align="left"><?php echo $AppUI->_('Owner');?>:</td>
 	<td nowrap><?php
 		echo $AppUI->___($forum['contact_first_name'] . ' ' . $forum['contact_last_name']);
-		if (intval($forum["forum_id"]) <> 0) {
+		if (intval($forum["forum_moderated"]) <> 0) {
 			echo " (".$AppUI->_('moderated').") ";
 		}?>
 	</td>

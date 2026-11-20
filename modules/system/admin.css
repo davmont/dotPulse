@@ -14,8 +14,9 @@
 	--a-teal-line: #9FD8D8;
 	--a-ink: #23262B;
 	--a-slate: #5A6474;
-	--a-line: #B8C3D4;
 	--a-line-soft: #D9E0EA;
+	--a-control-line: #7F8BA0; /* edges of inputs, buttons, switches: 3:1 */
+	--a-focus: #2F68C8;
 	--a-surface: #ffffff;
 	--a-surface-head: #F7F9FC;
 	--a-row-line: #EDF1F6;
@@ -74,24 +75,24 @@
 	font-size: 14px;
 	color: var(--a-ink);
 	background: var(--a-surface);
-	border: 1px solid var(--a-line);
+	border: 1px solid var(--a-control-line);
 	border-radius: 8px;
 	min-height: 38px;
 	padding: 6px 10px;
 	max-width: 100%;
 }
-.dpa input:focus, .dpa select:focus, .dpa textarea:focus { outline: 2px solid var(--a-blue-light); outline-offset: 0; border-color: var(--a-blue); }
+.dpa input:focus, .dpa select:focus, .dpa textarea:focus { outline: 2px solid var(--a-focus); outline-offset: 0; border-color: var(--a-blue); }
 .dpa input[type="number"] { width: 110px; }
 .dpa .dpa-wide { width: 360px; }
 .dpa-btn, .dpa button.dpa-btn, .dpa input.dpa-btn {
 	display: inline-flex; align-items: center; justify-content: center; gap: 6px;
 	font: inherit; font-size: 14px; font-weight: 500;
 	min-height: 40px; padding: 0 16px;
-	border-radius: 8px; border: 1px solid var(--a-line);
+	border-radius: 8px; border: 1px solid var(--a-control-line);
 	background: var(--a-surface); color: var(--a-ink);
 	cursor: pointer; text-decoration: none;
 }
-.dpa .dpa-btn:hover { background: var(--a-tint); border-color: var(--a-blue-light); text-decoration: none; }
+.dpa .dpa-btn:hover { background: var(--a-tint); border-color: var(--a-focus); text-decoration: none; }
 .dpa .dpa-btn.dpa-primary { background: var(--a-primary); border-color: var(--a-primary); color: var(--a-on-primary); font-weight: 600; }
 .dpa .dpa-btn.dpa-primary:hover { background: var(--a-primary-deep); border-color: var(--a-primary-deep); color: var(--a-on-primary); }
 .dpa .dpa-btn.dpa-danger { color: var(--a-coral-text); border-color: var(--a-coral-line); }
@@ -99,11 +100,11 @@
 /* Switch: a real checkbox drawn as a switch */
 .dpa-switch { position: relative; display: inline-block; width: 44px; height: 24px; flex: none; }
 .dpa-switch input { position: absolute; inset: 0; width: 44px; height: 24px; margin: 0; opacity: 0; cursor: pointer; z-index: 1; }
-.dpa-switch span { position: absolute; inset: 0; border-radius: 12px; background: var(--a-line); transition: background .15s; pointer-events: none; }
+.dpa-switch span { position: absolute; inset: 0; border-radius: 12px; background: var(--a-control-line); transition: background .15s; pointer-events: none; }
 .dpa-switch span::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--a-on-primary); transition: left .15s; }
 .dpa-switch input:checked + span { background: var(--a-blue); }
 .dpa-switch input:checked + span::after { left: 23px; }
-.dpa-switch input:focus-visible + span { outline: 2px solid var(--a-blue-light); outline-offset: 2px; }
+.dpa-switch input:focus-visible + span { outline: 2px solid var(--a-focus); outline-offset: 2px; }
 
 /* Day picker */
 .dpa-days { border: 0; margin: 0; padding: 0; display: flex; gap: 6px; flex-wrap: wrap; }
@@ -112,11 +113,11 @@
 .dpa-days span {
 	display: flex; align-items: center; justify-content: center;
 	width: 44px; height: 40px; border-radius: 8px;
-	border: 1px solid var(--a-line); background: var(--a-surface); color: var(--a-slate);
+	border: 1px solid var(--a-control-line); background: var(--a-surface); color: var(--a-slate);
 	font-weight: 500; cursor: pointer;
 }
 .dpa-days input:checked + span { background: var(--a-primary); border-color: var(--a-primary); color: var(--a-on-primary); }
-.dpa-days input:focus-visible + span { outline: 2px solid var(--a-blue-light); outline-offset: 2px; }
+.dpa-days input:focus-visible + span { outline: 2px solid var(--a-focus); outline-offset: 2px; }
 
 /* Heading */
 .dpa-head p { color: var(--a-slate); font-size: 15px; margin-top: 6px; }

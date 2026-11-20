@@ -318,3 +318,5 @@
 // "projectsColor" => "Lütfen projeyi tanımlayacak bir renk seçiniz",
 // "projectsValidName" => "Lütfen geçerli bir proje ismi giriniz.",
 "Calculated from the task costs"=>"Görev maliyetlerinden hesaplanır", // MT
+"projectDeleteTasks"=>"Bu projenin tüm görevleri ve görev kayıtları da silinecek.", // MT
+"projectLogsLimit"=>"Yalnızca en eski 500 görev kaydı gösterilir ve Toplam Saat yalnızca bunları sayar. Listeyi daraltmak için yukarıdaki filtreleri kullanın.", // MT

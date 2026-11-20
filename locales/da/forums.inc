@@ -60,7 +60,7 @@
 "No replies"=>"Ingen svar",
 "Normal"=>"Normal",
 "open for posting"=>"Åbent for indlæg",
-"Owner"=>"Forum-moderator",
+"Owner"=>"Ejer",
 "Post Reply"=>"Skriv svar",
 "read-only"=>"Kun læseadgang",
 "Related Project"=>"Relateret projekt",

@@ -116,7 +116,7 @@ echo dPhtml(stripslashes($keyword1)); ?>" />
 	<td align="left">
 		<input name="allwords" id="allwords" type="checkbox" value="on"<?php 
 echo (($all_words == 'on') ? ' checked="checked"' : ''); ?> /> 
-		<label for="all_words"><?php echo $AppUI->_('All words');?></label>
+		<label for="allwords"><?php echo $AppUI->_('All words');?></label>
 	</td>
 	<td align="left">
 		<input name="modselection" id="modselection" type="checkbox" value="on"<?php 

@@ -15,12 +15,14 @@
 #   make rehearse DUMP=prod.sql.gz [ADMIN=user]
 #                      upgrade a copy of a production database in docker/ (docker/rehearse.sh)
 
-PHPSTAN_IMAGE := ghcr.io/phpstan/phpstan:2
+# Pinned (2.3.7): the baseline must match exactly (reportUnmatchedIgnoredErrors), and a new
+# PHPStan release changes what it reports. Update the digest and run make phpstan-baseline together.
+PHPSTAN_IMAGE := ghcr.io/phpstan/phpstan:2@sha256:a37607d838fa6e25d1debdd0f774021c2be91248e74126c32283c3d6d2ed1a0b
 DOCKER_RUN := docker run --rm --user $(shell id -u):$(shell id -g) --security-opt label=disable -v $(CURDIR):/app -w /app
 export DP_UID := $(shell id -u)
 export DP_GID := $(shell id -g)
 
-.PHONY: check lint phpstan phpstan-baseline raw-input inline-js locales theme-contrast php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse
+.PHONY: check lint phpstan phpstan-baseline raw-input inline-js locales theme-contrast php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse docs docs-serve docs-screenshots
 
 check: lint phpstan raw-input inline-js locales theme-contrast php-test js-test vendor-check
 
@@ -69,12 +71,13 @@ vendor-check:
 # Known vulnerabilities: any in the Composer packages (vendor/, deployed with the code); moderate
 # or worse in the Node.js packages of the development tools (never deployed; Jest's deepmerge
 # has a low advisory with no fixed release, and tools/jest/package.json overrides glob and
-# minimatch to fixed versions).
+# minimatch to fixed versions). tools/checks/npm-audit.js lists the advisories with no fixed
+# release yet, which do not fail the check.
 # Libraries copied into lib/ and modules/ are not covered: see docs/third-party.md.
 deps-audit:
 	$(DOCKER_RUN) -e COMPOSER_HOME=/tmp composer:2 audit --locked
 	for d in tools/jest tools/browser; do \
-	  $(DOCKER_RUN) -w /app/$$d -e HOME=/tmp node:22 npm audit --omit=optional --audit-level=moderate || exit 1; \
+	  $(DOCKER_RUN) -w /app/$$d -e HOME=/tmp node:22 node /app/tools/checks/npm-audit.js || exit 1; \
 	done
 
 # Jest tests for js/ (tools/jest/tests/*.test.js), in the node image so no local Node is needed.
@@ -116,3 +119,16 @@ rehearse:
 	docker/up.sh
 	@for i in $$(seq 30); do curl -s -o /dev/null http://127.0.0.1:8089/index.php && break; sleep 1; done
 	docker/rehearse.sh "$(DUMP)" $(ADMIN)
+
+# Documentation website (website/, MkDocs Material). docs fails on broken links like CI.
+MKDOCS := docker run --rm --user $(shell id -u):$(shell id -g) --security-opt label=disable -v $(CURDIR)/website:/docs squidfunk/mkdocs-material:9.6.14
+docs:
+	$(MKDOCS) build --strict
+
+docs-serve:
+	docker run --rm -it --user $(shell id -u):$(shell id -g) --security-opt label=disable -p 8000:8000 -v $(CURDIR)/website:/docs squidfunk/mkdocs-material:9.6.14
+
+# Screenshots for the website from the sandbox with the sample data (docker/up.sh first).
+docs-screenshots:
+	node tools/browser/screenshots.js website/screenshots.json website/docs/img
+	@command -v pngquant >/dev/null && pngquant --quality=80-95 --skip-if-larger --strip --force --ext .png website/docs/img/*.png || echo 'pngquant not found: images left uncompressed'

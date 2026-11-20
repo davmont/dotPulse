@@ -650,7 +650,8 @@ function getBackgroundColor($value, $max_value) {
 	for ($j = 0; $j < 3; $j++) {
 	  $rgb[$j] = round($start[$j] + ($value/$max_value)*($end[$j]-$start[$j])); // Calculate the background color from value/max_value
 	}
-	return 'background-color: rgb('.$rgb[0].','.$rgb[1].','.$rgb[2].');';
+	// Hex, so that the dark theme's output filter adapts it (includes/dark_colors.php).
+	return sprintf('background-color: #%02X%02X%02X;', $rgb[0], $rgb[1], $rgb[2]);
 }
 
 /* Generate the differents <td></td> for a task line.

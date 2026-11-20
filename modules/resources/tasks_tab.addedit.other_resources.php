@@ -14,7 +14,7 @@ $resource_types =& $resource->typeSelect();
 $q = new DBQuery;
 
 $q->addTable('resources');
-$q->addOrder('resource_type', 'resource_name');
+$q->addOrder('resource_type, resource_name');
 $res = $q->exec();
 $all_resources = array();
 $resource_max = array();

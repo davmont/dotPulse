@@ -129,7 +129,7 @@ $titleBlock->show();
                         <td><input type="text" align="left" name="communication_title" cols="50" rows="1" value="<?php echo (isset($_GET['title']) ? htmlspecialchars((string)$_GET['title'], ENT_QUOTES) : htmlspecialchars((string)@$obj->communication_title, ENT_QUOTES)); ?>"></input></td>
                     </tr>
                     <tr><td align="left" nowrap="nowrap"><?php echo $AppUI->_("LBL_COMMUNICATION"); ?>:</td>
-                        <td align="left"><textarea name="communication_information" cols="100" rows="3" class="textarea"><?php echo (isset($_GET['communication']) ? htmlspecialchars((string)$_GET['communication'], ENT_QUOTES) : htmlspecialchars((string)@$obj->communication_information, ENT_QUOTES)); ?></textarea></td>
+                        <td align="left"><textarea name="communication_information" cols="100" rows="3" class="textarea" style="width:100%; box-sizing:border-box"><?php echo (isset($_GET['communication']) ? htmlspecialchars((string)$_GET['communication'], ENT_QUOTES) : htmlspecialchars((string)@$obj->communication_information, ENT_QUOTES)); ?></textarea></td>
                     </tr>  
                     <?php
                     if ($communication_id!=0) {
@@ -226,7 +226,7 @@ $titleBlock->show();
                     </td>
                  </tr>
                  <tr><td align="left" nowrap="nowrap"><?php echo $AppUI->_("LBL_RESTRICTIONS");?>: </td>
-                     <td align="left"><textarea name="communication_restrictions" cols="100" rows="3" class="textarea"><?php echo ($communication_id == 0 ? htmlspecialchars((string)dPgetParam($_GET, 'restrictions', ''), ENT_QUOTES) : htmlspecialchars((string)@$obj->communication_restrictions, ENT_QUOTES)); ?></textarea></td>
+                     <td align="left"><textarea name="communication_restrictions" cols="100" rows="3" class="textarea" style="width:100%; box-sizing:border-box"><?php echo ($communication_id == 0 ? htmlspecialchars((string)dPgetParam($_GET, 'restrictions', ''), ENT_QUOTES) : htmlspecialchars((string)@$obj->communication_restrictions, ENT_QUOTES)); ?></textarea></td>
                  </tr>
                  <td align="left" nowrap="nowrap"><?php echo $AppUI->_("LBL_RESPONSIBLE");?>: </td> 
                      <td><select id="responsible" name="responsible" style="min-width:150px">

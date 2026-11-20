@@ -62,16 +62,9 @@ $cwd[6] = '7';
 $cwd_conv = array_map('cal_work_day_conv', $cwd);
 
 function cal_work_day_conv($val) {
-	global $locale_char_set;
-	setlocale(LC_ALL, 'en_AU'.(($locale_char_set)? ('.' . $locale_char_set) : '.utf8'));
-	$wk = CDate::weekdayNames();
-	setlocale(LC_ALL, $AppUI->user_lang);
-	
-	$day_name = $wk[($val - LOCALE_FIRST_DAY)%7];
-	if ($locale_char_set == "utf-8" && function_exists("utf8_encode")) {
-	    $day_name = utf8_encode($day_name);
-	}
-	return htmlentities($day_name, ENT_COMPAT, $locale_char_set);
+	global $AppUI;
+	$days = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+	return $AppUI->_($days[(((int)$val % 7) + 7) % 7]);
 }
 
 $allocated_user_id = intval(dPgetParam($_GET, 'allocated_user_id', 0));
@@ -247,22 +240,22 @@ if($allocated_user_id || $human_resource_allocation_id) {
 			}			
 			?>		
 			<tr>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo dPhtml($human_resource_task_project->project_name); ?></a>
 			</td>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo dPhtml($human_resource_task['task_name']); ?></a>
 			</td>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo dPhtml($estimated_role_names); ?></a>
 			</td>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo $human_resource_task['task_start_date']; ?></a>
 			</td>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo $human_resource_task['task_end_date']; ?></a>
 			</td>
-			<td style=<?php echo $style;?>>
+			<td style="<?php echo $style;?>">
 			<?php echo $human_resource_task['task_duration']; ?></a>
 			</td>
 			<td align='center'> <?php echo	$conflict_image; ?>
@@ -378,26 +371,26 @@ for ($i = 0; $i < count($ordered_hrs); $i++) {
 	$style = ($same_role[$i] == 1) ? 'background-color:#60E564; font-weight:bold' : 'background-color:#F7FC64;';
 ?>
 <tr>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="?m=human_resources&amp;a=addedit_allocation&amp;human_resource_allocation_id=<?php echo $human_resource_allocation_id;?>&amp;project_tasks_estimated_roles_id=<?php echo $project_tasks_estimated_roles_id;?>&amp;task_id=<?php echo $task_id;?>&amp;project_id=<?php echo $project_id;?>&amp;allocated_user_id=<?php echo $user_id;?>">
 	<?php echo dPhtml($user->user_username);?></a>
   </td>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="?m=human_resources&amp;a=addedit_allocation&amp;human_resource_allocation_id=<?php echo $human_resource_allocation_id;?>&amp;project_tasks_estimated_roles_id=<?php echo $project_tasks_estimated_roles_id;?>&amp;task_id=<?php echo $task_id;?>&amp;project_id=<?php echo $project_id;?>&amp;allocated_user_id=<?php echo $user_id;?>">
     <?php echo dPhtml($contact->contact_last_name . ', ' . $contact->contact_first_name);?></a>
   </td>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="?m=human_resources&amp;a=addedit_allocation&amp;human_resource_allocation_id=<?php echo $human_resource_allocation_id;?>&amp;project_tasks_estimated_roles_id=<?php echo $project_tasks_estimated_roles_id;?>&amp;task_id=<?php echo $task_id;?>&amp;project_id=<?php echo $project_id;?>&amp;allocated_user_id=<?php echo $user_id;?>">
     <?php echo dPhtml($role_names[$i]);?></a>
   </td>
-  <td style=<?php echo $style;?>>
+  <td style="<?php echo $style;?>">
    <a href="?m=human_resources&amp;a=addedit_allocation&amp;human_resource_allocation_id=<?php echo $human_resource_allocation_id;?>&amp;project_tasks_estimated_roles_id=<?php echo $project_tasks_estimated_roles_id;?>&amp;task_id=<?php echo $task_id;?>&amp;project_id=<?php echo $project_id;?>&amp;allocated_user_id=<?php echo $user_id;?>">
     <?php echo dPhtml($weekday_working_hours);?></a>
   </td>
   <?php 
   if($hr->human_resource_lattes_url) {
   ?>
-  <td style=<?php echo $style;?> align='center'>
+  <td style="<?php echo $style;?>" align='center'>
 	<a href="#"<?php echo dPaction('window.open', array(dPsafeUrl($hr->human_resource_lattes_url))); ?>><?php echo dPshowImage( './modules/human_resources/images/lattes.png', 16, 16, '' ); ?>
 	</a>
   </td>
@@ -405,7 +398,7 @@ for ($i = 0; $i < count($ordered_hrs); $i++) {
   }
   else {
   ?>
-  <td style=<?php echo $style;?>>&nbsp;</td>
+  <td style="<?php echo $style;?>">&nbsp;</td>
   <?php
   }
   ?>

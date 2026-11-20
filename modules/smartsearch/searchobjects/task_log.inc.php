@@ -17,7 +17,7 @@ class task_log extends smartsearch
 	 . $records['task_log_id'])*/
 	var $table_link = '?m=tasks&amp;a=view&amp;task_id=';
 	var $table_link2 = '&tab=1&task_log_id=';
-	var $table_title = 'Task logs';
+	var $table_title = 'Task Log';
 	var $table_orderby = 'task_log_name';
 	var $search_fields = array('task_log_name', 'task_log_description', 'task_log_task');
 	var $display_fields = array('task_log_name', 'task_log_description', 'task_log_task');

@@ -385,6 +385,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Nastavení, lidé a moduly této instalace.", // MT
 "Attention"=>"Pozor", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Instalační adresář je stále na serveru: odstraňte jej nebo k němu zakažte přístup.", // MT
+"The admin account still has the password set by the installer: change it."=>"Účet admin má stále heslo nastavené instalátorem: změňte ho.", // MT
 "Active modules"=>"Aktivní moduly", // MT
 "upgrade to install"=>"aktualizace k instalaci", // MT
 "upgrades to install"=>"aktualizace k instalaci", // MT
@@ -508,7 +509,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Používá uložená nastavení: nejprve uložte změny.", // MT
 "Email me when I am assigned to a task"=>"Poslat mi e-mail, když jsem přiřazen k úkolu", // MT
 "Reset"=>"Obnovit", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Záznamy se uchovávají %d dní (audit_log_days v konfiguraci systému).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Záznamy se uchovávají %d dní (audit_log_days v konfiguraci systému).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Záznamy se uchovávají navždy (audit_log_days je 0).", // MT
 "IP address"=>"IP adresa", // MT
 "No entries."=>"Žádné záznamy.", // MT

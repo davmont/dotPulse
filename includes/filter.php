@@ -70,13 +70,13 @@ function filter_xss($string) {
 /**
  * Processes an HTML tag.
  *
- * @param @m
+ * @param mixed $m @m
  *   An array with various meaning depending on the value of $store.
  *   If $store is TRUE then the array contains the allowed tags.
  *   If $store is FALSE then the array has one element, the HTML tag to process.
  * @param $store
  *   Whether to store $m.
- * @return
+ * @return string
  *   If the element isn't allowed, an empty string. Otherwise, the cleaned up
  *   version of the HTML element.
  */
@@ -142,7 +142,7 @@ function _filter_xss_split($m, $store = FALSE) {
 /**
  * Processes a string of HTML attributes.
  *
- * @return
+ * @return string
  *   Cleaned up version of the HTML attributes.
  */
 function _filter_xss_attributes($attr) {
@@ -255,7 +255,7 @@ function _filter_xss_attributes($attr) {
  * @param $decode
  *   Whether to decode entities in the $string. Set to FALSE if the $string
  *   is in plain text, TRUE otherwise. Defaults to TRUE.
- * @return
+ * @return string
  *   Cleaned up and HTML-escaped version of $string.
  */
 function filter_xss_bad_protocol($string, $decode = TRUE) {
@@ -326,11 +326,11 @@ function _decode_entities($prefix, $codepoint, $original, &$html_entities, &$exc
   }
   // Hexadecimal numerical entity
   if ($prefix == '#x') {
-    $codepoint = base_convert($codepoint, 16, 10);
+    $codepoint = (int)base_convert($codepoint, 16, 10);
   }
   // Decimal numerical entity (strip leading zeros to avoid PHP octal notation)
   else {
-    $codepoint = preg_replace('/^0+/', '', $codepoint);
+    $codepoint = (int)preg_replace('/^0+/', '', $codepoint);
   }
   // Encode codepoint as UTF-8 bytes
   if ($codepoint < 0x80) {

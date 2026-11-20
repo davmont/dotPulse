@@ -26,7 +26,7 @@ class CVcard {
 		$lines = array('BEGIN:VCARD', 'VERSION:3.0',
 			'FN:' . self::escape($c['contact_first_name'] . ' ' . $c['contact_last_name']),
 			'N:' . implode(';', array_map($e, array($c['contact_last_name'], $c['contact_first_name'],
-			                                         $c['contact_type'], $c['contact_title'], ''))),
+			                                         '', $c['contact_title'], ''))),
 			'PROFILE:VCARD',
 			'SOURCE:' . self::escape($source),
 			'BDAY:' . self::escape($c['contact_birthday']),
@@ -37,6 +37,9 @@ class CVcard {
 			'TEL;TYPE=car:' . self::escape($c['contact_mobile']),
 			'EMAIL;TYPE=PF:' . self::escape($c['contact_email']),
 			'EMAIL:' . self::escape($c['contact_email2']));
+		if ((string)$c['contact_type'] !== '') {
+			$lines[] = 'CATEGORIES:' . self::escape($c['contact_type']);
+		}
 		if ((string)$c['company_name'] !== '') {
 			$lines[] = 'ORG:' . self::escape($c['company_name']);
 		}

@@ -9,7 +9,7 @@ if (!($canAuthor)) {
 }
 
 // check whether vCard file should be fetched from source or parsed for vCardKeys; criteria: get parameters
-if (isset($_FILES['vcf']) && isset($_GET['suppressHeaders']) && ($_GET['suppressHeaders']=='true')) {	//parse and store vCard file
+if (isset($_FILES['vcf']) && (dPgetParam($_GET, 'suppressHeaders') !== null) && (dPgetParam($_GET, 'suppressHeaders')=='true')) {	//parse and store vCard file
 
 	// This view stores contacts: same CSRF rule as the dosql handlers.
 	$AppUI->verifyCsrfToken();
@@ -46,7 +46,10 @@ if (isset($_FILES['vcf']) && isset($_GET['suppressHeaders']) && ($_GET['suppress
 				$q->addWhere('company_name = ' . $q->quote($v('ORG', 0, 0)));
 				$contactValues["contact_company"] = (int)$q->loadResult();
 			}
-			$contactValues["contact_type"] = $v('N', 0, 2);
+			// The contact type travels as the card's first category (older exports put it
+			// in the middle-name slot of N, so it is not read from there). A middle name has no
+			// contact field and is not imported.
+			$contactValues["contact_type"] = $v('CATEGORIES', 0, 0);
 			$contactValues["contact_email"] = $v('EMAIL', 0, 0);
 			$contactValues["contact_email2"] = $v('EMAIL', 1, 0);
 			$contactValues["contact_phone"] = $v('TEL', 0, 0);
@@ -88,7 +91,7 @@ if (isset($_FILES['vcf']) && isset($_GET['suppressHeaders']) && ($_GET['suppress
 		$AppUI->redirect();
 	}
 }
-else if (isset($_GET['dialog']) && ($_GET['dialog']=='0')) {	//file upload formular
+else if ((dPgetParam($_GET, 'dialog') !== null) && (dPgetParam($_GET, 'dialog')=='0')) {	//file upload formular
 
 $titleBlock = new CTitleBlock('Import vCard', 'monkeychat-48.png', $m, "$m.$a");
 $titleBlock->addCrumb("?m=contacts", "contacts list");

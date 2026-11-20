@@ -37,7 +37,7 @@ The full text of the GPL is in the COPYING file.
 // DATABASE ACCESS INFORMATION [DEFAULT example]
 // Modify these values to suit your local settings
 
-$dPconfig['dbtype'] = 'mysql';      // ONLY MySQL is supported at present
+$dPconfig['dbtype'] = 'mysqli';     // MySQL or MariaDB: the only database supported
 $dPconfig['dbhost'] = 'localhost';
 $dPconfig['dbname'] = 'dotproject';  // Change to match your DotProject Database Name
 $dPconfig['dbprefix'] = 'dotp_';		// Change to match your DotProject Database Table-Name Prefix
@@ -50,6 +50,11 @@ $dPconfig['dbpersist'] = false;
 // Content-Security-Policy: set to true to only report violations instead of
 // blocking them, while a page that breaks under the policy is fixed (docs/csp.md).
 // $dPconfig['csp_report_only'] = true;
+
+// Help shows the documentation that comes with dotPulse; each page also links to the same
+// page on the documentation website. Point those links at another copy (your own build of
+// website/):
+// $dPconfig['help_url'] = 'https://docs.example.com/dotpulse/';
 
 /***************** Configuration for DEVELOPERS use only! ******/
 // Root directory is now automatically set to avoid

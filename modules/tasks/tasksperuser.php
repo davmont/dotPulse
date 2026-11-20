@@ -5,8 +5,8 @@ if (!defined('DP_BASE_DIR')) {
 
 $AppUI->savePlace();
 
-if (isset($_POST['company_id'])) {
-	$AppUI->setState('CompanyIdxFilter', $_POST['company_id']);
+if (dPgetParam($_POST, 'company_id') !== null) {
+	$AppUI->setState('CompanyIdxFilter', dPgetParam($_POST, 'company_id'));
 }
 $company_id = $AppUI->getState('CompanyIdxFilter') ? $AppUI->getState('CompanyIdxFilter') : 'all';
 

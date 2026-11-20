@@ -19,6 +19,8 @@ if (!defined('DP_BASE_DIR')) {
 
 /** The dark theme's surface (style/dotpulse-dark/main.css --dp-surface): what white becomes. */
 define('DP_DARK_SURFACE', '#1A202B');
+/** The dark theme's text colour (--dp-ink): what text without a colour of its own gets. */
+define('DP_DARK_INK', '#E9EDF3');
 
 /** #rgb, #rrggbb or a common colour name as array(r, g, b) of 0..255, or null. */
 function dPdarkParseColor($value)
@@ -178,6 +180,20 @@ function dPdarkBackgroundKept($css_or_value)
 	return dPdarkParseColor($value) !== null && dPdarkColor($value, 'bg') === null;
 }
 
+/**
+ * Whether a kept background needs dark text: the theme's light text reads under 4.5:1 on
+ * it and dark text reads better (a light-ish project colour such as #17BECF).
+ */
+function dPdarkNeedsDarkInk($background)
+{
+	$bg = dPdarkParseColor($background);
+	if ($bg === null) {
+		return false;
+	}
+	$light = dPdarkContrast(dPdarkParseColor(DP_DARK_INK), $bg);
+	return $light < 4.5 && dPdarkContrast(dPdarkParseColor(DP_DARK_SURFACE), $bg) > $light;
+}
+
 /** Whether the response headers sent so far are those of a page (no type yet counts as one). */
 function dPdarkIsHtmlResponse($headers)
 {
@@ -212,11 +228,20 @@ function dPdarkColorFilter($html)
 		}
 		// The tag's own background: does it stay (so its text colour stays too)?
 		$bg_kept = false;
+		$bg_value = null;
 		if (preg_match('/\sbgcolor\s*=\s*["\']?([#a-z0-9]+)/i', $tag, $b)) {
 			$bg_kept = dPdarkBackgroundKept($b[1]);
+			$bg_value = $b[1];
 		}
 		if (preg_match('/\sstyle\s*=\s*(["\'])(.*?)\1/is', $tag, $st) && preg_match('/background/i', $st[2])) {
 			$bg_kept = dPdarkBackgroundKept($st[2]);
+			$bg_value = preg_match('/background(?:-color)?\s*:\s*[^;]*?(#[0-9a-f]{3,6}\b|\b[a-z]+\b)/i', $st[2], $c) ? $c[1] : null;
+		}
+		// A kept background without a text colour of its own would show the theme's light
+		// text: the stylesheet gives [data-dp-ink=dark] dark text where that reads better.
+		if ($bg_kept && $bg_value !== null && stripos($tag, 'data-dp-ink') === false
+			&& !preg_match('/\scolor\s*=|(?:^|[;"\'\s])color\s*:/i', $tag) && dPdarkNeedsDarkInk($bg_value)) {
+			$tag = preg_replace('#\s*(/?)>$#', ' data-dp-ink="dark"$1>', $tag, 1);
 		}
 		$tag = preg_replace_callback('/(\s(bgcolor|color|bordercolor)\s*=\s*)(["\']?)([#a-z0-9]+)\3/i', function ($a) use ($bg_kept) {
 			$attr = strtolower($a[2]);

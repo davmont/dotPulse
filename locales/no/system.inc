@@ -385,6 +385,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Innstillinger, personer og moduler for denne installasjonen.", // MT
 "Attention"=>"Obs", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Installasjonskatalogen ligger fortsatt på serveren: fjern den eller blokker tilgangen til den.", // MT
+"The admin account still has the password set by the installer: change it."=>"Kontoen admin har fortsatt passordet som installasjonsprogrammet satte: endre det.", // MT
 "Active modules"=>"Aktive moduler", // MT
 "upgrade to install"=>"oppgradering å installere", // MT
 "upgrades to install"=>"oppgraderinger å installere", // MT
@@ -508,7 +509,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Bruker de lagrede innstillingene: lagre endringene først.", // MT
 "Email me when I am assigned to a task"=>"Send meg e-post når jeg blir tildelt en oppgave", // MT
 "Reset"=>"Tilbakestill", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Oppføringer beholdes i %d dager (audit_log_days i Systemkonfigurasjon).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Oppføringer beholdes i %d dager (audit_log_days i Systemkonfigurasjon).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Oppføringer beholdes for alltid (audit_log_days er 0).", // MT
 "IP address"=>"IP-adresse", // MT
 "No entries."=>"Ingen oppføringer.", // MT

@@ -26,6 +26,11 @@ class CMonthCalendar
 	var $next_month;
 	var $prev_year;
 	var $next_year;
+	/** @var array events by day, highlighted days, css classes; @var bool title shown */
+	var $events = array();
+	var $highlightedDays = array();
+	var $classes = array();
+	var $showTitle = true;
 	/**#@-*/
 
 	/** @var string The css style name of the Title */
@@ -64,6 +69,8 @@ class CMonthCalendar
 	/** @var boolean Show highlighting in the calendar boxes */
 	var $showHighlightedDays;
 
+	/** @var array|null The holidays of the month shown: 'YYYYMMDD' => name (dPcalendarHolidays()) */
+	var $holidays = null;
 	/** @var array */
 	var $birthdays = null;
 	/** @var int */
@@ -102,13 +109,14 @@ class CMonthCalendar
 	 *
 	 * { Description }
 	 *
-	 * @param [type] $date
+	 * @param mixed $date
 	 */
 	function setDate($date = null)
 	{
 		global $AppUI, $locale_char_set;
 
 		$this->this_month = new CDate($date);
+		$this->holidays = null; // read again for the new month
 
 		$d = $this->this_month->getDay();
 		$m = $this->this_month->getMonth();
@@ -227,7 +235,7 @@ class CMonthCalendar
 	{
 		global $AppUI, $m, $a, $locale_char_set;
 		$url = ('index.php?m=' . $m . (($a) ? ('&amp;a=' . $a) : '')
-			. (isset($_GET['dialog']) ? '&amp;dialog=1' : ''));
+			. ((dPgetParam($_GET, 'dialog') !== null) ? '&amp;dialog=1' : ''));
 
 		$s = ("\n" . '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="'
 			. $AppUI->___($this->styleTitle) . '">');
@@ -336,6 +344,11 @@ class CMonthCalendar
 			$q->clear();
 		}
 
+		if ($this->holidays === null) {
+			$this->holidays = dPcalendarHolidays(sprintf('%04d-%02d-01', $this_year, $this_month),
+				sprintf('%04d-%02d-%02d', $this_year, $this_month, (int)date('t', mktime(0, 0, 0, $this_month, 1, $this_year))));
+		}
+
 		$html = '';
 		foreach ($cal as $week) {
 			$html .= "\n<tr>";
@@ -365,7 +378,11 @@ class CMonthCalendar
 				}
 				$day = mb_substr($day, 0, 8);
 				$this_day = new CDate($day);
-				$html .= "\n\t" . '<td class="' . $class . '"';
+				$holiday = ($class != 'empty' && isset($this->holidays[$day]));
+				$html .= "\n\t" . '<td class="' . $class . ($holiday ? ' holiday' : '') . '"';
+				if ($holiday && !$this->showWeek) {
+					$html .= ' title="' . dPhtml($this->holidays[$day]) . '"';
+				}
 				if ($this->showHighlightedDays && isset($this->highlightedDays[$day])) {
 					$html .= ' style="border: 1px solid ' . $this->highlightedDays[$day] . '"';
 				}
@@ -378,7 +395,10 @@ class CMonthCalendar
 					}
 					$html .= $d . (($this->dayFunc) ? '</a>' : '');
 
+					// The names in the full calendar (with the week column), as birthdays;
+					// the small calendars only shade the day and name it on hover.
 					if ($this->showWeek) {
+						$html .= $this->_drawHoliday($day);
 						$html .= $this->_drawBirthdays($day);
 					}
 
@@ -444,6 +464,19 @@ class CMonthCalendar
 		return $s;
 	}
 
+	/** The holiday on a day ('YYYYMMDD') of the month shown, as a label; '' for a working day. */
+	public function _drawHoliday($day)
+	{
+		$day = mb_substr($day, 0, 8);
+		if ($this->holidays === null) {
+			$this->holidays = array();
+		}
+		if (!isset($this->holidays[$day])) {
+			return '';
+		}
+		return '<div class="holiday">' . dPhtml($this->holidays[$day]) . '</div>';
+	}
+
 	public function _drawBirthdays($day)
 	{
 		global $AppUI;
@@ -483,7 +516,7 @@ class CMonthCalendar
 		if ($rows) {
 			$html .= '<div class="event">';
 			foreach ($rows as $row) {
-				$years = $y - substr($row['contact_birthday'], 0, 4);
+				$years = $y - (int)substr($row['contact_birthday'], 0, 4);
 				$html .= dPshowImage(dPfindImage('birthday.png', 'calendar'), 16, 16, '');
 				$html .= ('<a href="index.php?m=contacts&a=view&contact_id=' . $row['contact_id']
 					. '">' . $AppUI->___($row["contact_first_name"] . ' '
@@ -561,7 +594,7 @@ class CEvent extends CDpObject
 			$q->setDelete('user_events');
 			$q->addWhere('event_id = ' . (int)$this->event_id);
 			$deleted = ((!$q->exec()) ? $AppUI->_('Could not delete Event-User relationship') . '. ' . db_error() : null);
-			$q->clear;
+			$q->clear();
 		}
 
 		return $deleted;
@@ -569,13 +602,13 @@ class CEvent extends CDpObject
 
 	/**
 	 * Calculating if an recurrent date is in the given period
-	 * @param Date Start date of the period
-	 * @param Date End date of the period
-	 * @param Date Start date of the Date Object
-	 * @param Date End date of the Date Object
-	 * @param integer Type of Recurrence
-	 * @param integer Times of Recurrence
-	 * @param integer Time of Recurrence
+	 * @param CDate $start_date Start date of the period
+	 * @param CDate $end_date End date of the period
+	 * @param CDate $event_start_date Start date of the Date Object
+	 * @param CDate $event_end_date End date of the Date Object
+	 * @param integer $event_recurs Type of Recurrence
+	 * @param integer $event_times_recuring Times of Recurrence
+	 * @param integer $j Time of Recurrence
 	 * @return array Calculated Start and End Dates for the recurrent Event for the given Period
 	 */
 	static function getRecurrentEventforPeriod(
@@ -648,8 +681,8 @@ class CEvent extends CDpObject
 
 	/**
 	 * Utility function to return an array of events with a period
-	 * @param Date Start date of the period
-	 * @param Date End date of the period
+	 * @param CDate $start_date Start date of the period
+	 * @param CDate $end_date End date of the period
 	 * @return array A list of events
 	 */
 	static function getEventsForPeriod(
@@ -1008,6 +1041,30 @@ class CEvent extends CDpObject
 }
 
 $event_filter_list = array('my' => 'My Events', 'own' => 'Events I Created', 'all' => 'All Events');
+
+/**
+ * The holidays of the current user's workplace (their holiday calendar) from one day to
+ * another ('YYYY-MM-DD'): 'YYYYMMDD' => name ("Holiday" for a day the calendar gives no
+ * name). None when the holiday module is off.
+ */
+function dPcalendarHolidays($from, $to)
+{
+	global $AppUI;
+	static $cache = array();
+	if (!$AppUI->isActiveModule('holiday')) {
+		return array();
+	}
+	$key = $from . '/' . $to;
+	if (!isset($cache[$key])) {
+		require_once DP_BASE_DIR . '/modules/holiday/holiday_func.php';
+		$cache[$key] = array();
+		$days = holidayDays(CDate::holidayCalendarForUser($AppUI->user_id), $from, $to);
+		foreach ($days as $date => $name) {
+			$cache[$key][str_replace('-', '', $date)] = ($name !== '') ? $name : $AppUI->_('Holiday');
+		}
+	}
+	return $cache[$key];
+}
 
 /** Birthdays: the contacts the contacts list would show the current user. */
 function dPcalendarVisibleContacts()

@@ -110,3 +110,4 @@
 "next day"=>"nākamā diena", // MT
 "previous week"=>"iepriekšējā nedēļa", // MT
 "next week"=>"nākamā nedēļa", // MT
+"Holiday"=>"Svētku diena", // MT

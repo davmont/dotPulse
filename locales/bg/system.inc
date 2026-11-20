@@ -423,6 +423,7 @@
 "Settings, people and modules of this installation."=>"Настройки, хора и модули на тази инсталация.", // MT
 "Attention"=>"Внимание", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Директорията install все още е на сървъра: премахнете я или забранете достъпа до нея.", // MT
+"The admin account still has the password set by the installer: change it."=>"Акаунтът admin все още е с паролата, зададена от инсталатора: сменете я.", // MT
 "Active modules"=>"Активни модули", // MT
 "upgrade to install"=>"надграждане за инсталиране", // MT
 "upgrades to install"=>"надграждания за инсталиране", // MT
@@ -546,7 +547,7 @@
 "Uses the saved settings: save your changes first."=>"Използва запазените настройки: първо запишете промените си.", // MT
 "Email me when I am assigned to a task"=>"Изпращай ми имейл, когато ми бъде възложена задача", // MT
 "Reset"=>"Нулирай", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Записите се пазят %d дни (audit_log_days в системната конфигурация).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Записите се пазят %d дни (audit_log_days в системната конфигурация).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Записите се пазят завинаги (audit_log_days е 0).", // MT
 "IP address"=>"IP адрес", // MT
 "No entries."=>"Няма записи.", // MT

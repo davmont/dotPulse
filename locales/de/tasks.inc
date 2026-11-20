@@ -370,3 +370,9 @@
 "Task Due"=>"Aufgabe fällig", // MT
 "TODAY"=>"HEUTE", // MT
 "TOMORROW"=>"MORGEN", // MT
+"To Do Options"=>"Optionen der Aufgabenliste", // MT
+"Task not found."=>"Aufgabe nicht gefunden.", // MT
+"You may not edit this task."=>"Sie dürfen diese Aufgabe nicht bearbeiten.", // MT
+"The dates and progress of a task group come from its tasks."=>"Termine und Fortschritt einer Aufgabengruppe ergeben sich aus ihren Aufgaben.", // MT
+"Invalid dates."=>"Ungültige Daten.", // MT
+"Nothing to save."=>"Nichts zu speichern.", // MT

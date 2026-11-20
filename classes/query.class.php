@@ -867,13 +867,13 @@ class DBQuery
 
 		include_once DP_BASE_DIR . '/lib/adodb/adodb-xmlschema.inc.php';
 		$schema = new adoSchema($db);
-		$schema->setUpgradeMode($mode);
+		$schema->SetUpgradeMethod($mode);
 		if (isset($this->_table_prefix) && $this->_table_prefix) {
 			$schema->setPrefix($this->_table_prefix, false);
 		}
 		$schema->ContinueOnError(true);
-		if (($sql = $scheme->ParseSchemaString($xml)) == false) {
-			$AppUI->setMsg(array('Error in XML Schema', 'Error', $db->ErrorMsg()), UI_MSG_ERR);
+		if (($sql = $schema->ParseSchemaString($xml)) == false) {
+			$AppUI->setMsg(array('Error in XML Schema', 'Error', $db->ErrorMsg()), UI_MSG_ERROR);
 			return false;
 		}
 
@@ -902,7 +902,7 @@ class DBQuery
 	/** {{{2 function make_where_clause
 	 * Create a where clause based upon supplied field.
 	 *
-	 * @param	mixed	$clause	Either string or array of subclauses.
+	 * @param	mixed	$where_clause	Either string or array of subclauses.
 	 * @return	string
 	 */
 	function make_where_clause($where_clause)
@@ -926,7 +926,7 @@ class DBQuery
 	/** {{{2 function make_order_clause
 	 * Create an order by clause based upon supplied field.
 	 *
-	 * @param	mixed	$clause	Either string or array of subclauses.
+	 * @param	mixed	$order_clause	Either string or array of subclauses.
 	 * @return	string
 	 */
 	function make_order_clause($order_clause)

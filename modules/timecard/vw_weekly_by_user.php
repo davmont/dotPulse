@@ -203,7 +203,7 @@ if (!defined('DP_BASE_DIR')) {
 		   $hours = 0;
 		 }
 ?>
-	<td align="right"<?php echo $show_possible_hours_worked&&$hours>timecardWeekHours($id, $week_starts[$i], $min_hours_day)?"bgcolor=\"#FFAEB8\"":""?>><a href="?m=timecard&user_id=<?php echo $id?>&tab=0&start_date=<?php echo $start_data_linkable[$i]?>"><?php echo number_format($hours,1)?></a></td>
+	<td align="right"<?php echo $show_possible_hours_worked&&$hours>timecardWeekHours($id, $week_starts[$i], $min_hours_day)?" bgcolor=\"#FFAEB8\"":""?>><a href="?m=timecard&user_id=<?php echo $id?>&tab=0&start_date=<?php echo $start_data_linkable[$i]?>"><?php echo number_format($hours,1)?></a></td>
 <?php
 	}
 ?>

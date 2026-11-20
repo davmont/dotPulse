@@ -7,7 +7,7 @@ CREATE TABLE `domains` (
   `domain_status` varchar(150) NOT NULL,
   `domain_notes` text NOT NULL,
   PRIMARY KEY  (`domain_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 CREATE TABLE `hosting` (
   `hosting_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -17,4 +17,4 @@ CREATE TABLE `hosting` (
   `hosting_status` varchar(150) NOT NULL,
   `hosting_notes` text NOT NULL,
   PRIMARY KEY  (`hosting_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;

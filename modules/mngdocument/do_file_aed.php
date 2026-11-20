@@ -53,7 +53,7 @@ if ($accion == 'deldirectory' || $accion == 'deldocument') {
 	}
 }
 
-$obj = new CFile("SGD","SGD_id");
+$obj = new CMngDocumentFile("SGD","SGD_id");
 
 $log = new CFileLog ("SGD_Logs","SGD_Log_id");
 
@@ -138,7 +138,7 @@ function BorrarDirectorio($actual,$log)
 {
  global $AppUI;
 
- $obj = new CFile();
+ $obj = new CMngDocumentFile();
 
  $sql="select SGD_id,SGD_type,SGD_name from " . dPgetConfig('dbprefix', '') . "SGD where SGD_parent=$actual";
  $resultado=db_exec($sql);

@@ -101,3 +101,4 @@
 "back to root folder"=>"tillbaka till rotmappen", // MT
 "back to parent folder"=>"tillbaka till överordnad mapp", // MT
 "edit folder"=>"redigera mapp", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"En fil som laddas upp här ersätter den nuvarande, som inte sparas. För att behålla tidigare versioner checkar du ut filen från fillistan och laddar upp den nya versionen när du checkar in den.", // MT

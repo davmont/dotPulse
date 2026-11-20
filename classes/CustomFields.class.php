@@ -138,7 +138,7 @@ class CustomField
 
 	function value()
 	{
-		return charValue();
+		return $this->charValue();
 	}
 
 	function setValueId($v)
@@ -460,7 +460,7 @@ class CustomFieldWeblink extends CustomField
 
 	function getHTML($mode)
 	{
-		$html .= '<td nowrap="nowrap">';
+		$html = '<td nowrap="nowrap">';
 		switch ($mode) {
 			case 'edit':
 				$html .= ($this->fieldDescriptionHTML() . ': </td><td><input type="text" name="'
@@ -575,8 +575,8 @@ class CustomFieldFilelink extends CustomField
 
 		// if the cf lives in the projects module
 		// affiliate the file to the suitable project
-		if ($m == 'projects' && !empty($_POST['project_id'])) {
-			$obj->file_project = (int)$_POST['project_id'];
+		if ($m == 'projects' && (bool)dPgetParam($_POST, 'project_id')) {
+			$obj->file_project = dPgetIntParam($_POST, 'project_id');
 		}
 		// todo: implement task affiliation here, too
 		if ($m == 'tasks' && $object_id) {
@@ -617,7 +617,7 @@ class CustomFieldFilelink extends CustomField
 
 		// Delete the existing (old) file in case of file replacement 
 		// (through addedit not through c/o-versions)
-		if (($_POST[$this->field_name . '_id']) && ($upload['size'] > 0) && $file_uploaded) {
+		if ((dPgetParam($_POST, $this->field_name . '_id')) && ($upload['size'] > 0) && $file_uploaded) {
 			$oldObj->deleteFile();
 		}
 

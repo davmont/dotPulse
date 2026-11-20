@@ -6,3 +6,4 @@
 "demo1"=>"Estilo de demostração",
 "dp-grey-theme"=>"Estilo Grey Slimline", // MT
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse escuro", // MT

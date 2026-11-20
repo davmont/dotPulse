@@ -60,7 +60,7 @@
 "No replies"=>"无回复",
 "Normal"=>"普通", // MT
 "open for posting"=>"张贴权限开放",
-"Owner"=>"论坛坛主",
+"Owner"=>"拥有者",
 "Post Reply"=>"张贴回复",
 "read-only"=>"只读",
 "Related Project"=>"隶属项目",

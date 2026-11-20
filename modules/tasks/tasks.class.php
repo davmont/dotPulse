@@ -47,6 +47,8 @@ $tracking_dynamics = array(
  */
 class CTask extends CDpObject
 {
+	/** @var string what the last store() or delete() did, for notifications (not a column) */
+	var $_action = NULL;
 	/** @var int */
 	var $task_id = NULL;
 	/** @var string */
@@ -277,7 +279,7 @@ class CTask extends CDpObject
 	 * overload the load function
 	 * We need to update dynamic tasks of type '1' on each load process!
 	 * @param int $oid optional argument, if not specifed then the value of current key is used
-	 * @return any result from the database operation
+	 * @return mixed any result from the database operation
 	 */
 
 	function load($oid = null, $strip = false, $skipUpdate = false)
@@ -527,7 +529,7 @@ class CTask extends CDpObject
 			$new_child_ids = array();
 			foreach ($children as $child) {
 				$tempTask->peek($child);
-				$tempTask->htmlDecode($child);
+				$tempTask->htmlDecode();
 				$newChild = $tempTask->deepCopy($destProject_id, $newObj->task_id);
 				$newChild->store();
 
@@ -579,7 +581,7 @@ class CTask extends CDpObject
 			foreach ($children as $child) {
 				$tempChild = new CTask();
 				$tempChild->peek($child);
-				$tempChild->htmlDecode($child);
+				$tempChild->htmlDecode();
 				$tempChild->deepMove($destProject_id, $this->task_id);
 				$tempChild->store();
 			}
@@ -922,7 +924,7 @@ class CTask extends CDpObject
 	 *		  Retrieve the tasks dependencies
 	 *
 	 *		  @author		 handco		   <handco@users.sourceforge.net>
-	 *		  @param		integer		   ID of the task we want dependencies
+	 *		  @param		integer $taskId ID of the task we want dependencies
 	 *		  @return		 string		   comma delimited list of tasks id's
 	 **/
 	function staticGetDependencies($taskId)
@@ -1343,9 +1345,9 @@ class CTask extends CDpObject
 	}
 
 	/**
-	 * @param Date Start date of the period
-	 * @param Date End date of the period
-	 * @param integer The target company
+	 * @param CDate $start_date Start date of the period
+	 * @param CDate $end_date End date of the period
+	 * @param integer $company_id The target company
 	 */
 	static function getTasksForPeriod(
 		$start_date,
@@ -1541,9 +1543,9 @@ class CTask extends CDpObject
 
 	/**
 	 *		 retrieve tasks are dependent of another.
-	 *		 @param	 integer		 ID of the master task
-	 *		 @param	 boolean		 true if is a dep call (recurse call)
-	 *		 @param	 boolean		 false for no recursion (needed for calc_end_date)
+	 *		 @param	 int|false $taskId ID of the master task
+	 *		 @param	 boolean $isDep true if is a dep call (recurse call)
+	 *		 @param	 boolean $recurse false for no recursion (needed for calc_end_date)
 	 **/
 	function dependentTasks($taskId = false, $isDep = false, $recurse = true)
 	{
@@ -1854,7 +1856,7 @@ class CTask extends CDpObject
 	}
 
 	//using user allocation percentage ($perc_assign)
-	// @return returns the Names of the over-assigned users (if any), otherwise false
+	// @return mixed returns the Names of the over-assigned users (if any), otherwise false
 	function updateAssigned($cslist, $perc_assign, $del = true, $rmUsers = false)
 	{
 		$q = new DBQuery;
@@ -2050,8 +2052,8 @@ class CTask extends CDpObject
 
 	/**
 	 *	Calculate the extent of utilization of user assignments
-	 *	@param string hash	 a hash for the returned hashList
-	 *	@param array users	 an array of user_ids calculating their assignment capacity
+	 *	@param string $hash hash	 a hash for the returned hashList
+	 *	@param array $users users	 an array of user_ids calculating their assignment capacity
 	 *	@return array		 returns hashList of extent of utilization for assignment of the users
 	 */
 	function getAllocation($hash = NULL, $users = NULL)
@@ -2710,7 +2712,7 @@ function openClosedTaskRecursive($task_id)
 		$open_task->peek($task_id);
 		$children_to_open = $open_task->getChildren();
 		foreach ($children_to_open as $to_open) {
-			openClosedTaskRecursive($to);
+			openClosedTaskRecursive($to_open);
 		}
 	}
 }

@@ -17,8 +17,7 @@ class CTitleBlock extends CTitleBlock_core {
 		}
 		if ($this->showhelp) {
 			$s .= '<td nowrap="nowrap" width="20" align="right">';
-			$s .= ("\n\t" . '<a href="#' . $this->helpref . '"'
-			       . dPaction('window.open', array('?m=help&dialog=1&hid=' . $this->helpref, 'contexthelp', 'width=400,height=400,left=50,top=50,scrollbars=yes,resizable=yes'))
+			$s .= ("\n\t" . '<a href="' . dPhtml(dPhelpUrl($this->helpref ?: ($this->module . '.' . $GLOBALS['a']))) . '" target="_blank" rel="noopener"'
 			       . ' title="' . $AppUI->_('Help') . '">');
 			$s .= "\n\t\t" . dPshowImage('./images/icons/stock_help-16.png', '16', '16', 
 			                             $AppUI->_('Help'));

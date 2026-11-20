@@ -4,43 +4,20 @@ if (!defined('DP_BASE_DIR')) {
 }
 
 /*
- * There is an issue with international UTF characters, when stored in the database an accented 
- * letter actually takes up two letters per say in the field length, this is a problem with 
- * costcodes sincE they are limited in size so saving a costcode as REDACI�N would actually 
- * save REDACI� since the accent takes two characters, so lets unaccent them, other languages 
- * should add to the replacements array too...
+ * The cost code column is VARCHAR(8). It used to be stored in a single-byte
+ * charset, where an accented letter typed as UTF-8 took two of the 8 places,
+ * so this function folded accents (REDACIÓN -> REDACION). The table of
+ * accented letters was lost in a charset conversion and folded nothing, and
+ * utf8_decode()/utf8_encode() (deprecated in PHP 8.2) only turned every letter
+ * outside Latin-1 into '?'. The table is utf8mb4 now: VARCHAR(8) counts
+ * characters, so accents fit as they are. What is left is to keep the code
+ * valid UTF-8 and within the column.
 */
 function cleanText($text) {
-	//This text file is not utf, its iso so we have to decode/encode
-	$text = utf8_decode($text);
-	$trade = array('�'=>'a','�'=>'a','�'=>'a',
-                 '�'=>'a','�'=>'a',
-                 '�'=>'A','�'=>'A','�'=>'A',
-                 '�'=>'A','�'=>'A',
-                 '�'=>'e','�'=>'e',
-                 '�'=>'e','�'=>'e',
-                 '�'=>'E','�'=>'E',
-                 '�'=>'E','�'=>'E',
-                 '�'=>'i','�'=>'i',
-                 '�'=>'i','�'=>'i',
-                 '�'=>'I','�'=>'I',
-                 '�'=>'I','�'=>'I',
-                 '�'=>'o','�'=>'o','�'=>'o',
-                 '�'=>'o','�'=>'o',
-                 '�'=>'O','�'=>'O','�'=>'O',
-                 '�'=>'O','�'=>'O',
-                 '�'=>'u','�'=>'u',
-                 '�'=>'u','�'=>'u',
-                 '�'=>'U','�'=>'U',
-                 '�'=>'U','�'=>'U',
-                 '�'=>'N','�'=>'n');
-    $text = strtr($text,$trade);
-	$text = utf8_encode($text);
-
-	return $text;
+	return mb_substr(mb_scrub((string)$text, 'UTF-8'), 0, 8, 'UTF-8');
 }
 
-$notify_owner = ((isset($_POST['task_log_notify_owner'])) ? $_POST['task_log_notify_owner'] : 0);
+$notify_owner = ((dPgetParam($_POST, 'task_log_notify_owner') !== null) ? dPgetParam($_POST, 'task_log_notify_owner') : 0);
 
 $del = (int)dPgetParam($_POST, 'del', 0);
 
@@ -99,7 +76,7 @@ if ($del) {
 		foreach ($post_log_store as $post_log_function) {
 			$post_log_function($obj);
 		}
-		$AppUI->setMsg(@$_POST['task_log_id'] ? 'updated' : 'inserted', UI_MSG_OK, true);
+		$AppUI->setMsg(dPgetParam($_POST, 'task_log_id') ? 'updated' : 'inserted', UI_MSG_OK, true);
 	}
 }
 $task = new CTask();
@@ -110,7 +87,7 @@ $task_end_date = new CDate($task->task_end_date);
 $task->task_percent_complete = dPgetCleanParam($_POST, 'task_percent_complete', null);
 
 if (dPgetCleanParam($_POST, 'task_end_date', '') != '') {
-	$new_date = new CDate($_POST['task_end_date']);
+	$new_date = new CDate(dPgetParam($_POST, 'task_end_date'));
 	$new_date->setTime($task_end_date->hour, $task_end_date->minute, $task_end_date->second);
 	$task->task_end_date = $new_date->format(FMT_DATETIME_MYSQL);
 }

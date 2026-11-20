@@ -4,8 +4,8 @@ if (!defined('DP_BASE_DIR')) {
 }
 
 // Add / Edit forum
-$message_id = isset($_GET['message_id']) ? (int)$_GET['message_id'] : 0;
-$message_parent = isset($_GET['message_parent']) ? (int)$_GET['message_parent'] : -1;
+$message_id = dPgetIntParam($_GET, 'message_id');
+$message_parent = (dPgetParam($_GET, 'message_parent') !== null) ? dPgetIntParam($_GET, 'message_parent') : -1;
 $forum_id = (int) dPgetParam($_REQUEST, 'forum_id', 0);
 
 $canEdit = getPermission('forums', 'edit', $forum_id);
@@ -181,8 +181,8 @@ if ($message_parent > -1) {
 					if (
 						$canEdit && ($forum_info['forum_owner'] == $AppUI->user_id
 							|| $forum_info['forum_moderated'] == $AppUI->user_id
-							|| (getPermission('projects', 'edit', $forum_info['project_id'])
-								&& !($forum_info['project_id']))
+							|| ($forum_info['project_id']
+								&& getPermission('projects', 'edit', $forum_info['project_id']))
 							|| (is_array($message_info) && $message_info['message_author'] == $AppUI->user_id)
 							|| !($message_id))
 					) {

@@ -238,6 +238,7 @@ class CModule extends CDpObject {
 class CConfig extends CDpObject {
 	var $config_name = NULL;
 	var $config_value = NULL;
+	var $config_id = NULL;
 	
 	function __construct() {
 		parent::__construct('config', 'config_id');
@@ -336,15 +337,17 @@ class bcode extends CDpObject {
 		if ($found_id && $found_id != $this->_billingcode_id) {
 			return 'Billing Code::code already exists';
 		} else if ($this->_billingcode_id) {
+			$q->clear();
 			$q->addTable('billingcode');
 			$q->addUpdate('billingcode_desc', $this->billingcode_desc);
 			$q->addUpdate('billingcode_name', $this->billingcode_name);
 			$q->addUpdate('billingcode_value', $this->billingcode_value);
 			$q->addUpdate('billingcode_status', $this->billingcode_status);
 			$q->addUpdate('company_id', $this->company_id);
-			$q->addWhere('billingcode_id = ' . (int)$this->_billingcode_id);	
-			$q->exec();
+			$q->addWhere('billingcode_id = ' . (int)$this->_billingcode_id);
+			$ok = $q->exec();
 			$q->clear();
+			return $ok ? NULL : 'Billing Code::store failed <br />' . db_error();
 		} else if (!($ret = db_insertObject ('billingcode', $this, 'billingcode_id'))) {
 			return 'Billing Code::store failed <br />' . db_error();
 		} else {

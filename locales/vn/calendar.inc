@@ -110,3 +110,4 @@
 "next day"=>"ngày sau", // MT
 "previous week"=>"tuần trước", // MT
 "next week"=>"tuần sau", // MT
+"Holiday"=>"Ngày lễ", // MT

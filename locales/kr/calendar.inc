@@ -122,3 +122,4 @@
 "next day"=>"다음 날", // MT
 "previous week"=>"이전 주", // MT
 "next week"=>"다음 주", // MT
+"Holiday"=>"공휴일", // MT

@@ -107,10 +107,11 @@ function show_history($history) {
 
 $q = new DBQuery;
 $filter = '';
-$page = ((isset($_REQUEST['pg'])) ? (int)$_REQUEST['pg'] : 1);
-$limit = ((isset($_REQUEST['limit'])) ? (int)$_REQUEST['limit'] : 100);
+$page = max(1, dPgetIntParam($_REQUEST, 'pg', 1));
+$limit = max(1, dPgetIntParam($_REQUEST, 'limit', 100));
 $offset = ($page-1) * $limit;
-$in_filter = ((!empty($_REQUEST['filter'])) ? $_REQUEST['filter'] : '');
+$in_filter = dPgetParam($_REQUEST, 'filter', '');
+$in_filter = is_string($in_filter) ? $in_filter : '';
 
 $q->addTable('modules', 'm');
 $q->addQuery('mod_directory, mod_name, permissions_item_table, permissions_item_field, permissions_item_label');
@@ -147,8 +148,8 @@ if ($in_filter) {
 if ($denied_tables) {
 	$filter .= (($filter) ? ' AND ' : '') . "(NOT h.`history_table` IN ('" . $denied_tables . "'))";
 }
-if (!empty($_REQUEST['project_id'])) {
-	$project_id = (int)$_REQUEST['project_id'];
+if (dPgetIntParam($_REQUEST, 'project_id', 0)) {
+	$project_id = dPgetIntParam($_REQUEST, 'project_id', 0);
 	$r = new DBQuery;
 	
 	$r->addTable('tasks');

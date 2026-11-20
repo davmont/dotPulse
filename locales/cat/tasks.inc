@@ -145,7 +145,7 @@
 "low resolution"=>"baixa resolució", // MT
 "Mark as Finished"=>"Marcar com a acabada", // MT
 "mark as finished"=>"marcar com finalitzada",
-"Milestone"=>"Hito",
+"Milestone"=>"Fita",
 "Milestone (completed)"=>"Fita (completada)", // MT
 "Milestone (in progress)"=>"Fita (en curs)", // MT
 "Milestone (overdue)"=>"Fita (endarrerida)", // MT
@@ -366,3 +366,9 @@
 "Task Due"=>"Venciment de la tasca", // MT
 "TODAY"=>"AVUI", // MT
 "TOMORROW"=>"DEMÀ", // MT
+"To Do Options"=>"Opcions de pendents", // MT
+"Task not found."=>"No s'ha trobat la tasca.", // MT
+"You may not edit this task."=>"No podeu editar aquesta tasca.", // MT
+"The dates and progress of a task group come from its tasks."=>"Les dates i el progrés d'un grup de tasques vénen de les seves tasques.", // MT
+"Invalid dates."=>"Dates no vàlides.", // MT
+"Nothing to save."=>"No hi ha res a desar.", // MT

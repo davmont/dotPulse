@@ -7,7 +7,7 @@ require_once($AppUI->getSystemClass('ui'));
 require_once($AppUI->getModuleClass('calendar'));
 
 // callback is written into a <script> block: accept only a JavaScript function name.
-$callback = isset($_GET['callback']) ? preg_replace('/[^A-Za-z0-9_.]/', '', $_GET['callback']) : 0;
+$callback = (dPgetParam($_GET, 'callback') !== null) ? preg_replace('/[^A-Za-z0-9_.]/', '', dPgetParam($_GET, 'callback')) : 0;
 $date = dpGetParam($_GET, 'date', null);
 $prev_date = dpGetParam($_GET, 'uts', null);
 if (!is_null($prev_date)) {

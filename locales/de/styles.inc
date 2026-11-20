@@ -6,3 +6,4 @@
 "demo1"=>"Ein Demo Stil",
 "dp-grey-theme"=>"Grau & Schlank",
 "dotpulse"=>"dotPulse",
+"dotpulse-dark"=>"dotPulse dunkel", // MT

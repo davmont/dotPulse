@@ -101,3 +101,4 @@
 "back to root folder"=>"atpakaļ uz saknes mapi", // MT
 "back to parent folder"=>"atpakaļ uz vecākmapi", // MT
 "edit folder"=>"labot mapi", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Šeit augšupielādēts fails aizstāj pašreizējo, kas netiek saglabāts. Lai saglabātu iepriekšējās versijas, izņemiet failu no failu saraksta un augšupielādējiet jauno versiju, kad to atgriežat.", // MT

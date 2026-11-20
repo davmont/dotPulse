@@ -40,15 +40,15 @@ $q->clear();
 
 $cost_code = dPgetCleanParam($_GET, 'cost_code', '0');
 
-if (isset($_GET['user_id'])) {
-	$AppUI->setState('ProjectsTaskLogsUserFilter', $_GET['user_id']);
+if (dPgetParam($_GET, 'user_id') !== null) {
+	$AppUI->setState('ProjectsTaskLogsUserFilter', dPgetParam($_GET, 'user_id'));
 }
 $user_id = $AppUI->getState('ProjectsTaskLogsUserFilter') ? $AppUI->getState('ProjectsTaskLogsUserFilter') : $AppUI->user_id;
 
-$AppUI->setState('ProjectsTaskLogsHideArchived', (isset($_GET['hide_inactive']) ? true : false));
+$AppUI->setState('ProjectsTaskLogsHideArchived', ((dPgetParam($_GET, 'hide_inactive') !== null) ? true : false));
 $hide_inactive = $AppUI->getState('ProjectsTaskLogsHideArchived');
 
-$AppUI->setState('ProjectsTaskLogsHideComplete', (isset($_GET['hide_complete']) ? true : false));
+$AppUI->setState('ProjectsTaskLogsHideComplete', ((dPgetParam($_GET, 'hide_complete') !== null) ? true : false));
 $hide_complete = $AppUI->getState('ProjectsTaskLogsHideComplete');
 	
 ?>
@@ -131,9 +131,15 @@ if ($cost_code != 0) {
 }
 
 $q->addOrder('task_log_date');
-$q->setLimit(500);
+// At most 500 logs (one more is read to know whether there are others).
+$log_limit = 500;
+$q->setLimit($log_limit + 1);
 $project->setAllowedSQL($AppUI->user_id, $q, 'task_project');
 $logs = $q->loadList(null, 60);
+$more_logs = (count($logs) > $log_limit);
+if ($more_logs) {
+	array_pop($logs);
+}
 
 $s = '';
 $hrs = 0;
@@ -187,6 +193,9 @@ $s .= '<tr bgcolor="white" valign="top">';
 $s .= '<td colspan="3" align="right">' . $AppUI->_('Total Hours') . ' =</td>';
 $s .= '<td align="right">' . sprintf("%.2f", $hrs) . '</td>';
 $s .= '</tr>';
+if ($more_logs) {
+	$s .= '<tr bgcolor="white"><td colspan="8"><em>' . $AppUI->_('projectLogsLimit') . '</em></td></tr>';
+}
 echo $s;
 ?>
 </table>

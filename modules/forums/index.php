@@ -14,9 +14,9 @@ $valid_ordering = array(
 );
 
 // retrieve any state parameters
-if (isset($_GET['orderby']) && in_array($_GET['orderby'], $valid_ordering)) {
+if ((dPgetParam($_GET, 'orderby') !== null) && in_array(dPgetParam($_GET, 'orderby'), $valid_ordering)) {
     $orderdir = $AppUI->getState('ForumIdxOrderDir') ? ($AppUI->getState('ForumIdxOrderDir')== 'asc' ? 'desc' : 'asc') : 'desc';
-	$AppUI->setState('ForumIdxOrderBy', $_GET['orderby']);
+	$AppUI->setState('ForumIdxOrderBy', dPgetParam($_GET, 'orderby'));
     $AppUI->setState('ForumIdxOrderDir', $orderdir);
 }
 $orderby         = $AppUI->getState('ForumIdxOrderBy') ? $AppUI->getState('ForumIdxOrderBy') : 'forum_name';
@@ -119,11 +119,9 @@ foreach ($forums as $row) {
 		$create_date = intval($row['forum_create_date']) ? new CDate($row['forum_create_date']) : null;
 ?>
 <tr>
-	<td colspan="6" style="background-color:#<?php echo $row["project_color_identifier"];?>">
-		<a href="?m=projects&amp;a=view&amp;project_id=<?php echo $row["forum_project"];?>">
-			<font color=<?php echo bestColor($row["project_color_identifier"]);?>>
+	<td colspan="6" style="background-color:#<?php echo dPhtml($row["project_color_identifier"]); ?>; color:<?php echo dPhtml(bestColor($row["project_color_identifier"])); ?>">
+		<a href="?m=projects&amp;a=view&amp;project_id=<?php echo (int)$row["forum_project"]; ?>" style="color:inherit">
 			<strong><?php echo $AppUI->___($row["project_name"]);?></strong>
-			</font>
 		</a>
 	</td>
 </tr>

@@ -110,3 +110,4 @@
 "next day",
 "previous week",
 "next week",
+"Holiday",

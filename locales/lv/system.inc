@@ -385,6 +385,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Šīs instalācijas iestatījumi, cilvēki un moduļi.", // MT
 "Attention"=>"Uzmanību", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"Instalēšanas direktorijs joprojām atrodas serverī: izdzēsiet to vai lieziet piekļuvi tam.", // MT
+"The admin account still has the password set by the installer: change it."=>"Kontam admin joprojām ir instalētāja iestatītā parole: nomainiet to.", // MT
 "Active modules"=>"Aktīvie moduļi", // MT
 "upgrade to install"=>"instalējams jauninājums", // MT
 "upgrades to install"=>"instalējami jauninājumi", // MT
@@ -508,7 +509,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Izmanto saglabātos iestatījumus: vispirms saglabājiet izmaiņas.", // MT
 "Email me when I am assigned to a task"=>"Sūtīt man e-pastu, kad man piešķirts uzdevums", // MT
 "Reset"=>"Atiestatīt", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Ieraksti tiek glabāti %d dienas (audit_log_days sistēmas konfigurācijā).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Ieraksti tiek glabāti %d dienas (audit_log_days sistēmas konfigurācijā).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Ieraksti tiek glabāti mūžīgi (audit_log_days ir 0).", // MT
 "IP address"=>"IP adrese", // MT
 "No entries."=>"Nav ierakstu.", // MT

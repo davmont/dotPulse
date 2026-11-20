@@ -101,3 +101,4 @@
 "back to root folder"=>"kök klasöre dön", // MT
 "back to parent folder"=>"üst klasöre dön", // MT
 "edit folder"=>"klasörü düzenle", // MT
+"A file uploaded here replaces the current one, which is not kept. To keep earlier versions, check the file out from the files list and upload the new version when you check it in."=>"Buraya yüklenen dosya mevcut dosyanın yerini alır ve eskisi saklanmaz. Önceki sürümleri korumak için dosyayı dosya listesinden teslim alın ve geri teslim ederken yeni sürümü yükleyin.", // MT

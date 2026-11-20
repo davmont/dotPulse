@@ -460,3 +460,17 @@ table.tabitem {
 	display: inline-table;
 	vertical-align: bottom;
 }
+
+/* Holidays of the user's workplace (modules/calendar/calendar.class.php) */
+table.mocal td.holiday:not(.today), table.minical td.holiday:not(.today), table.popcal td.holiday:not(.today) {
+	background-color: #f6f1e4;
+}
+div.holiday, span.holiday {
+	font-size: 11px;
+	font-style: italic;
+	color: #5c4a1f;
+	margin: 2px 0;
+}
+span.holiday {
+	margin-left: 8px;
+}

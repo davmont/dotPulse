@@ -12,8 +12,8 @@ work and update task progress. It is served by `api.php` and is **off by default
 
 ## Turning it on
 
-A system administrator ticks **Enable the REST API** (`api_enabled`) in System Admin >
-System Configuration. Turning it off again stops every token at once; the tokens are
+A system administrator ticks **Enable the REST API** (`api_enabled`) in
+**System Admin › Security and sessions**. Turning it off again stops every token at once; the tokens are
 kept and work again when it is turned back on.
 
 ## Tokens

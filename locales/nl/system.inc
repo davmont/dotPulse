@@ -303,7 +303,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "session_max_lifetime_tooltip"=>"De maximale tijd dat een sessie kan bestaan voordat deze wordt verwijderd, ongeacht hoe actief deze is.", // MT
 "session_name_title"=>"Sessie-/cookienaam", // MT
 "session_name_tooltip"=>"Definieer uw eigen cookienaam. Let op: het wijzigen van de sessienaam meldt alle gebruikers direct af! Ze moeten zich opnieuw aanmelden.", // MT
-"Short Date Format"=>"Korte Datum Formaat",
+"Short Date Format"=>"Korte datumnotatie",
 "show_all_task_assignees_title"=>"Alle toegewezenen van taak tonen", // MT
 "show_all_task_assignees_tooltip"=>"Schakel deze optie in als u alle namen van toegewezenen in de takenlijst van het project wilt tonen, of uit als u alleen de naam van de hoofdtoegewezene wilt zien met tussen haakjes het aantal andere toegewezenen.", // MT
 "show_all_tasks_title"=>"Taken van andere gebruikers tonen", // MT
@@ -392,6 +392,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Settings, people and modules of this installation."=>"Instellingen, mensen en modules van deze installatie.", // MT
 "Attention"=>"Let op", // MT
 "The install directory is still on the server: remove it or deny access to it."=>"De installatiemap staat nog op de server: verwijder deze of weiger de toegang ertoe.", // MT
+"The admin account still has the password set by the installer: change it."=>"Het account admin heeft nog het wachtwoord dat het installatieprogramma instelde: wijzig het.", // MT
 "Active modules"=>"Actieve modules", // MT
 "upgrade to install"=>"update te installeren", // MT
 "upgrades to install"=>"updates te installeren", // MT
@@ -515,7 +516,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Uses the saved settings: save your changes first."=>"Gebruikt de opgeslagen instellingen: sla uw wijzigingen eerst op.", // MT
 "Email me when I am assigned to a task"=>"Mail mij wanneer ik aan een taak word toegewezen", // MT
 "Reset"=>"Resetten", // MT
-"Entries are kept %d days (audit_log_days in System Configuration)."=>"Items worden %d dagen bewaard (audit_log_days in Systeemconfiguratie).", // MT
+"Entries are kept %d days (setting in System Admin > Security and sessions)."=>"Items worden %d dagen bewaard (audit_log_days in Systeemconfiguratie).", // MT
 "Entries are kept forever (audit_log_days is 0)."=>"Items worden voor altijd bewaard (audit_log_days is 0).", // MT
 "IP address"=>"IP-adres", // MT
 "No entries."=>"Geen items.", // MT

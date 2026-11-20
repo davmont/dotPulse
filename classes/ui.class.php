@@ -42,6 +42,9 @@ class CAppUI
 {
 	/** @var array generic array for holding the state of anything */
 	var $state = null;
+	/** @var int|null the project and macroproject the pages last worked on */
+	var $project_id = null;
+	var $macroproject_id = null;
 	/** @var string|null the session's CSRF token (getCsrfToken() creates it) */
 	var $_csrf_token = null;
 	/** @var int */
@@ -127,38 +130,41 @@ class CAppUI
 	/**
 	 * Used to load a php class file from the system classes directory
 	 * @param string $name The class root file name (excluding .class.php)
-	 * @return string The path to the include file
+	 * @return string|null The path to the include file, null without a name
 	 */
 	function getSystemClass($name = null)
 	{
 		if ($name) {
 			return DP_BASE_DIR . '/classes/' . $name . '.class.php';
 		}
+		return null;
 	}
 
 	/**
 	 * Used to load a php class file from the lib directory
 	 *
 	 * @param string $name The class root file name (excluding .class.php)
-	 * @return string The path to the include file
+	 * @return string|null The path to the include file, null without a name
 	 */
 	function getLibraryClass($name = null)
 	{
 		if ($name) {
 			return DP_BASE_DIR . '/lib/' . $name . '.php';
 		}
+		return null;
 	}
 
 	/**
 	 * Used to load a php class file from the module directory
 	 * @param string $name The class root file name (excluding .class.php)
-	 * @return string The path to the include file
+	 * @return string|null The path to the include file, null without a name
 	 */
 	function getModuleClass($name = null)
 	{
 		if ($name) {
 			return (DP_BASE_DIR . '/modules/' . $name . '/' . $name . '.class.php');
 		}
+		return null;
 	}
 
 	/**
@@ -205,7 +211,7 @@ class CAppUI
 	 * Utility function to read the 'directories' under 'path'
 	 *
 	 * This function is used to read the modules or locales installed on the file system.
-	 * @param string The path to read.
+	 * @param string $path The path to read.
 	 * @return array A named array of the directories (the key and value are identical).
 	 */
 	function readDirs($path)
@@ -226,8 +232,8 @@ class CAppUI
 
 	/**
 	 * Utility function to read the 'files' under 'path'
-	 * @param string The path to read.
-	 * @param string A regular expression to filter by.
+	 * @param string $path The path to read.
+	 * @param string $filter A regular expression to filter by.
 	 * @return array A named array of the files (the key and value are identical).
 	 */
 	function readFiles($path, $filter = '.')
@@ -250,7 +256,7 @@ class CAppUI
 	 * Utility function to check whether a file name is 'safe'
 	 *
 	 * Prevents from access to relative directories (eg ../../dealyfile.php);
-	 * @param string The file name.
+	 * @param string $file The file name.
 	 * @return array A named array of the files (the key and value are identical).
 	 */
 	function checkFileName($file)
@@ -276,7 +282,7 @@ class CAppUI
 	 * Utility function to make a file name 'safe'
 	 *
 	 * Strips out mallicious insertion of relative directories (eg ../../dealyfile.php);
-	 * @param string The file name.
+	 * @param string $file The file name.
 	 * @return array A named array of the files (the key and value are identical).
 	 */
 	function makeFileNameSafe($file)
@@ -294,7 +300,7 @@ class CAppUI
 	 *
 	 * Looks in the user preferences first. 
 	 * If this value has not been set by the user it uses the system default set in config.php.
-	 * @param string Locale abbreviation corresponding to the sub-directory name in the locales 
+	 * @param string $loc Locale abbreviation corresponding to the sub-directory name in the locales 
 	 * directory (usually the abbreviated language code).
 	 */
 	function setUserLocale($loc = '', $set = true)
@@ -427,8 +433,8 @@ class CAppUI
 	 * <li>If this is not the base lang, then return string with a red star appended to show
 	 * that a translation is required.
 	 * </ul>
-	 * @param string The string to translate
-	 * @param int Option flags, can be case handling or'd with output styles
+	 * @param string|array $str The string to translate
+	 * @param int $flags Option flags, can be case handling or'd with output styles
 	 * @return string
 	 */
 
@@ -572,8 +578,9 @@ class CAppUI
 
 	function verifyCsrfToken()
 	{
-		$submitted = isset($_POST['csrf_token']) ? $_POST['csrf_token'] : '';
-		if (!$this->_csrf_token || !hash_equals($this->_csrf_token, $submitted)) {
+		$submitted = dPgetParam($_POST, 'csrf_token', '');
+		if (!$this->_csrf_token || !is_string($submitted)
+			|| !hash_equals($this->_csrf_token, $submitted)) {
 			$this->setMsg('Invalid or missing security token.', UI_MSG_ERROR);
 			$this->redirect('m=public&a=access_denied');
 		}
@@ -581,7 +588,7 @@ class CAppUI
 
 	/**
 	 * Set the display of warning for untranslated strings
-	 * @param string
+	 * @param bool $state
 	 */
 	function setWarning($state = true)
 	{
@@ -595,7 +602,7 @@ class CAppUI
 	 * Also saves one level of history.  This is useful for returning from a delete
 	 * operation where the record more not now exist.  Returning to a view page
 	 * would be a nonsense in this case.
-	 * @param string If not set then the current url query string is used
+	 * @param string $query If not set then the current url query string is used
 	 */
 	function savePlace($query = '')
 	{
@@ -629,8 +636,8 @@ class CAppUI
 	 * to prevent nasties from doing a browser refresh after a db update.  The
 	 * method deliberately does not use javascript to effect the redirect.
 	 *
-	 * @param string The URL query string to append to the URL
-	 * @param string A marker for a historic 'place, only -1 or an empty string is valid.
+	 * @param string $params The URL query string to append to the URL
+	 * @param string $hist A marker for a historic 'place, only -1 or an empty string is valid.
 	 */
 	function redirect($params = '', $hist = '')
 	{
@@ -664,9 +671,9 @@ class CAppUI
 	 * languagues atomic-wise translation doesn't work. Append should be
 	 * deprecated.
 	 *
-	 * @param mixed The (untranslated) message
-	 * @param int The type of message
-	 * @param boolean If true, $msg is appended to the current string otherwise
+	 * @param mixed $msg The (untranslated) message
+	 * @param int $msgNo The type of message
+	 * @param boolean $append If true, $msg is appended to the current string otherwise
 	 * the existing message is overwritten with $msg.
 	 */
 	function setMsg($msg, $msgNo = 0, $append = false)
@@ -677,7 +684,7 @@ class CAppUI
 	}
 	/**
 	 * Display the formatted message and icon
-	 * @param boolean If true the current message state is cleared.
+	 * @param boolean $reset If true the current message state is cleared.
 	 */
 	function getMsg($reset = true)
 	{
@@ -720,8 +727,8 @@ class CAppUI
 	 *
 	 * The state is only held for the duration of a session.  It is not stored in the database.
 	 * Also do not set the value if it is unset.
-	 * @param string The label or key of the state variable
-	 * @param mixed Value to assign to the label/key
+	 * @param string $label The label or key of the state variable
+	 * @param mixed $value Value to assign to the label/key
 	 */
 	function setState($label, $value = null)
 	{
@@ -781,8 +788,8 @@ class CAppUI
 	 * table are loaded in this object for convenient reference.  The style, localces
 	 * and preferences are also loaded at this time.
 	 *
-	 * @param string The user login name
-	 * @param string The user password
+	 * @param string $username The user login name
+	 * @param string $password The user password
 	 * @return boolean True if successful, false if not
 	 */
 	function login($username, $password)
@@ -791,9 +798,9 @@ class CAppUI
 
 		$auth_method = dPgetConfig('auth_method', 'sql');
 		if (
-			@$_POST['login'] != 'login'
-			&& @$_POST['login'] != $this->_('login', UI_OUTPUT_RAW)
-			&& $_REQUEST['login'] != $auth_method
+			dPgetParam($_POST, 'login') != 'login'
+			&& dPgetParam($_POST, 'login') != $this->_('login', UI_OUTPUT_RAW)
+			&& dPgetParam($_REQUEST, 'login') != $auth_method
 		) {
 			die('You have chosen to log in using an unsupported or disabled login method');
 		}
@@ -912,7 +919,7 @@ class CAppUI
 	}
 	/**
 	 * Gets the value of the specified user preference
-	 * @param string Name of the preference
+	 * @param string $name Name of the preference
 	 */
 	function getPref($name)
 	{
@@ -920,8 +927,8 @@ class CAppUI
 	}
 	/**
 	 * Sets the value of a user preference specified by name
-	 * @param string Name of the preference
-	 * @param mixed The value of the preference
+	 * @param string $name Name of the preference
+	 * @param mixed $val The value of the preference
 	 */
 	function setPref($name, $val)
 	{
@@ -936,7 +943,7 @@ class CAppUI
 	 * means we don't need to copy default preferences across to each user, but the
 	 * defaults become true defaults.
 	 *
-	 * @param int User id number
+	 * @param int $uid User id number
 	 */
 	function loadPrefs($uid = 0)
 	{
@@ -1114,10 +1121,10 @@ class CTabBox_core
 
 	/**
 	 * Constructor
-	 * @param string The base URL query string to prefix tab links
-	 * @param string The base path to prefix the include file
-	 * @param int The active tab
-	 * @param string Optional javascript method to be used to execute tabs.
+	 * @param string $baseHRef The base URL query string to prefix tab links
+	 * @param string $baseInc The base path to prefix the include file
+	 * @param int $active The active tab
+	 * @param string $javascript Optional javascript method to be used to execute tabs.
 	 *	Must support 2 arguments, currently active tab, new tab to activate.
 	 */
 	function __construct($baseHRef = '', $baseInc = '', $active = 0, $javascript = null)
@@ -1143,8 +1150,8 @@ class CTabBox_core
 
 	/**
 	 * Adds a tab to the object
-	 * @param string File to include
-	 * @param The display title/name of the tab
+	 * @param string $file File to include
+	 * @param string $title display title/name of the tab
 	 */
 	function add($file, $title, $translated = false, $key = NULL)
 	{
@@ -1165,7 +1172,7 @@ class CTabBox_core
 	/**
 	 * Displays the tabbed box
 	 * This function may be overridden
-	 * @param string Can't remember whether this was useful
+	 * @param string $extra Can't remember whether this was useful
 	 */
 	function show($extra = '', $js_tabs = false)
 	{
@@ -1446,8 +1453,7 @@ class CTitleBlock_core
 									. 'border="0" alt="'.$AppUI->_('Help').'" />'), 
 								   $this->helpref));
 			*/
-			$s .= ("\n\t" . '<a href="#' . $this->helpref . '"'
-				. dPaction('window.open', array('?m=help&dialog=1&hid=' . $this->helpref, 'contexthelp', 'width=400,height=400,left=50,top=50,scrollbars=yes,resizable=yes'))
+			$s .= ("\n\t" . '<a href="' . dPhtml(dPhelpUrl($this->helpref ?: ($this->module . '.' . $GLOBALS['a']))) . '" target="_blank" rel="noopener"'
 				. ' title="' . $AppUI->_('Help') . '">');
 			$s .= "\n\t\t" . dPshowImage(
 				'./images/icons/stock_help-16.png',

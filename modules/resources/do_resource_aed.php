@@ -31,7 +31,7 @@ if ($del) {
   if (($msg = $obj->store())) {
     $AppUI->setMsg($msg, UI_MSG_ERROR);
   } else {
-    $AppUI->setMsg($_POST['resource_id'] ? 'updated' : 'added', UI_MSG_OK, true);
+    $AppUI->setMsg(dPgetIntParam($_POST, 'resource_id', 0) ? 'updated' : 'added', UI_MSG_OK, true);
   }
   $AppUI->redirect();
 }

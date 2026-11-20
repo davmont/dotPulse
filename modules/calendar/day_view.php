@@ -20,8 +20,8 @@ function php4_clone($object) {
 }
 
 // retrieve any state parameters
-if (isset($_REQUEST['company_id'])) {
-	$AppUI->setState('CalIdxCompany', intval($_REQUEST['company_id']));
+if (dPgetParam($_REQUEST, 'company_id') !== null) {
+	$AppUI->setState('CalIdxCompany', dPgetIntParam($_REQUEST, 'company_id'));
 }
 $company_id = $AppUI->getState('CalIdxCompany', $AppUI->user_company);
 
@@ -110,7 +110,11 @@ echo dPshowImage(dPfindImage('prev.gif'), 16, 16, $AppUI->_('previous day')); ?>
 						</td>
 						<th width="100%">
 					<?php 
-echo ($AppUI->_($this_day->format('%A')) . ', ' . $this_day->format($df)); ?>
+echo ($AppUI->_($this_day->format('%A')) . ', ' . $this_day->format($df));
+$day_holidays = dPcalendarHolidays($this_day->format('%Y-%m-%d'), $this_day->format('%Y-%m-%d'));
+if ($day_holidays) {
+	echo ' <span class="holiday">' . dPhtml(reset($day_holidays)) . '</span>';
+} ?>
 						</th>
 						<td>
 					<a href="<?php 

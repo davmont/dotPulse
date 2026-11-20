@@ -9,7 +9,7 @@ if (!defined('DP_BASE_DIR')) {
 require_once DP_BASE_DIR . '/modules/mngdocument/files.class.php';
 
 $document_id = dPgetIntParam($_GET, 'document_id', 0);
-$obj = new CFile();
+$obj = new CMngDocumentFile();
 if (!$document_id || !$obj->load($document_id) || $obj->SGD_type != 0
 	|| getDenyRead('mngdocument', $document_id)) {
 	$AppUI->redirect('m=public&a=access_denied');

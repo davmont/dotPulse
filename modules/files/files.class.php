@@ -19,6 +19,8 @@ if ($helpdesk_available = $AppUI->isActiveModule('helpdesk')) {
  */
 class CFile extends CDpObject
 {
+	/** @var CHelpDeskItem|null the helpdesk item a file is attached to (not a column) */
+	var $_hditem = NULL;
 
 	var $file_id = NULL;
 	var $file_version_id = NULL;
@@ -60,7 +62,7 @@ class CFile extends CDpObject
 		if ($helpdesk_available && $this->file_helpdesk_item != 0) {
 			$this->addHelpDeskTaskLog();
 		}
-		parent::store($updateNulls);
+		return parent::store($updateNulls);
 	}
 
 	function addHelpDeskTaskLog()
@@ -188,7 +190,7 @@ class CFile extends CDpObject
 			$res = mkdir(DP_BASE_DIR . '/files/' . $this->file_project, 0777);
 			if (!$res) {
 				$AppUI->setMsg('Upload folder not setup to accept uploads'
-					. ' - change permission on files/ directory.', UI_MSG_ALLERT);
+					. ' - change permission on files/ directory.', UI_MSG_ALERT);
 				return false;
 			}
 		}
@@ -208,7 +210,7 @@ class CFile extends CDpObject
 			$res = mkdir(DP_BASE_DIR . '/files/0', 0777);
 			if (!$res) {
 				$AppUI->setMsg('Upload folder not setup to accept uploads.'
-					. ' Change permission on files/ directory.', UI_MSG_ALLERT);
+					. ' Change permission on files/ directory.', UI_MSG_ALERT);
 				return false;
 			}
 		}
@@ -237,7 +239,7 @@ class CFile extends CDpObject
 			$res = mkdir(DP_BASE_DIR . '/files/' . $this->file_project, 0777);
 			if (!$res) {
 				$AppUI->setMsg('Upload folder not setup to accept uploads'
-					. ' - change permission on files/ directory.', UI_MSG_ALLERT);
+					. ' - change permission on files/ directory.', UI_MSG_ALERT);
 				return false;
 			}
 		}
@@ -577,11 +579,11 @@ class CFile extends CDpObject
 
 	function setMessage($message)
 	{
-		$__message = $message;
+		$this->__message = $message;
 	}
 	function getMessage()
 	{
-		return $__message;
+		return $this->__message;
 	}
 }
 
@@ -590,13 +592,14 @@ class CFile extends CDpObject
  */
 class CFileFolder extends CDpObject
 {
-	/** @param int file_folder_id **/
+	/** @var int|null */
 	var $file_folder_id = null;
-	/** @param int file_folder_parent The id of the parent folder **/
+	/** @var int|null The id of the parent folder */
 	var $file_folder_parent = null;
-	/** @param string file_folder_name The folder's name **/
+	var $__message = null;
+	/** @var string|null The folder's name */
 	var $file_folder_name = null;
-	/** @param string file_folder_description The folder's description **/
+	/** @var string|null The folder's description */
 	var $file_folder_description = null;
 
 	function __construct()
@@ -745,10 +748,7 @@ function getIcon($file_type)
 	}
 
 	if ($result == '') {
-		switch ($obj->$file_category) {
-			default: // no idea what's going on
-				$result = 'icons/unknown.png';
-		}
+		$result = 'icons/unknown.png';
 	}
 	return $result;
 }

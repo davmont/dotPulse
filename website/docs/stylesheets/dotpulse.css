@@ -1,0 +1,17 @@
+/* dotPulse brand colours (style/dotpulse/main.css, style/dotpulse-dark/main.css). */
+:root, [data-md-color-scheme="default"] {
+  --md-primary-fg-color: #1B4F9C;
+  --md-primary-fg-color--light: #2F68C8;
+  --md-primary-fg-color--dark: #143C78;
+  --md-accent-fg-color: #F06449;
+}
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #22324D;
+  --md-primary-fg-color--light: #2F68C8;
+  --md-primary-fg-color--dark: #1A202B;
+  --md-accent-fg-color: #FF8A6E;
+  --md-default-bg-color: #141A24;
+  --md-typeset-a-color: #7BA9F7;
+}
+/* Screenshots: a thin frame so white pages stand out from the page. */
+.md-typeset img.shot { border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px; }

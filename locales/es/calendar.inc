@@ -119,3 +119,4 @@
 "next day"=>"día siguiente",
 "previous week"=>"semana anterior",
 "next week"=>"semana siguiente",
+"Holiday"=>"Festivo",

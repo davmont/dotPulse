@@ -21,8 +21,8 @@
 "Actual"=>"Werkelijk", // MT
 "Actual Budget"=>"Eigenlijk Budget",
 "Actual End"=>"Werkelijk einde", // MT
-"Actual End Date"=>"Eigenlijke Eind Datum",
-"Actual Finish Date"=>"Eigenlijke Afrond Datum",
+"Actual End Date"=>"Werkelijke einddatum",
+"Actual Finish Date"=>"Werkelijke einddatum",
 "Administrative"=>"Administratief", // MT
 "All"=>"Alle", // MT
 "All Projects"=>"Alle projecten", // MT
@@ -75,7 +75,7 @@
 "Display allocated hours/week"=>"Toegewezen uren/week tonen", // MT
 "Division"=>"Divisie", // MT
 "Document Space Utilized"=>"Gebruikte documentruimte", // MT
-"Due Date"=>"Verloop Datum",
+"Due Date"=>"Vervaldatum",
 "duplicate file"=>"bestand dupliceren", // MT
 "Duration"=>"Duur",
 "Dynamically calculated"=>"Dynamisch berekend", // MT
@@ -91,7 +91,7 @@
 "File Name"=>"Naam Bestand",
 "files"=>"bestanden", // MT
 "Finish"=>"Einde", // MT
-"Finish Date"=>"Afrond Datum",
+"Finish Date"=>"Einddatum",
 "Finished"=>"Afgerond",
 "For period"=>"Over periode",
 "Forum Name"=>"Naam Forum",
@@ -202,8 +202,8 @@
 "Project Upcoming Task Report"=>"Rapport komende projecttaken", // MT
 "Project updated"=>"Project bijgewerkt", // MT
 "projects list"=>"projecten lijst",
-"projectsBadEndDate1"=>"Project Eind Datum moet later zijn dan de Start Datum",
-"projectsBadEndDate2"=>"Eigenlijke Project Eind Datum moet later zijn dan de Start Datum",
+"projectsBadEndDate1"=>"De einddatum van het project moet later zijn dan de startdatum",
+"projectsBadEndDate2"=>"De werkelijke einddatum van het project moet later zijn dan de startdatum",
 "projectsDelete"=>"Weet u zeker dat u dit project wilt verwijderen?",
 "Proposed"=>"Voorgesteld", // MT
 "Proposed Projects"=>"Voorgestelde Projecten",
@@ -242,7 +242,7 @@
 "Space Utilized"=>"Gebruikte ruimte", // MT
 "Staging URL"=>"Tijdelijke URL",
 "Start"=>"Start",
-"Start Date"=>"Start Datum",
+"Start Date"=>"Startdatum",
 "Started and on time"=>"Gestart en op tijd", // MT
 "Status"=>"Status",
 "Sub Total"=>"Subtotaal", // MT
@@ -251,8 +251,8 @@
 "Summary"=>"Samenvatting", // MT
 "T.Owner"=>"T.eigenaar", // MT
 "Target Budget"=>"Streef Budget",
-"Target End Date"=>"Streef Eind Datum",
-"Target Finish Date"=>"Streef Afrond Datum",
+"Target End Date"=>"Beoogde einddatum",
+"Target Finish Date"=>"Beoogde einddatum",
 "Task"=>"Taak", // MT
 "Task added"=>"Taak toegevoegd", // MT
 "Task Assignee"=>"Toegewezene taak", // MT
@@ -318,3 +318,5 @@
 // "projectsColor" => "Selecteer een kleur om dit project te identificeren",
 // "projectsValidName" => "Vul een geldige naam in bij Naam Project",
 "Calculated from the task costs"=>"Berekend uit de taakkosten", // MT
+"projectDeleteTasks"=>"Alle taken van dit project en hun taaklogboeken worden ook verwijderd.", // MT
+"projectLogsLimit"=>"Alleen de 500 oudste taaklogboeken worden getoond en het totaal aantal uren telt alleen die. Gebruik de filters hierboven om de lijst te beperken.", // MT

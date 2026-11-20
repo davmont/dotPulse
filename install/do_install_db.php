@@ -6,7 +6,7 @@ ob_start();
 set_time_limit(0);
 
 include_once 'check_upgrade.php';
-if ($_POST['mode'] == 'install' && dPcheckUpgrade() == 'upgrade') {
+if (dPInstallGetParam($_POST, 'mode') == 'install' && dPcheckUpgrade() == 'upgrade') {
   die('Security Check: dotPulse seems to be already configured. Communication broken for Security Reasons!');
 }
 if (!dPinstallerAuthorised($_POST)) {
@@ -28,7 +28,9 @@ $cFileMsg = 'Not Created';
 $dbErr = false;
 $cFileErr = false;
 
-$dbtype = trim(dPInstallGetParam($_POST, 'dbtype', ''));
+// MySQL/MariaDB through mysqli is the only database dotPulse supports (the old 'mysql'
+// value of existing configurations means the same).
+$dbtype = 'mysqli';
 $dbprefix = trim(dPInstallGetParam($_POST, 'dbprefix', ''));
 $dbhost = trim(dPInstallGetParam($_POST, 'dbhost', ''));
 $dbname = trim(dPInstallGetParam($_POST, 'dbname', ''));
@@ -37,10 +39,10 @@ $dbpass = trim(dPInstallGetParam($_POST, 'dbpass', ''));
 $dbdrop = dPInstallGetParam($_POST, 'dbdrop', false);
 $mode = dPInstallGetParam($_POST, 'mode', 'upgrade');
 $dbpersist = dPInstallGetParam($_POST, 'dbpersist', false);
-$dobackup = isset($_POST['dobackup']);
-$do_db = isset($_POST['do_db']);
-$do_db_cfg = isset($_POST['do_db_cfg']);
-$do_cfg = isset($_POST['do_cfg']);
+$dobackup = (dPInstallGetParam($_POST, 'dobackup') !== null);
+$do_db = (dPInstallGetParam($_POST, 'do_db') !== null);
+$do_db_cfg = (dPInstallGetParam($_POST, 'do_db_cfg') !== null);
+$do_cfg = (dPInstallGetParam($_POST, 'do_cfg') !== null);
 
 // Create a dPconfig array for dependent code
 global $dPconfig;

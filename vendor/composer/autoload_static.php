@@ -75,6 +75,16 @@ class ComposerStaticInit15a09a44748495d08ceb72f0ac5851f1
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'P' =>
+        array (
+            'Parsedown' =>
+            array (
+                0 => __DIR__ . '/..' . '/erusev/parsedown',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Dompdf\\Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
@@ -85,6 +95,7 @@ class ComposerStaticInit15a09a44748495d08ceb72f0ac5851f1
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit15a09a44748495d08ceb72f0ac5851f1::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit15a09a44748495d08ceb72f0ac5851f1::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit15a09a44748495d08ceb72f0ac5851f1::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit15a09a44748495d08ceb72f0ac5851f1::$classMap;
 
         }, null, ClassLoader::class);

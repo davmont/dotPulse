@@ -17,6 +17,9 @@ if (!defined('DP_BASE_URL')) {
 		. dirname(dirname(isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : getenv('SCRIPT_NAME')));
 	define('DP_BASE_URL', $installerBaseUrl);
 }
+require_once DP_BASE_DIR . '/install/install.inc.php';
+// install or upgrade, as index.php posts it; anything else is an install.
+$mode = (dPInstallGetParam($_POST, 'mode') === 'upgrade') ? 'upgrade' : 'install';
 ?>
 <html>
 <head>
@@ -49,7 +52,7 @@ if (!defined('DP_BASE_URL')) {
 	<div class="card">
 		<h2>Database Configuration</h2>
 <?php
-if ($_POST['mode'] == 'upgrade') {
+if ($mode == 'upgrade') {
 	@include_once '../includes/config.php';
 } elseif (is_file("../includes/config.php")) {
 	require_once 'check_upgrade.php';
@@ -62,17 +65,13 @@ if ($_POST['mode'] == 'upgrade') {
 }
 ?>
 <form name="instFrm" action="do_install_db.php" method="post">
-<input type="hidden" name="mode" value="<?php echo htmlspecialchars($_POST['mode'], ENT_QUOTES); ?>" />
+<input type="hidden" name="mode" value="<?php echo $mode; ?>" />
 <table cellspacing="0" cellpadding="0" border="0" class="tbl">
 	<tr>
 		<td class="item">Database Server Type</td>
 		<td align="left">
-		<select name="dbtype" size="1" class="text">
-			<option value="mysqli" <?php if("mysqli"== $dPconfig['dbtype'] || "mysql" == $dPconfig['dbtype']){ ?>selected="selected"<?php } ?>>MySQL/MariaDB - Recommended</option>
-			<option value="mysqlt" <?php if("mysqlt"== $dPconfig['dbtype']){ ?>selected="selected"<?php } ?>>MySQL With Transactions</option>
-			<option value="postgres" <?php if("postgres"== $dPconfig['dbtype']){ ?>selected="selected"<?php } ?>>PostgreSQL</option>
-		</select>
-		<div style="font-size: 11px; color: #d32f2f; margin-top: 4px;">Note: MariaDB is fully supported via the mysqli driver.</div>
+		<input type="hidden" name="dbtype" value="mysqli" />
+		MySQL or MariaDB <span style="font-size: 11px;">(the only database dotPulse supports)</span>
 		</td>
 	</tr>
 	<tr>
@@ -101,7 +100,7 @@ if ($_POST['mode'] == 'upgrade') {
 		<td class="item">Use Persistent Connection?</td>
 		<td align="left"><input type="checkbox" name="dbpersist" value="1" <?php echo ($dPconfig['dbpersist']==true) ? 'checked="checked"' : ''; ?> /> <span class="item" style="font-size: 12px; color: #666;">(Recommended for high-performance setups)</span></td>
 	</tr>
-<?php if ($_POST['mode'] == 'install'): ?>
+<?php if ($mode == 'install'): ?>
 	<tr>
 		<td class="item">Drop Existing Database?</td>
 		<td align="left"><input type="checkbox" name="dbdrop" value="1" /> <span class="warning" style="font-size: 12px;">Caution: If checked, all existing data in this database will be lost!</span></td>
@@ -121,12 +120,12 @@ if ($_POST['mode'] == 'upgrade') {
 
 <div class="actions">
 	<div class="actions-secondary">
-		<input class="button" style="background-color: #666;" type="submit" name="do_db" value="<?php echo htmlspecialchars($_POST['mode'], ENT_QUOTES); ?> Database Only" />
+		<input class="button" style="background-color: #666;" type="submit" name="do_db" value="<?php echo $mode; ?> Database Only" />
 		<input class="button" style="background-color: #666;" type="submit" name="do_cfg" value="Write Config Only" />
 	</div>
 	<div style="text-align: right;">
 		<div class="recommendation">Recommended</div>
-		<input class="button" type="submit" name="do_db_cfg" value="<?php echo htmlspecialchars($_POST['mode'], ENT_QUOTES); ?> & Write Config" />
+		<input class="button" type="submit" name="do_db_cfg" value="<?php echo $mode; ?> & Write Config" />
 	</div>
 </div>
 </div> <!-- End Container -->

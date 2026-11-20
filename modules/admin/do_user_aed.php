@@ -61,8 +61,29 @@ if ($del) {
 	
 	$contact->contact_owner = $AppUI->user_id;
 } else if (! getPermission('admin', 'edit') || ! getPermission('users', 'edit', $user_id_aed)) {
-	$AppUI->redirect('m=public&a=access_denied');
+	if ($user_id_aed != $AppUI->user_id) {
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+	// Their own account, without the right to edit users: only the name, e-mail, signature and
+	// password; the login name, type, role, company and department stay as they are.
+	$ownAccountOnly = true;
+	$obj = new CUser();
+	$contact = new CContact();
+	if (!$obj->load($user_id_aed) || !$contact->load($obj->user_contact)) {
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+	foreach (array('contact_first_name', 'contact_last_name', 'contact_email') as $field) {
+		$value = trim((string)dPgetParam($_POST, $field, ''));
+		if ($value !== '') {
+			$contact->$field = $value;
+		}
+	}
+	$obj->user_signature = (string)dPgetParam($_POST, 'user_signature', '');
+	if ((string)dPgetParam($_POST, 'user_password', '') !== '') {
+		$obj->user_password = (string)dPgetParam($_POST, 'user_password', '');
+	}
 }
+$ownAccountOnly = $ownAccountOnly ?? false;
 
 if (!$isNewUser && $AppUI->user_id == $user_id_aed) {
 	$q = new DBQuery;
@@ -71,8 +92,15 @@ if (!$isNewUser && $AppUI->user_id == $user_id_aed) {
 	$q->addWhere("user_id = $user_id_aed");
 	$db_pwd = $q->loadResult();
 	
-	if (!empty($_POST['user_password']) && $db_pwd != $_POST['user_password']) {
-		if (!isset($_POST['old_password']) || (!password_verify($_POST['old_password'], $db_pwd) && md5($_POST['old_password']) !== $db_pwd)) {
+	// The current password is needed to change the password or the e-mail address (where a
+	// password reset goes).
+	$q = new DBQuery;
+	$q->addTable('contacts');
+	$q->addQuery('contact_email');
+	$q->addWhere('contact_id = ' . (int)$contact->contact_id);
+	$emailChanged = ((string)$q->loadResult() !== (string)$contact->contact_email);
+	if (((bool)dPgetParam($_POST, 'user_password') && $db_pwd != dPgetParam($_POST, 'user_password')) || $emailChanged) {
+		if (dPgetParam($_POST, 'old_password') === null || (!password_verify(dPgetParam($_POST, 'old_password'), $db_pwd) && md5(dPgetParam($_POST, 'old_password')) !== $db_pwd)) {
 			$AppUI->setMsg('Invalid old password', UI_MSG_ERROR, true);
 			$AppUI->redirect();
 		}
@@ -99,12 +127,12 @@ if (($msg = $contact->store())) {
 	if (($msg = $obj->store())) {
 		$AppUI->setMsg($msg, UI_MSG_ERROR);
 	} else {
-		if ($isNewUser && isset($_POST['send_user_mail']) && $_POST['send_user_mail']) {
+		if ($isNewUser && (dPgetParam($_POST, 'send_user_mail') !== null) && dPgetParam($_POST, 'send_user_mail')) {
 			// Security Mitigation: Do not send password in email.
 			notifyNewUser($contact->contact_email, $contact->contact_first_name, 
 			              $obj->user_username);
 		}
-		if (isset($_POST['user_role']) && $_POST['user_role']) {
+		if (!$ownAccountOnly && (dPgetParam($_POST, 'user_role') !== null) && dPgetParam($_POST, 'user_role')) {
 			$perms =& $AppUI->acl();
 			if ($perms->insertUserRole(dPgetIntParam($_POST, 'user_role', 0), $obj->user_id)) {
 				$AppUI->setMsg('', UI_MSG_ALERT, true);
@@ -124,29 +152,30 @@ function notifyNewUser($address, $username, $logname) {
 	global $AppUI, $dPconfig;
 	$mail = new Mail;
 	if ($mail->ValidEmail($address)) {
-		if ($mail->ValidEmail($AppUI->user_email)) {
-			$email = $AppUI->user_email;
-		} else {
-			$email = 'dotproject@' . $AppUI->cfg['site_domain'];
-		}
+		// The administrator's address; without one the mail class uses no-reply@<site domain>.
+		// With a Sender address (mail_from) set, the message leaves from that one.
+		$email = $mail->ValidEmail($AppUI->user_email) ? $AppUI->user_email : '';
+		$product = dPgetConfig('page_title', 'dotPulse') ?: 'dotPulse';
 		
 		$name = $AppUI->user_first_name .' ' . $AppUI->user_last_name;
 		// Security Mitigation: Removed password from email body.
 		$body = $username.',
-		
-An access account has been created for you in our dotProject project management system.
+
+An access account has been created for you in our ' . $product . ' project management system.
 
 You can access it here at ' . $dPconfig['base_url'] . '
 
 Your username is: ' . $logname . '
 
-To set your password, please use the "Forgot Password" link on the login page.
+To set your password, use the forgotten-password link on the login page.
 
 This account will allow you to see and interact with projects. If you have any questions please contact us.';
 		
-		$mail->From('"'.$name.'" <'.$email.'>');
+		if ($email !== '') {
+			$mail->From('"' . $name . '" <' . $email . '>');
+		}
 		$mail->To($address);
-		$mail->Subject('New Account Created - dotProject Project Management System');
+		$mail->Subject('New Account Created - ' . $product . ' Project Management System');
 		$mail->Body($body);
 		$mail->Send();
 	}

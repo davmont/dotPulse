@@ -8,7 +8,7 @@ $q->addTable('syskeys');
 $q->addOrder('syskey_name');
 $keys = $q->loadList();
 
-$syskey_id = isset($_GET['syskey_id']) ? $_GET['syskey_id'] : 0;
+$syskey_id = dPgetParam($_GET, 'syskey_id', 0);
 
 require_once DP_BASE_DIR . '/modules/system/admin_ui.php';
 dPadminOpen('syskeys');

@@ -124,4 +124,3 @@ if (dPgetParam($_REQUEST, "showdetails", 0) == 1) {
 <?php } ?>
 </table>
 <?php } ?>
-

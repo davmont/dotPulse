@@ -1114,14 +1114,16 @@ class dPacl extends gacl_api
 	function addUserPermission()
 	{
 		//Need to have a user id, parse the permissions array
-		if (!(is_array($_POST['permission_type']))) {
+		if (!(is_array(dPgetParam($_POST, 'permission_type')))) {
 			$this->debug_text('you must select at least one permission');
 			return false;
 		}
 
-		$mod_type = substr($_POST['permission_module'], 0, 4);
+		$module = dPgetParam($_POST, 'permission_module', '');
+		$module = is_string($module) ? $module : '';
+		$mod_type = substr($module, 0, 4);
 		// Ids are integers and the table one a module declares (phpGACL concatenates them).
-		$mod_id = (int)substr($_POST['permission_module'], 4);
+		$mod_id = (int)substr($module, 4);
 		$permission_item = (int)dPgetParam($_POST, 'permission_item', 0);
 		$permission_table = (string)dPgetParam($_POST, 'permission_table', '');
 		$q = new DBQuery();
@@ -1154,28 +1156,36 @@ class dPacl extends gacl_api
 				$this->addModuleItem(
 					$permission_table,
 					$permission_item,
-					$_POST['permission_name']
+					dPgetParam($_POST, 'permission_name')
 				);
 			}
 		} else {
 			//Get the module information
 			$mod_info = $this->get_object_data($mod_id, 'axo');
+			if (empty($mod_info)) {
+				$this->debug_text('unknown module');
+				return false;
+			}
 			$mod_mod = array();
 			$mod_mod[$mod_info[0][0]][] = $mod_info[0][1];
 		}
 
-		if (!(empty($_POST['role_id']))) {
+		if ((bool)dPgetParam($_POST, 'role_id')) {
 			$user_map = null;
-			$role_map = array((int)$_POST['role_id']);
+			$role_map = array(dPgetIntParam($_POST, 'role_id'));
 		} else {
 			$role_map = null;
-			$aro_info = $this->get_object_data((int)$_POST['permission_user'], 'aro');
+			$aro_info = $this->get_object_data(dPgetIntParam($_POST, 'permission_user'), 'aro');
+			if (empty($aro_info)) {
+				$this->debug_text('unknown user');
+				return false;
+			}
 			$user_map = array();
 			$user_map[$aro_info[0][0]][] = $aro_info[0][1];
 		}
 		//Build the permissions info
 		$type_map = array();
-		foreach ($_POST['permission_type'] as $tid) {
+		foreach (dPgetParam($_POST, 'permission_type') as $tid) {
 			$type = $this->get_object_data((int)$tid, 'aco');
 			foreach ($type as $t) {
 				$type_map[$t[0]][] = $t[1];
@@ -1187,7 +1197,7 @@ class dPacl extends gacl_api
 			$role_map,
 			$mod_mod,
 			$mod_group,
-			$_POST['permission_access'],
+			dPgetParam($_POST, 'permission_access'),
 			1,
 			null,
 			null,

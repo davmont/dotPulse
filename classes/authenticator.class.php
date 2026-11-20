@@ -92,6 +92,7 @@ if (!defined('DP_BASE_DIR')) {
 
 	class LDAPAuthenticator extends SQLAuthenticator
 	{
+		var $fallback = false;
 		var $ldap_host;
 		var $ldap_port;
 		var $ldap_version;

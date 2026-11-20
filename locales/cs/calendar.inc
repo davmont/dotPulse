@@ -110,3 +110,4 @@
 "next day"=>"další den", // MT
 "previous week"=>"předchozí týden", // MT
 "next week"=>"další týden", // MT
+"Holiday"=>"Svátek", // MT

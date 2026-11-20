@@ -14,7 +14,7 @@ if (!defined('DP_BASE_DIR')) {
 // MODULE CONFIGURATION DEFINITION
 $config = array();
 $config['mod_name'] = 'Unit Testing';		// name the module
-$config['mod_version'] = '1.0.1';		// add a version number
+$config['mod_version'] = '1.0.2';		// add a version number
 $config['mod_directory'] = 'testing';		// tell dotProject where to find this module
 $config['mod_setup_class'] = 'CSetupTesting';	// the name of the PHP setup class (used below)
 $config['mod_type'] = 'user';			// 'core' for modules distributed with dP by standard, 'user' for additional modules from dotmods
@@ -58,7 +58,10 @@ class CSetupTesting {
 			if (!db_loadResult("SHOW TABLES LIKE '" . db_escape(dPgetConfig('dbprefix', '') . 'unittest') . "'")) {
 				$this->install();
 			}
-			return true;
+			// fall through
+		case "1.0.1":
+			// 1.0.2: table in utf8mb4 (it was latin1: text outside Latin-1 was lost).
+			return dPconvertTablesToUtf8mb4(array('unittest'));
 
 		default:
 			return false;
@@ -81,7 +84,7 @@ class CSetupTesting {
   	"PRIMARY KEY  (`unittest_id`), ".
   	"KEY `project_id` (`unittest_project_id`), ".
   	"KEY `task_id` (`unittest_task_id`) ".
-		") ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ; ";
+		") ENGINE=MyISAM AUTO_INCREMENT=1 ; ";
         
 
 		db_exec( $sql ); db_error();						// execute the queryString

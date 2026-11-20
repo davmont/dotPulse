@@ -80,5 +80,35 @@ class DarkColorsTest extends TestCase {
         $this->assert(!dPdarkIsHtmlResponse(array('content-type: text/csv; charset=utf-8')));
         $this->assert(!dPdarkIsHtmlResponse(array('Content-Type: application/json')));
     }
+    // A kept background without a text colour of its own: dark text where the theme's
+    // light text would not read (#17BECF), nothing where it reads (#1F77B4) or where the
+    // tag sets its own colour.
+    function testKeptLightishBackgroundsGetDarkInk() {
+        $this->assertEquals('<td style="background-color:#17BECF" data-dp-ink="dark">',
+            dPdarkColorFilter('<td style="background-color:#17BECF">'));
+        $this->assertEquals('<td bgcolor="#FF7F0E" data-dp-ink="dark"/>',
+            dPdarkColorFilter('<td bgcolor="#FF7F0E" />'));
+        $this->assertEquals('<td style="background-color:#1F77B4">', dPdarkColorFilter('<td style="background-color:#1F77B4">'));
+        $this->assertEquals('<td style="background-color:#17BECF; color:#000000">',
+            dPdarkColorFilter('<td style="background-color:#17BECF; color:#000000">'));
+    }
+
+    // Runs last: DP_DARK_THEME stays defined for the rest of the file.
+    function testBestColorInTheDarkTheme() {
+        require_once DP_BASE_DIR . '/includes/main_functions.php';
+        require_once DP_BASE_DIR . '/classes/csscolor.class.php';
+        $this->assertEquals('#000000', bestColor('17BECF'));
+        define('DP_DARK_THEME', true);
+        // Kept background: dark text, in the rgb() spelling the filter leaves alone.
+        $this->assertEquals('rgb(0, 0, 0)', bestColor('17BECF'));
+        $html = '<span style="color:' . bestColor('17BECF') . '">';
+        $this->assertEquals($html, dPdarkColorFilter($html));
+        // Kept dark background: white text, as before.
+        $this->assertEquals('#ffffff', strtolower(bestColor('1F77B4')));
+        // A pale background the filter darkens: the theme's light text.
+        $this->assertEquals(DP_DARK_INK, bestColor('EEEEEE'));
+        $this->assertEquals(DP_DARK_INK, bestColor(''));
+    }
 }
+
 ?>

@@ -21,7 +21,7 @@ if ($task_id > 0 && !$obj->load($task_id)) {
 	$AppUI->redirect();
 }
 
-$task_parent = isset($_REQUEST['task_parent'])? $_REQUEST['task_parent'] : $obj->task_parent;
+$task_parent = (dPgetParam($_REQUEST, 'task_parent') !== null)? dPgetParam($_REQUEST, 'task_parent') : $obj->task_parent;
 
 //check for a valid project parent
 $task_project = intval($obj->task_project);
@@ -162,7 +162,7 @@ if ($canReadProject) {
 }else $titleBlock->addBreadcrumb('?m=tasks', 'Tasks');
 if ($task_id > 0) {
 	$titleBlock->addBreadcrumb(('?m=tasks&a=view&task_id=' . $obj->task_id), $obj->task_name, 'applet-48.png');
-	$titleBlock->addBreadcrumb('', 'Edition', 'icons/pencil.gif');
+	$titleBlock->addBreadcrumb('', 'Edit Task', 'icons/pencil.gif');
 } else $titleBlock->addBreadcrumb('', 'New Task');
 
 if ($canEdit) {
@@ -313,10 +313,10 @@ echo $obj->task_contacts; ?>" />
 <tr>
 	<td colspan="2" style="border: outset #eeeeee 1px;background-color:#<?php 
 echo $project->project_color_identifier; ?>" >
-		<font color="<?php echo bestColor($project->project_color_identifier); ?>">
+		<span style="color:<?php echo dPhtml(bestColor($project->project_color_identifier)); ?>">
 			<strong><?php echo $AppUI->_('Project'); ?>: <?php 
-echo @$project->project_name; ?></strong>
-		</font>
+echo dPhtml(@$project->project_name); ?></strong>
+		</span>
 	</td>
 </tr>
 
@@ -353,7 +353,8 @@ echo arraySelect($percent, 'task_percent_complete', 'size="1" class="text"',
 echo $AppUI->_('Milestone'); ?>?</label></td>
 			<td>
 				<input type="checkbox" value="1" name="task_milestone" id="task_milestone"<?php 
-echo (($obj->task_milestone) ? ' checked="checked"' : ''); ?> />
+echo (($obj->task_milestone) ? ' checked="checked"' : '') 
+     . dPaction('setMilestoneEndDate', array('$this'), 'change'); ?> />
 			</td>
 		</tr>
 		</table>
@@ -387,7 +388,7 @@ echo $AppUI->_('save'); ?>"<?php echo dPaction('submitEditFrm'); ?> />
 </table>
 </form>
 <?php
-if (isset($_GET['tab'])) {
+if (dPgetParam($_GET, 'tab') !== null) {
 	$AppUI->setState('TaskAeTabIdx', (int)dPgetParam($_GET, 'tab', 0));
 }
 $tab = $AppUI->getState('TaskAeTabIdx', 0);
