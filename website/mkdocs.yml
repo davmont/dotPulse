@@ -1,5 +1,6 @@
 # dotPulse documentation website: `make docs` (build) or `make docs-serve` (preview on :8000).
-# Published to GitHub Pages by .github/workflows/docs.yml.
+# Built with Zensical, published to GitHub Pages by .github/workflows/docs.yml.
+# The in-app Help reads nav below: keep this file (don't convert it to zensical.toml).
 site_name: dotPulse documentation
 site_description: Open-source project management for PHP 8, continuing dotProject.
 site_url: https://www.dotpulse.org/
@@ -13,6 +14,8 @@ copyright: >-
 
 theme:
   name: material
+  # Zensical's look of Material for MkDocs (the default "modern" one has no coloured header).
+  variant: classic
   logo: assets/mark.svg
   favicon: assets/favicon.svg
   palette:

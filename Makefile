@@ -120,13 +120,15 @@ rehearse:
 	@for i in $$(seq 30); do curl -s -o /dev/null http://127.0.0.1:8089/index.php && break; sleep 1; done
 	docker/rehearse.sh "$(DUMP)" $(ADMIN)
 
-# Documentation website (website/, MkDocs Material). docs fails on broken links like CI.
-MKDOCS := docker run --rm --user $(shell id -u):$(shell id -g) --security-opt label=disable -v $(CURDIR)/website:/docs squidfunk/mkdocs-material:9.6.14
+# Documentation website (website/, built with Zensical from website/mkdocs.yml).
+# docs fails on broken links like CI. The image is pinned by digest, as in .github/workflows/docs.yml.
+ZENSICAL_IMAGE := zensical/zensical:0.1.2@sha256:e1795a2c63b07174d91053f3598d2192032ea88b62a93fcd60be78ed3d5c4aa7
+ZENSICAL := docker run --rm --user $(shell id -u):$(shell id -g) --security-opt label=disable -v $(CURDIR)/website:/docs
 docs:
-	$(MKDOCS) build --strict
+	$(ZENSICAL) $(ZENSICAL_IMAGE) build --strict --clean
 
 docs-serve:
-	docker run --rm -it --user $(shell id -u):$(shell id -g) --security-opt label=disable -p 8000:8000 -v $(CURDIR)/website:/docs squidfunk/mkdocs-material:9.6.14
+	$(ZENSICAL) -it -p 8000:8000 $(ZENSICAL_IMAGE) serve --dev-addr=0.0.0.0:8000
 
 # Screenshots for the website from the sandbox with the sample data (docker/up.sh first).
 docs-screenshots:
