@@ -6,10 +6,10 @@ if (!defined('DP_BASE_DIR')) {
 
 /**
  * Sub-function to collect events within a period
- * @param Date the starting date of the period
- * @param Date the ending date of the period
- * @param array by-ref an array of links to append new items to
- * @param int the length to truncate entries by
+ * @param CDate $startPeriod the starting date of the period
+ * @param CDate $endPeriod the ending date of the period
+ * @param array $links by-ref an array of links to append new items to
+ * @param int $strMaxLen the length to truncate entries by
  * @author Andrew Eddie <eddieajau@users.sourceforge.net>
  */
 function getEventLinks($startPeriod, $endPeriod, &$links, $strMaxLen)

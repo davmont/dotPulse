@@ -902,7 +902,7 @@ class DBQuery
 	/** {{{2 function make_where_clause
 	 * Create a where clause based upon supplied field.
 	 *
-	 * @param	mixed	$clause	Either string or array of subclauses.
+	 * @param	mixed	$where_clause	Either string or array of subclauses.
 	 * @return	string
 	 */
 	function make_where_clause($where_clause)
@@ -926,7 +926,7 @@ class DBQuery
 	/** {{{2 function make_order_clause
 	 * Create an order by clause based upon supplied field.
 	 *
-	 * @param	mixed	$clause	Either string or array of subclauses.
+	 * @param	mixed	$order_clause	Either string or array of subclauses.
 	 * @return	string
 	 */
 	function make_order_clause($order_clause)

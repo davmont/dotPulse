@@ -11,6 +11,7 @@ class CustomFieldsParser{
 	var $previous_data = array();
 	var $row_id = 0;
 	var $custom_record_types = array();
+	var $visible_keys = array();
 	
 	var $table_name = 'tasks';
 	var $field_name = 'task_custom';
@@ -18,7 +19,7 @@ class CustomFieldsParser{
 	
 	/**
 	* @return CustomFieldsParser
-	* @param char Field type: TaskCustomFields, CompanyCustomFields
+	* @param mixed $custom_record_type char Field type: TaskCustomFields, CompanyCustomFields
 	* @desc Constructor
 	*/
 	function __construct($custom_record_type, $row_id = 0) {

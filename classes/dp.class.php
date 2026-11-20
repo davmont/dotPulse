@@ -204,7 +204,6 @@ class CDpObject {
 	/**
 	 *	Default trimming method for class variables of type string
 	 *
-	 *	@param object Object to trim class variables for
 	 *	Can be overloaded/supplemented by the child class
 	 *	@return void
 	 */
@@ -254,10 +253,10 @@ class CDpObject {
 	 *
 	 *	Can be overloaded/supplemented by the child class
 	 *	@param string $msg Error message returned
-	 *	@param int Optional key index
-	 *	@param array Optional array to compiles standard joins: 
+	 *	@param int $oid Optional key index
+	 *	@param array $joins Optional array to compiles standard joins: 
 	 *    format [label => 'Label', name => 'table name', idfield => 'field', joinfield => 'field']
-	 *	@return true|false
+	 *	@return bool
 	 */
 	public function canDelete(&$msg, $oid=null, $joins=null) {
 		global $AppUI;
@@ -343,7 +342,7 @@ class CDpObject {
 	
 	/**
 	 *	Get specifically denied records from a table/module based on a user
-	 *	@param int User id number
+	 *	@param int $uid User id number
 	 *	@return array
 	 */
 	public function getDeniedRecords($uid) {
@@ -359,11 +358,11 @@ class CDpObject {
 	
 	/**
 	 *	Returns a list of records exposed to the user
-	 *	@param int User id number
-	 *	@param string Optional fields to be returned by the query, default is all
-	 *	@param string Optional sort order for the query
-	 *	@param string Optional name of field to index the returned array
-	 *	@param array Optional array of additional sql parameters (from and where supported)
+	 *	@param int $uid User id number
+	 *	@param string $fields Optional fields to be returned by the query, default is all
+	 *	@param string $orderby Optional sort order for the query
+	 *	@param string|null $index Optional name of field to index the returned array
+	 *	@param array|null $extra Optional array of additional sql parameters (from and where supported)
 	 *	@return array
 	 */
 	// returns a list of records exposed to the user
