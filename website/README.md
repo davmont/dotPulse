@@ -1,10 +1,17 @@
 # dotPulse documentation website
 
-MkDocs Material, published to GitHub Pages from `master` by `.github/workflows/docs.yml`
+Built with [Zensical](https://zensical.org/) (the successor of Material for MkDocs, same
+authors) from `mkdocs.yml`, published to GitHub Pages from `master` by `.github/workflows/docs.yml`
 (every pull request builds it with `--strict`: a broken link or a missing image fails).
 
     make docs          # build into website/site/ (as CI does)
     make docs-serve    # preview on http://127.0.0.1:8000, reloads on save
+
+Keep the configuration in `mkdocs.yml` (Zensical reads it; don't convert it to
+`zensical.toml`): the in-app Help (`classes/help.class.php`) takes its page list from its `nav`.
+`theme.variant: classic` keeps the Material look with the brand-blue header; the colours are in
+`docs/stylesheets/dotpulse.css`. The Zensical image is pinned by digest in the `Makefile` and
+the workflow; update both together.
 
 Pages are Markdown in `docs/`. Write from the running application, never from the old
 dotProject manuals (they have no licence): check labels in `locales/en/` and the code.

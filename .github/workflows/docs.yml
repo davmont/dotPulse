@@ -1,4 +1,4 @@
-# Documentation website (website/, MkDocs Material): built on every change, published to
+# Documentation website (website/, built with Zensical from website/mkdocs.yml): built on every change, published to
 # GitHub Pages (www.dotpulse.org) from master, so the site matches the latest release.
 # A manual run (Run workflow) publishes the chosen branch, if the github-pages environment
 # allows that branch.
@@ -25,11 +25,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      # --strict: a broken link or a missing page fails the build.
+      # --strict: a broken link or a missing page fails the build. The image is pinned by
+      # digest; update it together with the Makefile (ZENSICAL_IMAGE).
       - name: Build
         run: >
           docker run --rm --user "$(id -u):$(id -g)" -v "$PWD/website:/docs"
-          squidfunk/mkdocs-material:9.6.14 build --strict
+          zensical/zensical:0.1.2@sha256:e1795a2c63b07174d91053f3598d2192032ea88b62a93fcd60be78ed3d5c4aa7 build --strict --clean
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
         with:
