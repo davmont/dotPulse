@@ -265,20 +265,20 @@ class dPacl extends gacl_api
 						$IsTaskParticipant = true;
 					}
 				}
-				//we allow to user we can edit a project to edit all tasks of this project to
-				$q = new DBQuery;
-				$q->addTable('dotpermissions', 'dp');
-				$q->addTable('tasks', 't');
-				$q->addQuery('dp.user_id, dp.permission');
-				$q->addWhere('t.task_id = ' . $task_id);
-				$q->addWhere('dp.axo = t.task_project');
-				$q->addWhere('dp.user_id = ' . $GLOBALS['AppUI']->user_id);
-				$isAllowed = $q->loadList();
-				$q->clear();
-				foreach ($isAllowed as $allowToUser) {
-					if ($allowToUser['permission'] == 'edit') {
-						$IsProjectModifier = true;
-					}
+				// A user allowed to edit the task's project, by a rule on that project, may work
+				// on its tasks. Only the deciding rule of the projects section counts, as above:
+				// not a rule on another module's record with the same id, nor a deny.
+				if ($project_id) {
+					$q = new DBQuery;
+					$q->addTable('dotpermissions');
+					$q->addQuery('allow');
+					$q->addWhere("section = 'projects' AND permission = 'edit'");
+					$q->addWhere('axo = ' . $q->quote((string)(int)$project_id));
+					$q->addWhere('user_id = ' . (int)$userid);
+					$q->addOrder('priority ASC, acl_id DESC');
+					$q->setLimit(1);
+					$IsProjectModifier = ((int)$q->loadResult() === 1);
+					$q->clear();
 				}
 			}
 			// Grab owner
