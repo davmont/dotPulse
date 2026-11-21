@@ -42,9 +42,9 @@ class CUser extends CDpObject {
 		if ($this->user_id === NULL) {
 			return 'user id is NULL';
 		}
-		if ($this->user_password !== NULL) {
-			$this->user_password = db_escape(trim($this->user_password));
-		}
+		// The password is kept as typed: it is hashed, never put in SQL, and login compares it
+		// as typed. (It was escaped and trimmed here, so a password with ' or \ or a space at
+		// either end was stored as another one and could not log in.)
 		// TODO MORE
 		return NULL; // object is ok
 	}
