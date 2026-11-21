@@ -194,7 +194,7 @@ function breadCrumbs(&$arr)
  */
 function dPhelpUrl($ref = '')
 {
-	list($page, $anchor) = dPhelpPage($ref);
+	list($page, $anchor) = dPhelpPage(dPhelpRef($ref));
 	require_once DP_BASE_DIR . '/classes/help.class.php';
 	return './index.php' . CHelp::url($page, $anchor);
 }
@@ -210,20 +210,77 @@ function dPhelpOnlineUrl($page, $anchor = '')
 	return $base . ($page !== '' ? $page . '/' : '') . ($anchor !== '' ? '#' . $anchor : '');
 }
 
-/** The documentation page (and #anchor) for "module.action": array(page, anchor). */
+/**
+ * The help reference of the page shown, when $ref is that page's "module.action": the
+ * System Admin pages that are one action with several pages say which one.
+ * - a sub-module (?m=system&u=roles): "system.roles";
+ * - a settings section (?m=system&a=systemconfig&section=mail): "system.systemconfig.mail";
+ * - another user's page or a new user (?m=admin&a=viewuser&user_id=2): "admin.viewuser.other",
+ *   while one's own (My Info) stays "admin.viewuser";
+ * - a user's preferences (?m=system&a=addeditpref&user_id=2): "system.addeditpref.user",
+ *   the defaults for everyone (no user_id) stay "system.addeditpref".
+ */
+function dPhelpRef($ref = '')
+{
+	global $AppUI, $m, $a, $u;
+	$ref = (string)$ref;
+	$here = (string)$m . '.' . (string)$a;
+	if ($ref !== '' && $ref !== $here && $ref !== (string)$m) {
+		return $ref;
+	}
+	if (!empty($u) && is_string($u)) {
+		return $m . '.' . $u;
+	}
+	if ($m == 'system' && $a == 'systemconfig') {
+		$section = dPgetCleanParam($_GET, 'section', '');
+		return $here . (is_string($section) && preg_match('/^[a-z]+$/', $section) ? '.' . $section : '');
+	}
+	if ($m == 'admin' && ($a == 'viewuser' || $a == 'addedituser')
+		&& (!is_object($AppUI) || dPgetIntParam($_GET, 'user_id', 0) != $AppUI->user_id)) {
+		return $here . '.other';
+	}
+	if ($m == 'system' && $a == 'addeditpref' && dPgetIntParam($_GET, 'user_id', 0) > 0) {
+		return $here . '.user';
+	}
+	return $ref !== '' ? $ref : $here;
+}
+
+/** The documentation page (and #anchor) for "module.action[.page]": array(page, anchor). */
 function dPhelpPage($ref = '')
 {
 	$parts = explode('.', (string)$ref);
 	$mod = $parts[0];
 	$act = isset($parts[1]) ? $parts[1] : '';
+	$sub = isset($parts[2]) ? $parts[2] : '';
 	// Pages with their own section first, then each module's page.
 	$pages = array(
+		'admin.viewuser.other' => 'administration/users/',
+		'admin.addedituser.other' => 'administration/users/#add-a-user',
+		'system.roles' => 'administration/roles-permissions/',
+		'system.syskeys' => 'administration/lists-and-fields/#lookup-values',
+		'system.systemconfig' => 'administration/settings/',
+		'system.systemconfig.general' => 'administration/settings/#general',
+		'system.systemconfig.work' => 'administration/settings/#work-and-calendar',
+		'system.systemconfig.mail' => 'administration/settings/#notifications-and-email',
+		'system.systemconfig.security' => 'administration/settings/#security-and-sessions',
+		'system.systemconfig.login' => 'administration/settings/#login-ldap',
+		'system.systemconfig.files' => 'administration/settings/#files',
+		'system.systemconfig.integrations' => 'administration/settings/#integrations',
+		'system.systemconfig.advanced' => 'administration/settings/#advanced',
+		'system.viewmods' => 'administration/modules/',
+		'system.addeditpref.user' => 'user-guide/preferences/#edit-your-preferences',
+		'system.addeditpref' => 'administration/lists-and-fields/#default-user-preferences',
+		'system.billingcode' => 'administration/lists-and-fields/#billing-codes',
+		'system.custom_field_editor' => 'administration/lists-and-fields/#custom-fields',
+		'system.custom_field_addedit' => 'administration/lists-and-fields/#custom-fields',
+		'system.translate' => 'administration/translations/',
+		'system.auditlog' => 'administration/audit-and-maintenance/#audit-log',
+		'system.contacts_ldap' => 'administration/audit-and-maintenance/#import-contacts-from-ldap',
 		'projects.viewgantt' => 'user-guide/gantt-board/#the-projects-chart',
 		'tasks.viewgantt' => 'user-guide/gantt-board/',
 		'tasks.todo' => 'user-guide/tasks/',
 		'admin.viewuser' => 'user-guide/preferences/',
 		'admin.addedituser' => 'user-guide/preferences/#change-your-details',
-		'system.addeditpref' => 'user-guide/preferences/',
 		'public.chpwd' => 'user-guide/preferences/#change-your-password',
 	);
 	$modules = array(
@@ -238,11 +295,13 @@ function dPhelpPage($ref = '')
 		'forums' => 'user-guide/files-forums-links/#forums',
 		'links' => 'user-guide/files-forums-links/#links',
 		'smartsearch' => 'user-guide/search/',
-		'holiday' => 'getting-started/first-steps/#6-set-up-holiday-calendars',
-		'admin' => 'getting-started/first-steps/#4-add-your-users',
-		'system' => 'getting-started/first-steps/',
+		'holiday' => 'administration/holidays/',
+		'admin' => 'administration/users/',
+		'system' => 'administration/',
 	);
-	if (isset($pages[$mod . '.' . $act])) {
+	if ($sub !== '' && isset($pages[$mod . '.' . $act . '.' . $sub])) {
+		$target = $pages[$mod . '.' . $act . '.' . $sub];
+	} elseif (isset($pages[$mod . '.' . $act])) {
 		$target = $pages[$mod . '.' . $act];
 	} else {
 		$target = isset($modules[$mod]) ? $modules[$mod] : 'user-guide/';

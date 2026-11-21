@@ -69,4 +69,36 @@ class HelpTest extends TestCase {
         $this->assertEquals('https://www.dotpulse.org/user-guide/', dPhelpOnlineUrl('user-guide/index'));
         $this->assertEquals('https://www.dotpulse.org/', dPhelpOnlineUrl('index'));
     }
+
+    function testAdministrationPagesHaveTheirOwnHelp() {
+        global $m, $a, $u, $AppUI;
+        $saved = array($m, $a, $u, $AppUI, $_GET);
+        $AppUI = new stdClass();
+        $AppUI->user_id = 1;
+        $cases = array(
+            // m, a, u, $_GET => Help link
+            array('system', 'index', 'roles', array(), 'administration/roles-permissions'),
+            array('system', 'index', 'syskeys', array(), 'administration/lists-and-fields#lookup-values'),
+            array('system', 'systemconfig', '', array('section' => 'mail'), 'administration/settings#notifications-and-email'),
+            array('system', 'systemconfig', '', array('section' => 'login'), 'administration/settings#login-ldap'),
+            array('system', 'systemconfig', '', array('section' => 'x<y'), 'administration/settings'),
+            array('system', 'addeditpref', '', array(), 'administration/lists-and-fields#default-user-preferences'),
+            array('system', 'addeditpref', '', array('user_id' => '2'), 'user-guide/preferences#edit-your-preferences'),
+            array('admin', 'viewuser', '', array('user_id' => '1'), 'user-guide/preferences'),
+            array('admin', 'viewuser', '', array('user_id' => '2'), 'administration/users'),
+            array('admin', 'index', '', array(), 'administration/users'),
+            array('holiday', 'index', '', array(), 'administration/holidays'),
+            array('system', 'index', '', array(), 'administration'),
+        );
+        foreach ($cases as $c) {
+            list($m, $a, $u, $_GET) = $c;
+            $this->assertEquals('./index.php?m=help&page=' . $c[4], dPhelpUrl("$m.$a"), "$m.$a $u");
+            $this->assertEquals('./index.php?m=help&page=' . $c[4], dPhelpUrl(''), "header link on $m.$a $u");
+            list($page) = explode('#', $c[4]);
+            $this->assert(CHelp::page($page) !== '', "page $page");
+        }
+        // A link to another page keeps its own reference.
+        $this->assertEquals('./index.php?m=help&page=user-guide/projects', dPhelpUrl('projects.view'));
+        list($m, $a, $u, $AppUI, $_GET) = $saved;
+    }
 }

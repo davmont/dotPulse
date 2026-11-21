@@ -121,10 +121,11 @@ rehearse:
 	docker/rehearse.sh "$(DUMP)" $(ADMIN)
 
 # Documentation website (website/, built with Zensical from website/mkdocs.yml).
-# docs fails on broken links like CI. The image is pinned by digest, as in .github/workflows/docs.yml.
+# docs fails on broken links and missing images like CI. The image is pinned by digest, as in .github/workflows/docs.yml.
 ZENSICAL_IMAGE := zensical/zensical:0.1.2@sha256:e1795a2c63b07174d91053f3598d2192032ea88b62a93fcd60be78ed3d5c4aa7
 ZENSICAL := docker run --rm --user $(shell id -u):$(shell id -g) --security-opt label=disable -v $(CURDIR)/website:/docs
 docs:
+	python3 tools/checks/check-doc-images.py
 	$(ZENSICAL) $(ZENSICAL_IMAGE) build --strict --clean
 
 docs-serve:

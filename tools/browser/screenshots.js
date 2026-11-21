@@ -58,6 +58,13 @@ const PASSWORDS = { admin: 'passwd', worker: 'worker', guest: 'guest' };
 			if (s.selector) {
 				await page.locator(s.selector).first().screenshot({ path: file });
 			} else {
+				if (s.full) {
+					// A sticky bar (System Admin's Save changes) would be drawn where the window
+					// ended, over the middle of a whole-page picture: put it back in the flow.
+					await page.evaluate(() => document.querySelectorAll('body *').forEach(e => {
+						if (getComputedStyle(e).position === 'sticky') e.style.position = 'static';
+					}));
+				}
 				await page.screenshot({ path: file, fullPage: !!s.full });
 			}
 			console.log(`ok    ${s.name}`);

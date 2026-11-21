@@ -85,3 +85,13 @@ nav:
       - Calendar: user-guide/calendar.md
       - Files, forums and links: user-guide/files-forums-links.md
       - Search: user-guide/search.md
+  - Administration:
+      - administration/index.md
+      - Settings: administration/settings.md
+      - Users: administration/users.md
+      - Roles and permissions: administration/roles-permissions.md
+      - Modules: administration/modules.md
+      - Holidays and calendars: administration/holidays.md
+      - Lists, fields and defaults: administration/lists-and-fields.md
+      - Translations: administration/translations.md
+      - Audit and maintenance: administration/audit-and-maintenance.md
