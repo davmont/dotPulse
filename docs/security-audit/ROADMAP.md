@@ -456,6 +456,9 @@ Advisory [GHSA-mhjh-m8pc-7x79](https://github.com/davmont/dotPulse/security/advi
 ### 3.3.0 (2026-11-20)
 Gantt drag with Esc and Undo, holidays in the calendar, Help inside dotPulse, users edit their own account, the docs review fixes, the core's request input through the helpers, and PHPStan's findings in the core (659 recorded, 213 left). See `docs/release-notes/v3.3.0.md`.
 
+### 3.3.1 (2026-11-21, security)
+Advisories [GHSA-f4p7-xmx4-p546](https://github.com/davmont/dotPulse/security/advisories/GHSA-f4p7-xmx4-p546) (high: the change password window let any user of the type "Administrator", a label every LDAP-created user had, set any account's password) and [GHSA-v99x-f92v-39qf](https://github.com/davmont/dotPulse/security/advisories/GHSA-v99x-f92v-39qf) (medium: task rights taken from any rule whose item id was the project's id). Found while writing the Administration docs; fixed in public on devel (#363), then released from master with only that fix. Passwords are kept as typed (escaped and trimmed before, so some could not log in), and the minimum length is checked by the server. See `docs/release-notes/v3.3.1.md`.
+
 ### After 3.2.1: next steps (proposed, to prioritise)
 What 3.2.0 and 3.2.1 left open, from the work above. None blocks an installation.
 1. ~~**Dark theme on the real pages.**~~ Done (2026-11-10, `feature/dark-theme-audit`): see "Dark theme on the real pages" below.
