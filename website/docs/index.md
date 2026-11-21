@@ -30,6 +30,7 @@ dotPulse continues [dotProject](https://github.com/dotproject/dotProject). Upstr
 
 - **[Getting started](getting-started/index.md)**: what your server needs, how to install or upgrade, and what to set up first.
 - **[User guide](user-guide/index.md)**: how to work with projects, tasks, the calendar and the rest, day to day.
+- **[Administration](administration/index.md)**: the settings, users, permissions, modules and translations of a running site.
 
 </div>
 

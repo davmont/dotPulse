@@ -2,7 +2,8 @@
 
 Built with [Zensical](https://zensical.org/) (the successor of Material for MkDocs, same
 authors) from `mkdocs.yml`, published to GitHub Pages from `master` by `.github/workflows/docs.yml`
-(every pull request builds it with `--strict`: a broken link or a missing image fails).
+(every pull request builds it with `--strict`, which fails on a broken link, and
+`tools/checks/check-doc-images.py`, which fails on a missing image).
 
     make docs          # build into website/site/ (as CI does)
     make docs-serve    # preview on http://127.0.0.1:8000, reloads on save

@@ -5,7 +5,7 @@ managers and anyone who logs work, follows tasks or keeps the calendar up to dat
 
 It does not cover installing dotPulse, adding users, setting permissions or
 choosing modules. Those jobs belong to your administrator and are covered in
-[Getting started](../getting-started/index.md).
+[Getting started](../getting-started/index.md) and [Administration](../administration/index.md).
 
 !!! note "What you see depends on your permissions"
     Your administrator decides which modules you can open and what you can change

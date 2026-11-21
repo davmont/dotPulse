@@ -1,6 +1,6 @@
 # First steps
 
-Your site is installed and you have logged in as `admin`. Work through this checklist before you invite your team. It takes about half an hour.
+Your site is installed and you have logged in as `admin`. Work through this checklist before you invite your team. It takes about half an hour. Each step is a short version; [Administration](../administration/index.md) has the full reference.
 
 - [Change the admin password](#before-anything-else)
 - [Review the system settings](#1-review-the-system-settings)
@@ -123,7 +123,7 @@ Holidays are not working days: task dates skip them. Each workplace can have its
 
 1. In **System Admin › Modules**, install `holiday` under **Not installed**. If it then shows *disabled*, click **Turn on**.
 2. Open **System Admin › Holidays and calendars**.
-3. In the **Settings** tab, choose the country whose national holidays apply to everyone without a calendar.
+3. In the **Settings** tab, tick **Enable automatic holidays** (it is off in a new installation, and without it no national holidays count), choose the country whose national holidays apply to everyone without a calendar, and save.
 4. If people work in different places, open the **Calendars** tab and click **Add calendar**. Give the calendar a **Name**, its **National holidays**, and say who it is **For**: companies, departments or users. A calendar can also build on another one, a city on its region for example, and import the days of an iCalendar (`.ics`) file.
 
 ![The Calendars tab of the holiday module](../img/gs-holiday-calendars.png){ .shot }

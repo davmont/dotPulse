@@ -7,7 +7,7 @@ This section takes you from an empty server to a working dotPulse site with its 
 3. **[Upgrading](upgrade.md)**: move to a new dotPulse version, or bring over an existing dotProject 2.x site.
 4. **[First steps](first-steps.md)**: the settings, people and modules to set up before your team starts work.
 
-Once the site is running, the [User guide](../user-guide/index.md) explains the everyday work.
+Once the site is running, the [User guide](../user-guide/index.md) explains the everyday work, and [Administration](../administration/index.md) covers every setting, user, role and module in full.
 
 !!! tip "Upgrading from dotProject?"
     You don't need a fresh install. Read [Upgrading](upgrade.md): dotPulse upgrades a dotProject 2.x database in place.

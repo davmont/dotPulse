@@ -55,7 +55,7 @@ Add-on modules have their own versions and their own database tables. The instal
 
 ![The Modules page with a module waiting for its upgrade](../img/gs-modules-upgrade.png){ .shot }
 
-The release notes list which modules change in each version, and anything to do afterwards. For example, after the holiday module upgrade in 3.1.1 you choose a country in its *Settings* tab.
+The release notes list which modules change in each version, and anything to do afterwards. For example, after the holiday module upgrade in 3.1.1 you choose a country in its *Settings* tab, with **Enable automatic holidays** ticked.
 
 ## 5. Check the site
 

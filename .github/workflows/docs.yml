@@ -7,9 +7,9 @@ name: Docs
 on:
   push:
     branches: [devel, master]
-    paths: ['website/**', '.github/workflows/docs.yml']
+    paths: ['website/**', '.github/workflows/docs.yml', 'tools/checks/check-doc-images.py']
   pull_request:
-    paths: ['website/**', '.github/workflows/docs.yml']
+    paths: ['website/**', '.github/workflows/docs.yml', 'tools/checks/check-doc-images.py']
   workflow_dispatch:
 
 permissions:
@@ -25,6 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      # Zensical's --strict does not report missing images.
+      - name: Images exist
+        run: python3 tools/checks/check-doc-images.py
       # --strict: a broken link or a missing page fails the build. The image is pinned by
       # digest; update it together with the Makefile (ZENSICAL_IMAGE).
       - name: Build

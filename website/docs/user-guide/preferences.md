@@ -126,9 +126,10 @@ Preferences change how dotPulse looks and behaves for you only.
 
 ![The preferences page](../img/ug-preferences.png){ .shot }
 
-Until you save this page for the first time, your preferences follow the
-defaults your administrator set for everyone. Saving stores every preference on
-the page as your own.
+Your preferences follow the defaults your administrator set for everyone. When
+you save this page, a preference you set to something other than the default
+becomes your own; one left at the default keeps following it, so it changes
+when your administrator changes the default.
 
 ### Locale
 

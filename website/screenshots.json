@@ -57,5 +57,19 @@
  {"name": "gs-installer-welcome", "base": "http://127.0.0.1:8092", "url": "/install/index.php", "full": true, "note": "Installer shots: a web container serving the code with no includes/config.php on port 8092 and an empty database docs_install (see website/README.md)."},
  {"name": "gs-installer-database", "base": "http://127.0.0.1:8092", "url": "/install/index.php", "steps": [{"click": "input[value='Start Installation']"}, {"fill": ["input[name=dbhost]", "db"]}, {"fill": ["input[name=dbname]", "docs_install"]}, {"fill": ["input[name=dbuser]", "dotproject"]}, {"fill": ["input[name=dbpass]", "dotproject"]}], "full": true, "note": "Installer shots: a web container serving the code with no includes/config.php on port 8092 and an empty database docs_install (see website/README.md)."},
  {"name": "gs-installer-success", "base": "http://127.0.0.1:8092", "url": "/install/index.php", "steps": [{"click": "input[value='Start Installation']"}, {"fill": ["input[name=dbhost]", "db"]}, {"fill": ["input[name=dbname]", "docs_install"]}, {"fill": ["input[name=dbuser]", "dotproject"]}, {"fill": ["input[name=dbpass]", "dotproject"]}, {"click": "input[name=do_db_cfg]"}, {"wait": 1500}], "full": true, "note": "Installer shots: a web container serving the code with no includes/config.php on port 8092 and an empty database docs_install (see website/README.md)."},
- {"name": "gs-installer-upgrade", "url": "/install/index.php", "full": true, "note": "The sandbox itself: an existing installation, so the installer offers the upgrade."}
+ {"name": "gs-installer-upgrade", "url": "/install/index.php", "full": true, "note": "The sandbox itself: an existing installation, so the installer offers the upgrade."},
+ {"name": "adm-system-admin-home", "user": "admin", "url": "m=system", "full": true},
+ {"name": "adm-settings-general", "user": "admin", "url": "m=system&a=systemconfig&section=general"},
+ {"name": "adm-settings-mail", "user": "admin", "url": "m=system&a=systemconfig&section=mail", "full": true},
+ {"name": "adm-users-list", "user": "admin", "url": "m=admin&tab=0"},
+ {"name": "adm-user-add", "user": "admin", "url": "m=admin&a=addedituser", "full": true},
+ {"name": "adm-roles-list", "user": "admin", "url": "m=system&u=roles"},
+ {"name": "adm-role-perms", "user": "admin", "url": "m=system&u=roles&a=viewrole&role_id=5", "full": true},
+ {"name": "adm-modules", "user": "admin", "url": "m=system&a=viewmods"},
+ {"name": "adm-holiday-calendars", "user": "admin", "url": "m=holiday&tab=2", "note": "two calendars: Comunidad de Madrid (Spain, for Brightline Consulting) and Madrid office (builds on it, for marco)"},
+ {"name": "adm-lookup-values", "user": "admin", "url": "m=system&u=syskeys"},
+ {"name": "adm-custom-fields", "user": "admin", "url": "m=system&a=custom_field_editor", "note": "one Text Input field on projects (Contract reference)"},
+ {"name": "adm-billing-codes", "user": "admin", "url": "m=system&a=billingcode", "note": "two codes: CONSULT and TRAVEL"},
+ {"name": "adm-translations", "user": "admin", "url": "m=system&a=translate&module=companies&lang=es"},
+ {"name": "adm-audit-log", "user": "admin", "url": "m=system&a=auditlog"}
 ]
