@@ -120,6 +120,14 @@ if (!$isNewUser && (string)dPgetParam($_POST, 'user_password', '') !== '') {
 	}
 }
 
+// The minimum password length, here and not only in the form's JavaScript.
+$posted_password = (string)dPgetParam($_POST, 'user_password', '');
+if ($posted_password !== '' && ($isNewUser || $audit_password !== '')
+	&& mb_strlen($posted_password) < (int)dPgetConfig('password_min_len')) {
+	$AppUI->setMsg($AppUI->_('adminValidPassword') . ' ' . (int)dPgetConfig('password_min_len'), UI_MSG_ERROR);
+	$AppUI->redirect();
+}
+
 if (($msg = $contact->store())) {
 	$AppUI->setMsg($msg, UI_MSG_ERROR);
 } else {        

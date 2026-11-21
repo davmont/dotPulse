@@ -29,11 +29,14 @@ tables keep working unchanged.
 
 Work happens on the **`devel`** branch; **`master`** only receives stable releases.
 
-- Current release: **dotPulse 3.3.0**: drag task bars in the Gantt charts (with Esc and
+- Current release: **dotPulse 3.3.1**, a security release: any user of the type
+  "Administrator" (every LDAP-created user) could set any account's password, and rules on
+  other records granted rights on a project's tasks
+  ([release notes v3.3.1](docs/release-notes/v3.3.1.md)).
+- Previous releases: 3.3.0, with drag task bars in the Gantt charts (with Esc and
   Undo), holidays in the calendar, Help inside dotPulse for the page shown, users edit
   their own account, and about 40 bugs from the documentation review fixed
-  ([release notes v3.3.0](docs/release-notes/v3.3.0.md)).
-- Previous releases: 3.2.2, a security release: private contacts stayed visible to other
+  ([release notes v3.3.0](docs/release-notes/v3.3.0.md)); 3.2.2, a security release: private contacts stayed visible to other
   users in the contacts CSV export, smart search, the calendar and resource management
   ([release notes v3.2.2](docs/release-notes/v3.2.2.md)); 3.2.1, security fixes (permissions, SQL injection, account takeover)
   ([release notes v3.2.1](docs/release-notes/v3.2.1.md)); 3.2.0, with holiday calendars per workplace, the dotPulse theme by

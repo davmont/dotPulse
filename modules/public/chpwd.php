@@ -7,23 +7,38 @@ if (! ($user_id = (int)dPgetParam($_REQUEST, 'user_id', 0))) {
 	$user_id = @$AppUI->user_id;
 }
 
+// Anyone may change their own password, with the current one. Another user's password only
+// by those who may edit that user (as in admin/do_user_aed.php), who don't need it; the user
+// type is a label and gives no right here.
+$own_password = ($user_id == $AppUI->user_id);
+if ($user_id && !$own_password && !(getPermission('admin', 'edit') && getPermission('users', 'edit', $user_id))) {
+	$AppUI->redirect('m=public&a=access_denied');
+}
+
 // check for a non-zero user id
 if ($user_id) {
-	$old_pwd = db_escape(trim(dPgetCleanParam($_POST, 'old_pwd', null)));
-	$new_pwd1 = db_escape(trim(dPgetCleanParam($_POST, 'new_pwd1', null)));
-	$new_pwd2 = db_escape(trim(dPgetCleanParam($_POST, 'new_pwd2', null)));
+	// Passwords as typed, as login reads them: they are hashed, never shown or put in SQL.
+	$old_pwd = dPgetParam($_POST, 'old_pwd', '');
+	$new_pwd1 = dPgetParam($_POST, 'new_pwd1', '');
+	$new_pwd2 = dPgetParam($_POST, 'new_pwd2', '');
+	$old_pwd = is_string($old_pwd) ? $old_pwd : '';
+	$new_pwd1 = is_string($new_pwd1) ? $new_pwd1 : '';
+	$new_pwd2 = is_string($new_pwd2) ? $new_pwd2 : '';
+	$min_len = (int)dPgetConfig('password_min_len');
 
 	// has the change form been posted
-	if ($new_pwd1 && $new_pwd2 && $new_pwd1 == $new_pwd2) {
+	if ($new_pwd1 !== '' && $new_pwd2 !== '' && $new_pwd1 === $new_pwd2 && mb_strlen($new_pwd1) < $min_len) {
+		echo $AppUI->_('chgpwValidNew') . ' ' . $min_len;
+	} else if ($new_pwd1 !== '' && $new_pwd2 !== '' && $new_pwd1 === $new_pwd2) {
 		// check that the old password matches (supports both password_hash and legacy MD5)
 		$q = new DBQuery;
 		$q->addQuery('user_id, user_password');
 		$q->addTable('users');
 		$q->addWhere('user_id = ' . intval($user_id));
-		$row = $q->fetchRow();
+		$row = $q->loadHash(); // fetchRow() without exec() returned false: own changes always failed
 		$db_pwd = $row['user_password'] ?? '';
 
-		if ($AppUI->user_type == 1 || password_verify($old_pwd, $db_pwd) || md5($old_pwd) === $db_pwd) {
+		if ($row && (!$own_password || password_verify($old_pwd, $db_pwd) || md5($old_pwd) === $db_pwd)) {
 			require_once($AppUI->getModuleClass('admin'));
 			$user = new CUser();
 			$user->user_id = $user_id;
@@ -69,7 +84,7 @@ function chpwdNoSubmit() {
 <table width="100%" cellspacing="0" cellpadding="4" border="0" class="std">
 <form name="frmEdit" method="post"<?php echo dPaction('chpwdNoSubmit', array(), 'submit'); ?>>
 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-<?php if ($AppUI->user_type != 1)
+<?php if ($own_password)
 {
 ?>
 <tr>

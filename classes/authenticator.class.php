@@ -246,7 +246,7 @@ if (!defined('DP_BASE_DIR')) {
 			$q->addTable('users');
 			$q->addInsert('user_username',$username);
 			$q->addInsert('user_password', $hash_pass);
-			$q->addInsert('user_type', '1');
+			$q->addInsert('user_type', '0'); // Default User: the type is a label, the role gives the rights
 			$q->addInsert('user_contact', $c->contact_id);
 			$q->exec();
 			$user_id = $db->Insert_ID();
