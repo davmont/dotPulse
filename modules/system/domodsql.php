@@ -93,7 +93,9 @@ switch ($cmd) {
 		}
 		break;
 	case 'configure':
-		if ($setup->configure()) 	//returns true if configure succeeded
+		if (!method_exists($setup, 'configure')) {
+			$AppUI->setMsg('Module configuration failed', UI_MSG_ERROR);
+		} else if ($setup->configure()) 	//returns true if configure succeeded
 		{
 		}
 		else {

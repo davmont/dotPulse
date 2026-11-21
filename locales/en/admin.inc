@@ -222,3 +222,6 @@
 "Scan this QR code with your authenticator app, or type the key into it.",
 "QR code for your authenticator app",
 "Enter the 6-digit code the app shows to turn two-step login on.",
+"Select the projects and the user who takes them over."=>"Select the projects and the user who takes them over.",
+"Role removed from the user"=>"Role removed from the user",
+"Remove this role from the user?"=>"Remove this role from the user?",

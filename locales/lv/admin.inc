@@ -221,3 +221,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"Noskenējiet šo QR kodu ar autentifikatora lietotni vai ievadiet tajā atslēgu.", // MT
 "QR code for your authenticator app"=>"QR kods jūsu autentifikatora lietotnei", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"Ievadiet lietotnes rādīto 6 ciparu kodu, lai ieslēgtu divpakāpju pieteikšanos.", // MT
+"Select the projects and the user who takes them over."=>"Atlasiet projektus un lietotāju, kurš tos pārņem.", // MT
+"Role removed from the user"=>"Loma lietotājam noņemta", // MT
+"Remove this role from the user?"=>"Vai noņemt šo lomu lietotājam?", // MT

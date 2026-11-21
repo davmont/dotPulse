@@ -8,7 +8,7 @@ if (!defined('DP_BASE_DIR')) {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"<?php echo empty($dp_theme_dark) ? '' : ' data-theme="dark"'; ?>>
 
 <head>
-	<title><?php echo @dPgetConfig('page_title'); ?></title>
+	<title><?php echo dPhtml((string)dPgetConfig('page_title')); ?></title>
 	<meta http-equiv="Content-Type"
 		content="text/html;charset=<?php echo isset($locale_char_set) ? $locale_char_set : 'UTF-8'; ?>" />
 	<meta http-equiv="Pragma" content="no-cache" />
@@ -111,7 +111,7 @@ if (!defined('DP_BASE_DIR')) {
 
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<th colspan="2"><em><?php echo $dPconfig['company_name']; ?></em></th>
+					<th colspan="2"><em><?php echo dPhtml((string)dPgetConfig('company_name')); ?></em></th>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="text" maxlength="20" name="checkusername" autofocus="autofocus" class="text"

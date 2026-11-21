@@ -139,7 +139,7 @@
 "add",
 "added",
 "admin_username_title"=>"Admin Username",
-"admin_username_tooltip"=>"Nominate the login name of the Administrative User.",
+"admin_username_tooltip"=>"A login name that the user form accepts even when it is shorter than the minimum username length. It gives no rights: roles decide who is an administrator.",
 "allow",
 "app_item_title"=>"dotPulse Extended Sessions",
 "auth_group_title"=>"User Authentication Settings",
@@ -159,7 +159,7 @@
 "cal_working_days_title"=>"Calendar Working Days",
 "cal_working_days_tooltip"=>"The other days do not count in task durations.",
 "check_overallocation_title"=>"Overallocation Checking",
-"check_overallocation_tooltip"=>"The over allocation component of dotPulse is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"Has no effect: the check it used to turn on is disabled.",
 "check_task_dates_title"=>"Check Task Dates",
 "check_task_dates_tooltip"=>"If this option is turned on the start and end dates will be required in all tasks before they can be added.",
 "check_task_empty_dynamic_title"=>"Check Empty Dynamic Tasks",
@@ -171,50 +171,20 @@
 "configure",
 "cs"=>"Czech",
 "currency_symbol_title"=>"Currency Symbol",
-"currency_symbol_tooltip"=>"Whilst we currently have locale support built in there is still an extra facility for setting Currency Symbol. 
-
-
-
-Localisation of the currency-symbol. For the EURO sign symbol set to \'&#8364;\'
-
-
-
-Check http://www.w3.org/TR/html401/sgml/entities.html for information about html special characters.",
+"currency_symbol_tooltip"=>"Put before money amounts, such as project budgets. Type the symbol itself, for example € or £.",
 "daily_working_hours_title"=>"Daily Working Hours",
 "daily_working_hours_tooltip"=>"This setting establishes the standard number of hours in a working day for your installation, for example 8.0",
 "de"=>"German",
 "deactivate",
 "debug_title"=>"Debug Level",
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotPulse to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"How much debug information is written to the PHP error log: 0 none, 1 the most important messages, higher numbers more (12 and above: every SQL query). Show Debug Messages also prints them on the pages.",
 "default user preferences",
 "default_view_a_title"=>"Default Submodule",
 "default_view_a_tooltip"=>"If you want to define your own start/default page set this.
 
 Specifies a subview like shown in the url of dP.",
 "default_view_m_title"=>"Default Module",
-"default_view_m_tooltip"=>"If you want to define your own start/default page set this.
-
-If the value is empty then the first listed module becomes the default view.",
+"default_view_m_tooltip"=>"The module dotPulse opens after login, and when the site's address names no page. Choose one that every role may open.",
 "default_view_tab_title"=>"Default Tabbed Subview",
 "default_view_tab_tooltip"=>"If you want to define your own start/default page set this.
 
@@ -238,7 +208,7 @@ have access to the PHP log files.",
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotPulse sends out.",
 "en"=>"English",
 "enable_gantt_charts_title"=>"Enable Gantt Charts",
-"enable_gantt_charts_tooltip"=>"The option to enable or disable Gantt charts allows you to turn on the function or turn off the function, depending upon whether you wish to use Gantt charts on your site. ",
+"enable_gantt_charts_tooltip"=>"Shows the Expand All, Collapse All and Gantt Chart line at the end of each project's task list. The Gantt tabs of projects and My Gantt stay either way.",
 "es"=>"Spanish",
 "files_ci_preserve_attr_title"=>"Preserve File Settings on CI",
 "files_ci_preserve_attr_tooltip"=>"Keep file attributes during Check In.  If this is on, you will not be able to change file type, project or task of a file during the check in.",
@@ -250,9 +220,9 @@ have access to the PHP log files.",
 "gacl_cache_dir_title"=>"Permissions Cache Directory",
 "gacl_cache_dir_tooltip"=>"Set this to a directory on your system that the web server can write to, this holds the cache for the permissions system",
 "gacl_cache_title"=>"Enable Permissions Cache",
-"gacl_cache_tooltip"=>"Turn this on to improve performance in task listings, make sure you also set the permissions cache directory",
+"gacl_cache_tooltip"=>"Caches the answers of the permissions library (phpGACL) in the directory below. dotPulse checks permissions in its own table, so this makes no difference you would notice: leave it off.",
 "gacl_expire_title"=>"Expire Permissions Cache",
-"gacl_expire_tooltip"=>"Setting this will force the expiry of the permissions cache, if you use Permissions Caching you should only set this to clear an old cache to get around problems, and reset it afterwards",
+"gacl_expire_tooltip"=>"Clears the permissions cache each time a permission or a role changes, so that changes apply at once. Keep it on if you use the cache.",
 "gacl_group_title"=>"Permissions Caching",
 "gacl_timeout_title"=>"Permissions Cache Timeout",
 "gacl_timeout_tooltip"=>"Number of seconds to hold onto cached permissions information.",
@@ -261,7 +231,7 @@ have access to the PHP log files.",
 "host_locale_title"=>"Host Locale",
 "host_locale_tooltip"=>"This option indicates the localisation or language setting for your site.",
 "host_style_title"=>"Default User Interface Style",
-"host_style_tooltip"=>"Default User Interface Style - as set in the User Preferences area, however, you will need to type the name of the default in here.  If you need a prompt - check the dropdown in the User preferences and repeat that name here.",
+"host_style_tooltip"=>"The theme of the login page and of users who have not chosen one in their preferences.",
 "index_max_file_size_title"=>"Maximum File Size for Indexing",
 "index_max_file_size_tooltip"=>"File Indexing for Searching:
 
@@ -304,11 +274,7 @@ A negative value defines the absence of a limit (index all files).",
 "mail_auth_title"=>"Host requires login",
 "mail_auth_tooltip"=>"Some SMTP hosts require authentication, if yours does you will need to set this and provide a username and password",
 "mail_defer_title"=>"Queue Email for later sending",
-"mail_defer_tooltip"=>"Check this to queue email for later sending.  An entry will be made in the Event Queue.  You will need to either set the Scan Event Queue option in Session Handling or create a cron job to call:
-
-
-
-wget -O- http://your.domain/dotproject/queuescanner.php",
+"mail_defer_tooltip"=>"Puts every email in the event queue instead of sending it while the user waits. The cron job that runs queuescanner.php from the command line sends the queue: without it, queued email is never sent.",
 "api_group_title"=>"REST API",
 "api_enabled_title"=>"Enable the REST API",
 "api_enabled_tooltip"=>"Lets users create personal access tokens (User > API tokens) and use api.php. Each token acts with its user's permissions. See docs/api.md.",
@@ -347,12 +313,12 @@ wget -O- http://your.domain/dotproject/queuescanner.php",
 "password_min_len_tooltip"=>"Establish the minimum length of any password entry in dotPulse.  This can NOT be longer than the length of the column in DB",
 "php_item_title"=>"PHP Default",
 "pl"=>"Polish",
-"pt"=>"Portugese",
-"pt_br"=>"Portuguese Brazillian",
+"pt"=>"Portuguese",
+"pt_br"=>"Portuguese (Brazil)",
 "record types",
 "remove",
 "reset_memory_limit_title"=>"Memory Limit for Gantt",
-"reset_memory_limit_tooltip"=>"Experiencing Errors with invisible Gantt Charts use this variable to temporarily expand your PHP Memory Limit for Gantt Chart drawing. Values of 64M, 128M etc. are common.",
+"reset_memory_limit_tooltip"=>"Not used by the standard modules. The Monitoring and Control add-on sets PHP's memory limit to this value on some of its pages.",
 "restrict_color_selection_title"=>"Restrict Project Colour Selection",
 "restrict_color_selection_tooltip"=>"Used in conjuction with the System Value Look up option \"ProjectColors\" you can use this setting to control the project colour selection options accessible by all users on this system.
 
@@ -377,13 +343,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Session Idle Time",
-"session_idle_time_tooltip"=>"The maximum time a session can have no activity before it is declared dead.
-
-Values are in seconds unless followed by a letter: h = hours, d = days, m = months, y = years.
-
-You can only have 1 character within a string, so 2d4h is NOT valid, but 28h is.",
+"session_idle_time_tooltip"=>"How long a session may go without activity before it expires. A number of seconds (at least 60), or a number followed by one letter: h hours, d days, m months of 30 days (not minutes), y years. For example 3600, 8h or 2d.",
 "session_max_lifetime_title"=>"Session Maximum Lifetime",
-"session_max_lifetime_tooltip"=>"The maximum time a session can exist before it is trashed, regardless of how active it is.",
+"session_max_lifetime_tooltip"=>"How long a session may last at most, however active. Written like Session Idle Time, for example 1m (30 days).",
 "session_name_title"=>"Session/Cookie Name",
 "session_name_tooltip"=>"Define your own Cookie Name. Attention: Change of Session Name will immediately log out all users! They will need to login again.",
 "show_all_task_assignees_title"=>"Show All Task Assignees",
@@ -391,7 +353,7 @@ You can only have 1 character within a string, so 2d4h is NOT valid, but 28h is.
 "show_all_tasks_title"=>"Show Other Users\' Tasks",
 "show_all_tasks_tooltip"=>"Controls viewing of tasks that belong to other users.",
 "site_domain_title"=>"Site Domain",
-"site_domain_tooltip"=>"The domain set here is used to generate an email address if an incomplete address has been entered in the user\'s record.",
+"site_domain_tooltip"=>"Your site's domain. dotPulse sends password resets, and mail whose sender has no valid address, from no-reply@ this domain.",
 "sl"=>"Slovenian",
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotPulse",
@@ -413,7 +375,7 @@ There are mouseover-tooltips and (?)-information popups with each of the fields 
 "system admin",
 "system configuration",
 "task_reminder_control_title"=>"Send Task Reminders",
-"task_reminder_control_tooltip"=>"If set, an email will be sent to all assignees when a task is due and every day it is overdue until completed.",
+"task_reminder_control_tooltip"=>"Emails the assignees and the owner of a task before it is due and every day it is overdue, on their working days, until it is complete. Turning it off also stops the reminders already queued. Sent by the cron job.",
 "task_reminder_days_before_title"=>"Number of days warning for due tasks",
 "task_reminder_days_before_tooltip"=>"Setting this will determine how many days before a task is due the first reminder is set.",
 "task_reminder_group_title"=>"Task Reminders",
@@ -577,3 +539,5 @@ There are mouseover-tooltips and (?)-information popups with each of the fields 
 "Numeric",
 "Couldnt load the Custom Field, It might have been deleted somehow.",
 "Delete",
+"ldap_search_pass_tooltip"=>"The password of the LDAP Search User. Leave it empty to keep the saved one.",
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y",

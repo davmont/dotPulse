@@ -380,3 +380,5 @@
 "The documentation is in English."=>"문서는 영어로 되어 있습니다.", // MT
 "Read this page on the documentation website"=>"문서 웹사이트에서 이 페이지 읽기", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"문서는 CC BY-SA 4.0 라이선스를 따릅니다.", // MT
+"- choose a module -"=>"- 모듈 선택 -", // MT
+"choose a module"=>"모듈을 선택하십시오", // MT

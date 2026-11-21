@@ -221,3 +221,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"Scansiona questo codice QR con la tua app di autenticazione, oppure digita la chiave nell'app.", // MT
 "QR code for your authenticator app"=>"Codice QR per la tua app di autenticazione", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"Inserisci il codice a 6 cifre mostrato dall'app per attivare l'accesso in due passaggi.", // MT
+"Select the projects and the user who takes them over."=>"Selezionare i progetti e l'utente che li prende in carico.", // MT
+"Role removed from the user"=>"Ruolo rimosso dall'utente", // MT
+"Remove this role from the user?"=>"Rimuovere questo ruolo dall'utente?", // MT

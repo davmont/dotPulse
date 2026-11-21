@@ -241,7 +241,7 @@ foreach ($role_acls as $acl) {
 </tr>
 <tr>
 	<td nowrap align="right"><?php echo $AppUI->_('Module');?>:</td>
-	<td width="100%"><?php echo arraySelect($modules, 'permission_module', 'size="1" class="text"', 'grp,all', true);?></td>
+	<td width="100%"><?php $module_choices = array('' => '- choose a module -') + $modules; echo arraySelect($module_choices, 'permission_module', 'size="1" class="text"', '', true);?></td>
 </tr>
 <tr>
 	<td nowrap align="right"><?php echo $AppUI->_('Item');?>:</td>

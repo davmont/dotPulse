@@ -226,7 +226,7 @@ if (!$shown) {
 <?php
 if ($section == 'mail' && $query === '') {
 ?>
-<form name="testMailFrm" action="?m=system&amp;a=systemconfig" method="post" class="dpa-panel">
+<form name="testMailFrm" action="?m=system&amp;a=systemconfig&amp;section=mail" method="post" class="dpa-panel">
 	<input type="hidden" name="dosql" value="do_testmail" />
 	<h2><label for="test_mail_to"><?php echo $AppUI->_('Send a test email to'); ?></label></h2>
 	<div class="dpa-row-control">

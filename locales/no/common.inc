@@ -372,3 +372,5 @@
 "The documentation is in English."=>"Dokumentasjonen er på engelsk.", // MT
 "Read this page on the documentation website"=>"Les denne siden på dokumentasjonens nettsted", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"Dokumentasjon under lisensen CC BY-SA 4.0.", // MT
+"- choose a module -"=>"- velg en modul -", // MT
+"choose a module"=>"velg en modul", // MT

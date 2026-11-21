@@ -372,3 +372,5 @@
 "The documentation is in English."=>"Dokumentācija ir angļu valodā.", // MT
 "Read this page on the documentation website"=>"Lasīt šo lapu dokumentācijas vietnē", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"Dokumentācija ar CC BY-SA 4.0 licenci.", // MT
+"- choose a module -"=>"- izvēlieties moduli -", // MT
+"choose a module"=>"izvēlieties moduli", // MT

@@ -37,6 +37,7 @@ if ($del) {
 		$AppUI->setMsg($msg, UI_MSG_ERROR);
 	} else {
 		dPaudit('user.deleted', $audit_name, 'users', $user_id_aed);
+		dPendUserSessions($user_id_aed);
 		$AppUI->setMsg('deleted', UI_MSG_ALERT, true);
 	}
 	$AppUI->redirect();
@@ -153,7 +154,7 @@ if (($msg = $contact->store())) {
 			'users', $obj->user_id);
 		$AppUI->setMsg($isNewUser ? 'added' : 'updated', UI_MSG_OK, true);
 	}
-	$AppUI->redirect(($isNewUser ? ('m=admin&a=viewuser&user_id=' . $obj->user_id . '&tab=3') : ''));
+	$AppUI->redirect(($isNewUser ? ('m=admin&a=viewuser&user_id=' . $obj->user_id . '&tabname=perms') : ''));
 }
 
 function notifyNewUser($address, $username, $logname) {

@@ -12,7 +12,7 @@
 "Add Permissions"=>"권한 추가", // MT
 "added"=>"추가됨",
 "admin_username_title"=>"관리자 사용자 이름", // MT
-"admin_username_tooltip"=>"관리 사용자의 로그인 이름을 지정하십시오.", // MT
+"admin_username_tooltip"=>"사용자 이름 최소 길이보다 짧아도 사용자 양식이 받아들이는 로그인 이름입니다. 아무 권한도 주지 않습니다. 누가 관리자인지는 역할이 정합니다.", // MT
 "Administration"=>"관리", // MT
 "All Events"=>"모든 이벤트", // MT
 "allow"=>"허용", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"캘린더 근무일", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"초과 할당 검사", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"효과가 없습니다. 이 옵션이 켜던 검사는 비활성화되어 있습니다.", // MT
 "check_task_dates_title"=>"작업 날짜 검사", // MT
 "check_task_dates_tooltip"=>"이 옵션을 켜면 모든 작업을 추가하기 전에 시작 날짜와 마감일을 반드시 입력해야 합니다.", // MT
 "check_task_empty_dynamic_title"=>"빈 동적 작업 검사", // MT
@@ -57,7 +57,7 @@
 "cs"=>"체코인",
 "Currency Format"=>"유통 구성",
 "currency_symbol_title"=>"통화 기호", // MT
-"currency_symbol_tooltip"=>"로캘 지원이 내장되어 있지만 통화 기호를 설정하는 기능이 별도로 있습니다. \n\n\n\n통화 기호의 현지화. 유로 기호는 \\'&#8364;\\'로 설정하십시오\n\n\n\nHTML 특수 문자에 대한 정보는 http://www.w3.org/TR/html401/sgml/entities.html 을 참조하십시오.", // MT
+"currency_symbol_tooltip"=>"프로젝트 예산 같은 금액 앞에 붙습니다. 기호 자체를 입력하십시오. 예: € 또는 £.", // MT
 "Custom field added successfully"=>"사용자 정의 필드가 추가되었습니다", // MT
 "Custom Field Editor"=>"사용자 정의 필드 편집기", // MT
 "Custom field editor"=>"사용자 정의 필드 편집기", // MT
@@ -67,27 +67,7 @@
 "de"=>"독일인",
 "deactivate"=>"비활성화", // MT
 "debug_title"=>"디버그 수준", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"PHP 오류 로그에 기록되는 디버그 정보의 양입니다. 0 없음, 1 가장 중요한 메시지, 숫자가 클수록 더 많이(12 이상: 모든 SQL 쿼리). 디버그 메시지 표시를 켜면 페이지에도 출력됩니다.", // MT
 "Default"=>"불이행",
 "Default Event Filter"=>"기본 이벤트 필터", // MT
 "Default User Preferences"=>"사용자 선호 불이행 ",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"기본 하위 모듈", // MT
 "default_view_a_tooltip"=>"시작/기본 페이지를 직접 정의하려면 설정하십시오.\n\ndP의 URL에 표시되는 하위 보기를 지정합니다.", // MT
 "default_view_m_title"=>"기본 모듈", // MT
-"default_view_m_tooltip"=>"시작/기본 페이지를 직접 정의하려면 설정하십시오.\n\n값이 비어 있으면 목록의 첫 번째 모듈이 기본 보기가 됩니다.", // MT
+"default_view_m_tooltip"=>"로그인 후, 그리고 사이트 주소에 페이지가 지정되지 않았을 때 dotPulse가 여는 모듈입니다. 모든 역할이 열 수 있는 모듈을 선택하십시오.", // MT
 "default_view_tab_title"=>"기본 탭 하위 보기", // MT
 "default_view_tab_tooltip"=>"시작/기본 페이지를 직접 정의하려면 설정하십시오.\n\n탭 하위 보기를 지정합니다. 0=첫 번째 탭, ...", // MT
 "delete"=>"삭제", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"영어",
 "enable_gantt_charts_title"=>"Gantt 차트 사용", // MT
-"enable_gantt_charts_tooltip"=>"Gantt 차트 사용 옵션을 통해 사이트에서 Gantt 차트를 사용할지 여부에 따라 이 기능을 켜거나 끌 수 있습니다. ", // MT
+"enable_gantt_charts_tooltip"=>"각 프로젝트 작업 목록 끝에 모두 펼치기, 모두 접기, Gantt 차트 줄을 표시합니다. 프로젝트의 Gantt 탭과 내 Gantt는 어느 경우에도 그대로 있습니다.", // MT
 "English (Aus)"=>"영어 (호주)", // MT
 "English (Can)"=>"영어 (캐나다)", // MT
 "English (GB)"=>"영어 (영국)", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"권한 캐시 디렉터리", // MT
 "gacl_cache_dir_tooltip"=>"웹 서버가 쓸 수 있는 시스템의 디렉터리로 설정하십시오. 권한 시스템의 캐시가 저장됩니다", // MT
 "gacl_cache_title"=>"권한 캐시 사용", // MT
-"gacl_cache_tooltip"=>"작업 목록의 성능을 높이려면 켜십시오. 권한 캐시 디렉터리도 반드시 설정하십시오", // MT
+"gacl_cache_tooltip"=>"권한 라이브러리(phpGACL)의 응답을 아래 디렉터리에 캐시합니다. dotPulse는 자체 테이블에서 권한을 확인하므로 체감할 차이가 없습니다. 꺼 두십시오.", // MT
 "gacl_expire_title"=>"권한 캐시 만료", // MT
-"gacl_expire_tooltip"=>"이 옵션을 설정하면 권한 캐시가 강제로 만료됩니다. 권한 캐시를 사용하는 경우 문제 해결을 위해 오래된 캐시를 지울 때만 설정하고, 이후에 다시 해제하십시오", // MT
+"gacl_expire_tooltip"=>"권한이나 역할이 바뀔 때마다 권한 캐시를 비워 변경 사항이 즉시 적용되게 합니다. 캐시를 사용한다면 켜 두십시오.", // MT
 "gacl_group_title"=>"권한 캐싱", // MT
 "gacl_timeout_title"=>"권한 캐시 제한 시간", // MT
 "gacl_timeout_tooltip"=>"캐시된 권한 정보를 유지할 시간(초)입니다.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"호스트 로캘", // MT
 "host_locale_tooltip"=>"이 옵션은 사이트의 현지화 또는 언어 설정을 지정합니다.", // MT
 "host_style_title"=>"기본 사용자 인터페이스 스타일", // MT
-"host_style_tooltip"=>"기본 사용자 인터페이스 스타일 - 사용자 환경설정에서 설정하는 것과 같지만, 여기에는 기본값의 이름을 직접 입력해야 합니다.  참고가 필요하면 사용자 환경설정의 드롭다운을 확인하고 해당 이름을 여기에 입력하십시오.", // MT
+"host_style_tooltip"=>"로그인 페이지와, 환경 설정에서 테마를 선택하지 않은 사용자의 테마입니다.", // MT
 "HTML Tag Options"=>"HTML 태그 옵션", // MT
 "Import Contacts"=>"연락처 가져오기", // MT
 "Import Contacts from LDAP Directory"=>"LDAP 디렉터리에서 연락처 가져오기", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"호스트에 로그인 필요", // MT
 "mail_auth_tooltip"=>"일부 SMTP 호스트는 인증이 필요합니다. 그런 경우 이 옵션을 설정하고 사용자 이름과 비밀번호를 입력해야 합니다", // MT
 "mail_defer_title"=>"이메일을 대기열에 넣어 나중에 보내기", // MT
-"mail_defer_tooltip"=>"이메일을 대기열에 넣어 나중에 보내려면 선택하십시오.  이벤트 대기열에 항목이 생성됩니다.  세션 처리에서 '이벤트 대기열 검사' 옵션을 설정하거나 다음을 호출하는 cron 작업을 만들어야 합니다:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"사용자가 기다리는 동안 보내는 대신 모든 이메일을 이벤트 대기열에 넣습니다. 명령줄에서 queuescanner.php를 실행하는 cron job이 대기열을 보냅니다. 이것이 없으면 대기열의 이메일은 절대 전송되지 않습니다.", // MT
 "mail_group_title"=>"이메일 설정", // MT
 "mail_host_title"=>"SMTP 호스트", // MT
 "mail_host_tooltip"=>"이메일 발송에 사용할 SMTP 호스트의 정규화된 도메인 이름(FQDN) 또는 IP 주소", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"레코드 유형", // MT
 "remove"=>"삭제",
 "reset_memory_limit_title"=>"Gantt 메모리 제한", // MT
-"reset_memory_limit_tooltip"=>"Gantt 차트가 보이지 않는 오류가 발생하면 이 변수를 사용해 Gantt 차트를 그리는 동안 PHP 메모리 제한을 일시적으로 늘리십시오. 일반적으로 64M, 128M 등의 값을 사용합니다.", // MT
+"reset_memory_limit_tooltip"=>"표준 모듈에서는 사용하지 않습니다. Monitoring and Control 애드온이 일부 페이지에서 PHP 메모리 제한을 이 값으로 설정합니다.", // MT
 "restrict_color_selection_title"=>"프로젝트 색상 선택 제한", // MT
 "restrict_color_selection_tooltip"=>"시스템 값 조회 옵션 \"ProjectColors\"와 함께 사용하여 이 시스템의 모든 사용자가 사용할 수 있는 프로젝트 색상 선택 옵션을 제어할 수 있습니다.\n\n\n\n이 옵션을 켜면 프로젝트 생성자는 위에서 설명한 시스템 값 조회에 정의된 색상 중에서만 선택할 수 있습니다.\n\n\n\n이 옵션을 끄면 프로젝트 생성자는 시스템 기본 프리셋과 전체 색상 팔레트를 사용할 수 있습니다.", // MT
 "restrict_task_time_editing_title"=>"작업 시간 편집 제한", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"세션 유휴 시간", // MT
-"session_idle_time_tooltip"=>"세션이 만료된 것으로 간주되기 전까지 활동이 없을 수 있는 최대 시간입니다.\n\n값의 단위는 초이며, 문자가 뒤따르면 해당 단위입니다: h = 시간, d = 일, m = 월, y = 년.\n\n문자열에는 문자를 1개만 사용할 수 있으므로 2d4h는 올바르지 않지만 28h는 올바릅니다.", // MT
+"session_idle_time_tooltip"=>"세션이 활동 없이 만료되기까지의 시간입니다. 초 단위 숫자(최소 60), 또는 숫자 뒤에 문자 하나: h 시간, d 일, m 30일 단위의 월(분이 아님), y 년. 예: 3600, 8h 또는 2d.", // MT
 "session_max_lifetime_title"=>"세션 최대 수명", // MT
-"session_max_lifetime_tooltip"=>"활동 여부와 관계없이 세션이 폐기되기 전까지 존재할 수 있는 최대 시간입니다.", // MT
+"session_max_lifetime_tooltip"=>"활동 여부와 관계없이 세션이 지속될 수 있는 최대 시간입니다. 세션 유휴 시간과 같은 방식으로 씁니다. 예: 1m(30일).", // MT
 "session_name_title"=>"세션/쿠키 이름", // MT
 "session_name_tooltip"=>"쿠키 이름을 직접 정의합니다. 주의: 세션 이름을 변경하면 모든 사용자가 즉시 로그아웃되며 다시 로그인해야 합니다!", // MT
 "Short Date Format"=>"짧은 날짜 구성",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"다른 사용자의 작업 표시", // MT
 "show_all_tasks_tooltip"=>"다른 사용자에게 속한 작업의 보기를 제어합니다.", // MT
 "site_domain_title"=>"사이트 도메인", // MT
-"site_domain_tooltip"=>"사용자 레코드에 불완전한 주소가 입력된 경우 여기 설정한 도메인으로 이메일 주소를 생성합니다.", // MT
+"site_domain_tooltip"=>"사이트의 도메인입니다. dotPulse는 비밀번호 재설정과, 보낸 사람에게 유효한 주소가 없는 메일을 이 도메인의 no-reply@ 주소로 보냅니다.", // MT
 "sl"=>"슬로베니아인",
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"작업 로그 이메일 제목", // MT
 "Task Notification Method"=>"작업 알림 방식", // MT
 "task_reminder_control_title"=>"작업 알림 보내기", // MT
-"task_reminder_control_tooltip"=>"설정하면 작업 기한이 되었을 때와 완료될 때까지 기한이 지난 매일 모든 담당자에게 이메일이 발송됩니다.", // MT
+"task_reminder_control_tooltip"=>"작업이 완료될 때까지 마감 전과 기한이 지난 매일, 각자의 근무일에 작업 담당자와 소유자에게 이메일을 보냅니다. 끄면 이미 대기열에 있는 알림도 중지됩니다. cron job이 보냅니다.", // MT
 "task_reminder_days_before_title"=>"기한 작업 사전 경고 일수", // MT
 "task_reminder_days_before_tooltip"=>"작업 기한 며칠 전에 첫 알림을 보낼지 결정합니다.", // MT
 "task_reminder_group_title"=>"작업 알림", // MT
@@ -521,3 +501,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"숫자", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"사용자 정의 필드를 불러올 수 없습니다. 삭제되었을 수 있습니다.", // MT
 "Delete"=>"삭제", // MT
+"ldap_search_pass_tooltip"=>"LDAP 검색 사용자의 비밀번호입니다. 저장된 비밀번호를 유지하려면 비워 두십시오.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"초 단위 숫자(최소 60)나 숫자 뒤에 h, d, m(30일) 또는 y를 붙여 입력하십시오", // MT

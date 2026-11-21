@@ -8,7 +8,7 @@ $dialog = (int)dPgetParam($_GET, 'dialog', 0);
 $page_title = (($dialog) ? '' 
                : (in_array($dPconfig['page_title'], array('dotProject', 'dotPulse')) 
                   ? ('dotPulse ' . $AppUI->getVersion()) 
-				  : $dPconfig['page_title']));
+				  : dPhtml((string)$dPconfig['page_title'])));
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -20,7 +20,7 @@ $page_title = (($dialog) ? ''
 	<meta name="Version" content="<?php echo @$AppUI->getVersion();?>" />
 	<meta http-equiv="Content-Type" content="text/html;charset=<?php 
 echo isset($locale_char_set) ? $locale_char_set : 'UTF-8';?>" />
-	<title><?php echo @dPgetConfig('page_title');?></title>
+	<title><?php echo dPhtml((string)dPgetConfig('page_title'));?></title>
 	<link rel="stylesheet" type="text/css" href="./style/<?php 
 echo $uistyle;?>/main.css" media="all" />
 	<style type="text/css" media="all">@import "./style/<?php 

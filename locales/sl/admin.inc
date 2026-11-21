@@ -227,3 +227,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"To kodo QR skenirajte z aplikacijo za preverjanje pristnosti ali vanjo vtipkajte ključ.", // MT
 "QR code for your authenticator app"=>"Koda QR za vašo aplikacijo za preverjanje pristnosti", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"Za vklop prijave v dveh korakih vnesite 6-mestno kodo, ki jo prikaže aplikacija.", // MT
+"Select the projects and the user who takes them over."=>"Izberite projekte in uporabnika, ki jih prevzame.", // MT
+"Role removed from the user"=>"Vloga je bila odvzeta uporabniku", // MT
+"Remove this role from the user?"=>"Ali želite uporabniku odvzeti to vlogo?", // MT

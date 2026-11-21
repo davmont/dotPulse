@@ -12,7 +12,7 @@
 "Add Permissions"=>"Thêm quyền", // MT
 "added"=>"đã thêm",
 "admin_username_title"=>"Tên đăng nhập quản trị", // MT
-"admin_username_tooltip"=>"Chỉ định tên đăng nhập của người dùng quản trị.", // MT
+"admin_username_tooltip"=>"Một tên đăng nhập mà biểu mẫu người dùng chấp nhận ngay cả khi nó ngắn hơn độ dài tối thiểu của tên người dùng. Nó không cấp quyền nào: vai trò quyết định ai là quản trị viên.", // MT
 "Administration"=>"Quản trị", // MT
 "All Events"=>"Tất cả sự kiện", // MT
 "allow"=>"cho phép", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Ngày làm việc trên lịch", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"Kiểm tra phân bổ quá mức", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"Không có tác dụng: việc kiểm tra mà nó từng bật đã bị vô hiệu hóa.", // MT
 "check_task_dates_title"=>"Kiểm tra ngày của nhiệm vụ", // MT
 "check_task_dates_tooltip"=>"Nếu bật tuỳ chọn này, mọi nhiệm vụ phải có ngày bắt đầu và ngày kết thúc thì mới được thêm.", // MT
 "check_task_empty_dynamic_title"=>"Kiểm tra nhiệm vụ động trống", // MT
@@ -57,7 +57,7 @@
 "cs"=>"Tiếng Séc", // MT
 "Currency Format"=>"Định dạng tiền tệ",
 "currency_symbol_title"=>"Ký hiệu tiền tệ", // MT
-"currency_symbol_tooltip"=>"Mặc dù đã có hỗ trợ ngôn ngữ địa phương tích hợp sẵn, vẫn có thêm một tính năng để đặt ký hiệu tiền tệ. \n\n\n\nBản địa hoá ký hiệu tiền tệ. Với ký hiệu đồng EURO, hãy đặt là \\'&#8364;\\'\n\n\n\nXem http://www.w3.org/TR/html401/sgml/entities.html để biết thông tin về các ký tự đặc biệt HTML.", // MT
+"currency_symbol_tooltip"=>"Đặt trước các khoản tiền, chẳng hạn ngân sách dự án. Hãy nhập chính ký hiệu đó, ví dụ € hoặc £.", // MT
 "Custom field added successfully"=>"Đã thêm trường tuỳ chỉnh thành công", // MT
 "Custom Field Editor"=>"Trình sửa trường tuỳ chỉnh", // MT
 "Custom field editor"=>"Trình sửa trường tuỳ chỉnh", // MT
@@ -67,27 +67,7 @@
 "de"=>"Tiếng Đức", // MT
 "deactivate"=>"vô hiệu hoá", // MT
 "debug_title"=>"Mức gỡ lỗi", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"Lượng thông tin gỡ lỗi được ghi vào nhật ký lỗi của PHP: 0 không có, 1 các thông báo quan trọng nhất, số cao hơn thì nhiều hơn (từ 12 trở lên: mọi truy vấn SQL). Hiện thông báo gỡ lỗi cũng in chúng lên các trang.", // MT
 "Default"=>"Mặc định",
 "Default Event Filter"=>"Bộ lọc sự kiện mặc định", // MT
 "Default User Preferences"=>"Các tuỳ chọn người dùng mặc định",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"Mô-đun con mặc định", // MT
 "default_view_a_tooltip"=>"Đặt mục này nếu bạn muốn tự định nghĩa trang bắt đầu/mặc định.\n\nChỉ định một chế độ xem con như hiển thị trong URL của dP.", // MT
 "default_view_m_title"=>"Mô-đun mặc định", // MT
-"default_view_m_tooltip"=>"Đặt mục này nếu bạn muốn tự định nghĩa trang bắt đầu/mặc định.\n\nNếu giá trị để trống thì mô-đun đầu tiên trong danh sách sẽ là chế độ xem mặc định.", // MT
+"default_view_m_tooltip"=>"Mô-đun mà dotPulse mở sau khi đăng nhập, và khi địa chỉ trang web không chỉ định trang nào. Hãy chọn mô-đun mà mọi vai trò đều được mở.", // MT
 "default_view_tab_title"=>"Thẻ xem con mặc định", // MT
 "default_view_tab_tooltip"=>"Đặt mục này nếu bạn muốn tự định nghĩa trang bắt đầu/mặc định.\n\nChỉ định một thẻ xem con. 0=thẻ đầu tiên, ...", // MT
 "delete"=>"xoá", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"Tiếng Anh", // MT
 "enable_gantt_charts_title"=>"Bật biểu đồ Gantt", // MT
-"enable_gantt_charts_tooltip"=>"Tuỳ chọn bật hoặc tắt biểu đồ Gantt cho phép bạn bật hay tắt chức năng này, tuỳ theo việc bạn có muốn dùng biểu đồ Gantt trên trang của mình hay không. ", // MT
+"enable_gantt_charts_tooltip"=>"Hiện dòng Mở rộng tất cả, Thu gọn tất cả và Biểu đồ Gantt ở cuối danh sách công việc của mỗi dự án. Các thẻ Gantt của dự án và Gantt của tôi vẫn còn trong mọi trường hợp.", // MT
 "English (Aus)"=>"Tiếng Anh (Úc)", // MT
 "English (Can)"=>"Tiếng Anh (Canada)", // MT
 "English (GB)"=>"Tiếng Anh (Anh)", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"Thư mục bộ nhớ đệm quyền", // MT
 "gacl_cache_dir_tooltip"=>"Đặt mục này là một thư mục trên hệ thống mà máy chủ web có thể ghi vào; thư mục này chứa bộ nhớ đệm của hệ thống phân quyền", // MT
 "gacl_cache_title"=>"Bật bộ nhớ đệm quyền", // MT
-"gacl_cache_tooltip"=>"Bật mục này để cải thiện hiệu năng trong danh sách nhiệm vụ, hãy nhớ đặt cả thư mục bộ nhớ đệm quyền", // MT
+"gacl_cache_tooltip"=>"Lưu đệm các câu trả lời của thư viện quyền (phpGACL) trong thư mục bên dưới. dotPulse kiểm tra quyền trong bảng riêng của nó, nên việc này không tạo ra khác biệt đáng kể: hãy để tắt.", // MT
 "gacl_expire_title"=>"Làm hết hạn bộ nhớ đệm quyền", // MT
-"gacl_expire_tooltip"=>"Đặt mục này sẽ buộc bộ nhớ đệm quyền hết hạn; nếu bạn dùng bộ nhớ đệm quyền, chỉ nên đặt mục này để xoá bộ nhớ đệm cũ nhằm khắc phục sự cố, và đặt lại sau đó", // MT
+"gacl_expire_tooltip"=>"Xóa bộ nhớ đệm quyền mỗi khi một quyền hoặc một vai trò thay đổi, để thay đổi có hiệu lực ngay. Hãy giữ bật nếu bạn dùng bộ nhớ đệm.", // MT
 "gacl_group_title"=>"Bộ nhớ đệm quyền", // MT
 "gacl_timeout_title"=>"Thời gian chờ bộ nhớ đệm quyền", // MT
 "gacl_timeout_tooltip"=>"Số giây giữ thông tin quyền trong bộ nhớ đệm.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"Ngôn ngữ máy chủ", // MT
 "host_locale_tooltip"=>"Tuỳ chọn này chỉ định thiết lập bản địa hoá hoặc ngôn ngữ cho trang của bạn.", // MT
 "host_style_title"=>"Kiểu giao diện mặc định", // MT
-"host_style_tooltip"=>"Kiểu giao diện mặc định - như được đặt trong phần Tuỳ chọn người dùng, tuy nhiên bạn cần nhập tên kiểu mặc định vào đây.  Nếu cần gợi ý, hãy xem danh sách thả xuống trong Tuỳ chọn người dùng và nhập lại tên đó tại đây.", // MT
+"host_style_tooltip"=>"Giao diện của trang đăng nhập và của những người dùng chưa chọn giao diện trong tùy chọn của họ.", // MT
 "HTML Tag Options"=>"Tuỳ chọn thẻ HTML", // MT
 "Import Contacts"=>"Nhập liên hệ", // MT
 "Import Contacts from LDAP Directory"=>"Nhập liên hệ từ thư mục LDAP", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"Máy chủ yêu cầu đăng nhập", // MT
 "mail_auth_tooltip"=>"Một số máy chủ SMTP yêu cầu xác thực; nếu máy chủ của bạn yêu cầu, bạn cần đặt mục này và cung cấp tên đăng nhập và mật khẩu", // MT
 "mail_defer_title"=>"Đưa email vào hàng đợi để gửi sau", // MT
-"mail_defer_tooltip"=>"Chọn mục này để đưa email vào hàng đợi gửi sau.  Một mục sẽ được tạo trong Hàng đợi sự kiện.  Bạn cần bật tuỳ chọn Quét hàng đợi sự kiện trong phần Xử lý phiên hoặc tạo một cron job để gọi:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"Đưa mỗi email vào hàng đợi sự kiện thay vì gửi ngay trong khi người dùng chờ. cron job chạy queuescanner.php từ dòng lệnh sẽ gửi hàng đợi: nếu không có nó, email trong hàng đợi sẽ không bao giờ được gửi.", // MT
 "mail_group_title"=>"Cài đặt email", // MT
 "mail_host_title"=>"Máy chủ SMTP", // MT
 "mail_host_tooltip"=>"Tên miền đầy đủ (FQDN) hoặc địa chỉ IP của máy chủ SMTP dùng để gửi email", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"loại bản ghi", // MT
 "remove"=>"gỡ bỏ",
 "reset_memory_limit_title"=>"Giới hạn bộ nhớ cho Gantt", // MT
-"reset_memory_limit_tooltip"=>"Nếu gặp lỗi biểu đồ Gantt không hiển thị, hãy dùng biến này để tạm thời tăng giới hạn bộ nhớ PHP khi vẽ biểu đồ Gantt. Các giá trị thường dùng là 64M, 128M, v.v.", // MT
+"reset_memory_limit_tooltip"=>"Không được các mô-đun chuẩn sử dụng. Tiện ích bổ sung Monitoring and Control đặt giới hạn bộ nhớ của PHP thành giá trị này trên một số trang của nó.", // MT
 "restrict_color_selection_title"=>"Giới hạn lựa chọn màu dự án", // MT
 "restrict_color_selection_tooltip"=>"Dùng kết hợp với tuỳ chọn Tra cứu giá trị hệ thống \"ProjectColors\", bạn có thể dùng thiết lập này để kiểm soát các lựa chọn màu dự án mà mọi người dùng trên hệ thống có thể truy cập.\n\n\n\nNếu bật tuỳ chọn này, người tạo dự án chỉ có thể chọn trong các màu được định nghĩa trong mục Tra cứu giá trị hệ thống nêu trên.\n\n\n\nNếu tắt tuỳ chọn này, người tạo dự án có thể dùng các thiết lập sẵn mặc định của hệ thống và toàn bộ bảng màu.", // MT
 "restrict_task_time_editing_title"=>"Giới hạn sửa thời gian nhiệm vụ", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Thời gian chờ của phiên", // MT
-"session_idle_time_tooltip"=>"Thời gian tối đa một phiên có thể không hoạt động trước khi bị coi là hết hiệu lực.\n\nGiá trị tính bằng giây trừ khi có chữ cái theo sau: h = giờ, d = ngày, m = tháng, y = năm.\n\nMỗi chuỗi chỉ được có 1 ký tự chữ, vì vậy 2d4h KHÔNG hợp lệ, nhưng 28h thì hợp lệ.", // MT
+"session_idle_time_tooltip"=>"Thời gian một phiên có thể không hoạt động trước khi hết hạn. Một số giây (ít nhất 60), hoặc một số theo sau là một chữ cái: h giờ, d ngày, m tháng 30 ngày (không phải phút), y năm. Ví dụ 3600, 8h hoặc 2d.", // MT
 "session_max_lifetime_title"=>"Thời gian sống tối đa của phiên", // MT
-"session_max_lifetime_tooltip"=>"Thời gian tối đa một phiên có thể tồn tại trước khi bị huỷ, bất kể mức độ hoạt động.", // MT
+"session_max_lifetime_tooltip"=>"Thời gian tối đa một phiên có thể kéo dài, dù hoạt động đến đâu. Viết giống như Thời gian chờ của phiên, ví dụ 1m (30 ngày).", // MT
 "session_name_title"=>"Tên phiên/cookie", // MT
 "session_name_tooltip"=>"Tự định nghĩa tên cookie. Chú ý: Thay đổi tên phiên sẽ đăng xuất ngay mọi người dùng! Họ sẽ phải đăng nhập lại.", // MT
 "Short Date Format"=>"Định dạng ngày tháng ngắn",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"Hiện nhiệm vụ của người dùng khác", // MT
 "show_all_tasks_tooltip"=>"Kiểm soát việc xem các nhiệm vụ thuộc về người dùng khác.", // MT
 "site_domain_title"=>"Tên miền trang", // MT
-"site_domain_tooltip"=>"Tên miền đặt ở đây được dùng để tạo địa chỉ email nếu hồ sơ người dùng có địa chỉ chưa đầy đủ.", // MT
+"site_domain_tooltip"=>"Tên miền của trang web. dotPulse gửi thư đặt lại mật khẩu, và thư có người gửi không có địa chỉ hợp lệ, từ địa chỉ no-reply@ của tên miền này.", // MT
 "sl"=>"Tiếng Slovenia", // MT
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"Tiêu đề email nhật ký nhiệm vụ", // MT
 "Task Notification Method"=>"Cách thông báo nhiệm vụ", // MT
 "task_reminder_control_title"=>"Gửi nhắc nhở nhiệm vụ", // MT
-"task_reminder_control_tooltip"=>"Nếu đặt, một email sẽ được gửi cho tất cả người được giao khi nhiệm vụ đến hạn và mỗi ngày quá hạn cho đến khi hoàn thành.", // MT
+"task_reminder_control_tooltip"=>"Gửi email cho người được giao và người phụ trách của một công việc trước hạn chót và mỗi ngày công việc bị trễ hạn, vào ngày làm việc của họ, cho đến khi hoàn thành. Tắt nó cũng dừng các lời nhắc đã nằm trong hàng đợi. Do cron job gửi.", // MT
 "task_reminder_days_before_title"=>"Số ngày cảnh báo trước hạn nhiệm vụ", // MT
 "task_reminder_days_before_tooltip"=>"Thiết lập này xác định nhắc nhở đầu tiên được gửi bao nhiêu ngày trước hạn nhiệm vụ.", // MT
 "task_reminder_group_title"=>"Nhắc nhở nhiệm vụ", // MT
@@ -527,3 +507,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"Số", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Không thể tải trường tuỳ chỉnh, có thể nó đã bị xoá.", // MT
 "Delete"=>"Xoá", // MT
+"ldap_search_pass_tooltip"=>"Mật khẩu của Người dùng tìm kiếm LDAP. Để trống để giữ mật khẩu đã lưu.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"hãy nhập một số giây (ít nhất 60), hoặc một số theo sau là h, d, m (30 ngày) hoặc y", // MT

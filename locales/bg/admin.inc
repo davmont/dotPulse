@@ -228,3 +228,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"Сканирайте този QR код с приложението си за удостоверяване или въведете ключа ръчно.", // MT
 "QR code for your authenticator app"=>"QR код за приложението за удостоверяване", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"Въведете 6-цифрения код от приложението, за да включите входа в две стъпки.", // MT
+"Select the projects and the user who takes them over."=>"Изберете проектите и потребителя, който ги поема.", // MT
+"Role removed from the user"=>"Ролята е премахната от потребителя", // MT
+"Remove this role from the user?"=>"Да се премахне ли тази роля от потребителя?", // MT

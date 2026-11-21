@@ -761,9 +761,13 @@ class dPacl extends gacl_api
 	function deleteRole($id)
 	{
 		//Delete all of the group assignments before deleting group.
+		// section => list of the users in it (a list: passing it whole was a TypeError on PHP 8,
+		// so a role that still had users could not be deleted).
 		$objs = $this->get_group_objects($id);
-		foreach ($objs as $section => $value) {
-			$this->del_group_object($id, $section, $value);
+		foreach ((array)$objs as $section => $values) {
+			foreach ((array)$values as $value) {
+				$this->del_group_object($id, $section, $value);
+			}
 		}
 		$res = $this->del_group($id, false);
 		$this->regeneratePermissions();
@@ -1121,6 +1125,12 @@ class dPacl extends gacl_api
 
 		$module = dPgetParam($_POST, 'permission_module', '');
 		$module = is_string($module) ? $module : '';
+		if (!preg_match('/^(grp|mod),\d+$/', $module)) {
+			// The form starts with no module chosen, so a rule is not given to the admin
+			// modules by mistake.
+			$this->debug_text('choose a module');
+			return false;
+		}
 		$mod_type = substr($module, 0, 4);
 		// Ids are integers and the table one a module declares (phpGACL concatenates them).
 		$mod_id = (int)substr($module, 4);
@@ -1228,8 +1238,11 @@ class dPacl extends gacl_api
 
 	function del_acl($id)
 	{
-		gacl_api::del_acl($id);
+		// The result, which the callers test (it was always null: "failed", with the
+		// library's debug text as the message, and no audit entry).
+		$result = gacl_api::del_acl($id);
 		$this->regeneratePermissions();
+		return $result;
 	}
 
 	/**

@@ -14,7 +14,7 @@ $page_title = dPgetConfig('page_title', 'dotPulse');
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>
-		<?php echo $page_title; ?> :: Login
+		<?php echo dPhtml($page_title); ?> :: Login
 	</title>
 	<link rel="stylesheet" type="text/css" href="./style/<?php echo $uistyle; ?>/main.css" media="all" />
 	<link rel="shortcut icon" href="./style/<?php echo $uistyle; ?>/images/favicon.ico" type="image/ico" />
@@ -159,7 +159,7 @@ $page_title = dPgetConfig('page_title', 'dotPulse');
 
 		<div class="login-header">
 			<h1>
-				<?php echo $company_name; ?>
+				<?php echo dPhtml($company_name); ?>
 			</h1>
 			<p>Sign in to your account</p>
 		</div>

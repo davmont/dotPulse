@@ -263,6 +263,17 @@ else {
 	if ($canEdit) {
 		$tabBox->add(DP_BASE_DIR . '/modules/admin/vw_usr_transfer', 'Transfer');
 	}
+	// A tab by name (&tabname=perms opens vw_usr_perms): add-on modules add tabs before these,
+	// so their numbers change.
+	$tab_name = dPgetParam($_GET, 'tabname', '');
+	if (is_string($tab_name) && preg_match('/^[a-z_]+$/', $tab_name)) {
+		foreach ($tabBox->tabs as $i => $t) {
+			if (basename($t[0]) === 'vw_usr_' . $tab_name) {
+				$tabBox->active = $i;
+				$AppUI->setState('UserVwTab', $i);
+			}
+		}
+	}
 	$tabBox->show();
 
 	$AppUI->setPref('TABVIEW', $oldViewPref);

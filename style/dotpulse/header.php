@@ -14,7 +14,7 @@ $current_module = isset($m) ? $m : '';
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="Description" content="dotPulse" />
 	<meta name="Version" content="<?php echo @$AppUI->getVersion(); ?>" />
-	<title><?php echo @dPgetConfig('page_title'); ?></title>
+	<title><?php echo dPhtml((string)dPgetConfig('page_title')); ?></title>
 	<link rel="stylesheet" type="text/css" href="./style/<?php echo $uistyle; ?>/main.css" media="all" />
 	<link rel="shortcut icon" href="./style/dotpulse/images/favicon.ico" type="image/ico" />
 	<link rel="icon" href="./images/brand/favicon.svg" type="image/svg+xml" />

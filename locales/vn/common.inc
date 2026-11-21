@@ -379,3 +379,5 @@
 "The documentation is in English."=>"Tài liệu bằng tiếng Anh.", // MT
 "Read this page on the documentation website"=>"Đọc trang này trên trang web tài liệu", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"Tài liệu theo giấy phép CC BY-SA 4.0.", // MT
+"- choose a module -"=>"- chọn một mô-đun -", // MT
+"choose a module"=>"chọn một mô-đun", // MT

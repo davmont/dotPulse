@@ -377,3 +377,5 @@
 "The documentation is in English."=>"ドキュメントは英語です。", // MT
 "Read this page on the documentation website"=>"このページをドキュメントのウェブサイトで読む", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"ドキュメントは CC BY-SA 4.0 ライセンスです。", // MT
+"- choose a module -"=>"- モジュールを選択 -", // MT
+"choose a module"=>"モジュールを選択してください", // MT

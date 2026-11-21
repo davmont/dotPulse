@@ -187,6 +187,37 @@ function breadCrumbs(&$arr)
 }
 
 /**
+ * Ends every open session of a user (dotPulse sessions, kept in the database): used when the
+ * user is deleted or loses their last role, so they don't stay logged in. With PHP's own
+ * sessions there is nothing to end here: the next page refuses them, having no role.
+ */
+function dPendUserSessions($user_id)
+{
+	$user_id = (int)$user_id;
+	if (!$user_id) {
+		return;
+	}
+	$q = new DBQuery;
+	$q->addTable('sessions', 's');
+	$q->addJoin('user_access_log', 'ual', 'ual.user_access_log_id = s.session_user', 'inner');
+	$q->addQuery('s.session_id, ual.user_access_log_id');
+	$q->addWhere('ual.user_id = ' . $user_id);
+	$open = $q->loadList();
+	$q->clear();
+	foreach ($open as $row) {
+		$q->addTable('user_access_log');
+		$q->addUpdate('date_time_out', date('Y-m-d H:i:s'));
+		$q->addWhere('user_access_log_id = ' . (int)$row['user_access_log_id']);
+		$q->exec();
+		$q->clear();
+		$q->setDelete('sessions');
+		$q->addWhere('session_id = ' . $q->quote($row['session_id']));
+		$q->exec();
+		$q->clear();
+	}
+}
+
+/**
  * The Help link for a page of the application: $ref is "module.action" (the help reference
  * of a title block, "projects.view"), or a module alone. Help shows the documentation that
  * comes with dotPulse (website/docs, the source of https://www.dotpulse.org/) inside the

@@ -12,7 +12,7 @@
 "Add Permissions"=>"增加權限", // MT
 "added"=>"已增加", // MT
 "admin_username_title"=>"管理員使用者名稱", // MT
-"admin_username_tooltip"=>"指定管理使用者的登入名稱。", // MT
+"admin_username_tooltip"=>"一個登入名稱，即使它短於使用者名稱的最小長度，使用者表單也會接受。它不授予任何權限：由角色決定誰是管理員。", // MT
 "Administration"=>"管理", // MT
 "All Events"=>"所有事件", // MT
 "allow"=>"允許", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"行事曆工作日", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"過度分配檢查", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"沒有作用：它過去啟用的檢查已停用。", // MT
 "check_task_dates_title"=>"檢查工作日期", // MT
 "check_task_dates_tooltip"=>"若開啟此選項，所有工作都必須有開始和結束日期才能增加。", // MT
 "check_task_empty_dynamic_title"=>"檢查空白的動態工作", // MT
@@ -57,7 +57,7 @@
 "cs"=>"Czech (捷克文)",
 "Currency Format"=>"貨幣格式", // MT
 "currency_symbol_title"=>"貨幣符號", // MT
-"currency_symbol_tooltip"=>"雖然目前已內建語系支援，但仍提供額外的貨幣符號設定功能。\n\n\n\n貨幣符號的在地化。歐元符號請設為 \\'&#8364;\\'\n\n\n\n有關 HTML 特殊字元的資訊，請參閱 http://www.w3.org/TR/html401/sgml/entities.html。", // MT
+"currency_symbol_tooltip"=>"放在金額之前，例如專案預算。請輸入符號本身，例如 € 或 £。", // MT
 "Custom field added successfully"=>"已成功增加自訂欄位", // MT
 "Custom Field Editor"=>"自訂欄位編輯器", // MT
 "Custom field editor"=>"自訂欄位編輯器", // MT
@@ -67,27 +67,7 @@
 "de"=>"German (德語)",
 "deactivate"=>"停用", // MT
 "debug_title"=>"偵錯層級", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"寫入 PHP 錯誤記錄檔的偵錯資訊量：0 無，1 最重要的訊息，數字越大越多（12 以上：每個 SQL 查詢）。「顯示偵錯訊息」也會將其顯示在頁面上。", // MT
 "Default"=>"預設值",
 "Default Event Filter"=>"預設事件篩選", // MT
 "Default User Preferences"=>"預設使用者設定值",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"預設子模組", // MT
 "default_view_a_tooltip"=>"若您要定義自己的起始/預設頁面，請設定此項。\n\n指定子檢視，如 dP 網址中所示。", // MT
 "default_view_m_title"=>"預設模組", // MT
-"default_view_m_tooltip"=>"若您要定義自己的起始/預設頁面，請設定此項。\n\n若此值為空，則清單中的第一個模組會成為預設檢視。", // MT
+"default_view_m_tooltip"=>"登入後以及網站位址未指定頁面時 dotPulse 開啟的模組。請選擇每個角色都能開啟的模組。", // MT
 "default_view_tab_title"=>"預設索引標籤子檢視", // MT
 "default_view_tab_tooltip"=>"若您要定義自己的起始/預設頁面，請設定此項。\n\n指定索引標籤子檢視。0=第一個索引標籤，……", // MT
 "delete"=>"刪除", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"English (英文)",
 "enable_gantt_charts_title"=>"啟用甘特圖", // MT
-"enable_gantt_charts_tooltip"=>"啟用或停用甘特圖的選項可讓您依據是否要在網站上使用甘特圖，開啟或關閉此功能。 ", // MT
+"enable_gantt_charts_tooltip"=>"在每個專案任務清單的末尾顯示「全部展開」、「全部收合」和「甘特圖(Gantt Chart)」這一行。專案的 Gantt 分頁和「我的甘特圖」無論如何都會保留。", // MT
 "English (Aus)"=>"English (Aus)",
 "English (Can)"=>"English (Can)",
 "English (GB)"=>"English (GB)",
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"權限快取目錄", // MT
 "gacl_cache_dir_tooltip"=>"將此設為系統上網頁伺服器可寫入的目錄，用來存放權限系統的快取", // MT
 "gacl_cache_title"=>"啟用權限快取", // MT
-"gacl_cache_tooltip"=>"開啟此項可提升工作清單的效能，請務必同時設定權限快取目錄", // MT
+"gacl_cache_tooltip"=>"將權限程式庫 (phpGACL) 的回應快取在下方的目錄中。dotPulse 在自己的資料表中檢查權限，因此不會有任何明顯差別：請保持關閉。", // MT
 "gacl_expire_title"=>"使權限快取過期", // MT
-"gacl_expire_tooltip"=>"設定此項將強制權限快取過期。若您使用權限快取，應只在需要清除舊快取以解決問題時設定此項，之後再重設", // MT
+"gacl_expire_tooltip"=>"每當權限或角色變更時清除權限快取，讓變更立即生效。若使用快取，請保持開啟。", // MT
 "gacl_group_title"=>"權限快取", // MT
 "gacl_timeout_title"=>"權限快取逾時", // MT
 "gacl_timeout_tooltip"=>"保留快取權限資訊的秒數。", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"主機語系", // MT
 "host_locale_tooltip"=>"此選項指定網站的在地化或語言設定。", // MT
 "host_style_title"=>"預設使用者介面樣式", // MT
-"host_style_tooltip"=>"預設使用者介面樣式 - 與使用者設定值區域中的設定相同，但您需要在此輸入預設樣式的名稱。若需要提示，請查看使用者設定值中的下拉式選單，並在此重複該名稱。", // MT
+"host_style_tooltip"=>"登入頁面以及未在偏好設定中選擇佈景主題的使用者所用的佈景主題。", // MT
 "HTML Tag Options"=>"HTML 標籤選項", // MT
 "Import Contacts"=>"匯入聯絡人", // MT
 "Import Contacts from LDAP Directory"=>"從 LDAP 目錄匯入聯絡人", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"主機需要登入", // MT
 "mail_auth_tooltip"=>"有些 SMTP 主機需要驗證，若您的主機需要，就必須設定此項並提供使用者名稱和密碼", // MT
 "mail_defer_title"=>"將電子郵件排入佇列稍後寄送", // MT
-"mail_defer_tooltip"=>"勾選此項可將電子郵件排入佇列稍後寄送。事件佇列中會建立一個項目。您需要在工作階段處理中設定「掃描事件佇列」選項，或建立 cron 工作來呼叫：\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"將每封郵件放入事件佇列，而不是在使用者等待時寄出。佇列由從命令列執行 queuescanner.php 的 cron job 寄出：沒有它，佇列中的郵件永遠不會寄出。", // MT
 "mail_group_title"=>"電子郵件設定", // MT
 "mail_host_title"=>"SMTP 主機", // MT
 "mail_host_tooltip"=>"用來寄送電子郵件的 SMTP 主機完整網域名稱 (FQDN) 或 IP 位址", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"記錄型態", // MT
 "remove"=>"移除",
 "reset_memory_limit_title"=>"甘特圖記憶體限制", // MT
-"reset_memory_limit_tooltip"=>"若甘特圖無法顯示並發生錯誤，可使用此變數暫時擴充繪製甘特圖時的 PHP 記憶體限制。常見的值為 64M、128M 等。", // MT
+"reset_memory_limit_tooltip"=>"標準模組不使用。Monitoring and Control 附加元件會在其部分頁面上將 PHP 的記憶體限制設為此值。", // MT
 "restrict_color_selection_title"=>"限制專案顏色選擇", // MT
 "restrict_color_selection_tooltip"=>"搭配系統值查詢選項「ProjectColors」使用，您可以用此設定控制系統上所有使用者可用的專案顏色選項。\n\n\n\n若開啟此選項，專案建立者只能從上述系統值查詢中定義的顏色選項中選擇。\n\n\n\n若關閉此選項，專案建立者可以使用系統預設值和完整的調色盤。", // MT
 "restrict_task_time_editing_title"=>"限制工作時間編輯", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"工作階段閒置時間", // MT
-"session_idle_time_tooltip"=>"工作階段在被宣告失效之前可以沒有任何活動的最長時間。\n\n除非後面加上字母，否則值以秒為單位：h = 小時、d = 天、m = 月、y = 年。\n\n字串中只能有 1 個字元，因此 2d4h 無效，但 28h 有效。", // MT
+"session_idle_time_tooltip"=>"工作階段在沒有活動的情況下多久後到期。秒數（至少 60），或數字後接一個字母：h 小時，d 天，m 30 天的月（不是分鐘），y 年。例如 3600、8h 或 2d。", // MT
 "session_max_lifetime_title"=>"工作階段最長存留時間", // MT
-"session_max_lifetime_tooltip"=>"不論活動程度如何，工作階段在被清除前可以存在的最長時間。", // MT
+"session_max_lifetime_tooltip"=>"工作階段無論多活躍，最多可持續多久。寫法與「工作階段閒置時間」相同，例如 1m（30 天）。", // MT
 "session_name_title"=>"工作階段/Cookie 名稱", // MT
 "session_name_tooltip"=>"定義您自己的 Cookie 名稱。注意：變更工作階段名稱會立即登出所有使用者！他們需要重新登入。", // MT
 "Short Date Format"=>"日期格式",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"顯示其他使用者的工作", // MT
 "show_all_tasks_tooltip"=>"控制是否可檢視屬於其他使用者的工作。", // MT
 "site_domain_title"=>"網站網域", // MT
-"site_domain_tooltip"=>"若使用者記錄中輸入的地址不完整，會使用此處設定的網域產生電子郵件地址。", // MT
+"site_domain_tooltip"=>"您網站的網域。dotPulse 從此網域的 no-reply@ 位址寄出密碼重設郵件，以及寄件者沒有有效位址的郵件。", // MT
 "sl"=>"斯洛維尼亞文", // MT
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"工作記錄電子郵件主旨", // MT
 "Task Notification Method"=>"工作通知方式", // MT
 "task_reminder_control_title"=>"寄送工作提醒", // MT
-"task_reminder_control_tooltip"=>"若設定此項，當工作到期時，以及工作逾期後直到完成前的每一天，都會寄送電子郵件給所有受指派者。", // MT
+"task_reminder_control_tooltip"=>"在任務到期前以及逾期的每一天，於其工作日寄送郵件給任務的指派人與負責人，直到任務完成。關閉後也會停止已在佇列中的提醒。由 cron job 寄出。", // MT
 "task_reminder_days_before_title"=>"到期工作的提前警告天數", // MT
 "task_reminder_days_before_tooltip"=>"此設定決定在工作到期前幾天寄出第一封提醒。", // MT
 "task_reminder_group_title"=>"工作提醒", // MT
@@ -527,3 +507,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"數值", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"無法載入自訂欄位，它可能已被刪除。", // MT
 "Delete"=>"刪除", // MT
+"ldap_search_pass_tooltip"=>"「LDAP 搜尋使用者」的密碼。留空則保留已儲存的密碼。", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"請輸入秒數（至少 60），或數字後接 h、d、m（30 天）或 y", // MT

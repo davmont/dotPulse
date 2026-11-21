@@ -229,3 +229,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"Quét mã QR này bằng ứng dụng xác thực, hoặc nhập khoá vào ứng dụng.", // MT
 "QR code for your authenticator app"=>"Mã QR cho ứng dụng xác thực của bạn", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"Nhập mã 6 chữ số mà ứng dụng hiển thị để bật đăng nhập hai bước.", // MT
+"Select the projects and the user who takes them over."=>"Chọn các dự án và người dùng sẽ tiếp nhận chúng.", // MT
+"Role removed from the user"=>"Đã gỡ vai trò khỏi người dùng", // MT
+"Remove this role from the user?"=>"Gỡ vai trò này khỏi người dùng?", // MT

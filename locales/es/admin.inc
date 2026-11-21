@@ -241,3 +241,6 @@
 "failed to add role"=>"no se pudo añadir el rol",
 "failed to delete role"=>"no se pudo borrar el rol",
 "Code"=>"Código",
+"Select the projects and the user who takes them over."=>"Seleccione los proyectos y el usuario que se hace cargo de ellos.",
+"Role removed from the user"=>"Rol quitado al usuario",
+"Remove this role from the user?"=>"¿Quitar este rol al usuario?",

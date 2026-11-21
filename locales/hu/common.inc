@@ -372,3 +372,5 @@
 "The documentation is in English."=>"A dokumentáció angol nyelvű.", // MT
 "Read this page on the documentation website"=>"Az oldal elolvasása a dokumentáció webhelyén", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"A dokumentáció a CC BY-SA 4.0 licenc alatt érhető el.", // MT
+"- choose a module -"=>"- válasszon modult -", // MT
+"choose a module"=>"válasszon modult", // MT
