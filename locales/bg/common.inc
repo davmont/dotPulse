@@ -400,3 +400,4 @@
 "Documentation under the CC BY-SA 4.0 licence."=>"Документация под лиценз CC BY-SA 4.0.", // MT
 "- choose a module -"=>"- изберете модул -", // MT
 "choose a module"=>"изберете модул", // MT
+"main texts"=>"основни текстове", // MT

@@ -1660,12 +1660,36 @@ function dPconvertTablesToUtf8mb4($tables)
 	return true;
 }
 /**
+ * The files the translation page offers: module => label. A module with its own folder of
+ * translations (modules/<m>/locales/) has a second entry, "core:<m>", for its main texts in
+ * locales/<lang>/<m>.inc, which could not be edited before.
+ */
+function dPtranslationModules()
+{
+	global $AppUI;
+	$modules = arrayMerge($AppUI->readDirs('modules'), array('common' => 'common', 'styles' => 'styles'));
+	foreach (array_keys($modules) as $dir) {
+		if (file_exists(DP_BASE_DIR . '/modules/' . $dir . '/locales/en.inc')
+			&& file_exists(DP_BASE_DIR . '/locales/en/' . $dir . '.inc')) {
+			$modules['core:' . $dir] = $dir . ' (' . $AppUI->_('main texts', UI_OUTPUT_RAW) . ')';
+		}
+	}
+	asort($modules);
+	return $modules;
+}
+
+/**
  * The file the translation page reads and saves for a module and language: the module's own
  * (modules/[module]/locales/[lang].inc) when it ships an English one, locales/[lang]/[module].inc
  * otherwise. A module can have both; locales/core.php reads both, the page edits the first.
  */
 function dPtranslationFile($module, $lang)
 {
+	// "core:projects": the main texts (locales/<lang>/projects.inc) of a module that also has
+	// its own folder of translations, which "projects" opens.
+	if (strpos((string)$module, 'core:') === 0) {
+		return DP_BASE_DIR . '/locales/' . $lang . '/' . substr($module, 5) . '.inc';
+	}
 	if (file_exists(DP_BASE_DIR . '/modules/' . $module . '/locales/en.inc')) {
 		return DP_BASE_DIR . '/modules/' . $module . '/locales/' . $lang . '.inc';
 	}

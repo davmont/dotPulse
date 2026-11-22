@@ -509,3 +509,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"削除", // MT
 "ldap_search_pass_tooltip"=>"「LDAP 検索ユーザ」のパスワードです。保存済みのものを保持するには空のままにしてください。", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"秒数 (60 以上)、または数値の後に h、d、m (30日)、y のいずれかを入力してください", // MT
+"Delete this billing code?"=>"この請求コードを削除しますか?", // MT
+"A billing code with this name already exists for this company."=>"この会社には同じ名前の請求コードがすでに存在します。", // MT
+"The PHP ldap extension is not installed on this server."=>"このサーバーには PHP の ldap 拡張モジュールがインストールされていません。", // MT
+"Updated the existing contact"=>"既存の連絡先を更新", // MT
+"Added"=>"追加", // MT

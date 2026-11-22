@@ -509,3 +509,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"Удалить", // MT
 "ldap_search_pass_tooltip"=>"Пароль для параметра Пользователь поиска LDAP. Оставьте пустым, чтобы оставить сохранённый пароль.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"введите число секунд (не менее 60) или число, за которым следует h, d, m (30 дней) или y", // MT
+"Delete this billing code?"=>"Удалить этот код оплаты?", // MT
+"A billing code with this name already exists for this company."=>"Код оплаты с таким названием для этой компании уже существует.", // MT
+"The PHP ldap extension is not installed on this server."=>"Расширение PHP ldap не установлено на этом сервере.", // MT
+"Updated the existing contact"=>"Обновлён существующий контакт", // MT
+"Added"=>"Добавлен", // MT

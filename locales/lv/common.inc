@@ -374,3 +374,4 @@
 "Documentation under the CC BY-SA 4.0 licence."=>"Dokumentācija ar CC BY-SA 4.0 licenci.", // MT
 "- choose a module -"=>"- izvēlieties moduli -", // MT
 "choose a module"=>"izvēlieties moduli", // MT
+"main texts"=>"galvenie teksti", // MT

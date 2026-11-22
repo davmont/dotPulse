@@ -510,3 +510,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"Verwijderen", // MT
 "ldap_search_pass_tooltip"=>"Het wachtwoord van de LDAP-zoekgebruiker. Laat het leeg om het opgeslagen wachtwoord te behouden.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"schrijf een aantal seconden (minstens 60), of een getal gevolgd door h, d, m (30 dagen) of y", // MT
+"Delete this billing code?"=>"Deze factureringscode verwijderen?", // MT
+"A billing code with this name already exists for this company."=>"Er bestaat al een factureringscode met deze naam voor dit bedrijf.", // MT
+"The PHP ldap extension is not installed on this server."=>"De PHP-extensie ldap is niet geïnstalleerd op deze server.", // MT
+"Updated the existing contact"=>"Bestaande contactpersoon bijgewerkt", // MT
+"Added"=>"Toegevoegd", // MT

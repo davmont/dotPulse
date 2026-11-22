@@ -503,3 +503,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"Dzēst", // MT
 "ldap_search_pass_tooltip"=>"Parole laukam LDAP meklēšanas lietotājs. Atstājiet tukšu, lai saglabātu esošo.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"ierakstiet sekunžu skaitu (vismaz 60) vai skaitli, kam seko h, d, m (30 dienas) vai y", // MT
+"Delete this billing code?"=>"Dzēst šo norēķinu kodu?", // MT
+"A billing code with this name already exists for this company."=>"Šim uzņēmumam jau ir norēķinu kods ar šādu nosaukumu.", // MT
+"The PHP ldap extension is not installed on this server."=>"PHP paplašinājums ldap šajā serverī nav instalēts.", // MT
+"Updated the existing contact"=>"Atjaunināta esošā kontaktpersona", // MT
+"Added"=>"Pievienots", // MT

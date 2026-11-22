@@ -384,3 +384,4 @@
 "Documentation under the CC BY-SA 4.0 licence."=>"Documentación bajo la licencia CC BY-SA 4.0.",
 "- choose a module -"=>"- elija un módulo -",
 "choose a module"=>"elija un módulo",
+"main texts"=>"textos principales",

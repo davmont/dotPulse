@@ -91,8 +91,7 @@ Active Directory or OpenLDAP, into the **Contacts** module. It creates contacts
 only, not users. To let people log in with their directory password, see
 [Login (LDAP)](settings.md#login-ldap).
 
-The page needs the PHP `ldap` extension. Without it, the test and the import
-fail with a server error.
+The page needs the PHP `ldap` extension. Without it, the page says so.
 
 ### Test the connection
 
@@ -116,7 +115,7 @@ dotPulse remembers what you typed, except the password, until you log out.
 
 ### Import
 
-Click **Import Users** (despite the name, it imports contacts). For each entry
+Click **Import Contacts**. For each entry
 found, dotPulse:
 
 - **updates** the contact that has the same first and last name, if there is
@@ -135,19 +134,18 @@ The directory attributes are copied into these contact fields:
 | `physicaldeliveryofficename` | Phone 2 |
 | `postaladdress` | Address |
 | `l`, `st`, `postalcode`, `c` | City, state, postal code, country |
-| `companyname`, `department` | Company and department, as text |
+| `companyname`, `department` | Company and department: the company with that name, and its department with that name; left empty when there is none |
 | `employeeid` | Type |
 
 !!! warning "Before you import"
     - Run the test first and check the table.
     - Back up the database. There is no undo, and the import overwrites
-  contacts with the same name, including the contacts of your users.
-    - The imported company and department are text from the directory, not
-  links to your companies and departments. Set them on each contact
-  afterwards.
+      contacts with the same name, including the contacts of your users.
+    - Create the companies and departments first, with the names the
+      directory uses, so the contacts are linked to them.
     - Apostrophes are removed from the values (`O'Neil` becomes `ONeil`).
     - The mapping can only be changed in the code
-  (`modules/system/contacts_ldap.php`).
+      (`modules/system/contacts_ldap.php`).
 
 ## The cron job
 

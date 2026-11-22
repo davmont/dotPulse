@@ -561,3 +561,8 @@
 "Delete"=>"Изтрий", // MT
 "ldap_search_pass_tooltip"=>"Паролата за Потребител за търсене в LDAP. Оставете празно, за да запазите съхранената.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"въведете брой секунди (поне 60) или число, последвано от h, d, m (30 дни) или y", // MT
+"Delete this billing code?"=>"Да се изтрие ли този код за фактуриране?", // MT
+"A billing code with this name already exists for this company."=>"Вече съществува код за фактуриране с това име за тази компания.", // MT
+"The PHP ldap extension is not installed on this server."=>"PHP разширението ldap не е инсталирано на този сървър.", // MT
+"Updated the existing contact"=>"Обновен е съществуващият контакт", // MT
+"Added"=>"Добавен", // MT

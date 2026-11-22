@@ -503,3 +503,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"Izbriši", // MT
 "ldap_search_pass_tooltip"=>"Geslo za polje Uporabnik za iskanje v LDAP. Pustite prazno, da ohranite shranjeno.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"vnesite število sekund (vsaj 60) ali število, ki mu sledi h, d, m (30 dni) ali y", // MT
+"Delete this billing code?"=>"Ali želite izbrisati to obračunsko kodo?", // MT
+"A billing code with this name already exists for this company."=>"Obračunska koda s tem imenom za to podjetje že obstaja.", // MT
+"The PHP ldap extension is not installed on this server."=>"Razširitev PHP ldap na tem strežniku ni nameščena.", // MT
+"Updated the existing contact"=>"Posodobljen obstoječi stik", // MT
+"Added"=>"Dodan", // MT

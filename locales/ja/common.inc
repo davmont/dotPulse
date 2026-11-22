@@ -379,3 +379,4 @@
 "Documentation under the CC BY-SA 4.0 licence."=>"ドキュメントは CC BY-SA 4.0 ライセンスです。", // MT
 "- choose a module -"=>"- モジュールを選択 -", // MT
 "choose a module"=>"モジュールを選択してください", // MT
+"main texts"=>"メインテキスト", // MT

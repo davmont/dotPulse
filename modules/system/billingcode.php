@@ -51,6 +51,9 @@ function changeIt() {
 
 
 function delIt2(id) {
+	if (!confirm('<?php echo $AppUI->_('Delete this billing code?', UI_OUTPUT_JS); ?>')) {
+		return;
+	}
 	document.frmDel.billingcode_id.value = id;
 	document.frmDel.submit();
 }

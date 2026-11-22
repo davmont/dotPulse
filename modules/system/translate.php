@@ -16,18 +16,20 @@ if (!in_array($lang, $AppUI->readDirs('locales'), true)) {
 	$lang = $AppUI->user_locale;
 }
 
-$AppUI->savePlace('m=system&a=translate&module='.$module.'&lang=' . $lang);
+$AppUI->savePlace('m=system&a=translate&module=' . rawurlencode((string)$module) . '&lang=' . rawurlencode((string)$lang));
 
-// read the installed modules
-$modules = arrayMerge($AppUI->readDirs('modules'), array('common' => 'common', 'styles' => 'styles'));
-asort($modules);
+// read the installed modules (and the main texts of those with their own translations)
+$modules = dPtranslationModules();
+if (!is_string($module) || !isset($modules[$module])) {
+	$module = 'admin';
+}
 
 // read the installed languages
 $locales = $AppUI->readDirs('locales');
 
 ob_start();
 // The same file translate_save.php writes (dPtranslationFile()).
-@readfile(dPtranslationFile($modules[$module], 'en'));
+@readfile(dPtranslationFile($module, 'en'));
 $english = array();
 if (dPisTranslationSource(ob_get_contents())) {
 	eval("\$english=array(".ob_get_contents()."\n'0');");
@@ -47,7 +49,7 @@ foreach ($english as $k => $v) {
 
 if ($lang != 'en') {
 	ob_start();
-	@readfile(dPtranslationFile($modules[$module], $lang));
+	@readfile(dPtranslationFile($module, $lang));
 	$locale = array();
 	if (dPisTranslationSource(ob_get_contents())) {
 		eval("\$locale=array(".ob_get_contents()."\n'0');");
@@ -76,7 +78,7 @@ $AppUI->setWarning($temp);
 ?>
 
 <form action="?m=system&amp;a=translate_save" method="post" name="editlang">
-<input type="hidden" name="module" value="<?php echo $modules[$module];?>" />
+<input type="hidden" name="module" value="<?php echo dPhtml($module); ?>" />
 <input type="hidden" name="lang" value="<?php echo $lang;?>" />
 <table width="100%" border="0" cellpadding="1" cellspacing="1" class="tbl">
 <tr>

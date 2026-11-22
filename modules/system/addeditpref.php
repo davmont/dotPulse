@@ -213,7 +213,7 @@ function submitIt() {
 <tr>
 	<td align="right"><?php echo $AppUI->_('Task Log Email Defaults');?>:</td>
 	<td>
-		<input type='hidden' name='pref_name[TASKLOGEMAIL]' id='task_log_email_defaults' value='<?php echo @$prefs['TASKLOGEMAIL']; ?>' />
+		<input type='hidden' name='pref_name[TASKLOGEMAIL]' id='task_log_email_defaults' value='<?php echo dPhtml((string)@$prefs['TASKLOGEMAIL']); ?>' />
 <?php
 	if (! isset($prefs['TASKLOGEMAIL'])) {
 		$prefs['TASKLOGEMAIL'] = 0;
@@ -228,7 +228,7 @@ function submitIt() {
 	echo ' /><br />';
 	echo '<label for="tl_task">' . $AppUI->_('Email Task Contacts') . '</label>&nbsp;<input type="checkbox" name="tl_task" id="tl_task"';
 	if ($tl_task) {
-		echo 'checked="checked"';
+		echo ' checked="checked"';
 	}
 	echo ' /><br />';
 	echo '<label for="tl_proj">' . $AppUI->_('Email Project Contacts') . '</label>&nbsp;<input type="checkbox" name="tl_proj" id="tl_proj"';
@@ -242,7 +242,7 @@ function submitIt() {
 <tr>
 	<td align="right"><?php echo $AppUI->_('Task Log Email Subject');?>:</td>
 	<td>
-		<input type='text' name='pref_name[TASKLOGSUBJ]' value='<?php echo @$prefs['TASKLOGSUBJ']; ?>' />
+		<input type='text' name='pref_name[TASKLOGSUBJ]' value='<?php echo dPhtml((string)@$prefs['TASKLOGSUBJ']); ?>' />
 	</td>
 </tr>
 <tr>

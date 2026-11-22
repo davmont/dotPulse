@@ -49,10 +49,11 @@ foreach ($modules as $module) {
 		echo '<tr><td class="hilite">';
 		echo ('<a href="?m=system&amp;a=custom_field_addedit&amp;module=' . $module['mod_name'] 
 		      . '&amp;field_id=' . $f['field_id'] 
-			  . '"><img src="./images/icons/stock_edit-16.png" align="center" width="16" height="16" border="0" alt="" />Edit</a>');
+			  . '"><img src="./images/icons/stock_edit-16.png" align="center" width="16" height="16" border="0" alt="" />' . $AppUI->_('Edit') . '</a>');
 		echo '</td><td class="hilite">';
-		echo ('<a href="#"' . dPaction('dpPost', array('?m=system&a=custom_field_addedit&field_id=' . (int)$f['field_id'], array('delete' => 1)))
-			  . '><img src="./images/icons/stock_delete-16.png" align="center" width="16" height="16" border="0" alt="" />Delete</a>');
+		// The module is needed: without it the page said "Module ID is invalid" and kept the field.
+		echo ('<a href="#"' . dPaction('dpPost', array('?m=system&a=custom_field_addedit&module=' . rawurlencode($module['mod_name']) . '&field_id=' . (int)$f['field_id'], array('delete' => 1)))
+			  . '><img src="./images/icons/stock_delete-16.png" align="center" width="16" height="16" border="0" alt="" />' . $AppUI->_('Delete') . '</a>');
 		echo '</td><td class="hilite">';
 		echo $f['field_order'];
 		echo '</td><td class="hilite">';

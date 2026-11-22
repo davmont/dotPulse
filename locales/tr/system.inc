@@ -503,3 +503,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"Sil", // MT
 "ldap_search_pass_tooltip"=>"LDAP Arama Kullanıcısı parolası. Kayıtlı olanı korumak için boş bırakın.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"bir saniye sayısı (en az 60) veya ardından h, d, m (30 gün) ya da y gelen bir sayı yazın", // MT
+"Delete this billing code?"=>"Bu faturalandırma kodu silinsin mi?", // MT
+"A billing code with this name already exists for this company."=>"Bu firma için bu adda bir faturalandırma kodu zaten var.", // MT
+"The PHP ldap extension is not installed on this server."=>"PHP ldap uzantısı bu sunucuda yüklü değil.", // MT
+"Updated the existing contact"=>"Mevcut irtibat güncellendi", // MT
+"Added"=>"Eklendi", // MT

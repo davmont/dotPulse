@@ -335,7 +335,7 @@ class bcode extends CDpObject {
 		$found_id = $q->loadResult();
 		
 		if ($found_id && $found_id != $this->_billingcode_id) {
-			return 'Billing Code::code already exists';
+			return $GLOBALS['AppUI']->_('A billing code with this name already exists for this company.');
 		} else if ($this->_billingcode_id) {
 			$q->clear();
 			$q->addTable('billingcode');

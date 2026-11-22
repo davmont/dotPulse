@@ -171,3 +171,7 @@ UPDATE `%dbprefix%user_preferences` SET `pref_value` = 'dotpulse' WHERE `pref_us
 UPDATE `%dbprefix%config` SET `config_value` = 'sql' WHERE `config_name` = 'auth_method' AND `config_value` = 'pn';
 DELETE FROM `%dbprefix%config_list` WHERE `config_list_name` = 'pn' AND `config_id` IN (SELECT `config_id` FROM (SELECT `config_id` FROM `%dbprefix%config` WHERE `config_name` = 'auth_method') a);
 DELETE FROM `%dbprefix%config` WHERE `config_name` = 'postnuke_allow_login';
+
+# 20261122
+# Task log reference icons: the entries were separated by spaces, so the list was one entry and no icon showed
+UPDATE `%dbprefix%sysvals` SET `sysval_value` = '0|\n1|./images/obj/email.gif\n2|./modules/helpdesk/images/helpdesk.png\n3|./images/obj/phone.gif\n4|./images/icons/stock_print-16.png' WHERE `sysval_title` = 'TaskLogReferenceImage' AND `sysval_value` = '0| 1|./images/obj/email.gif 2|./modules/helpdesk/images/helpdesk.png 3|./images/obj/phone.gif 4|./images/icons/stock_print-16.png';
