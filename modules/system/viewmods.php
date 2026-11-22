@@ -48,8 +48,12 @@ foreach ($modules as $row) {
 	if (file_exists($setup)) {
 		include_once $setup;
 	}
-	$row['_upgrade'] = isset($config['mod_version']) && $config['mod_version'] != $row['mod_version'];
-	$row['_configure'] = !empty($config['mod_config']);
+	// Only a newer version of the code is an upgrade (not an older one, after going back).
+	$row['_upgrade'] = isset($config['mod_version']) && version_compare((string)$config['mod_version'], (string)$row['mod_version'], '>');
+	// The configure button only for a setup class that has a configure() (Informer says
+	// mod_config but has none: the button gave an error page).
+	$row['_configure'] = !empty($config['mod_config']) && !empty($config['mod_setup_class'])
+		&& method_exists($config['mod_setup_class'], 'configure');
 	$installed[] = $row;
 }
 foreach ($modFiles as $v) {

@@ -2460,6 +2460,10 @@ class CTask extends CDpObject
 		}
 		$df .= ' ' . $tf;
 
+		// Reminders turned off in System Admin: drop the ones already queued too.
+		if (!dPgetConfig('task_reminder_control')) {
+			return -1;
+		}
 		// At this stage we won't have an object yet
 		if (!$this->load($id)) {
 			return -1; // No point it trying again later.

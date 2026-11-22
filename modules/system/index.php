@@ -18,7 +18,7 @@ foreach ($modules as $row) {
 	$active_modules += $row['mod_active'] ? 1 : 0;
 	$setup = DP_BASE_DIR . '/modules/' . basename($row['mod_directory']) . '/setup.php';
 	if (is_file($setup) && preg_match('/\$config\s*\[\s*[\'"]mod_version[\'"]\s*\]\s*=\s*[\'"]([^\'"]+)/', (string)file_get_contents($setup), $v)
-		&& $v[1] != $row['mod_version']) {
+		&& version_compare($v[1], (string)$row['mod_version'], '>')) {
 		$upgrades++;
 	}
 }

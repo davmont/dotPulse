@@ -221,3 +221,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"Scan deze QR-code met uw authenticator-app, of typ de sleutel erin.", // MT
 "QR code for your authenticator app"=>"QR-code voor uw authenticator-app", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"Voer de 6-cijferige code in die de app toont om aanmelden in twee stappen in te schakelen.", // MT
+"Select the projects and the user who takes them over."=>"Selecteer de projecten en de gebruiker die ze overneemt.", // MT
+"Role removed from the user"=>"Rol verwijderd bij de gebruiker", // MT
+"Remove this role from the user?"=>"Deze rol bij de gebruiker verwijderen?", // MT

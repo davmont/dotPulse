@@ -12,7 +12,7 @@
 "Add Permissions"=>"Dodaj dovoljenja", // MT
 "added"=>"dodano", // MT
 "admin_username_title"=>"Uporabniško ime skrbnika", // MT
-"admin_username_tooltip"=>"Določite prijavno ime skrbniškega uporabnika.", // MT
+"admin_username_tooltip"=>"Uporabniško ime za prijavo, ki ga obrazec uporabnika sprejme, tudi če je krajše od najmanjše dolžine. Ne daje nobenih pravic: kdo je skrbnik, odločajo vloge.", // MT
 "Administration"=>"Administracija", // MT
 "All Events"=>"Vsi dogodki", // MT
 "allow"=>"dovoli", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Delovni dnevi koledarja", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"Preverjanje prezasedenosti", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"Nima učinka: preverjanje, ki ga je vklapljalo, je onemogočeno.", // MT
 "check_task_dates_title"=>"Preverjaj datume opravil", // MT
 "check_task_dates_tooltip"=>"Če je ta možnost vklopljena, morajo imeti vsa opravila pred dodajanjem vnesena datum začetka in končni datum.", // MT
 "check_task_empty_dynamic_title"=>"Preverjaj prazna dinamična opravila", // MT
@@ -57,7 +57,7 @@
 "cs"=>"&#268;eško",
 "Currency Format"=>"Oblika valute", // MT
 "currency_symbol_title"=>"Simbol valute", // MT
-"currency_symbol_tooltip"=>"Čeprav je podpora za jezikovne nastavitve že vgrajena, obstaja še dodatna možnost za nastavitev simbola valute. \n\n\n\nLokalizacija simbola valute. Za znak evra nastavite \\'&#8364;\\'\n\n\n\nZa informacije o posebnih znakih HTML glejte http://www.w3.org/TR/html401/sgml/entities.html.", // MT
+"currency_symbol_tooltip"=>"Postavi se pred denarne zneske, kot so proračuni projektov. Vnesite sam simbol, na primer € ali £.", // MT
 "Custom field added successfully"=>"Polje po meri je uspešno dodano", // MT
 "Custom Field Editor"=>"Urejevalnik polj po meri", // MT
 "Custom field editor"=>"Urejevalnik polj po meri", // MT
@@ -67,27 +67,7 @@
 "de"=>"Nemško",
 "deactivate"=>"deaktiviraj", // MT
 "debug_title"=>"Raven razhroščevanja", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"Koliko informacij za razhroščevanje se zapiše v dnevnik napak PHP: 0 nič, 1 najpomembnejša sporočila, višje številke več (12 in več: vsaka poizvedba SQL). Prikaži sporočila za razhroščevanje jih izpiše tudi na straneh.", // MT
 "Default"=>"privzeto",
 "Default Event Filter"=>"Privzeti filter dogodkov", // MT
 "Default User Preferences"=>"privzete lastnosti uporabnikov",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"Privzeti podmodul", // MT
 "default_view_a_tooltip"=>"To nastavite, če želite določiti svojo začetno/privzeto stran.\n\nDoloča podpogled, kot je prikazan v URL-ju dP.", // MT
 "default_view_m_title"=>"Privzeti modul", // MT
-"default_view_m_tooltip"=>"To nastavite, če želite določiti svojo začetno/privzeto stran.\n\nČe je vrednost prazna, postane privzeti pogled prvi navedeni modul.", // MT
+"default_view_m_tooltip"=>"Modul, ki ga dotPulse odpre po prijavi, in kadar naslov spletnega mesta ne navaja nobene strani. Izberite takega, ki ga sme odpreti vsaka vloga.", // MT
 "default_view_tab_title"=>"Privzeti podpogled z zavihki", // MT
 "default_view_tab_tooltip"=>"To nastavite, če želite določiti svojo začetno/privzeto stran.\n\nDoloča podpogled z zavihki. 0 = prvi zavihek, ...", // MT
 "delete"=>"izbriši", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"Angleško",
 "enable_gantt_charts_title"=>"Omogoči Ganttove diagrame", // MT
-"enable_gantt_charts_tooltip"=>"Z možnostjo za omogočanje ali onemogočanje Ganttovih diagramov to funkcijo vklopite ali izklopite, odvisno od tega, ali želite na svoji strani uporabljati Ganttove diagrame. ", // MT
+"enable_gantt_charts_tooltip"=>"Prikaže vrstico Razširi vse, Strni vse in Ganttov diagram na koncu seznama nalog vsakega projekta. Zavihki Gantt pri projektih in Moj Gantt ostanejo v vsakem primeru.", // MT
 "English (Aus)"=>"angleščina (Avstralija)", // MT
 "English (Can)"=>"angleščina (Kanada)", // MT
 "English (GB)"=>"angleščina (VB)", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"Imenik predpomnilnika dovoljenj", // MT
 "gacl_cache_dir_tooltip"=>"Nastavite na imenik v sistemu, v katerega lahko spletni strežnik piše; v njem je predpomnilnik sistema dovoljenj", // MT
 "gacl_cache_title"=>"Omogoči predpomnilnik dovoljenj", // MT
-"gacl_cache_tooltip"=>"Vklopite za hitrejše sezname opravil; ne pozabite nastaviti tudi imenika predpomnilnika dovoljenj", // MT
+"gacl_cache_tooltip"=>"Odgovore knjižnice dovoljenj (phpGACL) shranjuje v predpomnilnik v spodnji mapi. dotPulse preverja dovoljenja v svoji tabeli, zato to ne prinese opazne razlike: pustite izklopljeno.", // MT
 "gacl_expire_title"=>"Razveljavi predpomnilnik dovoljenj", // MT
-"gacl_expire_tooltip"=>"S to nastavitvijo vsilite potek predpomnilnika dovoljenj. Če uporabljate predpomnjenje dovoljenj, to nastavite samo za brisanje starega predpomnilnika ob težavah in nato nastavitev ponastavite", // MT
+"gacl_expire_tooltip"=>"Izprazni predpomnilnik dovoljenj vsakič, ko se spremeni dovoljenje ali vloga, da spremembe začnejo veljati takoj. Če uporabljate predpomnilnik, naj ostane vklopljeno.", // MT
 "gacl_group_title"=>"Predpomnjenje dovoljenj", // MT
 "gacl_timeout_title"=>"Časovna omejitev predpomnilnika dovoljenj", // MT
 "gacl_timeout_tooltip"=>"Število sekund, ko se hranijo predpomnjeni podatki o dovoljenjih.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"Jezikovne nastavitve strežnika", // MT
 "host_locale_tooltip"=>"Ta možnost določa lokalizacijo oziroma jezik vaše strani.", // MT
 "host_style_title"=>"Privzeti slog uporabniškega vmesnika", // MT
-"host_style_tooltip"=>"Privzeti slog uporabniškega vmesnika – kot je nastavljen v lastnostih uporabnika, vendar morate ime privzetega sloga vpisati tukaj.  Če potrebujete pomoč, preverite spustni seznam v lastnostih uporabnika in tukaj ponovite to ime.", // MT
+"host_style_tooltip"=>"Tema prijavne strani in uporabnikov, ki v svojih nastavitvah niso izbrali nobene.", // MT
 "HTML Tag Options"=>"Možnosti oznake HTML", // MT
 "Import Contacts"=>"Uvozi stike", // MT
 "Import Contacts from LDAP Directory"=>"Uvozi stike iz imenika LDAP", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"Strežnik zahteva prijavo", // MT
 "mail_auth_tooltip"=>"Nekateri strežniki SMTP zahtevajo preverjanje pristnosti; če ga zahteva vaš, morate to nastaviti in vnesti uporabniško ime in geslo", // MT
 "mail_defer_title"=>"Postavi e-pošto v čakalno vrsto za poznejše pošiljanje", // MT
-"mail_defer_tooltip"=>"Označite, če želite e-pošto postaviti v čakalno vrsto za poznejše pošiljanje.  V čakalni vrsti dogodkov bo ustvarjen vnos.  Nastaviti morate možnost Preglej čakalno vrsto dogodkov v nastavitvah sej ali ustvariti opravilo cron, ki kliče:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"Vsako e-pošto postavi v čakalno vrsto dogodkov, namesto da bi jo poslal, medtem ko uporabnik čaka. Čakalno vrsto pošilja cron job, ki iz ukazne vrstice zažene queuescanner.php: brez njega e-pošta v čakalni vrsti ni nikoli poslana.", // MT
 "mail_group_title"=>"Nastavitve e-pošte", // MT
 "mail_host_title"=>"Gostitelj SMTP", // MT
 "mail_host_tooltip"=>"Polno kvalificirano domensko ime (FQDN) ali naslov IP gostitelja SMTP za pošiljanje e-pošte", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"tipi zapisov", // MT
 "remove"=>"odstrani",
 "reset_memory_limit_title"=>"Omejitev pomnilnika za Gantt", // MT
-"reset_memory_limit_tooltip"=>"Če imate težave z nevidnimi Ganttovimi diagrami, s to spremenljivko začasno povečajte omejitev pomnilnika PHP za risanje Ganttovih diagramov. Običajne vrednosti so 64M, 128M itd.", // MT
+"reset_memory_limit_tooltip"=>"Standardni moduli tega ne uporabljajo. Dodatek Monitoring and Control na nekaterih svojih straneh nastavi omejitev pomnilnika PHP na to vrednost.", // MT
 "restrict_color_selection_title"=>"Omeji izbiro barve projekta", // MT
 "restrict_color_selection_tooltip"=>"V povezavi s sistemsko vrednostjo za iskanje \"ProjectColors\" lahko s to nastavitvijo nadzirate možnosti izbire barve projekta, ki so na voljo vsem uporabnikom tega sistema.\n\n\n\nČe to možnost vklopite, lahko ustvarjalci projektov izbirajo samo med barvami, določenimi v zgoraj opisani sistemski vrednosti za iskanje.\n\n\n\nČe to možnost izklopite, imajo ustvarjalci projektov dostop do privzetih sistemskih prednastavitev in celotne barvne palete.", // MT
 "restrict_task_time_editing_title"=>"Omeji urejanje časa opravil", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Čas nedejavnosti seje", // MT
-"session_idle_time_tooltip"=>"Najdaljši čas brez dejavnosti, preden je seja razglašena za mrtvo.\n\nVrednosti so v sekundah, razen če jim sledi črka: h = ure, d = dnevi, m = meseci, y = leta.\n\nV nizu je lahko samo 1 znak, zato 2d4h NI veljavno, 28h pa je.", // MT
+"session_idle_time_tooltip"=>"Kako dolgo je seja lahko brez dejavnosti, preden poteče. Število sekund (vsaj 60) ali število, ki mu sledi ena črka: h ure, d dnevi, m meseci po 30 dni (ne minute), y leta. Na primer 3600, 8h ali 2d.", // MT
 "session_max_lifetime_title"=>"Najdaljša življenjska doba seje", // MT
-"session_max_lifetime_tooltip"=>"Najdaljši čas obstoja seje, preden se zavrže, ne glede na njeno dejavnost.", // MT
+"session_max_lifetime_tooltip"=>"Kako dolgo lahko seja traja največ, ne glede na dejavnost. Zapiše se tako kot Čas nedejavnosti seje, na primer 1m (30 dni).", // MT
 "session_name_title"=>"Ime seje/piškotka", // MT
 "session_name_tooltip"=>"Določite svoje ime piškotka. Pozor: sprememba imena seje bo takoj odjavila vse uporabnike! Znova se bodo morali prijaviti.", // MT
 "Short Date Format"=>"Kratek format datuma",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"Prikaži opravila drugih uporabnikov", // MT
 "show_all_tasks_tooltip"=>"Nadzira ogled opravil, ki pripadajo drugim uporabnikom.", // MT
 "site_domain_title"=>"Domena strani", // MT
-"site_domain_tooltip"=>"Tukaj nastavljena domena se uporabi za tvorjenje e-poštnega naslova, če je v zapisu uporabnika vnesen nepopoln naslov.", // MT
+"site_domain_tooltip"=>"Domena vašega spletnega mesta. dotPulse pošilja ponastavitve gesel, in e-pošto, katere pošiljatelj nima veljavnega naslova, z naslova no-reply@ te domene.", // MT
 "sl"=>"slovenščina", // MT
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"Zadeva e-pošte dnevnika opravil", // MT
 "Task Notification Method"=>"Način obveščanja o opravilih", // MT
 "task_reminder_control_title"=>"Pošiljaj opomnike za opravila", // MT
-"task_reminder_control_tooltip"=>"Če je nastavljeno, bodo vsi izvajalci prejeli e-pošto, ko opravilo zapade, in nato vsak dan, dokler zamujeno opravilo ni dokončano.", // MT
+"task_reminder_control_tooltip"=>"Dodeljenim in lastniku naloge pošlje e-pošto pred rokom in vsak dan, ko je naloga zapadla, ob njihovih delovnih dneh, dokler ni dokončana. Izklop ustavi tudi opomnike, ki so že v čakalni vrsti. Pošilja jih cron job.", // MT
 "task_reminder_days_before_title"=>"Število dni opozorila pred rokom opravila", // MT
 "task_reminder_days_before_tooltip"=>"Ta nastavitev določa, koliko dni pred rokom opravila se pošlje prvi opomnik.", // MT
 "task_reminder_group_title"=>"Opomniki za opravila", // MT
@@ -521,3 +501,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"Številsko", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Polja po meri ni bilo mogoče naložiti, morda je bilo izbrisano.", // MT
 "Delete"=>"Izbriši", // MT
+"ldap_search_pass_tooltip"=>"Geslo za polje Uporabnik za iskanje v LDAP. Pustite prazno, da ohranite shranjeno.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"vnesite število sekund (vsaj 60) ali število, ki mu sledi h, d, m (30 dni) ali y", // MT

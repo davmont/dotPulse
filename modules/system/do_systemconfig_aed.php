@@ -49,6 +49,15 @@ foreach (array_unique($shown) as $name) {
 	if ((string)$value === (string)$row['config_value']) {
 		continue;
 	}
+	// Session times: a number of seconds, or a number and h, d, m (30 days) or y. Any other
+	// letter used to count as seconds ("1w" was one second: everyone logged out). At least
+	// a minute.
+	if (($name == 'session_idle_time' || $name == 'session_max_lifetime')
+		&& !(preg_match('/^\s*(\d+)\s*([hdmy]?)\s*$/', (string)$value, $t) && ($t[2] !== '' || (int)$t[1] >= 60) && (int)$t[1] > 0)) {
+		$AppUI->setMsg($AppUI->_($name . '_title') . ': ' . $AppUI->_('write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y'), UI_MSG_ERROR, true);
+		$errors++;
+		continue;
+	}
 	$obj->config_id = (int)$row['config_id'];
 	$obj->config_name = $name;
 	$obj->config_value = (string)$value;

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title><?php echo @dPgetConfig( 'page_title' );?></title>
+<title><?php echo dPhtml((string)dPgetConfig('page_title'));?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=<?php echo isset( $locale_char_set ) ? $locale_char_set : 'UTF-8';?>" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta name="Version" content="<?php echo @$AppUI->getVersion();?>" />
@@ -14,7 +14,7 @@
 <center>
 <br />
 <br />
-<div class="company_name" style="padding:0px;"><a href="<?php echo $dPconfig['base_url'] ?>"><?php echo $dPconfig['company_name'] ?></a></div>
+<div class="company_name" style="padding:0px;"><a href="<?php echo $dPconfig['base_url'] ?>"><?php echo dPhtml((string)dPgetConfig('company_name')) ?></a></div>
 </div>
 <br />
 <form method="post" name="lostpassform">
@@ -30,7 +30,7 @@
 				<input type="hidden" name="lostpass" value="1" />
 				<input type="hidden" name="redirect" value="<?php echo htmlspecialchars($redirect, ENT_QUOTES);?>" />
 				<tr>
-					<th colspan="2"><em><?php echo $dPconfig['company_name'];?></em></th>
+					<th colspan="2"><em><?php echo dPhtml((string)dPgetConfig('company_name'));?></em></th>
 				</tr>
 				<tr>
 					<td align="right" nowrap><?php echo $AppUI->_('Username');?>:</td>

@@ -221,3 +221,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"Bu QR kodunu kimlik doğrulama uygulamanızla tarayın veya anahtarı uygulamaya yazın.", // MT
 "QR code for your authenticator app"=>"Kimlik doğrulama uygulamanız için QR kodu", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"İki adımlı girişi açmak için uygulamanın gösterdiği 6 haneli kodu girin.", // MT
+"Select the projects and the user who takes them over."=>"Projeleri ve bunları devralacak kullanıcıyı seçin.", // MT
+"Role removed from the user"=>"Rol kullanıcıdan kaldırıldı", // MT
+"Remove this role from the user?"=>"Bu rol kullanıcıdan kaldırılsın mı?", // MT

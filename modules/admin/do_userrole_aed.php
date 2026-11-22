@@ -20,7 +20,12 @@ if ($del) {
 	if ($perms->deleteUserRole($role_id, $user_id)) {
 		require_once DP_BASE_DIR . '/classes/auditlog.class.php';
 		dPaudit('user.role_removed', 'role ' . $role_id . ' from ' . CAuditLog::username($user_id), 'users', $user_id);
-		$AppUI->setMsg('deleted', UI_MSG_ALERT, true);
+		// Only from this user: the role itself stays.
+		$AppUI->setMsg('Role removed from the user', UI_MSG_ALERT);
+		if (! $perms->checkLogin($user_id)) {
+			// No role left: they may not log in, so they don't stay logged in either.
+			dPendUserSessions($user_id);
+		}
 		if (dPgetConfig('user_contact_inactivate') && ! $perms->checkLogin($user_id)) {
 			// Mark contact as private
 			$obj = new CUser();

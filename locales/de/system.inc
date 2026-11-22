@@ -12,7 +12,7 @@
 "Add Permissions"=>"Berechtigungen hinzufügen", // MT
 "added"=>"hinzugefügt",
 "admin_username_title"=>"Administratorbenutzername",
-"admin_username_tooltip"=>"Benutzername für den Administrator",
+"admin_username_tooltip"=>"Ein Anmeldename, den das Benutzerformular auch dann akzeptiert, wenn er kürzer als die Mindestlänge für Benutzernamen ist. Er gibt keine Rechte: Rollen entscheiden, wer Administrator ist.", // MT
 "Administration"=>"Verwaltung", // MT
 "All Events"=>"Alle Ereignisse",
 "allow"=>"erlauben", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Kalender-Arbeitstage",
 "cal_working_days_tooltip"=>"Tage der Woche, an denen die Firma arbeitet: 0 steht für Sonntag, usw.",
 "check_overallocation_title"=>"Beschränke Mitarbeiterauslastung?",
-"check_overallocation_tooltip"=>"Beschränke Mitarbeiterauslastung?",
+"check_overallocation_tooltip"=>"Hat keine Wirkung: die Prüfung, die es früher einschaltete, ist deaktiviert.", // MT
 "check_task_dates_title"=>"Aufgabendaten prüfen", // MT
 "check_task_dates_tooltip"=>"Wenn diese Option aktiviert ist, sind Anfangs- und Enddatum für alle Aufgaben erforderlich, bevor sie hinzugefügt werden können.", // MT
 "check_task_empty_dynamic_title"=>"Leere dynamische Aufgaben prüfen", // MT
@@ -57,7 +57,7 @@
 "cs"=>"Czechisch",
 "Currency Format"=>"Währungsformat",
 "currency_symbol_title"=>"Währungssymbol",
-"currency_symbol_tooltip"=>"Lokalisierung des Währungssymbols. Für das Eurosymbol setzen man  \\'&#8364;\\' ein. Man informiere sich auf http://www.w3.org/TR/html401/sgml/entities.html zu HTML-Sonderzeichen.",
+"currency_symbol_tooltip"=>"Wird Geldbeträgen vorangestellt, etwa Projektbudgets. Geben Sie das Symbol selbst ein, zum Beispiel € oder £.", // MT
 "Custom field added successfully"=>"Benutzerdefiniertes Feld erfolgreich hinzugefügt", // MT
 "Custom Field Editor"=>"Bearbeite Eigene Felder",
 "Custom field editor"=>"Bearbeite Eigene Felder",
@@ -67,7 +67,7 @@
 "de"=>"Deutsch",
 "deactivate"=>"deaktivieren", // MT
 "debug_title"=>"Fehlerberichtumfang",
-"debug_tooltip"=>"Setze >0 für mehr Fehlerinfo. 1 = bester Kompromiss zwischen normalem Arbeiten und Fehlerinfo. 10 = vollständige Info. ",
+"debug_tooltip"=>"Wie viele Debug-Informationen in das PHP-Fehlerprotokoll geschrieben werden: 0 keine, 1 die wichtigsten Meldungen, höhere Zahlen mehr (ab 12: jede SQL-Abfrage). Zeige Fehlerinfo gibt sie zusätzlich auf den Seiten aus.", // MT
 "Default"=>"Standard",
 "Default Event Filter"=>"Standardereignisfilter",
 "Default User Preferences"=>"Standardeinstellungen für Benutzer",
@@ -75,7 +75,7 @@
 "default_view_a_title"=>"Standardsubmodul",
 "default_view_a_tooltip"=>"Setzt Startseite für System.",
 "default_view_m_title"=>"Standardmodul",
-"default_view_m_tooltip"=>"Setze das Standardmodul (?m=...)",
+"default_view_m_tooltip"=>"Das Modul, das dotPulse nach der Anmeldung öffnet, und wenn die Adresse der Seite keine Seite angibt. Wählen Sie eines, das jede Rolle öffnen darf.", // MT
 "default_view_tab_title"=>"Standardregisterkarte",
 "default_view_tab_tooltip"=>"Setze die Standardregisterkarte für die Startseite (0=erste Karte)",
 "delete"=>"löschen", // MT
@@ -100,7 +100,7 @@
 "email_prefix_tooltip"=>"E-Mail-Präfix in der Betreffzeile",
 "en"=>"Englisch",
 "enable_gantt_charts_title"=>"Aktiviere Gantt-Verlaufsdiagramme?",
-"enable_gantt_charts_tooltip"=>"Bitte die Voraussetzungen für den Betrieb von Gantt-Verlaufsdiagrammen überprüfen. ",
+"enable_gantt_charts_tooltip"=>"Zeigt die Zeile Alle ausklappen, Alle einklappen und Verlaufsdiagramm am Ende der Aufgabenliste jedes Projekts. Die Gantt-Reiter der Projekte und Mein Gantt bleiben in jedem Fall.", // MT
 "English (Aus)"=>"Englisch (Aus)",
 "English (Can)"=>"Englisch (Can)",
 "English (GB)"=>"Englisch (GB)",
@@ -125,9 +125,9 @@
 "gacl_cache_dir_title"=>"Verzeichnis für den Berechtigungs-Cache", // MT
 "gacl_cache_dir_tooltip"=>"Legen Sie hier ein Verzeichnis auf Ihrem System fest, in das der Webserver schreiben kann; es enthält den Cache des Berechtigungssystems", // MT
 "gacl_cache_title"=>"Berechtigungs-Cache aktivieren", // MT
-"gacl_cache_tooltip"=>"Aktivieren Sie dies, um die Leistung der Aufgabenlisten zu verbessern; legen Sie auch das Verzeichnis für den Berechtigungs-Cache fest", // MT
+"gacl_cache_tooltip"=>"Speichert die Antworten der Berechtigungsbibliothek (phpGACL) im Verzeichnis unten zwischen. dotPulse prüft Berechtigungen in seiner eigenen Tabelle, daher macht dies keinen spürbaren Unterschied: lassen Sie es ausgeschaltet.", // MT
 "gacl_expire_title"=>"Berechtigungs-Cache verfallen lassen", // MT
-"gacl_expire_tooltip"=>"Diese Einstellung erzwingt den Verfall des Berechtigungs-Caches. Wenn Sie den Berechtigungs-Cache verwenden, sollten Sie dies nur setzen, um einen alten Cache zur Behebung von Problemen zu leeren, und es danach zurücksetzen", // MT
+"gacl_expire_tooltip"=>"Leert den Berechtigungs-Cache jedes Mal, wenn sich eine Berechtigung oder eine Rolle ändert, damit Änderungen sofort gelten. Lassen Sie es eingeschaltet, wenn Sie den Cache verwenden.", // MT
 "gacl_group_title"=>"Berechtigungs-Caching", // MT
 "gacl_timeout_title"=>"Zeitlimit des Berechtigungs-Caches", // MT
 "gacl_timeout_tooltip"=>"Anzahl der Sekunden, die zwischengespeicherte Berechtigungsinformationen gehalten werden.", // MT
@@ -137,7 +137,7 @@
 "host_locale_title"=>"Sprache für die Loginseite",
 "host_locale_tooltip"=>"Sprache für die Anmeldeseite (z.B. de)",
 "host_style_title"=>"Standardoberflächenstil",
-"host_style_tooltip"=>"Standardoberflächenstil",
+"host_style_tooltip"=>"Das Theme der Anmeldeseite und der Benutzer, die in ihren Einstellungen keines gewählt haben.", // MT
 "HTML Tag Options"=>"HTML-Tag Optionen",
 "Import Contacts"=>"Importiere Kontakte",
 "Import Contacts from LDAP Directory"=>"Importiere Kontakte von einem LDAP-Verzeichnis",
@@ -185,7 +185,7 @@
 "mail_auth_title"=>"Benötigt der SMTP-Host eine Authentifizierung?",
 "mail_auth_tooltip"=>"Manche SMTP Hosts erzwingen Auth. Bitte dann Benutzername und Passwort eintragen",
 "mail_defer_title"=>"E-Mails in Warteschlange?",
-"mail_defer_tooltip"=>"Hiermit werden E-Mails für spätere Sendung in die Warteschlange gestellt. Man wird entweder die Ereignisüberprüfung bei den Sessions einschalten oder einen CronJob \\'wget -O- http://ihre.domain/dotproject/queuescanner.php\\' einrichten müssen.",
+"mail_defer_tooltip"=>"Stellt jede E-Mail in die Ereigniswarteschlange, statt sie zu senden, während der Benutzer wartet. Der cron job, der queuescanner.php auf der Kommandozeile ausführt, sendet die Warteschlange: ohne ihn wird E-Mail in der Warteschlange nie gesendet.", // MT
 "mail_group_title"=>"E-Mail-Einstellungen",
 "mail_host_title"=>"SMTP-Host", // MT
 "mail_host_tooltip"=>"Vollqualifizierter Domainame (FQDN) oder IP des SMTP-Hosts für Mailausgang",
@@ -249,7 +249,7 @@
 "record types"=>"Liste der Eintragstypen",
 "remove"=>"entfernen",
 "reset_memory_limit_title"=>"Arbeitsspeicher für Gantt-Verlaufsdiagramme",
-"reset_memory_limit_tooltip"=>"Bei Problemen mit nicht dargestellten Gantt-Charts kann man hiermit den Speicher während des Gantt-Zeichnens temporär erhöhen. Gewöhnliche Werte sind 64M, 128M etc.",
+"reset_memory_limit_tooltip"=>"Wird von den Standardmodulen nicht verwendet. Das Zusatzmodul Monitoring and Control setzt das Speicherlimit von PHP auf einigen seiner Seiten auf diesen Wert.", // MT
 "restrict_color_selection_title"=>"Farbwahl einschränken?",
 "restrict_color_selection_tooltip"=>"Bei true wird nur eine Textauswahl laut systemweiten Werten bereitgestellt. Sonst ein erweiterter grafischer Farbauswähler.",
 "restrict_task_time_editing_title"=>"Aufgaben: Zeitbearbeitung einschränken?",
@@ -272,9 +272,9 @@
 "session_handling_title"=>"Sessionmethode (Handler)",
 "session_handling_tooltip"=>"\\'php\\' für traditionelle PHP Sessionverwaltung oder \\'app\\' für dotProjectEigene Verwaltung via Datenbank für verlängerte und schlankere Sessions",
 "session_idle_time_title"=>"Session-Inaktivität",
-"session_idle_time_tooltip"=>"Die max. Zeit, für welche die Session inaktiv sein darf, bevor sie für tot erklärt wird. Werte in Sekunden angeben, falls nicht einer der Buchstaben h (std.), d (tage), m (monate), y (jahre) angegeben wird. Nur genau ein Buchstabe kann verwendet werden. (2d4h ist ungültig; 28h funktioniert)",
+"session_idle_time_tooltip"=>"Wie lange eine Session ohne Aktivität bleiben darf, bevor sie abläuft. Eine Anzahl Sekunden (mindestens 60) oder eine Zahl gefolgt von einem Buchstaben: h Stunden, d Tage, m Monate zu 30 Tagen (nicht Minuten), y Jahre. Zum Beispiel 3600, 8h oder 2d.", // MT
 "session_max_lifetime_title"=>"max. Sessionlaufzeit",
-"session_max_lifetime_tooltip"=>"Unabhängig von der Sessionaktivität wird die Session nach der spezifizierten Zeit gelöscht.",
+"session_max_lifetime_tooltip"=>"Wie lange eine Session höchstens dauern darf, egal wie aktiv. Wird wie Session-Inaktivität angegeben, zum Beispiel 1m (30 Tage).", // MT
 "session_name_title"=>"Sitzungs-/Cookie-Name", // MT
 "session_name_tooltip"=>"Legen Sie Ihren eigenen Cookie-Namen fest. Achtung: Eine Änderung des Sitzungsnamens meldet sofort alle Benutzer ab! Sie müssen sich erneut anmelden.", // MT
 "Short Date Format"=>"Datumkurzformat",
@@ -283,7 +283,7 @@
 "show_all_tasks_title"=>"Zeige Aufgaben anderer Benutzer?",
 "show_all_tasks_tooltip"=>"Zeige Aufgaben anderer Benutzer?",
 "site_domain_title"=>"Domainname",
-"site_domain_tooltip"=>"Domainname (nur für visuelle Zwecke) für die Anwendung.",
+"site_domain_tooltip"=>"Die Domain Ihrer Seite. dotPulse sendet Passwort-Zurücksetzungen, und E-Mails, deren Absender keine gültige Adresse hat, von no-reply@ dieser Domain.", // MT
 "sl"=>"Slovenisch",
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -304,7 +304,7 @@
 "Task Log Email Subject"=>"Aufgabenprotokolle: E-Mail-Betreff",
 "Task Notification Method"=>"Aufgabenbenachrichtigungsmethode",
 "task_reminder_control_title"=>"Aufgabenerinnerungen verschicken",
-"task_reminder_control_tooltip"=>"Falls aktiviert, erhalten alle Aufgabenbearbeiter eine E-Mail, wenn die Aufgabe fällig wird, und an jedem Tag, an dem diese überfällig ist, eine weitere Benachrichtigung.",
+"task_reminder_control_tooltip"=>"Sendet den Zugewiesenen und dem Verantwortlichen einer Aufgabe vor deren Fälligkeit und an jedem Tag der Überfälligkeit eine E-Mail, an ihren Arbeitstagen, bis die Aufgabe abgeschlossen ist. Ausschalten stoppt auch die bereits eingereihten Erinnerungen. Gesendet vom cron job.", // MT
 "task_reminder_days_before_title"=>"Zeitpunkt in Ersterinnerung in Tagen vor der Aufgabenfälligkeit",
 "task_reminder_days_before_tooltip"=>"Dies legt fest, wieviele Tage vor der Aufgabenfälligkeit die erste Erinnerung versandt wird.",
 "task_reminder_group_title"=>"Aufgabenerinnerung",
@@ -510,3 +510,5 @@
 "Numeric"=>"Numerisch", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Das benutzerdefinierte Feld konnte nicht geladen werden. Es wurde möglicherweise gelöscht.", // MT
 "Delete"=>"Löschen", // MT
+"ldap_search_pass_tooltip"=>"Das Passwort des LDAP Suchbenutzer. Leer lassen, um das gespeicherte beizubehalten.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"geben Sie eine Anzahl Sekunden (mindestens 60) ein, oder eine Zahl gefolgt von h, d, m (30 Tage) oder y", // MT

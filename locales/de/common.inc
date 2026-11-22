@@ -514,3 +514,5 @@ Das neue Passwort lautet:",
 "The documentation is in English."=>"Die Dokumentation ist auf Englisch.", // MT
 "Read this page on the documentation website"=>"Diese Seite auf der Dokumentations-Website lesen", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"Dokumentation unter der Lizenz CC BY-SA 4.0.", // MT
+"- choose a module -"=>"- Modul auswählen -", // MT
+"choose a module"=>"Modul auswählen", // MT

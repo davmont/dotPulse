@@ -382,3 +382,5 @@ Om du ej har begärt ändringen av lösenordet behöver du ej oroa dig. Detta me
 "The documentation is in English."=>"Dokumentationen är på engelska.", // MT
 "Read this page on the documentation website"=>"Läs den här sidan på dokumentationens webbplats", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"Dokumentation under licensen CC BY-SA 4.0.", // MT
+"- choose a module -"=>"- välj en modul -", // MT
+"choose a module"=>"välj en modul", // MT

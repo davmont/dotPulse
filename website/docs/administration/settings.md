@@ -43,9 +43,8 @@ To change the language or theme of users who already have one, use
 users) or each user's own preferences.
 
 !!! note
-    Type the currency symbol itself, for example `€` or `£`. The help text
-    suggests an HTML code such as `&#8364;`, but some pages show that code as
-    plain text.
+    Type the currency symbol itself, for example `€` or `£`, not an HTML code
+    such as `&#8364;`: some pages would show the code as plain text.
 
 ### Start page
 
@@ -145,9 +144,6 @@ sender address used. If it fails, the message at the top of the page says why,
 for example *Test email not sent: Could not instantiate mail function.*
 (PHP mail with no mail program on the server) or an error from the SMTP server.
 
-After sending, the page reloads on the **General** section. Click
-**Notifications and email** to go back.
-
 ### Task reminders
 
 When reminders are on, dotPulse mails the assignees and the owner of a task
@@ -167,8 +163,9 @@ What to expect:
 - The mail goes to the assignees and the task owner. Each person only gets it
   on their own working days (their workplace's holidays count).
 - Reminders stop when the task reaches 100 %, or after the maximum number.
-- Turning **Send Task Reminders** off stops new reminders from being scheduled,
-  but reminders already in the queue keep being sent.
+- Turning **Send Task Reminders** off stops all reminders, also those already
+  in the queue. Turning it on again schedules reminders only for tasks saved
+  from then on.
 - Reminders, like task notifications, are sent only by the cron job.
 
 ### The event queue and cron
@@ -189,11 +186,6 @@ with your site's public address:
 
 [Installing](../getting-started/install.md#set-up-the-cron-job) explains the
 details.
-
-!!! warning "Outdated help text"
-    The help text of **Queue Email for later sending** says to fetch
-    `queuescanner.php` with `wget` over the web. That no longer works: use the
-    cron line above.
 
 Without the cron job, queued mail is never sent. A mail that can't be sent
 stays in the queue and is tried again on the next run; the reason is written to
@@ -219,8 +211,8 @@ people stay logged in, the REST API and the audit log.
 
 !!! warning "Raise the minimum password length"
     The default of 4 characters is far too short for a site on the internet.
-    Note that the password length is checked in the browser; see
-    [Users](users.md) for passwords.
+    It applies when a password is set or changed, not to passwords that
+    already exist. See [Users](users.md) for passwords.
 
 ### Sessions
 
@@ -248,10 +240,10 @@ another unit:
 Only one letter is allowed: write `28h`, not `1d4h`. For minutes, use seconds:
 `1800` is 30 minutes.
 
-!!! warning "A wrong letter logs everyone out"
-    Any other letter is ignored, so the number counts as seconds: `1w` means
-    one second, and every user is logged out on their next click. `30m` means
-    30 months, not 30 minutes. Check the value before you save.
+!!! warning "m is months"
+    `30m` means 30 months, not 30 minutes. A value dotPulse can't read (such
+    as `1w`), or less than 60 seconds, is refused when you save, and the saved
+    value stays.
 
 Sessions are checked on each page: a session past either time is deleted and
 the person sees the login page. Changing the times applies to sessions that

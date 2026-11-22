@@ -372,3 +372,5 @@
 "The documentation is in English."=>"Belgeler İngilizcedir.", // MT
 "Read this page on the documentation website"=>"Bu sayfayı belge web sitesinde okuyun", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"Belgeler CC BY-SA 4.0 lisansı altındadır.", // MT
+"- choose a module -"=>"- bir modül seçin -", // MT
+"choose a module"=>"bir modül seçin", // MT

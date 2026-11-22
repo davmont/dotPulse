@@ -84,7 +84,7 @@ foreach ($users as $row) {
 				</a>
 			</td>
 			<td>
-				<a href="?m=admin&amp;a=viewuser&amp;user_id=<?php echo $row['user_id'];?>&amp;tab=3" title="">
+				<a href="?m=admin&amp;a=viewuser&amp;user_id=<?php echo $row['user_id'];?>&amp;tabname=perms" title="">
 					<img src="images/obj/lock.gif" width="16" height="16" border="0" alt="<?php echo $AppUI->_('edit permissions');?>" />
 				</a>
 			</td>
@@ -113,8 +113,9 @@ foreach ($users as $row) {
 			if ($user_logs) {
 				foreach ($user_logs as $row_log) {
 					if ($row_log["online"] == '1') {
-						echo ('<span style="color: green">' . $row_log['hours'] . ' ' 
-						      . $AppUI->_('hrs.'). '(' . $row_log['idle'] . ' ' 
+						// One decimal: the query gives hours with four ("0.3353 hrs.").
+						echo ('<span style="color: green">' . number_format((float)$row_log['hours'], 1) . ' '
+						      . $AppUI->_('hrs.'). ' (' . number_format((float)$row_log['idle'], 1) . ' '
 						      .  $AppUI->_('hrs.') . ' ' . $AppUI->_('idle') . ') - ' 
 						      . $AppUI->_('Online'));  
 					} else {

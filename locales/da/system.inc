@@ -12,7 +12,7 @@
 "Add Permissions"=>"Tilføj rettigheder", // MT
 "added"=>"Tilføjet",
 "admin_username_title"=>"Administratorens brugernavn", // MT
-"admin_username_tooltip"=>"Angiv administratorbrugerens loginnavn.", // MT
+"admin_username_tooltip"=>"Et login-navn, som brugerformularen accepterer, selv når det er kortere end minimumslængden for brugernavne. Det giver ingen rettigheder: roller afgør, hvem der er administrator.", // MT
 "Administration"=>"Administration",
 "All Events"=>"Alle hændelser", // MT
 "allow"=>"tillad", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Kalenderens arbejdsdage", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"Kontrol af overallokering", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"Har ingen effekt: den kontrol, den tidligere slog til, er deaktiveret.", // MT
 "check_task_dates_title"=>"Kontrollér opgavedatoer", // MT
 "check_task_dates_tooltip"=>"Hvis denne indstilling er slået til, skal alle opgaver have start- og slutdato, før de kan tilføjes.", // MT
 "check_task_empty_dynamic_title"=>"Kontrollér tomme dynamiske opgaver", // MT
@@ -57,7 +57,7 @@
 "cs"=>"Tjekkisk",
 "Currency Format"=>"Valuta-format",
 "currency_symbol_title"=>"Valutasymbol", // MT
-"currency_symbol_tooltip"=>"Selvom der allerede er indbygget understøttelse af landestandarder, er der stadig en ekstra mulighed for at angive valutasymbolet. \n\n\n\nLokalisering af valutasymbolet. For eurotegnet angives \\'&#8364;\\'\n\n\n\nSe http://www.w3.org/TR/html401/sgml/entities.html for oplysninger om HTML-specialtegn.", // MT
+"currency_symbol_tooltip"=>"Sættes foran pengebeløb, såsom projektbudgetter. Skriv selve symbolet, for eksempel € eller £.", // MT
 "Custom field added successfully"=>"Brugerdefineret felt tilføjet", // MT
 "Custom Field Editor"=>"Editor til brugerdefinerede felter", // MT
 "Custom field editor"=>"Editor til brugerdefinerede felter", // MT
@@ -67,27 +67,7 @@
 "de"=>"Tysk",
 "deactivate"=>"deaktivér", // MT
 "debug_title"=>"Fejlsøgningsniveau", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"Hvor meget fejlsøgningsinformation der skrives i PHP's fejllog: 0 ingen, 1 de vigtigste beskeder, højere tal mere (12 og derover: hver SQL-forespørgsel). Vis fejlsøgningsbeskeder viser dem også på siderne.", // MT
 "Default"=>"Standard",
 "Default Event Filter"=>"Standardfilter for hændelser", // MT
 "Default User Preferences"=>"Standard brugerindstillinger",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"Standardundermodul", // MT
 "default_view_a_tooltip"=>"Angiv dette, hvis du vil definere din egen start-/standardside.\n\nAngiver en underside som vist i dP's URL.", // MT
 "default_view_m_title"=>"Standardmodul", // MT
-"default_view_m_tooltip"=>"Angiv dette, hvis du vil definere din egen start-/standardside.\n\nHvis værdien er tom, bliver det første modul på listen standardvisningen.", // MT
+"default_view_m_tooltip"=>"Det modul, dotPulse åbner efter login, og når webstedets adresse ikke angiver nogen side. Vælg et, som alle roller må åbne.", // MT
 "default_view_tab_title"=>"Standardfane på underside", // MT
 "default_view_tab_tooltip"=>"Angiv dette, hvis du vil definere din egen start-/standardside.\n\nAngiver en underside med faner. 0=første fane, ...", // MT
 "delete"=>"slet", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"Engelsk",
 "enable_gantt_charts_title"=>"Aktivér Gantt-diagrammer", // MT
-"enable_gantt_charts_tooltip"=>"Med indstillingen til at aktivere eller deaktivere Gantt-diagrammer kan du slå funktionen til eller fra, afhængigt af om du vil bruge Gantt-diagrammer på dit websted. ", // MT
+"enable_gantt_charts_tooltip"=>"Viser linjen Fold alle ud, Fold alle sammen og Projekt-diagram i slutningen af hvert projekts opgaveliste. Projekternes Gantt-faner og Min Gantt bliver under alle omstændigheder.", // MT
 "English (Aus)"=>"Engelsk (Aus)", // MT
 "English (Can)"=>"Engelsk (Can)", // MT
 "English (GB)"=>"Engelsk (GB)", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"Mappe til rettighedscache", // MT
 "gacl_cache_dir_tooltip"=>"Angiv en mappe på dit system, som webserveren kan skrive til. Den indeholder cachen for rettighedssystemet", // MT
 "gacl_cache_title"=>"Aktivér rettighedscache", // MT
-"gacl_cache_tooltip"=>"Slå dette til for at forbedre ydeevnen i opgavelister. Sørg for også at angive mappen til rettighedscachen", // MT
+"gacl_cache_tooltip"=>"Cacher svarene fra rettighedsbiblioteket (phpGACL) i mappen nedenfor. dotPulse kontrollerer rettigheder i sin egen tabel, så det gør ingen mærkbar forskel: lad den være slået fra.", // MT
 "gacl_expire_title"=>"Udløb rettighedscache", // MT
-"gacl_expire_tooltip"=>"Dette tvinger rettighedscachen til at udløbe. Hvis du bruger rettighedscache, bør du kun sætte dette for at rydde en gammel cache for at omgå problemer, og derefter nulstille det", // MT
+"gacl_expire_tooltip"=>"Tømmer rettighedscachen hver gang en rettighed eller en rolle ændres, så ændringerne gælder med det samme. Lad den være slået til, hvis du bruger cachen.", // MT
 "gacl_group_title"=>"Rettighedscache", // MT
 "gacl_timeout_title"=>"Timeout for rettighedscache", // MT
 "gacl_timeout_tooltip"=>"Antal sekunder, cachelagrede rettighedsoplysninger opbevares.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"Værtens landestandard", // MT
 "host_locale_tooltip"=>"Denne indstilling angiver lokaliseringen eller sproget for dit websted.", // MT
 "host_style_title"=>"Standardstil for brugergrænsefladen", // MT
-"host_style_tooltip"=>"Standardstil for brugergrænsefladen - som angivet under brugerindstillinger. Du skal dog skrive navnet på standarden her.  Hvis du har brug for en hjælp, så se rullelisten i brugerindstillingerne og gentag navnet her.", // MT
+"host_style_tooltip"=>"Temaet for login-siden og for brugere, der ikke har valgt et i deres indstillinger.", // MT
 "HTML Tag Options"=>"HTML-tagindstillinger", // MT
 "Import Contacts"=>"Importér kontakter", // MT
 "Import Contacts from LDAP Directory"=>"Importér kontakter fra LDAP-katalog", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"Værten kræver login", // MT
 "mail_auth_tooltip"=>"Nogle SMTP-værter kræver godkendelse. Hvis din gør, skal du slå dette til og angive brugernavn og adgangskode", // MT
 "mail_defer_title"=>"Sæt e-mail i kø til senere afsendelse", // MT
-"mail_defer_tooltip"=>"Markér dette for at sætte e-mail i kø til senere afsendelse.  Der oprettes en post i hændelseskøen.  Du skal enten slå indstillingen Scan hændelseskø til under sessionshåndtering eller oprette et cronjob, der kalder:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"Lægger hver e-mail i hændelseskøen i stedet for at sende den, mens brugeren venter. Det cron job, der kører queuescanner.php fra kommandolinjen, sender køen: uden det bliver e-mail i køen aldrig sendt.", // MT
 "mail_group_title"=>"E-mailindstillinger", // MT
 "mail_host_title"=>"SMTP-vært", // MT
 "mail_host_tooltip"=>"Det fuldt kvalificerede domænenavn (FQDN) eller IP-adressen på den SMTP-vært, der skal bruges til at sende e-mail", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"posttyper", // MT
 "remove"=>"Fjern",
 "reset_memory_limit_title"=>"Hukommelsesgrænse for Gantt", // MT
-"reset_memory_limit_tooltip"=>"Oplever du fejl med usynlige Gantt-diagrammer, kan du bruge denne variabel til midlertidigt at udvide din PHP-hukommelsesgrænse ved tegning af Gantt-diagrammer. Værdier som 64M, 128M osv. er almindelige.", // MT
+"reset_memory_limit_tooltip"=>"Bruges ikke af standardmodulerne. Tilføjelsen Monitoring and Control sætter PHP's hukommelsesgrænse til denne værdi på nogle af sine sider.", // MT
 "restrict_color_selection_title"=>"Begræns valg af projektfarve", // MT
 "restrict_color_selection_tooltip"=>"Sammen med systemværdiopslaget \"ProjectColors\" kan du med denne indstilling styre, hvilke projektfarver alle brugere på systemet kan vælge imellem.\n\n\n\nHvis du slår denne indstilling til, kan projektopretterne kun vælge mellem de farver, der er defineret i systemværdiopslaget ovenfor.\n\n\n\nHvis du slår denne indstilling fra, får projektopretterne adgang til systemets standardforvalg og hele farvepaletten.", // MT
 "restrict_task_time_editing_title"=>"Begræns redigering af opgavetid", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Inaktivitetstid for session", // MT
-"session_idle_time_tooltip"=>"Den maksimale tid, en session kan være uden aktivitet, før den erklæres død.\n\nVærdier er i sekunder, medmindre de efterfølges af et bogstav: h = timer, d = dage, m = måneder, y = år.\n\nDer må kun være 1 bogstav i strengen, så 2d4h er IKKE gyldigt, men 28h er.", // MT
+"session_idle_time_tooltip"=>"Hvor længe en session må være uden aktivitet, før den udløber. Et antal sekunder (mindst 60) eller et tal efterfulgt af ét bogstav: h timer, d dage, m måneder på 30 dage (ikke minutter), y år. For eksempel 3600, 8h eller 2d.", // MT
 "session_max_lifetime_title"=>"Maksimal levetid for session", // MT
-"session_max_lifetime_tooltip"=>"Den maksimale tid, en session kan eksistere, før den kasseres, uanset hvor aktiv den er.", // MT
+"session_max_lifetime_tooltip"=>"Hvor længe en session højst må vare, uanset hvor aktiv den er. Skrives som Inaktivitetstid for session, for eksempel 1m (30 dage).", // MT
 "session_name_title"=>"Session-/cookienavn", // MT
 "session_name_tooltip"=>"Definér dit eget cookienavn. Bemærk: Ændring af sessionsnavnet logger straks alle brugere ud! De skal logge ind igen.", // MT
 "Short Date Format"=>"Kort datoformat",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"Vis andre brugeres opgaver", // MT
 "show_all_tasks_tooltip"=>"Styrer visningen af opgaver, der tilhører andre brugere.", // MT
 "site_domain_title"=>"Webstedets domæne", // MT
-"site_domain_tooltip"=>"Domænet angivet her bruges til at danne en e-mailadresse, hvis der er indtastet en ufuldstændig adresse i brugerens post.", // MT
+"site_domain_tooltip"=>"Dit websteds domæne. dotPulse sender nulstilling af adgangskoder, og e-mail hvis afsender ikke har en gyldig adresse, fra no-reply@ dette domæne.", // MT
 "sl"=>"Slovensk",
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"Emne for e-mail fra opgavelog", // MT
 "Task Notification Method"=>"Metode til opgaveunderretning", // MT
 "task_reminder_control_title"=>"Send opgavepåmindelser", // MT
-"task_reminder_control_tooltip"=>"Hvis slået til, sendes der en e-mail til alle tildelte, når en opgave forfalder, og hver dag den er forsinket, indtil den er fuldført.", // MT
+"task_reminder_control_tooltip"=>"Sender en e-mail til de tildelte og ejeren af en opgave før dens frist og hver dag den er forsinket, på deres arbejdsdage, indtil den er fuldført. Slås den fra, stopper også de påmindelser, der allerede står i kø. Sendes af cron job.", // MT
 "task_reminder_days_before_title"=>"Antal dages varsel for forfaldne opgaver", // MT
 "task_reminder_days_before_tooltip"=>"Dette bestemmer, hvor mange dage før en opgaves forfald den første påmindelse sendes.", // MT
 "task_reminder_group_title"=>"Opgavepåmindelser", // MT
@@ -521,3 +501,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"Numerisk", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Kunne ikke indlæse det brugerdefinerede felt. Det er muligvis blevet slettet.", // MT
 "Delete"=>"Slet", // MT
+"ldap_search_pass_tooltip"=>"Adgangskoden til LDAP-søgebruger. Lad feltet være tomt for at beholde den gemte.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"skriv et antal sekunder (mindst 60) eller et tal efterfulgt af h, d, m (30 dage) eller y", // MT

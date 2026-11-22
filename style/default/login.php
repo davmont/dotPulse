@@ -8,10 +8,10 @@ if (!defined('DP_BASE_DIR')) {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-	<title><?php echo $dPconfig['page_title']; ?></title>
+	<title><?php echo dPhtml((string)dPgetConfig('page_title')); ?></title>
 	<meta http-equiv="Content-Type"
 		content="text/html;charset=<?php echo isset($locale_char_set) ? $locale_char_set : 'UTF-8'; ?>" />
-	<title><?php echo $dPconfig['company_name']; ?> :: dotPulse</title>
+	<title><?php echo dPhtml((string)dPgetConfig('company_name')); ?> :: dotPulse</title>
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta name="Version" content="<?php echo @$AppUI->getVersion(); ?>" />
 	<link rel="stylesheet" type="text/css" href="./style/<?php echo $uistyle; ?>/main.css" media="all" />
@@ -121,7 +121,7 @@ if (!defined('DP_BASE_DIR')) {
 
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<th colspan="2"><em><?php echo dPgetConfig('company_name'); ?></em></th>
+					<th colspan="2"><em><?php echo dPhtml((string)dPgetConfig('company_name')); ?></em></th>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="text" maxlength="255" name="username" autofocus="autofocus" class="text"

@@ -227,3 +227,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"認証アプリでこの QR コードをスキャンするか、キーを入力してください。", // MT
 "QR code for your authenticator app"=>"認証アプリ用の QR コード", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"アプリに表示される 6 桁のコードを入力して、2 段階ログインを有効にしてください。", // MT
+"Select the projects and the user who takes them over."=>"プロジェクトと、それを引き継ぐユーザを選択してください。", // MT
+"Role removed from the user"=>"ユーザからロールを削除しました", // MT
+"Remove this role from the user?"=>"このロールをユーザから削除しますか?", // MT

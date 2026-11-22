@@ -227,3 +227,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"使用您的驗證器應用程式掃描此 QR 碼，或在其中輸入金鑰。", // MT
 "QR code for your authenticator app"=>"驗證器應用程式的 QR 碼", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"輸入應用程式顯示的 6 位數代碼以開啟兩步驟登入。", // MT
+"Select the projects and the user who takes them over."=>"請選擇專案以及接手這些專案的使用者。", // MT
+"Role removed from the user"=>"已從使用者移除該角色", // MT
+"Remove this role from the user?"=>"要從使用者移除此角色嗎?", // MT

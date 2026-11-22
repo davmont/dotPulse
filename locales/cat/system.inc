@@ -12,7 +12,7 @@
 "Add Permissions"=>"Afegir permisos", // MT
 "added"=>"afegit", // MT
 "admin_username_title"=>"Nom d'usuari de l'administrador", // MT
-"admin_username_tooltip"=>"Indiqueu el nom d'inici de sessió de l'usuari administrador.", // MT
+"admin_username_tooltip"=>"Un nom d'accés que el formulari d'usuari accepta encara que sigui més curt que la longitud mínima. No dona cap dret: els rols decideixen qui és administrador.", // MT
 "Administration"=>"Administració", // MT
 "All Events"=>"Tots els esdeveniments", // MT
 "allow"=>"permetre", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Dies laborables del calendari", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"Comprovació de sobreassignació", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"No té cap efecte: la comprovació que activava està desactivada.", // MT
 "check_task_dates_title"=>"Comprovar les dates de les tasques", // MT
 "check_task_dates_tooltip"=>"Si aquesta opció està activada, totes les tasques hauran de tenir data d'inici i de fi abans de poder-les afegir.", // MT
 "check_task_empty_dynamic_title"=>"Comprovar tasques dinàmiques buides", // MT
@@ -57,7 +57,7 @@
 "cs"=>"Txec", // MT
 "Currency Format"=>"Format de moneda", // MT
 "currency_symbol_title"=>"Símbol de moneda", // MT
-"currency_symbol_tooltip"=>"Tot i que ja hi ha suport de configuració regional integrat, encara hi ha una opció addicional per definir el símbol de moneda. \n\n\n\nLocalització del símbol de moneda. Per al símbol de l'euro, establiu-lo a \\'&#8364;\\'\n\n\n\nConsulteu http://www.w3.org/TR/html401/sgml/entities.html per obtenir informació sobre els caràcters especials HTML.", // MT
+"currency_symbol_tooltip"=>"Es posa davant de les quantitats de diners, com els pressupostos dels projectes. Escriviu el símbol tal qual, per exemple € o £.", // MT
 "Custom field added successfully"=>"Camp personalitzat afegit correctament", // MT
 "Custom Field Editor"=>"Editor de camps personalitzats", // MT
 "Custom field editor"=>"Editor de camps personalitzats", // MT
@@ -67,27 +67,7 @@
 "de"=>"Alemany", // MT
 "deactivate"=>"desactivar", // MT
 "debug_title"=>"Nivell de depuració", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"Quanta informació de depuració s'escriu al registre d'errors de PHP: 0 res, 1 els missatges més importants, valors més alts més informació (12 o més: cada consulta SQL). Mostrar missatges de depuració els mostra també a les pàgines.", // MT
 "Default"=>"Per defecte", // MT
 "Default Event Filter"=>"Filtre d'esdeveniments per defecte", // MT
 "Default User Preferences"=>"Preferències d'usuari per defecte", // MT
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"Submòdul per defecte", // MT
 "default_view_a_tooltip"=>"Definiu-ho si voleu establir la vostra pròpia pàgina d'inici/per defecte.\n\nEspecifica una subvista tal com es mostra a l'URL de dP.", // MT
 "default_view_m_title"=>"Mòdul per defecte", // MT
-"default_view_m_tooltip"=>"Definiu-ho si voleu establir la vostra pròpia pàgina d'inici/per defecte.\n\nSi el valor és buit, el primer mòdul de la llista esdevé la vista per defecte.", // MT
+"default_view_m_tooltip"=>"El mòdul que dotPulse obre després de l'accés, i quan l'adreça del lloc no indica cap pàgina. Trieu-ne un que tots els rols puguin obrir.", // MT
 "default_view_tab_title"=>"Subvista de pestanya per defecte", // MT
 "default_view_tab_tooltip"=>"Definiu-ho si voleu establir la vostra pròpia pàgina d'inici/per defecte.\n\nEspecifica una subvista de pestanya. 0=primera pestanya, ...", // MT
 "delete"=>"eliminar", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"Anglès", // MT
 "enable_gantt_charts_title"=>"Activar els diagrames de Gantt", // MT
-"enable_gantt_charts_tooltip"=>"L'opció d'activar o desactivar els diagrames de Gantt us permet activar o desactivar la funció, segons si voleu utilitzar diagrames de Gantt al vostre lloc. ", // MT
+"enable_gantt_charts_tooltip"=>"Mostra la línia Desplegar-ho tot, Plegar-ho tot i Diagrama de Gantt al final de la llista de tasques de cada projecte. Les pestanyes Gantt dels projectes i El meu Gantt hi continuen en qualsevol cas.", // MT
 "English (Aus)"=>"Anglès (Aus)", // MT
 "English (Can)"=>"Anglès (Can)", // MT
 "English (GB)"=>"Anglès (GB)", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"Directori de la memòria cau de permisos", // MT
 "gacl_cache_dir_tooltip"=>"Establiu-ho a un directori del sistema on el servidor web pugui escriure; conté la memòria cau del sistema de permisos", // MT
 "gacl_cache_title"=>"Activar la memòria cau de permisos", // MT
-"gacl_cache_tooltip"=>"Activeu-ho per millorar el rendiment dels llistats de tasques; assegureu-vos de definir també el directori de la memòria cau de permisos", // MT
+"gacl_cache_tooltip"=>"Desa al directori de sota les respostes de la biblioteca de permisos (phpGACL). dotPulse comprova els permisos a la seva pròpia taula, així que no s'hi nota cap diferència: deixeu-ho desactivat.", // MT
 "gacl_expire_title"=>"Fer caducar la memòria cau de permisos", // MT
-"gacl_expire_tooltip"=>"Activar-ho força la caducitat de la memòria cau de permisos; si utilitzeu la memòria cau de permisos, només ho hauríeu d'activar per esborrar una memòria cau antiga i evitar problemes, i després tornar-ho a desactivar", // MT
+"gacl_expire_tooltip"=>"Buida la memòria cau de permisos cada vegada que canvia un permís o un rol, perquè els canvis s'apliquin de seguida. Manteniu-ho activat si useu la memòria cau.", // MT
 "gacl_group_title"=>"Memòria cau de permisos", // MT
 "gacl_timeout_title"=>"Temps d'expiració de la memòria cau de permisos", // MT
 "gacl_timeout_tooltip"=>"Nombre de segons que es conserva la informació de permisos a la memòria cau.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"Configuració regional del servidor", // MT
 "host_locale_tooltip"=>"Aquesta opció indica la configuració regional o l'idioma del lloc.", // MT
 "host_style_title"=>"Estil per defecte de la interfície d'usuari", // MT
-"host_style_tooltip"=>"Estil per defecte de la interfície d'usuari, tal com s'estableix a les preferències d'usuari; tanmateix, aquí heu d'escriure el nom de l'estil per defecte.  Si necessiteu una referència, consulteu la llista desplegable de les preferències d'usuari i repetiu aquí el nom.", // MT
+"host_style_tooltip"=>"El tema de la pàgina d'accés i dels usuaris que no n'han triat cap a les seves preferències.", // MT
 "HTML Tag Options"=>"Opcions de l'etiqueta HTML", // MT
 "Import Contacts"=>"Importar contactes", // MT
 "Import Contacts from LDAP Directory"=>"Importar contactes del directori LDAP", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"El servidor requereix inici de sessió", // MT
 "mail_auth_tooltip"=>"Alguns servidors SMTP requereixen autenticació; si és el vostre cas, cal activar-ho i proporcionar un nom d'usuari i una contrasenya", // MT
 "mail_defer_title"=>"Posar el correu a la cua per enviar-lo més tard", // MT
-"mail_defer_tooltip"=>"Marqueu-ho per posar el correu a la cua i enviar-lo més tard.  Es crearà una entrada a la cua d'esdeveniments.  Caldrà activar l'opció d'escanejar la cua d'esdeveniments a la gestió de sessions o crear una tasca cron que cridi:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"Posa cada correu a la cua d'esdeveniments en lloc d'enviar-lo mentre l'usuari espera. El cron job que executa queuescanner.php des de la línia d'ordres envia la cua: sense ell, el correu en cua no s'envia mai.", // MT
 "mail_group_title"=>"Configuració del correu", // MT
 "mail_host_title"=>"Servidor SMTP", // MT
 "mail_host_tooltip"=>"El nom de domini complet (FQDN) o l'adreça IP del servidor SMTP que s'utilitza per enviar correu", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"tipus de registre", // MT
 "remove"=>"treure", // MT
 "reset_memory_limit_title"=>"Límit de memòria per al Gantt", // MT
-"reset_memory_limit_tooltip"=>"Si teniu errors amb diagrames de Gantt invisibles, utilitzeu aquesta variable per ampliar temporalment el límit de memòria de PHP per dibuixar el diagrama de Gantt. Són habituals valors de 64M, 128M, etc.", // MT
+"reset_memory_limit_tooltip"=>"Els mòduls estàndard no ho fan servir. El complement Monitoring and Control posa el límit de memòria de PHP en aquest valor en algunes de les seves pàgines.", // MT
 "restrict_color_selection_title"=>"Restringir la selecció de colors del projecte", // MT
 "restrict_color_selection_tooltip"=>"Juntament amb l'opció de consulta de valors del sistema \"ProjectColors\", podeu utilitzar aquest paràmetre per controlar les opcions de selecció de colors de projecte disponibles per a tots els usuaris del sistema.\n\n\n\nSi activeu aquesta opció, els creadors de projectes només podran triar entre els colors definits a la consulta de valors del sistema esmentada.\n\n\n\nSi la desactiveu, els creadors de projectes tindran accés als colors predefinits del sistema i a la paleta de colors completa.", // MT
 "restrict_task_time_editing_title"=>"Restringir l'edició del temps de les tasques", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Temps d'inactivitat de la sessió", // MT
-"session_idle_time_tooltip"=>"El temps màxim que una sessió pot estar sense activitat abans de considerar-la morta.\n\nEls valors són en segons, tret que vagin seguits d'una lletra: h = hores, d = dies, m = mesos, y = anys.\n\nNomés podeu tenir 1 caràcter dins d'una cadena, de manera que 2d4h NO és vàlid, però 28h sí.", // MT
+"session_idle_time_tooltip"=>"Quant de temps pot passar una sessió sense activitat abans de caducar. Un nombre de segons (60 com a mínim), o un nombre seguit d'una lletra: h hores, d dies, m mesos de 30 dies (no minuts), y anys. Per exemple 3600, 8h o 2d.", // MT
 "session_max_lifetime_title"=>"Durada màxima de la sessió", // MT
-"session_max_lifetime_tooltip"=>"El temps màxim que pot existir una sessió abans de descartar-la, independentment de l'activitat que tingui.", // MT
+"session_max_lifetime_tooltip"=>"Quant pot durar una sessió com a màxim, per activa que sigui. S'escriu com el Temps d'inactivitat de la sessió, per exemple 1m (30 dies).", // MT
 "session_name_title"=>"Nom de la sessió/galeta", // MT
 "session_name_tooltip"=>"Definiu el vostre propi nom de galeta. Atenció: canviar el nom de la sessió desconnectarà immediatament tots els usuaris! Hauran de tornar a iniciar la sessió.", // MT
 "Short Date Format"=>"Format de data curt", // MT
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"Mostrar les tasques d'altres usuaris", // MT
 "show_all_tasks_tooltip"=>"Controla la visualització de les tasques que pertanyen a altres usuaris.", // MT
 "site_domain_title"=>"Domini del lloc", // MT
-"site_domain_tooltip"=>"El domini definit aquí s'utilitza per generar una adreça de correu si s'ha introduït una adreça incompleta al registre de l'usuari.", // MT
+"site_domain_tooltip"=>"El domini del vostre lloc. dotPulse envia els restabliments de contrasenya, i el correu el remitent del qual no té una adreça vàlida, des de no-reply@ aquest domini.", // MT
 "sl"=>"Eslovè", // MT
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"Assumpte del correu del registre de tasques", // MT
 "Task Notification Method"=>"Mètode de notificació de tasques", // MT
 "task_reminder_control_title"=>"Enviar recordatoris de tasques", // MT
-"task_reminder_control_tooltip"=>"Si està activat, s'enviarà un correu a tots els assignats quan una tasca venci i cada dia que estigui endarrerida fins que es completi.", // MT
+"task_reminder_control_tooltip"=>"Envia un correu als assignats i al responsable d'una tasca abans del venciment i cada dia que continuï vençuda, en els seus dies laborables, fins que es completi. Desactivar-ho també atura els recordatoris ja en cua. Els envia el cron job.", // MT
 "task_reminder_days_before_title"=>"Dies d'avís per a les tasques que vencen", // MT
 "task_reminder_days_before_tooltip"=>"Determina quants dies abans del venciment d'una tasca s'envia el primer recordatori.", // MT
 "task_reminder_group_title"=>"Recordatoris de tasques", // MT
@@ -521,3 +501,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"Numèric", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"No s'ha pogut carregar el camp personalitzat; potser s'ha eliminat.", // MT
 "Delete"=>"Eliminar", // MT
+"ldap_search_pass_tooltip"=>"La contrasenya de l'Usuari de cerca LDAP. Deixeu-la buida per conservar la desada.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"escriviu un nombre de segons (60 com a mínim), o un nombre seguit de h, d, m (30 dies) o y", // MT

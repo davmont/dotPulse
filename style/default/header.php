@@ -6,7 +6,7 @@ $dialog = (int)dPgetParam($_GET, 'dialog', 0);
 if ($dialog)
 	$page_title = '';
 else
-	$page_title = in_array($dPconfig['page_title'], array('dotProject', 'dotPulse')) ? 'dotPulse&nbsp;' . $AppUI->getVersion() : $dPconfig['page_title'];
+	$page_title = in_array($dPconfig['page_title'], array('dotProject', 'dotPulse')) ? 'dotPulse&nbsp;' . $AppUI->getVersion() : dPhtml((string)$dPconfig['page_title']);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -16,7 +16,7 @@ else
 	<meta name="Description" content="dotPulse" />
 	<meta name="Version" content="<?php echo @$AppUI->getVersion();?>" />
 	<meta http-equiv="Content-Type" content="text/html;charset=<?php echo isset($locale_char_set) ? $locale_char_set : 'UTF-8';?>" />
-	<title><?php echo @dPgetConfig('page_title');?></title>
+	<title><?php echo dPhtml((string)dPgetConfig('page_title'));?></title>
 	<link rel="stylesheet" type="text/css" href="./style/<?php echo $uistyle;?>/main.css" media="all" />
 	<style type="text/css" media="all">@import "./style/<?php echo $uistyle;?>/main.css";</style>
 	<link rel="shortcut icon" href="./style/<?php echo $uistyle; ?>/images/favicon.ico" type="image/ico" />

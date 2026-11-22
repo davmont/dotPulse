@@ -12,7 +12,7 @@
 "Add Permissions"=>"Ajouter permissions",
 "added"=>"ajouté",
 "admin_username_title"=>"Nom utilisateur Administrateur ",
-"admin_username_tooltip"=>"Désigner le nom d\\'utilisateur Administrateur",
+"admin_username_tooltip"=>"Un nom de connexion que le formulaire utilisateur accepte même s'il est plus court que la longueur minimale. Il ne donne aucun droit : ce sont les rôles qui décident qui est administrateur.", // MT
 "Administration"=>"Administration",
 "All Events"=>"Tous événements",
 "allow"=>"Permettre",
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Calendrier des jours travaillés",
 "cal_working_days_tooltip"=>"Etablir les jours de travail requis pour votre entreprise dans une liste séparée par des virgules où 0 est Dimanche. Par exemple, si vous travaillez du Lundi au Vendredi, votre liste serait 1,2,3,4,5. Si vous travaillez du Vendredi au Dimanche, votre liste serait 5,6,0",
 "check_overallocation_title"=>"Vérification de dépassement",
-"check_overallocation_tooltip"=>"Le composant allocation en surplus de dotProject est une fonction incomplète qui a été développée. Il est la base du système qui permettra aux Gestionnaires de Projets d\\'établir le % maximum de temps qu\\'une ressource peut être alloué à une tâche en particulier pour un temps donné.",
+"check_overallocation_tooltip"=>"Sans effet : la vérification qu'il activait est désactivée.", // MT
 "check_task_dates_title"=>"Vérification des dates de tâche",
 "check_task_dates_tooltip"=>"Si cette option est choisie, les dates de début et de fin seront requises pour toutes les nouvelles tâches",
 "check_task_empty_dynamic_title"=>"Inspecter les Tâches Dynamiques Vides",
@@ -57,7 +57,7 @@
 "cs"=>"Tchèque",
 "Currency Format"=>"Format de monnaie",
 "currency_symbol_title"=>"Symbole monétaire",
-"currency_symbol_tooltip"=>" Bien que nous ayons un support langue intégré, il y a tout de même une option en extra pour choisir le symbole de la monnaie. Pour l\\'EURO mettez \\'&#8364;\\' Regardez http://www.w3.org/TR/html401/sgml/entities.html pour plus d\\'information sur les caractères spéciaux HTML",
+"currency_symbol_tooltip"=>"Placé devant les montants, comme les budgets des projets. Saisissez le symbole lui-même, par exemple € ou £.", // MT
 "Custom field added successfully"=>"Champ personnalisé ajouté avec succès",
 "Custom Field Editor"=>"Editeur de champ personnalisé",
 "Custom field editor"=>"Éditeur de champ personnalisé",
@@ -67,7 +67,7 @@
 "de"=>"Allemand",
 "deactivate"=>"Désactivé",
 "debug_title"=>"Niveau de débogage",
-"debug_tooltip"=>"Activez cette option pour afficher des messages de débogage ainsi que leur journal. ATTENTION: Mis à vrai, si le niveau de débogage est supérieur à 1, peut entraîne dotProject à échouer sur les messages qui sont seulement des Avertissements techniques et peut donc être ignoré. Normalement, les erreurs seront affichées, alors ceci doit être activé uniquement pour suivre les avertissements et les messages de débogage si vous n\\'avez pas accès aux fichiers de log PHP. Autre chose que 0 fournira des informations de débogage. Le niveau 1 est probablement le compromis le plus raisonnable entre le fonctionnement normal et l\\'erreur de suivi des informations. Mettez à 10 pour obtenir des informations de débogage complet mais sachez que cela va générer de gros fichiers de log et / ou déboguer des listes très très rapidement.",
+"debug_tooltip"=>"Quantité d'informations de débogage écrites dans le journal d'erreurs de PHP : 0 aucune, 1 les messages les plus importants, des valeurs plus élevées davantage (12 et plus : chaque requête SQL). Voir les messages de débogage les affiche aussi sur les pages.", // MT
 "Default"=>"Défaut",
 "Default Event Filter"=>"Filtre d\\'événement par défaut",
 "Default User Preferences"=>"Préférences Utilisateur par défaut",
@@ -75,7 +75,7 @@
 "default_view_a_title"=>"Sous module par défaut",
 "default_view_a_tooltip"=>"Si vous voulez définir votre propre style de page de démarrage, activez ceci. Il spécifie une sous-vue telle que montrée dans l\\'url de dP",
 "default_view_m_title"=>"Module par défaut",
-"default_view_m_tooltip"=>"Si vous voulez définir votre propre style de page de démarrage, activez ceci. Si la valeur est vide, alors la première option listée du module deviendra la vue par défaut",
+"default_view_m_tooltip"=>"Le module que dotPulse ouvre après la connexion, et lorsque l'adresse du site n'indique aucune page. Choisissez-en un que tous les rôles peuvent ouvrir.", // MT
 "default_view_tab_title"=>"Sous-vue Tabulée par Défaut",
 "default_view_tab_tooltip"=>"Si vous voulez définir votre propre style de page de démarrage, activez ceci. Il spécifie une sous-vue tabulée. 0=première tabulation, ...",
 "delete"=>"Supprimer",
@@ -100,7 +100,7 @@
 "email_prefix_tooltip"=>"Ce paramètre est utilisé pour fixer la ligne de sujet préfixe pour tous les e-mails que dotProject envoie.",
 "en"=>"Anglais",
 "enable_gantt_charts_title"=>"Activer les diagrammes de Gantt",
-"enable_gantt_charts_tooltip"=>"Cette option vous permet d\\'autoriser ou non les diagrammes de Gantt, suivant que vous vouliez ou non des diagrammes de Gantt sur votre site ",
+"enable_gantt_charts_tooltip"=>"Affiche la ligne Tout développer, Tout réduire et Diagramme de Gantt à la fin de la liste des tâches de chaque projet. Les onglets Gantt des projets et Mon Gantt restent dans tous les cas.", // MT
 "English (Aus)"=>"Anglais (Aus)",
 "English (Can)"=>"Anglais (Can)",
 "English (GB)"=>"Anglais (GB)",
@@ -125,9 +125,9 @@
 "gacl_cache_dir_title"=>"Permissions du Répertoire de Cache",
 "gacl_cache_dir_tooltip"=>"Mettez cela à un répertoire sur votre système où le serveur Web peut écrire, ceci détient le cache pour le système des autorisations",
 "gacl_cache_title"=>"Activer le cache d\\'autorisations",
-"gacl_cache_tooltip"=>"Activez ceci afin d\\'améliorer les performances dans les listing tâche, assurez-vous également  de définir les autorisations sur le répertoire cache",
+"gacl_cache_tooltip"=>"Met en cache dans le répertoire ci-dessous les réponses de la bibliothèque de permissions (phpGACL). dotPulse vérifie les permissions dans sa propre table, donc cela ne fait aucune différence perceptible : laissez-le désactivé.", // MT
 "gacl_expire_title"=>"Expiration des autorisations de mise en cache",
-"gacl_expire_tooltip"=>"L\\'activation de ceci forcera l\\'expiration du cache des autorisations, si vous utilisez les autorisations de mise en cache, vous devez seulement activer ceci pour effacer un ancien cache pour contourner les problèmes, et le remettre par la suite",
+"gacl_expire_tooltip"=>"Vide le cache des permissions chaque fois qu'une permission ou un rôle change, pour que les changements s'appliquent immédiatement. Laissez-le activé si vous utilisez le cache.", // MT
 "gacl_group_title"=>"Autorisations de mise en cache",
 "gacl_timeout_title"=>"Délai de Timeout des autorisations de mise en cache",
 "gacl_timeout_tooltip"=>"Nombre de secondes à tenir en cache sur les autorisations d\\'information.",
@@ -137,7 +137,7 @@
 "host_locale_title"=>"Langue de l\\'hôte",
 "host_locale_tooltip"=>"Cette option indique la valeur de la localisation ou de la langue pour votre site.",
 "host_style_title"=>"Style du titre",
-"host_style_tooltip"=>"L\\'interface utilisateur \\'Default Style\\' - tel que défini dans les préférences utilisateur domaine, toutefois, vous devrez tapez le nom de la valeur par défaut ici. Si vous avez besoin d\\'un nom - vérifiez la liste déroulante dans les préférences utilisateur et répétez ici ce nom.",
+"host_style_tooltip"=>"Le thème de la page de connexion et des utilisateurs qui n'en ont pas choisi dans leurs préférences.", // MT
 "HTML Tag Options"=>"Options Balise HTML",
 "Import Contacts"=>"Importer contact",
 "Import Contacts from LDAP Directory"=>"Importer contact du répertoire LDAP ",
@@ -185,7 +185,7 @@
 "mail_auth_title"=>"L\\'hôte requiert un login",
 "mail_auth_tooltip"=>"Certains hôtes SMTP nécessite une authentification, si le vôtre la requiert ne vous devrez configurer ceci et fournir un nom d\\'utilisateur et mot de passe",
 "mail_defer_title"=>"Mettre les emails en attente pour les envoyer plus tard",
-"mail_defer_tooltip"=>"Cochez ceci pour mettre les emails en file d\\'attente. Une inscription sera faite dans la file d\\'attente de l\\'événement. Vous devez soit définir l\\'option \\'Scan Event Queue\\' dans \\'Session Handling \\' ou créer une tâche cron pour appeler: wget-O-http://your.domain/dotproject/queuescanner.php",
+"mail_defer_tooltip"=>"Place chaque courriel dans la file d'événements au lieu de l'envoyer pendant que l'utilisateur attend. Le cron job qui exécute queuescanner.php en ligne de commande envoie la file : sans lui, le courriel en file n'est jamais envoyé.", // MT
 "mail_group_title"=>"Configurations Email",
 "mail_host_title"=>"Hôte SMTP",
 "mail_host_tooltip"=>"Mette ici le FQDN ou l\\'adresse IP de l\\'hôte SMTP pour utiliser l\\'envoi des emails",
@@ -249,7 +249,7 @@
 "record types"=>"type d\\'enregistrement",
 "remove"=>"Supprimer",
 "reset_memory_limit_title"=>"Limite de mémoire pour Ganttt",
-"reset_memory_limit_tooltip"=>"Si vous expérimentez des erreurs avec les diagrammes de Gantt invisible,  utilisez cette variable pour élargir temporairement votre limite de mémoire PHP pour le dessin diagramme de Gantt. Les valeurs acceptées sont 64M, 128M etc.",
+"reset_memory_limit_tooltip"=>"Non utilisé par les modules standard. Le module complémentaire Monitoring and Control fixe la limite de mémoire de PHP à cette valeur sur certaines de ses pages.", // MT
 "restrict_color_selection_title"=>"Restreindre la sélection des couleurs projet",
 "restrict_color_selection_tooltip"=>"Utilisé en conjonction avec le Système de valeur de l\\'option Rechercher \"ProjectColors\", vous pouvez utiliser ce paramètre pour contrôler le projet, sélection des options couleurs sont accessibles par tous les utilisateurs de ce système. Si vous activez cette option sur le projet, les créateurs ne seront en mesure de choisir que parmi les options de couleur définies dans le système de recherche de valeur décrites ci-dessus. Si vous activez cette option, créateurs projet seront en mesure d\\'accéder aux préréglages système par défaut et toute la palette de couleur.",
 "restrict_task_time_editing_title"=>"Restreindre le temps d\\'édition de la tâche",
@@ -272,9 +272,9 @@
 "session_handling_title"=>"Gestionnaire de session",
 "session_handling_tooltip"=>"Quelle session de manutention à utiliser, devrait être \\'php\\' pour PHP traditionnel de gestion de session, ou \\'app\\' pour que l\\'application dotProject puisse gérer ses propres sessions via la base de données. Gestion de session: Ceci étend la manipulation de PHP au-delà de navigateur à base de sessions et stocke les informations de session dans la base de données. Cela permet de longues sessions avec des frais généraux plus bas.",
 "session_idle_time_title"=>"Temps de session inerte",
-"session_idle_time_tooltip"=>"Le temps maximum d\\'une session inerte avant qu\\'elle ne soit déclarée morte. Les valeurs sont en secondes, sauf si suivi d\\'une lettre: h = heures, d = jours, m = mois, y = ans. Vous ne pouvez avoir qu\\'1 caractère dans une chaîne de caractères, de sorte 2d4h n\\'est pas valide, mais est 28h l\\'est.",
+"session_idle_time_tooltip"=>"Durée pendant laquelle une session peut rester sans activité avant d'expirer. Un nombre de secondes (au moins 60), ou un nombre suivi d'une lettre : h heures, d jours, m mois de 30 jours (pas minutes), y années. Par exemple 3600, 8h ou 2d.", // MT
 "session_max_lifetime_title"=>"Temps maximum d\\'une session",
-"session_max_lifetime_tooltip"=>"Le temps maximum d\\'existence d\\'une session avant qu\\'elle ne soit jetée, sans préoccupation de son activité",
+"session_max_lifetime_tooltip"=>"Durée maximale d'une session, quelle que soit son activité. S'écrit comme Temps de session inerte, par exemple 1m (30 jours).", // MT
 "session_name_title"=>"Nom Session/Cookie",
 "session_name_tooltip"=>"Définissez votre propre Nom de cookies. Attention: Après le changement de nom de session, déconnectez immédiatement tous les utilisateurs! Ils auront besoin de s\\'authentifier à nouveau",
 "Short Date Format"=>"Format de Date Court",
@@ -283,7 +283,7 @@
 "show_all_tasks_title"=>"Montrer les tâches des autres utilisateurs",
 "show_all_tasks_tooltip"=>"Contrôle l\\'affichage des tâches des autres utilisateurs",
 "site_domain_title"=>"Titre du site domaine",
-"site_domain_tooltip"=>"Le domaine mis ici est utilisé pour générer une adresse e-mail si une adresse incomplète a été entré par l\\'utilisateur dans le dossier.",
+"site_domain_tooltip"=>"Le domaine de votre site. dotPulse envoie les réinitialisations de mot de passe, et le courriel dont l'expéditeur n'a pas d'adresse valide, depuis no-reply@ ce domaine.", // MT
 "sl"=>"Slovène",
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"dotProject Standard",
@@ -304,7 +304,7 @@
 "Task Log Email Subject"=>"Tâche de connexion email sujet",
 "Task Notification Method"=>"Tâche de méthode d\\'avertissement",
 "task_reminder_control_title"=>"Envoyer des rappels de tâches",
-"task_reminder_control_tooltip"=>"Si activé, un e-mail sera envoyé à tous les assignés quand une tâche est due et tous les jours, si elle est en retard jusqu\\'à la fin.",
+"task_reminder_control_tooltip"=>"Envoie un courriel aux assignés et au responsable d'une tâche avant son échéance et chaque jour où elle est en retard, pendant leurs jours ouvrés, jusqu'à ce qu'elle soit terminée. Le désactiver arrête aussi les rappels déjà en file. Envoyé par le cron job.", // MT
 "task_reminder_days_before_title"=>"Nombre de jours d\\'alerte pour les tâches dûes",
 "task_reminder_days_before_tooltip"=>"Ceci détermine le nombre de jours avant qu\\'une tâche soit dûe avant que le premier rappel soit envoyé.",
 "task_reminder_group_title"=>"Rappels de tâches",
@@ -495,3 +495,5 @@
 "Numeric"=>"Numérique", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Impossible de charger le champ personnalisé, il a peut-être été supprimé.", // MT
 "Delete"=>"Supprimer", // MT
+"ldap_search_pass_tooltip"=>"Le mot de passe de Recherche Utilisateur LDAP. Laissez-le vide pour conserver celui enregistré.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"saisissez un nombre de secondes (au moins 60), ou un nombre suivi de h, d, m (30 jours) ou y", // MT

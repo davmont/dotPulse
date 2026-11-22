@@ -12,7 +12,7 @@
 "Add Permissions"=>"Добавить права", // MT
 "added"=>"добавлено", // MT
 "admin_username_title"=>"Имя администратора", // MT
-"admin_username_tooltip"=>"Укажите имя для входа пользователя-администратора.", // MT
+"admin_username_tooltip"=>"Имя для входа, которое форма пользователя принимает, даже если оно короче минимальной длины имени пользователя. Оно не даёт никаких прав: кто является администратором, решают роли.", // MT
 "Administration"=>"Администрирование", // MT
 "All Events"=>"Все события", // MT
 "allow"=>"разрешить", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Рабочие дни календаря", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"Проверка перегрузки", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"Не действует: проверка, которую он включал, отключена.", // MT
 "check_task_dates_title"=>"Проверять даты задач", // MT
 "check_task_dates_tooltip"=>"Если параметр включён, для добавления задачи обязательно указывать даты начала и окончания.", // MT
 "check_task_empty_dynamic_title"=>"Проверять пустые динамические задачи", // MT
@@ -57,7 +57,7 @@
 "cs"=>"Чешский", // MT
 "Currency Format"=>"Формат валюты", // MT
 "currency_symbol_title"=>"Символ валюты", // MT
-"currency_symbol_tooltip"=>"Хотя поддержка локалей встроена, символ валюты можно задать отдельно. \n\n\n\nЛокализация символа валюты. Для знака евро укажите \\'&#8364;\\'\n\n\n\nСведения о специальных символах HTML: http://www.w3.org/TR/html401/sgml/entities.html.", // MT
+"currency_symbol_tooltip"=>"Ставится перед денежными суммами, например бюджетами проектов. Введите сам символ, например € или £.", // MT
 "Custom field added successfully"=>"Пользовательское поле успешно добавлено", // MT
 "Custom Field Editor"=>"Редактор пользовательских полей", // MT
 "Custom field editor"=>"Редактор пользовательских полей", // MT
@@ -67,27 +67,7 @@
 "de"=>"Немецкий", // MT
 "deactivate"=>"деактивировать", // MT
 "debug_title"=>"Уровень отладки", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"Сколько отладочной информации записывается в журнал ошибок PHP: 0 ничего, 1 самые важные сообщения, большие числа больше (12 и выше: каждый SQL-запрос). Показывать отладочные сообщения также выводит их на страницах.", // MT
 "Default"=>"По умолчанию",
 "Default Event Filter"=>"Фильтр событий по умолчанию", // MT
 "Default User Preferences"=>"Настройки пользователя по умолчанию",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"Подмодуль по умолчанию", // MT
 "default_view_a_tooltip"=>"Задайте, если хотите определить собственную начальную страницу.\n\nУказывает подраздел, как в URL dP.", // MT
 "default_view_m_title"=>"Модуль по умолчанию", // MT
-"default_view_m_tooltip"=>"Задайте, если хотите определить собственную начальную страницу.\n\nЕсли значение пустое, начальным видом станет первый модуль в списке.", // MT
+"default_view_m_tooltip"=>"Модуль, который dotPulse открывает после входа, а также когда адрес сайта не указывает страницу. Выберите модуль, который может открыть каждая роль.", // MT
 "default_view_tab_title"=>"Вкладка по умолчанию", // MT
 "default_view_tab_tooltip"=>"Задайте, если хотите определить собственную начальную страницу.\n\nУказывает вкладку. 0 = первая вкладка, ...", // MT
 "delete"=>"удалить", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"Английский", // MT
 "enable_gantt_charts_title"=>"Включить диаграммы Ганта", // MT
-"enable_gantt_charts_tooltip"=>"Этот параметр включает или отключает диаграммы Ганта в зависимости от того, хотите ли вы использовать их на своём сайте. ", // MT
+"enable_gantt_charts_tooltip"=>"Показывает строку Развернуть все, Свернуть все и Диаграмма Ганта в конце списка задач каждого проекта. Вкладки Gantt в проектах и Моя диаграмма Ганта остаются в любом случае.", // MT
 "English (Aus)"=>"Английский (Австралия)", // MT
 "English (Can)"=>"Английский (Канада)", // MT
 "English (GB)"=>"Английский (Великобритания)", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"Каталог кэша прав", // MT
 "gacl_cache_dir_tooltip"=>"Каталог в системе, доступный веб-серверу для записи; в нём хранится кэш системы прав", // MT
 "gacl_cache_title"=>"Включить кэш прав", // MT
-"gacl_cache_tooltip"=>"Включите для ускорения списков задач; не забудьте также указать каталог кэша прав", // MT
+"gacl_cache_tooltip"=>"Кэширует ответы библиотеки прав доступа (phpGACL) в каталоге ниже. dotPulse проверяет права в собственной таблице, поэтому заметной разницы не будет: оставьте выключенным.", // MT
 "gacl_expire_title"=>"Сбросить кэш прав", // MT
-"gacl_expire_tooltip"=>"Принудительно сбрасывает кэш прав. Если вы используете кэширование прав, включайте это только для очистки старого кэша при проблемах, а затем выключайте", // MT
+"gacl_expire_tooltip"=>"Очищает кэш прав доступа при каждом изменении права или роли, чтобы изменения вступали в силу сразу. Оставьте включённым, если используете кэш.", // MT
 "gacl_group_title"=>"Кэширование прав", // MT
 "gacl_timeout_title"=>"Время жизни кэша прав", // MT
 "gacl_timeout_tooltip"=>"Сколько секунд хранить кэшированные сведения о правах.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"Локаль сервера", // MT
 "host_locale_tooltip"=>"Этот параметр задаёт локализацию или язык вашего сайта.", // MT
 "host_style_title"=>"Стиль интерфейса по умолчанию", // MT
-"host_style_tooltip"=>"Стиль интерфейса по умолчанию — как в пользовательских настройках, но имя стиля нужно ввести здесь вручную.  Подсказку можно найти в выпадающем списке пользовательских настроек — повторите здесь это имя.", // MT
+"host_style_tooltip"=>"Тема страницы входа и пользователей, которые не выбрали тему в своих настройках.", // MT
 "HTML Tag Options"=>"Параметры HTML-тега", // MT
 "Import Contacts"=>"Импорт контактов", // MT
 "Import Contacts from LDAP Directory"=>"Импорт контактов из каталога LDAP", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"Сервер требует входа", // MT
 "mail_auth_tooltip"=>"Некоторые SMTP-серверы требуют аутентификации; если ваш требует, включите это и укажите имя пользователя и пароль", // MT
 "mail_defer_title"=>"Ставить письма в очередь", // MT
-"mail_defer_tooltip"=>"Отметьте, чтобы ставить письма в очередь для последующей отправки.  В очереди событий будет создана запись.  Нужно либо включить параметр «Проверять очередь событий» в настройках сеансов, либо создать задание cron, вызывающее:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"Помещает каждое письмо в очередь событий вместо отправки, пока пользователь ждёт. Очередь отправляет cron job, запускающий queuescanner.php из командной строки: без него письма из очереди никогда не отправляются.", // MT
 "mail_group_title"=>"Настройки почты", // MT
 "mail_host_title"=>"SMTP-сервер", // MT
 "mail_host_tooltip"=>"Полное доменное имя (FQDN) или IP-адрес SMTP-сервера для отправки почты", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"типы записей", // MT
 "remove"=>"удалить",
 "reset_memory_limit_title"=>"Лимит памяти для диаграмм Ганта", // MT
-"reset_memory_limit_tooltip"=>"Если диаграммы Ганта не отображаются из-за ошибок, используйте эту переменную, чтобы временно увеличить лимит памяти PHP при их построении. Обычные значения — 64M, 128M и т. д.", // MT
+"reset_memory_limit_tooltip"=>"Не используется стандартными модулями. Дополнение Monitoring and Control устанавливает на некоторых своих страницах лимит памяти PHP в это значение.", // MT
 "restrict_color_selection_title"=>"Ограничить выбор цвета проекта", // MT
 "restrict_color_selection_tooltip"=>"Вместе с системным справочником \"ProjectColors\" этот параметр позволяет управлять вариантами цвета проекта, доступными всем пользователям системы.\n\n\n\nЕсли параметр включён, создатели проектов смогут выбирать только из цветов, заданных в указанном выше системном справочнике.\n\n\n\nЕсли параметр выключен, создатели проектов получат доступ к системным предустановкам и полной палитре цветов.", // MT
 "restrict_task_time_editing_title"=>"Ограничить редактирование времени задач", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Время бездействия сеанса", // MT
-"session_idle_time_tooltip"=>"Максимальное время без активности, после которого сеанс считается завершённым.\n\nЗначения в секундах, если после числа нет буквы: h = часы, d = дни, m = месяцы, y = годы.\n\nВ строке допускается только одна буква, поэтому 2d4h НЕдопустимо, а 28h — допустимо.", // MT
+"session_idle_time_tooltip"=>"Сколько времени сеанс может оставаться без активности, прежде чем истечёт. Число секунд (не менее 60) или число с одной буквой: h часы, d дни, m месяцы по 30 дней (не минуты), y годы. Например 3600, 8h или 2d.", // MT
 "session_max_lifetime_title"=>"Максимальное время жизни сеанса", // MT
-"session_max_lifetime_tooltip"=>"Максимальное время существования сеанса, после которого он удаляется независимо от активности.", // MT
+"session_max_lifetime_tooltip"=>"Сколько максимально может длиться сеанс, как бы активен он ни был. Записывается так же, как Время бездействия сеанса, например 1m (30 дней).", // MT
 "session_name_title"=>"Имя сеанса/cookie", // MT
 "session_name_tooltip"=>"Задайте собственное имя cookie. Внимание: при изменении имени сеанса все пользователи будут немедленно отключены! Им придётся войти снова.", // MT
 "Short Date Format"=>"Короткий Формат Даты",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"Показывать задачи других пользователей", // MT
 "show_all_tasks_tooltip"=>"Управляет просмотром задач, принадлежащих другим пользователям.", // MT
 "site_domain_title"=>"Домен сайта", // MT
-"site_domain_tooltip"=>"Указанный здесь домен используется для формирования адреса эл. почты, если в записи пользователя введён неполный адрес.", // MT
+"site_domain_tooltip"=>"Домен вашего сайта. dotPulse отправляет сброс паролей, а также письма, у отправителя которых нет действительного адреса, с адреса no-reply@ этого домена.", // MT
 "sl"=>"Словенский", // MT
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"Тема письма журнала задач", // MT
 "Task Notification Method"=>"Способ уведомления о задачах", // MT
 "task_reminder_control_title"=>"Отправлять напоминания о задачах", // MT
-"task_reminder_control_tooltip"=>"Если включено, всем исполнителям будет отправляться письмо при наступлении срока задачи и каждый день просрочки до её завершения.", // MT
+"task_reminder_control_tooltip"=>"Отправляет письмо исполнителям и владельцу задачи до срока и каждый день просрочки, в их рабочие дни, пока задача не будет завершена. Выключение также останавливает напоминания, уже стоящие в очереди. Отправляется через cron job.", // MT
 "task_reminder_days_before_title"=>"За сколько дней предупреждать о сроке задачи", // MT
 "task_reminder_days_before_tooltip"=>"Определяет, за сколько дней до срока задачи отправляется первое напоминание.", // MT
 "task_reminder_group_title"=>"Напоминания о задачах", // MT
@@ -527,3 +507,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"Числовой", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Не удалось загрузить пользовательское поле, возможно, оно было удалено.", // MT
 "Delete"=>"Удалить", // MT
+"ldap_search_pass_tooltip"=>"Пароль для параметра Пользователь поиска LDAP. Оставьте пустым, чтобы оставить сохранённый пароль.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"введите число секунд (не менее 60) или число, за которым следует h, d, m (30 дней) или y", // MT

@@ -12,7 +12,7 @@
 "Add Permissions"=>"権限を追加", // MT
 "added"=>"追加しました", // MT
 "admin_username_title"=>"管理者ユーザ名", // MT
-"admin_username_tooltip"=>"管理者ユーザのログイン名を指定します。", // MT
+"admin_username_tooltip"=>"ユーザ名の最小長より短くても、ユーザフォームが受け付けるログイン名です。権限は何も与えません。誰が管理者かはロールが決めます。", // MT
 "Administration"=>"管理", // MT
 "All Events"=>"全イベント", // MT
 "allow"=>"許可", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"カレンダーの稼働日", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"過剰割り当てのチェック", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"効果はありません。以前これで有効にしていたチェックは無効化されています。", // MT
 "check_task_dates_title"=>"タスクの日付をチェック", // MT
 "check_task_dates_tooltip"=>"このオプションを有効にすると、すべてのタスクで開始日と終了日の入力が必須になります。", // MT
 "check_task_empty_dynamic_title"=>"空の動的タスクをチェック", // MT
@@ -57,7 +57,7 @@
 "cs"=>"チェコ語", // MT
 "Currency Format"=>"通貨形式", // MT
 "currency_symbol_title"=>"通貨記号", // MT
-"currency_symbol_tooltip"=>"ロケールのサポートは組み込まれていますが、通貨記号を設定する機能も別途用意されています。\n\n\n\n通貨記号のローカライズ。ユーロ記号の場合は \\'&#8364;\\' を設定します。\n\n\n\nHTML の特殊文字については http://www.w3.org/TR/html401/sgml/entities.html を参照してください。", // MT
+"currency_symbol_tooltip"=>"プロジェクトの予算など、金額の前に付けます。記号そのものを入力してください。例: € または £。", // MT
 "Custom field added successfully"=>"カスタムフィールドを追加しました", // MT
 "Custom Field Editor"=>"カスタムフィールドエディタ", // MT
 "Custom field editor"=>"カスタムフィールドエディタ", // MT
@@ -67,27 +67,7 @@
 "de"=>"ドイツ語",
 "deactivate"=>"無効化", // MT
 "debug_title"=>"デバッグレベル", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"PHP のエラーログに書き込むデバッグ情報の量です。0 なし、1 最も重要なメッセージ、数値が大きいほど多く (12 以上: すべての SQL クエリ)。「デバッグメッセージを表示」はページにも表示します。", // MT
 "Default"=>"既定", // MT
 "Default Event Filter"=>"既定のイベントフィルタ", // MT
 "Default User Preferences"=>"既定のユーザ設定", // MT
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"既定のサブモジュール", // MT
 "default_view_a_tooltip"=>"独自の開始/既定ページを定義する場合に設定します。\n\ndP の URL に表示されるようなサブビューを指定します。", // MT
 "default_view_m_title"=>"既定のモジュール", // MT
-"default_view_m_tooltip"=>"独自の開始/既定ページを定義する場合に設定します。\n\n値が空の場合は、一覧の最初のモジュールが既定の表示になります。", // MT
+"default_view_m_tooltip"=>"ログイン後、およびサイトのアドレスがページを指定していないときに dotPulse が開くモジュールです。すべてのロールが開けるものを選んでください。", // MT
 "default_view_tab_title"=>"既定のタブ付きサブビュー", // MT
 "default_view_tab_tooltip"=>"独自の開始/既定ページを定義する場合に設定します。\n\nタブ付きサブビューを指定します。0=最初のタブ、...", // MT
 "delete"=>"削除", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"英語",
 "enable_gantt_charts_title"=>"ガントチャートを有効にする", // MT
-"enable_gantt_charts_tooltip"=>"ガントチャートの有効/無効を切り替えるオプションです。サイトでガントチャートを使用するかどうかに応じて機能をオン/オフできます。 ", // MT
+"enable_gantt_charts_tooltip"=>"各プロジェクトのタスク一覧の末尾に「すべて展開」「すべて折りたたむ」「ガントチャート」の行を表示します。プロジェクトの Gantt タブと「マイガント」はどちらの場合も残ります。", // MT
 "English (Aus)"=>"英語 (オーストラリア)", // MT
 "English (Can)"=>"英語 (カナダ)", // MT
 "English (GB)"=>"英語 (英国)", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"権限キャッシュのディレクトリ", // MT
 "gacl_cache_dir_tooltip"=>"Web サーバが書き込めるシステム上のディレクトリを設定します。権限システムのキャッシュが保存されます", // MT
 "gacl_cache_title"=>"権限キャッシュを有効にする", // MT
-"gacl_cache_tooltip"=>"有効にするとタスク一覧のパフォーマンスが向上します。権限キャッシュのディレクトリも必ず設定してください", // MT
+"gacl_cache_tooltip"=>"権限ライブラリ (phpGACL) の応答を下のディレクトリにキャッシュします。dotPulse は独自のテーブルで権限を確認するため、体感できる違いはありません。オフのままにしてください。", // MT
 "gacl_expire_title"=>"権限キャッシュを期限切れにする", // MT
-"gacl_expire_tooltip"=>"設定すると権限キャッシュを強制的に期限切れにします。権限キャッシュを使用している場合は、問題回避のために古いキャッシュを消去するときだけ設定し、その後は元に戻してください", // MT
+"gacl_expire_tooltip"=>"権限またはロールが変更されるたびに権限キャッシュを消去し、変更がすぐに反映されるようにします。キャッシュを使う場合はオンのままにしてください。", // MT
 "gacl_group_title"=>"権限のキャッシュ", // MT
 "gacl_timeout_title"=>"権限キャッシュのタイムアウト", // MT
 "gacl_timeout_tooltip"=>"キャッシュした権限情報を保持する秒数。", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"ホストのロケール", // MT
 "host_locale_tooltip"=>"サイトのローカライズまたは言語の設定を指定します。", // MT
 "host_style_title"=>"既定のユーザインターフェーススタイル", // MT
-"host_style_tooltip"=>"既定のユーザインターフェーススタイル - ユーザ設定で設定するものと同じですが、ここには既定のスタイル名を入力する必要があります。分からない場合は、ユーザ設定のドロップダウンを確認し、その名前をここに入力してください。", // MT
+"host_style_tooltip"=>"ログインページと、個人設定でテーマを選んでいないユーザのテーマです。", // MT
 "HTML Tag Options"=>"HTML タグのオプション", // MT
 "Import Contacts"=>"連絡先をインポート", // MT
 "Import Contacts from LDAP Directory"=>"LDAP ディレクトリから連絡先をインポート", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"ホストにログインが必要", // MT
 "mail_auth_tooltip"=>"一部の SMTP ホストは認証を必要とします。必要な場合はこれを設定し、ユーザ名とパスワードを指定してください", // MT
 "mail_defer_title"=>"メールをキューに入れて後で送信", // MT
-"mail_defer_tooltip"=>"チェックすると、メールをキューに入れて後で送信します。イベントキューにエントリが作成されます。セッション処理の「セッションのガベージコレクション時にイベントキューをスキャン」オプションを設定するか、次を呼び出す cron ジョブを作成する必要があります:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"ユーザを待たせて送信する代わりに、すべてのメールをイベントキューに入れます。キューはコマンドラインから queuescanner.php を実行する cron job が送信します。これがないと、キュー内のメールは送信されません。", // MT
 "mail_group_title"=>"メールの設定", // MT
 "mail_host_title"=>"SMTP ホスト", // MT
 "mail_host_tooltip"=>"メール送信に使用する SMTP ホストの完全修飾ドメイン名 (FQDN) または IP アドレス", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"レコードの種類", // MT
 "remove"=>"削除", // MT
 "reset_memory_limit_title"=>"ガントチャートのメモリ上限", // MT
-"reset_memory_limit_tooltip"=>"ガントチャートが表示されないエラーが発生する場合は、この変数でガントチャート描画時の PHP メモリ上限を一時的に増やしてください。64M、128M などの値が一般的です。", // MT
+"reset_memory_limit_tooltip"=>"標準モジュールでは使用されません。Monitoring and Control アドオンが一部のページで PHP のメモリ制限をこの値に設定します。", // MT
 "restrict_color_selection_title"=>"プロジェクトの色の選択を制限", // MT
 "restrict_color_selection_tooltip"=>"システム参照値のオプション「ProjectColors」と組み合わせて、このシステムの全ユーザが選択できるプロジェクトの色を制御します。\n\n\n\nこのオプションを有効にすると、プロジェクト作成者は上記のシステム参照値で定義された色からのみ選択できます。\n\n\n\nこのオプションを無効にすると、プロジェクト作成者はシステムの既定プリセットとすべてのカラーパレットを使用できます。", // MT
 "restrict_task_time_editing_title"=>"タスクの時間の編集を制限", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"セッションのアイドル時間", // MT
-"session_idle_time_tooltip"=>"操作のないセッションが無効と判断されるまでの最大時間。\n\n値は秒単位です。ただし文字が続く場合は次のとおりです: h = 時間、d = 日、m = 月、y = 年。\n\n文字は 1 つしか使えないため、2d4h は無効ですが 28h は有効です。", // MT
+"session_idle_time_tooltip"=>"セッションが操作なしで期限切れになるまでの時間です。秒数 (60 以上)、または数値の後に1文字: h 時間、d 日、m 30日単位の月 (分ではありません)、y 年。例: 3600、8h、2d。", // MT
 "session_max_lifetime_title"=>"セッションの最大有効期間", // MT
-"session_max_lifetime_tooltip"=>"アクティブかどうかにかかわらず、セッションが破棄されるまでの最大時間。", // MT
+"session_max_lifetime_tooltip"=>"どれだけ操作があってもセッションが続く最大時間です。「セッションのアイドル時間」と同じ書き方です。例: 1m (30日)。", // MT
 "session_name_title"=>"セッション/Cookie 名", // MT
 "session_name_tooltip"=>"独自の Cookie 名を定義します。注意: セッション名を変更すると、すべてのユーザが直ちにログアウトされ、再ログインが必要になります!", // MT
 "Short Date Format"=>"短い日付形式", // MT
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"他のユーザのタスクを表示", // MT
 "show_all_tasks_tooltip"=>"他のユーザに属するタスクの表示を制御します。", // MT
 "site_domain_title"=>"サイトのドメイン", // MT
-"site_domain_tooltip"=>"ユーザのレコードに不完全なアドレスが入力されている場合、ここで設定したドメインを使ってメールアドレスを生成します。", // MT
+"site_domain_tooltip"=>"サイトのドメインです。dotPulse はパスワードのリセットと、送信者に有効なアドレスがないメールを、このドメインの no-reply@ から送信します。", // MT
 "sl"=>"スロベニア語", // MT
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"タスクログのメール件名", // MT
 "Task Notification Method"=>"タスクの通知方法", // MT
 "task_reminder_control_title"=>"タスクのリマインダーを送信", // MT
-"task_reminder_control_tooltip"=>"設定すると、タスクの期限日と、完了するまで期限切れの毎日、すべての担当者にメールが送信されます。", // MT
+"task_reminder_control_tooltip"=>"タスクの担当者と所有者に、期限前と期限切れの毎日、各自の稼働日に、完了するまでメールを送ります。オフにすると、すでにキューにあるリマインダも停止します。cron job が送信します。", // MT
 "task_reminder_days_before_title"=>"期限前の警告日数", // MT
 "task_reminder_days_before_tooltip"=>"タスクの期限の何日前に最初のリマインダーを送るかを指定します。", // MT
 "task_reminder_group_title"=>"タスクのリマインダー", // MT
@@ -527,3 +507,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"数値", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"カスタムフィールドを読み込めませんでした。削除された可能性があります。", // MT
 "Delete"=>"削除", // MT
+"ldap_search_pass_tooltip"=>"「LDAP 検索ユーザ」のパスワードです。保存済みのものを保持するには空のままにしてください。", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"秒数 (60 以上)、または数値の後に h、d、m (30日)、y のいずれかを入力してください", // MT

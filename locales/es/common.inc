@@ -382,3 +382,5 @@
 "The documentation is in English."=>"La documentación está en inglés.",
 "Read this page on the documentation website"=>"Leer esta página en el sitio web de la documentación",
 "Documentation under the CC BY-SA 4.0 licence."=>"Documentación bajo la licencia CC BY-SA 4.0.",
+"- choose a module -"=>"- elija un módulo -",
+"choose a module"=>"elija un módulo",

@@ -12,7 +12,7 @@
 "Add Permissions"=>"İzin Ekle", // MT
 "added"=>"eklendi",
 "admin_username_title"=>"Yönetici Kullanıcı Adı", // MT
-"admin_username_tooltip"=>"Yönetici kullanıcının giriş adını belirtin.", // MT
+"admin_username_tooltip"=>"Kullanıcı formunun, en kısa kullanıcı adı uzunluğundan kısa olsa bile kabul ettiği bir oturum açma adı. Hiçbir yetki vermez: kimin yönetici olduğuna roller karar verir.", // MT
 "Administration"=>"Yönetim", // MT
 "All Events"=>"Tüm Olaylar", // MT
 "allow"=>"izin ver", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Takvim İş Günleri", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"Aşırı Tahsis Denetimi", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"Etkisi yoktur: eskiden açtığı denetim devre dışıdır.", // MT
 "check_task_dates_title"=>"Görev Tarihlerini Denetle", // MT
 "check_task_dates_tooltip"=>"Bu seçenek açıksa tüm görevler eklenmeden önce başlangıç ve bitiş tarihleri zorunlu olur.", // MT
 "check_task_empty_dynamic_title"=>"Boş Dinamik Görevleri Denetle", // MT
@@ -57,7 +57,7 @@
 "cs"=>"Çekçe",
 "Currency Format"=>"Para birimi",
 "currency_symbol_title"=>"Para Birimi Simgesi", // MT
-"currency_symbol_tooltip"=>"Yerel ayar desteği yerleşik olsa da para birimi simgesini ayarlamak için ek bir olanak vardır. \n\n\n\nPara birimi simgesinin yerelleştirilmesi. Euro simgesi için \\'&#8364;\\' olarak ayarlayın\n\n\n\nHTML özel karakterleri hakkında bilgi için http://www.w3.org/TR/html401/sgml/entities.html adresine bakın.", // MT
+"currency_symbol_tooltip"=>"Proje bütçeleri gibi para tutarlarının önüne konur. Simgenin kendisini yazın, örneğin € veya £.", // MT
 "Custom field added successfully"=>"Özel alan başarıyla eklendi", // MT
 "Custom Field Editor"=>"Özel Alan Düzenleyici", // MT
 "Custom field editor"=>"Özel alan düzenleyici", // MT
@@ -67,27 +67,7 @@
 "de"=>"Almanca",
 "deactivate"=>"devre dışı bırak", // MT
 "debug_title"=>"Hata Ayıklama Düzeyi", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"PHP hata günlüğüne ne kadar hata ayıklama bilgisi yazılacağı: 0 hiç, 1 en önemli mesajlar, daha yüksek sayılar daha fazla (12 ve üzeri: her SQL sorgusu). Hata Ayıklama Mesajlarını Göster bunları sayfalarda da gösterir.", // MT
 "Default"=>"Varsayılan",
 "Default Event Filter"=>"Varsayılan Olay Filtresi", // MT
 "Default User Preferences"=>"Varsayılan kullanıcı seçenekleri",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"Varsayılan Alt Modül", // MT
 "default_view_a_tooltip"=>"Kendi başlangıç/varsayılan sayfanızı tanımlamak istiyorsanız bunu ayarlayın.\n\ndP URL'sinde görüldüğü gibi bir alt görünüm belirtir.", // MT
 "default_view_m_title"=>"Varsayılan Modül", // MT
-"default_view_m_tooltip"=>"Kendi başlangıç/varsayılan sayfanızı tanımlamak istiyorsanız bunu ayarlayın.\n\nDeğer boşsa listelenen ilk modül varsayılan görünüm olur.", // MT
+"default_view_m_tooltip"=>"dotPulse'ın oturum açıldıktan sonra ve site adresi bir sayfa belirtmediğinde açtığı modül. Her rolün açabileceği bir modül seçin.", // MT
 "default_view_tab_title"=>"Varsayılan Sekmeli Alt Görünüm", // MT
 "default_view_tab_tooltip"=>"Kendi başlangıç/varsayılan sayfanızı tanımlamak istiyorsanız bunu ayarlayın.\n\nSekmeli bir alt görünüm belirtir. 0=ilk sekme, ...", // MT
 "delete"=>"sil", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"İngilizce",
 "enable_gantt_charts_title"=>"Gantt Şemalarını Etkinleştir", // MT
-"enable_gantt_charts_tooltip"=>"Gantt şemalarını etkinleştirme veya devre dışı bırakma seçeneği, sitenizde Gantt şemalarını kullanmak isteyip istemediğinize bağlı olarak bu işlevi açmanızı veya kapatmanızı sağlar. ", // MT
+"enable_gantt_charts_tooltip"=>"Her projenin görev listesinin sonunda Tümünü Genişlet, Tümünü Daralt ve Gantt Tablosu satırını gösterir. Projelerin Gantt sekmeleri ve Gantt Şemam her durumda kalır.", // MT
 "English (Aus)"=>"İngilizce (Avustralya)", // MT
 "English (Can)"=>"İngilizce (Kanada)", // MT
 "English (GB)"=>"İngilizce (İngiltere)", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"İzin Önbelleği Dizini", // MT
 "gacl_cache_dir_tooltip"=>"Bunu sisteminizde web sunucusunun yazabileceği bir dizine ayarlayın; izin sisteminin önbelleği burada tutulur", // MT
 "gacl_cache_title"=>"İzin Önbelleğini Etkinleştir", // MT
-"gacl_cache_tooltip"=>"Görev listelerinde performansı artırmak için bunu açın; izin önbelleği dizinini de ayarladığınızdan emin olun", // MT
+"gacl_cache_tooltip"=>"İzin kitaplığının (phpGACL) yanıtlarını aşağıdaki dizinde önbelleğe alır. dotPulse izinleri kendi tablosunda denetler, bu yüzden fark edilir bir fark yaratmaz: kapalı bırakın.", // MT
 "gacl_expire_title"=>"İzin Önbelleğinin Süresini Doldur", // MT
-"gacl_expire_tooltip"=>"Bunu ayarlamak izin önbelleğinin süresini zorla doldurur; izin önbelleği kullanıyorsanız bunu yalnızca sorunları aşmak için eski bir önbelleği temizlemek amacıyla ayarlayın ve ardından sıfırlayın", // MT
+"gacl_expire_tooltip"=>"Bir izin veya rol her değiştiğinde izin önbelleğini temizler, böylece değişiklikler hemen geçerli olur. Önbelleği kullanıyorsanız açık bırakın.", // MT
 "gacl_group_title"=>"İzin Önbelleği", // MT
 "gacl_timeout_title"=>"İzin Önbelleği Zaman Aşımı", // MT
 "gacl_timeout_tooltip"=>"Önbelleğe alınmış izin bilgilerinin tutulacağı saniye sayısı.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"Sunucu Yerel Ayarı", // MT
 "host_locale_tooltip"=>"Bu seçenek sitenizin yerelleştirme veya dil ayarını belirtir.", // MT
 "host_style_title"=>"Varsayılan Kullanıcı Arayüzü Stili", // MT
-"host_style_tooltip"=>"Varsayılan kullanıcı arayüzü stili - kullanıcı tercihleri alanında ayarlandığı gibidir, ancak varsayılanın adını buraya yazmanız gerekir.  Yardıma ihtiyacınız varsa kullanıcı tercihlerindeki açılır listeye bakın ve o adı burada tekrarlayın.", // MT
+"host_style_tooltip"=>"Oturum açma sayfasının ve tercihlerinde tema seçmemiş kullanıcıların teması.", // MT
 "HTML Tag Options"=>"HTML Etiket Seçenekleri", // MT
 "Import Contacts"=>"İrtibatları İçe Aktar", // MT
 "Import Contacts from LDAP Directory"=>"LDAP Dizininden İrtibatları İçe Aktar", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"Sunucu giriş gerektiriyor", // MT
 "mail_auth_tooltip"=>"Bazı SMTP sunucuları kimlik doğrulama gerektirir; sizinki gerektiriyorsa bunu ayarlamanız ve bir kullanıcı adı ile şifre sağlamanız gerekir", // MT
 "mail_defer_title"=>"E-postayı daha sonra göndermek üzere kuyruğa al", // MT
-"mail_defer_tooltip"=>"E-postayı daha sonra göndermek üzere kuyruğa almak için bunu işaretleyin.  Olay kuyruğuna bir kayıt eklenir.  Oturum yönetiminde Olay Kuyruğunu Tara seçeneğini ayarlamanız veya şunu çağıran bir cron görevi oluşturmanız gerekir:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"Her e-postayı, kullanıcı beklerken göndermek yerine olay kuyruğuna koyar. Kuyruğu, queuescanner.php dosyasını komut satırından çalıştıran cron job gönderir: o olmadan kuyruktaki e-postalar hiçbir zaman gönderilmez.", // MT
 "mail_group_title"=>"E-posta Ayarları", // MT
 "mail_host_title"=>"SMTP Sunucusu", // MT
 "mail_host_tooltip"=>"E-posta göndermek için kullanılacak SMTP sunucusunun tam alan adı (FQDN) veya IP adresi", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"kayıt tipleri", // MT
 "remove"=>"kaldır",
 "reset_memory_limit_title"=>"Gantt İçin Bellek Sınırı", // MT
-"reset_memory_limit_tooltip"=>"Görünmeyen Gantt şemalarıyla ilgili hatalar yaşıyorsanız Gantt şeması çizimi için PHP bellek sınırınızı geçici olarak artırmak üzere bu değişkeni kullanın. 64M, 128M vb. değerler yaygındır.", // MT
+"reset_memory_limit_tooltip"=>"Standart modüller tarafından kullanılmaz. Monitoring and Control eklentisi, bazı sayfalarında PHP bellek sınırını bu değere ayarlar.", // MT
 "restrict_color_selection_title"=>"Proje Rengi Seçimini Kısıtla", // MT
 "restrict_color_selection_tooltip"=>"Sistem değeri arama seçeneği \"ProjectColors\" ile birlikte kullanıldığında, bu ayarla bu sistemdeki tüm kullanıcıların erişebildiği proje rengi seçeneklerini denetleyebilirsiniz.\n\n\n\nBu seçeneği açarsanız proje oluşturanlar yalnızca yukarıda belirtilen sistem değeri aramasında tanımlanan renk seçenekleri arasından seçim yapabilir.\n\n\n\nBu seçeneği kapatırsanız proje oluşturanlar varsayılan sistem ön ayarlarına ve tam renk paletine erişebilir.", // MT
 "restrict_task_time_editing_title"=>"Görev Zamanı Düzenlemeyi Kısıtla", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Oturum Boşta Kalma Süresi", // MT
-"session_idle_time_tooltip"=>"Bir oturumun sonlanmış sayılmadan önce etkinliksiz kalabileceği azami süre.\n\nDeğerler, ardından bir harf gelmedikçe saniye cinsindendir: h = saat, d = gün, m = ay, y = yıl.\n\nBir dizede yalnızca 1 karakter olabilir; bu yüzden 2d4h geçerli DEĞİLDİR, ancak 28h geçerlidir.", // MT
+"session_idle_time_tooltip"=>"Bir oturumun süresi dolmadan önce etkinlik olmadan ne kadar kalabileceği. Saniye sayısı (en az 60) veya ardından tek harf gelen bir sayı: h saat, d gün, m 30 günlük ay (dakika değil), y yıl. Örneğin 3600, 8h veya 2d.", // MT
 "session_max_lifetime_title"=>"Oturum Azami Ömrü", // MT
-"session_max_lifetime_tooltip"=>"Bir oturumun ne kadar etkin olduğuna bakılmaksızın silinmeden önce var olabileceği azami süre.", // MT
+"session_max_lifetime_tooltip"=>"Bir oturumun, ne kadar etkin olursa olsun, en fazla ne kadar sürebileceği. Oturum Boşta Kalma Süresi gibi yazılır, örneğin 1m (30 gün).", // MT
 "session_name_title"=>"Oturum/Çerez Adı", // MT
 "session_name_tooltip"=>"Kendi çerez adınızı tanımlayın. Dikkat: Oturum adının değiştirilmesi tüm kullanıcıların oturumunu hemen kapatır! Yeniden giriş yapmaları gerekir.", // MT
 "Short Date Format"=>"Kısa Tarih Formatı",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"Diğer Kullanıcıların Görevlerini Göster", // MT
 "show_all_tasks_tooltip"=>"Diğer kullanıcılara ait görevlerin görüntülenmesini denetler.", // MT
 "site_domain_title"=>"Site Alan Adı", // MT
-"site_domain_tooltip"=>"Burada ayarlanan alan adı, kullanıcının kaydına eksik bir adres girilmişse e-posta adresi oluşturmak için kullanılır.", // MT
+"site_domain_tooltip"=>"Sitenizin alan adı. dotPulse parola sıfırlamalarını, ve göndereninin geçerli bir adresi olmayan e-postaları, bu alan adının no-reply@ adresinden gönderir.", // MT
 "sl"=>"Slovekçe",
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"Görev Kaydı E-posta Konusu", // MT
 "Task Notification Method"=>"Görev Bildirim Yöntemi", // MT
 "task_reminder_control_title"=>"Görev Hatırlatıcıları Gönder", // MT
-"task_reminder_control_tooltip"=>"Ayarlanırsa, bir görevin vadesi geldiğinde ve tamamlanana kadar geciktiği her gün tüm atananlara e-posta gönderilir.", // MT
+"task_reminder_control_tooltip"=>"Bir görevin atananlarına ve sahibine, görev tamamlanana kadar, bitiş tarihinden önce ve geciktiği her gün, kendi iş günlerinde e-posta gönderir. Kapatmak, kuyrukta bekleyen hatırlatıcıları da durdurur. cron job tarafından gönderilir.", // MT
 "task_reminder_days_before_title"=>"Vadesi gelen görevler için uyarı gün sayısı", // MT
 "task_reminder_days_before_tooltip"=>"Bu ayar, ilk hatırlatıcının görevin vadesinden kaç gün önce gönderileceğini belirler.", // MT
 "task_reminder_group_title"=>"Görev Hatırlatıcıları", // MT
@@ -521,3 +501,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"Sayısal", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Özel alan yüklenemedi, bir şekilde silinmiş olabilir.", // MT
 "Delete"=>"Sil", // MT
+"ldap_search_pass_tooltip"=>"LDAP Arama Kullanıcısı parolası. Kayıtlı olanı korumak için boş bırakın.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"bir saniye sayısı (en az 60) veya ardından h, d, m (30 gün) ya da y gelen bir sayı yazın", // MT

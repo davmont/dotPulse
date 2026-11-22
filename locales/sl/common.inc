@@ -372,3 +372,5 @@
 "The documentation is in English."=>"Dokumentacija je v angleščini.", // MT
 "Read this page on the documentation website"=>"Preberite to stran na spletnem mestu dokumentacije", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"Dokumentacija pod licenco CC BY-SA 4.0.", // MT
+"- choose a module -"=>"- izberite modul -", // MT
+"choose a module"=>"izberite modul", // MT

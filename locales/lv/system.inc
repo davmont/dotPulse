@@ -12,7 +12,7 @@
 "Add Permissions"=>"Pievienot atļaujas", // MT
 "added"=>"pievienots",
 "admin_username_title"=>"Administratora lietotājvārds", // MT
-"admin_username_tooltip"=>"Norādiet administratora lietotāja pieteikšanās vārdu.", // MT
+"admin_username_tooltip"=>"Pieteikšanās vārds, ko lietotāja forma pieņem arī tad, ja tas ir īsāks par minimālo lietotājvārda garumu. Tas nedod nekādas tiesības: lomas nosaka, kas ir administrators.", // MT
 "Administration"=>"Administrēšana", // MT
 "All Events"=>"Visi notikumi", // MT
 "allow"=>"atļaut", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Kalendāra darba dienas", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"Pārslodzes pārbaude", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"Nedarbojas: pārbaude, ko tas ieslēdza, ir atspējota.", // MT
 "check_task_dates_title"=>"Pārbaudīt uzdevumu datumus", // MT
 "check_task_dates_tooltip"=>"Ja šī opcija ir ieslēgta, visiem uzdevumiem pirms pievienošanas būs obligāti jānorāda sākuma un beigu datumi.", // MT
 "check_task_empty_dynamic_title"=>"Pārbaudīt tukšos dinamiskos uzdevumus", // MT
@@ -57,7 +57,7 @@
 "cs"=>"čehu",
 "Currency Format"=>"Valūtas formāts",
 "currency_symbol_title"=>"Valūtas simbols", // MT
-"currency_symbol_tooltip"=>"Lai gan lokalizācijas atbalsts jau ir iebūvēts, ir vēl papildu iespēja iestatīt valūtas simbolu. \n\n\n\nValūtas simbola lokalizācija. Eiro zīmei iestatiet \\'&#8364;\\'\n\n\n\nInformāciju par HTML speciālajām rakstzīmēm skatiet http://www.w3.org/TR/html401/sgml/entities.html.", // MT
+"currency_symbol_tooltip"=>"Tiek likts pirms naudas summām, piemēram, projektu budžetiem. Ierakstiet pašu simbolu, piemēram, € vai £.", // MT
 "Custom field added successfully"=>"Pielāgotais lauks veiksmīgi pievienots", // MT
 "Custom Field Editor"=>"Pielāgoto lauku redaktors", // MT
 "Custom field editor"=>"Pielāgoto lauku redaktors", // MT
@@ -67,27 +67,7 @@
 "de"=>"vācu",
 "deactivate"=>"deaktivizēt", // MT
 "debug_title"=>"Atkļūdošanas līmenis", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"Cik daudz atkļūdošanas informācijas tiek ierakstīts PHP kļūdu žurnālā: 0 nekas, 1 svarīgākie ziņojumi, lielāki skaitļi vairāk (12 un vairāk: katrs SQL vaicājums). Rādīt atkļūdošanas ziņojumus tos parāda arī lapās.", // MT
 "Default"=>"Noklusētais",
 "Default Event Filter"=>"Noklusējuma notikumu filtrs", // MT
 "Default User Preferences"=>"Noklusētie lietotāja iestatījumi",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"Noklusējuma apakšmodulis", // MT
 "default_view_a_tooltip"=>"Iestatiet šo, ja vēlaties definēt savu sākuma/noklusējuma lapu.\n\nNorāda apakšskatu, kā redzams dP URL.", // MT
 "default_view_m_title"=>"Noklusējuma modulis", // MT
-"default_view_m_tooltip"=>"Iestatiet šo, ja vēlaties definēt savu sākuma/noklusējuma lapu.\n\nJa vērtība ir tukša, noklusējuma skats būs pirmais sarakstā esošais modulis.", // MT
+"default_view_m_tooltip"=>"Modulis, ko dotPulse atver pēc pieteikšanās, un kad vietnes adrese nenorāda nevienu lapu. Izvēlieties tādu, ko drīkst atvērt katra loma.", // MT
 "default_view_tab_title"=>"Noklusējuma cilnes apakšskats", // MT
 "default_view_tab_tooltip"=>"Iestatiet šo, ja vēlaties definēt savu sākuma/noklusējuma lapu.\n\nNorāda cilnes apakšskatu. 0=pirmā cilne, ...", // MT
 "delete"=>"dzēst", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"angļu",
 "enable_gantt_charts_title"=>"Iespējot Gantt diagrammas", // MT
-"enable_gantt_charts_tooltip"=>"Opcija Gantt diagrammu iespējošanai vai atspējošanai ļauj ieslēgt vai izslēgt šo funkciju atkarībā no tā, vai vēlaties izmantot Gantt diagrammas savā vietnē. ", // MT
+"enable_gantt_charts_tooltip"=>"Rāda rindu Izvērst visu, Sakļaut visu un Gantt tabula katra projekta uzdevumu saraksta beigās. Projektu Gantt cilnes un Mans Gantt paliek jebkurā gadījumā.", // MT
 "English (Aus)"=>"English (Aus)",
 "English (Can)"=>"English (Can)",
 "English (GB)"=>"English (GB)",
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"Atļauju kešatmiņas direktorijs", // MT
 "gacl_cache_dir_tooltip"=>"Iestatiet šeit direktoriju sistēmā, kurā tīmekļa serveris var rakstīt; tajā glabājas atļauju sistēmas kešatmiņa", // MT
 "gacl_cache_title"=>"Iespējot atļauju kešatmiņu", // MT
-"gacl_cache_tooltip"=>"Ieslēdziet šo, lai uzlabotu uzdevumu sarakstu veiktspēju; noteikti iestatiet arī atļauju kešatmiņas direktoriju", // MT
+"gacl_cache_tooltip"=>"Saglabā atļauju bibliotēkas (phpGACL) atbildes kešatmiņā zemāk norādītajā direktorijā. dotPulse pārbauda atļaujas savā tabulā, tāpēc tas nerada nekādu manāmu atšķirību: atstājiet izslēgtu.", // MT
 "gacl_expire_title"=>"Atļauju kešatmiņas derīguma beigšana", // MT
-"gacl_expire_tooltip"=>"Šis iestatījums piespiedu kārtā padara atļauju kešatmiņu nederīgu. Ja izmantojat atļauju kešatmiņu, iestatiet to tikai tad, lai notīrītu veco kešatmiņu problēmu novēršanai, un pēc tam atiestatiet", // MT
+"gacl_expire_tooltip"=>"Iztukšo atļauju kešatmiņu katru reizi, kad mainās atļauja vai loma, lai izmaiņas stātos spēkā nekavējoties. Atstājiet ieslēgtu, ja izmantojat kešatmiņu.", // MT
 "gacl_group_title"=>"Atļauju kešošana", // MT
 "gacl_timeout_title"=>"Atļauju kešatmiņas noildze", // MT
 "gacl_timeout_tooltip"=>"Sekunžu skaits, cik ilgi glabāt kešatmiņā atļauju informāciju.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"Resursdatora lokalizācija", // MT
 "host_locale_tooltip"=>"Šī opcija norāda jūsu vietnes lokalizācijas jeb valodas iestatījumu.", // MT
 "host_style_title"=>"Noklusējuma lietotāja saskarnes stils", // MT
-"host_style_tooltip"=>"Noklusējuma lietotāja saskarnes stils — kā iestatīts lietotāja iestatījumu sadaļā, taču noklusējuma nosaukums šeit jāieraksta.  Ja nepieciešams padoms, apskatiet nolaižamo sarakstu lietotāja iestatījumos un atkārtojiet šeit to nosaukumu.", // MT
+"host_style_tooltip"=>"Pieteikšanās lapas tēma un to lietotāju tēma, kuri savās preferencēs nav izvēlējušies nevienu.", // MT
 "HTML Tag Options"=>"HTML taga opcijas", // MT
 "Import Contacts"=>"Importēt kontaktpersonas", // MT
 "Import Contacts from LDAP Directory"=>"Importēt kontaktpersonas no LDAP direktorija", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"Resursdatoram nepieciešama pieteikšanās", // MT
 "mail_auth_tooltip"=>"Daži SMTP resursdatori pieprasa autentifikāciju; ja jūsējais to dara, iestatiet šo un norādiet lietotājvārdu un paroli", // MT
 "mail_defer_title"=>"Ievietot e-pastu rindā vēlākai sūtīšanai", // MT
-"mail_defer_tooltip"=>"Atzīmējiet, lai e-pasti tiktu ievietoti rindā vēlākai sūtīšanai.  Notikumu rindā tiks izveidots ieraksts.  Jums būs jāiestata opcija Skenēt notikumu rindu sesiju apstrādē vai jāizveido cron uzdevums, kas izsauc:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"Ievieto katru e-pastu notikumu rindā, nevis nosūta to, kamēr lietotājs gaida. Rindu nosūta cron job, kas no komandrindas palaiž queuescanner.php: bez tā rindā esošais e-pasts nekad netiek nosūtīts.", // MT
 "mail_group_title"=>"E-pasta iestatījumi", // MT
 "mail_host_title"=>"SMTP resursdators", // MT
 "mail_host_tooltip"=>"SMTP resursdatora pilnais domēna nosaukums (FQDN) vai IP adrese e-pasta sūtīšanai", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"ierakstu tipi", // MT
 "remove"=>"noņemt",
 "reset_memory_limit_title"=>"Atmiņas ierobežojums Gantt diagrammām", // MT
-"reset_memory_limit_tooltip"=>"Ja rodas kļūdas ar neredzamām Gantt diagrammām, izmantojiet šo mainīgo, lai īslaicīgi palielinātu PHP atmiņas ierobežojumu Gantt diagrammu zīmēšanai. Ierastās vērtības ir 64M, 128M utt.", // MT
+"reset_memory_limit_tooltip"=>"Standarta moduļi to neizmanto. Papildinājums Monitoring and Control dažās savās lapās iestata PHP atmiņas ierobežojumu uz šo vērtību.", // MT
 "restrict_color_selection_title"=>"Ierobežot projekta krāsu izvēli", // MT
 "restrict_color_selection_tooltip"=>"Kopā ar sistēmas vērtību uzmeklēšanas opciju \"ProjectColors\" ar šo iestatījumu varat kontrolēt projekta krāsu izvēles iespējas, kas pieejamas visiem šīs sistēmas lietotājiem.\n\n\n\nJa ieslēgsiet šo opciju, projektu veidotāji varēs izvēlēties tikai no krāsām, kas definētas iepriekš minētajā sistēmas vērtību uzmeklēšanā.\n\n\n\nJa izslēgsiet šo opciju, projektu veidotājiem būs pieejami noklusējuma sistēmas iestatījumi un pilna krāsu palete.", // MT
 "restrict_task_time_editing_title"=>"Ierobežot uzdevuma laika labošanu", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Sesijas dīkstāves laiks", // MT
-"session_idle_time_tooltip"=>"Maksimālais laiks, cik ilgi sesijā var nebūt darbību, pirms tā tiek uzskatīta par beigušos.\n\nVērtības ir sekundēs, ja vien aiz tām nav burta: h = stundas, d = dienas, m = mēneši, y = gadi.\n\nVirknē var būt tikai 1 rakstzīme, tāpēc 2d4h NAV derīgs, bet 28h ir.", // MT
+"session_idle_time_tooltip"=>"Cik ilgi sesija var būt bez aktivitātes, pirms tā beidzas. Sekunžu skaits (vismaz 60) vai skaitlis, kam seko viens burts: h stundas, d dienas, m mēneši pa 30 dienām (nevis minūtes), y gadi. Piemēram, 3600, 8h vai 2d.", // MT
 "session_max_lifetime_title"=>"Sesijas maksimālais ilgums", // MT
-"session_max_lifetime_tooltip"=>"Maksimālais laiks, cik ilgi sesija var pastāvēt, pirms tā tiek iznīcināta, neatkarīgi no tā, cik aktīva tā ir.", // MT
+"session_max_lifetime_tooltip"=>"Cik ilgi sesija var ilgt maksimāli, lai cik aktīva tā būtu. Raksta tāpat kā Sesijas dīkstāves laiks, piemēram, 1m (30 dienas).", // MT
 "session_name_title"=>"Sesijas/sīkdatnes nosaukums", // MT
 "session_name_tooltip"=>"Definējiet savu sīkdatnes nosaukumu. Uzmanību: sesijas nosaukuma maiņa nekavējoties atteiks visus lietotājus! Viņiem būs jāpiesakās vēlreiz.", // MT
 "Short Date Format"=>"Īsais datuma formāts",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"Rādīt citu lietotāju uzdevumus", // MT
 "show_all_tasks_tooltip"=>"Kontrolē citiem lietotājiem piederošo uzdevumu skatīšanu.", // MT
 "site_domain_title"=>"Vietnes domēns", // MT
-"site_domain_tooltip"=>"Šeit iestatītais domēns tiek izmantots e-pasta adreses ģenerēšanai, ja lietotāja ierakstā ievadīta nepilnīga adrese.", // MT
+"site_domain_tooltip"=>"Jūsu vietnes domēns. dotPulse sūta paroļu atiestatīšanu, un e-pastu, kura sūtītājam nav derīgas adreses, no šī domēna adreses no-reply@.", // MT
 "sl"=>"slovēņu",
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"Uzdevumu žurnāla e-pasta temats", // MT
 "Task Notification Method"=>"Uzdevumu paziņošanas metode", // MT
 "task_reminder_control_title"=>"Sūtīt uzdevumu atgādinājumus", // MT
-"task_reminder_control_tooltip"=>"Ja iestatīts, visiem izpildītājiem tiks nosūtīts e-pasts, kad uzdevuma termiņš pienāk, un katru dienu, kamēr tas ir nokavēts, līdz tas tiek pabeigts.", // MT
+"task_reminder_control_tooltip"=>"Nosūta e-pastu uzdevuma izpildītājiem un īpašniekam pirms termiņa un katru dienu, kamēr tas ir nokavēts, viņu darba dienās, līdz uzdevums ir pabeigts. Izslēdzot tiek apturēti arī jau rindā esošie atgādinājumi. Nosūta cron job.", // MT
 "task_reminder_days_before_title"=>"Brīdinājuma dienu skaits pirms uzdevuma termiņa", // MT
 "task_reminder_days_before_tooltip"=>"Šis iestatījums nosaka, cik dienas pirms uzdevuma termiņa tiek nosūtīts pirmais atgādinājums.", // MT
 "task_reminder_group_title"=>"Uzdevumu atgādinājumi", // MT
@@ -521,3 +501,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"Skaitlisks", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Neizdevās ielādēt pielāgoto lauku, iespējams, tas ir izdzēsts.", // MT
 "Delete"=>"Dzēst", // MT
+"ldap_search_pass_tooltip"=>"Parole laukam LDAP meklēšanas lietotājs. Atstājiet tukšu, lai saglabātu esošo.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"ierakstiet sekunžu skaitu (vismaz 60) vai skaitli, kam seko h, d, m (30 dienas) vai y", // MT

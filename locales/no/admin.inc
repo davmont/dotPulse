@@ -221,3 +221,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"Skann denne QR-koden med autentiseringsappen, eller skriv inn nøkkelen i den.", // MT
 "QR code for your authenticator app"=>"QR-kode for autentiseringsappen", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"Skriv inn den 6-sifrede koden appen viser for å slå på totrinnsinnlogging.", // MT
+"Select the projects and the user who takes them over."=>"Velg prosjektene og brukeren som overtar dem.", // MT
+"Role removed from the user"=>"Rollen er fjernet fra brukeren", // MT
+"Remove this role from the user?"=>"Fjerne denne rollen fra brukeren?", // MT

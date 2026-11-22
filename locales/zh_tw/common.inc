@@ -372,3 +372,5 @@
 "The documentation is in English."=>"文件為英文。", // MT
 "Read this page on the documentation website"=>"在文件網站上閱讀此頁面", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"文件採用 CC BY-SA 4.0 授權。", // MT
+"- choose a module -"=>"- 選擇模組 -", // MT
+"choose a module"=>"請選擇模組", // MT

@@ -13,7 +13,7 @@
 "Repeat New Password",
 "View all allowed companies",
 "[none]",
-"accessDeniedMsg"=>"You have attemped to access an item in dotproject without the sufficient permissions to do so. Please contact the dotproject System Administrator.",
+"accessDeniedMsg"=>"You don't have the permission to open this page or item. If you need it, ask your administrator.",
 "chgpwLogin"=>"Log in to change your password",
 "chgpwUpdated"=>"Your password has been updated",
 "chgpwWrongPW"=>"You have entered the wrong old password",

@@ -30,7 +30,7 @@ foreach ($roles as $role) {
 if ($canEdit) {
 ?>
 function delIt(id) {
-	if (confirm('Are you sure you want to delete this role?')) {
+	if (confirm('<?php echo $AppUI->_('Remove this role from the user?', UI_OUTPUT_JS); ?>')) {
 		var f = document.frmPerms;
 		f.del.value = 1;
 		f.role_id.value = id;

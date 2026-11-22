@@ -13,7 +13,7 @@ $to = trim(dPgetCleanParam($_POST, 'test_mail_to', ''));
 $mail = new Mail;
 if (!$mail->ValidEmail($to)) {
 	$AppUI->setMsg('Please enter a valid email address.', UI_MSG_ERROR);
-	$AppUI->redirect('m=system&a=systemconfig');
+	$AppUI->redirect('m=system&a=systemconfig&section=mail');
 }
 $mail->defer = false; // not through the queue: the result is shown now
 
@@ -38,4 +38,4 @@ if ($mail->Send()) {
 } else {
 	$AppUI->setMsg($AppUI->_('Test email not sent') . ': ' . $mail->Error(), UI_MSG_ERROR);
 }
-$AppUI->redirect('m=system&a=systemconfig');
+$AppUI->redirect('m=system&a=systemconfig&section=mail');

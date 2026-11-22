@@ -151,10 +151,9 @@ user.
 A user can have several roles. See
 [How permissions combine](roles-permissions.md#how-permissions-combine).
 
-!!! note
-    When you click the bin, dotPulse asks whether to "delete this role" and then
-    says **Role deleted**. It only removes the role from this user. The role
-    itself stays.
+The bin only takes the role away from this user (**Remove this role from the
+user?**). The role itself stays. To delete a role, see
+[Delete a role](roles-permissions.md#delete-a-role).
 
 ### Permissions tab
 
@@ -240,15 +239,9 @@ the transfer:
 
 Task logs, files, events and forum posts keep their original author.
 
-!!! warning "Before you click Transfer"
-    - Select at least one project, or dotPulse shows an error page.
-    - If the new person is already assigned to one of the old user's tasks, the
-      transfer stops with **failed to update task assignments**. By then the
-      owners have already changed, but the assignments have not moved. Remove
-      the double assignment on that task and run the transfer again.
-    - The transfer doesn't move project and task **contacts** properly, and can
-      change unrelated contacts of the selected projects. Check the contacts of
-      the moved projects and tasks afterwards.
+The old user's place as a **contact** of those projects and tasks also goes to
+the new person. Where the new person is already assigned to a task, or already
+a contact, they keep their own entry and the old user's is removed.
 
 ## Deactivate a user
 
@@ -269,10 +262,8 @@ on the user's contact:
 | **Inactivate contact when user is disabled** (`user_contact_inactivate`) | When the last role is removed, the user's contact is made private. | On |
 | **Activate contact when user login is granted** (`user_contact_activate`) | When an inactive user gets a role again, the contact is made public. | Off |
 
-!!! warning "Removing roles doesn't log the user out"
-    A user who is logged in when you remove their last role stays logged in, but
-    every page now says **Access Denied**. End their session on **Active
-    Sessions** (see [End a session](#end-a-session)).
+When you remove their last role, a user who is logged in is logged out: their
+sessions end.
 
 ## Delete a user
 
@@ -286,10 +277,10 @@ preferences. Nothing else is removed:
 - Their **projects and tasks** stay, and so do their task assignments. They
   still point at the deleted user, who no longer has a name to show.
 - Task logs, files, forum posts and history entries stay.
-- Open **sessions** are not ended.
+Their open sessions end.
 
-So before you delete someone, [transfer their work](#transfer-projects-and-tasks)
-and [end their sessions](#end-a-session). Often it is better to
+So before you delete someone, [transfer their work](#transfer-projects-and-tasks).
+Often it is better to
 [deactivate](#deactivate-a-user) the account: nothing is lost and you can switch
 it on again.
 
@@ -316,6 +307,3 @@ has two buttons:
 The user lands on the login page at their next click. Ending a session doesn't
 stop the user logging in again: to stop that, also
 [deactivate](#deactivate-a-user) the account.
-
-A row with an empty login name and **unknown** as name is a session of a user
-who has been deleted.

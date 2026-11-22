@@ -221,3 +221,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"Naskenujte tento QR kód ověřovací aplikací, nebo do ní zadejte klíč.", // MT
 "QR code for your authenticator app"=>"QR kód pro ověřovací aplikaci", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"Zadejte šestimístný kód zobrazený v aplikaci a zapněte tak dvoufázové přihlášení.", // MT
+"Select the projects and the user who takes them over."=>"Vyberte projekty a uživatele, který je převezme.", // MT
+"Role removed from the user"=>"Role byla uživateli odebrána", // MT
+"Remove this role from the user?"=>"Odebrat uživateli tuto roli?", // MT

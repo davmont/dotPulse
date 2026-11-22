@@ -118,17 +118,16 @@ the module keeps its old version number and you can try again after fixing the
 cause.
 
 !!! note
-    **Upgrade available** appears whenever the version in the code differs from
-    the installed one, also if the code is *older* (for example after going
-    back to an earlier release). Don't click **upgrade** in that case.
+    **Upgrade available** appears only when the code is newer than the
+    installed version. After going back to an earlier release, a module whose
+    tables are newer than its code shows nothing: restore the database backup
+    of that release.
 
 ## Configure a module
 
 A few add-ons have a **configure** button, which opens their own settings page:
 **Help Desk**, **Mileage Log**, **ProjectDesigner**, **Unit Testing**,
-**Time Card** and **Gallery2**. **Informer** also shows a **configure**
-button, but it has no settings page: clicking it gives an error page, and
-nothing is changed.
+**Time Card** and **Gallery2**.
 
 The other modules have no configuration here; some, like the holiday module,
 have their settings inside the module itself.

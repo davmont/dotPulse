@@ -12,7 +12,7 @@
 "Add Permissions"=>"添加权限", // MT
 "added"=>"已添加",
 "admin_username_title"=>"管理员用户名", // MT
-"admin_username_tooltip"=>"指定管理员用户的登录名。", // MT
+"admin_username_tooltip"=>"一个登录名，即使它短于用户名的最小长度，用户表单也会接受。它不授予任何权限：由角色决定谁是管理员。", // MT
 "Administration"=>"管理", // MT
 "All Events"=>"所有事项", // MT
 "allow"=>"允许", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"日历工作日", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"超额分配检查", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"无效：它过去启用的检查已被禁用。", // MT
 "check_task_dates_title"=>"检查任务日期", // MT
 "check_task_dates_tooltip"=>"如果开启此选项，所有任务在添加之前都必须填写开始和结束日期。", // MT
 "check_task_empty_dynamic_title"=>"检查空的动态任务", // MT
@@ -57,7 +57,7 @@
 "cs"=>"捷克语", // MT
 "Currency Format"=>"货币格式",
 "currency_symbol_title"=>"货币符号", // MT
-"currency_symbol_tooltip"=>"虽然我们已内置区域设置支持，但仍提供了一个额外的货币符号设置功能。\n\n\n\n货币符号的本地化。欧元符号请设置为 \\'&#8364;\\'\n\n\n\n有关 HTML 特殊字符的信息，请参阅 http://www.w3.org/TR/html401/sgml/entities.html。", // MT
+"currency_symbol_tooltip"=>"放在金额之前，例如项目预算。请输入符号本身，例如 € 或 £。", // MT
 "Custom field added successfully"=>"自定义字段已成功添加", // MT
 "Custom Field Editor"=>"自定义区域编辑器",
 "Custom field editor"=>"自定义区域编辑器",
@@ -67,27 +67,7 @@
 "de"=>"德语", // MT
 "deactivate"=>"停用", // MT
 "debug_title"=>"调试级别", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"写入 PHP 错误日志的调试信息量：0 无，1 最重要的消息，数字越大越多（12 及以上：每条 SQL 查询）。显示调试消息 还会将其显示在页面上。", // MT
 "Default"=>"默认",
 "Default Event Filter"=>"默认事项筛选", // MT
 "Default User Preferences"=>"默认用户参数设置",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"默认子模块", // MT
 "default_view_a_tooltip"=>"如果您想定义自己的起始/默认页面，请设置此项。\n\n指定一个子视图，如 dP 的 URL 中所示。", // MT
 "default_view_m_title"=>"默认模块", // MT
-"default_view_m_tooltip"=>"如果您想定义自己的起始/默认页面，请设置此项。\n\n如果值为空，则列表中的第一个模块将成为默认视图。", // MT
+"default_view_m_tooltip"=>"登录后以及网站地址未指定页面时 dotPulse 打开的模块。请选择每个角色都能打开的模块。", // MT
 "default_view_tab_title"=>"默认标签子视图", // MT
 "default_view_tab_tooltip"=>"如果您想定义自己的起始/默认页面，请设置此项。\n\n指定一个标签子视图。0=第一个标签，……", // MT
 "delete"=>"删除", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"英语", // MT
 "enable_gantt_charts_title"=>"启用甘特图", // MT
-"enable_gantt_charts_tooltip"=>"启用或禁用甘特图选项可根据您是否希望在网站上使用甘特图来开启或关闭此功能。 ", // MT
+"enable_gantt_charts_tooltip"=>"在每个项目任务列表的末尾显示 全部展开、全部折叠 和 甘特图 这一行。项目的 Gantt 选项卡和 我的甘特图 无论如何都会保留。", // MT
 "English (Aus)"=>"英语（澳大利亚）", // MT
 "English (Can)"=>"英语（加拿大）", // MT
 "English (GB)"=>"英语（英国）", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"权限缓存目录", // MT
 "gacl_cache_dir_tooltip"=>"将此项设置为系统中 Web 服务器可写入的目录，用于保存权限系统的缓存", // MT
 "gacl_cache_title"=>"启用权限缓存", // MT
-"gacl_cache_tooltip"=>"开启此项可提高任务列表的性能，请确保同时设置权限缓存目录", // MT
+"gacl_cache_tooltip"=>"将权限库 (phpGACL) 的应答缓存在下方的目录中。dotPulse 在自己的表中检查权限，因此不会有任何明显差别：请保持关闭。", // MT
 "gacl_expire_title"=>"使权限缓存过期", // MT
-"gacl_expire_tooltip"=>"设置此项将强制权限缓存过期。如果您使用权限缓存，仅应在需要清除旧缓存以解决问题时设置此项，之后再将其复位", // MT
+"gacl_expire_tooltip"=>"每当权限或角色发生变化时清除权限缓存，使更改立即生效。如果使用缓存，请保持开启。", // MT
 "gacl_group_title"=>"权限缓存", // MT
 "gacl_timeout_title"=>"权限缓存超时", // MT
 "gacl_timeout_tooltip"=>"缓存权限信息的保留秒数。", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"主机区域设置", // MT
 "host_locale_tooltip"=>"此选项指定网站的本地化或语言设置。", // MT
 "host_style_title"=>"默认用户界面风格", // MT
-"host_style_tooltip"=>"默认用户界面风格 - 与用户偏好区域中的设置相同，但您需要在此输入默认风格的名称。如需提示，请查看用户偏好中的下拉列表，并在此重复该名称。", // MT
+"host_style_tooltip"=>"登录页面以及未在偏好设置中选择主题的用户所使用的主题。", // MT
 "HTML Tag Options"=>"HTML 标签选项", // MT
 "Import Contacts"=>"导入联系人",
 "Import Contacts from LDAP Directory"=>"从LDAP目录服务器导入联系人",
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"主机需要登录", // MT
 "mail_auth_tooltip"=>"某些 SMTP 主机需要认证，如果您的主机需要，则需设置此项并提供用户名和密码", // MT
 "mail_defer_title"=>"将邮件排队稍后发送", // MT
-"mail_defer_tooltip"=>"勾选此项可将邮件排队稍后发送。事件队列中将创建一个条目。您需要在会话处理中设置“扫描事件队列”选项，或创建一个 cron 任务来调用：\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"将每封邮件放入事件队列，而不是在用户等待时发送。队列由从命令行运行 queuescanner.php 的 cron job 发送：没有它，队列中的邮件永远不会发出。", // MT
 "mail_group_title"=>"邮件设置", // MT
 "mail_host_title"=>"SMTP 主机", // MT
 "mail_host_tooltip"=>"用于发送邮件的 SMTP 主机的完全限定域名 (FQDN) 或 IP 地址", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"记录类别",
 "remove"=>"移除",
 "reset_memory_limit_title"=>"甘特图内存限制", // MT
-"reset_memory_limit_tooltip"=>"如果遇到甘特图不显示的错误，请使用此变量临时扩大绘制甘特图时的 PHP 内存限制。常用值为 64M、128M 等。", // MT
+"reset_memory_limit_tooltip"=>"标准模块不使用。Monitoring and Control 附加组件会在其部分页面上将 PHP 的内存限制设为此值。", // MT
 "restrict_color_selection_title"=>"限制项目颜色选择", // MT
 "restrict_color_selection_tooltip"=>"与系统值查找选项“ProjectColors”配合使用，您可以通过此设置控制本系统所有用户可用的项目颜色选项。\n\n\n\n如果开启此选项，项目创建者只能从上述系统值查找中定义的颜色选项中选择。\n\n\n\n如果关闭此选项，项目创建者可以使用系统默认预设和完整的调色板。", // MT
 "restrict_task_time_editing_title"=>"限制任务时间编辑", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"会话空闲时间", // MT
-"session_idle_time_tooltip"=>"会话在被判定失效前可以没有活动的最长时间。\n\n值的单位为秒，除非后跟字母：h = 小时，d = 天，m = 月，y = 年。\n\n字符串中只能包含 1 个字母，因此 2d4h 无效，而 28h 有效。", // MT
+"session_idle_time_tooltip"=>"会话在没有活动的情况下多久后过期。秒数（至少 60），或数字后跟一个字母：h 小时，d 天，m 30 天的月（不是分钟），y 年。例如 3600、8h 或 2d。", // MT
 "session_max_lifetime_title"=>"会话最长有效期", // MT
-"session_max_lifetime_tooltip"=>"无论活动情况如何，会话在被销毁前可以存在的最长时间。", // MT
+"session_max_lifetime_tooltip"=>"会话无论多活跃，最多可持续多久。写法与 会话空闲时间 相同，例如 1m（30 天）。", // MT
 "session_name_title"=>"会话/Cookie 名称", // MT
 "session_name_tooltip"=>"定义您自己的 Cookie 名称。注意：更改会话名称将立即注销所有用户！他们需要重新登录。", // MT
 "Short Date Format"=>"简写日期格式",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"显示其他用户的任务", // MT
 "show_all_tasks_tooltip"=>"控制是否可以查看属于其他用户的任务。", // MT
 "site_domain_title"=>"站点域名", // MT
-"site_domain_tooltip"=>"如果用户记录中输入的电子邮件地址不完整，将使用此处设置的域名生成电子邮件地址。", // MT
+"site_domain_tooltip"=>"您网站的域名。dotPulse 从此域名的 no-reply@ 地址发送密码重置邮件，以及发件人没有有效地址的邮件。", // MT
 "sl"=>"斯洛文尼亚语", // MT
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"任务日志邮件主题", // MT
 "Task Notification Method"=>"任务通知方式", // MT
 "task_reminder_control_title"=>"发送任务提醒", // MT
-"task_reminder_control_tooltip"=>"如果设置，将在任务到期时以及逾期后每天向所有受理人发送邮件，直到任务完成。", // MT
+"task_reminder_control_tooltip"=>"在任务到期前以及逾期的每一天，在其工作日向任务的指派人和负责人发送邮件，直到任务完成。关闭后也会停止已在队列中的提醒。由 cron job 发送。", // MT
 "task_reminder_days_before_title"=>"任务到期前提醒天数", // MT
 "task_reminder_days_before_tooltip"=>"此设置决定在任务到期前多少天发送第一次提醒。", // MT
 "task_reminder_group_title"=>"任务提醒", // MT
@@ -521,3 +501,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"数值", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"无法加载自定义字段，它可能已被删除。", // MT
 "Delete"=>"删除", // MT
+"ldap_search_pass_tooltip"=>"LDAP 搜索用户 的密码。留空则保留已保存的密码。", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"请输入秒数（至少 60），或数字后跟 h、d、m（30 天）或 y", // MT

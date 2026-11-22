@@ -1,9 +1,9 @@
-<?php $dialog = dPgetParam($_GET,'dialog',0); if($dialog) { $page_title = ''; } else { $page_title = $dPconfig['page_title'].'&nbsp;'.$AppUI->getVersion(); } ?>
+<?php $dialog = dPgetParam($_GET,'dialog',0); if($dialog) { $page_title = ''; } else { $page_title = dPhtml((string)$dPconfig['page_title']).'&nbsp;'.$AppUI->getVersion(); } ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=<?php echo isset($locale_char_set) ? $locale_char_set : 'ISO-8859-1'; ?>" />
-<title><?php echo @dPgetConfig('page_title'); ?></title>
+<title><?php echo dPhtml((string)dPgetConfig('page_title')); ?></title>
 <link rel="stylesheet" type="text/css" href="./style/<?php echo $uistyle; ?>/main.css" media="all" />
 <style type="text/css" media="all">
 @import "./style/<?php echo $uistyle; ?>/main.css";
@@ -53,7 +53,7 @@
 	</form>
 </div>
 <div id="container_company_name">
-	<div class="company_name"><a href="<?php echo $dPconfig['base_url'] ?>"><?php echo $dPconfig['company_name'] ?></a></div>
+	<div class="company_name"><a href="<?php echo $dPconfig['base_url'] ?>"><?php echo dPhtml((string)dPgetConfig('company_name')) ?></a></div>
 </div>
 <div id="container_content">
 <table cellpadding="0" cellspacing="0" border="0" width="100%">

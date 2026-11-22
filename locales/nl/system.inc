@@ -12,7 +12,7 @@
 "Add Permissions"=>"Rechten toevoegen", // MT
 "added"=>"toegevoegd", // MT
 "admin_username_title"=>"Gebruikersnaam beheerder", // MT
-"admin_username_tooltip"=>"Geef de aanmeldnaam van de beheerder op.", // MT
+"admin_username_tooltip"=>"Een inlognaam die het gebruikersformulier accepteert, ook als hij korter is dan de minimale lengte van een gebruikersnaam. Hij geeft geen rechten: rollen bepalen wie beheerder is.", // MT
 "Administration"=>"Beheer", // MT
 "All Events"=>"Alle evenementen", // MT
 "allow"=>"toestaan", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Werkdagen kalender", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"Controle op overbezetting", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"Heeft geen effect: de controle die het vroeger inschakelde is uitgeschakeld.", // MT
 "check_task_dates_title"=>"Taakdatums controleren", // MT
 "check_task_dates_tooltip"=>"Als deze optie is ingeschakeld, zijn start- en einddatum verplicht voor alle taken voordat ze kunnen worden toegevoegd.", // MT
 "check_task_empty_dynamic_title"=>"Lege dynamische taken controleren", // MT
@@ -57,7 +57,7 @@
 "cs"=>"Tjechisch",
 "Currency Format"=>"Valutaformaat", // MT
 "currency_symbol_title"=>"Valutasymbool", // MT
-"currency_symbol_tooltip"=>"Hoewel er momenteel ingebouwde locale-ondersteuning is, is er nog een extra mogelijkheid om het valutasymbool in te stellen. \n\n\n\nLokalisatie van het valutasymbool. Stel voor het euroteken in op \\'&#8364;\\'\n\n\n\nZie http://www.w3.org/TR/html401/sgml/entities.html voor informatie over speciale HTML-tekens.", // MT
+"currency_symbol_tooltip"=>"Wordt voor geldbedragen gezet, zoals projectbudgetten. Typ het symbool zelf, bijvoorbeeld € of £.", // MT
 "Custom field added successfully"=>"Aangepast veld succesvol toegevoegd", // MT
 "Custom Field Editor"=>"Editor aangepaste velden", // MT
 "Custom field editor"=>"Editor aangepaste velden", // MT
@@ -67,27 +67,7 @@
 "de"=>"Duits",
 "deactivate"=>"deactiveren", // MT
 "debug_title"=>"Debugniveau", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"Hoeveel debuginformatie naar het PHP-foutenlogboek wordt geschreven: 0 geen, 1 de belangrijkste berichten, hogere getallen meer (12 en hoger: elke SQL-query). Debugberichten tonen toont ze ook op de pagina's.", // MT
 "Default"=>"Standaard",
 "Default Event Filter"=>"Standaard evenementfilter", // MT
 "Default User Preferences"=>"Standaard User Voorkeuren",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"Standaard submodule", // MT
 "default_view_a_tooltip"=>"Stel dit in als u uw eigen start-/standaardpagina wilt definiëren.\n\nGeeft een subweergave op zoals getoond in de URL van dP.", // MT
 "default_view_m_title"=>"Standaardmodule", // MT
-"default_view_m_tooltip"=>"Stel dit in als u uw eigen start-/standaardpagina wilt definiëren.\n\nAls de waarde leeg is, wordt de eerste module in de lijst de standaardweergave.", // MT
+"default_view_m_tooltip"=>"De module die dotPulse opent na het inloggen, en wanneer het adres van de site geen pagina noemt. Kies er een die elke rol mag openen.", // MT
 "default_view_tab_title"=>"Standaard tabblad-subweergave", // MT
 "default_view_tab_tooltip"=>"Stel dit in als u uw eigen start-/standaardpagina wilt definiëren.\n\nGeeft een tabblad-subweergave op. 0=eerste tabblad, ...", // MT
 "delete"=>"verwijderen", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"Engels",
 "enable_gantt_charts_title"=>"Gantt-diagrammen inschakelen", // MT
-"enable_gantt_charts_tooltip"=>"Met deze optie kunt u Gantt-diagrammen in- of uitschakelen, afhankelijk van of u Gantt-diagrammen op uw site wilt gebruiken. ", // MT
+"enable_gantt_charts_tooltip"=>"Toont de regel Alles uitklappen, Alles inklappen en Gantt-diagram aan het einde van de takenlijst van elk project. De Gantt-tabbladen van projecten en Mijn Gantt blijven hoe dan ook bestaan.", // MT
 "English (Aus)"=>"Engels (Aus)", // MT
 "English (Can)"=>"Engels (Can)", // MT
 "English (GB)"=>"Engels (GB)", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"Map voor rechtencache", // MT
 "gacl_cache_dir_tooltip"=>"Stel dit in op een map op uw systeem waarin de webserver kan schrijven; hierin staat de cache van het rechtensysteem", // MT
 "gacl_cache_title"=>"Rechtencache inschakelen", // MT
-"gacl_cache_tooltip"=>"Schakel dit in om de prestaties van takenlijsten te verbeteren; stel ook de map voor de rechtencache in", // MT
+"gacl_cache_tooltip"=>"Slaat de antwoorden van de rechtenbibliotheek (phpGACL) op in de map hieronder. dotPulse controleert rechten in zijn eigen tabel, dus dit maakt geen merkbaar verschil: laat het uit.", // MT
 "gacl_expire_title"=>"Rechtencache laten verlopen", // MT
-"gacl_expire_tooltip"=>"Hiermee wordt de rechtencache geforceerd verlopen. Als u rechtencaching gebruikt, stel dit dan alleen in om een oude cache te wissen bij problemen, en zet het daarna terug", // MT
+"gacl_expire_tooltip"=>"Leegt de rechtencache telkens wanneer een recht of een rol verandert, zodat wijzigingen direct gelden. Laat dit aan staan als u de cache gebruikt.", // MT
 "gacl_group_title"=>"Rechtencaching", // MT
 "gacl_timeout_title"=>"Time-out rechtencache", // MT
 "gacl_timeout_tooltip"=>"Aantal seconden dat gecachete rechteninformatie wordt bewaard.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"Locale van host", // MT
 "host_locale_tooltip"=>"Deze optie geeft de lokalisatie- of taalinstelling van uw site aan.", // MT
 "host_style_title"=>"Standaardstijl gebruikersinterface", // MT
-"host_style_tooltip"=>"Standaardstijl gebruikersinterface - zoals ingesteld bij de gebruikersvoorkeuren; u moet hier echter de naam van de standaardstijl typen.  Als u hulp nodig hebt, kijk dan in de keuzelijst bij de gebruikersvoorkeuren en herhaal die naam hier.", // MT
+"host_style_tooltip"=>"Het thema van de inlogpagina en van gebruikers die er in hun voorkeuren geen hebben gekozen.", // MT
 "HTML Tag Options"=>"HTML-tagopties", // MT
 "Import Contacts"=>"Contactpersonen importeren", // MT
 "Import Contacts from LDAP Directory"=>"Contactpersonen importeren uit LDAP-directory", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"Host vereist aanmelding", // MT
 "mail_auth_tooltip"=>"Sommige SMTP-hosts vereisen authenticatie. Als de uwe dat doet, moet u dit instellen en een gebruikersnaam en wachtwoord opgeven", // MT
 "mail_defer_title"=>"E-mail in wachtrij zetten om later te verzenden", // MT
-"mail_defer_tooltip"=>"Vink dit aan om e-mail in de wachtrij te zetten voor latere verzending.  Er wordt een item in de gebeurteniswachtrij gemaakt.  U moet dan de optie Gebeurteniswachtrij scannen bij Sessiebeheer instellen of een cronjob maken die het volgende aanroept:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"Zet elke e-mail in de gebeurtenissenwachtrij in plaats van hem te versturen terwijl de gebruiker wacht. De cron job die queuescanner.php vanaf de opdrachtregel uitvoert, verstuurt de wachtrij: zonder die job wordt e-mail in de wachtrij nooit verstuurd.", // MT
 "mail_group_title"=>"E-mailinstellingen", // MT
 "mail_host_title"=>"SMTP-host", // MT
 "mail_host_tooltip"=>"De volledige domeinnaam (FQDN) of het IP-adres van de SMTP-host voor het verzenden van e-mail", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"recordtypes", // MT
 "remove"=>"verwijder",
 "reset_memory_limit_title"=>"Geheugenlimiet voor Gantt", // MT
-"reset_memory_limit_tooltip"=>"Als u fouten krijgt met onzichtbare Gantt-diagrammen, gebruik dan deze variabele om de PHP-geheugenlimiet tijdelijk te verhogen voor het tekenen van Gantt-diagrammen. Waarden als 64M, 128M enz. zijn gebruikelijk.", // MT
+"reset_memory_limit_tooltip"=>"Niet gebruikt door de standaardmodules. De add-on Monitoring and Control zet de geheugenlimiet van PHP op enkele van zijn pagina's op deze waarde.", // MT
 "restrict_color_selection_title"=>"Keuze van projectkleur beperken", // MT
 "restrict_color_selection_tooltip"=>"In combinatie met de opzoekwaarde \"ProjectColors\" kunt u met deze instelling bepalen welke projectkleuren voor alle gebruikers van dit systeem beschikbaar zijn.\n\n\n\nAls u deze optie inschakelt, kunnen projectmakers alleen kiezen uit de kleuren die in de hierboven genoemde opzoekwaarde zijn gedefinieerd.\n\n\n\nAls u deze optie uitschakelt, hebben projectmakers toegang tot de standaard systeemvoorinstellingen en het volledige kleurenpalet.", // MT
 "restrict_task_time_editing_title"=>"Wijzigen van taaktijden beperken", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Inactiviteitstijd sessie", // MT
-"session_idle_time_tooltip"=>"De maximale tijd dat een sessie zonder activiteit kan zijn voordat deze als verlopen wordt beschouwd.\n\nWaarden zijn in seconden, tenzij gevolgd door een letter: h = uren, d = dagen, m = maanden, y = jaren.\n\nU kunt maar 1 letter in een waarde gebruiken, dus 2d4h is NIET geldig, maar 28h wel.", // MT
+"session_idle_time_tooltip"=>"Hoe lang een sessie zonder activiteit mag blijven voordat ze verloopt. Een aantal seconden (minstens 60), of een getal gevolgd door één letter: h uren, d dagen, m maanden van 30 dagen (geen minuten), y jaren. Bijvoorbeeld 3600, 8h of 2d.", // MT
 "session_max_lifetime_title"=>"Maximale levensduur sessie", // MT
-"session_max_lifetime_tooltip"=>"De maximale tijd dat een sessie kan bestaan voordat deze wordt verwijderd, ongeacht hoe actief deze is.", // MT
+"session_max_lifetime_tooltip"=>"Hoe lang een sessie maximaal mag duren, hoe actief ook. Geschreven zoals Inactiviteitstijd sessie, bijvoorbeeld 1m (30 dagen).", // MT
 "session_name_title"=>"Sessie-/cookienaam", // MT
 "session_name_tooltip"=>"Definieer uw eigen cookienaam. Let op: het wijzigen van de sessienaam meldt alle gebruikers direct af! Ze moeten zich opnieuw aanmelden.", // MT
 "Short Date Format"=>"Korte datumnotatie",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"Taken van andere gebruikers tonen", // MT
 "show_all_tasks_tooltip"=>"Bepaalt de weergave van taken die bij andere gebruikers horen.", // MT
 "site_domain_title"=>"Sitedomein", // MT
-"site_domain_tooltip"=>"Het domein dat hier is ingesteld wordt gebruikt om een e-mailadres te genereren als er een onvolledig adres in het gebruikersrecord is ingevoerd.", // MT
+"site_domain_tooltip"=>"Het domein van uw site. dotPulse verstuurt wachtwoordherstel, en e-mail waarvan de afzender geen geldig adres heeft, vanaf no-reply@ dit domein.", // MT
 "sl"=>"Sloveens", // MT
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"Onderwerp e-mail taaklogboek", // MT
 "Task Notification Method"=>"Meldingsmethode taken", // MT
 "task_reminder_control_title"=>"Taakherinneringen verzenden", // MT
-"task_reminder_control_tooltip"=>"Indien ingesteld, wordt een e-mail naar alle toegewezenen verzonden wanneer een taak vervalt en elke dag dat deze achterstallig is totdat deze voltooid is.", // MT
+"task_reminder_control_tooltip"=>"Mailt de toegewezenen en de eigenaar van een taak voordat die verloopt en elke dag dat die over tijd is, op hun werkdagen, totdat de taak voltooid is. Uitzetten stopt ook de herinneringen die al in de wachtrij staan. Verstuurd door de cron job.", // MT
 "task_reminder_days_before_title"=>"Aantal dagen waarschuwing voor vervallende taken", // MT
 "task_reminder_days_before_tooltip"=>"Hiermee bepaalt u hoeveel dagen voor de vervaldatum van een taak de eerste herinnering wordt verzonden.", // MT
 "task_reminder_group_title"=>"Taakherinneringen", // MT
@@ -528,3 +508,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"Numeriek", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Kon het aangepaste veld niet laden. Het is mogelijk verwijderd.", // MT
 "Delete"=>"Verwijderen", // MT
+"ldap_search_pass_tooltip"=>"Het wachtwoord van de LDAP-zoekgebruiker. Laat het leeg om het opgeslagen wachtwoord te behouden.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"schrijf een aantal seconden (minstens 60), of een getal gevolgd door h, d, m (30 dagen) of y", // MT

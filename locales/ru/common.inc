@@ -372,3 +372,5 @@
 "The documentation is in English."=>"Документация на английском языке.", // MT
 "Read this page on the documentation website"=>"Читать эту страницу на сайте документации", // MT
 "Documentation under the CC BY-SA 4.0 licence."=>"Документация распространяется по лицензии CC BY-SA 4.0.", // MT
+"- choose a module -"=>"- выберите модуль -", // MT
+"choose a module"=>"выберите модуль", // MT

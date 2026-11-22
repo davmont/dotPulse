@@ -86,14 +86,12 @@ a second browser tab to compare.
 
 ### Delete a role
 
-1. Take the role away from every user who has it (on each user's
-   [Roles tab](users.md#roles-tab)).
-2. In the roles list, click the bin of the role and confirm.
+In the roles list, click the bin of the role and confirm.
 
-!!! warning "Remove the role from its users first"
-    If users still have the role, deleting it fails with an error page and the
-    role stays. Also check **Inactive Users** afterwards: a user whose only role
-    you removed can no longer log in.
+!!! warning "Users lose the role"
+    Every user who had the role loses it. A user for whom it was the only role
+    can no longer log in: check **Inactive Users** afterwards, and give those
+    users another role.
 
 ## Role permissions
 
@@ -124,18 +122,13 @@ have a green background, deny rules a red one.
 
 The rule applies from the users' next click.
 
-!!! warning "Check the Module list"
-    The form opens with **Admin Modules** selected, the first entry in the list.
-    Pick the module you mean before you click **add**, or you give rights to
-    System Admin by mistake.
+The **Module** list starts on **- choose a module -**: dotPulse refuses a rule
+until you pick one.
 
 ### Delete a permission rule
 
 Click the bin of the rule and confirm. Rules can't be edited: to change one,
 delete it and add a new one.
-
-After deleting, dotPulse shows a technical message such as
-`del_acl(): deleted ACL ID: 23`. The rule is deleted all the same.
 
 ### Give a permission to one user
 

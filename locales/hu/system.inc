@@ -12,7 +12,7 @@
 "Add Permissions"=>"Jogosultság hozzáadása", // MT
 "added"=>"hozzáadva",
 "admin_username_title"=>"Adminisztrátor felhasználóneve", // MT
-"admin_username_tooltip"=>"Adja meg az adminisztrátor felhasználó bejelentkezési nevét.", // MT
+"admin_username_tooltip"=>"Olyan bejelentkezési név, amelyet a felhasználói űrlap akkor is elfogad, ha rövidebb a felhasználónév minimális hosszánál. Semmilyen jogot nem ad: a szerepkörök döntik el, ki a rendszergazda.", // MT
 "Administration"=>"Adminisztráció", // MT
 "All Events"=>"Minden esemény", // MT
 "allow"=>"engedélyezés", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Naptár munkanapjai", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"Túlallokálás ellenőrzése", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"Nincs hatása: az az ellenőrzés, amelyet bekapcsolt, le van tiltva.", // MT
 "check_task_dates_title"=>"Feladatdátumok ellenőrzése", // MT
 "check_task_dates_tooltip"=>"Ha ez a beállítás be van kapcsolva, minden feladatnál kötelező a kezdő és befejező dátum, mielőtt hozzáadható.", // MT
 "check_task_empty_dynamic_title"=>"Üres dinamikus feladatok ellenőrzése", // MT
@@ -57,7 +57,7 @@
 "cs"=>"Cseh",
 "Currency Format"=>"Pénznem formátuma",
 "currency_symbol_title"=>"Pénznem szimbóluma", // MT
-"currency_symbol_tooltip"=>"Bár a területi beállítások támogatása beépített, a pénznem szimbóluma külön is beállítható. \n\n\n\nA pénznem szimbólumának lokalizálása. Az euró jelhez állítsa \\'&#8364;\\' értékre\n\n\n\nA HTML különleges karaktereiről a http://www.w3.org/TR/html401/sgml/entities.html oldalon tájékozódhat.", // MT
+"currency_symbol_tooltip"=>"A pénzösszegek elé kerül, például a projektköltségvetések elé. Magát a jelet írja be, például € vagy £.", // MT
 "Custom field added successfully"=>"Egyéni mező sikeresen hozzáadva", // MT
 "Custom Field Editor"=>"Egyéni mezők szerkesztője", // MT
 "Custom field editor"=>"Egyéni mezők szerkesztője", // MT
@@ -67,27 +67,7 @@
 "de"=>"Német",
 "deactivate"=>"inaktiválás", // MT
 "debug_title"=>"Hibakeresési szint", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"Mennyi hibakeresési információ kerül a PHP hibanaplójába: 0 semmi, 1 a legfontosabb üzenetek, nagyobb számok több (12 és felette: minden SQL-lekérdezés). A Hibakeresési üzenetek megjelenítése az oldalakon is kiírja őket.", // MT
 "Default"=>"Alaphelyzet",
 "Default Event Filter"=>"Alapértelmezett eseményszűrő", // MT
 "Default User Preferences"=>"Alapvet&#337; felhasználói beállítások",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"Alapértelmezett almodul", // MT
 "default_view_a_tooltip"=>"Ha saját kezdő/alapértelmezett oldalt szeretne megadni, állítsa be ezt.\n\nEgy alnézetet ad meg, ahogy a dP URL-jében látható.", // MT
 "default_view_m_title"=>"Alapértelmezett modul", // MT
-"default_view_m_tooltip"=>"Ha saját kezdő/alapértelmezett oldalt szeretne megadni, állítsa be ezt.\n\nHa az érték üres, a lista első modulja lesz az alapértelmezett nézet.", // MT
+"default_view_m_tooltip"=>"A modul, amelyet a dotPulse bejelentkezés után megnyit, és akkor, ha a webhely címe nem nevez meg oldalt. Olyat válasszon, amelyet minden szerepkör megnyithat.", // MT
 "default_view_tab_title"=>"Alapértelmezett füles alnézet", // MT
 "default_view_tab_tooltip"=>"Ha saját kezdő/alapértelmezett oldalt szeretne megadni, állítsa be ezt.\n\nEgy füles alnézetet ad meg. 0=első fül, ...", // MT
 "delete"=>"törlés", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"Angol",
 "enable_gantt_charts_title"=>"Gantt-diagramok engedélyezése", // MT
-"enable_gantt_charts_tooltip"=>"Ezzel a beállítással be- vagy kikapcsolhatja a Gantt-diagramok funkciót attól függően, hogy használni kívánja-e őket a webhelyen.  ", // MT
+"enable_gantt_charts_tooltip"=>"Megjeleníti az Összes kibontása, Összes összecsukása és Gantt diagram sort minden projekt feladatlistájának végén. A projektek Gantt fülei és a Saját Gantt mindenképpen megmaradnak.", // MT
 "English (Aus)"=>"English (Aus)",
 "English (Can)"=>"English (Can)",
 "English (GB)"=>"English (GB)",
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"Jogosultsági gyorsítótár könyvtára", // MT
 "gacl_cache_dir_tooltip"=>"Adjon meg egy könyvtárat a rendszerén, amelyet a webszerver írhat; ez tárolja a jogosultsági rendszer gyorsítótárát", // MT
 "gacl_cache_title"=>"Jogosultsági gyorsítótár engedélyezése", // MT
-"gacl_cache_tooltip"=>"Kapcsolja be a feladatlisták gyorsításához; ne felejtse el beállítani a jogosultsági gyorsítótár könyvtárát sem", // MT
+"gacl_cache_tooltip"=>"Az alábbi könyvtárban gyorsítótárazza a jogosultsági könyvtár (phpGACL) válaszait. A dotPulse a saját táblájában ellenőrzi a jogosultságokat, így ez érezhető különbséget nem jelent: hagyja kikapcsolva.", // MT
 "gacl_expire_title"=>"Jogosultsági gyorsítótár lejáratása", // MT
-"gacl_expire_tooltip"=>"Ez kikényszeríti a jogosultsági gyorsítótár lejáratát. Ha használja a gyorsítótárat, csak egy régi gyorsítótár törléséhez állítsa be problémák esetén, majd utána állítsa vissza", // MT
+"gacl_expire_tooltip"=>"Kiüríti a jogosultság-gyorsítótárat, valahányszor egy jogosultság vagy szerepkör megváltozik, hogy a változások azonnal érvényesek legyenek. Hagyja bekapcsolva, ha használja a gyorsítótárat.", // MT
 "gacl_group_title"=>"Jogosultságok gyorsítótárazása", // MT
 "gacl_timeout_title"=>"Jogosultsági gyorsítótár időkorlátja", // MT
 "gacl_timeout_tooltip"=>"Hány másodpercig őrizze meg a gyorsítótárazott jogosultsági adatokat.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"Kiszolgáló nyelvi beállítása", // MT
 "host_locale_tooltip"=>"Ez a beállítás adja meg a webhely lokalizációját vagy nyelvét.", // MT
 "host_style_title"=>"Alapértelmezett felhasználói felületstílus", // MT
-"host_style_tooltip"=>"Alapértelmezett felhasználói felületstílus - ahogy a felhasználói beállításoknál, de itt be kell írnia az alapértelmezett nevét.  Ha segítség kell, nézze meg a felhasználói beállítások legördülő listáját, és ismételje meg itt azt a nevet.", // MT
+"host_style_tooltip"=>"A bejelentkezési oldal témája, valamint azoké a felhasználóké, akik nem választottak témát a beállításaikban.", // MT
 "HTML Tag Options"=>"HTML tag beállításai", // MT
 "Import Contacts"=>"Kapcsolatok importálása", // MT
 "Import Contacts from LDAP Directory"=>"Kapcsolatok importálása LDAP címtárból", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"A kiszolgáló bejelentkezést igényel", // MT
 "mail_auth_tooltip"=>"Egyes SMTP kiszolgálók hitelesítést igényelnek; ha az Öné is, állítsa be ezt, és adjon meg felhasználónevet és jelszót", // MT
 "mail_defer_title"=>"E-mailek sorba állítása későbbi küldéshez", // MT
-"mail_defer_tooltip"=>"Jelölje be az e-mailek későbbi küldéshez való sorba állításához.  Egy bejegyzés kerül az eseménysorba.  Be kell állítania az Eseménysor vizsgálata beállítást a munkamenet-kezelésben, vagy létre kell hoznia egy cron feladatot, amely ezt hívja:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"Minden e-mailt az eseménysorba tesz ahelyett, hogy elküldené, amíg a felhasználó vár. A sort az a cron job küldi el, amely parancssorból futtatja a queuescanner.php-t: nélküle a sorban álló e-mail soha nem megy el.", // MT
 "mail_group_title"=>"E-mail beállítások", // MT
 "mail_host_title"=>"SMTP kiszolgáló", // MT
 "mail_host_tooltip"=>"Az e-mail küldéshez használt SMTP kiszolgáló teljes tartományneve (FQDN) vagy IP-címe", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"rekordtípusok", // MT
 "remove"=>"eltávolít",
 "reset_memory_limit_title"=>"Memóriakorlát a Gantt-diagramhoz", // MT
-"reset_memory_limit_tooltip"=>"Ha a Gantt-diagramok nem láthatók, ezzel a változóval ideiglenesen megnövelheti a PHP memóriakorlátját a rajzoláshoz. Szokásos értékek: 64M, 128M stb.", // MT
+"reset_memory_limit_tooltip"=>"A szabványos modulok nem használják. A Monitoring and Control kiegészítő néhány oldalán erre az értékre állítja a PHP memóriakorlátját.", // MT
 "restrict_color_selection_title"=>"Projektszín-választás korlátozása", // MT
 "restrict_color_selection_tooltip"=>"A \"ProjectColors\" rendszerérték-keresési beállítással együtt használva szabályozhatja, milyen projektszíneket választhat a rendszer összes felhasználója.\n\n\n\nHa bekapcsolja, a projektek létrehozói csak a fent említett rendszerérték-keresésben megadott színek közül választhatnak.\n\n\n\nHa kikapcsolja, a projektek létrehozói elérik a rendszer alapértelmezett színeit és a teljes színpalettát.", // MT
 "restrict_task_time_editing_title"=>"Feladatidők szerkesztésének korlátozása", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Munkamenet tétlenségi ideje", // MT
-"session_idle_time_tooltip"=>"Az a maximális idő, amíg egy munkamenet aktivitás nélkül maradhat, mielőtt lejártnak minősül.\n\nAz értékek másodpercben értendők, kivéve ha betű követi őket: h = óra, d = nap, m = hónap, y = év.\n\nEgy értékben csak 1 betű lehet, így a 2d4h NEM érvényes, a 28h viszont igen.", // MT
+"session_idle_time_tooltip"=>"Mennyi ideig lehet egy munkamenet tevékenység nélkül, mielőtt lejár. Másodpercek száma (legalább 60), vagy egy szám és utána egy betű: h óra, d nap, m 30 napos hónap (nem perc), y év. Például 3600, 8h vagy 2d.", // MT
 "session_max_lifetime_title"=>"Munkamenet maximális élettartama", // MT
-"session_max_lifetime_tooltip"=>"Az a maximális idő, ameddig egy munkamenet létezhet, mielőtt megszűnik, függetlenül az aktivitástól.", // MT
+"session_max_lifetime_tooltip"=>"Legfeljebb meddig tarthat egy munkamenet, akármilyen aktív is. Ugyanúgy kell megadni, mint a Munkamenet tétlenségi ideje értékét, például 1m (30 nap).", // MT
 "session_name_title"=>"Munkamenet/süti neve", // MT
 "session_name_tooltip"=>"Adja meg a saját süti nevét. Figyelem: a munkamenet nevének módosítása azonnal kijelentkezteti az összes felhasználót! Újra be kell jelentkezniük.", // MT
 "Short Date Format"=>"Rövid dátum formátum",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"Más felhasználók feladatainak megjelenítése", // MT
 "show_all_tasks_tooltip"=>"Más felhasználókhoz tartozó feladatok megtekintésének szabályozása.", // MT
 "site_domain_title"=>"Webhely tartománya", // MT
-"site_domain_tooltip"=>"Az itt megadott tartományból készül e-mail cím, ha a felhasználó adataiban hiányos cím szerepel.", // MT
+"site_domain_tooltip"=>"A webhely tartománya. A dotPulse a jelszó-visszaállításokat, és azokat a leveleket, amelyek feladójának nincs érvényes címe, a tartomány no-reply@ címéről küldi.", // MT
 "sl"=>"Szlovén",
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"Feladatnapló e-mail tárgya", // MT
 "Task Notification Method"=>"Feladatértesítés módja", // MT
 "task_reminder_control_title"=>"Feladatemlékeztetők küldése", // MT
-"task_reminder_control_tooltip"=>"Ha be van kapcsolva, minden felelős e-mailt kap, amikor egy feladat esedékes, majd minden nap, amíg lejárt és nincs befejezve.", // MT
+"task_reminder_control_tooltip"=>"E-mailt küld egy feladat felelőseinek és tulajdonosának a határidő előtt, majd minden nap, amíg késésben van, a munkanapjaikon, egészen a befejezéséig. Kikapcsolása a már sorban álló emlékeztetőket is leállítja. A cron job küldi.", // MT
 "task_reminder_days_before_title"=>"Hány nappal előre figyelmeztessen az esedékes feladatokra", // MT
 "task_reminder_days_before_tooltip"=>"Ez határozza meg, hány nappal a feladat esedékessége előtt menjen az első emlékeztető.", // MT
 "task_reminder_group_title"=>"Feladatemlékeztetők", // MT
@@ -527,3 +507,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"Numerikus", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Az egyéni mező nem tölthető be, lehet, hogy valahogy törölték.", // MT
 "Delete"=>"Törlés", // MT
+"ldap_search_pass_tooltip"=>"Az LDAP kereső felhasználó jelszava. Hagyja üresen a mentett jelszó megtartásához.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"adjon meg másodpercek számát (legalább 60), vagy egy számot, amelyet h, d, m (30 nap) vagy y követ", // MT

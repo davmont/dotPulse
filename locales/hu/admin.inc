@@ -221,3 +221,6 @@
 "Scan this QR code with your authenticator app, or type the key into it."=>"Olvassa be ezt a QR-kódot a hitelesítő alkalmazással, vagy írja be a kulcsot.", // MT
 "QR code for your authenticator app"=>"QR-kód a hitelesítő alkalmazáshoz", // MT
 "Enter the 6-digit code the app shows to turn two-step login on."=>"A kétlépcsős bejelentkezés bekapcsolásához adja meg az alkalmazás által mutatott 6 jegyű kódot.", // MT
+"Select the projects and the user who takes them over."=>"Válassza ki a projekteket és a felhasználót, aki átveszi őket.", // MT
+"Role removed from the user"=>"A szerepkör eltávolítva a felhasználótól", // MT
+"Remove this role from the user?"=>"Eltávolítja ezt a szerepkört a felhasználótól?", // MT

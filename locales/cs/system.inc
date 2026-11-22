@@ -12,7 +12,7 @@
 "Add Permissions"=>"Přidat oprávnění", // MT
 "added"=>"přidáno", // MT
 "admin_username_title"=>"Uživatelské jméno administrátora", // MT
-"admin_username_tooltip"=>"Zadejte přihlašovací jméno administrátora.", // MT
+"admin_username_tooltip"=>"Přihlašovací jméno, které formulář uživatele přijme, i když je kratší než minimální délka uživatelského jména. Nedává žádná práva: o tom, kdo je správce, rozhodují role.", // MT
 "Administration"=>"Administrace", // MT
 "All Events"=>"Všechny události", // MT
 "allow"=>"povolit", // MT
@@ -42,7 +42,7 @@
 "cal_working_days_title"=>"Pracovní dny kalendáře", // MT
 "cal_working_days_tooltip"=>"Establish the required working days for your company in a comma separated list where 0 is Sunday.  For example if you work Monday through to Friday your list would be 1,2,3,4,5.  If you work Friday through to Sunday your list would be 5,6,0",
 "check_overallocation_title"=>"Kontrola přetížení", // MT
-"check_overallocation_tooltip"=>"The over allocation component of dotProject is an incomplete function which has been developed.  It is the basis of a system that will allow Project Managers to establish the maximum % of time that a resource can be allocated to a particular task for a particular period of time.   ",
+"check_overallocation_tooltip"=>"Nemá žádný účinek: kontrola, kterou dříve zapínalo, je vypnutá.", // MT
 "check_task_dates_title"=>"Kontrolovat data úkolů", // MT
 "check_task_dates_tooltip"=>"Je-li tato volba zapnuta, budou u všech úkolů před jejich přidáním vyžadována data zahájení a ukončení.", // MT
 "check_task_empty_dynamic_title"=>"Kontrolovat prázdné dynamické úkoly", // MT
@@ -57,7 +57,7 @@
 "cs"=>"Ceský",
 "Currency Format"=>"Formát měny", // MT
 "currency_symbol_title"=>"Symbol měny", // MT
-"currency_symbol_tooltip"=>"Přestože je podpora národního prostředí vestavěná, stále existuje možnost nastavit symbol měny. \n\n\n\nLokalizace symbolu měny. Pro symbol eura nastavte \\'&#8364;\\'\n\n\n\nInformace o speciálních znacích HTML naleznete na http://www.w3.org/TR/html401/sgml/entities.html.", // MT
+"currency_symbol_tooltip"=>"Zobrazuje se před peněžními částkami, například rozpočty projektů. Zadejte samotný symbol, například € nebo £.", // MT
 "Custom field added successfully"=>"Vlastní pole bylo úspěšně přidáno", // MT
 "Custom Field Editor"=>"Editor vlastních polí", // MT
 "Custom field editor"=>"Editor vlastních polí", // MT
@@ -67,27 +67,7 @@
 "de"=>"Německý",
 "deactivate"=>"deaktivovat", // MT
 "debug_title"=>"Úroveň ladění", // MT
-"debug_tooltip"=>"Turn this option on to display debug messages as well as log them.
-
-
-
-WARNING:  Setting to true, if the debug level is greater than 1, can cause dotProject to fail on messages that are technically only Warnings and therefore can be ignored.
-
-
-
-Normally errors will be displayed so this should only be set to track warnings and debug messages if you do not have access to the PHP log files.
-
-
-
-Anything other than 0 will provide debugging information.
-
-
-
-Level 1 is probably the most reasonable compromise between normal operation and error tracking information.
-
-
-
-Set to 10 to get complete debugging information but be aware that this will generate large log files and/or debug listings very very quickly.",
+"debug_tooltip"=>"Kolik ladicích informací se zapisuje do chybového protokolu PHP: 0 žádné, 1 nejdůležitější zprávy, vyšší čísla více (12 a více: každý dotaz SQL). Zobrazovat ladicí zprávy je vypisuje také na stránkách.", // MT
 "Default"=>"Standardní",
 "Default Event Filter"=>"Výchozí filtr událostí", // MT
 "Default User Preferences"=>"Standardní uživatelské preference",
@@ -95,7 +75,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "default_view_a_title"=>"Výchozí podmodul", // MT
 "default_view_a_tooltip"=>"Nastavte, pokud chcete definovat vlastní úvodní/výchozí stránku.\n\nUrčuje dílčí zobrazení, jak je uvedeno v URL dP.", // MT
 "default_view_m_title"=>"Výchozí modul", // MT
-"default_view_m_tooltip"=>"Nastavte, pokud chcete definovat vlastní úvodní/výchozí stránku.\n\nPokud je hodnota prázdná, stane se výchozím zobrazením první uvedený modul.", // MT
+"default_view_m_tooltip"=>"Modul, který dotPulse otevře po přihlášení, a když adresa webu neurčuje žádnou stránku. Zvolte takový, který smí otevřít každá role.", // MT
 "default_view_tab_title"=>"Výchozí dílčí zobrazení na kartě", // MT
 "default_view_tab_tooltip"=>"Nastavte, pokud chcete definovat vlastní úvodní/výchozí stránku.\n\nUrčuje dílčí zobrazení na kartě. 0=první karta, ...", // MT
 "delete"=>"smazat", // MT
@@ -120,7 +100,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "email_prefix_tooltip"=>"This setting is used to stipulate the subject line prefix for all email that dotProject sends out.",
 "en"=>"Anglický",
 "enable_gantt_charts_title"=>"Povolit Ganttovy diagramy", // MT
-"enable_gantt_charts_tooltip"=>"Volba povolení nebo zakázání Ganttových diagramů umožňuje tuto funkci zapnout nebo vypnout podle toho, zda chcete Ganttovy diagramy na svém webu používat. ", // MT
+"enable_gantt_charts_tooltip"=>"Zobrazí řádek Rozbalit vše, Sbalit vše a Ganttův diagram na konci seznamu úkolů každého projektu. Záložky Gantt u projektů a Můj Gantt zůstávají v každém případě.", // MT
 "English (Aus)"=>"Angličtina (Austrálie)", // MT
 "English (Can)"=>"Angličtina (Kanada)", // MT
 "English (GB)"=>"Angličtina (VB)", // MT
@@ -145,9 +125,9 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "gacl_cache_dir_title"=>"Adresář mezipaměti oprávnění", // MT
 "gacl_cache_dir_tooltip"=>"Nastavte na adresář ve vašem systému, do kterého může webový server zapisovat; uchovává se v něm mezipaměť systému oprávnění", // MT
 "gacl_cache_title"=>"Povolit mezipaměť oprávnění", // MT
-"gacl_cache_tooltip"=>"Zapnutím zlepšíte výkon výpisů úkolů; nezapomeňte také nastavit adresář mezipaměti oprávnění", // MT
+"gacl_cache_tooltip"=>"Ukládá odpovědi knihovny oprávnění (phpGACL) do mezipaměti v adresáři níže. dotPulse kontroluje oprávnění ve vlastní tabulce, takže to nepřináší žádný znatelný rozdíl: nechte to vypnuté.", // MT
 "gacl_expire_title"=>"Vypršet mezipaměť oprávnění", // MT
-"gacl_expire_tooltip"=>"Toto nastavení vynutí vypršení mezipaměti oprávnění. Používáte-li mezipaměť oprávnění, nastavte jej pouze pro vymazání staré mezipaměti při řešení problémů a poté jej vraťte zpět", // MT
+"gacl_expire_tooltip"=>"Vyprázdní mezipaměť oprávnění pokaždé, když se změní oprávnění nebo role, aby se změny projevily okamžitě. Pokud mezipaměť používáte, nechte to zapnuté.", // MT
 "gacl_group_title"=>"Ukládání oprávnění do mezipaměti", // MT
 "gacl_timeout_title"=>"Časový limit mezipaměti oprávnění", // MT
 "gacl_timeout_tooltip"=>"Počet sekund, po které se uchovávají informace o oprávněních v mezipaměti.", // MT
@@ -157,7 +137,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "host_locale_title"=>"Národní prostředí serveru", // MT
 "host_locale_tooltip"=>"Tato volba určuje lokalizaci neboli jazykové nastavení vašeho webu.", // MT
 "host_style_title"=>"Výchozí styl uživatelského rozhraní", // MT
-"host_style_tooltip"=>"Výchozí styl uživatelského rozhraní – jako v uživatelských preferencích, název výchozího stylu však musíte zadat sem.  Potřebujete-li nápovědu, podívejte se do rozbalovacího seznamu v uživatelských preferencích a zopakujte název zde.", // MT
+"host_style_tooltip"=>"Motiv přihlašovací stránky a uživatelů, kteří si v předvolbách žádný nevybrali.", // MT
 "HTML Tag Options"=>"Volby HTML tagu", // MT
 "Import Contacts"=>"Importovat kontakty", // MT
 "Import Contacts from LDAP Directory"=>"Importovat kontakty z adresáře LDAP", // MT
@@ -205,7 +185,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "mail_auth_title"=>"Server vyžaduje přihlášení", // MT
 "mail_auth_tooltip"=>"Některé servery SMTP vyžadují ověření; pokud ten váš ano, musíte tuto volbu nastavit a zadat uživatelské jméno a heslo", // MT
 "mail_defer_title"=>"Zařadit e-mail do fronty pro pozdější odeslání", // MT
-"mail_defer_tooltip"=>"Zaškrtněte pro zařazení e-mailu do fronty k pozdějšímu odeslání.  Ve frontě událostí se vytvoří záznam.  Musíte buď nastavit volbu Prohledávat frontu událostí ve zpracování relací, nebo vytvořit úlohu cron, která volá:\n\n\n\nwget -O- http://your.domain/dotproject/queuescanner.php", // MT
+"mail_defer_tooltip"=>"Vloží každý e-mail do fronty událostí místo jeho odeslání, zatímco uživatel čeká. Frontu odesílá cron job, který spouští queuescanner.php z příkazové řádky: bez něj se e-mail ve frontě nikdy neodešle.", // MT
 "mail_group_title"=>"Nastavení e-mailu", // MT
 "mail_host_title"=>"Server SMTP", // MT
 "mail_host_tooltip"=>"Plně kvalifikované doménové jméno (FQDN) nebo IP adresa serveru SMTP pro odesílání e-mailů", // MT
@@ -269,7 +249,7 @@ Set to 10 to get complete debugging information but be aware that this will gene
 "record types"=>"typy záznamů", // MT
 "remove"=>"odstranit",
 "reset_memory_limit_title"=>"Limit paměti pro Gantt", // MT
-"reset_memory_limit_tooltip"=>"Pokud dochází k chybám s neviditelnými Ganttovými diagramy, použijte tuto proměnnou k dočasnému zvýšení limitu paměti PHP pro kreslení Ganttova diagramu. Běžné jsou hodnoty 64M, 128M atd.", // MT
+"reset_memory_limit_tooltip"=>"Standardní moduly to nepoužívají. Doplněk Monitoring and Control nastavuje na některých svých stránkách limit paměti PHP na tuto hodnotu.", // MT
 "restrict_color_selection_title"=>"Omezit výběr barvy projektu", // MT
 "restrict_color_selection_tooltip"=>"Ve spojení s volbou číselníku systémových hodnot \"ProjectColors\" můžete tímto nastavením řídit volby výběru barvy projektu dostupné všem uživatelům systému.\n\n\n\nZapnete-li tuto volbu, budou moci tvůrci projektů vybírat pouze z barev definovaných ve výše uvedeném číselníku systémových hodnot.\n\n\n\nVypnete-li tuto volbu, budou mít tvůrci projektů přístup k výchozím systémovým předvolbám a úplné paletě barev.", // MT
 "restrict_task_time_editing_title"=>"Omezit úpravy času úkolů", // MT
@@ -298,9 +278,9 @@ Session Management: This extends the session handling of PHP to beyond browser-b
 
 database. This allows for prolonged sessions with lower overheads.",
 "session_idle_time_title"=>"Doba nečinnosti relace", // MT
-"session_idle_time_tooltip"=>"Maximální doba bez aktivity, po které je relace prohlášena za ukončenou.\n\nHodnoty jsou v sekundách, pokud za nimi nenásleduje písmeno: h = hodiny, d = dny, m = měsíce, y = roky.\n\nŘetězec může obsahovat pouze 1 písmeno, takže 2d4h NENÍ platné, ale 28h ano.", // MT
+"session_idle_time_tooltip"=>"Jak dlouho může relace zůstat bez aktivity, než vyprší. Počet sekund (nejméně 60), nebo číslo následované jedním písmenem: h hodiny, d dny, m měsíce po 30 dnech (ne minuty), y roky. Například 3600, 8h nebo 2d.", // MT
 "session_max_lifetime_title"=>"Maximální životnost relace", // MT
-"session_max_lifetime_tooltip"=>"Maximální doba existence relace, než je zrušena, bez ohledu na to, jak je aktivní.", // MT
+"session_max_lifetime_tooltip"=>"Jak dlouho může relace trvat nejvýše, bez ohledu na aktivitu. Zapisuje se stejně jako Doba nečinnosti relace, například 1m (30 dní).", // MT
 "session_name_title"=>"Název relace/cookie", // MT
 "session_name_tooltip"=>"Definujte vlastní název cookie. Pozor: změna názvu relace okamžitě odhlásí všechny uživatele! Budou se muset znovu přihlásit.", // MT
 "Short Date Format"=>"Formát pro krátké datum",
@@ -309,7 +289,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "show_all_tasks_title"=>"Zobrazit úkoly ostatních uživatelů", // MT
 "show_all_tasks_tooltip"=>"Řídí zobrazení úkolů, které patří jiným uživatelům.", // MT
 "site_domain_title"=>"Doména webu", // MT
-"site_domain_tooltip"=>"Zde nastavená doména se používá k vytvoření e-mailové adresy, pokud byla v záznamu uživatele zadána neúplná adresa.", // MT
+"site_domain_tooltip"=>"Doména vašeho webu. dotPulse odesílá obnovení hesla, a e-maily, jejichž odesílatel nemá platnou adresu, z adresy no-reply@ této domény.", // MT
 "sl"=>"Slovinština", // MT
 "smtp_item_title"=>"SMTP",
 "sql_item_title"=>"Standard dotProject",
@@ -330,7 +310,7 @@ database. This allows for prolonged sessions with lower overheads.",
 "Task Log Email Subject"=>"Předmět e-mailu záznamu úkolu", // MT
 "Task Notification Method"=>"Způsob upozornění na úkoly", // MT
 "task_reminder_control_title"=>"Posílat připomínky úkolů", // MT
-"task_reminder_control_tooltip"=>"Je-li nastaveno, bude všem řešitelům odeslán e-mail, když úkol dosáhne termínu, a každý den po termínu až do dokončení.", // MT
+"task_reminder_control_tooltip"=>"Posílá e-mail řešitelům a vlastníkovi úkolu před termínem a každý den, kdy je po termínu, v jejich pracovní dny, dokud není dokončen. Vypnutím se zastaví i připomínky, které už jsou ve frontě. Odesílá je cron job.", // MT
 "task_reminder_days_before_title"=>"Počet dní upozornění před termínem úkolu", // MT
 "task_reminder_days_before_tooltip"=>"Toto nastavení určuje, kolik dní před termínem úkolu se nastaví první připomínka.", // MT
 "task_reminder_group_title"=>"Připomínky úkolů", // MT
@@ -521,3 +501,5 @@ database. This allows for prolonged sessions with lower overheads.",
 "Numeric"=>"Číselné", // MT
 "Couldnt load the Custom Field, It might have been deleted somehow."=>"Vlastní pole nelze načíst, možná bylo smazáno.", // MT
 "Delete"=>"Smazat", // MT
+"ldap_search_pass_tooltip"=>"Heslo pro pole Vyhledávací uživatel LDAP. Nechte prázdné, chcete-li zachovat uložené.", // MT
+"write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"zadejte počet sekund (nejméně 60), nebo číslo následované h, d, m (30 dní) nebo y", // MT
