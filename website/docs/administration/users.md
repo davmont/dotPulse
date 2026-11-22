@@ -183,8 +183,9 @@ You don't need the user's old password. (When you change your own password,
 dotPulse asks for your current one.)
 
 The **change password** link on the user page opens a small window with
-**Current Password**, **New Password** and **Repeat New Password**. To set
-someone else's password, **edit this user** is simpler.
+**New Password** and **Repeat New Password** (and **Current Password** when the
+page is your own). To set someone else's password, **edit this user** works
+as well.
 
 Each password change is written to the user's history and to the
 [audit log](audit-and-maintenance.md#audit-log). Users who forgot their password

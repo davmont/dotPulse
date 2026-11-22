@@ -70,6 +70,35 @@ class HelpTest extends TestCase {
         $this->assertEquals('https://www.dotpulse.org/', dPhelpOnlineUrl('index'));
     }
 
+    function testSpanishUsersGetTheSpanishPages() {
+        global $AppUI;
+        $saved = $AppUI;
+        $AppUI = new stdClass();
+        $AppUI->user_locale = 'es';
+        $AppUI->user_id = 1;
+        $GLOBALS['dPconfig'] = array();
+        $this->assertEquals('es', CHelp::lang());
+        $pages = CHelp::pages();
+        $this->assertEquals('Tareas', $pages['user-guide/tasks']['title']);
+        $this->assertEquals('Guía de uso', $pages['user-guide/tasks']['section']);
+        // Every page of the Spanish navigation renders.
+        foreach (array_keys($pages) as $name) {
+            $html = CHelp::render($name);
+            $this->assert(is_string($html) && strpos($html, '<h1') !== false, $name);
+            $this->assert(!preg_match('/\{\s*#/', $html), "heading id left as text in $name");
+        }
+        // The Spanish pages keep the English anchors, and their own screenshots.
+        $html = CHelp::render('administration/settings');
+        $this->assert(strpos($html, 'id="notifications-and-email"') !== false);
+        $html = CHelp::render('getting-started/first-steps');
+        $this->assertRegexp('#src="\./website/docs-es/img/gs-[\w-]+\.png"#', $html);
+        $this->assertEquals('https://www.dotpulse.org/es/user-guide/tasks/', dPhelpOnlineUrl('user-guide/tasks'));
+        $AppUI->user_locale = 'en';
+        $this->assertEquals('en', CHelp::lang());
+        $this->assertEquals('https://www.dotpulse.org/user-guide/tasks/', dPhelpOnlineUrl('user-guide/tasks'));
+        $AppUI = $saved;
+    }
+
     function testAdministrationPagesHaveTheirOwnHelp() {
         global $m, $a, $u, $AppUI;
         $saved = array($m, $a, $u, $AppUI, $_GET);

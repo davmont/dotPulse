@@ -3,7 +3,8 @@
  * The Help module: the documentation in website/docs (the source of www.dotpulse.org),
  * shown inside dotPulse. It matches the version installed and needs no Internet access.
  *
- * Pages are those listed in website/mkdocs.yml (nav). The Markdown is rendered with
+ * Pages are those listed in website/mkdocs.yml (nav); users whose language is Spanish get
+ * website/mkdocs.es.yml and website/docs-es (an untranslated page falls back to English). The Markdown is rendered with
  * Parsedown (vendor/), plus what the site uses from MkDocs Material: admonitions
  * (!!! note "Title"), ++key++, { .shot } after images, headings with ids as MkDocs makes
  * them, and links to other pages turned into Help links.
@@ -15,6 +16,24 @@ if (!defined('DP_BASE_DIR')) {
 class CHelp
 {
 	const DOCS = '/website/docs';
+	const DOCS_ES = '/website/docs-es';
+
+	/** The language of the pages: 'es' for a user whose locale is Spanish, else 'en'. */
+	static function lang()
+	{
+		global $AppUI;
+		$locale = (is_object($AppUI) && isset($AppUI->user_locale)) ? (string)$AppUI->user_locale : '';
+		return (strpos($locale, 'es') === 0 && is_file(DP_BASE_DIR . '/website/mkdocs.es.yml')) ? 'es' : 'en';
+	}
+
+	/** The folder of a page's Markdown: the Spanish one when it has the page, else English. */
+	static function docs($page = '')
+	{
+		if (self::lang() === 'es' && ($page === '' || is_file(DP_BASE_DIR . self::DOCS_ES . '/' . $page . '.md'))) {
+			return self::DOCS_ES;
+		}
+		return self::DOCS;
+	}
 
 	/**
 	 * The pages in the order of the site's navigation:
@@ -23,12 +42,14 @@ class CHelp
 	 */
 	static function pages()
 	{
-		static $pages = null;
-		if ($pages !== null) {
-			return $pages;
+		static $cache = array();
+		$lang = self::lang();
+		if (isset($cache[$lang])) {
+			return $cache[$lang];
 		}
 		$pages = array();
-		$yml = @file_get_contents(DP_BASE_DIR . '/website/mkdocs.yml');
+		$cache[$lang] = &$pages;
+		$yml = @file_get_contents(DP_BASE_DIR . ($lang === 'es' ? '/website/mkdocs.es.yml' : '/website/mkdocs.yml'));
 		if ($yml === false || !preg_match('/^nav:\s*\n((?:[ \t]+.*\n?)+)/m', $yml, $nav)) {
 			return $pages;
 		}
@@ -83,7 +104,8 @@ class CHelp
 	 */
 	static function render($page)
 	{
-		$text = @file_get_contents(DP_BASE_DIR . self::DOCS . '/' . $page . '.md');
+		$docs = self::docs($page);
+		$text = @file_get_contents(DP_BASE_DIR . $docs . '/' . $page . '.md');
 		if ($text === false) {
 			return null;
 		}
@@ -129,6 +151,11 @@ class CHelp
 		// Heading ids, as the MkDocs table of contents makes them, for links with #anchors.
 		$seen = array();
 		$html = preg_replace_callback('#<h([1-6])>(.*?)</h\1>#s', function ($m) use (&$seen) {
+			// "Title { #id }": the id given (the Spanish pages keep the English anchors).
+			if (preg_match('/^(.*?)\s*\{\s*#([\w-]+)\s*\}\s*$/s', $m[2], $given)) {
+				$seen[$given[2]] = 1;
+				return '<h' . $m[1] . ' id="' . $given[2] . '">' . $given[1] . '</h' . $m[1] . '>';
+			}
 			$id = self::slug($m[2]);
 			if (isset($seen[$id])) {
 				$id .= '_' . $seen[$id]++;
@@ -152,10 +179,10 @@ class CHelp
 			$target = self::resolve($dir, preg_replace('/\.md$/', '', $parts[0]));
 			return '<a href="' . htmlspecialchars(self::url($target, isset($parts[1]) ? $parts[1] : '')) . '"';
 		}, $html);
-		$html = preg_replace_callback('#<img src="([^"]*)"#', function ($m) use ($dir) {
+		$html = preg_replace_callback('#<img src="([^"]*)"#', function ($m) use ($dir, $docs) {
 			$src = html_entity_decode($m[1], ENT_QUOTES, 'UTF-8');
 			if (!preg_match('#^[a-z][a-z0-9+.-]*:#i', $src)) {
-				$src = '.' . self::DOCS . '/' . self::resolve($dir, $src);
+				$src = '.' . $docs . '/' . self::resolve($dir, $src);
 			}
 			return '<img loading="lazy" src="' . htmlspecialchars($src) . '"';
 		}, $html);

@@ -22,7 +22,7 @@ DOCKER_RUN := docker run --rm --user $(shell id -u):$(shell id -g) --security-op
 export DP_UID := $(shell id -u)
 export DP_GID := $(shell id -g)
 
-.PHONY: check lint phpstan phpstan-baseline raw-input inline-js locales theme-contrast php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse docs docs-serve docs-screenshots
+.PHONY: check lint phpstan phpstan-baseline raw-input inline-js locales theme-contrast php-test js-test vendor-check deps-audit audit-smoke audit-full sample-data sample-sql rehearse docs docs-serve docs-serve-es docs-screenshots
 
 check: lint phpstan raw-input inline-js locales theme-contrast php-test js-test vendor-check
 
@@ -124,12 +124,21 @@ rehearse:
 # docs fails on broken links and missing images like CI. The image is pinned by digest, as in .github/workflows/docs.yml.
 ZENSICAL_IMAGE := zensical/zensical:0.1.2@sha256:e1795a2c63b07174d91053f3598d2192032ea88b62a93fcd60be78ed3d5c4aa7
 ZENSICAL := docker run --rm --user $(shell id -u):$(shell id -g) --security-opt label=disable -v $(CURDIR)/website:/docs
+# The Spanish site (mkdocs.es.yml, docs-es/) shares the stylesheet and logo of docs/, copied in
+# before the build (Zensical doesn't follow symlinks), and is built into site/es/.
+DOCS_ES_SHARED := rm -rf website/docs-es/stylesheets website/docs-es/assets && cp -r website/docs/stylesheets website/docs/assets website/docs-es/
 docs:
 	python3 tools/checks/check-doc-images.py
+	$(DOCS_ES_SHARED)
 	$(ZENSICAL) $(ZENSICAL_IMAGE) build --strict --clean
+	$(ZENSICAL) $(ZENSICAL_IMAGE) build --strict --clean -f mkdocs.es.yml
 
 docs-serve:
 	$(ZENSICAL) -it -p 8000:8000 $(ZENSICAL_IMAGE) serve --dev-addr=0.0.0.0:8000
+
+docs-serve-es:
+	$(DOCS_ES_SHARED)
+	$(ZENSICAL) -it -p 8001:8001 $(ZENSICAL_IMAGE) serve -f mkdocs.es.yml --dev-addr=0.0.0.0:8001
 
 # Screenshots for the website from the sandbox with the sample data (docker/up.sh first).
 docs-screenshots:

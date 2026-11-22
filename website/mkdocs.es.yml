@@ -1,0 +1,112 @@
+# dotPulse documentation website in Spanish: built by `make docs` with the English one, into
+# site/es/. Same pages and file names as docs/ (the in-app Help maps pages by name).
+# Built with Zensical, published to GitHub Pages by .github/workflows/docs.yml.
+# The in-app Help reads nav below: keep this file (don't convert it to zensical.toml).
+site_name: Documentación de dotPulse
+docs_dir: docs-es
+site_dir: site/es
+site_description: Gestión de proyectos de código abierto para PHP 8, continuación de dotProject.
+site_url: https://www.dotpulse.org/es/
+repo_url: https://github.com/davmont/dotPulse
+repo_name: davmont/dotPulse
+edit_uri: edit/devel/website/docs-es/
+copyright: >-
+  dotPulse es software libre bajo la GNU GPL v2 o posterior.
+  Documentación bajo <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a>;
+  los ejemplos de código, bajo la GPL, como el código.
+
+theme:
+  name: material
+  # Zensical's look of Material for MkDocs (the default "modern" one has no coloured header).
+  variant: classic
+  language: es
+  logo: assets/mark.svg
+  favicon: assets/favicon.svg
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+    - content.code.copy
+    - toc.follow
+
+# The Spanish site (mkdocs.es.yml, docs-es/) is built into site/es/; the theme's language
+# button links the two.
+extra:
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: Español
+      link: /es/
+      lang: es
+
+extra_css:
+  - stylesheets/dotpulse.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.keys
+
+plugins:
+  - search
+
+nav:
+  - Inicio: index.md
+  - Puesta en marcha:
+      - getting-started/index.md
+      - Requisitos: getting-started/requirements.md
+      - Instalación: getting-started/install.md
+      - Actualización: getting-started/upgrade.md
+      - Primeros pasos: getting-started/first-steps.md
+  - Guía de uso:
+      - user-guide/index.md
+      - La interfaz: user-guide/interface.md
+      - Su panel: user-guide/dashboard.md
+      - Su cuenta y preferencias: user-guide/preferences.md
+      - Empresas, departamentos y contactos: user-guide/companies-contacts.md
+      - Proyectos: user-guide/projects.md
+      - Tareas: user-guide/tasks.md
+      - Diagrama de Gantt y tablero: user-guide/gantt-board.md
+      - Registrar el trabajo: user-guide/task-logs.md
+      - Calendario: user-guide/calendar.md
+      - Ficheros, foros y enlaces: user-guide/files-forums-links.md
+      - Búsqueda: user-guide/search.md
+  - Administración:
+      - administration/index.md
+      - Configuración: administration/settings.md
+      - Usuarios: administration/users.md
+      - Roles y permisos: administration/roles-permissions.md
+      - Módulos: administration/modules.md
+      - Festivos y calendarios: administration/holidays.md
+      - Listas, campos y valores por defecto: administration/lists-and-fields.md
+      - Traducciones: administration/translations.md
+      - Auditoría y mantenimiento: administration/audit-and-maintenance.md
