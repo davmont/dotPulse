@@ -54,6 +54,12 @@ switch ($cmd) {
 		$AppUI->setMsg('Module re-ordered', UI_MSG_OK);
 		break;
 	case 'toggle':
+		// User and System Administration stay on: turned off, they would close System Admin
+		// (and this page) to everyone.
+		if ($obj->mod_active && in_array($obj->mod_directory, array('admin', 'system'), true)) {
+			$AppUI->setMsg('This module cannot be turned off.', UI_MSG_ERROR);
+			break;
+		}
 	// just toggle the active state of the table entry
 		$obj->mod_active = 1 - $obj->mod_active;
 		$obj->store();

@@ -514,3 +514,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"A PHP ldap bővítménye nincs telepítve ezen a szerveren.", // MT
 "Updated the existing contact"=>"A meglévő kapcsolat frissítve", // MT
 "Added"=>"Hozzáadva", // MT
+"This module cannot be turned off."=>"Ez a modul nem kapcsolható ki.", // MT

@@ -508,3 +508,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"이 서버에 PHP ldap 확장이 설치되어 있지 않습니다.", // MT
 "Updated the existing contact"=>"기존 연락처 업데이트", // MT
 "Added"=>"추가", // MT
+"This module cannot be turned off."=>"이 모듈은 끌 수 없습니다.", // MT

@@ -357,6 +357,20 @@ $ownAccount = ($m == 'admin' && $a == 'viewuser' && !$dosql
 if (!$canAccess && $m != 'public' && !$ownAccount) {
 	$AppUI->redirect('m=public&a=access_denied');
 }
+// A module turned off in System Admin, Modules, is closed: its pages opened for anyone with
+// rights on it, only the menu entry and its tabs in other modules went. public, admin and
+// system can't be turned off.
+if (!in_array($m, array('public', 'admin', 'system'), true)) {
+	$q = new DBQuery;
+	$q->addTable('modules');
+	$q->addQuery('mod_active');
+	$q->addWhere('mod_directory = ' . $q->quote((string)$m));
+	$mod_active = $q->loadResult();
+	$q->clear();
+	if ($mod_active !== null && $mod_active !== false && !(int)$mod_active) {
+		$AppUI->redirect('m=public&a=access_denied');
+	}
+}
 
 if (!$suppressHeaders) {
 	// output the character set header

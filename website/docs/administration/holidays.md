@@ -192,9 +192,8 @@ goes to that calendar; you see it in these tabs too.
 Click **save**. To change or delete a day, click the pencil next to it, then
 **save** or **Delete holiday** (**Delete workday**).
 
-!!! warning "Annual days can't span the new year"
-    An **Annual** day from, say, 24 December to 2 January is never counted.
-    Enter two annual days instead: 24–31 December and 1–2 January.
+An **Annual** day can span the new year, for example 24 December to
+2 January.
 
 !!! tip
     Holidays that move every year, like Easter or a regional day set by
@@ -241,20 +240,17 @@ holidays, check the tasks that run over them.
 ## Who can change the holidays
 
 Anyone whose role lets them edit the **Holiday** module can add and delete
-calendars, holidays and workdays, and change the settings. The module joins
-the non-admin modules when it is installed, so with the default roles every
-**Project worker** can do it.
-
-To keep holidays for administrators, take the **Holiday** module away from the
-**Project worker** role (and any other role that shouldn't manage them) in
-**System Admin › Roles and permissions**, or give those roles view rights
-only. See [Roles and permissions](roles-permissions.md).
+calendars, holidays and workdays, and change the settings. The module is one
+of the admin modules, so with the default roles only the **Administrator** role
+can. To let someone else manage holidays, give their role rights on the
+**Holiday** module in **System Admin › Roles and permissions** (see
+[Roles and permissions](roles-permissions.md)).
 People don't need any right on the module for their holidays to apply to
 them.
 
 ## Upgrade from an older version
 
-The module's current version is 0.3. **System Admin › Modules** shows
+The module's current version is 0.4. **System Admin › Modules** shows
 **Upgrade available** on an older one; click **upgrade**. See
 [Upgrade a module](modules.md#upgrade-a-module).
 
@@ -266,3 +262,6 @@ The module's current version is 0.3. **System Admin › Modules** shows
 - **From 0.2**: the upgrade adds calendars. Every existing whitelist and
   blacklist day is kept and applies to **All calendars**. Until you upgrade,
   the **Calendars** tab asks you to upgrade.
+- **From 0.3**: the module moves from the non-admin to the admin modules, so
+  project workers can no longer change the holidays. If some of your roles
+  should, give them rights on the **Holiday** module after the upgrade.

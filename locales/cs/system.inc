@@ -508,3 +508,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"Rozšíření PHP ldap není na tomto serveru nainstalováno.", // MT
 "Updated the existing contact"=>"Aktualizován existující kontakt", // MT
 "Added"=>"Přidán", // MT
+"This module cannot be turned off."=>"Tento modul nelze vypnout.", // MT

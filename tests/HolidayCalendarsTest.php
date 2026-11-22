@@ -77,5 +77,18 @@ class HolidayCalendarsTest extends TestCase {
         ), holidayParseIcs($ics));
         $this->assertEquals(array(), holidayParseIcs('not a calendar'));
     }
+
+    function testAnnualDaysAcrossTheNewYear() {
+        $row = array('holiday_start_date' => '2020-12-24 00:00:00', 'holiday_end_date' => '2021-01-02 00:00:00', 'holiday_annual' => 1);
+        foreach (array('2026-12-24', '2026-12-31', '2027-01-01', '2027-01-02') as $day) {
+            $this->assert(holidayEntryCovers($row, $day), $day);
+        }
+        foreach (array('2026-12-23', '2027-01-03', '2026-07-01') as $day) {
+            $this->assert(!holidayEntryCovers($row, $day), $day);
+        }
+        $row = array('holiday_start_date' => '2020-05-01', 'holiday_end_date' => '2020-05-01', 'holiday_annual' => 1);
+        $this->assert(holidayEntryCovers($row, '2027-05-01'));
+        $this->assert(!holidayEntryCovers($row, '2027-05-02'));
+    }
 }
 ?>

@@ -282,10 +282,10 @@ Active Directory.
 | **LDAP Host** (`ldap_host`) | Name or IP address of the directory server. For an encrypted connection, write an address such as `ldaps://ldap.example.com` (add `:port` if it isn't 636: with an address like this, **LDAP Port** is not used). | `localhost` |
 | **LDAP Port** (`ldap_port`) | Port of the directory server, used when **LDAP Host** is a plain name or address. | `389` |
 | **LDAP Version** (`ldap_version`) | LDAP protocol version. Leave it at `3`. | `3` |
-| **LDAP Base DN** (`ldap_base_dn`) | Where in the directory to look for users, for example `ou=people,dc=example,dc=com`. | `dc=saki,dc=com,dc=au` (a placeholder: change it) |
+| **LDAP Base DN** (`ldap_base_dn`) | Where in the directory to look for users, for example `ou=people,dc=example,dc=com`. | empty (sites installed before 3.4 have the placeholder `dc=saki,dc=com,dc=au`: change it) |
 | **LDAP User Filter** (`ldap_user_filter`) | The search that finds a user. `%USERNAME%` is replaced by the login name typed on the login page. For Active Directory use `(sAMAccountName=%USERNAME%)`. | `(uid=%USERNAME%)` |
-| **LDAP Search User** (`ldap_search_user`) | The full DN of an account allowed to search the directory, for example `cn=dotpulse,ou=services,dc=example,dc=com`. Leave empty to search anonymously. | `Manager` (a placeholder: change it) |
-| **LDAP Search User Password** (`ldap_search_pass`) | Password of the search account. Never shown again; leave empty to keep the saved one. | `secret` (a placeholder: change it) |
+| **LDAP Search User** (`ldap_search_user`) | The full DN of an account allowed to search the directory, for example `cn=dotpulse,ou=services,dc=example,dc=com`. Leave empty to search anonymously. | empty (before 3.4: the placeholder `Manager`) |
+| **LDAP Search User Password** (`ldap_search_pass`) | Password of the search account. Never shown again; leave empty to keep the saved one. | empty (before 3.4: the placeholder `secret`) |
 | **LDAP also allows standard login** (`ldap_allow_login`) | When on, the password stored in dotPulse is tried first, and the directory only if it fails. When off, only the directory counts. | On |
 
 ### How LDAP login works

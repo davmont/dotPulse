@@ -508,3 +508,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"PHP paplašinājums ldap šajā serverī nav instalēts.", // MT
 "Updated the existing contact"=>"Atjaunināta esošā kontaktpersona", // MT
 "Added"=>"Pievienots", // MT
+"This module cannot be turned off."=>"Šo moduli nevar izslēgt.", // MT

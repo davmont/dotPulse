@@ -514,3 +514,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"Phần mở rộng ldap của PHP chưa được cài đặt trên máy chủ này.", // MT
 "Updated the existing contact"=>"Đã cập nhật liên hệ hiện có", // MT
 "Added"=>"Đã thêm", // MT
+"This module cannot be turned off."=>"Không thể tắt mô-đun này.", // MT

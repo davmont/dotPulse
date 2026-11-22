@@ -508,3 +508,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"Razširitev PHP ldap na tem strežniku ni nameščena.", // MT
 "Updated the existing contact"=>"Posodobljen obstoječi stik", // MT
 "Added"=>"Dodan", // MT
+"This module cannot be turned off."=>"Tega modula ni mogoče izklopiti.", // MT

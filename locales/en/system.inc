@@ -547,3 +547,4 @@ There are mouseover-tooltips and (?)-information popups with each of the fields 
 "Updated the existing contact"=>"Updated the existing contact",
 "Added"=>"Added",
 "Import Contacts"=>"Import Contacts",
+"This module cannot be turned off."=>"This module cannot be turned off.",

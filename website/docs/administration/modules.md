@@ -54,7 +54,8 @@ Document Management start **visible**):
 dotPulse's roles give rights on two groups of modules: the **admin modules**
 (User Administration, System Administration, roles and users) and the
 **non-admin modules** (everything else). A newly installed module joins the
-**non-admin modules**, so every role that has rights on the non-admin modules
+**non-admin modules** (the holiday module, an administration tool, joins the
+admin modules), so every role that has rights on the non-admin modules
 gets the same rights on it at once. With the roles of a new installation:
 
 - **Administrator** can do everything in it;
@@ -64,13 +65,6 @@ gets the same rights on it at once. With the roles of a new installation:
 If a module should be limited to some people, change its permissions in each
 role after installing it. See [Roles and permissions](roles-permissions.md).
 
-!!! warning "Holidays are editable by project workers"
-    The holiday module is an administration tool, but it joins the non-admin
-    modules like any other add-on: with the default roles, every project
-    worker can add and delete holiday calendars and change its settings. Take
-    the holiday module away from the roles that should not manage holidays.
-    See [Holidays and calendars](holidays.md#who-can-change-the-holidays).
-
 ## Turn a module on or off
 
 Click **Turn off** to disable a module, and **Turn on** to enable it again.
@@ -79,10 +73,10 @@ menu, its tabs disappear from other modules' pages, and the features other
 modules take from it stop: for example, when the holiday module is off, task
 dates ignore the holidays.
 
-!!! warning "Turning off does not lock a module"
-    The pages of a turned-off module still open for anyone who has the address
-    and the permission. To keep people out of a module, take it away from
-    their roles (see [Roles and permissions](roles-permissions.md)).
+The pages of a turned-off module are closed: opening one says **Access
+Denied**, whatever the person's roles. **User Administration** and **System
+Administration** can't be turned off, so System Admin always stays open to
+administrators.
 
 ## Show or hide a module in the menu
 

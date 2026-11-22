@@ -514,3 +514,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"このサーバーには PHP の ldap 拡張モジュールがインストールされていません。", // MT
 "Updated the existing contact"=>"既存の連絡先を更新", // MT
 "Added"=>"追加", // MT
+"This module cannot be turned off."=>"このモジュールは無効にできません。", // MT

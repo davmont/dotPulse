@@ -44,7 +44,7 @@ while ($row = db_fetch_assoc( $prc )) {
 	<td><?php echo dPhtml($row["holiday_description"])?></td>
 	<td width="100" nowrap="nowrap"><?php echo $tmp_start_date->format($AppUI->getPref('SHDATEFORMAT'))?></td>
 	<td width="100" nowrap="nowrap"><?php echo $tmp_end_date->format($AppUI->getPref('SHDATEFORMAT'))?></td>
-	<td width="100" nowrap="nowrap"><?php echo $row["holiday_annual"] ? 'Yes' : 'No'; ?></td>
+	<td width="100" nowrap="nowrap"><?php echo $AppUI->_($row["holiday_annual"] ? 'Yes' : 'No'); ?></td>
 <?php if ($calendars) { ?>	<td nowrap="nowrap"><?php echo isset($calendars[$row['holiday_calendar']]) ? dPhtml($calendars[$row['holiday_calendar']]['calendar_name']) : $AppUI->_('All calendars'); ?></td><?php } ?>
 </tr>
 <?php
