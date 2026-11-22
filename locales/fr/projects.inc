@@ -366,3 +366,9 @@
 "Calculated from the task costs"=>"Calculé à partir des coûts des tâches", // MT
 "projectDeleteTasks"=>"Toutes les tâches de ce projet et leurs journaux seront également supprimés.", // MT
 "projectLogsLimit"=>"Seuls les 500 journaux de tâches les plus anciens sont affichés, et le total des heures ne compte que ceux-ci. Utilisez les filtres ci-dessus pour affiner la liste.", // MT
+"Date Filter"=>"Filter par Date",
+"Quick Date Filter"=>"Filtrage rapide",
+"submit custom date"=>"valider la date personnalisée", // MT
+"Show Additional Gantt Options"=>"Montrer les options du Gantt",
+"Sort by Name"=>"Classer par nom",
+"Hide Milestones"=>"Cacher les jalons",

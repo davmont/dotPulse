@@ -320,3 +320,9 @@
 "Calculated from the task costs"=>"Beräknat utifrån aktiviteternas kostnader", // MT
 "projectDeleteTasks"=>"Alla uppgifter i detta projekt och deras uppgiftsloggar raderas också.", // MT
 "projectLogsLimit"=>"Endast de 500 äldsta uppgiftsloggarna visas, och Totalt antal timmar räknar bara dem. Använd filtren ovan för att begränsa listan.", // MT
+"Date Filter"=>"Datumfilter", // MT
+"Quick Date Filter"=>"Snabbt datumfilter", // MT
+"submit custom date"=>"skicka anpassat datum", // MT
+"Show Additional Gantt Options"=>"Visa fler Gantt-alternativ", // MT
+"Sort by Name"=>"Sortera efter namn", // MT
+"Hide Milestones"=>"Dölj milstolpar", // MT

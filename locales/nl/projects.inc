@@ -320,3 +320,9 @@
 "Calculated from the task costs"=>"Berekend uit de taakkosten", // MT
 "projectDeleteTasks"=>"Alle taken van dit project en hun taaklogboeken worden ook verwijderd.", // MT
 "projectLogsLimit"=>"Alleen de 500 oudste taaklogboeken worden getoond en het totaal aantal uren telt alleen die. Gebruik de filters hierboven om de lijst te beperken.", // MT
+"Date Filter"=>"Datumfilter", // MT
+"Quick Date Filter"=>"Snel datumfilter", // MT
+"submit custom date"=>"aangepaste datum verzenden", // MT
+"Show Additional Gantt Options"=>"Extra Gantt-opties tonen", // MT
+"Sort by Name"=>"Sorteren op naam", // MT
+"Hide Milestones"=>"Mijlpalen verbergen", // MT

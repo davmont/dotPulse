@@ -320,3 +320,9 @@
 "Calculated from the task costs"=>"Görev maliyetlerinden hesaplanır", // MT
 "projectDeleteTasks"=>"Bu projenin tüm görevleri ve görev kayıtları da silinecek.", // MT
 "projectLogsLimit"=>"Yalnızca en eski 500 görev kaydı gösterilir ve Toplam Saat yalnızca bunları sayar. Listeyi daraltmak için yukarıdaki filtreleri kullanın.", // MT
+"Date Filter"=>"Tarih Filtresi", // MT
+"Quick Date Filter"=>"Hızlı Tarih Filtresi", // MT
+"submit custom date"=>"özel tarihi gönder", // MT
+"Show Additional Gantt Options"=>"Ek Gantt Seçeneklerini Göster", // MT
+"Sort by Name"=>"İsme Göre Sırala", // MT
+"Hide Milestones"=>"Kilometre Taşlarını Gizle", // MT

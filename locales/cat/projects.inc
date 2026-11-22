@@ -325,3 +325,9 @@
 "Calculated from the task costs"=>"Calculat a partir dels costos de les tasques", // MT
 "projectDeleteTasks"=>"També s'eliminaran totes les tasques d'aquest projecte i els seus registres de tasques.", // MT
 "projectLogsLimit"=>"Només es mostren els 500 registres de tasques més antics, i el total d'hores només compta aquests. Feu servir els filtres de dalt per acotar la llista.", // MT
+"Date Filter"=>"Filtre de dates", // MT
+"Quick Date Filter"=>"Filtre ràpid de dates", // MT
+"submit custom date"=>"enviar data personalitzada", // MT
+"Show Additional Gantt Options"=>"Mostrar les opcions addicionals del Gantt", // MT
+"Sort by Name"=>"Ordenar per nom", // MT
+"Hide Milestones"=>"Amagar les fites", // MT

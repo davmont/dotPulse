@@ -320,3 +320,9 @@
 "Calculated from the task costs"=>"Tính từ chi phí của các nhiệm vụ", // MT
 "projectDeleteTasks"=>"Tất cả công việc của dự án này và nhật ký của chúng cũng sẽ bị xóa.", // MT
 "projectLogsLimit"=>"Chỉ hiển thị 500 nhật ký công việc cũ nhất và Tổng số giờ chỉ tính những nhật ký đó. Dùng bộ lọc ở trên để thu hẹp danh sách.", // MT
+"Date Filter"=>"Lọc theo ngày", // MT
+"Quick Date Filter"=>"Lọc nhanh theo ngày", // MT
+"submit custom date"=>"áp dụng ngày tuỳ chỉnh", // MT
+"Show Additional Gantt Options"=>"Hiện tuỳ chọn Gantt bổ sung", // MT
+"Sort by Name"=>"Sắp xếp theo tên", // MT
+"Hide Milestones"=>"Ẩn mốc", // MT

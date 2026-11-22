@@ -111,3 +111,4 @@
 "previous week"=>"előző hét", // MT
 "next week"=>"következő hét", // MT
 "Holiday"=>"Ünnepnap", // MT
+"A holiday"=>"Ünnepnap", // MT

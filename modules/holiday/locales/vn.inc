@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"Nhập ngày nghỉ từ tệp iCalendar (.ics), như các chính quyền vùng, địa phương và ứng dụng lịch công bố", // MT
 "Import"=>"Nhập", // MT
 "Are you sure you want to cancel?"=>"Bạn có chắc chắn muốn huỷ?", // MT
+"A holiday"=>"Ngày nghỉ", // MT

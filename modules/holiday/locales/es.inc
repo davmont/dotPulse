@@ -96,7 +96,7 @@
 "A user has the calendar given to them, else their department's (or a parent department's), else their company's, from their contact. The others have the default holidays."=>"Un usuario tiene el calendario que se le asigne; si no, el de su departamento (o de un departamento superior) y, si no, el de su empresa, según su contacto. Los demás tienen los festivos por defecto.",
 "Days of this calendar"=>"Días de este calendario",
 "Type"=>"Tipo",
-"Holiday"=>"Festivo",
+"Holiday"=>"Festivos",
 "Working day"=>"Día laborable",
 "Yes"=>"Sí",
 "No"=>"No",
@@ -110,3 +110,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"Importe los festivos de un archivo iCalendar (.ics), como los publican las comunidades autónomas, los ayuntamientos y las aplicaciones de calendario",
 "Import"=>"Importar",
 "Are you sure you want to cancel?"=>"¿Seguro que desea cancelar?",
+"A holiday"=>"Festivo",

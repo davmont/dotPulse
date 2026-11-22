@@ -321,3 +321,9 @@
 "Calculated from the task costs"=>"タスクの費用から算出", // MT
 "projectDeleteTasks"=>"このプロジェクトのすべてのタスクとそのタスクログも削除されます。", // MT
 "projectLogsLimit"=>"最も古い 500 件のタスクログのみ表示され、合計時間もそれらだけを数えます。上のフィルターで一覧を絞り込んでください。", // MT
+"Date Filter"=>"日付フィルタ", // MT
+"Quick Date Filter"=>"クイック日付フィルタ", // MT
+"submit custom date"=>"指定した日付を適用", // MT
+"Show Additional Gantt Options"=>"ガントの追加オプションを表示", // MT
+"Sort by Name"=>"名前順に並べ替え", // MT
+"Hide Milestones"=>"マイルストーンを非表示", // MT

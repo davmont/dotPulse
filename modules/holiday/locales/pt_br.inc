@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"Importar os feriados de um arquivo iCalendar (.ics), como os publicados por governos regionais e locais e por aplicativos de calendário", // MT
 "Import"=>"Importar", // MT
 "Are you sure you want to cancel?"=>"Tem certeza de que deseja cancelar?", // MT
+"A holiday"=>"Feriado", // MT

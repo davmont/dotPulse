@@ -1060,7 +1060,7 @@ function dPcalendarHolidays($from, $to)
 		$cache[$key] = array();
 		$days = holidayDays(CDate::holidayCalendarForUser($AppUI->user_id), $from, $to);
 		foreach ($days as $date => $name) {
-			$cache[$key][str_replace('-', '', $date)] = ($name !== '') ? $name : $AppUI->_('Holiday');
+			$cache[$key][str_replace('-', '', $date)] = ($name !== '') ? $name : $AppUI->_('A holiday'); // one day ("Holiday" is the module's name, in the menu)
 		}
 	}
 	return $cache[$key];

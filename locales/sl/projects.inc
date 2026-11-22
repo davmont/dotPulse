@@ -322,3 +322,9 @@
 "Calculated from the task costs"=>"Izračunano iz stroškov opravil", // MT
 "projectDeleteTasks"=>"Izbrisana bodo tudi vsa opravila tega projekta in njihovi dnevniki.", // MT
 "projectLogsLimit"=>"Prikazanih je le 500 najstarejših dnevnikov opravil in skupne ure štejejo samo te. Seznam zožite s filtri zgoraj.", // MT
+"Date Filter"=>"Filter datumov", // MT
+"Quick Date Filter"=>"Hitri filter datumov", // MT
+"submit custom date"=>"uporabi datum po meri", // MT
+"Show Additional Gantt Options"=>"Prikaži dodatne možnosti Gantt", // MT
+"Sort by Name"=>"Razvrsti po imenu", // MT
+"Hide Milestones"=>"Skrij mejnike", // MT

@@ -111,3 +111,4 @@
 "previous week",
 "next week",
 "Holiday",
+"A holiday"=>"Holiday",

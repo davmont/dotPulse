@@ -111,3 +111,4 @@
 "previous week"=>"önceki hafta", // MT
 "next week"=>"sonraki hafta", // MT
 "Holiday"=>"Tatil", // MT
+"A holiday"=>"Tatil", // MT

@@ -111,3 +111,4 @@
 "previous week"=>"předchozí týden", // MT
 "next week"=>"další týden", // MT
 "Holiday"=>"Svátek", // MT
+"A holiday"=>"Svátek", // MT

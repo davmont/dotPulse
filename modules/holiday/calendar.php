@@ -326,7 +326,7 @@ foreach ($days as $row) {
 	echo '<td>' . dPhtml($row['holiday_description']) . '</td>';
 	echo '<td nowrap="nowrap">' . $start->format($df) . '</td><td nowrap="nowrap">' . $end->format($df) . '</td>';
 	echo '<td>' . $AppUI->_($row['holiday_annual'] ? 'Yes' : 'No') . '</td>';
-	echo '<td>' . $AppUI->_($row['holiday_white'] ? 'Holiday' : 'Working day') . '</td></tr>';
+	echo '<td>' . $AppUI->_($row['holiday_white'] ? 'A holiday' : 'Working day') . '</td></tr>';
 }
 if (!$days) {
 	echo '<tr><td colspan="6">' . $AppUI->_('None yet: add the regional and local holidays of this workplace.') . '</td></tr>';

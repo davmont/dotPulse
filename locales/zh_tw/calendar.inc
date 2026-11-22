@@ -111,3 +111,4 @@
 "previous week"=>"上一週", // MT
 "next week"=>"下一週", // MT
 "Holiday"=>"假日", // MT
+"A holiday"=>"假日", // MT

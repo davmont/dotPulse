@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"지방 정부나 캘린더 앱에서 게시하는 iCalendar (.ics) 파일의 휴일을 가져옵니다", // MT
 "Import"=>"가져오기", // MT
 "Are you sure you want to cancel?"=>"취소하시겠습니까?", // MT
+"A holiday"=>"휴일", // MT

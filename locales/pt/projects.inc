@@ -386,3 +386,9 @@
 "Calculated from the task costs"=>"Calculado a partir dos custos das tarefas", // MT
 "projectDeleteTasks"=>"Todas as tarefas deste projeto e os respetivos registos também serão eliminados.", // MT
 "projectLogsLimit"=>"Só são mostrados os 500 registos de tarefas mais antigos, e o total de horas conta apenas esses. Use os filtros acima para restringir a lista.", // MT
+"Date Filter"=>"Filtro de Data", // MT
+"Quick Date Filter"=>"Filtro Rápido de Data", // MT
+"submit custom date"=>"submeter data personalizada", // MT
+"Show Additional Gantt Options"=>"Mostrar Opções Adicionais do Gantt", // MT
+"Sort by Name"=>"Ordenar por Nome", // MT
+"Hide Milestones"=>"Ocultar Pontos de Controlo", // MT

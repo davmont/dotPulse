@@ -19,7 +19,7 @@
 "No active projects."=>"No hay proyectos activos.",
 "No events in the next 7 days."=>"No hay eventos en los próximos 7 días.",
 "No finish date"=>"Sin fecha de fin",
-"No open tasks assigned to you."=>"No tienes tareas abiertas asignadas.",
+"No open tasks assigned to you."=>"No tiene tareas abiertas asignadas.",
 "Nothing overdue."=>"Nada atrasado.",
 "Open tasks"=>"Tareas abiertas",
 "Overdue"=>"Atrasadas",

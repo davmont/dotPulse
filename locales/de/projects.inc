@@ -321,3 +321,9 @@
 "Calculated from the task costs"=>"Aus den Aufgabenkosten berechnet", // MT
 "projectDeleteTasks"=>"Alle Aufgaben dieses Projekts und ihre Aufgabenprotokolle werden ebenfalls gelöscht.", // MT
 "projectLogsLimit"=>"Nur die 500 ältesten Aufgabenprotokolle werden angezeigt, und die Gesamtstunden zählen nur diese. Grenzen Sie die Liste mit den Filtern oben ein.", // MT
+"Date Filter"=>"Datumsfilter", // MT
+"Quick Date Filter"=>"Schneller Datumsfilter", // MT
+"submit custom date"=>"benutzerdefiniertes Datum absenden", // MT
+"Show Additional Gantt Options"=>"Zusätzliche Gantt-Optionen anzeigen", // MT
+"Sort by Name"=>"Nach Name sortieren", // MT
+"Hide Milestones"=>"Meilensteine ausblenden", // MT

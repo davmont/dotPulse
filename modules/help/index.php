@@ -41,7 +41,7 @@ $titleBlock->show();
 				}
 			}
 			// A section's own page ("Getting started") is its overview.
-			$title = ($section !== '' && $info['title'] === $section) ? $AppUI->_('Overview') : $info['title'];
+			$title = ($section !== '' && $info['title'] === $section) ? $AppUI->_('Overview', UI_OUTPUT_RAW) : $info['title']; // escaped below
 			$current = $name === $page ? ' class="dp-help-current" aria-current="page"' : '';
 			echo '<li><a href="' . htmlspecialchars(CHelp::url($name)) . '"' . $current . '>'
 				. htmlspecialchars($title) . '</a></li>';

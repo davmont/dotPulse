@@ -320,3 +320,9 @@
 "Calculated from the task costs"=>"Beregnet ud fra opgavernes omkostninger", // MT
 "projectDeleteTasks"=>"Alle projektets opgaver og deres opgavelogge bliver også slettet.", // MT
 "projectLogsLimit"=>"Kun de 500 ældste opgavelogge vises, og Timer i alt tæller kun dem. Brug filtrene ovenfor til at indsnævre listen.", // MT
+"Date Filter"=>"Datofilter", // MT
+"Quick Date Filter"=>"Hurtigt datofilter", // MT
+"submit custom date"=>"anvend brugerdefineret dato", // MT
+"Show Additional Gantt Options"=>"Vis flere Gantt-indstillinger", // MT
+"Sort by Name"=>"Sortér efter navn", // MT
+"Hide Milestones"=>"Skjul milepæle", // MT

@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"地方自治体やカレンダーアプリが公開している iCalendar (.ics) ファイルから休日をインポートします", // MT
 "Import"=>"インポート", // MT
 "Are you sure you want to cancel?"=>"キャンセルしてもよろしいですか?", // MT
+"A holiday"=>"休日", // MT

@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"Ünnepnapok importálása iCalendar (.ics) fájlból, ahogy a regionális és helyi önkormányzatok és a naptáralkalmazások közzéteszik őket", // MT
 "Import"=>"Importálás", // MT
 "Are you sure you want to cancel?"=>"Biztosan megszakítja?", // MT
+"A holiday"=>"Ünnepnap", // MT
