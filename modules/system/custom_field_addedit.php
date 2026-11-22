@@ -277,8 +277,8 @@ foreach ($select_items as $itm) {
 	</div>
 	</td></tr>
 	<tr><td colspan="2" align="right">
-		<input type="button" value="Cancel"<?php echo dPaction(null, array(), null, array('href' => '?m=system&a=custom_field_editor')); ?> />
-		<input type="button" value="Save"<?php echo dPaction('postCustomField'); ?> />
+		<input type="button" value="<?php echo $AppUI->_('Cancel'); ?>"<?php echo dPaction(null, array(), null, array('href' => '?m=system&a=custom_field_editor')); ?> />
+		<input type="button" value="<?php echo $AppUI->_('Save'); ?>"<?php echo dPaction('postCustomField'); ?> />
 	</td></tr>
 	</form>
 </table>

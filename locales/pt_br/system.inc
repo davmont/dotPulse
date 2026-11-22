@@ -503,3 +503,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"Excluir", // MT
 "ldap_search_pass_tooltip"=>"A senha do Usuário de Pesquisa LDAP. Deixe em branco para manter a senha salva.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"escreva um número de segundos (no mínimo 60), ou um número seguido de h, d, m (30 dias) ou y", // MT
+"Delete this billing code?"=>"Excluir este código de faturamento?", // MT
+"A billing code with this name already exists for this company."=>"Já existe um código de faturamento com este nome para esta empresa.", // MT
+"The PHP ldap extension is not installed on this server."=>"A extensão ldap do PHP não está instalada neste servidor.", // MT
+"Updated the existing contact"=>"Atualizado o contato existente", // MT
+"Added"=>"Adicionado", // MT

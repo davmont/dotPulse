@@ -537,3 +537,8 @@
 "Delete"=>"Borrar",
 "mantis_group_title"=>"Integración con Mantis",
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"escriba un número de segundos (60 como mínimo), o un número seguido de h, d, m (30 días) o y",
+"Delete this billing code?"=>"¿Borrar este código de facturación?",
+"A billing code with this name already exists for this company."=>"Ya existe un código de facturación con este nombre para esta empresa.",
+"The PHP ldap extension is not installed on this server."=>"La extensión ldap de PHP no está instalada en este servidor.",
+"Updated the existing contact"=>"Actualizado el contacto existente",
+"Added"=>"Añadido",

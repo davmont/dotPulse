@@ -379,3 +379,4 @@
 "Documentation under the CC BY-SA 4.0 licence."=>"Dokumentacja na licencji CC BY-SA 4.0.", // MT
 "- choose a module -"=>"- wybierz moduł -", // MT
 "choose a module"=>"wybierz moduł", // MT
+"main texts"=>"teksty główne", // MT

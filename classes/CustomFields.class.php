@@ -217,7 +217,7 @@ class CustomFieldCheckBox extends CustomField
 				break;
 			case 'view':
 				$html .= ($this->fieldDescriptionHTML() . ': </td><td class="hilite" width="100%">'
-					. (($this->intValue()) ? 'Yes' : 'No'));
+					. $GLOBALS['AppUI']->_(($this->intValue()) ? 'Yes' : 'No'));
 				break;
 		}
 		$html .= '</td>';
@@ -838,6 +838,16 @@ class CustomFields
 			$q->clear();
 			return $db->ErrorMsg();
 		}
+		$q->clear();
+		// Its values and the options of a select list go with it (they were left behind).
+		$q->setDelete('custom_fields_values');
+		$q->addWhere('value_field_id = ' . (int)$field_id);
+		$q->exec();
+		$q->clear();
+		$q->setDelete('custom_fields_lists');
+		$q->addWhere('field_id = ' . (int)$field_id);
+		$q->exec();
+		$q->clear();
 	}
 
 	function count()
@@ -954,7 +964,7 @@ class CustomOptionList
 			$q->addTable('custom_fields_lists');
 			$q->addInsert('field_id', $this->field_id);
 			$q->addInsert('list_option_id', $optid);
-			$q->addInsert('list_value', db_escape($opt));
+			$q->addInsert('list_value', $opt); // addInsert escapes: db_escape() stored O\'Neil
 
 			if (!$q->exec()) {
 				$insert_error = $db->ErrorMsg();
@@ -1008,7 +1018,7 @@ class CustomOptionList
 	{
 		$html = '<select name="' . $field_name . '">' . "\n";
 		foreach ($this->options as $i => $opt) {
-			$html .= ("\t" . '<option value=' . $i . '"'
+			$html .= ("\t" . '<option value="' . (int)$i . '"'
 				. (($i == $selected) ? ' selected="selected"' : '') . '>'
 				. htmlspecialchars($opt) . '</option>');
 		}

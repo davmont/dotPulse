@@ -19,8 +19,8 @@ $lang = dPgetCleanParam($_POST, 'lang', $AppUI->user_locale);
 
 // module and lang become part of the file name: accept only the modules and languages
 // translate.php offers.
-$modules = arrayMerge($AppUI->readDirs('modules'), array('common' => 'common', 'styles' => 'styles'));
-if (!isset($modules[$module]) || !in_array($lang, $AppUI->readDirs('locales'), true)) {
+$modules = dPtranslationModules();
+if (!is_string($module) || !isset($modules[$module]) || !in_array($lang, $AppUI->readDirs('locales'), true)) {
 	$AppUI->setMsg('Invalid module or language.', UI_MSG_ERROR);
 	$AppUI->redirect('m=system');
 }

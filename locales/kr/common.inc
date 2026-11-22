@@ -382,3 +382,4 @@
 "Documentation under the CC BY-SA 4.0 licence."=>"문서는 CC BY-SA 4.0 라이선스를 따릅니다.", // MT
 "- choose a module -"=>"- 모듈 선택 -", // MT
 "choose a module"=>"모듈을 선택하십시오", // MT
+"main texts"=>"주요 텍스트", // MT

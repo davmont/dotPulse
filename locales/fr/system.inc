@@ -497,3 +497,8 @@
 "Delete"=>"Supprimer", // MT
 "ldap_search_pass_tooltip"=>"Le mot de passe de Recherche Utilisateur LDAP. Laissez-le vide pour conserver celui enregistré.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"saisissez un nombre de secondes (au moins 60), ou un nombre suivi de h, d, m (30 jours) ou y", // MT
+"Delete this billing code?"=>"Supprimer ce code de facturation ?", // MT
+"A billing code with this name already exists for this company."=>"Un code de facturation portant ce nom existe déjà pour ce pôle.", // MT
+"The PHP ldap extension is not installed on this server."=>"L'extension PHP ldap n'est pas installée sur ce serveur.", // MT
+"Updated the existing contact"=>"Contact existant mis à jour", // MT
+"Added"=>"Ajouté", // MT

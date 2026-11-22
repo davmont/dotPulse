@@ -503,3 +503,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"삭제", // MT
 "ldap_search_pass_tooltip"=>"LDAP 검색 사용자의 비밀번호입니다. 저장된 비밀번호를 유지하려면 비워 두십시오.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"초 단위 숫자(최소 60)나 숫자 뒤에 h, d, m(30일) 또는 y를 붙여 입력하십시오", // MT
+"Delete this billing code?"=>"이 청구 코드를 삭제하시겠습니까?", // MT
+"A billing code with this name already exists for this company."=>"이 회사에 같은 이름의 청구 코드가 이미 있습니다.", // MT
+"The PHP ldap extension is not installed on this server."=>"이 서버에 PHP ldap 확장이 설치되어 있지 않습니다.", // MT
+"Updated the existing contact"=>"기존 연락처 업데이트", // MT
+"Added"=>"추가", // MT

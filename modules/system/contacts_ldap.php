@@ -82,11 +82,11 @@ $proto = $AppUI->getState('LDAPProto', '3');
 <table border="0" cellpadding="2" cellspacing="1" width="600" class="std">
 	<tr>
 		<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Server'); ?>:</td>
-		<td><input type="text" name="server" value="<?php echo $server; ?>" size="50" /></td>
+		<td><input type="text" name="server" value="<?php echo dPhtml($server); ?>" size="50" /></td>
 	</tr>
 	<tr>
 		<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Port'); ?>:</td>
-		<td><input type="text" name="port" value="<?php echo $port; ?>" size="4" /></td>
+		<td><input type="text" name="port" value="<?php echo dPhtml($port); ?>" size="4" /></td>
 	</tr>
 	<tr>
 		<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Protocol'); ?>:</td>
@@ -104,44 +104,77 @@ echo ' />';
 	</tr>
 	<tr>
 		<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Bind Name'); ?>:</td>
-		<td><input type="text" name="bind_name" value="<?php echo $bind_name; ?>" size="50" /></td>
+		<td><input type="text" name="bind_name" value="<?php echo dPhtml($bind_name); ?>" size="50" /></td>
 	</tr>
 	<tr>
 		<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Bind Password'); ?>:</td>
-		<td><input type="password" name="bind_password" value="<?php echo $bind_password; ?>" size="25" /></td>
+		<td><input type="password" name="bind_password" value="" size="25" autocomplete="new-password" /></td>
 	</tr>
 	<tr>
 		<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Base DN'); ?>:</td>
-		<td><input type="text" name="dn" value="<?php echo $dn; ?>" size="100" /></td>
+		<td><input type="text" name="dn" value="<?php echo dPhtml($dn); ?>" size="100" /></td>
 	</tr>
 	<tr>
 		<td align="right" nowrap="nowrap"><?php echo $AppUI->_('Filter'); ?>:</td>
-		<td><input type="text" name="filter" value="<?php echo $filter; ?>" size="100" /></td>
+		<td><input type="text" name="filter" value="<?php echo dPhtml($filter); ?>" size="100" /></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="right"><input type="submit" name="test" value="<?php 
 echo $AppUI->_('Test Connection and Query'); ?>" /><input type="submit" name="import" value="<?php 
-echo $AppUI->_('Import Users'); ?>" /></td>
+echo $AppUI->_('Import Contacts'); ?>" /></td>
 	</tr>
 </table>
 </form>
+<?php
+/** The id of the company with this name ('' when there is none). */
+function ldapContactCompany($name)
+{
+	if ((string)$name === '') {
+		return '';
+	}
+	$q = new DBQuery;
+	$q->addTable('companies');
+	$q->addQuery('company_id');
+	$q->addWhere('company_name = ' . $q->quote((string)$name));
+	$id = (int)$q->loadResult();
+	return $id ? (string)$id : '';
+}
+
+/** The id of the department of that company with this name ('' when there is none). */
+function ldapContactDepartment($company_id, $name)
+{
+	if ((string)$name === '' || !$company_id) {
+		return '';
+	}
+	$q = new DBQuery;
+	$q->addTable('departments');
+	$q->addQuery('dept_id');
+	$q->addWhere('dept_company = ' . (int)$company_id);
+	$q->addWhere('dept_name = ' . $q->quote((string)$name));
+	$id = (int)$q->loadResult();
+	return $id ? (string)$id : '';
+}
+?>
 <pre>
 <?php
 echo '<b>';
 if (isset($test)) {
-	echo $test;
+	echo dPhtml($test);
 }
 if (isset($import)) {
-	echo $import;
+	echo dPhtml($import);
 }
 echo "</b></pre>\n<hr />";
-if (isset($test) || isset($import)) {
+if ((isset($test) || isset($import)) && !function_exists('ldap_connect')) {
+	// Without the extension the calls below were a fatal error (an error page).
+	echo '<p><span style="color:red;font-weight:bold;">' . $AppUI->_('The PHP ldap extension is not installed on this server.') . '</span></p>';
+} else if (isset($test) || isset($import)) {
 
 	$ds = @ldap_connect($server, $port);
 
 	if (!$ds) {
 	    if (function_exists('ldap_error')) {
-		print ldap_error($ds)."\n"; 
+		print dPhtml(ldap_error($ds))."\n"; 
 	    } else {
 		print '<span style="color:red;font-weight:bold;">ldap_connect failed.</span>' . "\n";
 	    }
@@ -154,7 +187,7 @@ if (isset($test) || isset($import)) {
 	if (!@ldap_bind($ds,$bind_name,$bind_password)) {
 	    print '<span style="color:red;font-weight:bold;">ldap_bind failed.</span>' . "\n";
 	    if (function_exists('ldap_error')) {
-		print ldap_error($ds)."\n"; 
+		print dPhtml(ldap_error($ds))."\n"; 
 	    }
 	} else {
 		print "ldap_bind successful.\n";
@@ -165,15 +198,15 @@ if (isset($test) || isset($import)) {
 		$return_types[] = $ldap;
 	}
 
-print 'basedn: '.$dn.'<br />';
-print 'expression: '.$filter.'<br />';
+print 'basedn: ' . dPhtml($dn) . '<br />';
+print 'expression: ' . dPhtml($filter) . '<br />';
 
 	$sr = @ldap_search($ds,$dn,$filter,$return_types);
 	
 	if ($sr) {
 		print "Search completed Sucessfully.\n";
 	} else {
-		print 'Search Error: ['.ldap_errno($ds).'] '.ldap_error($ds)."\n";
+		print 'Search Error: ['.ldap_errno($ds).'] '.dPhtml(ldap_error($ds))."\n";
 	}
 
 
@@ -221,7 +254,7 @@ print 'expression: '.$filter.'<br />';
 					$pairs[$sql_name] = $val;
 					if (isset($test)) {
 					?>
-						<td><?php echo $val?></td>
+						<td><?php echo dPhtml($val); ?></td>
 					<?php
 					}
 				} else {
@@ -232,21 +265,24 @@ print 'expression: '.$filter.'<br />';
 			}
 
 			if (isset($import)) {
+				// contact_company and contact_department hold ids: the directory gives names.
+				$pairs['contact_company'] = ldapContactCompany($pairs['contact_company'] ?? '');
+				$pairs['contact_department'] = $pairs['contact_company'] !== ''
+					? ldapContactDepartment((int)$pairs['contact_company'], $pairs['contact_department'] ?? '') : '';
 				$pairs['contact_order_by'] = $pairs['contact_last_name'].' '.$pairs['contact_first_name'];
 				//Check to see if this value already exists.
 				if (isset($contact_list[$pairs['contact_first_name'].' '.$pairs['contact_last_name']])) {
 					//if it does, remove the old one.
 					$pairs['contact_id'] = $contact_list[$pairs['contact_first_name'].' '.$pairs['contact_last_name']];
 					db_updateArray($sql_table, $pairs, 'contact_id');
-					echo ('<td><span style="color:#880000;">There is a duplicate record for ' 
-						  . $pairs['contact_first_name'] .' ' .$pairs['contact_last_name'] 
-						  . ", the record has been updated.</span></td>\n");
+					echo ('<td><span style="color:#880000;">' . $AppUI->_('Updated the existing contact') . ' '
+						  . dPhtml($pairs['contact_first_name'] . ' ' . $pairs['contact_last_name']) . "</span></td>\n");
 				} else {
-					echo '<td>Adding '.$pairs['contact_first_name'].' '.$pairs['contact_last_name'].".</td>\n";
+					echo '<td>' . $AppUI->_('Added') . ' ' . dPhtml($pairs['contact_first_name'] . ' ' . $pairs['contact_last_name']) . "</td>\n";
 					db_insertArray($sql_table,$pairs);
 				}
 			}
-			print '</tr>\n';
+			print "</tr>\n";
 
 	/*
 			for ($ii=0; $ii<$info[$i]['count']; $ii++) {

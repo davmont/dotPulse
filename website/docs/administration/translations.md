@@ -53,13 +53,12 @@ shows:
 
 Changes show from the next page you open.
 
-!!! warning "Some module texts can't be edited here"
+!!! note "Modules with two files"
     A module that ships its own translations folder
-    (`modules/<module>/locales/`) is edited there, and only there. Its other
-    texts, in `locales/<language>/<module>.inc`, don't appear on the page. For
-    example, choosing **projects** shows the few texts of
-    `modules/projects/locales/`, not the main texts of the Projects module.
-    To change those, edit the file by hand (see
+    (`modules/<module>/locales/`) has two entries in the **Module** list. For
+    example, **projects** opens the few texts of `modules/projects/locales/`,
+    and **projects (main texts)** the main texts of the Projects module, in
+    `locales/<language>/projects.inc` (see
     [Where the files are](#where-the-files-are)).
 
 ### Edit the English texts

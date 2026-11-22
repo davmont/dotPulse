@@ -168,18 +168,11 @@ entered.
       thing happens.
     - Changing the **Field Display Type** of a field that already has values
       can make them unreadable: a text value doesn't fit a select list.
-    - Avoid apostrophes in the options of a **Select List**: they are saved
-      with a backslash in front (`O\'Neil`).
 
 ### Delete a custom field
 
-The **Delete** link next to a field doesn't work in this version: it shows
-**Module ID is invalid** and keeps the field. Until this is fixed, the field
-can only be removed from the database (its row in the `custom_fields_struct`
-table).
-
-When a field is deleted, the values entered in it stay in the database but
-nothing shows them any more.
+Click **Delete** next to the field. The field goes, with the values entered in
+it and the options of a select list. There is no undo.
 
 ## Billing codes
 
@@ -213,8 +206,7 @@ Open **System Admin › Billing codes**.
 Choose the company, click the pencil icon next to the code, change the row and
 click **submit**.
 
-Click the bin icon to delete a code. dotPulse doesn't ask for confirmation, but
-a deleted code is not removed: it stays in the list marked **(deleted)**, the
+Click the bin icon and confirm to delete a code. A deleted code is not removed: it stays in the list marked **(deleted)**, the
 logs that use it keep it, and it can still be chosen in the **Cost Code
 Filter** of a project's task logs. It is no longer offered when people log
 time.

@@ -374,3 +374,4 @@
 "Documentation under the CC BY-SA 4.0 licence."=>"文件採用 CC BY-SA 4.0 授權。", // MT
 "- choose a module -"=>"- 選擇模組 -", // MT
 "choose a module"=>"請選擇模組", // MT
+"main texts"=>"主要文字", // MT

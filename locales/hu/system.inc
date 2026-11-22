@@ -509,3 +509,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"Törlés", // MT
 "ldap_search_pass_tooltip"=>"Az LDAP kereső felhasználó jelszava. Hagyja üresen a mentett jelszó megtartásához.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"adjon meg másodpercek számát (legalább 60), vagy egy számot, amelyet h, d, m (30 nap) vagy y követ", // MT
+"Delete this billing code?"=>"Törli ezt a számlázási kódot?", // MT
+"A billing code with this name already exists for this company."=>"Ennél a cégnél már létezik ilyen nevű számlázási kód.", // MT
+"The PHP ldap extension is not installed on this server."=>"A PHP ldap bővítménye nincs telepítve ezen a szerveren.", // MT
+"Updated the existing contact"=>"A meglévő kapcsolat frissítve", // MT
+"Added"=>"Hozzáadva", // MT

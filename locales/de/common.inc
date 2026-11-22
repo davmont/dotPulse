@@ -516,3 +516,4 @@ Das neue Passwort lautet:",
 "Documentation under the CC BY-SA 4.0 licence."=>"Dokumentation unter der Lizenz CC BY-SA 4.0.", // MT
 "- choose a module -"=>"- Modul auswählen -", // MT
 "choose a module"=>"Modul auswählen", // MT
+"main texts"=>"Haupttexte", // MT

@@ -503,3 +503,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"删除", // MT
 "ldap_search_pass_tooltip"=>"LDAP 搜索用户 的密码。留空则保留已保存的密码。", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"请输入秒数（至少 60），或数字后跟 h、d、m（30 天）或 y", // MT
+"Delete this billing code?"=>"要删除此计费代码吗?", // MT
+"A billing code with this name already exists for this company."=>"此公司已存在同名的计费代码。", // MT
+"The PHP ldap extension is not installed on this server."=>"此服务器未安装 PHP 的 ldap 扩展。", // MT
+"Updated the existing contact"=>"已更新现有联系人", // MT
+"Added"=>"已添加", // MT

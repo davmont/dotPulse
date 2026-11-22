@@ -384,3 +384,4 @@ Om du ej har begärt ändringen av lösenordet behöver du ej oroa dig. Detta me
 "Documentation under the CC BY-SA 4.0 licence."=>"Dokumentation under licensen CC BY-SA 4.0.", // MT
 "- choose a module -"=>"- välj en modul -", // MT
 "choose a module"=>"välj en modul", // MT
+"main texts"=>"huvudtexter", // MT

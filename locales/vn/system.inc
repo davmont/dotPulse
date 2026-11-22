@@ -509,3 +509,8 @@ database. This allows for prolonged sessions with lower overheads.",
 "Delete"=>"Xoá", // MT
 "ldap_search_pass_tooltip"=>"Mật khẩu của Người dùng tìm kiếm LDAP. Để trống để giữ mật khẩu đã lưu.", // MT
 "write a number of seconds (at least 60), or a number followed by h, d, m (30 days) or y"=>"hãy nhập một số giây (ít nhất 60), hoặc một số theo sau là h, d, m (30 ngày) hoặc y", // MT
+"Delete this billing code?"=>"Xoá mã thanh toán này?", // MT
+"A billing code with this name already exists for this company."=>"Đã có mã thanh toán trùng tên cho công ty này.", // MT
+"The PHP ldap extension is not installed on this server."=>"Phần mở rộng ldap của PHP chưa được cài đặt trên máy chủ này.", // MT
+"Updated the existing contact"=>"Đã cập nhật liên hệ hiện có", // MT
+"Added"=>"Đã thêm", // MT
