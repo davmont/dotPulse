@@ -286,24 +286,26 @@ Active Directory.
 | **LDAP User Filter** (`ldap_user_filter`) | The search that finds a user. `%USERNAME%` is replaced by the login name typed on the login page. For Active Directory use `(sAMAccountName=%USERNAME%)`. | `(uid=%USERNAME%)` |
 | **LDAP Search User** (`ldap_search_user`) | The full DN of an account allowed to search the directory, for example `cn=dotpulse,ou=services,dc=example,dc=com`. Leave empty to search anonymously. | empty (before 3.4: the placeholder `Manager`) |
 | **LDAP Search User Password** (`ldap_search_pass`) | Password of the search account. Never shown again; leave empty to keep the saved one. | empty (before 3.4: the placeholder `secret`) |
-| **LDAP also allows standard login** (`ldap_allow_login`) | When on, the password stored in dotPulse is tried first, and the directory only if it fails. When off, only the directory counts. | On |
+| **LDAP also allows standard login** (`ldap_allow_login`) | When on, people the directory doesn't have (such as `admin`) log in with their dotPulse password, and everyone can when the directory can't be reached. When off, only the directory counts. | On |
 
 ### How LDAP login works
 
 When someone logs in with LDAP as the method:
 
 1. An empty password is always refused.
-2. If **LDAP also allows standard login** is on, dotPulse first checks the
-   password stored in dotPulse. If it matches, the person is in.
-3. Otherwise dotPulse connects to the directory, logs in as the search user (or
-   anonymously), and searches **LDAP Base DN** with **LDAP User Filter**. The
-   first entry found is used.
-4. It then tries to log in to the directory as that entry with the password the
-   person typed. If that works, the person is in.
-5. If no dotPulse user has that login name yet, dotPulse creates one on the
+2. dotPulse connects to the directory, logs in as the search user (or
+   anonymously), and searches **LDAP Base DN** with **LDAP User Filter** for
+   the login name. The first entry found is used.
+3. If the directory has the person, only the directory password counts:
+   dotPulse logs in to the directory as that entry with the password typed. If
+   that works, the person is in, and dotPulse updates its copy of the password.
+4. If no dotPulse user has that login name yet, dotPulse creates one on the
    spot. The new user gets a contact filled from the directory entry (given
    name, surname, mail, phone, mobile, city, state, postal code and title) and
    the **Anonymous** role. A copy of the password is stored in dotPulse.
+5. If the directory doesn't have the person, or can't be reached, the dotPulse
+   password is checked instead, but only with **LDAP also allows standard
+   login** on.
 
 Two-step login, when the user has it, is asked for after this, as with
 standard login. The user's role must allow login.
@@ -319,8 +321,11 @@ standard login. The user's role must allow login.
       login get the **Anonymous** role, which only lets them open the
       non-admin modules. Give them a real role in [Users](users.md) after their
       first login.
-    - **Lock people out in dotPulse too.** When someone leaves, remove their
-      roles in dotPulse as well as disabling them in the directory.
+    - **Lock people out in dotPulse too.** Disabling someone in the
+      directory stops their logins, but while the directory can't be reached,
+      or after they are deleted from it, their last password works again (with
+      **LDAP also allows standard login** on). When someone leaves, also remove
+      their roles in dotPulse.
     - dotPulse doesn't use STARTTLS. Use an `ldaps://` address, or a directory on
       the same server, so passwords don't cross the network in clear text.
 

@@ -124,67 +124,67 @@ if (!defined('DP_BASE_DIR')) {
 			$this->username = $username;
 
 			if (mb_strlen($password) == 0) return false; // LDAP will succeed binding with no password on AD (defaults to anon bind)
-			if ($this->fallback == true)
-			{
-				if (parent::authenticate($username, $password)) return true;	
-			}
-			// Fallback SQL authentication fails, proceed with LDAP
 
-			if (!$rs = @ldap_connect($this->ldap_host, $this->ldap_port))
-			{
+			// The directory decides for the people in it: their dotPulse password (a copy made
+			// at their first login) used to be tried first, so an old password, or one of an
+			// account disabled in the directory, kept working. The dotPulse password (with
+			// "LDAP also allows standard login") is for accounts the directory doesn't have,
+			// such as admin, and for when the directory can't be reached.
+			$found = $this->findInDirectory($username);
+			if ($found === null || $found === false) {
+				return $this->fallback ? parent::authenticate($username, $password) : false;
+			}
+			list($rs, $first_user) = $found;
+			if (!@ldap_bind($rs, $first_user['dn'], $password)) {
 				return false;
+			}
+			if ($this->userExists($username)) {
+				// Keep the copy current, for when the directory can't be reached.
+				$q = new DBQuery;
+				$q->addTable('users');
+				$q->addUpdate('user_password', dPhashPassword($password));
+				$q->addWhere('user_username = ' . $q->quote($username));
+				$q->exec();
+				$q->clear();
+			} else {
+				$this->createsqluser($username, $password, $first_user);
+			}
+			return true;
+		}
+
+		/**
+		 * The directory entry of a login name: array(connection, entry), false when the
+		 * directory has no such entry, null when it can't be reached or searched.
+		 */
+		function findInDirectory($username)
+		{
+			if (!function_exists('ldap_connect') || !($rs = @ldap_connect($this->ldap_host, $this->ldap_port))) {
+				return null;
 			}
 			@ldap_set_option($rs, LDAP_OPT_PROTOCOL_VERSION, $this->ldap_version);
 			@ldap_set_option($rs, LDAP_OPT_REFERRALS, 0);
 
-			//$ldap_bind_dn = "cn=".$this->ldap_search_user.",".$this->base_dn;
-			$ldap_bind_dn = empty($this->ldap_search_user) ? NULL : $this->ldap_search_user;	
+			$ldap_bind_dn = empty($this->ldap_search_user) ? NULL : $this->ldap_search_user;
 			$ldap_bind_pw = empty($this->ldap_search_pass) ? NULL : $this->ldap_search_pass;
-
-			if (!$bindok = @ldap_bind($rs, $ldap_bind_dn, $ldap_bind_pw))
-			{
-				// Uncomment for LDAP debugging
-				/*	
-				$error_msg = ldap_error($rs);
-				die("Couldnt Bind Using ".$ldap_bind_dn."@".$this->ldap_host.":".$this->ldap_port." Because:".$error_msg);
-				*/
+			if (!@ldap_bind($rs, $ldap_bind_dn, $ldap_bind_pw)) {
+				return null;
+			}
+			// The login name is escaped: "*" or ")(" in it changed the search.
+			$value = function_exists('ldap_escape') ? ldap_escape((string)$username, '', LDAP_ESCAPE_FILTER) : '';
+			if ($value === '') {
+				return null;
+			}
+			$filter_r = str_replace('%USERNAME%', $value, html_entity_decode($this->filter, ENT_COMPAT, 'UTF-8'));
+			$result = @ldap_search($rs, $this->base_dn, $filter_r);
+			if (!$result) {
+				return null;
+			}
+			$entries = ldap_get_entries($rs, $result);
+			if (!$entries || $entries['count'] == 0) {
 				return false;
 			}
-			else
-			{
-				$filter_r = html_entity_decode(str_replace("%USERNAME%", $username, $this->filter), ENT_COMPAT, 'UTF-8');
-				$result = @ldap_search($rs, $this->base_dn, $filter_r);
-				if (!$result) return false; // ldap search returned nothing or error
-				
-				$result_user = ldap_get_entries($rs, $result);
-				if ($result_user["count"] == 0) return false; // No users match the filter
-
-				$first_user = $result_user[0];
-				$ldap_user_dn = $first_user["dn"];
-
-				// Bind with the dn of the user that matched our filter (only one user should match sAMAccountName or uid etc..)
-
-				if (!$bind_user = @ldap_bind($rs, $ldap_user_dn, $password))
-				{
-					/*
-					$error_msg = ldap_error($rs);
-					die("Couldnt Bind Using ".$ldap_user_dn."@".$this->ldap_host.":".$this->ldap_port." Because:".$error_msg);
-					*/
-					return false;
-				}
-				else
-				{
-					if ($this->userExists($username))
-					{
-						return true;
-					}
-					else
-					{
-						$this->createsqluser($username, $password, $first_user); 
-					}
-					return true;
-				} 
-			}
+			// Only one entry should match (uid, sAMAccountName...).
+			return array($rs, $entries[0]);
 		}
 
 		function userExists($username)
