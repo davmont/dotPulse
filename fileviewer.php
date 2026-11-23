@@ -157,7 +157,9 @@ if ($file_id) {
 	$fileclass->load($file_id);
 	$allowedFiles = $fileclass->getAllowedRecords($AppUI->user_id, 'file_id, file_name');
 	
-	if (count($allowedFiles) && ! array_key_exists($file_id, $allowedFiles)) {
+	// The file must be among those the user may see. (An empty list used to skip this check,
+	// so a user denied every file could still download each one.)
+	if (!array_key_exists($file_id, $allowedFiles)) {
 		$AppUI->redirect('m=public&a=access_denied');
 	}
 
