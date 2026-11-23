@@ -13,7 +13,7 @@ if (!defined('DP_BASE_DIR')) {
 // MODULE CONFIGURATION DEFINITION
 $config = array();
 $config['mod_name'] = 'Holiday';
-$config['mod_version'] = '0.3';
+$config['mod_version'] = '0.4';
 $config['mod_directory'] = 'holiday';
 $config['mod_setup_class'] = 'CSetupHoliday';
 $config['mod_type'] = 'admin';
@@ -118,6 +118,14 @@ class CSetupHoliday {
 				if (!$q -> exec() || !$this -> createCalendars()) {
 					return false;
 				}
+				// no break
+			case '0.3':
+				// 0.4: an admin module. It was installed among the non-admin modules, so every
+				// role with rights on those (Project worker) could change everyone's holidays.
+				$perms =& $GLOBALS['AppUI']->acl();
+				$perms->deleteGroupItem('holiday', 'non_admin');
+				$perms->addGroupItem('holiday', 'admin');
+				$perms->regeneratePermissions();
 		}
 		return true;
 	}

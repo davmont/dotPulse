@@ -508,3 +508,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"此服务器未安装 PHP 的 ldap 扩展。", // MT
 "Updated the existing contact"=>"已更新现有联系人", // MT
 "Added"=>"已添加", // MT
+"This module cannot be turned off."=>"此模块无法关闭。", // MT

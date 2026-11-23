@@ -1008,7 +1008,7 @@ class CAppUI
 		$q = new DBQuery;
 		$q->addTable('modules');
 		$q->addQuery('mod_active');
-		$q->addWhere("mod_directory = '$module'");
+		$q->addWhere('mod_directory = ' . $q->quote((string)$module));
 		$sql = $q->prepare();
 		$q->clear();
 		return db_loadResult($sql);

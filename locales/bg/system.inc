@@ -566,3 +566,4 @@
 "The PHP ldap extension is not installed on this server."=>"PHP разширението ldap не е инсталирано на този сървър.", // MT
 "Updated the existing contact"=>"Обновен е съществуващият контакт", // MT
 "Added"=>"Добавен", // MT
+"This module cannot be turned off."=>"Този модул не може да бъде изключен.", // MT

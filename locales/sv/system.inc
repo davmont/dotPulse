@@ -508,3 +508,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"PHP-tillägget ldap är inte installerat på den här servern.", // MT
 "Updated the existing contact"=>"Uppdaterade den befintliga kontakten", // MT
 "Added"=>"Tillagd", // MT
+"This module cannot be turned off."=>"Den här modulen kan inte stängas av.", // MT

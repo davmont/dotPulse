@@ -102,7 +102,14 @@ function holidayEntryCovers($row, $day) {
 	$start = substr($row['holiday_start_date'], 0, 10);
 	$end = substr($row['holiday_end_date'], 0, 10);
 	if ($row['holiday_annual']) {
-		return substr($start, 5) <= substr($day, 5) && substr($day, 5) <= substr($end, 5);
+		$from = substr($start, 5);
+		$to = substr($end, 5);
+		$md = substr($day, 5);
+		// Across the new year (24 December to 2 January): the end comes before the start.
+		if ($to < $from) {
+			return $md >= $from || $md <= $to;
+		}
+		return $from <= $md && $md <= $to;
 	}
 	return $start <= $day && $day <= $end;
 }

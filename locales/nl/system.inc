@@ -515,3 +515,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"De PHP-extensie ldap is niet geïnstalleerd op deze server.", // MT
 "Updated the existing contact"=>"Bestaande contactpersoon bijgewerkt", // MT
 "Added"=>"Toegevoegd", // MT
+"This module cannot be turned off."=>"Deze module kan niet worden uitgeschakeld.", // MT

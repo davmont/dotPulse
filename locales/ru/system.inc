@@ -514,3 +514,4 @@ database. This allows for prolonged sessions with lower overheads.",
 "The PHP ldap extension is not installed on this server."=>"Расширение PHP ldap не установлено на этом сервере.", // MT
 "Updated the existing contact"=>"Обновлён существующий контакт", // MT
 "Added"=>"Добавлен", // MT
+"This module cannot be turned off."=>"Этот модуль нельзя отключить.", // MT

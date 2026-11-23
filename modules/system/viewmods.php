@@ -112,7 +112,9 @@ foreach ($installed as $row) {
 		if ($row['_upgrade']) {
 			echo '<a class="dpa-btn dpa-primary" ' . modCmdLink('upgrade', $id, '', $AppUI->_('Are you sure?', UI_OUTPUT_RAW)) . '>' . $AppUI->_('upgrade') . '</a>';
 		}
-		echo '<a class="dpa-btn" ' . modCmdLink('toggle', $id) . '>' . $AppUI->_($row['mod_active'] ? 'Turn off' : 'Turn on') . '</a>';
+		if (!($row['mod_active'] && in_array($row['mod_directory'], array('admin', 'system'), true))) {
+			echo '<a class="dpa-btn" ' . modCmdLink('toggle', $id) . '>' . $AppUI->_($row['mod_active'] ? 'Turn off' : 'Turn on') . '</a>';
+		}
 		echo '<a class="dpa-btn" ' . modCmdLink('toggleMenu', $id) . '>' . $AppUI->_($row['mod_ui_active'] ? 'Hide from menu' : 'Show in menu') . '</a>';
 		if ($row['_configure']) {
 			echo '<a class="dpa-btn" ' . modCmdLink('configure', $id) . '>' . $AppUI->_('configure') . '</a>';

@@ -542,3 +542,4 @@
 "The PHP ldap extension is not installed on this server."=>"La extensión ldap de PHP no está instalada en este servidor.",
 "Updated the existing contact"=>"Actualizado el contacto existente",
 "Added"=>"Añadido",
+"This module cannot be turned off."=>"Este módulo no se puede desactivar.",

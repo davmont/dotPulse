@@ -150,7 +150,9 @@ class CModule extends CDpObject {
 			$this->mod_admin = 0;
 		}
 		
-		if ($this->mod_admin) {
+		// A module of the type "admin" (holiday) is an admin module too: it joined the non-admin
+		// ones, so every project worker could change everyone's holidays.
+		if ($this->mod_admin || $this->mod_type === 'admin') {
 			$perms->addGroupItem($this->mod_directory, "admin");
 		} else {
 			$perms->addGroupItem($this->mod_directory, "non_admin");

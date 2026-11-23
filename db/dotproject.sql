@@ -702,7 +702,7 @@ INSERT INTO %dbprefix%config VALUES (0, 'auth_method', 'sql', 'auth', 'select');
 INSERT INTO %dbprefix%config VALUES (0, 'ldap_host', 'localhost', 'ldap', 'text'); 
 INSERT INTO %dbprefix%config VALUES (0, 'ldap_port', '389', 'ldap', 'text'); 
 INSERT INTO %dbprefix%config VALUES (0, 'ldap_version', '3', 'ldap', 'text'); 
-INSERT INTO %dbprefix%config VALUES (0, 'ldap_base_dn', 'dc=saki,dc=com,dc=au', 'ldap', 'text'); 
+INSERT INTO %dbprefix%config VALUES (0, 'ldap_base_dn', '', 'ldap', 'text'); 
 INSERT INTO %dbprefix%config VALUES (0, 'ldap_user_filter', '(uid=%USERNAME%)', 'ldap', 'text'); 
 
 # 20050302
@@ -1206,8 +1206,8 @@ INSERT INTO %dbprefix%dpversion VALUES ('2.2.1', 2, '2012-11-19', '2012-09-06');
 
 # 20050307
 # Additional LDAP search user and search password fields for Active Directory compatible LDAP authentication
-INSERT INTO %dbprefix%config VALUES (0, 'ldap_search_user', 'Manager', 'ldap', 'text');
-INSERT INTO %dbprefix%config VALUES (0, 'ldap_search_pass', 'secret', 'ldap', 'password');
+INSERT INTO %dbprefix%config VALUES (0, 'ldap_search_user', '', 'ldap', 'text');
+INSERT INTO %dbprefix%config VALUES (0, 'ldap_search_pass', '', 'ldap', 'password');
 INSERT INTO %dbprefix%config VALUES (0, 'ldap_allow_login', 'true', 'ldap', 'checkbox');
 
 # 20070126
