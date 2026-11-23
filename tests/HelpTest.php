@@ -85,7 +85,8 @@ class HelpTest extends TestCase {
         foreach (array_keys($pages) as $name) {
             $html = CHelp::render($name);
             $this->assert(is_string($html) && strpos($html, '<h1') !== false, $name);
-            $this->assert(!preg_match('/\{\s*#/', $html), "heading id left as text in $name");
+            // (A page may show the syntax itself in code: environment.md does.)
+            $this->assert(!preg_match('/\{\s*#/', preg_replace('#<code>.*?</code>#s', '', $html)), "heading id left as text in $name");
         }
         // The Spanish pages keep the English anchors, and their own screenshots.
         $html = CHelp::render('administration/settings');

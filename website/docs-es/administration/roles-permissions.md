@@ -113,9 +113,9 @@ rojo.
 ### Añadir una regla de permisos { #add-a-permission-rule }
 
 1. En **Módulo**, elija sobre qué es la regla:
-    - **All Modules**: todos los módulos, incluidos los de administración;
-    - **Admin Modules**: los cuatro módulos de administración;
-    - **Non-Admin Modules**: todos los demás módulos;
+    - **Todos los Módulos**: todos los módulos, incluidos los de administración;
+    - **Módulos Admin**: los cuatro módulos de administración;
+    - **Módulos No-Admin**: todos los demás módulos;
     - o un módulo, como **Proyectos**.
 2. Para que la regla sea sobre un solo registro, haga clic en **...** junto a
    **Ítem** y elíjalo, por ejemplo un proyecto o una empresa. Deje **Ítem** en

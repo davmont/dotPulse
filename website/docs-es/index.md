@@ -21,7 +21,7 @@ dotPulse continúa [dotProject](https://github.com/dotproject/dotProject). El de
 - **Calendario, ficheros y foros** para compartir eventos, documentos y debates en torno a un proyecto.
 - **Calendarios de festivos** por centro de trabajo, para que las fechas de las tareas salten los festivos de cada persona.
 - **Seguridad**: inicio de sesión en dos pasos, un registro de auditoría de los inicios de sesión y de los cambios de los administradores, y un código que ha pasado una auditoría de seguridad completa.
-- **REST API** (desactivada por defecto) para scripts y otras herramientas.
+- **[API REST](developer/api.md)** (desactivada por defecto) para scripts y otras herramientas.
 - **25 idiomas**, un tema claro y uno oscuro, y un diseño para móviles.
 
 ## Por dónde empezar { #where-to-start }
@@ -31,6 +31,7 @@ dotPulse continúa [dotProject](https://github.com/dotproject/dotProject). El de
 - **[Puesta en marcha](getting-started/index.md)**: qué necesita su servidor, cómo instalar o actualizar, y qué configurar primero.
 - **[Guía de uso](user-guide/index.md)**: cómo trabajar a diario con proyectos, tareas, el calendario y lo demás.
 - **[Administración](administration/index.md)**: la configuración, los usuarios, los permisos, los módulos y las traducciones de un sitio en marcha.
+- **[Desarrollo](developer/index.md)**: el entorno de desarrollo, cómo escribir módulos y código seguro, y la API REST.
 
 </div>
 

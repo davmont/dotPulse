@@ -107,3 +107,9 @@ nav:
       - Lists, fields and defaults: administration/lists-and-fields.md
       - Translations: administration/translations.md
       - Audit and maintenance: administration/audit-and-maintenance.md
+  - Developers:
+      - developer/index.md
+      - Development environment: developer/environment.md
+      - Writing a module: developer/modules.md
+      - Writing secure code: developer/secure-code.md
+      - REST API: developer/api.md

@@ -66,7 +66,7 @@ documented in [docs/security-audit/](docs/security-audit/), with its roadmap in
 - Optional **two-step login** per user (TOTP codes from any authenticator app, with
   single-use recovery codes); administrators can reset it for a user who lost their phone.
 - CSRF protection on every form post; actions that changed data over GET moved to POST.
-- Enforced Content-Security-Policy with no inline scripts ([docs/csp.md](docs/csp.md)).
+- Enforced Content-Security-Policy with no inline scripts ([Writing secure code](https://www.dotpulse.org/developer/secure-code/#content-security-policy)).
 - SQL injection, XSS and missing-permission fixes across core and add-on modules.
 - Hardened sessions (`HttpOnly`, `Secure`, `SameSite`, id regenerated on login) and
   file uploads (server-side MIME detection).
@@ -94,7 +94,7 @@ notice or SQL error.
 ### Integration
 - **REST API** (off by default): personal access tokens with read or read-and-write
   access, acting with the user's permissions; projects, tasks, work logs and task
-  progress. See [docs/api.md](docs/api.md).
+  progress. See the [REST API](https://www.dotpulse.org/developer/api/) reference.
 
 ### Interface and languages
 - The dotPulse theme by default (also on the login page), and a redesigned System Admin: a start page with the state of the installation, and the settings by section with their help in view. A dark variant, **dotPulse dark** (`dotpulse-dark` in the preferences), with text and icons checked for WCAG AA contrast. The classic themes (default, amp, dp-grey-theme, material, wps-redmond) are still available.
@@ -122,6 +122,9 @@ The full checklist (module upgrades, cron, mail, web server rules) is in
 
 ## Development
 
+The [developer guide](https://www.dotpulse.org/developer/) explains the code, the
+development environment, writing modules and the security rules.
+
 - `make check` runs the PHP lint, PHPStan, the raw-input and inline-script checks, the
   PHP unit tests ([tests/](tests/), `make php-test`) and the JavaScript tests (Jest, in
   [tools/jest/](tools/jest/), `make js-test`).
@@ -138,7 +141,7 @@ need it.
 What a server needs is the root PHP entry points (`index.php`, `api.php`, `fileviewer.php`,
 `csp-report.php`, `queuescanner.php` for cron, `base.php`) and the application directories
 (`classes/`, `db/`, `files/`, `functions/`, `images/`, `includes/`, `install/`, `js/`, `lib/`,
-`locales/`, `misc/`, `modules/`, `style/`, `vendor/`). Next to them:
+`locales/`, `misc/`, `modules/`, `style/`, `vendor/`), and `website/` for the in-app Help. Next to them:
 - [docs/](docs/): administration and security guides, the API, the [release notes](docs/release-notes/)
   and the audit record; [scripts/](scripts/) has the CSP report summary for administrators.
 - Development only, left out of release archives (`git archive`, see `.gitattributes`):
