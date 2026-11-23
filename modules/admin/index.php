@@ -58,11 +58,7 @@ foreach ($arr as $L) {
 		if (empty($v)) {
 			continue;
 		}
-		if (empty ($let)) {
-			$let .= $v;
-		} else {
-			$let .= (mb_strpos($let, $v) === false) ? $v : '';
-		}
+		$let .= (mb_strpos($let, $v) === false) ? $v : '';
 	}
 }
 $q->clear();

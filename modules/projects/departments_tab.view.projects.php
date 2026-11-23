@@ -102,61 +102,61 @@ echo arraySelect($projFilter, 'proFilter',
 <tr>
 	<th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=project_color_identifier" class="hdr"><?php 
+echo $extraGet ; ?>&amp;orderby=project_color_identifier" class="hdr"><?php 
 echo $AppUI->_('Color'); ?></a>
 	</th>
 	<th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=company_name" class="hdr"><?php 
+echo $extraGet ; ?>&amp;orderby=company_name" class="hdr"><?php 
 echo $AppUI->_('Company'); ?></a>
 	</th>
 	<th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=project_name" class="hdr"><?php 
+echo $extraGet ; ?>&amp;orderby=project_name" class="hdr"><?php 
 echo $AppUI->_('Project Name'); ?></a>
 	</th>
           <th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=project_start_date" class="hdr"><?php 
+echo $extraGet ; ?>&amp;orderby=project_start_date" class="hdr"><?php 
 echo $AppUI->_('Start'); ?></a>
 	</th>
 	<th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=project_duration" class="hdr"><?php 
+echo $extraGet ; ?>&amp;orderby=project_duration" class="hdr"><?php 
 echo $AppUI->_('Duration'); ?></a>
 	</th>
         <th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=project_end_date" class="hdr"><?php 
+echo $extraGet ; ?>&amp;orderby=project_end_date" class="hdr"><?php 
 echo $AppUI->_('Due Date'); ?></a>
 	</th>
         <th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; 
+echo $extraGet ; 
 ?>&amp;orderby=project_actual_end_date" class="hdr"><?php 
 echo $AppUI->_('Actual'); ?></a>
 	</th>
         <th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=task_log_problem" class="hdr"><?php 
+echo $extraGet ; ?>&amp;orderby=task_log_problem" class="hdr"><?php 
 echo $AppUI->_('P'); ?></a>
 	</th>
 	<th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=user_username" class="hdr"><?php 
+echo $extraGet ; ?>&amp;orderby=user_username" class="hdr"><?php 
 echo $AppUI->_('Owner'); ?></a>
 	</th>
 	<th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=total_tasks" class="hdr"><?php 
+echo $extraGet ; ?>&amp;orderby=total_tasks" class="hdr"><?php 
 echo $AppUI->_('Tasks'); ?></a>
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=my_tasks" class="hdr">(<?php 
+echo $extraGet ; ?>&amp;orderby=my_tasks" class="hdr">(<?php 
 echo $AppUI->_('My'); ?>)</a>
 	</th>
 	<th nowrap="nowrap">
 		<a href="?m=<?php echo $m; ?><?php echo (isset($a) ? '&amp;a='.$a : '') ; ?><?php 
-echo (isset($extraGet) ? $extraGet : '') ; ?>&amp;orderby=project_status" class="hdr"><?php 
+echo $extraGet ; ?>&amp;orderby=project_status" class="hdr"><?php 
 echo $AppUI->_('Status'); ?></a>
 	</th>
 </tr>

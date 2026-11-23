@@ -65,7 +65,7 @@ function delIt(id) {
 </tr>
 <?php
 
-function showRow($role=null) {
+function showRoleRow($role=null) {
 	global $canEdit, $canDelete, $role_id, $AppUI, $modules;
 	$CR = "\n";
 	$id = isset($role['id']) ? $role['id'] : null;
@@ -115,11 +115,11 @@ function showRow($role=null) {
 // do the modules that are installed on the system
 $s = '';
 foreach ($roles as $row) {
-	echo showRow($row);
+	echo showRoleRow($row);
 }
 // add in the new key row:
 if ($role_id == 0) {
-	echo showRow();
+	echo showRoleRow();
 }
 ?>
 </table>

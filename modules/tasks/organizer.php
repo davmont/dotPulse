@@ -85,7 +85,7 @@ function fixate_task($task_index, $time, $dep_on_task)
 
 	// WARNING: task_index != task_id !!!
 
-	global $tasks, $do, $option_advance_if_possible, $AppUI, $df;
+	global $tasks, $do, $option_advance_if_possible, $option_check_vital_users, $AppUI, $df;
 
 	// don't fixate tasks before now
 
@@ -140,7 +140,7 @@ function fixate_task($task_index, $time, $dep_on_task)
 				$t1 = $tasks[$task_index]["task_id"];
 				$t2 = $task2["task_id"];
 
-				if (isset($option_check_vital_users) && $option_check_vital_users) {
+				if ($option_check_vital_users) {
 					$q = new DBQuery;
 					$q->addTable('user_tasks');
 					$q->addQuery('count(*) AS num_users');
@@ -202,10 +202,7 @@ function fixate_task($task_index, $time, $dep_on_task)
 		// echo "<input type=hidden name=fixate_task[" . $tasks[$task_index]["task_id"] . "] value=y>";
 	} else if ($do == "fixate") {
 		log_action("Task " . task_link($tasks[$task_index]) . " fixated to " . formatTime($start_date));
-		if (!($q instanceof DBQuery)) {
-			//only create if wasn't already present as it may have been created above
-			$q = new DBQuery;
-		}
+		$q = new DBQuery;
 		$q->addTable('tasks');
 		$q->addUpdate('task_start_date', db_unix2dateTime($start_date));
 		$q->addUpdate('task_end_date', db_unix2dateTime($end_date));

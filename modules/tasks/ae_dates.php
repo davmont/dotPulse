@@ -29,8 +29,8 @@ for ($current = $start; $current <= $end; $current++) {
 
 $minutes = array();
 for ($current = 0; $current < 60; $current += $inc) {
-	$current = (($current < 10) ? '0' : '') . $current;
-	$minutes[$current] = $current;
+	$label = sprintf('%02d', $current);
+	$minutes[$label] = $label;
 }
 
 // format dates

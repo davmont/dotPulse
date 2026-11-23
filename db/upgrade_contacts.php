@@ -51,28 +51,29 @@ foreach ($users as $user) {
                 $user['user_owner'],
                 );
 
-				$q->addTable('contacts');
-				$q->addInsert($flds, $vals, true);
-
-                db_exec( $q->prepareInsert() );
-				$q->clear();
-                $msg =  db_error();
-                $vals = array($user['user_id'], 'USERFORMAT', 'user');
-                $q->addTable('user_preferences');
-                db_exec($q->addInsert($flds, $vals, true));
-				$q->clear();
-                $msg =  db_error();
-				if ($msg) {
-				  dPmsg($msg);
-				}
-				$q->addTable('users');
-				$q->addUpdate('user_contact=LAST_INSERT_ID()');
-				$q->addWhere('user_id = '.$user['user_id']);
-                db_exec($q->prepare(true));
-                $msg =  db_error();
-				if ($msg) {
-				  dPmsg($msg);
-				}
+	// One contact per user, linked to it. (The queries used to run without their
+	// values, and LAST_INSERT_ID() was the preference row's, not the contact's.)
+	$q = new DBQuery;
+	$q->addTable('contacts');
+	$q->addInsert($flds, $vals, true);
+	if (!$q->exec()) {
+		dPmsg(db_error());
+		continue;
+	}
+	$contact_id = (int)db_insert_id();
+	$q = new DBQuery;
+	$q->addTable('user_preferences');
+	$q->addInsert(array('pref_user', 'pref_name', 'pref_value'), array($user['user_id'], 'USERFORMAT', 'user'), true);
+	if (!$q->exec()) {
+		dPmsg(db_error());
+	}
+	$q = new DBQuery;
+	$q->addTable('users');
+	$q->addUpdate('user_contact', $contact_id);
+	$q->addWhere('user_id = ' . (int)$user['user_id']);
+	if (!$q->exec()) {
+		dPmsg(db_error());
+	}
 }
 
 ?>

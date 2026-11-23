@@ -122,7 +122,7 @@ class DBQuery
 			$this->$varname = array();
 		}
 
-		if (isset($id)) {
+		if ($id !== null) {
 			$this->{$varname}[$id] = $name;
 		} else {
 			$this->{$varname}[] = $name;
@@ -346,7 +346,7 @@ class DBQuery
 	 */
 	function addWhere($query, $params = array())
 	{
-		if (isset($query)) {
+		if ($query !== null) {
 			$this->addClause('where', $query);
 			if (!is_array($params)) {
 				$params = array($params);
@@ -404,7 +404,7 @@ class DBQuery
 	 */
 	function addOrder($order)
 	{
-		if (isset($order)) {
+		if ($order !== null) {
 			$this->addClause('order_by', $order);
 		}
 	}
