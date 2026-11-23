@@ -38,7 +38,7 @@ value with a helper and give it a type before you use it.
 |---|---|
 | `dPgetParam($arr, $name, $def = null)` | The value as sent, or `$def` when it is missing. No cleaning: it can be any string, or an array when the request sends `name[]=...`. |
 | `dPgetIntParam($arr, $name, $def = 0)` | The value cast to `int`, or `(int)$def`. Use it for ids and every other number. |
-| `dPgetCleanParam($arr, $name, $def = null)` | The value passed through htmLawed (`safe` mode), which removes scripts and dangerous markup from HTML; arrays are cleaned item by item. For text fields that may hold HTML. It is not escaping: the result still needs the SQL and output rules below. |
+| `dPgetCleanParam($arr, $name, $def = null)` | The value passed through `dPsanitiseHTML()`: htmLawed in `safe` mode, which removes scripts, event attributes and dangerous URL schemes, and also the `link`, `meta`, `style` and `template` elements; arrays are cleaned item by item. For text fields that may hold HTML. It is not escaping: the result still needs the SQL and output rules below. |
 | `dPdepartmentParam($arr, $name = 'department')` | The department filter of the project lists: `company_<id>` or a department id as `int`. |
 | `dPintList($ids)` | Not a reader: turns a comma-separated list of ids into integers (`'3,x,5'` becomes `'3,0,5'`). |
 | `dPvalidateOrder($value, $allowed, $default)` | Not a reader: `$value` if it is in `$allowed`, otherwise `$default`. For sort columns (see [SQL](#sql)). |
