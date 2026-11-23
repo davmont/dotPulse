@@ -322,3 +322,9 @@
 "Calculated from the task costs"=>"Vypočteno z nákladů úkolů", // MT
 "projectDeleteTasks"=>"Budou smazány také všechny úkoly tohoto projektu a jejich záznamy.", // MT
 "projectLogsLimit"=>"Zobrazuje se jen 500 nejstarších záznamů úkolů a celkové hodiny počítají jen je. Seznam zúžíte filtry výše.", // MT
+"Date Filter"=>"Filtr data", // MT
+"Quick Date Filter"=>"Rychlý filtr data", // MT
+"submit custom date"=>"použít vlastní datum", // MT
+"Show Additional Gantt Options"=>"Zobrazit další volby Ganttova diagramu", // MT
+"Sort by Name"=>"Řadit podle názvu", // MT
+"Hide Milestones"=>"Skrýt milníky", // MT

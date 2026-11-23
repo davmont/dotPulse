@@ -322,3 +322,9 @@
 "Calculated from the task costs"=>"Calcolato dai costi delle attività", // MT
 "projectDeleteTasks"=>"Verranno eliminate anche tutte le attività di questo progetto e i relativi registri.", // MT
 "projectLogsLimit"=>"Sono mostrati solo i 500 registri di attività più vecchi e il totale ore conta solo quelli. Usa i filtri sopra per restringere l'elenco.", // MT
+"Date Filter"=>"Filtro data", // MT
+"Quick Date Filter"=>"Filtro data rapido", // MT
+"submit custom date"=>"applica data personalizzata", // MT
+"Show Additional Gantt Options"=>"Mostra opzioni Gantt aggiuntive", // MT
+"Sort by Name"=>"Ordina per nome", // MT
+"Hide Milestones"=>"Nascondi milestone", // MT

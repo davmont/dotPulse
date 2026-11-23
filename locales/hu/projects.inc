@@ -320,3 +320,9 @@
 "Calculated from the task costs"=>"A feladatok költségeiből számítva", // MT
 "projectDeleteTasks"=>"A projekt összes feladata és azok naplóbejegyzései is törlődnek.", // MT
 "projectLogsLimit"=>"Csak a 500 legrégebbi feladatnapló látható, és az összes óra csak ezeket számolja. A fenti szűrőkkel szűkítheti a listát.", // MT
+"Date Filter"=>"Dátumszűrő", // MT
+"Quick Date Filter"=>"Gyors dátumszűrő", // MT
+"submit custom date"=>"egyéni dátum elküldése", // MT
+"Show Additional Gantt Options"=>"További Gantt-beállítások megjelenítése", // MT
+"Sort by Name"=>"Rendezés név szerint", // MT
+"Hide Milestones"=>"Mérföldkövek elrejtése", // MT

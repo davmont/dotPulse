@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"Importeu els festius d'un arxiu iCalendar (.ics), tal com els publiquen les administracions regionals i locals i les aplicacions de calendari", // MT
 "Import"=>"Importar", // MT
 "Are you sure you want to cancel?"=>"Segur que voleu cancel·lar?", // MT
+"A holiday"=>"Festiu", // MT

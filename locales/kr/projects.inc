@@ -320,3 +320,9 @@
 "Calculated from the task costs"=>"작업 비용에서 계산됨", // MT
 "projectDeleteTasks"=>"이 프로젝트의 모든 작업과 작업 로그도 함께 삭제됩니다.", // MT
 "projectLogsLimit"=>"가장 오래된 작업 로그 500개만 표시되며 총 시간도 그것만 계산합니다. 위의 필터로 목록을 좁히세요.", // MT
+"Date Filter"=>"날짜 필터", // MT
+"Quick Date Filter"=>"빠른 날짜 필터", // MT
+"submit custom date"=>"사용자 지정 날짜 적용", // MT
+"Show Additional Gantt Options"=>"추가 Gantt 옵션 표시", // MT
+"Sort by Name"=>"이름순 정렬", // MT
+"Hide Milestones"=>"이정표 숨기기", // MT

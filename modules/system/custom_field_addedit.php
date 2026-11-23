@@ -103,14 +103,14 @@ if (dpGetParam($_GET, 'field_id', NULL) != NULL) {
 	$field_datatype = dpGetParam($_POST, 'field_datatype', 'alpha');
 }
 
-$html_types = Array('file' => $AppUI->_('File'),
-                    'textinput'=>$AppUI->_('Text Input'),
-                    'textarea'=>$AppUI->_('Text Area'),
-                    'checkbox'=>$AppUI->_('Checkbox'),
-                    'select'=>$AppUI->_('Select List'),
-                    'label' => $AppUI->_('Label'),
-                    'separator' => $AppUI->_('Separator'),
-                    'href'=>$AppUI->_('Weblink'),);
+$html_types = Array('file' => $AppUI->_('File', UI_OUTPUT_RAW),
+                    'textinput'=>$AppUI->_('Text Input', UI_OUTPUT_RAW),
+                    'textarea'=>$AppUI->_('Text Area', UI_OUTPUT_RAW),
+                    'checkbox'=>$AppUI->_('Checkbox', UI_OUTPUT_RAW),
+                    'select'=>$AppUI->_('Select List', UI_OUTPUT_RAW),
+                    'label' => $AppUI->_('Label', UI_OUTPUT_RAW),
+                    'separator' => $AppUI->_('Separator', UI_OUTPUT_RAW),
+                    'href'=>$AppUI->_('Weblink', UI_OUTPUT_RAW),);
 
 $visible_state = Array();
 
@@ -198,7 +198,7 @@ echo intval($field_order)?>" />
 		</td><td>
 		<?php
 // arraySelect() takes the list by reference, so it must be a variable (PHP 8).
-$datatypes = array('alpha' => $AppUI->_('Text'), 'numeric' => $AppUI->_('Numeric'));
+$datatypes = array('alpha' => $AppUI->_('Text', UI_OUTPUT_RAW), 'numeric' => $AppUI->_('Numeric', UI_OUTPUT_RAW)); // arraySelect() escapes
 echo arraySelect($datatypes, 'field_datatype', 'id="field_datatype"', $field_datatype); ?>
 	</td></tr>
 	<tr><td>

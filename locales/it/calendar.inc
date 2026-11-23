@@ -111,3 +111,4 @@
 "previous week"=>"settimana precedente", // MT
 "next week"=>"settimana successiva", // MT
 "Holiday"=>"Festività", // MT
+"A holiday"=>"Festività", // MT

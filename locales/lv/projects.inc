@@ -320,3 +320,9 @@
 "Calculated from the task costs"=>"Aprēķināts no uzdevumu izmaksām", // MT
 "projectDeleteTasks"=>"Tiks dzēsti arī visi šī projekta uzdevumi un to žurnāli.", // MT
 "projectLogsLimit"=>"Tiek rādīti tikai 500 vecākie uzdevumu žurnāli, un kopējās stundas ietver tikai tos. Izmantojiet filtrus augšā, lai sašaurinātu sarakstu.", // MT
+"Date Filter"=>"Datuma filtrs", // MT
+"Quick Date Filter"=>"Ātrais datuma filtrs", // MT
+"submit custom date"=>"iesniegt pielāgotu datumu", // MT
+"Show Additional Gantt Options"=>"Rādīt papildu Gantt opcijas", // MT
+"Sort by Name"=>"Kārtot pēc nosaukuma", // MT
+"Hide Milestones"=>"Paslēpt šķirtnes", // MT

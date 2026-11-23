@@ -1,2 +1,5 @@
 site/
 .cache/
+# Copied from docs/ by make docs and the Docs workflow
+docs-es/stylesheets/
+docs-es/assets/

@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"Importēt svētku dienas no iCalendar (.ics) faila, kādus publicē reģionālās un vietējās pašvaldības un kalendāru lietotnes", // MT
 "Import"=>"Importēt", // MT
 "Are you sure you want to cancel?"=>"Vai tiešām vēlaties atcelt?", // MT
+"A holiday"=>"Svētku diena", // MT

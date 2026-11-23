@@ -73,3 +73,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them",
 "Import",
 "Are you sure you want to cancel?",
+"A holiday"=>"Holiday",

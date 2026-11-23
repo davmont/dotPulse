@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"匯入 iCalendar (.ics) 檔案中的假日，如地區及地方政府和行事曆應用程式所發布的檔案", // MT
 "Import"=>"匯入", // MT
 "Are you sure you want to cancel?"=>"您確定要取消嗎？", // MT
+"A holiday"=>"假日", // MT

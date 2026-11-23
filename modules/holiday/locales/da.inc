@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"Importér helligdagene fra en iCalendar-fil (.ics), som regionale og lokale myndigheder og kalenderapps udgiver dem", // MT
 "Import"=>"Importér", // MT
 "Are you sure you want to cancel?"=>"Er du sikker på, at du vil annullere?", // MT
+"A holiday"=>"Helligdag", // MT

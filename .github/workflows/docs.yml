@@ -34,6 +34,13 @@ jobs:
         run: >
           docker run --rm --user "$(id -u):$(id -g)" -v "$PWD/website:/docs"
           zensical/zensical:0.1.2@sha256:e1795a2c63b07174d91053f3598d2192032ea88b62a93fcd60be78ed3d5c4aa7 build --strict --clean
+      # The Spanish site, into site/es/, with the stylesheet and logo of docs/ (see the Makefile).
+      - name: Build (Spanish)
+        run: |
+          rm -rf website/docs-es/stylesheets website/docs-es/assets
+          cp -r website/docs/stylesheets website/docs/assets website/docs-es/
+          docker run --rm --user "$(id -u):$(id -g)" -v "$PWD/website:/docs" \
+            zensical/zensical:0.1.2@sha256:e1795a2c63b07174d91053f3598d2192032ea88b62a93fcd60be78ed3d5c4aa7 build --strict --clean -f mkdocs.es.yml
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
         with:

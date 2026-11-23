@@ -320,3 +320,9 @@
 "Calculated from the task costs"=>"由工作成本計算", // MT
 "projectDeleteTasks"=>"此專案的所有任務及其任務日誌也將被刪除。", // MT
 "projectLogsLimit"=>"僅顯示最早的 500 筆任務日誌，總時數也只計算這些。請使用上方的篩選條件縮小清單。", // MT
+"Date Filter"=>"日期篩選", // MT
+"Quick Date Filter"=>"快速日期篩選", // MT
+"submit custom date"=>"送出自訂日期", // MT
+"Show Additional Gantt Options"=>"顯示其他甘特圖選項", // MT
+"Sort by Name"=>"依名稱排序", // MT
+"Hide Milestones"=>"隱藏里程碑", // MT

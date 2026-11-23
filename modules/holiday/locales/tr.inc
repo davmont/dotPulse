@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"Bölgesel ve yerel yönetimlerin ve takvim uygulamalarının yayımladığı şekliyle bir iCalendar (.ics) dosyasındaki tatilleri içe aktarın", // MT
 "Import"=>"İçe Aktar", // MT
 "Are you sure you want to cancel?"=>"İptal etmek istediğinizden emin misiniz?", // MT
+"A holiday"=>"Tatil", // MT

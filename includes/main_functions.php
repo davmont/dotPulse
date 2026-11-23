@@ -237,6 +237,11 @@ function dPhelpUrl($ref = '')
 function dPhelpOnlineUrl($page, $anchor = '')
 {
 	$base = rtrim((string)dPgetConfig('help_url', 'https://www.dotpulse.org/'), '/') . '/';
+	// The Spanish site is under es/, for the users Help shows the Spanish pages to.
+	require_once DP_BASE_DIR . '/classes/help.class.php';
+	if (CHelp::lang() === 'es') {
+		$base .= 'es/';
+	}
 	$page = preg_replace('#(^|/)index$#', '', $page);
 	return $base . ($page !== '' ? $page . '/' : '') . ($anchor !== '' ? '#' . $anchor : '');
 }

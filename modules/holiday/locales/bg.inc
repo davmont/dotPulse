@@ -76,3 +76,4 @@
 "Import the holidays of an iCalendar (.ics) file, as regional and local governments and calendar apps publish them"=>"Импортирайте празниците от файл iCalendar (.ics), както ги публикуват регионалните и местните власти и приложенията за календари", // MT
 "Import"=>"Импортиране", // MT
 "Are you sure you want to cancel?"=>"Сигурни ли сте, че искате да откажете?", // MT
+"A holiday"=>"Празник", // MT

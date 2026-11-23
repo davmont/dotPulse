@@ -111,3 +111,4 @@
 "previous week"=>"предишна седмица", // MT
 "next week"=>"следваща седмица", // MT
 "Holiday"=>"Празник", // MT
+"A holiday"=>"Празник", // MT

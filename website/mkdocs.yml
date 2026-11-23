@@ -16,6 +16,7 @@ theme:
   name: material
   # Zensical's look of Material for MkDocs (the default "modern" one has no coloured header).
   variant: classic
+  language: en
   logo: assets/mark.svg
   favicon: assets/favicon.svg
   palette:
@@ -44,6 +45,17 @@ theme:
     - content.action.edit
     - content.code.copy
     - toc.follow
+
+# The Spanish site (mkdocs.es.yml, docs-es/) is built into site/es/; the theme's language
+# button links the two.
+extra:
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: Español
+      link: /es/
+      lang: es
 
 extra_css:
   - stylesheets/dotpulse.css
