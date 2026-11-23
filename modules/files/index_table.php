@@ -69,6 +69,9 @@ $allowedProjects = $project->getAllowedSQL($AppUI->user_id, 'f.file_project');
 $allowedTasks = $task->getAllowedSQL($AppUI->user_id, 'f.file_task');
 $allowedFolders = $cfObj->getAllowedSQL($AppUI->user_id, 'f.file_folder');
 $allowedCompanies = $compObj->getAllowedSQL($AppUI->user_id);
+// Files the roles deny one by one (or allow one by one, when the module itself is denied).
+$fileObj = new CFile();
+$allowedFiles = $fileObj->getAllowedSQL($AppUI->user_id, 'f.file_id');
 
 // SQL text for count the total recs from the selected option
 $q = new DBQuery;
@@ -86,6 +89,9 @@ if (count($allowedTasks)) {
 }
 if (count($allowedFolders)) {
 	$q->addWhere('((' . implode(' AND ', $allowedFolders) . ') OR f.file_folder = 0)');
+}
+if (count($allowedFiles)) {
+	$q->addWhere(implode(' AND ', $allowedFiles));
 }
 if ($category_filter) {
 	$q->addWhere($category_filter);
@@ -119,6 +125,9 @@ if (count($allowedTasks)) {
 }
 if (count($allowedFolders)) {
 	$r->addWhere('((' . implode(' AND ', $allowedFolders) . ') OR f.file_folder = 0)');
+}
+if (count($allowedFiles)) {
+	$r->addWhere(implode(' AND ', $allowedFiles));
 }
 if ($company_id) {
 	$r->innerJoin('companies', 'co', 'co.company_id = p.project_company');
@@ -155,6 +164,9 @@ if (count($allowedTasks)) {
 }
 if (count($allowedFolders)) {
 	$q2->addWhere('((' . implode(' AND ', $allowedFolders) . ') OR f.file_folder = 0)');
+}
+if (count($allowedFiles)) {
+	$q2->addWhere(implode(' AND ', $allowedFiles));
 }
 if ($category_filter) {
 	$q2->addWhere($category_filter);
@@ -201,6 +213,9 @@ if (count($allowedTasks)) {
 }
 if (count($allowedFolders)) {
 	$q3->addWhere('((' . implode(' AND ', $allowedFolders) . ') OR f.file_folder = 0)');
+}
+if (count($allowedFiles)) {
+	$q3->addWhere(implode(' AND ', $allowedFiles));
 }
 if ($category_filter) {
 	$q3->addWhere($category_filter);

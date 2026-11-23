@@ -462,6 +462,9 @@ Advisories [GHSA-f4p7-xmx4-p546](https://github.com/davmont/dotPulse/security/ad
 ### 3.3.2 (2026-11-22, security)
 Advisory [GHSA-9pj7-2prh-h68c](https://github.com/davmont/dotPulse/security/advisories/GHSA-9pj7-2prh-h68c) (medium): with LDAP login and "LDAP also allows standard login" on, the copy of the password made at the first LDAP login was tried before the directory and never updated, so people disabled or re-passworded in the directory still logged in. The directory now decides for the people it has; the login name is escaped in the filter. Tested against OpenLDAP 2.6. Fixed in public on devel (#368), released from master with only that fix.
 
+### 3.3.3 (2026-11-23, security)
+Advisory [GHSA-p8w8-mj3x-c2cq](https://github.com/davmont/dotPulse/security/advisories/GHSA-p8w8-mj3x-c2cq) (low): a file denied to a user one by one (the Files module still open to them) was still shown in the Files lists, and `fileviewer.php` checked it only when the user could see some other file, so a user denied every file could download each one. Found while writing the developer docs. Fixed in public on devel (#375), released from master with only that fix.
+
 ### After 3.2.1: next steps (proposed, to prioritise)
 What 3.2.0 and 3.2.1 left open, from the work above. None blocks an installation.
 1. ~~**Dark theme on the real pages.**~~ Done (2026-11-10, `feature/dark-theme-audit`): see "Dark theme on the real pages" below.
