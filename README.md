@@ -29,10 +29,12 @@ tables keep working unchanged.
 
 Work happens on the **`devel`** branch; **`master`** only receives stable releases.
 
-- Current release: **dotPulse 3.3.2**, a security release for LDAP login: people disabled
-  in the directory could still log in with an old password
-  ([release notes v3.3.2](docs/release-notes/v3.3.2.md)).
-- Previous releases: 3.3.1, a security release: any user of the type "Administrator" (every
+- Current release: **dotPulse 3.3.3**, a security release: files denied to a user one by
+  one were still listed to them, and could be downloaded when they could see no other file
+  ([release notes v3.3.3](docs/release-notes/v3.3.3.md)).
+- Previous releases: 3.3.2, a security release for LDAP login: people disabled in the
+  directory could still log in with an old password
+  ([release notes v3.3.2](docs/release-notes/v3.3.2.md)); 3.3.1, a security release: any user of the type "Administrator" (every
   LDAP-created user) could set any account's password, and rules on other records granted
   rights on a project's tasks ([release notes v3.3.1](docs/release-notes/v3.3.1.md)); 3.3.0, with drag task bars in the Gantt charts (with Esc and
   Undo), holidays in the calendar, Help inside dotPulse for the page shown, users edit
