@@ -110,3 +110,9 @@ nav:
       - Listas, campos y valores por defecto: administration/lists-and-fields.md
       - Traducciones: administration/translations.md
       - Auditoría y mantenimiento: administration/audit-and-maintenance.md
+  - Desarrollo:
+      - developer/index.md
+      - Entorno de desarrollo: developer/environment.md
+      - Escribir un módulo: developer/modules.md
+      - Escribir código seguro: developer/secure-code.md
+      - API REST: developer/api.md

@@ -57,10 +57,10 @@ Document Management empiezan **visible**):
 
 Los roles de dotPulse dan derechos sobre dos grupos de módulos: los **Admin
 Modules** (Administración de usuarios, Administración del Sistema, roles y
-usuarios) y los **Non-Admin Modules** (todos los demás). Un módulo recién
-instalado entra en los **Non-Admin Modules** (el módulo de festivos, que es una
-herramienta de administración, entra en los Admin Modules), así que todos los
-roles que tienen derechos sobre los Non-Admin Modules reciben de inmediato los
+usuarios) y los **Módulos No-Admin** (todos los demás). Un módulo recién
+instalado entra en los **Módulos No-Admin** (el módulo de festivos, que es una
+herramienta de administración, entra en los Módulos Admin), así que todos los
+roles que tienen derechos sobre los Módulos No-Admin reciben de inmediato los
 mismos derechos sobre él. Con los roles de una instalación nueva:
 
 - **Administrator** puede hacer de todo en él;

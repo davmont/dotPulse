@@ -21,7 +21,7 @@ dotPulse continues [dotProject](https://github.com/dotproject/dotProject). Upstr
 - **Calendar, files and forums** to share events, documents and discussions around a project.
 - **Holiday calendars** per workplace, so task dates skip each person's public holidays.
 - **Security**: two-step login, an audit log of logins and administrators' changes, and a code base that has been through a full security audit.
-- **REST API** (off by default) for scripts and other tools.
+- **[REST API](developer/api.md)** (off by default) for scripts and other tools.
 - **25 languages**, a light and a dark theme, and a layout for phones.
 
 ## Where to start
@@ -31,6 +31,7 @@ dotPulse continues [dotProject](https://github.com/dotproject/dotProject). Upstr
 - **[Getting started](getting-started/index.md)**: what your server needs, how to install or upgrade, and what to set up first.
 - **[User guide](user-guide/index.md)**: how to work with projects, tasks, the calendar and the rest, day to day.
 - **[Administration](administration/index.md)**: the settings, users, permissions, modules and translations of a running site.
+- **[Developers](developer/index.md)**: the development environment, writing modules and secure code, and the REST API.
 
 </div>
 
