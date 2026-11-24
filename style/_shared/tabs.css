@@ -1,0 +1,41 @@
+/* style/_shared/tabs.css: Tab boxes (drawn by style/_shared/tabbox.php) and messages.
+   Shared by the themes built on dotPulse's layout; colours, fonts and sizes come from the
+   theme's --dp-* variables (style/_shared/README.md). */
+
+/* Tabs (overrides.php draws them without images) */
+div.tabrow {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px;
+	border-bottom: 1px solid var(--dp-line-soft);
+	margin-top: 8px;
+}
+span.dp-tab { display: block; margin-bottom: -1px; }
+span.dp-tab a {
+	display: block;
+	padding: 8px 14px;
+	color: var(--dp-slate);
+	font-weight: 500;
+	border-bottom: 2px solid transparent;
+	border-radius: 6px 6px 0 0;
+}
+span.dp-tab a:hover { color: var(--dp-blue-deep); background: var(--dp-blue-tint); text-decoration: none; }
+span.dp-tab.dp-tab-on a { color: var(--dp-blue-deep); border-bottom-color: var(--dp-blue); font-weight: 600; }
+td.tabox, div.tabox {
+	background-color: var(--dp-surface);
+	border: 1px solid var(--dp-line-soft);
+	border-top: 0;
+	border-radius: 0 0 10px 10px;
+	padding: 12px;
+}
+td.tabon { background: var(--dp-surface); }
+td.taboff { background: var(--dp-ground); }
+td.tabsp { border-bottom: 1px solid var(--dp-line-soft); }
+table.tabitem { display: inline-table; }
+.dp-tabview { font-size: 12px; color: var(--dp-slate); margin: 4px 0; }
+
+/* Messages */
+.warning, .error, .no_ { color: var(--dp-coral-text); }
+.message { color: var(--dp-blue-deep); }
+.hidden { display: none; }
+.disabled { color: var(--dp-muted); }

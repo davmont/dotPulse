@@ -1,0 +1,65 @@
+/* style/_shared/forms.css: Form controls and buttons.
+   Shared by the themes built on dotPulse's layout; colours, fonts and sizes come from the
+   theme's --dp-* variables (style/_shared/README.md). */
+
+/* Form controls */
+.text, select, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="search"], input[type="url"], input[type="date"], input[type="file"] {
+	font-family: var(--dp-font);
+	font-size: 13px;
+	color: var(--dp-ink);
+	background-color: var(--dp-surface);
+	border: 1px solid var(--dp-control-line);
+	border-radius: 6px;
+	padding: 4px 8px;
+	box-sizing: border-box;
+	min-height: 30px;
+}
+select { padding-right: 4px; }
+select[multiple] { padding: 4px; }
+TEXTAREA, .textarea, textarea.small {
+	font-family: var(--dp-font);
+	font-size: 13px;
+	color: var(--dp-ink);
+	background-color: var(--dp-surface);
+	border: 1px solid var(--dp-control-line);
+	border-radius: 6px;
+	padding: 6px 8px;
+	box-sizing: border-box;
+}
+.text:focus, select:focus, TEXTAREA:focus, input:focus {
+	outline: 2px solid var(--dp-focus);
+	outline-offset: 0;
+	border-color: var(--dp-blue);
+}
+input[type="checkbox"], input[type="radio"] { accent-color: var(--dp-blue); }
+
+.button, input[type="button"], input[type="submit"], input[type="reset"], button {
+	font-family: var(--dp-font);
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--dp-blue-deep);
+	background-color: var(--dp-surface);
+	border: 1px solid var(--dp-control-line);
+	border-radius: 6px;
+	padding: 5px 12px;
+	min-height: 30px;
+	cursor: pointer;
+}
+.button:hover, input[type="button"]:hover, input[type="submit"]:hover, button:hover {
+	background-color: var(--dp-blue-tint);
+	border-color: var(--dp-blue-light);
+}
+input[type="submit"], .button.primary {
+	background-color: var(--dp-primary);
+	border-color: var(--dp-primary);
+	color: var(--dp-on-primary);
+}
+input[type="submit"]:hover, .button.primary:hover {
+	background-color: var(--dp-primary-hover);
+	border-color: var(--dp-primary-hover);
+}
+
+.item { color: var(--dp-slate); }
+.ok { color: var(--dp-teal); }
+.hint { color: var(--dp-slate); font-size: 12px; }
