@@ -647,7 +647,8 @@ class CustomFields
 	function __construct($m, $a, $obj_id = NULL, $mode = 'edit')
 	{
 		$this->m = $m;
-		$this->a = 'addedit'; // only addedit pages can carry the custom field for now
+		unset($a); // only addedit pages can carry the custom field for now
+		$this->a = 'addedit';
 		$this->obj_id = $obj_id;
 		$this->mode = $mode;
 

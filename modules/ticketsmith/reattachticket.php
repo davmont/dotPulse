@@ -14,7 +14,7 @@ $sql1 = "update {$dbprefix}tickets set parent = $newparent,
   where ticket = $ticket";
 
 header("Location: index.php?m=ticketsmith");
-if (isset($newparent) && isset($ticket) && $newparent != 0 && $ticket != 0) {
+if ($newparent != 0 && $ticket != 0) {
   // error_log("Updating ticket - $sql1");
   db_exec($sql1);
   // error_log(db_error());

@@ -90,7 +90,7 @@ class CTask extends CDpObject
 
 	function __toString()
 	{
-		return $this->link . '/' . $this->type . '/' . $this->length;
+		return (string)$this->task_name;
 	}
 
 	// overload check

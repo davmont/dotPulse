@@ -228,7 +228,7 @@ class dPacl extends gacl_api
 		$arr = $q->loadHash();
 		$result = $arr ? $arr : null;
 		// Hack to allow access to item owner or participant. Inheritance of task rights from project rights. 
-		if (isset($item)) {
+		if ($item !== null) {
 			$IsProjectOwner = false;
 			$IsMacroProjectOwner = false;
 			$IsTaskOwner = false;
@@ -1229,6 +1229,7 @@ class dPacl extends gacl_api
 	{
 		$this->_debug_msg = $text;
 		dprint(__FILE__, __LINE__, 9, $text);
+		return true;
 	}
 
 	function msg()

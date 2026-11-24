@@ -760,7 +760,6 @@ if ($showEditCheckbox) {
 			}
 
 			$df = $AppUI->getPref('SHDATEFORMAT');
-			if (isset($summaries)) {
 			?>
 				<tr>
 					<td colspan="<?php echo $cols - 4 ?>"><?php echo $AppUI->_('Summaries'); ?>: </td>
@@ -772,7 +771,6 @@ if ($showEditCheckbox) {
 					<td></td>
 				</tr>
 				<?php
-			}
 				if ($tnums && $dPconfig['enable_gantt_charts'] && !$min_view) {
 					?>
 					<tr>

@@ -1,54 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Constructor of class CustomFields has an unused parameter \$a\.$#'
-			identifier: constructor.unusedParameter
-			count: 1
-			path: ../../classes/CustomFields.class.php
-
-		-
-			message: '#^Method dPacl\:\:debug_text\(\) should return bool but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: ../../classes/permissions.class.php
-
-		-
-			message: '#^Variable \$item in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../classes/permissions.class.php
-
-		-
-			message: '#^Variable \$id in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../classes/query.class.php
-
-		-
-			message: '#^Variable \$order in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../classes/query.class.php
-
-		-
-			message: '#^Variable \$query in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../classes/query.class.php
-
-		-
-			message: '#^Method DBQuery\:\:addUpdate\(\) invoked with 1 parameter, 2\-3 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../db/upgrade_contacts.php
-
-		-
-			message: '#^Path in include_once\(\) "/app/includes/unicode\.entities\.inc\.php" is not a file or it does not exist\.$#'
-			identifier: includeOnce.fileNotFound
-			count: 1
-			path: ../../includes/filter.php
-
-		-
 			message: '#^Array has 2 duplicate keys with value ''&\#32;'' \(''&\#32;'', ''&\#32;''\)\.$#'
 			identifier: array.duplicateKey
 			count: 1
@@ -107,12 +59,6 @@ parameters:
 			identifier: isset.variable
 			count: 2
 			path: ../../includes/htmLawed.php
-
-		-
-			message: '#^Variable \$let in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: ../../modules/admin/index.php
 
 		-
 			message: '#^Method DBQuery\:\:prepareSelect\(\) invoked with 1 parameter, 0 required\.$#'
@@ -197,12 +143,6 @@ parameters:
 			identifier: constant.notFound
 			count: 1
 			path: ../../modules/dataimport/do_config.php
-
-		-
-			message: '#^Variable \$dept_id in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../modules/departments/view.php
 
 		-
 			message: '#^Method ProjectTemplate\:\:closeWBS\(\) has invalid return type type\.$#'
@@ -517,24 +457,6 @@ parameters:
 			path: ../../modules/macroprojects/reports/tasklogs.php
 
 		-
-			message: '#^Function doChildren invoked with 10 parameters, 8 required\.$#'
-			identifier: arguments.count
-			count: 2
-			path: ../../modules/macroprojects/reports/tasksperuser.php
-
-		-
-			message: '#^Function isMemberOfTask invoked with 4 parameters, 3 required\.$#'
-			identifier: arguments.count
-			count: 3
-			path: ../../modules/macroprojects/reports/tasksperuser.php
-
-		-
-			message: '#^Function weekCells invoked with 2 parameters, 3 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/macroprojects/reports/tasksperuser.php
-
-		-
 			message: '#^Function writeDayTotal invoked with 3 parameters, 5 required\.$#'
 			identifier: arguments.count
 			count: 1
@@ -697,36 +619,6 @@ parameters:
 			path: ../../modules/projectdesigner/vw_actions.php
 
 		-
-			message: '#^Variable \$extraGet in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 12
-			path: ../../modules/projects/departments_tab.view.projects.php
-
-		-
-			message: '#^Method CProject\:\:importTasks\(\) should return bool but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: ../../modules/projects/projects.class.php
-
-		-
-			message: '#^Function doChildren invoked with 10 parameters, 8 required\.$#'
-			identifier: arguments.count
-			count: 2
-			path: ../../modules/projects/reports/tasksperuser.php
-
-		-
-			message: '#^Function isMemberOfTask invoked with 4 parameters, 3 required\.$#'
-			identifier: arguments.count
-			count: 3
-			path: ../../modules/projects/reports/tasksperuser.php
-
-		-
-			message: '#^Function weekCells invoked with 2 parameters, 3 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/projects/reports/tasksperuser.php
-
-		-
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
 			identifier: whitespace.fileEnd
 			count: 1
@@ -767,90 +659,6 @@ parameters:
 			identifier: method.notFound
 			count: 2
 			path: ../../modules/risks/do_risks_aed.php
-
-		-
-			message: '#^Function showRow invoked with 4 parameters, 0\-3 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: ../../modules/system/syskeys/index.php
-
-		-
-			message: '#^Access to an undefined property CModule\:\:\$mod_admin\.$#'
-			identifier: property.notFound
-			count: 2
-			path: ../../modules/system/system.class.php
-
-		-
-			message: '#^Binary operation "\+\=" between string and int results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: ../../modules/tasks/ae_dates.php
-
-		-
-			message: '#^Variable \$_POST in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../modules/tasks/do_task_aed.php
-
-		-
-			message: '#^Undefined variable\: \$option_check_vital_users$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/tasks/organizer.php
-
-		-
-			message: '#^Undefined variable\: \$q$#'
-			identifier: variable.undefined
-			count: 1
-			path: ../../modules/tasks/organizer.php
-
-		-
-			message: '#^Variable \$option_check_vital_users in isset\(\) is never defined\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../modules/tasks/organizer.php
-
-		-
-			message: '#^Access to an undefined property CTask\:\:\$length\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Access to an undefined property CTask\:\:\$link\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Access to an undefined property CTask\:\:\$type\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/tasks.class.php
-
-		-
-			message: '#^Variable \$summaries in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../modules/tasks/tasks.php
-
-		-
-			message: '#^Access to an undefined property CTask\:\:\$task_assigned_users\.$#'
-			identifier: property.notFound
-			count: 1
-			path: ../../modules/tasks/tasksperuser_sub.php
-
-		-
-			message: '#^Variable \$newparent in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../modules/ticketsmith/reattachticket.php
-
-		-
-			message: '#^Variable \$ticket in isset\(\) always exists and is not nullable\.$#'
-			identifier: isset.variable
-			count: 1
-			path: ../../modules/ticketsmith/reattachticket.php
 
 		-
 			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'

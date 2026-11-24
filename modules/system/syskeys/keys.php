@@ -44,7 +44,7 @@ function delIt(id) {
 </tr>
 <?php
 
-function showRow($id=0, $name='', $label='') {
+function showSyskeyRow($id=0, $name='', $label='') {
 	GLOBAL $canEdit, $syskey_id, $CR, $AppUI, $locale_char_set;
 	$s = '<tr>'.$CR;
 	if ($syskey_id == $id && $canEdit) {
@@ -77,11 +77,11 @@ function showRow($id=0, $name='', $label='') {
 // do the modules that are installed on the system
 $s = '';
 foreach ($keys as $row) {
-	echo showRow($row['syskey_id'], $row['syskey_name'], $row['syskey_label']);
+	echo showSyskeyRow($row['syskey_id'], $row['syskey_name'], $row['syskey_label']);
 }
 // add in the new key row:
 if ($syskey_id == 0) {
-	echo showRow();
+	echo showSyskeyRow();
 }
 ?>
 </table>

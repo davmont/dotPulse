@@ -16,7 +16,7 @@ if (!$canRead) {
 $AppUI->savePlace();
 
 $company_prefix = 'company_';
-if (isset($dept_id) && $dept_id > 0) {
+if ($dept_id > 0) {
 	$AppUI->setState('DeptIdxDepartment', $dept_id);
 }
 $dept_id = (($AppUI->getState('DeptIdxDepartment') !== NULL)

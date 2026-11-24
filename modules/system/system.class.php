@@ -145,14 +145,9 @@ class CModule extends CDpObject {
 		
 		$perms =& $GLOBALS['AppUI']->acl();
 		$perms->addModule($this->mod_directory, $this->mod_name);
-		// Determine if it is an admin module or not, then add it to the correct set
-		if (! isset($this->mod_admin)) {
-			$this->mod_admin = 0;
-		}
-		
-		// A module of the type "admin" (holiday) is an admin module too: it joined the non-admin
+		// A module of the type "admin" (holiday) is an admin module: it joined the non-admin
 		// ones, so every project worker could change everyone's holidays.
-		if ($this->mod_admin || $this->mod_type === 'admin') {
+		if ($this->mod_type === 'admin') {
 			$perms->addGroupItem($this->mod_directory, "admin");
 		} else {
 			$perms->addGroupItem($this->mod_directory, "non_admin");
@@ -174,11 +169,7 @@ class CModule extends CDpObject {
 			return db_error();
 		} else {
 			$perms =& $GLOBALS['AppUI']->acl();
-			if (! isset($this->mod_admin)) {
-				$this->mod_admin = 0;
-			}
-			
-			if ($this->mod_admin) {
+			if ($this->mod_type === 'admin') {
 				$perms->deleteGroupItem($this->mod_directory, "admin");
 			} else {
 				$perms->deleteGroupItem($this->mod_directory, "non_admin");

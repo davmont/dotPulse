@@ -290,7 +290,8 @@ if ($do_report) {
 		foreach (array_keys($task_users) as $uid) {
 		  $user_assigned_tasks[$uid][] = $task_id;
 		}
-		$task->task_assigned_users = $task_users;
+		// Kept apart: CTask allows no undeclared properties (deprecated since PHP 8.2).
+		$task_assigned_users[$task_id] = $task_users;
 		$task_list[$task_id] = $task;
 	}
 	
@@ -345,7 +346,7 @@ if ($do_report) {
 			// count tasks per user;
 			$z=0;
 			foreach ($task_list as $task) {
-				if (isMemberOfTask($task_list, $user_id, $task)) {
+				if (tpuIsMemberOfTask($task_list, $user_id, $task)) {
 					$z++;
 				}
 			}
@@ -371,7 +372,7 @@ if ($do_report) {
 				? $userAlloc[$user_id]['userFC'] : $user_data['user_username']); ?></a>
 			</td>
 <?php 
-			$wx = (weekCells($display_week_hours, $sss, $sse));
+			$wx = (tpuWeekCells($display_week_hours, $sss, $sse));
 			for ($w=0; $w <=$wx; $w++) {
 ?>
 			<td style="background: #D0D0D0;">&nbsp;</td>
@@ -427,18 +428,18 @@ if ($do_report) {
 			$zi = 0;
 			foreach ($task_list as $task) {
 				if ($task->task_id == $task->task_parent) {
-					if (isMemberOfTask($task_list, $user_id, $task)) {
+					if (tpuIsMemberOfTask($task_list, $user_id, $task)) {
 						$tmptasks .= displayTask($task_list, $task, 0, $display_week_hours, $sss, 
 						                         $sse,  $user_id);
 						// Get children
-						$tmptasks .= doChildren($task_list, $task->task_id, $user_id, 
+						$tmptasks .= tpuDoChildren($task_list, $task->task_id, $user_id, 
 						                        1, $max_levels, $display_week_hours, $sss, $sse);
 					} else {
 						// we have to process children task the user
 						// is member of, but member of their parent task.
 						// Also show the parent task then before the children.
 						$tmpChild = '';
-						$tmpChild = doChildren($task_list, $task->task_id, $user_id, 
+						$tmpChild = tpuDoChildren($task_list, $task->task_id, $user_id, 
 						                     1, $max_levels, $display_week_hours, $sss, $sse);
 						if ($tmpChild > '') {
 							$tmptasks .= displayTask($task_list, $task, 0, $display_week_hours, 
@@ -476,7 +477,7 @@ if ($do_report) {
 			echo($user_id); ?>&amp;tab=1"><?php echo $AppUI->_('Orphaned Tasks'); ?></a>
 			</td>
 <?php 
-			$wx = (weekCells($display_week_hours,$sss,$sse));
+			$wx = (tpuWeekCells($display_week_hours,$sss,$sse));
 			for ($w=0; $w <=$wx; $w++) {
 				echo("\t\t\t" . '<td style="background: #D0D0D0;">&nbsp;</td>' . "\n");
 			}
@@ -522,7 +523,7 @@ if ($do_report) {
 			foreach ($orphTasks as $task) {
 				$tmptasks.=displayTask($orphTasks,$task,0,$display_week_hours,$sss,$sse, $user_id);
 				// do we need to get the children?
-				//$tmptasks.=doChildren($orphTasks,$task->task_id,$user_id,1,$max_levels,$display_week_hours,$sss,$sse);
+				//$tmptasks.=tpuDoChildren($orphTasks,$task->task_id,$user_id,1,$max_levels,$display_week_hours,$sss,$sse);
 			}
 			echo ($tmptasks . '</form>');
 		}	// end of show orphaned tasks
@@ -535,15 +536,15 @@ if ($do_report) {
 </center>
 
 <?php
-function doChildren($list, $id, $uid, $level, $maxlevels, $display_week_hours, $ss, $se) {
+function tpuDoChildren($list, $id, $uid, $level, $maxlevels, $display_week_hours, $ss, $se) {
 	$tmp = "";
 	if ($maxlevels == -1 || $level < $maxlevels) {
 		foreach ($list as $task) {
 			if (($task->task_parent == $id) && $task->task_id != $task->task_parent) {
 				// we have a child, do we have the user as a member?
-				if (isMemberOfTask($list, $uid, $task)) {
+				if (tpuIsMemberOfTask($list, $uid, $task)) {
 					$tmp .= displayTask($list, $task, $level, $display_week_hours, $ss, $se, $uid);
-					$tmp .= doChildren($list, $task->task_id, $uid, $level + 1, $maxlevels, 
+					$tmp .= tpuDoChildren($list, $task->task_id, $uid, $level + 1, $maxlevels, 
 					                   $display_week_hours, $ss, $se);
 				}
 			}
@@ -552,7 +553,7 @@ function doChildren($list, $id, $uid, $level, $maxlevels, $display_week_hours, $
 	return $tmp;
 }
 
-function isMemberOfTask($list, $user_id, $task) {
+function tpuIsMemberOfTask($list, $user_id, $task) {
 	global $user_assigned_tasks;
 	
 	if (isset($user_assigned_tasks[$user_id]) 
@@ -565,11 +566,11 @@ function isMemberOfTask($list, $user_id, $task) {
 function displayTask($list,$task,$level,$display_week_hours,$fromPeriod,$toPeriod, $user_id) {
 	
 	global $AppUI, $df, $durnTypes, $log_userfilter_users, $now, $priority, $system_users;
-	global $z, $zi, $x, $userAlloc;
+	global $z, $zi, $x, $userAlloc, $task_assigned_users;
 	
 	$zi++;
-	$users = $task->task_assigned_users;
-	$task->userPriority = $task->getUserSpecificTaskPriority($user_id);
+	$users = isset($task_assigned_users[$task->task_id]) ? $task_assigned_users[$task->task_id] : array();
+	$userPriority = $task->getUserSpecificTaskPriority($user_id);
 	$projects = $task->getProject();
 	$tmp = '<tr>';
 	$tmp .= '<td align="center" nowrap="nowrap">';
@@ -577,11 +578,11 @@ function displayTask($list,$task,$level,$display_week_hours,$fromPeriod,$toPerio
 	         . $task->task_id.'" />');
 	$tmp .= '</td>';
 	$tmp .= '<td align="center" nowrap="nowrap">';
-	if ($task->userPriority) {
+	if ($userPriority) {
 		$tmp .= '<img src="./images/icons/priority';
-		$tmp .= (($task->userPriority < 0) 
-		         ? ('-' . -$task->userPriority) 
-		         : ('+' . $task->userPriority));
+		$tmp .= (($userPriority < 0) 
+		         ? ('-' . -$userPriority) 
+		         : ('+' . $userPriority));
 		$tmp .= '.gif" width="13" height="16" alt="" />';
 	}
 	$tmp .= '</td>';
@@ -713,7 +714,7 @@ function weekDates($fromPeriod, $toPeriod) {
 	return $row;
 }
 
-function weekCells($display_week_hours, $fromPeriod, $toPeriod) {
+function tpuWeekCells($display_week_hours, $fromPeriod, $toPeriod) {
 	
 	if (!($display_week_hours)) {
 		return 0;
@@ -803,7 +804,8 @@ function displayWeeks($list, $task, $level, $fromPeriod, $toPeriod) {
 }
 
 function getOrphanedTasks($tval) {
-	return (sizeof($tval->task_assigned_users) > 0) ? NULL : $tval;
+	global $task_assigned_users;
+	return empty($task_assigned_users[$tval->task_id]) ? $tval : NULL;
 }
 
 ?>

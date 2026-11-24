@@ -55,7 +55,7 @@ function delIt(id) {
 </tr>
 <?php
 
-function showRow($id=0, $key=0, $title='', $value='') {
+function showSysvalRow($id=0, $key=0, $title='', $value='') {
 	GLOBAL $canEdit, $sysval_id, $CR, $AppUI, $keys, $locale_char_set;
 	$s = '<tr>'.$CR;
 	if ($sysval_id == $id && $canEdit) {
@@ -97,11 +97,11 @@ function showRow($id=0, $key=0, $title='', $value='') {
 // do the modules that are installed on the system
 $s = '';
 foreach ($values as $row) {
-	echo showRow($row['sysval_id'], $row['sysval_key_id'], $row['sysval_title'], $row['sysval_value']);
+	echo showSysvalRow($row['sysval_id'], $row['sysval_key_id'], $row['sysval_title'], $row['sysval_value']);
 }
 // add in the new key row:
 if ($sysval_id == 0) {
-	echo showRow();
+	echo showSysvalRow();
 }
 ?>
 </table>

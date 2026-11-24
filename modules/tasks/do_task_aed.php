@@ -74,7 +74,7 @@ if ($sub_form) {
 		$_POST['task_end_date'] = '000000000000';
 	}
 	
-	if (isset($_POST) && !($obj->bind($_POST))) {
+	if (!$obj->bind($_POST)) {
 		$AppUI->setMsg($obj->getError(), UI_MSG_ERROR);
 		$AppUI->redirect();
 	}
