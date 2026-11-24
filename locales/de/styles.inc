@@ -7,3 +7,4 @@
 "dp-grey-theme"=>"Grau & Schlank",
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse dunkel", // MT
+"material"=>"Material",

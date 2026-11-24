@@ -1,5 +1,5 @@
 {
- "legacy": true,
+ "legacy": false,
  "vector_icons": false,
  "dark": false
 }

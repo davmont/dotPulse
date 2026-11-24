@@ -7,3 +7,4 @@
 "dp-grey-theme"=>"グレーのスリムなスタイル", // MT
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse ダーク", // MT
+"material"=>"Material",

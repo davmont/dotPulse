@@ -7,3 +7,4 @@
 "dp-grey-theme"=>"Grå smal stil", // MT
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse mörk", // MT
+"material"=>"Material",

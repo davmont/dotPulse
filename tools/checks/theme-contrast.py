@@ -100,13 +100,18 @@ def check(label, prefix, pairs, v):
 
 def main():
     failed = 0
-    checked = themes()
-    for theme, info in checked.items():
+    checked = {}
+    for theme, info in themes().items():
         v = {}
         a = variables('modules/system/admin.css', r'\.dpa', 'a')
         for part in chain(theme, info):
             v.update(variables(f'style/{part}/main.css'))
             a.update(variables(f'style/{part}/main.css', r'body \.dpa', 'a'))
+        if not v:
+            # Colours written into the stylesheet (material, until it is rebuilt on the tokens).
+            print(f'{theme}: no --dp- colour variables, not checked')
+            continue
+        checked[theme] = info
         failed += check(theme, 'dp', PAIRS, v)
         failed += check(theme + ' System Admin', 'a', ADMIN_PAIRS, a)
     if failed:

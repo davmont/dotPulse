@@ -7,3 +7,4 @@
 "dp-grey-theme"=>"Stile grigio sottile", // MT
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse scuro", // MT
+"material"=>"Material",

@@ -168,6 +168,7 @@ The look of dotPulse. The list has two groups. Under **dotPulse themes**, choose
 
 - **dotPulse** for the light theme.
 - **dotPulse dark** for the dark theme.
+- **Material** for a flat, light theme with the classic icons.
 
 Under **Legacy themes (not updated)** are the older styles inherited from
 dotProject. They still work, but new features are designed and tested with the

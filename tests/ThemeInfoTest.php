@@ -25,7 +25,11 @@ class ThemeInfoTest extends TestCase {
         $this->assertEquals(true, $info['dark']);
         $this->assertEquals('dotpulse', $info['extends']);
         $this->assertEquals('#1A202B', $info['dark_surface']);
-        foreach (array('default', 'amp', 'dp-grey-theme', 'material', 'wps-redmond') as $legacy) {
+        // Material (2026) is current, with its own colours until it is rebuilt on the tokens.
+        $info = dPthemeInfo('material');
+        $this->assertEquals(false, $info['legacy']);
+        $this->assertEquals(false, $info['vector_icons']);
+        foreach (array('default', 'amp', 'dp-grey-theme', 'wps-redmond') as $legacy) {
             $info = dPthemeInfo($legacy);
             $this->assertEquals(true, $info['legacy'], $legacy);
             $this->assertEquals(false, $info['vector_icons'], $legacy);

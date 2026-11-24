@@ -7,3 +7,4 @@
 "dp-grey-theme"=>"Pelēkais plānais stils", // MT
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse tumšais", // MT
+"material"=>"Material",

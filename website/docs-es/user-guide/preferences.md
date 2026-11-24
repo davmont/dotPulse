@@ -173,6 +173,7 @@ El aspecto de dotPulse. La lista tiene dos grupos. En **Temas de dotPulse**, eli
 
 - **dotPulse** para el tema claro.
 - **dotPulse oscuro** para el tema oscuro.
+- **Material** para un tema claro y plano con los iconos clásicos.
 
 En **Temas antiguos (sin actualizar)** están los estilos más antiguos heredados
 de dotProject. Siguen funcionando, pero las funciones nuevas se diseñan y prueban
