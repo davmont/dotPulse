@@ -178,9 +178,7 @@ lugar donde los escribe en la página. Elija el escapado según el lugar:
 | Los campos de un formulario | `dPformSafe($value)`, o `dPformSafe($obj)` para escapar todas las propiedades de un objeto o array |
 
 `dPhtml()` y `dPformSafe()` usan `htmlentities()` con `ENT_QUOTES` en el juego
-de caracteres de la página. Las dos quitan además las barras invertidas (un
-resto de las *magic quotes* de PHP), así que `a\b` se muestra como `ab`; escriba
-`htmlspecialchars($value, ENT_QUOTES)` donde las barras invertidas importen.
+de caracteres de la página.
 
 De `modules/admin/vw_usr_api_tokens.php` y `modules/contacts/view.php`:
 

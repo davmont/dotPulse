@@ -176,9 +176,7 @@ it into the page. Pick the escaping for the place:
 | The fields of a form | `dPformSafe($value)`, or `dPformSafe($obj)` to escape every property of an object or array |
 
 `dPhtml()` and `dPformSafe()` use `htmlentities()` with `ENT_QUOTES` in the
-page's character set. Both also remove backslashes (a leftover of PHP's magic
-quotes), so `a\b` is shown as `ab`; write `htmlspecialchars($value, ENT_QUOTES)`
-where backslashes matter.
+page's character set.
 
 From `modules/admin/vw_usr_api_tokens.php` and `modules/contacts/view.php`:
 

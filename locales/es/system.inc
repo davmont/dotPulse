@@ -254,6 +254,7 @@
 "Module configured"=>"Módulo configurado",
 "Module does not have a valid setup class defined"=>"El módulo no tiene la clase de configuración correctamente definida",
 "Module installed"=>"Módulo instalado",
+"Module not installed"=>"Módulo no instalado",
 "Module menu state changed"=>"El estado del menú del Módulo fue cambiado",
 "Module not upgraded"=>"El módulo no fue actualizado",
 "Module re-ordered"=>"Módulo re-ordenado",

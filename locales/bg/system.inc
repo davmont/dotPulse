@@ -209,6 +209,7 @@
 "Module configured"=>"Модул настроен",
 "Module does not have a valid setup class defined"=>"Модула няма валиден инсталационен клас",
 "Module installed"=>"Модул инсталиран",
+"Module not installed"=>"Модулът не е инсталиран", // MT
 "Module menu state changed"=>"Състоянието на менюто за модула е сменено",
 "Module not upgraded"=>"Модула не е подновен",
 "Module re-ordered"=>"Модул пресортиран",

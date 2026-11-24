@@ -71,6 +71,7 @@
 "Module configured",
 "Module does not have a valid setup class defined",
 "Module installed",
+"Module not installed",
 "Module menu state changed",
 "Module not upgraded",
 "Module re-ordered",

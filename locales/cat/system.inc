@@ -209,6 +209,7 @@
 "Module configured"=>"Mòdul configurat", // MT
 "Module does not have a valid setup class defined"=>"El mòdul no té definida una classe d'instal·lació vàlida", // MT
 "Module installed"=>"Mòdul instal·lat", // MT
+"Module not installed"=>"Mòdul no instal·lat", // MT
 "Module menu state changed"=>"S'ha canviat l'estat del menú del mòdul", // MT
 "Module not upgraded"=>"Mòdul no actualitzat", // MT
 "Module re-ordered"=>"Mòdul reordenat", // MT

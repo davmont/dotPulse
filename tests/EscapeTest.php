@@ -27,6 +27,18 @@ class EscapeTest extends TestCase {
         $this->assertEquals('x', dPhtml('x'));
     }
 
+    function testDataKeepsItsBackslashes() {
+        global $AppUI;
+        $this->assertEquals('C:\\temp\\new', dPhtml('C:\\temp\\new'));
+        $this->assertEquals('a\\b', dPformSafe('a\\b'));
+        $this->assertEquals('a\\b', $AppUI->___('a\\b', UI_OUTPUT_RAW));
+        // Translated texts still lose the backslash of "doesn\'t" (written so in locale files).
+        $GLOBALS['translate'] = array('Skip' => "doesn\\'t");
+        $this->assertEquals("doesn't", $AppUI->_('Skip', UI_OUTPUT_RAW));
+        $this->assertEquals('doesn&apos;t', $AppUI->_('Skip'));
+        unset($GLOBALS['translate']);
+    }
+
     function testJsLiteralHasNoBreakingCharacters() {
         $out = dPjs("a\"b'c</script>&");
         // Only the delimiting quotes remain.
