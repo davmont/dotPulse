@@ -35,7 +35,7 @@ currency and the page people see after they log in.
 | Setting | What it does | Default |
 | --- | --- | --- |
 | **Host Locale** (`host_locale`) | The language of the login page. Once logged in, people see the **Locale** of their preferences, which falls back to the one in [Default user preferences](lists-and-fields.md#default-user-preferences), not to this setting. | `en` |
-| **Default User Interface Style** (`host_style`) | The theme for the login page and for users who haven't chosen one in their preferences. Choose from the list of installed themes. | **dotPulse** |
+| **Default User Interface Style** (`host_style`) | The theme for the login page and for users who haven't chosen one in their preferences. The list shows the dotPulse themes first, then the legacy ones (not updated). | **dotPulse** |
 | **Currency Symbol** (`currency_symbol`) | Put before money amounts: project and task budgets, and the budget column of the companies list. | `$` |
 
 To change the language or theme of users who already have one, use

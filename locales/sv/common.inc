@@ -385,3 +385,5 @@ Om du ej har begärt ändringen av lösenordet behöver du ej oroa dig. Detta me
 "- choose a module -"=>"- välj en modul -", // MT
 "choose a module"=>"välj en modul", // MT
 "main texts"=>"huvudtexter", // MT
+"dotPulse themes"=>"dotPulse-teman", // MT
+"Legacy themes (not updated)"=>"Äldre teman (uppdateras inte)", // MT

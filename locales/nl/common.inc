@@ -375,3 +375,5 @@
 "- choose a module -"=>"- kies een module -", // MT
 "choose a module"=>"kies een module", // MT
 "main texts"=>"hoofdteksten", // MT
+"dotPulse themes"=>"dotPulse-thema's", // MT
+"Legacy themes (not updated)"=>"Oude thema's (niet bijgewerkt)", // MT

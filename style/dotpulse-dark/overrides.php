@@ -2,9 +2,6 @@
 if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly');
 }
-// The dark versions of the small icons and the colour filter of includes/dark_colors.php
-// (index.php); dotPulse's overrides turn the vector icons on.
-if (!defined('DP_DARK_THEME')) {
-	define('DP_DARK_THEME', true);
-}
+// theme.json makes it dark (the dark small icons and the colour filter of
+// includes/dark_colors.php) and turns the vector icons on.
 require DP_BASE_DIR . '/style/dotpulse/overrides.php';

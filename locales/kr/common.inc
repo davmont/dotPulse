@@ -383,3 +383,5 @@
 "- choose a module -"=>"- 모듈 선택 -", // MT
 "choose a module"=>"모듈을 선택하십시오", // MT
 "main texts"=>"주요 텍스트", // MT
+"dotPulse themes"=>"dotPulse 테마", // MT
+"Legacy themes (not updated)"=>"이전 테마(업데이트되지 않음)", // MT

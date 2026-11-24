@@ -37,7 +37,7 @@ tema, la moneda y la página que la gente ve tras el acceso.
 | Ajuste | Qué hace | Valor predeterminado |
 | --- | --- | --- |
 | **Idioma del Servidor** (`host_locale`) | El idioma de la página de acceso. Una vez dentro, cada persona ve la **Configuración Regional** de sus preferencias, que, si no la tiene, toma la de [Preferencias por defecto](lists-and-fields.md#default-user-preferences), no este ajuste. | `en` |
-| **Estilo Predeterminado** (`host_style`) | El tema de la página de acceso y de los usuarios que no han elegido uno en sus preferencias. Elija en la lista de temas instalados. | **dotPulse** |
+| **Estilo Predeterminado** (`host_style`) | El tema de la página de acceso y de los usuarios que no han elegido uno en sus preferencias. La lista muestra primero los temas de dotPulse y después los antiguos (sin actualizar). | **dotPulse** |
 | **Símbolo de Moneda** (`currency_symbol`) | Se pone delante de las cantidades de dinero: los presupuestos de proyectos y tareas, y la columna de presupuesto de la lista de empresas. | `$` |
 
 Para cambiar el idioma o el tema de los usuarios que ya tienen uno, use

@@ -375,3 +375,5 @@
 "- choose a module -"=>"- válasszon modult -", // MT
 "choose a module"=>"válasszon modult", // MT
 "main texts"=>"fő szövegek", // MT
+"dotPulse themes"=>"dotPulse témák", // MT
+"Legacy themes (not updated)"=>"Régi témák (nem frissülnek)", // MT

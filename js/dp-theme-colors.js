@@ -10,7 +10,20 @@
 (function (global) {
 	'use strict';
 
-	var SURFACE = [0x1A, 0x20, 0x2B]; // style/dotpulse-dark/main.css --dp-surface
+	// The dark theme's surface: its --dp-surface (dotPulse dark's #1A202B when it can't be read).
+	var surfaceRgb = null;
+	function surface() {
+		if (!surfaceRgb) {
+			var value = '';
+			try {
+				value = global.getComputedStyle(global.document.documentElement).getPropertyValue('--dp-surface').trim();
+			} catch (e) {
+				value = '';
+			}
+			surfaceRgb = (value && parse(value)) || [0x1A, 0x20, 0x2B];
+		}
+		return surfaceRgb;
+	}
 	var NAMES = {
 		white: 'ffffff', black: '000000', silver: 'c0c0c0', gray: '808080', grey: '808080',
 		lightgrey: 'd3d3d3', lightgray: 'd3d3d3', gainsboro: 'dcdcdc', whitesmoke: 'f5f5f5',
@@ -100,11 +113,11 @@
 			} else if (l < 0.3) {
 				out = fromHsl(h, neutral ? 0.15 : Math.min(s, 0.4), 0.4);
 			}
-		} else if (role === 'fg' && contrast(rgb, SURFACE) < 4.5) {
+		} else if (role === 'fg' && contrast(rgb, surface()) < 4.5) {
 			s2 = neutral ? 0.18 : Math.min(s, 0.85);
 			l2 = neutral ? 0.92 - l * 0.5 : Math.max(0.62, 1 - l);
 			out = fromHsl(h, s2, l2);
-			while (contrast(out, SURFACE) < 4.5 && l2 < 0.97) {
+			while (contrast(out, surface()) < 4.5 && l2 < 0.97) {
 				l2 += 0.02;
 				out = fromHsl(h, s2, l2);
 			}

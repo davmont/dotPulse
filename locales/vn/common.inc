@@ -382,3 +382,5 @@
 "- choose a module -"=>"- chọn một mô-đun -", // MT
 "choose a module"=>"chọn một mô-đun", // MT
 "main texts"=>"văn bản chính", // MT
+"dotPulse themes"=>"Giao diện dotPulse", // MT
+"Legacy themes (not updated)"=>"Giao diện cũ (không được cập nhật)", // MT

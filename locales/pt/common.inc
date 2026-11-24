@@ -500,3 +500,5 @@
 "- choose a module -"=>"- escolha um módulo -", // MT
 "choose a module"=>"escolha um módulo", // MT
 "main texts"=>"textos principais", // MT
+"dotPulse themes"=>"Temas do dotPulse", // MT
+"Legacy themes (not updated)"=>"Temas antigos (não atualizados)", // MT

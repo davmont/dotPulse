@@ -380,3 +380,5 @@
 "- choose a module -"=>"- wybierz moduł -", // MT
 "choose a module"=>"wybierz moduł", // MT
 "main texts"=>"teksty główne", // MT
+"dotPulse themes"=>"Motywy dotPulse", // MT
+"Legacy themes (not updated)"=>"Starsze motywy (nieaktualizowane)", // MT

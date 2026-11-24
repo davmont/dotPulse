@@ -375,3 +375,5 @@
 "- choose a module -"=>"- scegliere un modulo -", // MT
 "choose a module"=>"scegliere un modulo", // MT
 "main texts"=>"testi principali", // MT
+"dotPulse themes"=>"Temi di dotPulse", // MT
+"Legacy themes (not updated)"=>"Temi legacy (non aggiornati)", // MT

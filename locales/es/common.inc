@@ -386,3 +386,5 @@
 "choose a module"=>"elija un módulo",
 "main texts"=>"textos principales",
 "Holiday"=>"Festivos",
+"dotPulse themes"=>"Temas de dotPulse",
+"Legacy themes (not updated)"=>"Temas antiguos (sin actualizar)",

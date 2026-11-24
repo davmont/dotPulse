@@ -164,13 +164,15 @@ Each option shows the same amount formatted for one locale.
 
 ### User Interface Style
 
-The look of dotPulse. Choose:
+The look of dotPulse. The list has two groups. Under **dotPulse themes**, choose:
 
 - **dotPulse** for the light theme.
-- **dotpulse-dark** for the dark theme.
+- **dotPulse dark** for the dark theme.
 
-The list also has older styles inherited from dotProject. dotPulse is designed
-and tested with its own two themes, so use one of those.
+Under **Legacy themes (not updated)** are the older styles inherited from
+dotProject. They still work, but new features are designed and tested with the
+dotPulse themes, and the legacy ones may look out of place in new pages. Use a
+dotPulse theme.
 
 ![The dashboard in the dark theme](../img/ug-dark-theme.png){ .shot }
 

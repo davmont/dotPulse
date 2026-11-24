@@ -17,10 +17,30 @@ if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly.');
 }
 
-/** The dark theme's surface (style/dotpulse-dark/main.css --dp-surface): what white becomes. */
+/** dotPulse dark's surface (style/dotpulse-dark/main.css --dp-surface): what white becomes. */
 define('DP_DARK_SURFACE', '#1A202B');
-/** The dark theme's text colour (--dp-ink): what text without a colour of its own gets. */
+/** dotPulse dark's text colour (--dp-ink): what text without a colour of its own gets. */
 define('DP_DARK_INK', '#E9EDF3');
+
+/** The current dark theme's surface ("dark_surface" in its theme.json). */
+function dPdarkSurface()
+{
+	if (!function_exists('dPthemeInfo')) {
+		return DP_DARK_SURFACE;
+	}
+	$info = dPthemeInfo();
+	return $info['dark_surface'];
+}
+
+/** The current dark theme's text colour ("dark_ink" in its theme.json). */
+function dPdarkInk()
+{
+	if (!function_exists('dPthemeInfo')) {
+		return DP_DARK_INK;
+	}
+	$info = dPthemeInfo();
+	return $info['dark_ink'];
+}
 
 /** #rgb, #rrggbb or a common colour name as array(r, g, b) of 0..255, or null. */
 function dPdarkParseColor($value)
@@ -131,7 +151,7 @@ function dPdarkColor($value, $role)
 				$out = dPdarkFromHsl($h, $neutral ? 0.15 : min($s, 0.4), 0.4);
 			}
 		} else if ($role === 'fg') {
-			$surface = dPdarkParseColor(DP_DARK_SURFACE);
+			$surface = dPdarkParseColor(dPdarkSurface());
 			if (dPdarkContrast($rgb, $surface) < 4.5) {
 				$s2 = $neutral ? 0.18 : min($s, 0.85);
 				$l2 = $neutral ? 0.92 - $l * 0.5 : max(0.62, 1 - $l);
@@ -190,8 +210,8 @@ function dPdarkNeedsDarkInk($background)
 	if ($bg === null) {
 		return false;
 	}
-	$light = dPdarkContrast(dPdarkParseColor(DP_DARK_INK), $bg);
-	return $light < 4.5 && dPdarkContrast(dPdarkParseColor(DP_DARK_SURFACE), $bg) > $light;
+	$light = dPdarkContrast(dPdarkParseColor(dPdarkInk()), $bg);
+	return $light < 4.5 && dPdarkContrast(dPdarkParseColor(dPdarkSurface()), $bg) > $light;
 }
 
 /** Whether the response headers sent so far are those of a page (no type yet counts as one). */

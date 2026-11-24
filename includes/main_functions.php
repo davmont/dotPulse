@@ -27,7 +27,7 @@ function bestColor($bg, $lt = '#ffffff', $dk = '#000000')
 		require_once DP_BASE_DIR . '/includes/dark_colors.php';
 		// The dark theme's output filter darkens a light background: light text then.
 		if (dPdarkColor('#' . $bg, 'bg') !== null) {
-			return DP_DARK_INK;
+			return dPdarkInk();
 		}
 		// A kept background (a project colour): the text sits on it, so dark text stays
 		// dark. rgb() is the spelling the filter does not touch (it would lighten a hex
@@ -451,27 +451,58 @@ function dPshowModuleConfig($config)
 }
 
 /**
- * Whether the theme shows the vector icons (tools/icons/build.py) instead of the bitmaps:
- * a theme opts in by defining DP_VECTOR_ICONS in its overrides.php (dotpulse does). The
+ * What a theme declares in style/<theme>/theme.json (the current theme, $uistyle, by default):
+ * - legacy: a classic theme, kept but not updated for new features (listed apart);
+ * - vector_icons: the vector icons (tools/icons/build.py) instead of the bitmaps;
+ * - dark: a dark theme: the dark versions of the small icons and the colour filter of
+ *   includes/dark_colors.php, which aims at dark_surface and dark_ink;
+ * - extends: the theme whose stylesheet this one builds on (read by the checks).
+ * A theme without the file gets the defaults below.
+ */
+function dPthemeInfo($style = null)
+{
+	global $uistyle;
+	static $cache = array();
+	$style = (string)($style === null ? $uistyle : $style);
+	if (!isset($cache[$style])) {
+		$info = array('legacy' => false, 'vector_icons' => false, 'dark' => false, 'extends' => null,
+			'dark_surface' => '#1A202B', 'dark_ink' => '#E9EDF3');
+		$file = DP_BASE_DIR . '/style/' . basename($style) . '/theme.json';
+		$json = ($style !== '' && is_file($file)) ? json_decode((string)file_get_contents($file), true) : null;
+		if (is_array($json)) {
+			$info = array_merge($info, array_intersect_key($json, $info));
+		}
+		$cache[$style] = $info;
+	}
+	return $cache[$style];
+}
+
+/**
+ * Whether the theme shows the vector icons (tools/icons/build.py) instead of the bitmaps
+ * ("vector_icons" in its theme.json; DP_VECTOR_ICONS, the old way, still counts). The
  * classic themes keep the original bitmaps.
  */
 function dPvectorIcons()
 {
-	return defined('DP_VECTOR_ICONS') && DP_VECTOR_ICONS;
+	$info = dPthemeInfo();
+	return !empty($info['vector_icons']) || (defined('DP_VECTOR_ICONS') && DP_VECTOR_ICONS);
 }
 
 /**
- * Whether the theme is dark (style/dotpulse-dark defines DP_DARK_THEME in its overrides.php):
- * it gets the dark versions of the small icons and the colour filter of includes/dark_colors.php.
+ * Whether the theme is dark ("dark" in its theme.json; DP_DARK_THEME, the old way, still
+ * counts): it gets the dark versions of the small icons and the colour filter of
+ * includes/dark_colors.php.
  */
 function dPdarkTheme()
 {
-	return defined('DP_DARK_THEME') && DP_DARK_THEME;
+	$info = dPthemeInfo();
+	return !empty($info['dark']) || (defined('DP_DARK_THEME') && DP_DARK_THEME);
 }
 
 /**
- * The user interface styles (the folders of style/) for a select list: folder => its name
- * in locales/[locale]/styles.inc (the folder's own name when it has none), sorted by name.
+ * The user interface styles (the folders of style/; not those starting with "_" or ".",
+ * which hold shared files) for a select list: folder => its name in
+ * locales/[locale]/styles.inc (the folder's own name when it has none), sorted by name.
  */
 function dPstyleOptions()
 {
@@ -479,11 +510,40 @@ function dPstyleOptions()
 	$styles = array();
 	$warn = $AppUI->setWarning(false);
 	foreach ($AppUI->readDirs('style') as $dir) {
-		$styles[$dir] = $AppUI->_($dir, UI_OUTPUT_RAW);
+		if ($dir[0] !== '_' && $dir[0] !== '.') {
+			$styles[$dir] = $AppUI->_($dir, UI_OUTPUT_RAW);
+		}
 	}
 	$AppUI->setWarning($warn);
 	natcasesort($styles);
 	return $styles;
+}
+
+/**
+ * A select list of the styles, the current ones first and the legacy ones (theme.json) in a
+ * group of their own, so people can tell which are kept up to date.
+ */
+function dPstyleSelect($name, $selected, $attributes = 'class="text" size="1"')
+{
+	global $AppUI;
+	$groups = array('current' => array(), 'legacy' => array());
+	foreach (dPstyleOptions() as $dir => $label) {
+		$info = dPthemeInfo($dir);
+		$groups[empty($info['legacy']) ? 'current' : 'legacy'][$dir] = $label;
+	}
+	$s = '<select name="' . dPhtml($name) . '" ' . $attributes . '>';
+	foreach ($groups as $group => $styles) {
+		if (!$styles) {
+			continue;
+		}
+		$s .= '<optgroup label="' . $AppUI->_($group === 'legacy' ? 'Legacy themes (not updated)' : 'dotPulse themes') . '">';
+		foreach ($styles as $dir => $label) {
+			$s .= '<option value="' . dPhtml($dir) . '"' . ((string)$dir === (string)$selected ? ' selected="selected"' : '')
+				. '>' . dPhtml($label) . '</option>';
+		}
+		$s .= '</optgroup>';
+	}
+	return $s . '</select>';
 }
 
 /**
