@@ -209,6 +209,7 @@
 "Module configured"=>"Modul nastavljen", // MT
 "Module does not have a valid setup class defined"=>"Modul nima določenega veljavnega namestitvenega razreda", // MT
 "Module installed"=>"Modul nameščen", // MT
+"Module not installed"=>"Modul ni nameščen", // MT
 "Module menu state changed"=>"Stanje menija modula spremenjeno", // MT
 "Module not upgraded"=>"Modul ni nadgrajen", // MT
 "Module re-ordered"=>"Vrstni red modulov spremenjen", // MT

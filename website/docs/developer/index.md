@@ -125,11 +125,8 @@ project) and `tasks_tab.view.links.php` (a **Links** tab on a task's view
 page). The tab's label is `<name>` with underscores turned into spaces and the
 first letter in capitals. The page that shows the tabs adds them with
 `$tabBox->loadExtras($m)` or `$tabBox->loadExtras($m, $a)`; the tabs of a
-turned-off module are left out.
-
-!!! note
-    The list of tabs is read once per session and module. After you add a tab
-    file, log out and in again to see it.
+turned-off module, or of one the user may not access, are left out.
+`dPmoduleTabs($module)` builds the list, once per request.
 
 ### JavaScript
 

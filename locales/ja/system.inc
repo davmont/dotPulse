@@ -209,6 +209,7 @@
 "Module configured"=>"モジュールを設定しました", // MT
 "Module does not have a valid setup class defined"=>"モジュールに有効なセットアップクラスが定義されていません", // MT
 "Module installed"=>"モジュールをインストールしました", // MT
+"Module not installed"=>"モジュールはインストールされませんでした", // MT
 "Module menu state changed"=>"モジュールのメニュー状態を変更しました", // MT
 "Module not upgraded"=>"モジュールはアップグレードされませんでした", // MT
 "Module re-ordered"=>"モジュールの順序を変更しました", // MT

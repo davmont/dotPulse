@@ -111,7 +111,7 @@ $titleBlock->show();
 					<?php } ?>
 				</tr>
 				<?php
-				if (isset($_SESSION['all_tabs']['departments'])) {
+				if ($AppUI->isActiveModule('departments')) {
 					?>
 					<tr>
 						<td align="right" width="100"><?php echo $AppUI->_('Department'); ?>:</td>

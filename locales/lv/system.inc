@@ -209,6 +209,7 @@
 "Module configured"=>"Modulis nokonfigurēts",
 "Module does not have a valid setup class defined"=>"Modulim nav noteikta derīga iestatījumu klase",
 "Module installed"=>"Modulis uzstādīts",
+"Module not installed"=>"Modulis netika uzstādīts", // MT
 "Module menu state changed"=>"Moduļa izvēlnes stāvoklis nomainīts",
 "Module not upgraded"=>"Modulis nav atjaunināts",
 "Module re-ordered"=>"Modulis pārkārtots",

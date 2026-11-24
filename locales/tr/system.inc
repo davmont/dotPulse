@@ -209,6 +209,7 @@
 "Module configured"=>"Modüle ayarlandı",
 "Module does not have a valid setup class defined"=>"Modül geçerli bir kurulum sınıfına sahip değil.",
 "Module installed"=>"Modül kuruldu",
+"Module not installed"=>"Modül kurulmadı", // MT
 "Module menu state changed"=>"Modül menüsü durumu değişti",
 "Module not upgraded"=>"Module terfi edilemedi",
 "Module re-ordered"=>"Modül yeniden sıralandı", // MT

@@ -209,6 +209,7 @@
 "Module configured"=>"Skonfigurowano moduł", // MT
 "Module does not have a valid setup class defined"=>"Moduł nie ma zdefiniowanej prawidłowej klasy instalacyjnej", // MT
 "Module installed"=>"Moduł zainstalowany",
+"Module not installed"=>"Moduł nie został zainstalowany", // MT
 "Module menu state changed"=>"Stan modułu menu zmieniony",
 "Module not upgraded"=>"Nie zaktualizowano modułu", // MT
 "Module re-ordered"=>"Moduł przesunięty",

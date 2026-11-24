@@ -44,6 +44,9 @@ Document Management start **visible**):
 3. Click **Turn on** to make it available.
 4. Click **Show in menu** if it should have an entry in the main menu.
 
+If the module can't create its tables, the page says *Module not installed*
+with the reason, and the module stays under **Not installed**.
+
 !!! warning "Set the permissions before you turn it on"
     A new module is open to every role that has rights on the non-admin
     modules (see below). If only some people should use it, change the roles
@@ -212,10 +215,6 @@ Try them on a test site before relying on them:
 | Document Management | `mngdocument` | Document management. |
 | Timesheet | `timesheet` | Timesheets. |
 | ProjectDesigner | `projectdesigner` | A page to design a project and its tasks, with a Gantt chart you can drag. |
-
-!!! warning "Costs and Finances can't be installed together"
-    Both create a table named `budget` with different columns. Whichever you
-    install second fails, and its budget pages show database errors.
 
 ### Dormant add-ons: not recommended
 

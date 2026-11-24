@@ -133,12 +133,9 @@ pestaña **Enlaces** en un proyecto) y `tasks_tab.view.links.php` (una pestaña
 **Enlaces** en la página de una tarea). La etiqueta de la pestaña es `<name>`,
 con los guiones bajos cambiados por espacios y la primera letra en mayúscula.
 La página que muestra las pestañas las añade con `$tabBox->loadExtras($m)` o
-`$tabBox->loadExtras($m, $a)`; las pestañas de un módulo desactivado se dejan
-fuera.
-
-!!! note
-    La lista de pestañas se lee una vez por sesión y módulo. Después de añadir
-    un archivo de pestaña, cierre la sesión y vuelva a entrar para verla.
+`$tabBox->loadExtras($m, $a)`; las pestañas de un módulo desactivado, o de uno
+al que el usuario no puede acceder, se dejan fuera. `dPmoduleTabs($module)`
+construye la lista, una vez por petición.
 
 ### JavaScript { #javascript }
 

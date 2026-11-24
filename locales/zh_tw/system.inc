@@ -209,6 +209,7 @@
 "Module configured"=>"模組已設定", // MT
 "Module does not have a valid setup class defined"=>"模組未定義有效的設定類別", // MT
 "Module installed"=>"模組已安裝",
+"Module not installed"=>"模組未安裝", // MT
 "Module menu state changed"=>"模組選單狀態已改變",
 "Module not upgraded"=>"模組未升級", // MT
 "Module re-ordered"=>"模組已重新排序",

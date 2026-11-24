@@ -209,6 +209,7 @@
 "Module configured"=>"Modul konfigureret",
 "Module does not have a valid setup class defined"=>"Modulet har ikke en gyldig defineret setup-klasse",
 "Module installed"=>"Modul installeret",
+"Module not installed"=>"Modulet blev ikke installeret", // MT
 "Module menu state changed"=>"Modul menu-status ændret",
 "Module not upgraded"=>"Modul ikke opgraderet",
 "Module re-ordered"=>"Modulets rækkefølge ændret", // MT

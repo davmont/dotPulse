@@ -209,6 +209,7 @@
 "Module configured"=>"Modul konfigurerad",
 "Module does not have a valid setup class defined"=>"Modulen har ingen giltig setup-klass",
 "Module installed"=>"Modul installerad",
+"Module not installed"=>"Modulen installerades inte", // MT
 "Module menu state changed"=>"Menystatus ändrad för denna modul",
 "Module not upgraded"=>"Modulen kunde EJ aktualiseras",
 "Module re-ordered"=>"Modulerna nyordnade",

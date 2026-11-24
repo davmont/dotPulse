@@ -72,8 +72,17 @@ switch ($cmd) {
 		$AppUI->setMsg('Module menu state changed', UI_MSG_OK);
 		break;
 	case 'install':
-	// do the module specific stuff
-		$AppUI->setMsg($setup->install());
+	// do the module specific stuff: null, true or '' on success, false or an error message
+	// otherwise. A module whose install() failed is not registered (it used to be, with
+	// "Module installed", and its pages then showed SQL errors).
+		$result = $setup->install();
+		if ($result === false || (is_string($result) && $result !== '')) {
+			$AppUI->setMsg('Module not installed', UI_MSG_ERROR);
+			if (is_string($result)) {
+				$AppUI->setMsg(': ' . $result, UI_MSG_ERROR, true);
+			}
+			break;
+		}
 		$obj->bind($config);
 	// add to the installed modules table
 		$obj->install();

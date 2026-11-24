@@ -209,6 +209,7 @@
 "Module configured"=>"모듈 구성",
 "Module does not have a valid setup class defined"=>"모듈은 규정된 유효한 설치 클래스를 가지고 있지 않음",
 "Module installed"=>"모듈 설치 완료",
+"Module not installed"=>"모듈이 설치되지 않았습니다", // MT
 "Module menu state changed"=>"모듈 메뉴상태 변화됨",
 "Module not upgraded"=>"모듈이 갱신되지 않음",
 "Module re-ordered"=>"모듈 순서가 변경되었습니다", // MT
