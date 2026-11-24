@@ -836,12 +836,17 @@ function dPgetCleanParam(&$arr, $name, $def = null)
 	if (empty($val)) {
 		return $val;
 	}
-	return htmLawed($val, array('safe' => 1));
+	return dPsanitiseHTML($val);
 }
 
+/**
+ * HTML from a user, with scripts, event attributes, dangerous URL schemes and the elements
+ * below removed (htmLawed's safe mode). htmLawed 1.2 knows the HTML5 elements; link, meta,
+ * style and template are refused too, since they change the page or hide markup.
+ */
 function dPsanitiseHTML($text)
 {
-	return htmLawed($text, array('safe' => 1));
+	return htmLawed($text, array('safe' => 1, 'elements' => '*-command-keygen-link-meta-slot-style-template'));
 }
 
 function dPlink($title, $href)

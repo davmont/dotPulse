@@ -39,7 +39,7 @@ No acceda nunca directamente a `$_GET`, `$_POST`, `$_REQUEST` o `$_COOKIE` por
 |---|---|
 | `dPgetParam($arr, $name, $def = null)` | El valor tal como se envió, o `$def` cuando falta. Sin limpieza: puede ser cualquier cadena, o un array cuando la petición envía `name[]=...`. |
 | `dPgetIntParam($arr, $name, $def = 0)` | El valor convertido a `int`, o `(int)$def`. Úsela para los ids y para cualquier otro número. |
-| `dPgetCleanParam($arr, $name, $def = null)` | El valor pasado por htmLawed (modo `safe`), que quita los scripts y el marcado peligroso del HTML; los arrays se limpian elemento a elemento. Para campos de texto que pueden contener HTML. No es escapado: el resultado sigue necesitando las reglas de SQL y de salida de más abajo. |
+| `dPgetCleanParam($arr, $name, $def = null)` | El valor pasado por `dPsanitiseHTML()`: htmLawed en modo `safe`, que quita los scripts, los atributos de eventos y los esquemas de URL peligrosos, y también los elementos `link`, `meta`, `style` y `template`; los arrays se limpian elemento a elemento. Para campos de texto que pueden contener HTML. No es escapado: el resultado sigue necesitando las reglas de SQL y de salida de más abajo. |
 | `dPdepartmentParam($arr, $name = 'department')` | El filtro de departamento de las listas de proyectos: `company_<id>` o un id de departamento como `int`. |
 | `dPintList($ids)` | No es un lector: convierte en enteros una lista de ids separados por comas (`'3,x,5'` pasa a ser `'3,0,5'`). |
 | `dPvalidateOrder($value, $allowed, $default)` | No es un lector: `$value` si está en `$allowed`, y si no, `$default`. Para columnas de ordenación (vea [SQL](#sql)). |

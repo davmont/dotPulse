@@ -29,10 +29,11 @@ commit `vendor/` as well.
 | Chart.js | 4.4.4 | monitoringandcontrol charts | |
 | flatpickr | 4.6.13 | date fields | |
 | Frappe Gantt | | every Gantt chart (`classes/gantt_renderer.class.php`, igantt, macroprojects) | JpGraph and its fonts, which drew the projectdesigner Gantt image, were removed in 3.1.1 |
-
-PEAR (Date, Date_Calc, Date_Span, Contact_Vcard) was removed in 3.1.1: `CDate` (`classes/date.class.php`) and `CVcard` (`classes/vcard.class.php`) are dotPulse's own code.
 | overLIB | 4.21 | pop-up help texts | unmaintained |
 | DHTML calendar | | date pickers of core and add-on forms | |
+| htmLawed | 1.2.18 (2026-10-06) | `dPgetCleanParam()`, `dPsanitiseHTML()` | `includes/htmLawed.php`, the single file of the release (LGPL-3 / GPL-2+); maintained, update from bioinformatics.org/phplabware |
+
+PEAR (Date, Date_Calc, Date_Span, Contact_Vcard) was removed in 3.1.1: `CDate` (`classes/date.class.php`) and `CVcard` (`classes/vcard.class.php`) are dotPulse's own code.
 
 ## Copied into add-on modules
 

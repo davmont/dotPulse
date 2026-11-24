@@ -21,6 +21,9 @@ parameters:
         - ../../misc
         - ../../modules
     excludePaths:
+        # Third-party code outside lib/: read to resolve its functions, not analysed.
+        analyse:
+            - ../../includes/htmLawed.php
         analyseAndScan:
             # Vendored third-party copies inside modules
             - ../../modules/holiday/PEAR/*
