@@ -303,6 +303,10 @@ class CApi
 			}
 			$date = date('Y-m-d H:i:s', $ts);
 		}
+		// Checked before anything is saved: an invalid value used to answer 400 after the log
+		// had been written.
+		$percent = isset($body['percent_complete'])
+			? $this->intValue($body['percent_complete'], 0, 100, 'percent_complete') : null;
 		$log = new CTaskLog;
 		$log->task_log_task = (int)$id;
 		$log->task_log_creator = $this->user_id;
@@ -315,8 +319,8 @@ class CApi
 		if (($msg = $log->store())) {
 			$this->fail(422, 'not_saved', is_array($msg) ? implode(' ', $msg) : (string)$msg);
 		}
-		if (isset($body['percent_complete'])) {
-			$task->task_percent_complete = $this->intValue($body['percent_complete'], 0, 100, 'percent_complete');
+		if ($percent !== null) {
+			$task->task_percent_complete = $percent;
 			if ($task->task_percent_complete >= 100
 				&& (!$task->task_end_date || $task->task_end_date == '0000-00-00 00:00:00')) {
 				$task->task_end_date = $date;

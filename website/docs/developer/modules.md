@@ -96,16 +96,16 @@ explains the two groups from the administrator's side.
 
 | Method | Called when | Returns |
 | --- | --- | --- |
-| `install()` | **install** is clicked. Create the tables and any initial rows. | `null` on success, or an error message. The page shows what it returns, then *Module installed*. |
+| `install()` | **install** is clicked. Create the tables and any initial rows. | `null` (or `true`) on success: the module is registered and the page says *Module installed*. `false` or an error message: the module is not registered, and the page says *Module not installed* with the message. |
 | `remove()` | **remove** is clicked. Drop the tables and delete anything else the module added. | `null`, or a message to show. |
 | `upgrade($old_version)` | **upgrade** is clicked. `$old_version` is the version stored when the module was installed or last upgraded. Bring the tables from that version to `mod_version`. | `true` on success: the new `$config` (and so the new version) is stored. `false`: the page says *Module not upgraded* and the stored version stays, so the upgrade can be tried again. |
 | `configure()` | **configure** is clicked (only with `mod_config` set). Usually redirects to the module's own settings page, `?m=<name>&a=configure`, which `index.php` opens only to users who may edit System Admin. | `true`, or `false` for *Module configuration failed*. |
 
 !!! warning
-    The module is registered after `install()` whatever it returns. If
-    `install()` fails, say so in its message, and make `remove()` work on a
-    half-installed module (drop with `DROP TABLE IF EXISTS`, which `DBQuery`'s
-    `dropTable()` does), so that the administrator can remove it and try again.
+    A module whose `install()` fails is not registered, so the administrator
+    can't **remove** it. Undo what `install()` did before it returns the error
+    (drop the tables it created), or create the tables with
+    `CREATE TABLE IF NOT EXISTS`, so that **install** can be clicked again.
 
 The Modules page offers **upgrade** only when
 `version_compare(mod_version in setup.php, stored version, '>')` is true, and
@@ -310,7 +310,7 @@ other module's page: declare the variables you use from it as `global`
 (`modules/links/projects_tab.links.php` uses `$project_id`) and check your own
 module's permission, since the page checked only its own. Tabs of a module
 that is turned off, or that the user has no access to, are left out. The list
-of tabs is read once per session: log in again after you add a tab file.
+of tabs is read on each request (`dPmoduleTabs()`).
 
 ## Other files the core looks for
 

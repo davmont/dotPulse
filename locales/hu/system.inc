@@ -209,6 +209,7 @@
 "Module configured"=>"Modul beállítva",
 "Module does not have a valid setup class defined"=>"A modulhoz nem tartozik telepítő osztály",
 "Module installed"=>"Telepített modul",
+"Module not installed"=>"A modul nincs telepítve", // MT
 "Module menu state changed"=>"A modul menüállapota megváltozott",
 "Module not upgraded"=>"A modul frissítése sikertelen",
 "Module re-ordered"=>"Modul újrarendezve",

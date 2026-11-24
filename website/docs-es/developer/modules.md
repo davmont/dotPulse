@@ -99,17 +99,17 @@ explica los dos grupos desde el lado del administrador.
 
 | Método | Cuándo se llama | Devuelve |
 | --- | --- | --- |
-| `install()` | Al hacer clic en **instalar**. Cree las tablas y las filas iniciales que haga falta. | `null` si todo va bien, o un mensaje de error. La página muestra lo que devuelve y después *Módulo instalado*. |
+| `install()` | Al hacer clic en **instalar**. Cree las tablas y las filas iniciales que haga falta. | `null` (o `true`) si todo va bien: el módulo se registra y la página dice *Módulo instalado*. `false` o un mensaje de error: el módulo no se registra, y la página dice *Módulo no instalado* con el mensaje. |
 | `remove()` | Al hacer clic en **eliminar**. Elimine las tablas y borre todo lo demás que haya añadido el módulo. | `null`, o un mensaje que mostrar. |
 | `upgrade($old_version)` | Al hacer clic en **actualizar**. `$old_version` es la versión guardada cuando se instaló o se actualizó por última vez el módulo. Lleve las tablas de esa versión a `mod_version`. | `true` si todo va bien: se guarda el nuevo `$config` (y con él la nueva versión). `false`: la página dice *El módulo no fue actualizado* y la versión guardada se mantiene, así que se puede volver a intentar la actualización. |
 | `configure()` | Al hacer clic en **configura** (solo con `mod_config` activado). Normalmente redirige a la página de configuración del propio módulo, `?m=<name>&a=configure`, que `index.php` solo abre a los usuarios que pueden editar Administración del Sistema. | `true`, o `false` para *Configuración del módulo errónea*. |
 
 !!! warning
-    El módulo se registra después de `install()`, devuelva lo que devuelva. Si
-    `install()` falla, dígalo en su mensaje, y haga que `remove()` funcione con
-    un módulo instalado a medias (elimine con `DROP TABLE IF EXISTS`, que es lo
-    que hace `dropTable()` de `DBQuery`), para que el administrador pueda
-    eliminarlo y volver a intentarlo.
+    Un módulo cuyo `install()` falla no se registra, así que el administrador
+    no puede **eliminar**lo. Deshaga lo que hizo `install()` antes de devolver
+    el error (elimine las tablas que creó), o cree las tablas con
+    `CREATE TABLE IF NOT EXISTS`, para que se pueda volver a hacer clic en
+    **instalar**.
 
 La página Módulos ofrece **actualizar** solo cuando
 `version_compare(mod_version in setup.php, stored version, '>')` es verdadero,
@@ -321,8 +321,8 @@ archivo de la pestaña se ejecuta dentro de la página del otro módulo: declare
 como `global` las variables que use de ella (`modules/links/projects_tab.links.php`
 usa `$project_id`) y compruebe el permiso de su propio módulo, ya que la página
 solo comprobó el suyo. Las pestañas de un módulo desactivado, o al que el
-usuario no tiene acceso, se omiten. La lista de pestañas se lee una vez por
-sesión: vuelva a iniciar sesión después de añadir un archivo de pestaña.
+usuario no tiene acceso, se omiten. La lista de pestañas se lee en cada
+petición (`dPmoduleTabs()`).
 
 ## Otros archivos que busca el núcleo { #other-files-the-core-looks-for }
 

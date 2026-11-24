@@ -209,6 +209,7 @@
 "Module configured"=>"Modul nakonfigurován", // MT
 "Module does not have a valid setup class defined"=>"Modul nemá definovánu platnou instalační třídu", // MT
 "Module installed"=>"Modul nainstalován", // MT
+"Module not installed"=>"Modul nebyl nainstalován", // MT
 "Module menu state changed"=>"Stav menu modulu změněn", // MT
 "Module not upgraded"=>"Modul nebyl aktualizován", // MT
 "Module re-ordered"=>"Pořadí modulu změněno", // MT

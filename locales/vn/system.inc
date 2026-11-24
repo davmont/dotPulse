@@ -209,6 +209,7 @@
 "Module configured"=>"Mô-đun đã được cấu hình",
 "Module does not have a valid setup class defined"=>"Mô-đun không có một lớp cài đặt được định nghĩa hợp lệ",
 "Module installed"=>"Mô-đun đã được cài đặt",
+"Module not installed"=>"Mô-đun chưa được cài đặt", // MT
 "Module menu state changed"=>"Trạng thái thực đơn của mô-đun đã thay đổi",
 "Module not upgraded"=>"Mô-đun chưa được nâng cấp",
 "Module re-ordered"=>"Đã sắp xếp lại mô-đun", // MT

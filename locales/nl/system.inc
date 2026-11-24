@@ -209,6 +209,7 @@
 "Module configured"=>"Module geconfigureerd", // MT
 "Module does not have a valid setup class defined"=>"Module heeft geen geldige setup-klasse gedefinieerd", // MT
 "Module installed"=>"Module geinstalleerd",
+"Module not installed"=>"Module niet geïnstalleerd", // MT
 "Module menu state changed"=>"Module staat menu veranderd",
 "Module not upgraded"=>"Module niet bijgewerkt", // MT
 "Module re-ordered"=>"Module geordend",

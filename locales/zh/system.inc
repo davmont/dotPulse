@@ -209,6 +209,7 @@
 "Module configured"=>"模块配置",
 "Module does not have a valid setup class defined"=>"模块没有有效的安装定义类",
 "Module installed"=>"已安装模块",
+"Module not installed"=>"模块未安装", // MT
 "Module menu state changed"=>"模块菜单状态已改变",
 "Module not upgraded"=>"模块没有升级",
 "Module re-ordered"=>"模块重新排序",

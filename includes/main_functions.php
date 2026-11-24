@@ -685,6 +685,48 @@ function dPdepartmentParam(&$arr, $name = 'department')
 }
 
 /**
+ * The tabs other modules add to $module's pages: files modules/<dir>/<module>_tab.<name>.php
+ * (on its main tabbed page) and <module>_tab.<action>.<name>.php (on that action's page), of
+ * the active modules the user may access. Returns [['name', 'file', 'module'], ...] plus
+ * [action => [...]], as CTabBox::loadExtras() reads it. Built once per request and module.
+ */
+function dPmoduleTabs($module)
+{
+	global $AppUI;
+	static $cache = array();
+	$module = (string)$module;
+	if (isset($cache[$module])) {
+		return $cache[$module];
+	}
+	$tabs = array();
+	if ($module === '' || preg_match('/[^A-Za-z0-9_]/', $module)) {
+		return $cache[$module] = $tabs;
+	}
+	foreach ($AppUI->getActiveModules() as $dir => $name) {
+		$files = $AppUI->readFiles(DP_BASE_DIR . '/modules/' . $dir . '/', '^' . $module . '_tab.*\.php');
+		// Rights are looked up only for the modules that have such a file.
+		if (!$files || !getPermission($dir, 'access')) {
+			continue;
+		}
+		sort($files);
+		foreach ($files as $tab_file) {
+			$parts = explode('.', $tab_file);
+			$tab = array(
+				'name' => ucfirst(str_replace('_', ' ', $parts[count($parts) > 3 ? 2 : 1])),
+				'file' => DP_BASE_DIR . '/modules/' . $dir . '/' . mb_substr($tab_file, 0, -4),
+				'module' => $dir,
+			);
+			if (count($parts) > 3) {
+				$tabs[$parts[1]][] = $tab;
+			} else {
+				$tabs[] = $tab;
+			}
+		}
+	}
+	return $cache[$module] = $tabs;
+}
+
+/**
  * Escapes a value for HTML text or a quoted attribute (single or double quotes), in the
  * install's character set. Use it for every database or request value written into a page.
  */

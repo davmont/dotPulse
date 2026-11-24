@@ -48,6 +48,9 @@ Document Management empiezan **visible**):
 4. Haga clic en **Mostrar en el menú** si debe tener una entrada en el menú
    principal.
 
+Si el módulo no puede crear sus tablas, la página dice *Módulo no instalado*
+con el motivo, y el módulo sigue en **Sin instalar**.
+
 !!! warning "Configure los permisos antes de activarlo"
     Un módulo nuevo queda abierto a todos los roles que tienen derechos sobre
     los módulos que no son de administración (vea más abajo). Si solo deben
@@ -221,11 +224,6 @@ procesos del PMBOK. Pruébelos en un sitio de pruebas antes de confiar en ellos:
 | Document Management | `mngdocument` | Gestión documental. |
 | Timesheet | `timesheet` | Hojas de horas. |
 | ProjectDesigner | `projectdesigner` | Una página para diseñar un proyecto y sus tareas, con un diagrama de Gantt que se puede arrastrar. |
-
-!!! warning "Costs y Finanzas no se pueden instalar juntos"
-    Los dos crean una tabla llamada `budget` con columnas distintas. El que
-    instale en segundo lugar falla, y sus páginas de presupuesto muestran
-    errores de la base de datos.
 
 ### Complementos inactivos: no recomendados { #dormant-add-ons-not-recommended }
 

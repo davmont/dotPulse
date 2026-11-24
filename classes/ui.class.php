@@ -470,7 +470,10 @@ class CAppUI
 			$str .= dPgetConfig('locale_alert');
 		}
 
-		return $this->___($str, $flags);
+		// Many locale texts are written "doesn\'t" inside double quotes, which keeps the
+		// backslash; translations drop it here. (Data goes through ___() directly, as
+		// dPhtml() does, and keeps its backslashes: "C:\temp" used to show as "C:temp".)
+		return $this->___(stripslashes($str), $flags);
 	}
 
 	//Output formatting function
@@ -513,14 +516,13 @@ class CAppUI
 				break;
 			case UI_OUTPUT_HTML:
 				// ENT_QUOTES: single quotes too, so values are safe in attributes quoted either way.
-				$str = htmlentities(stripslashes($str), ENT_QUOTES, $locale_char_set);
+				$str = htmlentities($str, ENT_QUOTES, $locale_char_set);
 				$str = str_replace('&#039;', '&apos;', $str);
 				break;
 			case UI_OUTPUT_JS:
-				$str = addslashes(stripslashes($str));
+				$str = addslashes($str);
 				break;
 			case UI_OUTPUT_RAW:
-				$str = stripslashes($str);
 				break;
 		}
 		return $str;
@@ -1264,22 +1266,15 @@ class CTabBox_core
 
 	function loadExtras($module, $file = null)
 	{
-		global $AppUI, $acl;
-		if (!(isset($_SESSION['all_tabs']) && isset($_SESSION['all_tabs'][$module]))) {
-			return false;
-		}
-
+		global $AppUI;
+		$all = dPmoduleTabs($module);
 		if ($file) {
-			if (
-				isset($_SESSION['all_tabs'][$module][$file])
-				&& is_array($_SESSION['all_tabs'][$module][$file])
-			) {
-				$tab_array =& $_SESSION['all_tabs'][$module][$file];
-			} else {
+			if (!(isset($all[$file]) && is_array($all[$file]))) {
 				return false;
 			}
+			$tab_array = $all[$file];
 		} else {
-			$tab_array =& $_SESSION['all_tabs'][$module];
+			$tab_array = $all;
 		}
 		$tab_count = 0;
 		foreach ($tab_array as $tab_elem) {
@@ -1295,17 +1290,11 @@ class CTabBox_core
 	{
 		global $AppUI, $m, $a;
 
-		if (!(isset($_SESSION['all_tabs']) && isset($_SESSION['all_tabs'][$m]))) {
-			return false;
-		}
-		if (isset($a)) {
-			if (isset($_SESSION['all_tabs'][$m][$a]) && is_array($_SESSION['all_tabs'][$m][$a])) {
-				$tab_array =& $_SESSION['all_tabs'][$m][$a];
-			} else {
-				$tab_array =& $_SESSION['all_tabs'][$m];
-			}
+		$all = dPmoduleTabs($m);
+		if (isset($a) && isset($all[$a]) && is_array($all[$a])) {
+			$tab_array = $all[$a];
 		} else {
-			$tab_array =& $_SESSION['all_tabs'][$m];
+			$tab_array = $all;
 		}
 
 		list($file, $name) = $this->tabs[$tab];
