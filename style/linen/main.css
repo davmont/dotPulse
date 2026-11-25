@@ -1,0 +1,178 @@
+/* Linen: a theme inspired by current macOS. A light toolbar over a soft grey page, white
+   panels with generous corners (6px controls, 10px panels), the selected module a filled
+   accent pill, tabs as a segmented control, striped lists, and the system's own font.
+   System fonts only: no request to a font service (CSP and visitor privacy).
+   The layout and rules are dotPulse's (style/_shared/, imported in this order: the cascade
+   depends on it); this file defines Linen's colours and fonts, then the few rules that give
+   it its look. Its dark palette is dark.css (the Appearance preference). */
+@import url("../_shared/base.css");
+@import url("../_shared/forms.css");
+@import url("../_shared/header.css");
+@import url("../_shared/tables.css");
+@import url("../_shared/tabs.css");
+@import url("../_shared/calendar.css");
+@import url("../_shared/responsive.css");
+
+:root {
+	/* The accent: links, the selected module, primary buttons. */
+	--dp-blue: #0066CC;
+	--dp-blue-deep: #004C99;
+	--dp-blue-light: #4DA3FF;
+	/* Neutral fills: the segmented control's track, hovered items, headers. */
+	--dp-blue-wash: #E8E8ED;
+	--dp-blue-tint: #F2F2F7;
+	--dp-coral: #FF3B30;
+	--dp-coral-text: #D70015;
+	--dp-coral-wash: #FFEBEA;
+	--dp-teal: #1F7A35;
+	--dp-teal-wash: #E4F6E8;
+	--dp-ink: #1D1D1F;
+	--dp-slate: #636366;
+	--dp-line: #D2D2D7;
+	--dp-line-soft: #E5E5EA;
+	--dp-ground: #F5F5F7;
+	--dp-surface: #FFFFFF;
+	--dp-surface-alt: #F7F7F9;
+	--dp-row-line: #EFEFF4;
+	--dp-today: #E5F0FF;
+	--dp-weekend: #F7F7F9;
+	--dp-holiday: #FFF6DB;
+	--dp-muted: #8A8A8F;
+	--dp-faint: #848489;
+	/* Edges of form controls and the focus ring: 3:1 on the page (tools/checks/theme-contrast.py). */
+	--dp-control-line: #8A8A8F;
+	--dp-focus: #0071E3;
+	--dp-primary: #0071E3;
+	--dp-primary-hover: #0062C4;
+	--dp-on-primary: #FFFFFF;
+	--dp-banner: #0062C4;
+	--dp-hover-tile: #E8E8ED;
+	--dp-shadow: rgba(0, 0, 0, 0.12);
+	--dp-focus-ring: rgba(0, 113, 227, 0.3);
+	/* The system's font where there is one; Arial metrics before the generic families
+	   (on Linux system-ui is often DejaVu Sans, too wide for the dense pages). */
+	--dp-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", "Segoe UI", Roboto, Arial, "Liberation Sans", system-ui, sans-serif;
+	--dp-font-display: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", "Segoe UI", Roboto, Arial, "Liberation Sans", system-ui, sans-serif;
+	/* Linen's own: the toolbar, the panels' shadow, the buttons' lift. */
+	--ln-bar: #FBFBFD;
+	--ln-panel: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+	--ln-lift: 0 1px 1px rgba(0, 0, 0, 0.08);
+	--ln-edge: #D2D2D7;
+}
+
+/* System Admin (modules/system/admin.css): its own colour set, in Linen's colours. */
+body .dpa {
+	--a-blue: #0066CC;
+	--a-blue-deep: #004C99;
+	--a-blue-light: #4DA3FF;
+	--a-wash: #E8E8ED;
+	--a-tint: #F2F2F7;
+	--a-coral-text: #D70015;
+	--a-coral-wash: #FFEBEA;
+	--a-coral-line: #FFB3AE;
+	--a-teal: #1F7A35;
+	--a-teal-wash: #E4F6E8;
+	--a-teal-line: #A6DDB3;
+	--a-ink: #1D1D1F;
+	--a-slate: #636366;
+	--a-line-soft: #E5E5EA;
+	--a-control-line: #8A8A8F;
+	--a-focus: #0071E3;
+	--a-surface: #FFFFFF;
+	--a-surface-head: #F7F7F9;
+	--a-row-line: #EFEFF4;
+	--a-faint: #76767B;
+	--a-off: #E8E8ED;
+	--a-primary: #0071E3;
+	--a-primary-deep: #0062C4;
+	--a-on-primary: #FFFFFF;
+}
+
+/* ---- The Linen look ---- */
+
+/* Toolbar: the selected module a filled accent pill. */
+.dp-top { background: var(--ln-bar); border-bottom: 1px solid var(--dp-line-soft); }
+.dp-nav a { border-radius: 6px; color: var(--dp-ink); font-weight: 500; }
+.dp-nav a:hover { background: var(--dp-blue-wash); color: var(--dp-ink); }
+.dp-nav a.dp-on { background: var(--dp-primary); color: var(--dp-on-primary); font-weight: 600; }
+
+/* Controls: 6px corners; the focus a soft accent ring around the field. */
+.text, select, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="search"], input[type="url"], input[type="date"], input[type="file"], TEXTAREA, .textarea, textarea.small {
+	border-radius: 6px;
+	border-color: var(--dp-control-line);
+}
+.text:focus, select:focus, TEXTAREA:focus, input:focus {
+	outline: 0;
+	border-color: var(--dp-focus);
+	box-shadow: 0 0 0 3px var(--dp-focus-ring);
+}
+input[type="checkbox"]:focus, input[type="radio"]:focus { outline: 2px solid var(--dp-focus); box-shadow: none; }
+.button, input[type="button"], input[type="submit"], input[type="reset"], button {
+	border-radius: 6px;
+	color: var(--dp-ink);
+	border-color: var(--ln-edge);
+	box-shadow: var(--ln-lift);
+}
+.button:hover, input[type="button"]:hover, input[type="submit"]:hover, button:hover {
+	background-color: var(--dp-surface-alt);
+	border-color: var(--dp-control-line);
+}
+input[type="submit"], .button.primary,
+input[type="submit"]:hover, .button.primary:hover { color: var(--dp-on-primary); border-color: transparent; }
+input[type="submit"], .button.primary { background-color: var(--dp-primary); }
+input[type="submit"]:hover, .button.primary:hover { background-color: var(--dp-primary-hover); }
+.button:focus-visible, input[type="button"]:focus-visible, input[type="submit"]:focus-visible, button:focus-visible {
+	outline: 0;
+	box-shadow: 0 0 0 3px var(--dp-focus-ring), 0 0 0 1px var(--dp-focus);
+}
+
+/* Lists: panels with 10px corners, plain headers, striped rows. */
+table.tbl { border-radius: 10px; border-color: var(--dp-line-soft); box-shadow: var(--ln-panel); }
+table.tbl TH { background-color: var(--dp-surface); color: var(--dp-slate); border-bottom-color: var(--dp-line); }
+table.tbl tr:nth-child(even) > td { background-color: var(--dp-surface-alt); }
+table.tbl td { border-bottom-color: transparent; }
+table.tbl tr:hover > td { background-color: var(--dp-blue-tint); }
+table.std { border-radius: 10px; box-shadow: var(--ln-panel); }
+table.std TH { background-color: var(--dp-blue-tint); border-radius: 6px; }
+
+/* Tabs: a segmented control above the panel. */
+div.tabrow {
+	display: inline-flex;
+	max-width: 100%;
+	gap: 0;
+	padding: 2px;
+	margin: 8px 0 10px;
+	background: var(--dp-blue-wash);
+	border: 0;
+	border-radius: 8px;
+}
+span.dp-tab { margin: 0; }
+span.dp-tab a {
+	padding: 4px 14px;
+	border: 0;
+	border-radius: 6px;
+	color: var(--dp-ink);
+	font-weight: 500;
+}
+span.dp-tab a:hover { background: transparent; color: var(--dp-ink); text-decoration: none; }
+span.dp-tab.dp-tab-on a {
+	background: var(--dp-surface);
+	color: var(--dp-ink);
+	font-weight: 600;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), 0 0 0 0.5px rgba(0, 0, 0, 0.06);
+}
+td.tabox, div.tabox { border-top: 1px solid var(--dp-line-soft); border-radius: 10px; box-shadow: var(--ln-panel); }
+
+/* Dashboard (modules/dashboard/dashboard.css): the figures are white panels. */
+body .dash-tile { background: var(--dp-surface); border-left: 0; border-radius: 10px; box-shadow: var(--ln-panel); }
+body .dash-tile:hover { background: var(--dp-blue-tint); }
+body .dash-alert .dash-num { color: var(--dp-coral-text); }
+body .dash-day-bar { background: var(--dp-blue-wash); }
+
+/* Login and password pages (style/dotpulse/login.php, lostpass.php): their own <style>
+   blocks, so these rules name the body to come first. */
+html body { font-family: var(--dp-font); }
+html body .login-card, html body .login-container { border-radius: 12px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 12px 40px var(--dp-shadow); }
+html body .form-group input, html body .login-container input.text { border-radius: 6px; }
+html body .login-btn, html body .login-container .button { border-radius: 6px; font-weight: 600; }

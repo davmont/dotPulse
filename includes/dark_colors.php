@@ -129,7 +129,8 @@ function dPdarkFromHsl($h, $s, $l)
 function dPdarkColor($value, $role)
 {
 	static $cache = array();
-	$key = $role . '|' . strtolower($value);
+	$surface_hex = dPdarkSurface();
+	$key = $surface_hex . '|' . $role . '|' . strtolower($value);
 	if (array_key_exists($key, $cache)) {
 		return $cache[$key];
 	}
@@ -138,22 +139,25 @@ function dPdarkColor($value, $role)
 	if ($rgb !== null) {
 		list($h, $s, $l) = dPdarkToHsl($rgb);
 		$neutral = $s < 0.08;
+		// Greys become the blue-grey of dotPulse's surfaces, or plain grey on a neutral surface
+		// (Facet, Linen); white becomes the surface itself.
+		list(, $surface_s, $surface_l) = dPdarkToHsl(dPdarkParseColor($surface_hex));
+		$tint = ($surface_s >= 0.08) ? 1 : 0;
 		if ($neutral) {
-			// The blue-grey of the theme's surfaces.
 			$h = 220;
 		}
 		if ($role === 'bg' && $l >= 0.6) {
-			$out = dPdarkFromHsl($h, $neutral ? 0.24 : min($s, 0.5), 0.135 + (1 - $l) * 0.4);
+			$out = dPdarkFromHsl($h, $neutral ? 0.24 * $tint : min($s, 0.5), $surface_l + (1 - $l) * 0.4);
 		} else if ($role === 'border') {
 			if ($l >= 0.6) {
-				$out = dPdarkFromHsl($h, $neutral ? 0.2 : min($s, 0.4), 0.22 + (1 - $l) * 0.3);
+				$out = dPdarkFromHsl($h, $neutral ? 0.2 * $tint : min($s, 0.4), $surface_l + 0.085 + (1 - $l) * 0.3);
 			} else if ($l < 0.3) {
-				$out = dPdarkFromHsl($h, $neutral ? 0.15 : min($s, 0.4), 0.4);
+				$out = dPdarkFromHsl($h, $neutral ? 0.15 * $tint : min($s, 0.4), 0.4);
 			}
 		} else if ($role === 'fg') {
-			$surface = dPdarkParseColor(dPdarkSurface());
+			$surface = dPdarkParseColor($surface_hex);
 			if (dPdarkContrast($rgb, $surface) < 4.5) {
-				$s2 = $neutral ? 0.18 : min($s, 0.85);
+				$s2 = $neutral ? 0.18 * $tint : min($s, 0.85);
 				$l2 = $neutral ? 0.92 - $l * 0.5 : max(0.62, 1 - $l);
 				$out = dPdarkFromHsl($h, $s2, $l2);
 				while (dPdarkContrast($out, $surface) < 4.5 && $l2 < 0.97) {

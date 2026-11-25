@@ -9,3 +9,4 @@
 "dotpulse-dark"=>"dotPulse тъмен", // MT
 "material"=>"Material",
 "facet"=>"Facet",
+"linen"=>"Linen",

@@ -1,0 +1,80 @@
+/* Linen's dark palette, loaded after main.css when the page is dark: the Appearance
+   preference is Dark, or Automatic on a computer set to dark (dPthemeStylesheets() in
+   includes/main_functions.php). It redefines the colours of main.css; what a dark page
+   needs besides is shared (style/_shared/dark.css).
+   Text reaches 4.5:1 on the surfaces it sits on, icons and lines 3:1 (WCAG AA);
+   tools/checks/theme-contrast.py checks the pairs (make theme-contrast).
+   Colours the templates write into the markup are adapted by includes/dark_colors.php,
+   towards the surface and ink in theme.json. */
+@import url("../_shared/dark.css");
+
+:root {
+	color-scheme: dark;
+	--dp-blue: #4DA3FF;
+	--dp-blue-deep: #8AC4FF;
+	--dp-blue-light: #4DA3FF;
+	--dp-blue-wash: #343436;
+	--dp-blue-tint: #303032;
+	--dp-coral: #FF453A;
+	--dp-coral-text: #FF6961;
+	--dp-coral-wash: #3D2220;
+	--dp-teal: #30D158;
+	--dp-teal-wash: #1E3324;
+	--dp-ink: #F5F5F7;
+	--dp-slate: #AEAEB2;
+	--dp-line: #545456;
+	--dp-line-soft: #3A3A3C;
+	--dp-ground: #1C1C1E;
+	--dp-surface: #2C2C2E;
+	--dp-surface-alt: #29292B;
+	--dp-row-line: #343436;
+	--dp-today: #1C3354;
+	--dp-weekend: #242426;
+	--dp-holiday: #3A321F;
+	--dp-muted: #8E8E93;
+	--dp-faint: #8A8A8F;
+	--dp-control-line: #8A8A8F;
+	--dp-focus: #4DA3FF;
+	--dp-primary: #0070DD;
+	--dp-primary-hover: #0062C4;
+	--dp-on-primary: #FFFFFF;
+	--dp-banner: #0062C4;
+	--dp-hover-tile: #3A3A3C;
+	--dp-shadow: rgba(0, 0, 0, 0.5);
+	--dp-focus-ring: rgba(77, 163, 255, 0.35);
+	--ln-bar: #2A2A2C;
+	--ln-panel: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 1px 3px rgba(0, 0, 0, 0.3);
+	--ln-lift: 0 1px 1px rgba(0, 0, 0, 0.3);
+	--ln-edge: #48484A;
+}
+
+/* System Admin (modules/system/admin.css): its own colour set. */
+body .dpa {
+	--a-blue: #4DA3FF;
+	--a-blue-deep: #8AC4FF;
+	--a-blue-light: #4DA3FF;
+	--a-wash: #343436;
+	--a-tint: #303032;
+	--a-coral-text: #FF6961;
+	--a-coral-wash: #3D2220;
+	--a-coral-line: #8A3A35;
+	--a-teal: #30D158;
+	--a-teal-wash: #1E3324;
+	--a-teal-line: #2E6B3E;
+	--a-ink: #F5F5F7;
+	--a-slate: #AEAEB2;
+	--a-line-soft: #3A3A3C;
+	--a-control-line: #8A8A8F;
+	--a-focus: #4DA3FF;
+	--a-surface: #2C2C2E;
+	--a-surface-head: #313133;
+	--a-row-line: #343436;
+	--a-faint: #8E8E93;
+	--a-off: #3A3A3C;
+	--a-primary: #0070DD;
+	--a-primary-deep: #0062C4;
+	--a-on-primary: #FFFFFF;
+}
+
+/* Buttons keep the ink colour of the light palette (the shared dark rules give them the accent). */
+.button, input[type="button"], input[type="reset"], button { color: var(--dp-ink); }
