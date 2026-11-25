@@ -385,3 +385,8 @@
 "main texts"=>"주요 텍스트", // MT
 "dotPulse themes"=>"dotPulse 테마", // MT
 "Legacy themes (not updated)"=>"이전 테마(업데이트되지 않음)", // MT
+"Appearance"=>"모양", // MT
+"Light"=>"밝게", // MT
+"Dark"=>"어둡게", // MT
+"Automatic (follows the computer)"=>"자동 (컴퓨터 설정에 따름)", // MT
+"Themes without a dark palette are always light."=>"어두운 팔레트가 없는 테마는 항상 밝게 표시됩니다.", // MT

@@ -1,8 +1,8 @@
 <?php
 /**
- * Colours for a dark theme (style/dotpulse-dark): the page output filter that adapts the
- * colours templates and data write into the markup (bgcolor and color attributes, style
- * attributes, <style> blocks), which the theme's stylesheet cannot reach.
+ * Colours for a dark page (a theme's dark palette, style/dotpulse/dark.css): the page output
+ * filter that adapts the colours templates and data write into the markup (bgcolor and color
+ * attributes, style attributes, <style> blocks), which the theme's stylesheet cannot reach.
  *
  * - A light background (white cells, pastel status colours) becomes a dark one of the same
  *   hue; the lighter it was, the darker it gets, so white is the theme's surface and the
@@ -17,7 +17,7 @@ if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly.');
 }
 
-/** dotPulse dark's surface (style/dotpulse-dark/main.css --dp-surface): what white becomes. */
+/** dotPulse's dark surface (style/dotpulse/dark.css --dp-surface): what white becomes. */
 define('DP_DARK_SURFACE', '#1A202B');
 /** dotPulse dark's text colour (--dp-ink): what text without a colour of its own gets. */
 define('DP_DARK_INK', '#E9EDF3');

@@ -182,9 +182,10 @@ dotPulse works in a phone's browser. On a narrow screen:
 
 ## Light and dark theme
 
-dotPulse comes with a light theme, **dotPulse**, and a dark one,
-**dotpulse-dark**. You choose yours in the **User Interface Style** preference.
-See [Your account and preferences](preferences.md#user-interface-style).
+The **dotPulse** theme can be light or dark. Choose **Light**, **Dark** or
+**Automatic**, which follows your computer's or phone's setting, in the
+**Appearance** preference. See
+[Your account and preferences](preferences.md#appearance).
 
 ## Log out
 

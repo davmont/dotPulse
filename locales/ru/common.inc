@@ -377,3 +377,8 @@
 "main texts"=>"основные тексты", // MT
 "dotPulse themes"=>"Темы dotPulse", // MT
 "Legacy themes (not updated)"=>"Устаревшие темы (не обновляются)", // MT
+"Appearance"=>"Оформление", // MT
+"Light"=>"Светлое", // MT
+"Dark"=>"Тёмное", // MT
+"Automatic (follows the computer)"=>"Автоматически (как на компьютере)", // MT
+"Themes without a dark palette are always light."=>"Темы без тёмной палитры всегда светлые.", // MT

@@ -377,3 +377,8 @@
 "main texts"=>"glavna besedila", // MT
 "dotPulse themes"=>"Teme dotPulse", // MT
 "Legacy themes (not updated)"=>"Starejše teme (se ne posodabljajo)", // MT
+"Appearance"=>"Videz", // MT
+"Light"=>"Svetel", // MT
+"Dark"=>"Temen", // MT
+"Automatic (follows the computer)"=>"Samodejno (po računalniku)", // MT
+"Themes without a dark palette are always light."=>"Teme brez temne palete so vedno svetle.", // MT

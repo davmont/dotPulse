@@ -377,3 +377,8 @@
 "main texts"=>"hoofdteksten", // MT
 "dotPulse themes"=>"dotPulse-thema's", // MT
 "Legacy themes (not updated)"=>"Oude thema's (niet bijgewerkt)", // MT
+"Appearance"=>"Weergave", // MT
+"Light"=>"Licht", // MT
+"Dark"=>"Donker", // MT
+"Automatic (follows the computer)"=>"Automatisch (volgt de computer)", // MT
+"Themes without a dark palette are always light."=>"Thema's zonder donker palet zijn altijd licht.", // MT

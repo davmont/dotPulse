@@ -403,3 +403,8 @@
 "main texts"=>"основни текстове", // MT
 "dotPulse themes"=>"Теми на dotPulse", // MT
 "Legacy themes (not updated)"=>"Стари теми (не се обновяват)", // MT
+"Appearance"=>"Облик", // MT
+"Light"=>"Светъл", // MT
+"Dark"=>"Тъмен", // MT
+"Automatic (follows the computer)"=>"Автоматичен (според компютъра)", // MT
+"Themes without a dark palette are always light."=>"Темите без тъмна палитра винаги са светли.", // MT

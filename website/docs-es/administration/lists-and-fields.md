@@ -243,6 +243,7 @@ describe cada una.
 | [**Formato de hora**](../user-guide/preferences.md#time-format) | 12 horas con AM/PM |
 | [**Formato de moneda**](../user-guide/preferences.md#currency-format) | la primera de la lista |
 | [**Estilo de la Interfaz de Usuario**](../user-guide/preferences.md#user-interface-style) | **dotPulse** |
+| [**Apariencia**](../user-guide/preferences.md#appearance) | **Automática (sigue al ordenador)**; **Clara** en un sitio actualizado desde una versión anterior (**Oscura** si su tema predeterminado era dotPulse oscuro) |
 | [**Máxima Asignación de Tareas al Usuario**](../user-guide/preferences.md#user-task-assignment-maximum) | 100% |
 | [**Filtro de Eventos Predeterminado**](../user-guide/preferences.md#default-event-filter) | **Mis Eventos** |
 | [**Método de Notificaciones de Historial**](../user-guide/preferences.md#task-notification-method) | **No incluir al dueño de tarea/evento** |

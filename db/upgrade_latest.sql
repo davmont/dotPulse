@@ -175,3 +175,19 @@ DELETE FROM `%dbprefix%config` WHERE `config_name` = 'postnuke_allow_login';
 # 20261122
 # Task log reference icons: the entries were separated by spaces, so the list was one entry and no icon showed
 UPDATE `%dbprefix%sysvals` SET `sysval_value` = '0|\n1|./images/obj/email.gif\n2|./modules/helpdesk/images/helpdesk.png\n3|./images/obj/phone.gif\n4|./images/icons/stock_print-16.png' WHERE `sysval_title` = 'TaskLogReferenceImage' AND `sysval_value` = '0| 1|./images/obj/email.gif 2|./modules/helpdesk/images/helpdesk.png 3|./images/obj/phone.gif 4|./images/icons/stock_print-16.png';
+
+# 20261125
+# Appearance preference (light, dark, automatic): the dotPulse dark theme becomes dotPulse with the
+# Dark appearance. Sites upgraded keep Light by default, new installations follow the computer.
+INSERT INTO `%dbprefix%user_preferences` (`pref_user`, `pref_name`, `pref_value`)
+  SELECT '0', 'UIAPPEARANCE', 'dark' FROM DUAL
+  WHERE EXISTS (SELECT 1 FROM `%dbprefix%config` WHERE `config_name` = 'host_style' AND `config_value` = 'dotpulse-dark')
+  AND NOT EXISTS (SELECT 1 FROM `%dbprefix%user_preferences` WHERE `pref_user` = '0' AND `pref_name` = 'UIAPPEARANCE');
+UPDATE `%dbprefix%config` SET `config_value` = 'dotpulse' WHERE `config_name` = 'host_style' AND `config_value` = 'dotpulse-dark';
+DELETE FROM `%dbprefix%user_preferences` WHERE `pref_name` = 'UIAPPEARANCE' AND `pref_user` IN (SELECT `pref_user` FROM (SELECT `pref_user` FROM `%dbprefix%user_preferences` WHERE `pref_name` = 'UISTYLE' AND `pref_value` = 'dotpulse-dark') d);
+INSERT INTO `%dbprefix%user_preferences` (`pref_user`, `pref_name`, `pref_value`)
+  SELECT `pref_user`, 'UIAPPEARANCE', 'dark' FROM (SELECT `pref_user` FROM `%dbprefix%user_preferences` WHERE `pref_name` = 'UISTYLE' AND `pref_value` = 'dotpulse-dark') d;
+UPDATE `%dbprefix%user_preferences` SET `pref_value` = 'dotpulse' WHERE `pref_name` = 'UISTYLE' AND `pref_value` = 'dotpulse-dark';
+INSERT INTO `%dbprefix%user_preferences` (`pref_user`, `pref_name`, `pref_value`)
+  SELECT '0', 'UIAPPEARANCE', 'light' FROM DUAL
+  WHERE NOT EXISTS (SELECT 1 FROM `%dbprefix%user_preferences` WHERE `pref_user` = '0' AND `pref_name` = 'UIAPPEARANCE');

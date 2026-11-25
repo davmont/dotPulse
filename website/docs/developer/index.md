@@ -26,7 +26,7 @@ so existing add-on modules keep working.
 | `functions/` | Helper functions of some core modules, `<module>_func.php`, loaded for that module's pages. |
 | `modules/` | One folder per module, core and add-ons alike: companies, projects, tasks, system, the holiday calendars... See [Writing a module](modules.md). |
 | `locales/` | The translations, one folder per language (`en`, `es`, and 23 more). Add-on modules may keep theirs in `modules/<module>/locales/`. |
-| `style/` | The themes (`dotpulse`, `dotpulse-dark` and the classic ones). Each has its own `header.php`, `footer.php`, `login.php` and stylesheet. |
+| `style/` | The themes (`dotpulse`, `material` and the classic ones). Each has its own `header.php`, `footer.php`, `login.php`, stylesheet and `theme.json`; `dotpulse/dark.css` is dotPulse's dark palette, and `_shared/` holds what the dotPulse-based themes share. |
 | `js/` | The JavaScript loaded on every page (`dp-ui.js`, `dp-actions.js`, the Gantt and board scripts). |
 | `lib/` | Third-party libraries copied in by hand: ADOdb, phpGACL, jQuery, flatpickr, Chart.js... |
 | `vendor/` | Libraries installed with Composer (PHPMailer, Dompdf, php-qrcode, Parsedown). It is committed, so a server needs no Composer. |

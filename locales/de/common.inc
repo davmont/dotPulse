@@ -519,3 +519,8 @@ Das neue Passwort lautet:",
 "main texts"=>"Haupttexte", // MT
 "dotPulse themes"=>"dotPulse-Designs", // MT
 "Legacy themes (not updated)"=>"Alte Designs (nicht aktualisiert)", // MT
+"Appearance"=>"Erscheinungsbild", // MT
+"Light"=>"Hell", // MT
+"Dark"=>"Dunkel", // MT
+"Automatic (follows the computer)"=>"Automatisch (wie der Computer)", // MT
+"Themes without a dark palette are always light."=>"Themes ohne dunkle Palette sind immer hell.", // MT

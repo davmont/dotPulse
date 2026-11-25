@@ -1,4 +1,4 @@
-/* dotPulse brand colours (style/dotpulse/main.css, style/dotpulse-dark/main.css). */
+/* dotPulse brand colours (style/dotpulse/main.css and its dark palette, dark.css). */
 :root, [data-md-color-scheme="default"] {
   --md-primary-fg-color: #1B4F9C;
   --md-primary-fg-color--light: #2F68C8;

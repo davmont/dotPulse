@@ -2,10 +2,12 @@
 if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly');
 }
+// Light or dark: the Appearance preference of the site's default preferences.
+$dp_theme_dark = (dPappearance() === 'dark');
 ?>
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"<?php echo empty($dp_theme_dark) ? '' : ' data-theme="dark"'; ?>>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"<?php echo dPappearanceAttributes(); ?>>
 
 <head>
 	<title><?php echo dPhtml((string)dPgetConfig('page_title')); ?></title>
@@ -13,7 +15,7 @@ if (!defined('DP_BASE_DIR')) {
 		content="text/html;charset=<?php echo isset($locale_char_set) ? $locale_char_set : 'UTF-8'; ?>" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta name="Version" content="<?php echo @$AppUI->getVersion(); ?>" />
-	<link rel="stylesheet" type="text/css" href="./style/<?php echo $uistyle; ?>/main.css" media="all" />
+	<?php echo dPthemeStylesheets(); ?>
 	<link rel="shortcut icon" href="./style/dotpulse/images/favicon.ico" type="image/ico" />
 	<link rel="icon" href="./images/brand/favicon.svg" type="image/svg+xml" />
 	<link rel="apple-touch-icon" href="./images/brand/apple-touch-icon.png" />

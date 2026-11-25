@@ -166,8 +166,8 @@ Each option shows the same amount formatted for one locale.
 
 The look of dotPulse. The list has two groups. Under **dotPulse themes**, choose:
 
-- **dotPulse** for the light theme.
-- **dotPulse dark** for the dark theme.
+- **dotPulse**, the default theme. It can be light or dark: see
+  [Appearance](#appearance).
 - **Material** for a flat, light theme with the classic icons.
 
 Under **Legacy themes (not updated)** are the older styles inherited from
@@ -175,9 +175,27 @@ dotProject. They still work, but new features are designed and tested with the
 dotPulse themes, and the legacy ones may look out of place in new pages. Use a
 dotPulse theme.
 
-![The dashboard in the dark theme](../img/ug-dark-theme.png){ .shot }
-
 The change applies from the next page you open.
+
+### Appearance
+
+Whether the theme is light or dark:
+
+- **Light**.
+- **Dark**.
+- **Automatic (follows the computer)**: dark when your computer or phone is set
+  to dark mode, light otherwise. When you change the setting on the computer,
+  dotPulse follows it from the next page you open.
+
+Only themes with a dark palette can be dark: today, **dotPulse**. Material and
+the legacy themes are always light.
+
+![The dashboard with the Dark appearance](../img/ug-dark-theme.png){ .shot }
+
+!!! note "dotPulse dark"
+    Earlier versions had a separate theme, **dotPulse dark**. It is now dotPulse
+    with the **Dark** appearance: upgrading dotPulse moves the people who used
+    it to dotPulse with **Dark**, and they see no change.
 
 ### User Task Assignment Maximum
 

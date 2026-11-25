@@ -25,11 +25,11 @@ $h = function ($s) {
 };
 ?>
 <!DOCTYPE html>
-<html>
+<html<?php echo dPappearanceAttributes($uistyle); ?>>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=<?php echo $h($charset); ?>" />
 	<title><?php echo $h(dPgetConfig('page_title')); ?></title>
-	<link rel="stylesheet" type="text/css" href="./style/<?php echo $h($uistyle); ?>/main.css" media="all" />
+	<?php echo dPthemeStylesheets($uistyle); ?>
 </head>
 <body>
 <br /><br />

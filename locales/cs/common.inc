@@ -377,3 +377,8 @@
 "main texts"=>"hlavní texty", // MT
 "dotPulse themes"=>"Motivy dotPulse", // MT
 "Legacy themes (not updated)"=>"Starší motivy (neaktualizují se)", // MT
+"Appearance"=>"Vzhled", // MT
+"Light"=>"Světlý", // MT
+"Dark"=>"Tmavý", // MT
+"Automatic (follows the computer)"=>"Automaticky (podle počítače)", // MT
+"Themes without a dark palette are always light."=>"Motivy bez tmavé palety jsou vždy světlé.", // MT

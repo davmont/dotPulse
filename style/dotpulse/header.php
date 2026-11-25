@@ -4,9 +4,11 @@ if (!defined('DP_BASE_DIR')) {
 }
 $dialog = (int) dPgetParam($_GET, 'dialog', 0);
 $current_module = isset($m) ? $m : '';
+// Light or dark: the Appearance preference (includes/main_functions.php).
+$dp_theme_dark = (dPappearance() === 'dark');
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo dPhtml(substr((string)$AppUI->user_locale, 0, 2) ?: 'en'); ?>"<?php echo empty($dp_theme_dark) ? '' : ' data-theme="dark"'; ?>>
+<html lang="<?php echo dPhtml(substr((string)$AppUI->user_locale, 0, 2) ?: 'en'); ?>"<?php echo dPappearanceAttributes(); ?>>
 
 <head>
 	<meta http-equiv="Content-Type"
@@ -15,7 +17,7 @@ $current_module = isset($m) ? $m : '';
 	<meta name="Description" content="dotPulse" />
 	<meta name="Version" content="<?php echo @$AppUI->getVersion(); ?>" />
 	<title><?php echo dPhtml((string)dPgetConfig('page_title')); ?></title>
-	<link rel="stylesheet" type="text/css" href="./style/<?php echo $uistyle; ?>/main.css" media="all" />
+	<?php echo dPthemeStylesheets(); ?>
 	<link rel="shortcut icon" href="./style/dotpulse/images/favicon.ico" type="image/ico" />
 	<link rel="icon" href="./images/brand/favicon.svg" type="image/svg+xml" />
 	<link rel="apple-touch-icon" href="./images/brand/apple-touch-icon.png" />

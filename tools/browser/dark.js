@@ -2,7 +2,7 @@
 //
 //   node dark.js <user> <password> <urls-file> <report.jsonl> [known-file] [WxH]
 //
-// run.sh sets the theme (dotpulse-dark). For each page, after its scripts ran:
+// run.sh sets the theme and the Dark appearance. For each page, after its scripts ran:
 // - light patch: a visible box of 24x12 px or more whose own background is pale
 //   (HSL lightness >= 0.8), as the computed style gives it: colours set by
 //   JavaScript count, the page output filter cannot reach them;

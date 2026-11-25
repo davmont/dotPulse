@@ -2,6 +2,7 @@
  "legacy": false,
  "vector_icons": true,
  "dark": true,
+ "alias_of": "dotpulse",
  "extends": "dotpulse",
  "dark_surface": "#1A202B",
  "dark_ink": "#E9EDF3"

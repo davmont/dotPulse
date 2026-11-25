@@ -377,3 +377,8 @@
 "main texts"=>"fő szövegek", // MT
 "dotPulse themes"=>"dotPulse témák", // MT
 "Legacy themes (not updated)"=>"Régi témák (nem frissülnek)", // MT
+"Appearance"=>"Megjelenés", // MT
+"Light"=>"Világos", // MT
+"Dark"=>"Sötét", // MT
+"Automatic (follows the computer)"=>"Automatikus (a számítógép szerint)", // MT
+"Themes without a dark palette are always light."=>"A sötét paletta nélküli témák mindig világosak.", // MT

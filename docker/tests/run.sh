@@ -18,16 +18,20 @@
 # Environment: STEPS (default "1 2 3 4 5"), THEMES, LAYOUT_EXTRA, CHROME, ALLOW_DEPRECATED=1.
 . "$(dirname "$0")/lib.sh"
 STEPS=${STEPS:-1 2 3 4 5}
-# Every theme with a style/<theme>/theme.json; the dark check runs in those marked "dark".
+# Every theme with a style/<theme>/theme.json but the old names kept for a release ("alias_of");
+# the dark check runs in those with a dark palette (dark.css), with the Dark appearance.
 ROOT_DIR=${ROOT_DIR:-$(cd "$(dirname "$0")/../.." && pwd)}
-THEMES=${THEMES:-$(for f in "$ROOT_DIR"/style/*/theme.json; do basename "$(dirname "$f")"; done | grep -v '^_' | tr '\n' ' ')}
-DARK_THEMES=${DARK_THEMES:-$(grep -l '"dark": *true' "$ROOT_DIR"/style/*/theme.json | xargs -n1 dirname | xargs -n1 basename | tr '\n' ' ')}
+THEMES=${THEMES:-$(for f in "$ROOT_DIR"/style/*/theme.json; do grep -q '"alias_of"' "$f" || basename "$(dirname "$f")"; done | grep -v '^_' | tr '\n' ' ')}
+DARK_THEMES=${DARK_THEMES:-$(for t in $THEMES; do [ -f "$ROOT_DIR/style/$t/dark.css" ] && echo "$t"; done | tr '\n' ' ')}
 LAYOUT_EXTRA=${LAYOUT_EXTRA:-dotpulse@1024x768 dotpulse@390x844 dp-grey-theme@1024x768 material@1024x768 default@1920x1080}
 FAILED=()
 step() { echo; echo "== $*"; }
 run() { local name=$1; shift; "$@" || FAILED+=("$name"); }
 logged() { local name=$1; shift; log_mark; run "$name" "$@"; run "$name (log)" log_check "$name"; }
 set_theme() { db -e "UPDATE dotp_user_preferences SET pref_value='$1' WHERE pref_user=0 AND pref_name='UISTYLE'"; }
+# light, dark or auto (the browser checks run with the light colour scheme).
+set_appearance() { db -e "DELETE FROM dotp_user_preferences WHERE pref_user=0 AND pref_name='UIAPPEARANCE';
+	INSERT INTO dotp_user_preferences VALUES ('0', 'UIAPPEARANCE', '$1')"; }
 # Some forms are the preferences themselves; keep the defaults the checks expect.
 reset_prefs() { db -e "DELETE FROM dotp_user_preferences WHERE pref_user<>0;
 	UPDATE dotp_user_preferences SET pref_value='en' WHERE pref_user=0 AND pref_name IN ('LOCALE','CURRENCYFORM');
@@ -75,6 +79,7 @@ fi
 
 if has 4; then
 	step "4 layout"
+	set_appearance light
 	[ -s "$OUT/urls-admin.txt" ] || "$TESTS_DIR/crawl.py" admin passwd "$OUT/urls-admin.txt" "$OUT/extra-urls.txt" >/dev/null
 	specs=""; for t in $THEMES; do specs="$specs $t@1366x768"; done
 	for spec in $specs $LAYOUT_EXTRA; do
@@ -87,11 +92,13 @@ if has 4; then
 		run "pop-ups and tabs $theme" node "$BROWSER/popups.js" admin passwd "$theme" "$T"
 	done
 	[ -s "$OUT/urls-worker.txt" ] || "$TESTS_DIR/crawl.py" worker worker "$OUT/urls-worker.txt" "$OUT/extra-urls.txt" >/dev/null
+	set_appearance dark
 	for theme in $DARK_THEMES; do
 		set_theme "$theme"
 		run "dark theme $theme admin" node "$BROWSER/dark.js" admin passwd "$OUT/urls-admin.txt" "$OUT/dark-$theme-admin.jsonl" "$TESTS_DIR/dark-known.txt"
 		run "dark theme $theme worker" node "$BROWSER/dark.js" worker worker "$OUT/urls-worker.txt" "$OUT/dark-$theme-worker.jsonl" "$TESTS_DIR/dark-known.txt"
 	done
+	set_appearance light
 	set_theme dotpulse
 fi
 

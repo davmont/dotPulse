@@ -17,9 +17,9 @@ tools/brand/build.py, so it stays sharp at any size and screen density.
   in the light shades of the dark palette. The build stops if a colour is under 3:1
   (WCAG 1.4.11) on the white and ground of its theme.
 Each SVG has the name of the bitmap it replaces, next to it. Only themes that define
-DP_VECTOR_ICONS (dotpulse, dotpulse-dark) show them: dPfindImage() prefers the SVG and
-dPvectorIconFilter() swaps the bitmaps in the page, taking the dark versions in a theme
-that defines DP_DARK_THEME; the classic themes keep the bitmaps.
+"vector_icons" in their theme.json (dotpulse) show them: dPfindImage() prefers the SVG and
+dPvectorIconFilter() swaps the bitmaps in the page, taking the dark versions on a dark page
+(the Appearance preference); the classic themes keep the bitmaps.
 """
 import os, re, sys
 
@@ -478,7 +478,7 @@ def file_type_icons():
 SMALL += file_type_icons()
 
 
-# Small icons in a dark theme (style/dotpulse-dark): the same meaning colours, in the light
+# Small icons on a dark page (style/dotpulse/dark.css): the same meaning colours, in the light
 # shades of the brand's dark palette (tools/brand/build.py). Each is written next to the light
 # one as <name>.dark.svg; the tiles carry their own background and serve both themes.
 DARK = {
@@ -486,7 +486,7 @@ DARK = {
     C['coral_icon']: '#FF8A6E', C['slate']: '#A9B4C4', C['green']: '#4CC67F',
     C['amber']: '#F2C230', C['grey_icon']: '#7A8699',
 }
-# The backgrounds the icons sit on: dotpulse (white, ground) and dotpulse-dark (surface, ground).
+# The backgrounds the icons sit on: dotpulse light (white, ground) and dark (surface, ground).
 GROUNDS = {'light': ('#FFFFFF', '#F4F6FA'), 'dark': ('#1A202B', '#141A24')}
 
 

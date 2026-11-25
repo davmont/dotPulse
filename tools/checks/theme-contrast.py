@@ -3,7 +3,8 @@
 
 Checks every theme that is not legacy (style/<theme>/theme.json). Reads the colour variables
 of its main.css on top of those of the theme it extends ("extends" in theme.json, as the
-browser applies them: dotpulse-dark on dotpulse), and System Admin's own set
+browser applies them), then its dark palette (dark.css, on top of main.css) where it has
+one, and System Admin's own set
 (modules/system/admin.css, redefined by a theme's "body .dpa" block), and checks
 the pairs the stylesheets use: text 4.5:1 on what it sits on, lines, focus rings and disabled text
 3:1 (WCAG 2.1 AA, 1.4.3 and 1.4.11). The icons are checked by tools/icons/build.py.
@@ -62,7 +63,8 @@ def themes():
         path = os.path.join(ROOT, 'style', name, 'theme.json')
         if name[0] not in '_.' and os.path.isfile(path):
             info = json.load(open(path, encoding='utf-8'))
-            if not info.get('legacy'):
+            # An old name kept for one release (dotpulse-dark) is checked as its theme.
+            if not info.get('legacy') and not info.get('alias_of'):
                 out[name] = info
     return out
 
@@ -111,9 +113,14 @@ def main():
             # Colours written into the stylesheet (material, until it is rebuilt on the tokens).
             print(f'{theme}: no --dp- colour variables, not checked')
             continue
-        checked[theme] = info
-        failed += check(theme, 'dp', PAIRS, v)
-        failed += check(theme + ' System Admin', 'a', ADMIN_PAIRS, a)
+        variants = [(theme, v, a)]
+        if os.path.isfile(os.path.join(ROOT, 'style', theme, 'dark.css')):
+            variants.append((theme + ' dark', {**v, **variables(f'style/{theme}/dark.css')},
+                             {**a, **variables(f'style/{theme}/dark.css', r'body \.dpa', 'a')}))
+        for label, colours, admin in variants:
+            checked[label] = info
+            failed += check(label, 'dp', PAIRS, colours)
+            failed += check(label + ' System Admin', 'a', ADMIN_PAIRS, admin)
     if failed:
         sys.exit(f'FAIL: {failed} colour pairs below the WCAG AA minimum.')
     print(f'OK: {len(PAIRS) + len(ADMIN_PAIRS)} colour pairs reach WCAG AA in {", ".join(checked)}'

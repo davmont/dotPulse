@@ -387,3 +387,8 @@ Om du ej har begärt ändringen av lösenordet behöver du ej oroa dig. Detta me
 "main texts"=>"huvudtexter", // MT
 "dotPulse themes"=>"dotPulse-teman", // MT
 "Legacy themes (not updated)"=>"Äldre teman (uppdateras inte)", // MT
+"Appearance"=>"Utseende", // MT
+"Light"=>"Ljust", // MT
+"Dark"=>"Mörkt", // MT
+"Automatic (follows the computer)"=>"Automatiskt (följer datorn)", // MT
+"Themes without a dark palette are always light."=>"Teman utan mörk palett är alltid ljusa.", // MT

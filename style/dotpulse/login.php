@@ -6,9 +6,11 @@ if (!defined('DP_BASE_DIR')) {
 // Fetch some config values
 $company_name = dPgetConfig('company_name', 'dotPulse');
 $page_title = dPgetConfig('page_title', 'dotPulse');
+// Light or dark: the Appearance preference of the site's default preferences.
+$dp_theme_dark = (dPappearance() === 'dark');
 ?>
 <!DOCTYPE html>
-<html lang="en"<?php echo empty($dp_theme_dark) ? '' : ' data-theme="dark"'; ?>>
+<html lang="en"<?php echo dPappearanceAttributes(); ?>>
 
 <head>
 	<meta charset="UTF-8">
@@ -16,7 +18,7 @@ $page_title = dPgetConfig('page_title', 'dotPulse');
 	<title>
 		<?php echo dPhtml($page_title); ?> :: Login
 	</title>
-	<link rel="stylesheet" type="text/css" href="./style/<?php echo $uistyle; ?>/main.css" media="all" />
+	<?php echo dPthemeStylesheets(); ?>
 	<link rel="shortcut icon" href="./style/dotpulse/images/favicon.ico" type="image/ico" />
 	<link rel="icon" href="./images/brand/favicon.svg" type="image/svg+xml" />
 	<link rel="apple-touch-icon" href="./images/brand/apple-touch-icon.png" />
