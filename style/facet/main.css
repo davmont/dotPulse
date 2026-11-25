@@ -168,3 +168,19 @@ html body .form-group input, html body .login-container input.text {
 	border-bottom-color: var(--dp-control-line);
 }
 html body .login-btn, html body .login-container .button { border-radius: 4px; font-weight: 600; }
+
+/* Dashboard (modules/dashboard/dashboard.css): the figures are raised cards, the accent a
+   short mark on the left as on a selected list item. */
+body .dash-tile { background: var(--dp-surface); box-shadow: var(--fc-raise); border-left: 0; position: relative; }
+body .dash-tile::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 3px;
+	height: 16px;
+	margin-top: -8px;
+	border-radius: 2px;
+	background: var(--dp-blue);
+}
+body .dash-alert::before { background: var(--dp-coral-text); }
