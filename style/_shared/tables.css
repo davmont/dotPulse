@@ -1,0 +1,54 @@
+/* style/_shared/tables.css: List tables (.tbl) and form tables (.std).
+   Shared by the themes built on dotPulse's layout; colours, fonts and sizes come from the
+   theme's --dp-* variables (style/_shared/README.md). */
+
+/* List tables */
+table.tbl {
+	background: var(--dp-line-soft);
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 1px solid var(--dp-line-soft);
+	border-radius: 8px;
+	overflow: hidden;
+}
+table.tbl TH {
+	background-color: var(--dp-blue-wash);
+	color: var(--dp-ink);
+	font-weight: 600;
+	font-size: 12px;
+	text-align: left;
+	padding: 8px;
+	border-bottom: 1px solid var(--dp-line-soft);
+}
+table.tbl TH a.hdr, A.hdr:link, A.hdr:active, A.hdr:visited { color: var(--dp-blue-deep); }
+table.tbl td {
+	background-color: var(--dp-surface);
+	padding: 6px 8px;
+	border-bottom: 1px solid var(--dp-row-line);
+}
+table.tbl tr:hover td { background-color: var(--dp-blue-tint); }
+table.tbl td.event, table.tbl td.event td { background-color: var(--dp-blue-tint); }
+
+/* Form tables */
+table.std {
+	background: var(--dp-surface);
+	border: 1px solid var(--dp-line-soft);
+	border-radius: 10px;
+	padding: 8px;
+}
+table.std TH {
+	background-color: var(--dp-blue-wash);
+	color: var(--dp-ink);
+	font-weight: 600;
+	padding: 6px 8px;
+	border-radius: 4px;
+}
+table.std td { padding: 4px 6px; }
+table.std td.hilite { background-color: var(--dp-blue-tint); border-radius: 4px; }
+
+table.contacts { background-color: var(--dp-line-soft); }
+table.contacts td { background-color: var(--dp-surface); }
+table.contacts td.hilite { background-color: var(--dp-blue-tint); }
+
+th strong { font-weight: 600; }
+th form { margin: 0; }

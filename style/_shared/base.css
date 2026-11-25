@@ -1,0 +1,47 @@
+/* style/_shared/base.css: Page, text, links and headings.
+   Shared by the themes built on dotPulse's layout; colours, fonts and sizes come from the
+   theme's --dp-* variables (style/_shared/README.md). */
+
+BODY {
+	background-color: var(--dp-ground);
+	color: var(--dp-ink);
+	margin: 0;
+	padding: 0;
+	font-family: var(--dp-font);
+	font-size: 14px;
+	line-height: 1.45;
+}
+
+ul { margin-left: 25px; }
+dl { margin-top: 0; padding-left: 1px; }
+dt { margin-top: 0.5em; color: var(--dp-blue); font-weight: 600; }
+dd { margin-bottom: 0; margin-left: 1.5em; }
+em { font-weight: 600; text-decoration: none; font-style: normal; }
+.ql-editor em { font-weight: normal; font-style: italic; }
+
+A:link, A:visited { color: var(--dp-blue); text-decoration: none; }
+A:active, A:hover { color: var(--dp-blue-deep); text-decoration: underline; }
+
+TD, TR { font-family: var(--dp-font); font-size: 13px; }
+
+h1, .title {
+	font-family: var(--dp-font-display);
+	font-size: 24px;
+	font-weight: 600;
+	color: var(--dp-ink);
+	margin: 4px 0 0;
+}
+h2, .subtitle {
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--dp-ink);
+	margin: 16px 0 0;
+}
+h3 {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--dp-ink);
+	margin: 24px 0 6px;
+}
+
+.bordertable, bordertable { border: 1px solid var(--dp-line); }

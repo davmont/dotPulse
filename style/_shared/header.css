@@ -1,0 +1,59 @@
+/* style/_shared/header.css: The top bar, navigation, title blocks and older layout classes.
+   Shared by the themes built on dotPulse's layout; colours, fonts and sizes come from the
+   theme's --dp-* variables (style/_shared/README.md). */
+
+/* Top bar (header.php) */
+.dp-top {
+	background: var(--dp-surface);
+	border-bottom: 1px solid var(--dp-line-soft);
+}
+.dp-top-in {
+	display: flex;
+	align-items: center;
+	gap: 16px 20px;
+	flex-wrap: wrap;
+	padding: 8px 20px;
+}
+.dp-logo { display: flex; align-items: center; }
+.dp-logo img { display: block; height: 30px; width: auto; }
+/* The date picker button: its bitmap was 24x12, the vector icon is square. */
+img[src$="images/calendar.svg"], img[src$="images/calendar.dark.svg"] { width: 16px; height: 16px; vertical-align: middle; }
+.dp-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px 4px;
+	flex: 1 1 400px;
+	min-width: 0;
+}
+.dp-nav a {
+	display: block;
+	padding: 6px 10px;
+	border-radius: 6px;
+	color: var(--dp-slate);
+	font-size: 14px;
+	font-weight: 500;
+}
+.dp-nav a:hover { background: var(--dp-blue-wash); color: var(--dp-blue-deep); text-decoration: none; }
+.dp-nav a.dp-on { background: var(--dp-blue-wash); color: var(--dp-blue-deep); font-weight: 600; }
+.dp-tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dp-tools form { margin: 0; display: flex; gap: 6px; align-items: center; }
+.dp-tools input.text { width: 180px; }
+.dp-sub {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 6px 16px;
+	padding: 6px 20px;
+	font-size: 13px;
+	color: var(--dp-slate);
+	background: var(--dp-ground);
+	border-bottom: 1px solid var(--dp-line-soft);
+}
+.dp-sub a { font-weight: 500; }
+.dp-page { padding: 16px 20px 32px; }
+
+/* Older templates and modules that still use these classes */
+TH.banner { background-color: var(--dp-banner); color: var(--dp-on-primary); }
+TH.banner a { color: var(--dp-on-primary); }
+TD.nav { background-color: var(--dp-surface); color: var(--dp-ink); border-bottom: 1px solid var(--dp-line-soft); }
+TD.clsBtnUp, TD.clsBtnDown, TD.clsBtnOn, TD.clsBtnOff, TD.topBtnOff { color: var(--dp-ink); padding: 0 3px; }
