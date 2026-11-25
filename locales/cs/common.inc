@@ -375,3 +375,5 @@
 "- choose a module -"=>"- vyberte modul -", // MT
 "choose a module"=>"vyberte modul", // MT
 "main texts"=>"hlavní texty", // MT
+"dotPulse themes"=>"Motivy dotPulse", // MT
+"Legacy themes (not updated)"=>"Starší motivy (neaktualizují se)", // MT

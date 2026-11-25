@@ -375,3 +375,5 @@
 "- choose a module -"=>"- 選擇模組 -", // MT
 "choose a module"=>"請選擇模組", // MT
 "main texts"=>"主要文字", // MT
+"dotPulse themes"=>"dotPulse 主題", // MT
+"Legacy themes (not updated)"=>"舊版主題（不再更新）", // MT

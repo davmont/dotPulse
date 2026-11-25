@@ -375,3 +375,5 @@
 "- choose a module -"=>"- trieu un mòdul -", // MT
 "choose a module"=>"trieu un mòdul", // MT
 "main texts"=>"textos principals", // MT
+"dotPulse themes"=>"Temes de dotPulse", // MT
+"Legacy themes (not updated)"=>"Temes antics (sense actualitzar)", // MT

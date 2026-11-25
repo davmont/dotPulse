@@ -159,7 +159,9 @@ function submitIt() {
 <?php
         $uis = !empty($prefs['UISTYLE']) ? $prefs['UISTYLE'] : dPgetConfig('host_style', 'dotpulse');
 	$styles = dPstyleOptions();
-	echo arraySelect($styles, 'pref_name[UISTYLE]', 'class="text" size="1"', $uis);
+	// Grouped: the dotPulse themes, then the legacy ones (theme.json).
+	echo isset($styles[$uis]) ? dPstyleSelect('pref_name[UISTYLE]', $uis)
+		: arraySelect($styles, 'pref_name[UISTYLE]', 'class="text" size="1"', $uis);
 ?>
 	</td>
 </tr>

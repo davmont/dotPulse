@@ -7,3 +7,4 @@
 "dp-grey-theme"=>"Style Ligne Fine Gris",
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse sombre", // MT
+"material"=>"Material",

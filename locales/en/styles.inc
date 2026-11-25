@@ -7,3 +7,4 @@
 "demo1"=>"A demo style",
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse dark",
+"material"=>"Material",

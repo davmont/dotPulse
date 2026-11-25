@@ -380,3 +380,5 @@
 "- choose a module -"=>"- モジュールを選択 -", // MT
 "choose a module"=>"モジュールを選択してください", // MT
 "main texts"=>"メインテキスト", // MT
+"dotPulse themes"=>"dotPulse のテーマ", // MT
+"Legacy themes (not updated)"=>"従来のテーマ（更新されません）", // MT

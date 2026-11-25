@@ -7,3 +7,4 @@
 "dp-grey-theme"=>"Kiểu Grey Slimline", // MT
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse tối", // MT
+"material"=>"Material",

@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Contrast of the dotPulse themes (make theme-contrast).
 
-Reads the colour variables of style/dotpulse/main.css and style/dotpulse-dark/main.css
-(the dark one on top of the light one, as the browser does), and System Admin's own set
-(modules/system/admin.css, redefined by the dark theme's "body .dpa" block), and checks
+Checks every theme that is not legacy (style/<theme>/theme.json). Reads the colour variables
+of its main.css on top of those of the theme it extends ("extends" in theme.json, as the
+browser applies them: dotpulse-dark on dotpulse), and System Admin's own set
+(modules/system/admin.css, redefined by a theme's "body .dpa" block), and checks
 the pairs the stylesheets use: text 4.5:1 on what it sits on, lines, focus rings and disabled text
 3:1 (WCAG 2.1 AA, 1.4.3 and 1.4.11). The icons are checked by tools/icons/build.py.
 """
-import os, re, sys
+import json, os, re, sys
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 
@@ -48,8 +49,32 @@ ADMIN_PAIRS = [
 
 def variables(css_file, block=r':root', prefix='dp'):
     css = open(os.path.join(ROOT, css_file), encoding='utf-8').read()
-    root = re.search(block + r'\s*\{(.*?)\}', css, re.S).group(1)
-    return dict(re.findall(r'--' + prefix + r'-([a-z-]+)\s*:\s*(#[0-9A-Fa-f]{6})\s*;', root))
+    found = re.search(block + r'\s*\{(.*?)\}', css, re.S)
+    if not found:
+        return {}
+    return dict(re.findall(r'--' + prefix + r'-([a-z-]+)\s*:\s*(#[0-9A-Fa-f]{6})\s*;', found.group(1)))
+
+
+def themes():
+    """{theme: its theme.json} for every theme that is not legacy, by name."""
+    out = {}
+    for name in sorted(os.listdir(os.path.join(ROOT, 'style'))):
+        path = os.path.join(ROOT, 'style', name, 'theme.json')
+        if name[0] not in '_.' and os.path.isfile(path):
+            info = json.load(open(path, encoding='utf-8'))
+            if not info.get('legacy'):
+                out[name] = info
+    return out
+
+
+def chain(name, info):
+    """The themes whose stylesheets make up this one, the base first."""
+    out = [name]
+    while info.get('extends'):
+        name = info['extends']
+        out.insert(0, name)
+        info = json.load(open(os.path.join(ROOT, 'style', name, 'theme.json'), encoding='utf-8'))
+    return out
 
 
 def luminance(hex_colour):
@@ -74,20 +99,24 @@ def check(label, prefix, pairs, v):
 
 
 def main():
-    light = variables('style/dotpulse/main.css')
-    admin = variables('modules/system/admin.css', r'\.dpa', 'a')
-    themes = {
-        'dotpulse': (light, admin),
-        'dotpulse-dark': ({**light, **variables('style/dotpulse-dark/main.css')},
-                          {**admin, **variables('style/dotpulse-dark/main.css', r'body \.dpa', 'a')}),
-    }
     failed = 0
-    for theme, (v, a) in themes.items():
+    checked = {}
+    for theme, info in themes().items():
+        v = {}
+        a = variables('modules/system/admin.css', r'\.dpa', 'a')
+        for part in chain(theme, info):
+            v.update(variables(f'style/{part}/main.css'))
+            a.update(variables(f'style/{part}/main.css', r'body \.dpa', 'a'))
+        if not v:
+            # Colours written into the stylesheet (material, until it is rebuilt on the tokens).
+            print(f'{theme}: no --dp- colour variables, not checked')
+            continue
+        checked[theme] = info
         failed += check(theme, 'dp', PAIRS, v)
         failed += check(theme + ' System Admin', 'a', ADMIN_PAIRS, a)
     if failed:
         sys.exit(f'FAIL: {failed} colour pairs below the WCAG AA minimum.')
-    print(f'OK: {len(PAIRS) + len(ADMIN_PAIRS)} colour pairs reach WCAG AA in dotpulse and dotpulse-dark'
+    print(f'OK: {len(PAIRS) + len(ADMIN_PAIRS)} colour pairs reach WCAG AA in {", ".join(checked)}'
           ' (System Admin included).')
 
 

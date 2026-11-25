@@ -375,3 +375,5 @@
 "- choose a module -"=>"- izberite modul -", // MT
 "choose a module"=>"izberite modul", // MT
 "main texts"=>"glavna besedila", // MT
+"dotPulse themes"=>"Teme dotPulse", // MT
+"Legacy themes (not updated)"=>"Starejše teme (se ne posodabljajo)", // MT

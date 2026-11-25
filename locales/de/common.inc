@@ -517,3 +517,5 @@ Das neue Passwort lautet:",
 "- choose a module -"=>"- Modul auswählen -", // MT
 "choose a module"=>"Modul auswählen", // MT
 "main texts"=>"Haupttexte", // MT
+"dotPulse themes"=>"dotPulse-Designs", // MT
+"Legacy themes (not updated)"=>"Alte Designs (nicht aktualisiert)", // MT

@@ -7,3 +7,4 @@
 "dp-grey-theme"=>"Стил Grey Slimline", // MT
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse тъмен", // MT
+"material"=>"Material",

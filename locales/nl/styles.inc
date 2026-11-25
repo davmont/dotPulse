@@ -7,3 +7,4 @@
 "dp-grey-theme"=>"Grijze slimline-stijl", // MT
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse donker", // MT
+"material"=>"Material",

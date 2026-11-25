@@ -375,3 +375,5 @@
 "- choose a module -"=>"- izvēlieties moduli -", // MT
 "choose a module"=>"izvēlieties moduli", // MT
 "main texts"=>"galvenie teksti", // MT
+"dotPulse themes"=>"dotPulse tēmas", // MT
+"Legacy themes (not updated)"=>"Vecās tēmas (netiek atjauninātas)", // MT

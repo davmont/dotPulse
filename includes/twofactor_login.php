@@ -72,7 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && dPgetParam($_POST, 'twofactor_code'
 
 $uistyle = $uistyle ?: dPgetConfig('host_style');
 // As on the login page (style/dotpulse/login.php): the dark theme's logo and data-theme.
-$dp_theme_dark = ($uistyle === 'dotpulse-dark');
+$dp_theme_info = dPthemeInfo($uistyle);
+$dp_theme_dark = !empty($dp_theme_info['dark']);
 header('Content-Type: text/html; charset=' . (isset($locale_char_set) ? $locale_char_set : 'UTF-8'));
 ?>
 <!DOCTYPE html>

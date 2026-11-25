@@ -401,3 +401,5 @@
 "- choose a module -"=>"- изберете модул -", // MT
 "choose a module"=>"изберете модул", // MT
 "main texts"=>"основни текстове", // MT
+"dotPulse themes"=>"Теми на dotPulse", // MT
+"Legacy themes (not updated)"=>"Стари теми (не се обновяват)", // MT

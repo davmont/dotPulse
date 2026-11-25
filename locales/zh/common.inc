@@ -378,3 +378,5 @@
 "- choose a module -"=>"- 选择模块 -", // MT
 "choose a module"=>"请选择模块", // MT
 "main texts"=>"主要文本", // MT
+"dotPulse themes"=>"dotPulse 主题", // MT
+"Legacy themes (not updated)"=>"旧版主题（不再更新）", // MT

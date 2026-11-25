@@ -7,3 +7,4 @@
 "dp-grey-theme"=>"Estil gris prim", // MT
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse fosc", // MT
+"material"=>"Material",

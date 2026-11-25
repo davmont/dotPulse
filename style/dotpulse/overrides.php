@@ -3,10 +3,7 @@
 if (!defined('DP_BASE_DIR')) {
 	die('You should not access this file directly');
 }
-// The vector icons (tools/icons/build.py) instead of the bitmaps.
-if (!defined('DP_VECTOR_ICONS')) {
-	define('DP_VECTOR_ICONS', true);
-}
+// The vector icons are turned on in theme.json.
 class CTitleBlock extends CTitleBlock_core
 {
 }

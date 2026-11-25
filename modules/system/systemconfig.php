@@ -79,6 +79,10 @@ function dPconfigControl($c, $dPcfg)
 		}
 		return arraySelect($steps, $field, 'id="' . $id . '"', (int)$value);
 	}
+	if ($name == 'host_style' && isset(dPstyleOptions()[$value])) {
+		// Grouped: the dotPulse themes, then the legacy ones (theme.json).
+		return dPstyleSelect($field, $value, 'id="' . $id . '"');
+	}
 	if ($name == 'host_style' || $name == 'host_locale') {
 		$options = (($name == 'host_style') ? dPstyleOptions() : $AppUI->readDirs('locales'));
 		unset($options['CVS'], $options['.svn']);

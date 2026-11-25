@@ -375,3 +375,5 @@
 "- choose a module -"=>"- выберите модуль -", // MT
 "choose a module"=>"выберите модуль", // MT
 "main texts"=>"основные тексты", // MT
+"dotPulse themes"=>"Темы dotPulse", // MT
+"Legacy themes (not updated)"=>"Устаревшие темы (не обновляются)", // MT

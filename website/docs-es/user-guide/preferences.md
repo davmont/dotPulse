@@ -169,13 +169,16 @@ Cada opción muestra la misma cantidad con el formato de una configuración regi
 
 ### Estilo de la Interfaz de Usuario { #user-interface-style }
 
-El aspecto de dotPulse. Elija:
+El aspecto de dotPulse. La lista tiene dos grupos. En **Temas de dotPulse**, elija:
 
 - **dotPulse** para el tema claro.
 - **dotPulse oscuro** para el tema oscuro.
+- **Material** para un tema claro y plano con los iconos clásicos.
 
-La lista también tiene estilos más antiguos heredados de dotProject. dotPulse está
-diseñado y probado con sus dos temas propios, así que use uno de ellos.
+En **Temas antiguos (sin actualizar)** están los estilos más antiguos heredados
+de dotProject. Siguen funcionando, pero las funciones nuevas se diseñan y prueban
+con los temas de dotPulse, y los antiguos pueden verse fuera de lugar en las
+páginas nuevas. Use un tema de dotPulse.
 
 ![El panel con el tema oscuro](../img/ug-dark-theme.png){ .shot }
 

@@ -375,3 +375,5 @@
 "- choose a module -"=>"- bir modül seçin -", // MT
 "choose a module"=>"bir modül seçin", // MT
 "main texts"=>"ana metinler", // MT
+"dotPulse themes"=>"dotPulse temaları", // MT
+"Legacy themes (not updated)"=>"Eski temalar (güncellenmiyor)", // MT

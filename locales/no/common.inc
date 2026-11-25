@@ -375,3 +375,5 @@
 "- choose a module -"=>"- velg en modul -", // MT
 "choose a module"=>"velg en modul", // MT
 "main texts"=>"hovedtekster", // MT
+"dotPulse themes"=>"dotPulse-temaer", // MT
+"Legacy themes (not updated)"=>"Eldre temaer (oppdateres ikke)", // MT
