@@ -184,3 +184,5 @@ body .dash-tile::before {
 	background: var(--dp-blue);
 }
 body .dash-alert::before { background: var(--dp-coral-text); }
+/* The week's hours: the empty bars stand out from the grey ground. */
+body .dash-day-bar { background: var(--dp-blue-wash); }
