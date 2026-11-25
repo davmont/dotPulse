@@ -39,6 +39,15 @@ class DarkColorsTest extends TestCase {
         $this->assertEquals(null, dPdarkColor('#7BA9F7', 'fg'));
     }
 
+    function testNamedColoursInStylesAreAdapted() {
+        // "Online" and "Offline" in the users list: style="color: green" / "color: red".
+        foreach (array('green', 'red', 'blue') as $name) {
+            $out = dPdarkColorFilter('<span style="color: ' . $name . '">x</span>');
+            $this->assert(preg_match('/color: (#[0-9A-F]{6})/i', $out, $m) === 1, "$name: $out");
+            $this->assert($this->contrastOnSurface($m[1]) >= 4.5, "$name -> {$m[1]}");
+        }
+    }
+
     function testFilterChangesBackgroundAndTextTogether() {
         $html = dPdarkColorFilter('<td bgcolor="#ffffff"><font color="#000000">x</font></td>');
         $this->assertEquals('<td bgcolor="' . DP_DARK_SURFACE . '"><font color="#E7E9EE">x</font></td>', $html);

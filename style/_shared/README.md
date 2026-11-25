@@ -1,13 +1,15 @@
 # Shared theme files
 
-The layout and rules of the themes built on dotPulse's layout (dotpulse, and the coming
-Facet and Linen). A folder of `style/` whose name starts with `_` is not a
+The layout and rules of the themes built on dotPulse's layout (dotpulse, facet, and the
+coming Linen). A folder of `style/` whose name starts with `_` is not a
 theme: it is not offered in the theme lists (`dPstyleOptions()`).
 
 - `*.css`: imported by a theme's `main.css` **in this order** (the cascade depends on it):
   `base`, `forms`, `header`, `tables`, `tabs`, `calendar`, `responsive`. They hold no
   colour, font or size of their own: those come from the theme's `--dp-*` variables.
 - `tabbox.php`: the tab boxes and title blocks; a theme's `overrides.php` includes it.
+- `dark.css`: what any dark page needs besides its colours (form controls, bitmaps, the
+  Gantt chart, the date picker, module widgets); a theme's `dark.css` imports it first.
 - `appearance.js`: the Automatic appearance; `dPthemeStylesheets()` loads it in the
   `<head>` of the pages of a theme with a dark palette.
 

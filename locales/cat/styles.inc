@@ -8,3 +8,4 @@
 "dotpulse"=>"dotPulse",
 "dotpulse-dark"=>"dotPulse fosc", // MT
 "material"=>"Material",
+"facet"=>"Facet",

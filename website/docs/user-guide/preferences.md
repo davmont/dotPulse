@@ -166,9 +166,12 @@ Each option shows the same amount formatted for one locale.
 
 The look of dotPulse. The list has two groups. Under **dotPulse themes**, choose:
 
-- **dotPulse**, the default theme. It can be light or dark: see
-  [Appearance](#appearance).
+- **dotPulse**, the default theme.
+- **Facet**, with layered surfaces on a neutral grey, a single accent colour and
+  rounder corners, in the spirit of current desktop systems.
 - **Material** for a flat, light theme with the classic icons.
+
+dotPulse and Facet can be light or dark: see [Appearance](#appearance).
 
 Under **Legacy themes (not updated)** are the older styles inherited from
 dotProject. They still work, but new features are designed and tested with the
@@ -187,7 +190,7 @@ Whether the theme is light or dark:
   to dark mode, light otherwise. When you change the setting on the computer,
   dotPulse follows it from the next page you open.
 
-Only themes with a dark palette can be dark: today, **dotPulse**. Material and
+Only themes with a dark palette can be dark: today, **dotPulse** and **Facet**. Material and
 the legacy themes are always light.
 
 ![The dashboard with the Dark appearance](../img/ug-dark-theme.png){ .shot }

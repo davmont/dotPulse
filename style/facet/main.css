@@ -1,0 +1,170 @@
+/* Facet: a theme inspired by Windows 11. Layered surfaces on a neutral ground, a single
+   accent colour, rounder corners (4px controls, 8px cards), and the system's own UI font.
+   System fonts only: no request to a font service (CSP and visitor privacy).
+   The layout and rules are dotPulse's (style/_shared/, imported in this order: the cascade
+   depends on it); this file defines Facet's colours and fonts, then the few rules that give
+   it its look. Its dark palette is dark.css (the Appearance preference). */
+@import url("../_shared/base.css");
+@import url("../_shared/forms.css");
+@import url("../_shared/header.css");
+@import url("../_shared/tables.css");
+@import url("../_shared/tabs.css");
+@import url("../_shared/calendar.css");
+@import url("../_shared/responsive.css");
+
+:root {
+	/* The accent: links, the selected item, primary buttons. */
+	--dp-blue: #005FB8;
+	--dp-blue-deep: #003E92;
+	--dp-blue-light: #3B8DD6;
+	/* Neutral fills: selected and hovered items, table headers. */
+	--dp-blue-wash: #E9E9E9;
+	--dp-blue-tint: #F5F5F5;
+	--dp-coral: #D13438;
+	--dp-coral-text: #C42B1C;
+	--dp-coral-wash: #FDE7E9;
+	--dp-teal: #0F7B0F;
+	--dp-teal-wash: #DFF6DD;
+	--dp-ink: #1B1B1B;
+	--dp-slate: #5C5C5C;
+	--dp-line: #D1D1D1;
+	--dp-line-soft: #E5E5E5;
+	--dp-ground: #F3F3F3;
+	--dp-surface: #FFFFFF;
+	--dp-surface-alt: #FAFAFA;
+	--dp-row-line: #F0F0F0;
+	--dp-today: #E5F1FB;
+	--dp-weekend: #F7F7F7;
+	--dp-holiday: #FFF4CE;
+	--dp-muted: #8A8A8A;
+	--dp-faint: #858585;
+	/* Edges of form controls and the focus ring: 3:1 on the page (tools/checks/theme-contrast.py). */
+	--dp-control-line: #868686;
+	--dp-focus: #005FB8;
+	--dp-primary: #005FB8;
+	--dp-primary-hover: #0A6CC4;
+	--dp-on-primary: #FFFFFF;
+	--dp-banner: #005FB8;
+	--dp-hover-tile: #E0E0E0;
+	--dp-shadow: rgba(0, 0, 0, 0.14);
+	--dp-focus-ring: rgba(0, 95, 184, 0.25);
+	/* The system's UI font where there is one; Arial metrics before the generic families
+	   (on Linux system-ui is often DejaVu Sans, too wide for the dense pages). */
+	--dp-font: "Segoe UI Variable Text", "Segoe UI", -apple-system, "Inter", Roboto, "Helvetica Neue", Arial, "Liberation Sans", system-ui, sans-serif;
+	--dp-font-display: "Segoe UI Variable Display", "Segoe UI", -apple-system, "Inter", Roboto, Arial, "Liberation Sans", system-ui, sans-serif;
+	/* Facet's own: the shadow of a raised card, and the lighter edge of controls. */
+	--fc-raise: 0 1px 2px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+	--fc-edge: #E0E0E0;
+}
+
+/* System Admin (modules/system/admin.css): its own colour set, in Facet's colours. */
+body .dpa {
+	--a-blue: #005FB8;
+	--a-blue-deep: #003E92;
+	--a-blue-light: #3B8DD6;
+	--a-wash: #E9E9E9;
+	--a-tint: #F5F5F5;
+	--a-coral-text: #C42B1C;
+	--a-coral-wash: #FDE7E9;
+	--a-coral-line: #F1A9AE;
+	--a-teal: #0F7B0F;
+	--a-teal-wash: #DFF6DD;
+	--a-teal-line: #9BD69A;
+	--a-ink: #1B1B1B;
+	--a-slate: #5C5C5C;
+	--a-line-soft: #E5E5E5;
+	--a-control-line: #868686;
+	--a-focus: #005FB8;
+	--a-surface: #FFFFFF;
+	--a-surface-head: #FAFAFA;
+	--a-row-line: #F0F0F0;
+	--a-faint: #767676;
+	--a-off: #EBEBEB;
+	--a-primary: #005FB8;
+	--a-primary-deep: #003E92;
+	--a-on-primary: #FFFFFF;
+}
+
+/* ---- The Facet look ---- */
+
+/* Top bar: on the page's ground, the selected module a raised tile with an accent mark. */
+.dp-top { background: var(--dp-ground); border-bottom: 0; }
+.dp-sub { background: var(--dp-ground); }
+.dp-nav a { position: relative; border-radius: 4px; color: var(--dp-ink); font-weight: 400; }
+.dp-nav a:hover { background: var(--dp-blue-wash); color: var(--dp-ink); }
+.dp-nav a.dp-on { background: var(--dp-surface); color: var(--dp-ink); font-weight: 600; box-shadow: var(--fc-raise); }
+.dp-nav a.dp-on::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 1px;
+	width: 16px;
+	height: 3px;
+	margin-left: -8px;
+	border-radius: 2px;
+	background: var(--dp-blue);
+}
+
+/* Controls: 4px corners, a light edge and a darker bottom line, as on the desktop. */
+.text, select, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="search"], input[type="url"], input[type="date"], input[type="file"], TEXTAREA, .textarea, textarea.small {
+	border-radius: 4px;
+	border-color: var(--fc-edge);
+	border-bottom-color: var(--dp-control-line);
+}
+.text:focus, select:focus, TEXTAREA:focus, input:focus {
+	/* The accent line under the field, 2px without moving the text. */
+	outline: 0;
+	border-color: var(--fc-edge);
+	border-bottom-color: var(--dp-focus);
+	box-shadow: inset 0 -1px 0 var(--dp-focus);
+}
+input[type="checkbox"]:focus, input[type="radio"]:focus { outline: 2px solid var(--dp-focus); box-shadow: none; }
+.button, input[type="button"], input[type="submit"], input[type="reset"], button {
+	border-radius: 4px;
+	color: var(--dp-ink);
+	border-color: var(--fc-edge);
+	border-bottom-color: var(--dp-control-line);
+	font-weight: 400;
+}
+.button:hover, input[type="button"]:hover, input[type="submit"]:hover, button:hover {
+	background-color: var(--dp-surface-alt);
+	border-color: var(--fc-edge);
+	border-bottom-color: var(--dp-control-line);
+}
+input[type="submit"], .button.primary,
+input[type="submit"]:hover, .button.primary:hover { color: var(--dp-on-primary); border-color: transparent; }
+input[type="submit"], .button.primary { background-color: var(--dp-primary); }
+input[type="submit"]:hover, .button.primary:hover { background-color: var(--dp-primary-hover); }
+.button:focus-visible, input[type="button"]:focus-visible, input[type="submit"]:focus-visible, button:focus-visible {
+	outline: 2px solid var(--dp-ink);
+	outline-offset: 1px;
+}
+
+/* Lists and forms: raised cards with 8px corners; quiet headers. */
+table.tbl { border-radius: 8px; border-color: var(--dp-line-soft); box-shadow: var(--fc-raise); }
+table.tbl TH { background-color: var(--dp-surface-alt); color: var(--dp-slate); }
+table.std { border-radius: 8px; box-shadow: var(--fc-raise); }
+table.std TH { border-radius: 4px; }
+
+/* Tabs: the selected tab is part of its card. */
+span.dp-tab a { border: 1px solid transparent; border-bottom: 1px solid transparent; border-radius: 8px 8px 0 0; }
+span.dp-tab a:hover { background: var(--dp-blue-wash); color: var(--dp-ink); }
+span.dp-tab.dp-tab-on a {
+	background: var(--dp-surface);
+	color: var(--dp-ink);
+	border-color: var(--dp-line-soft);
+	border-bottom-color: var(--dp-surface);
+}
+td.tabox, div.tabox { border-radius: 0 0 8px 8px; box-shadow: var(--fc-raise); }
+
+/* Login and password pages (style/dotpulse/login.php, lostpass.php): their own <style>
+   blocks, so these rules name the body to come first. */
+html body { font-family: var(--dp-font); }
+html body .login-card, html body .login-container { border-radius: 8px; box-shadow: 0 8px 32px var(--dp-shadow); }
+html body .form-group input, html body .login-container input.text {
+	border-radius: 4px;
+	border-color: var(--fc-edge);
+	border-bottom-color: var(--dp-control-line);
+}
+html body .login-btn, html body .login-container .button { border-radius: 4px; font-weight: 600; }

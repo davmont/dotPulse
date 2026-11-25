@@ -180,7 +180,7 @@ function dPdarkDeclarations($css, &$bg_kept)
 			if ($role === 'fg' && $bg_kept) {
 				return $m[0];
 			}
-			$value = preg_replace_callback('/#[0-9a-f]{6}\b|#[0-9a-f]{3}\b|\b(?:white|black|silver|gr[ae]y|lightgr[ae]y|gainsboro|whitesmoke|navy|maroon|darkblue|darkred|darkgreen|ivory|beige|lightyellow)\b/i',
+			$value = preg_replace_callback('/#[0-9a-f]{6}\b|#[0-9a-f]{3}\b|\b(?:white|black|silver|gr[ae]y|lightgr[ae]y|gainsboro|whitesmoke|navy|maroon|darkblue|darkred|darkgreen|red|green|blue|yellow|ivory|beige|lightyellow|lightblue|lightgreen)\b/i',
 				function ($c) use ($role) {
 					$new = dPdarkColor($c[0], $role);
 					return $new === null ? $c[0] : $new;

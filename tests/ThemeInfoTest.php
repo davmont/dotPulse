@@ -35,6 +35,12 @@ class ThemeInfoTest extends TestCase {
         $this->assertEquals(true, $info['dark']);
         $this->assertEquals('dotpulse', $info['alias_of']);
         $this->assertEquals(false, $info['dark_palette']);
+        // Facet: current, vector icons, its own dark palette and dark colours for the filter.
+        $info = dPthemeInfo('facet');
+        $this->assertEquals(false, $info['legacy']);
+        $this->assertEquals(true, $info['vector_icons']);
+        $this->assertEquals(true, $info['dark_palette']);
+        $this->assertEquals('#2B2B2B', $info['dark_surface']);
         // Material (2026) is current, with its own colours until it is rebuilt on the tokens.
         $info = dPthemeInfo('material');
         $this->assertEquals(false, $info['legacy']);

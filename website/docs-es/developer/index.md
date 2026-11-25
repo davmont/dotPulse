@@ -27,7 +27,7 @@ existentes sigan funcionando.
 | `functions/` | Funciones auxiliares de algunos módulos del núcleo, `<module>_func.php`, que se cargan en las páginas de ese módulo. |
 | `modules/` | Una carpeta por módulo, tanto del núcleo como complementos: empresas, proyectos, tareas, administración del sistema, los calendarios de festivos... Consulte [Escribir un módulo](modules.md). |
 | `locales/` | Las traducciones, una carpeta por idioma (`en`, `es` y 23 más). Los módulos complementarios pueden guardar las suyas en `modules/<module>/locales/`. |
-| `style/` | Los temas (`dotpulse`, `material` y los clásicos). Cada uno tiene su propio `header.php`, `footer.php`, `login.php`, su hoja de estilos y su `theme.json`; `dotpulse/dark.css` es la paleta oscura de dotPulse, y `_shared/` contiene lo que comparten los temas basados en dotPulse. |
+| `style/` | Los temas (`dotpulse`, `facet`, `material` y los clásicos). Cada uno tiene su propio `header.php`, `footer.php`, `login.php`, su hoja de estilos y su `theme.json`; el `dark.css` de un tema es su paleta oscura, y `_shared/` contiene lo que comparten los temas basados en dotPulse. |
 | `js/` | El JavaScript que se carga en todas las páginas (`dp-ui.js`, `dp-actions.js`, los scripts del Gantt y del tablero). |
 | `lib/` | Bibliotecas de terceros copiadas a mano: ADOdb, phpGACL, jQuery, flatpickr, Chart.js... |
 | `vendor/` | Bibliotecas instaladas con Composer (PHPMailer, Dompdf, php-qrcode, Parsedown). Está en el repositorio, así que un servidor no necesita Composer. |
