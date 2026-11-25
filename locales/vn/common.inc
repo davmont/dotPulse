@@ -384,3 +384,8 @@
 "main texts"=>"văn bản chính", // MT
 "dotPulse themes"=>"Giao diện dotPulse", // MT
 "Legacy themes (not updated)"=>"Giao diện cũ (không được cập nhật)", // MT
+"Appearance"=>"Giao diện", // MT
+"Light"=>"Sáng", // MT
+"Dark"=>"Tối", // MT
+"Automatic (follows the computer)"=>"Tự động (theo máy tính)", // MT
+"Themes without a dark palette are always light."=>"Các chủ đề không có bảng màu tối luôn sáng.", // MT

@@ -1,5 +1,12 @@
 <?php
+require_once DP_BASE_DIR . '/classes/ui.class.php';
 require_once DP_BASE_DIR . '/includes/main_functions.php';
+
+// CAppUI without its constructor: preferences and ___() for dPhtml().
+class ThemeInfoTestAppUI extends CAppUI {
+    function __construct() {
+    }
+}
 
 /**
  * dPthemeInfo(): what each theme declares in style/<theme>/theme.json.
@@ -21,10 +28,13 @@ class ThemeInfoTest extends TestCase {
         $this->assertEquals(false, $info['legacy']);
         $this->assertEquals(true, $info['vector_icons']);
         $this->assertEquals(false, $info['dark']);
+        $this->assertEquals(true, $info['dark_palette']);
+        $this->assertEquals('#1A202B', $info['dark_surface']);
+        // The old name of dotPulse with the Dark appearance, kept for one release.
         $info = dPthemeInfo('dotpulse-dark');
         $this->assertEquals(true, $info['dark']);
-        $this->assertEquals('dotpulse', $info['extends']);
-        $this->assertEquals('#1A202B', $info['dark_surface']);
+        $this->assertEquals('dotpulse', $info['alias_of']);
+        $this->assertEquals(false, $info['dark_palette']);
         // Material (2026) is current, with its own colours until it is rebuilt on the tokens.
         $info = dPthemeInfo('material');
         $this->assertEquals(false, $info['legacy']);
@@ -34,6 +44,37 @@ class ThemeInfoTest extends TestCase {
             $this->assertEquals(true, $info['legacy'], $legacy);
             $this->assertEquals(false, $info['vector_icons'], $legacy);
         }
+    }
+
+    function testAppearanceFollowsThePreference() {
+        global $AppUI;
+        $saved = $AppUI;
+        $AppUI = new ThemeInfoTestAppUI();
+        unset($_COOKIE['dp_scheme']);
+        // No preference, or one not known: light.
+        $this->assertEquals('light', dPappearance('dotpulse'));
+        $AppUI->setPref('UIAPPEARANCE', 'purple');
+        $this->assertEquals('light', dPappearancePref());
+        $AppUI->setPref('UIAPPEARANCE', 'dark');
+        $this->assertEquals('dark', dPappearance('dotpulse'));
+        // A theme without a dark palette stays light; the old dark theme stays dark.
+        $this->assertEquals('light', dPappearance('material'));
+        $AppUI->setPref('UIAPPEARANCE', 'light');
+        $this->assertEquals('dark', dPappearance('dotpulse-dark'));
+        // Automatic: the computer's setting, from the cookie; light until it is known.
+        $AppUI->setPref('UIAPPEARANCE', 'auto');
+        $this->assertEquals('light', dPappearance('dotpulse'));
+        $_COOKIE['dp_scheme'] = 'dark';
+        $this->assertEquals('dark', dPappearance('dotpulse'));
+        $this->assertEquals(' data-theme="dark" data-appearance="auto" data-reload="1"', dPappearanceAttributes('dotpulse'));
+        $this->assertEquals('', dPappearanceAttributes('material'));
+        $sheets = dPthemeStylesheets('dotpulse');
+        $this->assert(strpos($sheets, 'style/dotpulse/dark.css') !== false, 'dark palette linked');
+        $this->assert(strpos($sheets, 'style/_shared/appearance.js') !== false, 'appearance script');
+        $_COOKIE['dp_scheme'] = '<script>';
+        $this->assertEquals('light', dPappearance('dotpulse'));
+        unset($_COOKIE['dp_scheme']);
+        $AppUI = $saved;
     }
 
     function testUnknownThemeGetsTheDefaults() {

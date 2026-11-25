@@ -200,7 +200,7 @@ continua (CI) lo ejecuta de todos modos en cada pull request.
 | `make raw-input` | Falla cuando un archivo lee `$_GET`, `$_POST`, `$_REQUEST` o `$_COOKIE` directamente más veces de las que permite su línea base. |
 | `make inline-js` | Falla cuando un archivo tiene más JavaScript en línea (`onclick=` y otros atributos de eventos, URL `javascript:`, bloques `<script>` sin `src` ni `nonce`) del que permite su línea base. |
 | `make locales` | Falla cuando un texto que traduce el código no tiene entrada en inglés o en español (`tools/locales/check.php`). `php tools/locales/check.php missing es` lista lo que falta. |
-| `make theme-contrast` | Comprueba que los colores del texto y de los controles de los temas `dotpulse` y `dotpulse-dark` alcanzan el contraste WCAG AA. |
+| `make theme-contrast` | Comprueba que los colores del texto y de los controles de los temas de dotPulse, claros y oscuros, alcanzan el contraste WCAG AA. |
 | `make php-test` | Ejecuta las pruebas unitarias de PHP de `tests/`. |
 | `make js-test` | Ejecuta las pruebas de Jest de los scripts de `js/` (`tools/jest/tests/`). |
 | `make vendor-check` | Comprueba con PHP 8.2 que `vendor/` contiene las versiones de `composer.lock` y se carga con la versión de PHP más antigua admitida. |

@@ -388,3 +388,8 @@
 "Holiday"=>"Festivos",
 "dotPulse themes"=>"Temas de dotPulse",
 "Legacy themes (not updated)"=>"Temas antiguos (sin actualizar)",
+"Appearance"=>"Apariencia",
+"Light"=>"Clara",
+"Dark"=>"Oscura",
+"Automatic (follows the computer)"=>"Automática (sigue al ordenador)",
+"Themes without a dark palette are always light."=>"Los temas sin paleta oscura se ven siempre claros.",

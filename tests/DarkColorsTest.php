@@ -5,7 +5,7 @@ if (!defined('DP_BASE_DIR')) {
 require_once DP_BASE_DIR . '/includes/dark_colors.php';
 
 /**
- * includes/dark_colors.php: the colours a dark theme (style/dotpulse-dark) adapts in the markup.
+ * includes/dark_colors.php: the colours a dark page (style/dotpulse/dark.css) adapts in the markup.
  */
 class DarkColorsTest extends TestCase {
     private function contrastOnSurface($hex) {

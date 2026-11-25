@@ -466,12 +466,15 @@ function dPthemeInfo($style = null)
 	$style = (string)($style === null ? $uistyle : $style);
 	if (!isset($cache[$style])) {
 		$info = array('legacy' => false, 'vector_icons' => false, 'dark' => false, 'extends' => null,
-			'dark_surface' => '#1A202B', 'dark_ink' => '#E9EDF3');
-		$file = DP_BASE_DIR . '/style/' . basename($style) . '/theme.json';
-		$json = ($style !== '' && is_file($file)) ? json_decode((string)file_get_contents($file), true) : null;
+			'alias_of' => null, 'dark_surface' => '#1A202B', 'dark_ink' => '#E9EDF3');
+		$dir = DP_BASE_DIR . '/style/' . basename($style);
+		$json = ($style !== '' && is_file($dir . '/theme.json'))
+			? json_decode((string)file_get_contents($dir . '/theme.json'), true) : null;
 		if (is_array($json)) {
 			$info = array_merge($info, array_intersect_key($json, $info));
 		}
+		// A dark palette next to the light one: the theme follows the Appearance preference.
+		$info['dark_palette'] = ($style !== '' && is_file($dir . '/dark.css'));
 		$cache[$style] = $info;
 	}
 	return $cache[$style];
@@ -495,8 +498,79 @@ function dPvectorIcons()
  */
 function dPdarkTheme()
 {
-	$info = dPthemeInfo();
-	return !empty($info['dark']) || (defined('DP_DARK_THEME') && DP_DARK_THEME);
+	return dPappearance() === 'dark' || (defined('DP_DARK_THEME') && DP_DARK_THEME);
+}
+
+/**
+ * The Appearance preference (UIAPPEARANCE): 'light', 'dark' or 'auto' (follow the computer).
+ * Anything else counts as light.
+ */
+function dPappearancePref()
+{
+	global $AppUI;
+	$pref = is_object($AppUI) ? (string)$AppUI->getPref('UIAPPEARANCE') : '';
+	return in_array($pref, array('light', 'dark', 'auto'), true) ? $pref : 'light';
+}
+
+/**
+ * The appearance a page is drawn in, 'light' or 'dark'. A dark theme ("dark" in theme.json)
+ * is always dark and a theme without a dark palette always light; a theme with one
+ * (style/<theme>/dark.css) follows the Appearance preference. Automatic reads the
+ * computer's setting from the dp_scheme cookie, which style/_shared/appearance.js writes.
+ */
+function dPappearance($style = null)
+{
+	$info = dPthemeInfo($style);
+	if (!empty($info['dark'])) {
+		return 'dark';
+	}
+	if (empty($info['dark_palette'])) {
+		return 'light';
+	}
+	$pref = dPappearancePref();
+	if ($pref === 'auto') {
+		return (dPgetParam($_COOKIE, 'dp_scheme', '') === 'dark') ? 'dark' : 'light';
+	}
+	return $pref;
+}
+
+/**
+ * The attributes of a dotPulse page's <html> element for its appearance: data-theme="dark"
+ * on a dark page; with the Automatic appearance, data-appearance="auto" for
+ * style/_shared/appearance.js, and data-reload="1" when the page can be loaded again
+ * safely (a GET).
+ */
+function dPappearanceAttributes($style = null)
+{
+	$info = dPthemeInfo($style);
+	$attributes = (dPappearance($style) === 'dark') ? ' data-theme="dark"' : '';
+	if (!empty($info['dark_palette']) && empty($info['dark']) && dPappearancePref() === 'auto') {
+		$attributes .= ' data-appearance="auto"';
+		if (!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] === 'GET') {
+			$attributes .= ' data-reload="1"';
+		}
+	}
+	return $attributes;
+}
+
+/**
+ * The stylesheets of a theme for the page's <head>: its main.css, its dark palette on a dark
+ * page, and with the Automatic appearance the script that tells the server the computer's
+ * setting.
+ */
+function dPthemeStylesheets($style = null)
+{
+	global $uistyle;
+	$style = basename((string)($style === null ? $uistyle : $style));
+	$info = dPthemeInfo($style);
+	$out = '<link rel="stylesheet" type="text/css" href="./style/' . dPhtml($style) . '/main.css" media="all" />' . "\n";
+	if (!empty($info['dark_palette']) && dPappearance($style) === 'dark') {
+		$out .= '<link rel="stylesheet" type="text/css" href="./style/' . dPhtml($style) . '/dark.css" media="all" />' . "\n";
+	}
+	if (!empty($info['dark_palette']) && empty($info['dark']) && dPappearancePref() === 'auto') {
+		$out .= '<script src="./style/_shared/appearance.js"></script>' . "\n";
+	}
+	return $out;
 }
 
 /**
@@ -529,6 +603,10 @@ function dPstyleSelect($name, $selected, $attributes = 'class="text" size="1"')
 	$groups = array('current' => array(), 'legacy' => array());
 	foreach (dPstyleOptions() as $dir => $label) {
 		$info = dPthemeInfo($dir);
+		// An old name kept for one release (dotpulse-dark): listed only while still chosen.
+		if (!empty($info['alias_of']) && (string)$dir !== (string)$selected) {
+			continue;
+		}
 		$groups[empty($info['legacy']) ? 'current' : 'legacy'][$dir] = $label;
 	}
 	$s = '<select name="' . dPhtml($name) . '" ' . $attributes . '>';

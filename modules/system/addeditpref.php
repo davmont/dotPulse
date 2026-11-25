@@ -166,6 +166,22 @@ function submitIt() {
 	</td>
 </tr>
 <tr>
+	<td align="right"><?php echo $AppUI->_('Appearance');?>:</td>
+	<td>
+<?php
+	// Light, dark, or following the computer (includes/main_functions.php, dPappearance()).
+	$appearances = array(
+		'light' => 'Light',
+		'dark' => 'Dark',
+		'auto' => 'Automatic (follows the computer)',
+	);
+	$appearance = isset($prefs['UIAPPEARANCE'], $appearances[$prefs['UIAPPEARANCE']]) ? $prefs['UIAPPEARANCE'] : 'light';
+	echo arraySelect($appearances, 'pref_name[UIAPPEARANCE]', 'class="text" size="1"', $appearance, true);
+?>
+		<br /><span class="hint"><?php echo $AppUI->_('Themes without a dark palette are always light.'); ?></span>
+	</td>
+</tr>
+<tr>
 	<td align="right"><?php echo $AppUI->_('User Task Assignment Maximum');?>:</td>
 	<td>
 <?php

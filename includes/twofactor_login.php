@@ -71,18 +71,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && dPgetParam($_POST, 'twofactor_code'
 }
 
 $uistyle = $uistyle ?: dPgetConfig('host_style');
-// As on the login page (style/dotpulse/login.php): the dark theme's logo and data-theme.
-$dp_theme_info = dPthemeInfo($uistyle);
-$dp_theme_dark = !empty($dp_theme_info['dark']);
+// As on the login page (style/dotpulse/login.php): light or dark, the Appearance preference.
+$dp_theme_dark = (dPappearance($uistyle) === 'dark');
 header('Content-Type: text/html; charset=' . (isset($locale_char_set) ? $locale_char_set : 'UTF-8'));
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo dPhtml(substr($AppUI->user_locale, 0, 2)); ?>"<?php echo $dp_theme_dark ? ' data-theme="dark"' : ''; ?>>
+<html lang="<?php echo dPhtml(substr($AppUI->user_locale, 0, 2)); ?>"<?php echo dPappearanceAttributes($uistyle); ?>>
 <head>
 	<meta charset="<?php echo isset($locale_char_set) ? dPhtml($locale_char_set) : 'UTF-8'; ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title><?php echo dPhtml(dPgetConfig('page_title')); ?></title>
-	<link rel="stylesheet" type="text/css" href="./style/<?php echo dPhtml($uistyle); ?>/main.css" media="all" />
+	<?php echo dPthemeStylesheets($uistyle); ?>
 	<link rel="icon" href="./images/brand/favicon.svg" type="image/svg+xml" />
 	<style type="text/css">
 		/* The dotPulse themes' colours (--dp-*, style/dotpulse/main.css and the dark theme's), so the dark theme

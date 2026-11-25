@@ -229,6 +229,7 @@ each one.
 | [**Time Format**](../user-guide/preferences.md#time-format) | 12-hour with AM/PM |
 | [**Currency Format**](../user-guide/preferences.md#currency-format) | the first in the list |
 | [**User Interface Style**](../user-guide/preferences.md#user-interface-style) | **dotPulse** |
+| [**Appearance**](../user-guide/preferences.md#appearance) | **Automatic (follows the computer)**; **Light** on a site upgraded from an earlier version (**Dark** if its default theme was dotPulse dark) |
 | [**User Task Assignment Maximum**](../user-guide/preferences.md#user-task-assignment-maximum) | 100% |
 | [**Default Event Filter**](../user-guide/preferences.md#default-event-filter) | **My Events** |
 | [**Task Notification Method**](../user-guide/preferences.md#task-notification-method) | **Do not include task/event owner** |

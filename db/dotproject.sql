@@ -443,6 +443,7 @@ INSERT INTO %dbprefix%user_preferences VALUES("0", "TABVIEW", "0");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "SHDATEFORMAT", "%d/%m/%Y");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "TIMEFORMAT", "%I:%M %p");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "UISTYLE", "dotpulse");
+INSERT INTO %dbprefix%user_preferences VALUES("0", "UIAPPEARANCE", "auto");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "TASKASSIGNMAX", "100");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "TASKASSIGNMAIL", "1");
 INSERT INTO %dbprefix%user_preferences VALUES("0", "USERFORMAT", "user");

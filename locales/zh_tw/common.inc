@@ -377,3 +377,8 @@
 "main texts"=>"主要文字", // MT
 "dotPulse themes"=>"dotPulse 主題", // MT
 "Legacy themes (not updated)"=>"舊版主題（不再更新）", // MT
+"Appearance"=>"外觀", // MT
+"Light"=>"淺色", // MT
+"Dark"=>"深色", // MT
+"Automatic (follows the computer)"=>"自動（跟隨電腦）", // MT
+"Themes without a dark palette are always light."=>"沒有深色調色盤的佈景主題一律為淺色。", // MT

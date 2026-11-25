@@ -380,3 +380,8 @@
 "main texts"=>"主要文本", // MT
 "dotPulse themes"=>"dotPulse 主题", // MT
 "Legacy themes (not updated)"=>"旧版主题（不再更新）", // MT
+"Appearance"=>"外观", // MT
+"Light"=>"浅色", // MT
+"Dark"=>"深色", // MT
+"Automatic (follows the computer)"=>"自动（跟随计算机）", // MT
+"Themes without a dark palette are always light."=>"没有深色调色板的主题始终为浅色。", // MT

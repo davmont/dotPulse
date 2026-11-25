@@ -382,3 +382,8 @@
 "main texts"=>"textes principaux", // MT
 "dotPulse themes"=>"Thèmes dotPulse", // MT
 "Legacy themes (not updated)"=>"Anciens thèmes (non mis à jour)", // MT
+"Appearance"=>"Apparence", // MT
+"Light"=>"Clair", // MT
+"Dark"=>"Sombre", // MT
+"Automatic (follows the computer)"=>"Automatique (suit l'ordinateur)", // MT
+"Themes without a dark palette are always light."=>"Les thèmes sans palette sombre sont toujours clairs.", // MT

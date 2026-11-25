@@ -377,3 +377,8 @@
 "main texts"=>"hovedtekster", // MT
 "dotPulse themes"=>"dotPulse-temaer", // MT
 "Legacy themes (not updated)"=>"Ældre temaer (opdateres ikke)", // MT
+"Appearance"=>"Udseende", // MT
+"Light"=>"Lyst", // MT
+"Dark"=>"Mørkt", // MT
+"Automatic (follows the computer)"=>"Automatisk (følger computeren)", // MT
+"Themes without a dark palette are always light."=>"Temaer uden en mørk palet er altid lyse.", // MT

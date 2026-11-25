@@ -377,3 +377,8 @@
 "main texts"=>"galvenie teksti", // MT
 "dotPulse themes"=>"dotPulse tēmas", // MT
 "Legacy themes (not updated)"=>"Vecās tēmas (netiek atjauninātas)", // MT
+"Appearance"=>"Izskats", // MT
+"Light"=>"Gaišs", // MT
+"Dark"=>"Tumšs", // MT
+"Automatic (follows the computer)"=>"Automātisks (pēc datora)", // MT
+"Themes without a dark palette are always light."=>"Motīvi bez tumšās paletes vienmēr ir gaiši.", // MT

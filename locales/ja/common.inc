@@ -382,3 +382,8 @@
 "main texts"=>"メインテキスト", // MT
 "dotPulse themes"=>"dotPulse のテーマ", // MT
 "Legacy themes (not updated)"=>"従来のテーマ（更新されません）", // MT
+"Appearance"=>"外観", // MT
+"Light"=>"ライト", // MT
+"Dark"=>"ダーク", // MT
+"Automatic (follows the computer)"=>"自動（コンピューターの設定に従う）", // MT
+"Themes without a dark palette are always light."=>"ダークパレットのないテーマは常にライトです。", // MT

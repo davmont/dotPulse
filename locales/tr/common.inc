@@ -377,3 +377,8 @@
 "main texts"=>"ana metinler", // MT
 "dotPulse themes"=>"dotPulse temaları", // MT
 "Legacy themes (not updated)"=>"Eski temalar (güncellenmiyor)", // MT
+"Appearance"=>"Görünüm", // MT
+"Light"=>"Açık", // MT
+"Dark"=>"Koyu", // MT
+"Automatic (follows the computer)"=>"Otomatik (bilgisayarı izler)", // MT
+"Themes without a dark palette are always light."=>"Koyu paleti olmayan temalar her zaman açıktır.", // MT

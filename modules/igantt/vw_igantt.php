@@ -20,14 +20,14 @@ if (!$canView) {
 $rows = GanttRenderer::projectTaskRows($project_id);
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo dPhtml(substr((string)$AppUI->user_locale, 0, 2) ?: 'en'); ?>"<?php echo dPdarkTheme() ? ' data-theme="dark"' : ''; ?>>
+<html lang="<?php echo dPhtml(substr((string)$AppUI->user_locale, 0, 2) ?: 'en'); ?>"<?php echo dPappearanceAttributes($AppUI->checkFileName($uistyle)); ?>>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php echo $AppUI->getCsrfMeta(); ?>
 	<title><?php echo $AppUI->_('Interactive Gantt chart'); ?></title>
 	<?php GanttRenderer::assets(); ?>
-	<link rel="stylesheet" type="text/css" href="./style/<?php echo dPhtml($AppUI->checkFileName($uistyle)); ?>/main.css" media="all" />
+	<?php echo dPthemeStylesheets($AppUI->checkFileName($uistyle)); ?>
 	<link rel="icon" href="./images/brand/favicon.svg" type="image/svg+xml" />
 	<style>
 		body { font-family: var(--dp-font, Arial, sans-serif); margin: 20px; background-color: var(--dp-ground, #f5f5f6); color: var(--dp-ink, #23262B); }

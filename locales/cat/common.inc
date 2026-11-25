@@ -377,3 +377,8 @@
 "main texts"=>"textos principals", // MT
 "dotPulse themes"=>"Temes de dotPulse", // MT
 "Legacy themes (not updated)"=>"Temes antics (sense actualitzar)", // MT
+"Appearance"=>"Aparença", // MT
+"Light"=>"Clara", // MT
+"Dark"=>"Fosca", // MT
+"Automatic (follows the computer)"=>"Automàtica (segueix l'ordinador)", // MT
+"Themes without a dark palette are always light."=>"Els temes sense paleta fosca sempre són clars.", // MT

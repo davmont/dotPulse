@@ -171,8 +171,8 @@ Cada opción muestra la misma cantidad con el formato de una configuración regi
 
 El aspecto de dotPulse. La lista tiene dos grupos. En **Temas de dotPulse**, elija:
 
-- **dotPulse** para el tema claro.
-- **dotPulse oscuro** para el tema oscuro.
+- **dotPulse**, el tema predeterminado. Puede ser claro u oscuro: consulte
+  [Apariencia](#appearance).
 - **Material** para un tema claro y plano con los iconos clásicos.
 
 En **Temas antiguos (sin actualizar)** están los estilos más antiguos heredados
@@ -180,9 +180,27 @@ de dotProject. Siguen funcionando, pero las funciones nuevas se diseñan y prueb
 con los temas de dotPulse, y los antiguos pueden verse fuera de lugar en las
 páginas nuevas. Use un tema de dotPulse.
 
-![El panel con el tema oscuro](../img/ug-dark-theme.png){ .shot }
-
 El cambio se aplica a partir de la siguiente página que abra.
+
+### Apariencia { #appearance }
+
+Si el tema se ve claro u oscuro:
+
+- **Clara**.
+- **Oscura**.
+- **Automática (sigue al ordenador)**: oscura cuando su ordenador o su teléfono
+  usa el modo oscuro, clara en otro caso. Cuando cambia el ajuste del
+  ordenador, dotPulse lo sigue a partir de la siguiente página que abra.
+
+Solo los temas con una paleta oscura pueden verse oscuros: por ahora,
+**dotPulse**. Material y los temas antiguos se ven siempre claros.
+
+![El panel con la apariencia Oscura](../img/ug-dark-theme.png){ .shot }
+
+!!! note "dotPulse oscuro"
+    Las versiones anteriores tenían un tema aparte, **dotPulse oscuro**. Ahora
+    es dotPulse con la apariencia **Oscura**: al actualizar dotPulse, quienes lo
+    usaban pasan a dotPulse con **Oscura** y no notan ningún cambio.
 
 ### Máxima Asignación de Tareas al Usuario { #user-task-assignment-maximum }
 

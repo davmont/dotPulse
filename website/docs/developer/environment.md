@@ -191,7 +191,7 @@ runs it on every pull request anyway.
 | `make raw-input` | Fails when a file reads `$_GET`, `$_POST`, `$_REQUEST` or `$_COOKIE` directly more often than its baseline allows. |
 | `make inline-js` | Fails when a file has more inline JavaScript (`onclick=` and other event attributes, `javascript:` URLs, `<script>` blocks without `src` or `nonce`) than its baseline allows. |
 | `make locales` | Fails when a string the code translates has no English or no Spanish entry (`tools/locales/check.php`). `php tools/locales/check.php missing es` lists what is missing. |
-| `make theme-contrast` | Checks that the text and control colours of the `dotpulse` and `dotpulse-dark` themes reach WCAG AA contrast. |
+| `make theme-contrast` | Checks that the text and control colours of the dotPulse themes, light and dark, reach WCAG AA contrast. |
 | `make php-test` | Runs the PHP unit tests in `tests/`. |
 | `make js-test` | Runs the Jest tests of the scripts in `js/` (`tools/jest/tests/`). |
 | `make vendor-check` | Checks with PHP 8.2 that `vendor/` holds the versions in `composer.lock` and loads on the oldest supported PHP. |
