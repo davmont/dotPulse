@@ -1,0 +1,95 @@
+/* style/_shared/dark.css: what any dark page needs, whatever its palette: form controls
+   with an edge on the dark surface, the bitmaps drawn for a white page, and the widgets
+   (Gantt chart, date picker, module tables) drawn with fixed light colours. A theme's
+   dark.css imports it and defines its dark --dp-* (and --a-*) colours
+   (style/_shared/README.md). */
+/* Form controls keep a visible edge on the dark surface. */
+.text, select, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="search"], input[type="url"], input[type="date"], input[type="file"], TEXTAREA, .textarea {
+	background-color: var(--dp-ground);
+}
+input::placeholder, textarea::placeholder { color: var(--dp-muted); opacity: 1; }
+.button, input[type="button"], input[type="reset"], button { color: var(--dp-blue-deep); }
+
+/* Bitmaps without a vector version were drawn for a white page: a light backing keeps
+   them legible (spacers excluded). */
+img:is([src$=".gif" i], [src$=".png" i], [src$=".jpg" i])[src*="images/"]:not([src*="shim"]) {
+	background-color: #E8EDF5;
+	border-radius: 3px;
+}
+
+
+/* Project Gantt chart (lib/frappe-gantt draws it with fixed light colours). */
+body .gantt .grid-header { fill: var(--dp-blue-wash); stroke: var(--dp-line-soft); }
+body .gantt .grid-row { fill: var(--dp-surface); }
+body .gantt .grid-row:nth-child(even) { fill: var(--dp-surface-alt); }
+body .gantt .row-line { stroke: var(--dp-row-line); }
+body .gantt .tick { stroke: var(--dp-line); }
+body .gantt .today-highlight { fill: #3A3A22; opacity: 0.6; }
+body .gantt .arrow { stroke: var(--dp-slate); }
+body .gantt .bar { fill: #46546E; stroke: var(--dp-slate); }
+body .gantt .bar-progress { fill: #3D6FD0; }
+body .gantt .bar-wrapper:hover .bar, body .gantt .bar-wrapper.active .bar { fill: #55647F; }
+body .gantt .bar-wrapper:hover .bar-progress, body .gantt .bar-wrapper.active .bar-progress { fill: #4A7EE0; }
+body .gantt .bar-label { fill: #FFFFFF; }
+body .gantt .bar-label.big, body .gantt .bar-invalid ~ .bar-label { fill: var(--dp-ink); }
+body .gantt .upper-text { fill: var(--dp-slate); }
+body .gantt .lower-text { fill: var(--dp-ink); }
+body .gantt .handle { fill: var(--dp-slate); }
+
+/* Date picker (lib/flatpickr; lib/calendar/calendar.js opens it too): its stylesheet draws
+   a white pop-up with dark text. */
+body .flatpickr-calendar { background: var(--dp-surface); color: var(--dp-ink);
+	box-shadow: 0 0 0 1px var(--dp-line), 0 6px 18px var(--dp-shadow); }
+body .flatpickr-calendar.arrowTop::before { border-bottom-color: var(--dp-line); }
+body .flatpickr-calendar.arrowTop::after { border-bottom-color: var(--dp-surface); }
+body .flatpickr-calendar.arrowBottom::before { border-top-color: var(--dp-line); }
+body .flatpickr-calendar.arrowBottom::after { border-top-color: var(--dp-surface); }
+body .flatpickr-months .flatpickr-month, body .flatpickr-months .flatpickr-prev-month,
+body .flatpickr-months .flatpickr-next-month { color: var(--dp-ink); fill: var(--dp-ink); }
+body .flatpickr-months .flatpickr-prev-month:hover svg, body .flatpickr-months .flatpickr-next-month:hover svg { fill: var(--dp-coral); }
+body .flatpickr-current-month .flatpickr-monthDropdown-months,
+body .flatpickr-current-month .flatpickr-monthDropdown-months option { background: var(--dp-surface); color: var(--dp-ink); }
+body .flatpickr-current-month input.cur-year { color: var(--dp-ink); background: transparent; }
+body .flatpickr-current-month .flatpickr-monthDropdown-months:hover, body .numInputWrapper:hover,
+body .flatpickr-current-month span.cur-month:hover { background: var(--dp-blue-wash); }
+body .flatpickr-current-month .numInputWrapper span.arrowUp::after { border-bottom-color: var(--dp-ink); }
+body .flatpickr-current-month .numInputWrapper span.arrowDown::after { border-top-color: var(--dp-ink); }
+body .numInputWrapper span { border-color: var(--dp-line-soft); }
+body span.flatpickr-weekday { color: var(--dp-slate); }
+body .flatpickr-day { color: var(--dp-ink); }
+body .flatpickr-day.prevMonthDay, body .flatpickr-day.nextMonthDay { color: var(--dp-faint); }
+body .flatpickr-day:hover, body .flatpickr-day:focus, body .flatpickr-day.prevMonthDay:hover,
+body .flatpickr-day.nextMonthDay:hover, body .flatpickr-day.prevMonthDay:focus,
+body .flatpickr-day.nextMonthDay:focus { background: var(--dp-blue-wash); border-color: var(--dp-blue-wash); }
+body .flatpickr-day.today { border-color: var(--dp-coral); }
+body .flatpickr-day.today:hover, body .flatpickr-day.today:focus { background: var(--dp-coral-wash); border-color: var(--dp-coral); color: var(--dp-ink); }
+/* After the other-month colour, and with .selected.prevMonthDay: flatpickr's own rule for a
+   selected day of the next or previous month has three classes. */
+body .flatpickr-day.selected, body .flatpickr-day.selected:hover, body .flatpickr-day.selected:focus,
+body .flatpickr-day.selected.prevMonthDay, body .flatpickr-day.selected.nextMonthDay {
+	background: var(--dp-primary); border-color: var(--dp-primary); color: var(--dp-on-primary); }
+body .flatpickr-day.flatpickr-disabled, body .flatpickr-day.flatpickr-disabled:hover { color: var(--dp-line); }
+body .flatpickr-calendar.hasTime .flatpickr-time { border-top-color: var(--dp-line-soft); }
+body .flatpickr-time input, body .flatpickr-time .flatpickr-time-separator, body .flatpickr-time .flatpickr-am-pm { color: var(--dp-ink); }
+body .flatpickr-time input:hover, body .flatpickr-time input:focus, body .flatpickr-time .flatpickr-am-pm:hover,
+body .flatpickr-time .flatpickr-am-pm:focus { background: var(--dp-blue-wash); }
+body .flatpickr-time .numInputWrapper span.arrowUp::after { border-bottom-color: var(--dp-ink); }
+body .flatpickr-time .numInputWrapper span.arrowDown::after { border-top-color: var(--dp-ink); }
+
+/* Module widgets drawn on a fixed light background. */
+.modal-content { background-color: var(--dp-surface) !important; color: var(--dp-ink); border-color: var(--dp-line) !important; }
+.treeTable { background-color: var(--dp-surface) !important; }
+.treeTable tbody tr.even { background: var(--dp-surface-alt) !important; }
+.treeTable tbody tr.odd { background: var(--dp-surface) !important; }
+.tdContentProject { background-color: #2A3244 !important; }
+.parent .tdContentTask { background-color: #232A38 !important; }
+.tdContentTask { background-color: #1E2430 !important; }
+form[name=budgetFrm] input[disabled] { background-color: var(--dp-surface-alt); color: var(--dp-muted); }
+.gtbl { background: var(--dp-surface) !important; }
+.gtbl, .gtbl td, .gtbl th { border-color: var(--dp-line) !important; }
+
+/* Text on a kept light-ish colour (a project colour such as #17BECF) that sets no text
+   colour of its own: includes/dark_colors.php marks the tag. */
+[data-dp-ink="dark"], [data-dp-ink="dark"] a:link, [data-dp-ink="dark"] a:visited,
+[data-dp-ink="dark"] font:not([color]), [data-dp-ink="dark"] span, [data-dp-ink="dark"] center { color: var(--dp-surface); }

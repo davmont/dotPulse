@@ -193,7 +193,7 @@ dotPulse funciona en el navegador de un teléfono. En una pantalla estrecha:
 
 ## Tema claro y oscuro { #light-and-dark-theme }
 
-El tema **dotPulse** puede verse claro u oscuro. Elija **Clara**, **Oscura** o
+Los temas **dotPulse** y **Facet** pueden verse claros u oscuros. Elija **Clara**, **Oscura** o
 **Automática**, que sigue el ajuste de su ordenador o su teléfono, en la
 preferencia **Apariencia**. Consulte
 [Su cuenta y sus preferencias](preferences.md#appearance).
