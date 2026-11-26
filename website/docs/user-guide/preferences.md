@@ -170,7 +170,7 @@ The look of dotPulse. The list has two groups. Under **dotPulse themes**, choose
 - **Facet**, with layered surfaces on a neutral grey, a single accent colour and
   rounder corners, in the spirit of current desktop systems.
 - **Linen**, with a light toolbar, white panels with soft corners, the current
-  module as a coloured pill and tabs as a segmented control.
+  module as an orange pill and tabs as a segmented control.
 - **Material** for a flat, light theme with the classic icons.
 
 dotPulse, Facet and Linen can be light or dark: see [Appearance](#appearance).

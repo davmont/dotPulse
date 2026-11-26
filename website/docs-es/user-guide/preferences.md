@@ -176,7 +176,7 @@ El aspecto de dotPulse. La lista tiene dos grupos. En **Temas de dotPulse**, eli
   acento y esquinas más redondeadas, al estilo de los sistemas de escritorio
   actuales.
 - **Linen**, con una barra de herramientas clara, paneles blancos de esquinas
-  suaves, el módulo actual como una píldora de color y las pestañas como un
+  suaves, el módulo actual como una píldora naranja y las pestañas como un
   control segmentado.
 - **Material** para un tema claro y plano con los iconos clásicos.
 

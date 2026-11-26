@@ -10,9 +10,9 @@
 
 :root {
 	color-scheme: dark;
-	--dp-blue: #4DA3FF;
-	--dp-blue-deep: #8AC4FF;
-	--dp-blue-light: #4DA3FF;
+	--dp-blue: #FF9F0A;
+	--dp-blue-deep: #FFC266;
+	--dp-blue-light: #FF9F0A;
 	--dp-blue-wash: #343436;
 	--dp-blue-tint: #303032;
 	--dp-coral: #FF453A;
@@ -28,20 +28,20 @@
 	--dp-surface: #2C2C2E;
 	--dp-surface-alt: #29292B;
 	--dp-row-line: #343436;
-	--dp-today: #1C3354;
+	--dp-today: #3D2C14;
 	--dp-weekend: #242426;
 	--dp-holiday: #3A321F;
 	--dp-muted: #8E8E93;
 	--dp-faint: #8A8A8F;
 	--dp-control-line: #8A8A8F;
-	--dp-focus: #4DA3FF;
-	--dp-primary: #0070DD;
-	--dp-primary-hover: #0062C4;
-	--dp-on-primary: #FFFFFF;
-	--dp-banner: #0062C4;
+	--dp-focus: #FF9F0A;
+	--dp-primary: #FF9F0A;
+	--dp-primary-hover: #E68F09;
+	--dp-on-primary: #000000;
+	--dp-banner: #FF9F0A;
 	--dp-hover-tile: #3A3A3C;
 	--dp-shadow: rgba(0, 0, 0, 0.5);
-	--dp-focus-ring: rgba(77, 163, 255, 0.35);
+	--dp-focus-ring: rgba(255, 159, 10, 0.35);
 	--ln-bar: #2A2A2C;
 	--ln-panel: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 1px 3px rgba(0, 0, 0, 0.3);
 	--ln-lift: 0 1px 1px rgba(0, 0, 0, 0.3);
@@ -50,9 +50,9 @@
 
 /* System Admin (modules/system/admin.css): its own colour set. */
 body .dpa {
-	--a-blue: #4DA3FF;
-	--a-blue-deep: #8AC4FF;
-	--a-blue-light: #4DA3FF;
+	--a-blue: #FF9F0A;
+	--a-blue-deep: #FFC266;
+	--a-blue-light: #FF9F0A;
 	--a-wash: #343436;
 	--a-tint: #303032;
 	--a-coral-text: #FF6961;
@@ -65,15 +65,15 @@ body .dpa {
 	--a-slate: #AEAEB2;
 	--a-line-soft: #3A3A3C;
 	--a-control-line: #8A8A8F;
-	--a-focus: #4DA3FF;
+	--a-focus: #FF9F0A;
 	--a-surface: #2C2C2E;
 	--a-surface-head: #313133;
 	--a-row-line: #343436;
 	--a-faint: #8E8E93;
 	--a-off: #3A3A3C;
-	--a-primary: #0070DD;
-	--a-primary-deep: #0062C4;
-	--a-on-primary: #FFFFFF;
+	--a-primary: #FF9F0A;
+	--a-primary-deep: #E68F09;
+	--a-on-primary: #000000;
 }
 
 /* Buttons keep the ink colour of the light palette (the shared dark rules give them the accent). */

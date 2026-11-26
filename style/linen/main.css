@@ -14,10 +14,10 @@
 @import url("../_shared/responsive.css");
 
 :root {
-	/* The accent: links, the selected module, primary buttons. */
-	--dp-blue: #0066CC;
-	--dp-blue-deep: #004C99;
-	--dp-blue-light: #4DA3FF;
+	/* The accent, orange (dotPulse is blue): links, the selected module, primary buttons. */
+	--dp-blue: #B04700;
+	--dp-blue-deep: #8A3700;
+	--dp-blue-light: #FF9F0A;
 	/* Neutral fills: the segmented control's track, hovered items, headers. */
 	--dp-blue-wash: #E8E8ED;
 	--dp-blue-tint: #F2F2F7;
@@ -34,21 +34,21 @@
 	--dp-surface: #FFFFFF;
 	--dp-surface-alt: #F7F7F9;
 	--dp-row-line: #EFEFF4;
-	--dp-today: #E5F0FF;
+	--dp-today: #FFF0E0;
 	--dp-weekend: #F7F7F9;
 	--dp-holiday: #FFF6DB;
 	--dp-muted: #8A8A8F;
 	--dp-faint: #848489;
 	/* Edges of form controls and the focus ring: 3:1 on the page (tools/checks/theme-contrast.py). */
 	--dp-control-line: #8A8A8F;
-	--dp-focus: #0071E3;
-	--dp-primary: #0071E3;
-	--dp-primary-hover: #0062C4;
+	--dp-focus: #C2500A;
+	--dp-primary: #C2500A;
+	--dp-primary-hover: #B04700;
 	--dp-on-primary: #FFFFFF;
-	--dp-banner: #0062C4;
+	--dp-banner: #B04700;
 	--dp-hover-tile: #E8E8ED;
 	--dp-shadow: rgba(0, 0, 0, 0.12);
-	--dp-focus-ring: rgba(0, 113, 227, 0.3);
+	--dp-focus-ring: rgba(194, 80, 10, 0.3);
 	/* The system's font where there is one; Arial metrics before the generic families
 	   (on Linux system-ui is often DejaVu Sans, too wide for the dense pages). */
 	--dp-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", "Segoe UI", Roboto, Arial, "Liberation Sans", system-ui, sans-serif;
@@ -62,9 +62,9 @@
 
 /* System Admin (modules/system/admin.css): its own colour set, in Linen's colours. */
 body .dpa {
-	--a-blue: #0066CC;
-	--a-blue-deep: #004C99;
-	--a-blue-light: #4DA3FF;
+	--a-blue: #B04700;
+	--a-blue-deep: #8A3700;
+	--a-blue-light: #FF9F0A;
 	--a-wash: #E8E8ED;
 	--a-tint: #F2F2F7;
 	--a-coral-text: #D70015;
@@ -77,14 +77,14 @@ body .dpa {
 	--a-slate: #636366;
 	--a-line-soft: #E5E5EA;
 	--a-control-line: #8A8A8F;
-	--a-focus: #0071E3;
+	--a-focus: #C2500A;
 	--a-surface: #FFFFFF;
 	--a-surface-head: #F7F7F9;
 	--a-row-line: #EFEFF4;
 	--a-faint: #76767B;
 	--a-off: #E8E8ED;
-	--a-primary: #0071E3;
-	--a-primary-deep: #0062C4;
+	--a-primary: #C2500A;
+	--a-primary-deep: #B04700;
 	--a-on-primary: #FFFFFF;
 }
 
