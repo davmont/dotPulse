@@ -1,553 +1,167 @@
-/* dotPROJECT MATERIAL THEME */
-/* Roboto is used when installed locally; no request to Google Fonts (CSP and visitor privacy). */
+/* Material: a theme in the spirit of Material Design 3. Tonal surfaces in a purple-tinted
+   neutral, a purple accent, pill-shaped buttons, the selected module a tonal pill, outlined
+   fields, cards with 12px corners and tabs with an accent underline.
+   Roboto where it is installed, then the system's font: no request to a font service
+   (CSP and visitor privacy).
+   The layout and rules are dotPulse's (style/_shared/, imported in this order: the cascade
+   depends on it); this file defines Material's colours and fonts, then the few rules that
+   give it its look. Its dark palette is dark.css (the Appearance preference).
+   The installer keeps the earlier Material stylesheet (install/install.css). */
+@import url("../_shared/base.css");
+@import url("../_shared/forms.css");
+@import url("../_shared/header.css");
+@import url("../_shared/tables.css");
+@import url("../_shared/tabs.css");
+@import url("../_shared/calendar.css");
+@import url("../_shared/responsive.css");
 
-BODY {
-	background-color: #f5f5f6;
-	color: #333333;
-	margin: 0;
-	padding: 0;
-	font-family: 'Roboto', "Helvetica Neue", Arial, sans-serif;
-	font-size: 14px;
-	line-height: 1.5;
+:root {
+	/* The accent, purple (Material's baseline; dotPulse is blue): links, the selected tab,
+	   primary buttons. */
+	--dp-blue: #6750A4;
+	--dp-blue-deep: #4F378B;
+	--dp-blue-light: #9A82DB;
+	/* Tonal fills: hovered items, headers. */
+	--dp-blue-wash: #ECE6F0;
+	--dp-blue-tint: #F3EDF7;
+	--dp-coral: #B3261E;
+	--dp-coral-text: #B3261E;
+	--dp-coral-wash: #F9DEDC;
+	--dp-teal: #1E6C34;
+	--dp-teal-wash: #E1F4E4;
+	--dp-ink: #1D1B20;
+	--dp-slate: #49454F;
+	--dp-line: #CAC4D0;
+	--dp-line-soft: #E7E0EC;
+	--dp-ground: #F7F2FA;
+	--dp-surface: #FFFFFF;
+	--dp-surface-alt: #FDF8FD;
+	--dp-row-line: #ECE6F0;
+	--dp-today: #EADDFF;
+	--dp-weekend: #F7F2FA;
+	--dp-holiday: #FFF4D6;
+	--dp-muted: #7A757F;
+	--dp-faint: #79747E;
+	/* Edges of form controls and the focus ring: 3:1 on the page (tools/checks/theme-contrast.py). */
+	--dp-control-line: #79747E;
+	--dp-focus: #6750A4;
+	--dp-primary: #6750A4;
+	--dp-primary-hover: #5A4495;
+	--dp-on-primary: #FFFFFF;
+	--dp-banner: #6750A4;
+	--dp-hover-tile: #ECE6F0;
+	--dp-shadow: rgba(0, 0, 0, 0.15);
+	--dp-focus-ring: rgba(103, 80, 164, 0.3);
+	/* Roboto where it is installed; Arial metrics before the generic families (on Linux
+	   system-ui is often DejaVu Sans, too wide for the dense pages). */
+	--dp-font: Roboto, "Segoe UI", -apple-system, "Helvetica Neue", Arial, "Liberation Sans", system-ui, sans-serif;
+	--dp-font-display: Roboto, "Segoe UI", -apple-system, "Helvetica Neue", Arial, "Liberation Sans", system-ui, sans-serif;
+	/* Material's own: the tonal pill (secondary container), the state layer of hovered
+	   items, and the shadow of a raised card. */
+	--md-tonal: #E8DEF8;
+	--md-on-tonal: #1D192B;
+	--md-state: rgba(29, 27, 32, 0.08);
+	--md-raise: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
-ul {
-	margin-left: 25px;
+/* System Admin (modules/system/admin.css): its own colour set, in Material's colours. */
+body .dpa {
+	--a-blue: #6750A4;
+	--a-blue-deep: #4F378B;
+	--a-blue-light: #9A82DB;
+	--a-wash: #ECE6F0;
+	--a-tint: #F3EDF7;
+	--a-coral-text: #B3261E;
+	--a-coral-wash: #F9DEDC;
+	--a-coral-line: #F2B8B5;
+	--a-teal: #1E6C34;
+	--a-teal-wash: #E1F4E4;
+	--a-teal-line: #A8D8B1;
+	--a-ink: #1D1B20;
+	--a-slate: #49454F;
+	--a-line-soft: #E7E0EC;
+	--a-control-line: #79747E;
+	--a-focus: #6750A4;
+	--a-surface: #FFFFFF;
+	--a-surface-head: #F7F2FA;
+	--a-row-line: #ECE6F0;
+	--a-faint: #79747E;
+	--a-off: #E7E0EC;
+	--a-primary: #6750A4;
+	--a-primary-deep: #5A4495;
+	--a-on-primary: #FFFFFF;
 }
 
-dl {
-	margin-top: 0px;
-	padding-left: 1px;
-}
+/* ---- The Material look ---- */
 
-dt {
-	margin-top: 0.5em;
-	color: #1976d2;
-	font-weight: 500;
-}
+/* Top bar: the selected module a tonal pill. */
+.dp-top { background: var(--dp-ground); border-bottom: 0; }
+.dp-sub { background: var(--dp-ground); }
+.dp-nav a { border-radius: 16px; color: var(--dp-slate); font-weight: 500; }
+.dp-nav a:hover { background: var(--md-state); color: var(--dp-ink); }
+.dp-nav a.dp-on { background: var(--md-tonal); color: var(--md-on-tonal); font-weight: 600; }
 
-dd {
-	margin-bottom: 0px;
-	margin-left: 1.5em;
-}
-
-em {
-	font-weight: 500;
-	text-decoration: none;
-	font-style: normal;
-}
-
-A:link,
-A:visited {
-	color: #1976d2;
-	text-decoration: none;
-	transition: color 0.2s ease;
-}
-
-A:active,
-A:hover {
-	color: #115293;
-	text-decoration: none;
-}
-
-TD,
-TR {
-	font-family: 'Roboto', "Helvetica Neue", Arial, sans-serif;
-	font-size: 13px;
-}
-
-h1,
-.title {
-	font-size: 24px;
-	font-weight: 400;
-	color: #333;
-	margin-bottom: 8px;
-	margin-top: 16px;
-}
-
-h2,
-.subtitle {
-	font-size: 18px;
-	font-weight: 400;
-	color: #666;
-	margin-bottom: 8px;
-	margin-top: 16px;
-}
-
-h3 {
-	font-size: 16px;
-	font-weight: 500;
-	color: #1976d2;
-	margin-bottom: 8px;
-	margin-top: 24px;
-}
-
-/* Forms & Buttons */
-.button,
-input.button,
-input[type="submit"],
-input[type="button"] {
-	background-color: #1976d2;
-	color: #ffffff !important;
-	border: none;
-	padding: 6px 16px;
-	font-size: 14px;
-	font-weight: 500;
+/* Fields: outlined, 4px corners; the focus a 2px accent outline without moving the text. */
+.text, select, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="search"], input[type="url"], input[type="date"], input[type="file"], TEXTAREA, .textarea, textarea.small {
 	border-radius: 4px;
-	cursor: pointer;
-	text-transform: uppercase;
-	transition: background-color 0.2s, box-shadow 0.2s;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	border-color: var(--dp-control-line);
 }
-
-.button:hover,
-input.button:hover {
-	background-color: #115293;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+.text:focus, select:focus, TEXTAREA:focus, input:focus {
+	outline: 0;
+	border-color: var(--dp-focus);
+	box-shadow: inset 0 0 0 1px var(--dp-focus);
 }
+input[type="checkbox"]:focus, input[type="radio"]:focus { outline: 2px solid var(--dp-focus); box-shadow: none; }
 
-.text,
-input[type="text"],
-input[type="password"],
-select,
-textarea {
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	padding: 6px 12px;
-	font-family: 'Roboto', "Helvetica Neue", Arial, sans-serif;
-	font-size: 13px;
-	color: #333;
-	background-color: #fff;
-	box-sizing: border-box;
-	transition: border-color 0.2s;
-}
-
-.text:focus,
-input[type="text"]:focus,
-select:focus,
-textarea:focus {
-	border-color: #1976d2;
-	outline: none;
-}
-
-.item {
-	color: #555;
+/* Buttons: pills; tonal, the form's own action filled with the accent. */
+.button, input[type="button"], input[type="submit"], input[type="reset"], button {
+	border-radius: 20px;
+	padding-left: 14px;
+	padding-right: 14px;
+	color: var(--md-on-tonal);
+	background-color: var(--md-tonal);
+	border-color: transparent;
 	font-weight: 500;
+	letter-spacing: 0.1px;
+}
+.button:hover, input[type="button"]:hover, input[type="reset"]:hover, button:hover {
+	background-color: var(--md-tonal);
+	border-color: transparent;
+	box-shadow: var(--md-raise);
+}
+input[type="submit"], .button.primary,
+input[type="submit"]:hover, .button.primary:hover { color: var(--dp-on-primary); border-color: transparent; }
+input[type="submit"], .button.primary { background-color: var(--dp-primary); }
+input[type="submit"]:hover, .button.primary:hover { background-color: var(--dp-primary-hover); box-shadow: var(--md-raise); }
+.button:focus-visible, input[type="button"]:focus-visible, input[type="submit"]:focus-visible, button:focus-visible {
+	outline: 2px solid var(--dp-focus);
+	outline-offset: 2px;
 }
 
-.ok {
-	color: #4caf50;
-	font-weight: 500;
-}
+/* Lists and forms: outlined cards with 12px corners; tonal headers. */
+table.tbl { border-radius: 12px; border-color: var(--dp-line-soft); }
+table.tbl TH { background-color: var(--dp-blue-tint); color: var(--dp-slate); }
+table.tbl tr:hover > td { background-color: var(--dp-blue-tint); }
+table.std { border-radius: 12px; }
+table.std TH { background-color: var(--dp-blue-tint); border-radius: 8px; }
 
-/* Top Banner and Nav Customization */
-TH.banner {
-	background-color: #1976d2;
-	color: #fff;
-	padding: 12px 24px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+/* Tabs: the label in the accent over a 3px underline. */
+span.dp-tab a { border-bottom: 3px solid transparent; border-radius: 4px 4px 0 0; color: var(--dp-slate); }
+span.dp-tab a:hover { background: var(--md-state); color: var(--dp-ink); }
+span.dp-tab.dp-tab-on a { color: var(--dp-blue); border-bottom-color: var(--dp-blue); }
+td.tabox, div.tabox { border-radius: 0 0 12px 12px; }
 
-TH.banner a {
-	color: #fff !important;
-	font-size: 20px;
-	text-decoration: none;
-}
+/* Dashboard (modules/dashboard/dashboard.css): the figures are filled tonal cards. */
+body .dash-tile { background: var(--dp-blue-tint); border-left: 0; border-radius: 12px; }
+body .dash-tile:hover { background: var(--dp-blue-wash); }
+body .dash-alert { background: var(--dp-coral-wash); }
+body .dash-alert .dash-num { color: var(--dp-coral-text); }
+body .dash-day-bar { background: var(--dp-blue-wash); }
 
-TD.nav {
-	background-color: #fff;
-	border-bottom: 1px solid #e0e0e0;
-	padding: 8px 16px;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-TD.nav a {
-	color: #555;
-	font-weight: 500;
-	text-transform: uppercase;
-	font-size: 13px;
-	padding: 8px;
-}
-
-TD.nav a:hover {
-	color: #1976d2;
-	background-color: #f5f5f5;
-	border-radius: 4px;
-}
-
-/* Data Tables */
-table.tbl {
-	background: #fff;
-	border-collapse: collapse;
-	width: 100%;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	overflow: hidden;
-	margin-top: 16px;
-}
-
-table.tbl TH {
-	background-color: #f5f5f5;
-	color: #333;
-	text-align: left;
-	padding: 12px 16px;
-	font-weight: 500;
-	border-bottom: 2px solid #e0e0e0;
-}
-
-table.tbl TH a.hdr {
-	color: #333;
-}
-
-table.tbl td {
-	background-color: #ffffff;
-	padding: 12px 16px;
-	border-bottom: 1px solid #e0e0e0;
-}
-
-table.tbl tr:hover td {
-	background-color: #f9f9f9;
-}
-
-/* Standard Tables */
-table.std {
-	background: #fff;
-	border: 1px solid #e0e0e0;
-	border-collapse: collapse;
-	width: 100%;
-	border-radius: 4px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-table.std TH {
-	background-color: #f5f5f5;
-	color: #333;
-	padding: 12px 16px;
-	font-weight: 500;
-	text-align: left;
-	border-bottom: 1px solid #e0e0e0;
-}
-
-table.std td {
-	padding: 10px 16px;
-	border-bottom: 1px solid #e0e0e0;
-}
-
-table.std td.hilite {
-	background-color: #f9f9f9;
-}
-
-/* Tabbed Boxes */
-td.tabon {
-	background: #fff;
-	color: #1976d2;
-	font-weight: 500;
-	padding: 10px 16px;
-	border-bottom: 2px solid #1976d2;
-	text-transform: uppercase;
-	cursor: pointer;
-}
-
-td.taboff {
-	background: #f5f5f5;
-	color: #777;
-	font-weight: 500;
-	padding: 10px 16px;
-	border-bottom: 2px solid transparent;
-	text-transform: uppercase;
-	cursor: pointer;
-	transition: background-color 0.2s;
-}
-
-td.taboff:hover {
-	background: #e0e0e0;
-	color: #333;
-}
-
-td.tabsp {
-	border-bottom: 2px solid #e0e0e0;
-}
-
-td.tabox {
-	background-color: #fff;
-	padding: 16px;
-	border: 1px solid #e0e0e0;
-	border-top: none;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-/* Messages */
-.warning,
-.error,
-.no_ {
-	color: #d32f2f;
-	font-weight: 500;
-}
-
-.message {
-	color: #1976d2;
-	font-weight: 500;
-}
-
-/* Layout Utilities */
-.hidden {
-	display: none;
-}
-
-.disabled {
-	color: #999;
-}
-
-/* Login Box */
-.login-box {
-	background: #fff;
-	border-radius: 8px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-	padding: 32px;
-	width: 400px;
-	margin: 100px auto;
-	text-align: center;
-}
-
-/* Calendar Customization (Modern Material) */
-table.motitle {
-	background-color: transparent;
-	margin-bottom: 10px;
-	width: 100%;
-}
-
-table.motitle td {
-	background-color: transparent;
-}
-
-table.motitle th {
-	background-color: transparent;
-	font-size: 1.25em;
-	color: #1976d2;
-	text-transform: uppercase;
-	font-weight: 500;
-	padding: 10px 0;
-}
-
-table.motitle th a {
-	color: #1976d2 !important;
-	font-size: 1.25em !important;
-}
-
-table.mocal {
-	background-color: transparent;
-	border-collapse: collapse;
-	border-spacing: 0;
-	width: 100%;
-	margin-top: 10px;
-}
-
-table.mocal th {
-	background-color: #1976d2;
-	color: #ffffff;
-	padding: 12px;
-	font-weight: 500;
-	text-transform: uppercase;
-	font-size: 13px;
-	text-align: center;
-	border: 1px solid #e0e0e0;
-}
-
-table.mocal td {
-	padding: 8px;
-	box-sizing: border-box;
-	border: 1px solid #e0e0e0;
-}
-
-table.mocal td.week {
-	vertical-align: top;
-	background-color: #ffffff;
-	color: #777;
-	height: 100px;
-}
-
-table.mocal td.empty {
-	background-color: #f9f9f9;
-	color: #ccc;
-	text-align: left;
-	vertical-align: top;
-	height: 100px;
-}
-
-table.mocal td.day {
-	background-color: #ffffff;
-	color: #333;
-	text-align: left;
-	vertical-align: top;
-	height: 100px;
-	transition: background-color 0.2s;
-}
-
-table.mocal td.day:hover {
-	background-color: #f0f8ff;
-}
-
-table.mocal td.today {
-	background-color: #ffffff;
-	color: #1976d2;
-	text-align: left;
-	vertical-align: top;
-	height: 100px;
-	border: 2px solid #1976d2;
-}
-
-table.mocal td.weekend {
-	background-color: #fafafa;
-	text-align: left;
-	vertical-align: top;
-	height: 100px;
-}
-
-table.mocal .event {
-	background-color: #1976d2;
-	color: white;
-	padding: 4px 6px;
-	border-radius: 4px;
-	font-size: 0.85em;
-	margin-top: 4px;
-	display: block;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-table.mocal .event a {
-	color: white !important;
-}
-
-/* Mini Calendar */
-table.minititle {
-	margin-bottom: 5px;
-	width: 100%;
-}
-
-table.minititle th {
-	font-weight: 500;
-	color: #1976d2 !important;
-}
-
-table.minititle a {
-	color: #1976d2 !important;
-}
-
-table.minical {
-	background-color: transparent;
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-table.minical th {
-	font-weight: 500;
-	background-color: #1976d2;
-	color: white;
-	padding: 6px;
-	font-size: 11px;
-	border: 1px solid #e0e0e0;
-}
-
-table.minical td {
-	padding: 6px;
-	text-align: center;
-	background-color: white;
-	font-size: 11px;
-	border: 1px solid #e0e0e0;
-}
-
-table.minical td.today {
-	background-color: #e3f2fd;
-	font-weight: 700;
-	color: #1976d2;
-}
-
-table.minical td.empty {
-	background-color: #f9f9f9;
-}
-
-table.minical td.weekend {
-	background-color: #fafafa;
-}
-
-table.minical td.day {
-	background-color: #ffffff;
-}
-
-table.minical td.day:hover,
-table.minical td.today:hover,
-table.minical td.weekend:hover {
-	background-color: #f0f8ff;
-	cursor: pointer;
-}
-
-/* tab boxes: the tabs wrap onto more lines instead of widening the page */
-div.tabrow {
-	white-space: normal;
-}
-table.tabitem {
-	display: inline-table;
-	vertical-align: bottom;
-}
-
-/* Narrow windows (laptops, split screens): the spacing above makes wide forms
-   and lists scroll sideways below about 1280px, so tighten it there. */
-@media (max-width: 1279px) {
-	BODY {
-		font-size: 13px;
-	}
-	table.tbl TH,
-	table.tbl td,
-	table.std TH,
-	table.std td {
-		padding: 5px 8px;
-	}
-	td.tabon,
-	td.taboff {
-		padding: 6px 10px;
-	}
-	td.tabox {
-		padding: 8px;
-	}
-	.button,
-	input.button,
-	input[type="submit"],
-	input[type="button"] {
-		padding: 4px 10px;
-		font-size: 12px;
-	}
-	.text,
-	input[type="text"],
-	input[type="password"],
-	select,
-	textarea {
-		padding: 4px 6px;
-	}
-	TH.banner {
-		padding: 8px 12px;
-	}
-	TD.nav {
-		padding: 4px 8px;
-	}
-	TD.nav a {
-		padding: 4px;
-	}
-	table.minical th,
-	table.minical td {
-		padding: 3px;
-	}
-}
-
-/* Holidays of the user's workplace (modules/calendar/calendar.class.php) */
-table.mocal td.holiday:not(.today), table.minical td.holiday:not(.today), table.popcal td.holiday:not(.today) {
-	background-color: #f6f1e4;
-}
-div.holiday, span.holiday {
-	font-size: 11px;
-	font-style: italic;
-	color: #5c4a1f;
-	margin: 2px 0;
-}
-span.holiday {
-	margin-left: 8px;
-}
+/* Login and password pages (style/dotpulse/login.php, lostpass.php): their own <style>
+   blocks, so these rules name the body to come first. */
+html body { font-family: var(--dp-font); }
+html body .login-card, html body .login-container { border-radius: 28px; box-shadow: 0 8px 32px var(--dp-shadow); }
+html body .form-group input, html body .login-container input.text { border-radius: 4px; }
+html body .login-btn, html body .login-container .button { border-radius: 20px; font-weight: 500; }

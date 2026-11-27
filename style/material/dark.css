@@ -1,0 +1,83 @@
+/* Material's dark palette (Material Design 3's baseline dark scheme), loaded after main.css
+   when the page is dark: the Appearance preference is Dark, or Automatic on a computer set to
+   dark (dPthemeStylesheets() in includes/main_functions.php). It redefines the colours of
+   main.css; what a dark page needs besides is shared (style/_shared/dark.css).
+   Text reaches 4.5:1 on the surfaces it sits on, icons and lines 3:1 (WCAG AA);
+   tools/checks/theme-contrast.py checks the pairs (make theme-contrast).
+   Colours the templates write into the markup are adapted by includes/dark_colors.php,
+   towards the surface and ink in theme.json. */
+@import url("../_shared/dark.css");
+
+:root {
+	color-scheme: dark;
+	--dp-blue: #D0BCFF;
+	--dp-blue-deep: #EADDFF;
+	--dp-blue-light: #D0BCFF;
+	--dp-blue-wash: #36343B;
+	--dp-blue-tint: #2B2930;
+	--dp-coral: #F2B8B5;
+	--dp-coral-text: #F2B8B5;
+	--dp-coral-wash: #4A2321;
+	--dp-teal: #7DD892;
+	--dp-teal-wash: #1F3324;
+	--dp-ink: #E6E0E9;
+	--dp-slate: #CAC4D0;
+	--dp-line: #5A5560;
+	--dp-line-soft: #36343B;
+	--dp-ground: #141218;
+	--dp-surface: #211F26;
+	--dp-surface-alt: #1D1B20;
+	--dp-row-line: #2B2930;
+	--dp-today: #4F378B;
+	--dp-weekend: #1A181E;
+	--dp-holiday: #3A321F;
+	--dp-muted: #938F99;
+	--dp-faint: #938F99;
+	--dp-control-line: #938F99;
+	--dp-focus: #D0BCFF;
+	--dp-primary: #B69DF8;
+	--dp-primary-hover: #A68AF0;
+	--dp-on-primary: #381E72;
+	--dp-banner: #B69DF8;
+	--dp-hover-tile: #36343B;
+	--dp-shadow: rgba(0, 0, 0, 0.5);
+	--dp-focus-ring: rgba(208, 188, 255, 0.35);
+	--md-tonal: #4A4458;
+	--md-on-tonal: #E8DEF8;
+	--md-state: rgba(230, 224, 233, 0.08);
+	--md-raise: 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* System Admin (modules/system/admin.css): its own colour set. */
+body .dpa {
+	--a-blue: #D0BCFF;
+	--a-blue-deep: #EADDFF;
+	--a-blue-light: #D0BCFF;
+	--a-wash: #36343B;
+	--a-tint: #2B2930;
+	--a-coral-text: #F2B8B5;
+	--a-coral-wash: #4A2321;
+	--a-coral-line: #8C1D18;
+	--a-teal: #7DD892;
+	--a-teal-wash: #1F3324;
+	--a-teal-line: #3F7A4C;
+	--a-ink: #E6E0E9;
+	--a-slate: #CAC4D0;
+	--a-line-soft: #36343B;
+	--a-control-line: #938F99;
+	--a-focus: #D0BCFF;
+	--a-surface: #211F26;
+	--a-surface-head: #2B2930;
+	--a-row-line: #2B2930;
+	--a-faint: #938F99;
+	--a-off: #36343B;
+	--a-primary: #B69DF8;
+	--a-primary-deep: #A68AF0;
+	--a-on-primary: #381E72;
+}
+
+/* Buttons keep the tonal pill's text (the shared dark rules give them the accent). */
+.button, input[type="button"], input[type="reset"], button { color: var(--md-on-tonal); }
+
+/* System Admin's switches are filled with the link colour; Material's is too pale for a fill. */
+body .dpa .dpa-switch input:checked + span { background: var(--a-primary); }

@@ -139,12 +139,15 @@ function dPdarkColor($value, $role)
 	if ($rgb !== null) {
 		list($h, $s, $l) = dPdarkToHsl($rgb);
 		$neutral = $s < 0.08;
-		// Greys become the blue-grey of dotPulse's surfaces, or plain grey on a neutral surface
-		// (Facet, Linen); white becomes the surface itself.
-		list(, $surface_s, $surface_l) = dPdarkToHsl(dPdarkParseColor($surface_hex));
-		$tint = ($surface_s >= 0.08) ? 1 : 0;
+		// Greys take the tint of the theme's surface: its hue to the nearest 10 degrees (220,
+		// blue-grey, for dotPulse; 260, purple-grey, for Material), as strong as the surface is
+		// coloured compared with dotPulse's; plain grey on a neutral surface (Facet, Linen).
+		// White becomes the surface itself.
+		list($surface_h, $surface_s, $surface_l) = dPdarkToHsl(dPdarkParseColor($surface_hex));
+		list(, $dotpulse_s) = dPdarkToHsl(dPdarkParseColor(DP_DARK_SURFACE));
+		$tint = ($surface_s >= 0.08) ? min(1, $surface_s / $dotpulse_s) : 0;
 		if ($neutral) {
-			$h = 220;
+			$h = $tint ? fmod(round($surface_h / 10) * 10, 360) : 220;
 		}
 		if ($role === 'bg' && $l >= 0.6) {
 			$out = dPdarkFromHsl($h, $neutral ? 0.24 * $tint : min($s, 0.5), $surface_l + (1 - $l) * 0.4);

@@ -110,7 +110,7 @@ ob_end_clean();
 <head>
  <title>dotPulse Installer</title>
  <meta name="Description" content="dotPulse Installer">
- <link rel="stylesheet" type="text/css" href="../style/material/main.css">
+ <link rel="stylesheet" type="text/css" href="install.css">
  <style>
 		body { background-color: #f5f5f6; margin: 0; padding: 0; }
 		.installer-header { background-color: #1976d2; color: #fff; padding: 16px 32px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 24px; display: flex; align-items: center; }

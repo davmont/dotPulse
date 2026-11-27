@@ -1,5 +1,7 @@
 {
  "legacy": false,
- "vector_icons": false,
- "dark": false
+ "vector_icons": true,
+ "dark": false,
+ "dark_surface": "#211F26",
+ "dark_ink": "#E6E0E9"
 }

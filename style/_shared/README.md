@@ -1,7 +1,7 @@
 # Shared theme files
 
-The layout and rules of the themes built on dotPulse's layout (dotpulse, facet and
-linen). A folder of `style/` whose name starts with `_` is not a
+The layout and rules of the themes built on dotPulse's layout (dotpulse, facet, linen
+and material). A folder of `style/` whose name starts with `_` is not a
 theme: it is not offered in the theme lists (`dPstyleOptions()`).
 
 - `*.css`: imported by a theme's `main.css` **in this order** (the cascade depends on it):

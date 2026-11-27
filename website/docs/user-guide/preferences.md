@@ -171,7 +171,8 @@ The look of dotPulse. The list has two groups. Under **dotPulse themes**, choose
   rounder corners, in the spirit of current desktop systems.
 - **Linen**, with a light toolbar, white panels with soft corners, the current
   module as an orange pill and tabs as a segmented control.
-- **Material** for a flat, light theme with the classic icons.
+- **Material**, in the spirit of Material Design: tonal surfaces, a purple
+  accent, pill-shaped buttons and tabs with an accent underline.
 
 dotPulse, Facet and Linen can be light or dark: see [Appearance](#appearance).
 
@@ -192,8 +193,8 @@ Whether the theme is light or dark:
   to dark mode, light otherwise. When you change the setting on the computer,
   dotPulse follows it from the next page you open.
 
-Only themes with a dark palette can be dark: today, **dotPulse**, **Facet** and **Linen**. Material and
-the legacy themes are always light.
+Only themes with a dark palette can be dark: **dotPulse**, **Facet**, **Linen** and
+**Material**. The legacy themes are always light.
 
 ![The dashboard with the Dark appearance](../img/ug-dark-theme.png){ .shot }
 
