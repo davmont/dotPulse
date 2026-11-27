@@ -124,6 +124,8 @@ input[type="checkbox"]:focus, input[type="radio"]:focus { outline: 2px solid var
 	border-color: transparent;
 	font-weight: 500;
 	letter-spacing: 0.1px;
+	/* Pills next to or under one another would seem to touch with the layout's 2-4px gaps. */
+	margin: 3px 2px;
 }
 .button:hover, input[type="button"]:hover, input[type="reset"]:hover, button:hover {
 	background-color: var(--md-tonal);
