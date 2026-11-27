@@ -41,6 +41,11 @@ class ThemeInfoTest extends TestCase {
         $this->assertEquals(true, $info['vector_icons']);
         $this->assertEquals(true, $info['dark_palette']);
         $this->assertEquals('#2B2B2B', $info['dark_surface']);
+        // Linen: the same, with its own colours.
+        $info = dPthemeInfo('linen');
+        $this->assertEquals(false, $info['legacy']);
+        $this->assertEquals(true, $info['dark_palette']);
+        $this->assertEquals('#2C2C2E', $info['dark_surface']);
         // Material (2026) is current, with its own colours until it is rebuilt on the tokens.
         $info = dPthemeInfo('material');
         $this->assertEquals(false, $info['legacy']);

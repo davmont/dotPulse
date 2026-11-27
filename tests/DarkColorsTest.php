@@ -48,6 +48,25 @@ class DarkColorsTest extends TestCase {
         }
     }
 
+    function testNeutralSurfaceGivesPlainGreys() {
+        // Facet's and Linen's dark surfaces are grey: white becomes the surface, greys stay grey.
+        require_once DP_BASE_DIR . '/includes/main_functions.php';
+        $saved = isset($GLOBALS['uistyle']) ? $GLOBALS['uistyle'] : null;
+        $GLOBALS['uistyle'] = 'linen';
+        $white = dPdarkParseColor(dPdarkColor('#ffffff', 'bg'));
+        foreach (dPdarkParseColor('#2C2C2E') as $i => $channel) {
+            $this->assert(abs($white[$i] - $channel) <= 2, 'white becomes the surface: ' . dPdarkColor('#ffffff', 'bg'));
+        }
+        foreach (array('#f0f0f0', '#dddddd', '#999999') as $c) {
+            foreach (array('bg', 'border') as $role) {
+                $new = dPdarkColor($c, $role);
+                $rgb = dPdarkParseColor($new === null ? $c : $new);
+                $this->assert(max($rgb) - min($rgb) <= 1, "$c ($role) -> $new stays grey");
+            }
+        }
+        $GLOBALS['uistyle'] = $saved;
+    }
+
     function testFilterChangesBackgroundAndTextTogether() {
         $html = dPdarkColorFilter('<td bgcolor="#ffffff"><font color="#000000">x</font></td>');
         $this->assertEquals('<td bgcolor="' . DP_DARK_SURFACE . '"><font color="#E7E9EE">x</font></td>', $html);
