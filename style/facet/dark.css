@@ -10,9 +10,9 @@
 
 :root {
 	color-scheme: dark;
-	--dp-blue: #60CDFF;
-	--dp-blue-deep: #99EBFF;
-	--dp-blue-light: #60CDFF;
+	--dp-blue: #4CC2C4;
+	--dp-blue-deep: #8EE3E4;
+	--dp-blue-light: #4CC2C4;
 	--dp-blue-wash: #3A3A3A;
 	--dp-blue-tint: #323232;
 	--dp-coral: #FF99A4;
@@ -28,29 +28,29 @@
 	--dp-surface: #2B2B2B;
 	--dp-surface-alt: #272727;
 	--dp-row-line: #333333;
-	--dp-today: #1F3448;
+	--dp-today: #173A3B;
 	--dp-weekend: #262626;
 	--dp-holiday: #3D3520;
 	--dp-muted: #9A9A9A;
 	--dp-faint: #8C8C8C;
 	--dp-control-line: #8A8A8A;
-	--dp-focus: #60CDFF;
-	--dp-primary: #60CDFF;
-	--dp-primary-hover: #5AB8E6;
+	--dp-focus: #4CC2C4;
+	--dp-primary: #4CC2C4;
+	--dp-primary-hover: #45AFB1;
 	--dp-on-primary: #000000;
-	--dp-banner: #4BA8D8;
+	--dp-banner: #4CC2C4;
 	--dp-hover-tile: #404040;
 	--dp-shadow: rgba(0, 0, 0, 0.5);
-	--dp-focus-ring: rgba(96, 205, 255, 0.35);
+	--dp-focus-ring: rgba(76, 194, 196, 0.35);
 	--fc-raise: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2);
 	--fc-edge: #3F3F3F;
 }
 
 /* System Admin (modules/system/admin.css): its own colour set. */
 body .dpa {
-	--a-blue: #60CDFF;
-	--a-blue-deep: #99EBFF;
-	--a-blue-light: #60CDFF;
+	--a-blue: #4CC2C4;
+	--a-blue-deep: #8EE3E4;
+	--a-blue-light: #4CC2C4;
 	--a-wash: #3A3A3A;
 	--a-tint: #323232;
 	--a-coral-text: #FF99A4;
@@ -63,14 +63,14 @@ body .dpa {
 	--a-slate: #C8C8C8;
 	--a-line-soft: #3A3A3A;
 	--a-control-line: #8A8A8A;
-	--a-focus: #60CDFF;
+	--a-focus: #4CC2C4;
 	--a-surface: #2B2B2B;
 	--a-surface-head: #303030;
 	--a-row-line: #333333;
 	--a-faint: #9A9A9A;
 	--a-off: #383838;
-	--a-primary: #60CDFF;
-	--a-primary-deep: #5AB8E6;
+	--a-primary: #4CC2C4;
+	--a-primary-deep: #45AFB1;
 	--a-on-primary: #000000;
 }
 

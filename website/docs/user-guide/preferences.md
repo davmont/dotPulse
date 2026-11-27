@@ -167,7 +167,7 @@ Each option shows the same amount formatted for one locale.
 The look of dotPulse. The list has two groups. Under **dotPulse themes**, choose:
 
 - **dotPulse**, the default theme.
-- **Facet**, with layered surfaces on a neutral grey, a single accent colour and
+- **Facet**, with layered surfaces on a neutral grey, a teal accent and
   rounder corners, in the spirit of current desktop systems.
 - **Linen**, with a light toolbar, white panels with soft corners, the current
   module as an orange pill and tabs as a segmented control.

@@ -172,8 +172,8 @@ Cada opción muestra la misma cantidad con el formato de una configuración regi
 El aspecto de dotPulse. La lista tiene dos grupos. En **Temas de dotPulse**, elija:
 
 - **dotPulse**, el tema predeterminado.
-- **Facet**, con superficies en capas sobre un gris neutro, un único color de
-  acento y esquinas más redondeadas, al estilo de los sistemas de escritorio
+- **Facet**, con superficies en capas sobre un gris neutro, un acento verde
+  azulado y esquinas más redondeadas, al estilo de los sistemas de escritorio
   actuales.
 - **Linen**, con una barra de herramientas clara, paneles blancos de esquinas
   suaves, el módulo actual como una píldora naranja y las pestañas como un

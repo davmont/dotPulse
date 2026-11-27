@@ -1,5 +1,5 @@
 /* Facet: a theme inspired by Windows 11. Layered surfaces on a neutral ground, a single
-   accent colour, rounder corners (4px controls, 8px cards), and the system's own UI font.
+   teal accent, rounder corners (4px controls, 8px cards), and the system's own UI font.
    System fonts only: no request to a font service (CSP and visitor privacy).
    The layout and rules are dotPulse's (style/_shared/, imported in this order: the cascade
    depends on it); this file defines Facet's colours and fonts, then the few rules that give
@@ -13,10 +13,10 @@
 @import url("../_shared/responsive.css");
 
 :root {
-	/* The accent: links, the selected item, primary buttons. */
-	--dp-blue: #005FB8;
-	--dp-blue-deep: #003E92;
-	--dp-blue-light: #3B8DD6;
+	/* The accent, teal (dotPulse is blue): links, the selected item, primary buttons. */
+	--dp-blue: #0B6A73;
+	--dp-blue-deep: #084E55;
+	--dp-blue-light: #3AA5AD;
 	/* Neutral fills: selected and hovered items, table headers. */
 	--dp-blue-wash: #E9E9E9;
 	--dp-blue-tint: #F5F5F5;
@@ -33,21 +33,21 @@
 	--dp-surface: #FFFFFF;
 	--dp-surface-alt: #FAFAFA;
 	--dp-row-line: #F0F0F0;
-	--dp-today: #E5F1FB;
+	--dp-today: #E0F2F3;
 	--dp-weekend: #F7F7F7;
 	--dp-holiday: #FFF4CE;
 	--dp-muted: #8A8A8A;
 	--dp-faint: #858585;
 	/* Edges of form controls and the focus ring: 3:1 on the page (tools/checks/theme-contrast.py). */
 	--dp-control-line: #868686;
-	--dp-focus: #005FB8;
-	--dp-primary: #005FB8;
-	--dp-primary-hover: #0A6CC4;
+	--dp-focus: #0E7C86;
+	--dp-primary: #0E7C86;
+	--dp-primary-hover: #0B6A73;
 	--dp-on-primary: #FFFFFF;
-	--dp-banner: #005FB8;
+	--dp-banner: #0B6A73;
 	--dp-hover-tile: #E0E0E0;
 	--dp-shadow: rgba(0, 0, 0, 0.14);
-	--dp-focus-ring: rgba(0, 95, 184, 0.25);
+	--dp-focus-ring: rgba(14, 124, 134, 0.25);
 	/* The system's UI font where there is one; Arial metrics before the generic families
 	   (on Linux system-ui is often DejaVu Sans, too wide for the dense pages). */
 	--dp-font: "Segoe UI Variable Text", "Segoe UI", -apple-system, "Inter", Roboto, "Helvetica Neue", Arial, "Liberation Sans", system-ui, sans-serif;
@@ -59,9 +59,9 @@
 
 /* System Admin (modules/system/admin.css): its own colour set, in Facet's colours. */
 body .dpa {
-	--a-blue: #005FB8;
-	--a-blue-deep: #003E92;
-	--a-blue-light: #3B8DD6;
+	--a-blue: #0B6A73;
+	--a-blue-deep: #084E55;
+	--a-blue-light: #3AA5AD;
 	--a-wash: #E9E9E9;
 	--a-tint: #F5F5F5;
 	--a-coral-text: #C42B1C;
@@ -74,14 +74,14 @@ body .dpa {
 	--a-slate: #5C5C5C;
 	--a-line-soft: #E5E5E5;
 	--a-control-line: #868686;
-	--a-focus: #005FB8;
+	--a-focus: #0E7C86;
 	--a-surface: #FFFFFF;
 	--a-surface-head: #FAFAFA;
 	--a-row-line: #F0F0F0;
 	--a-faint: #767676;
 	--a-off: #EBEBEB;
-	--a-primary: #005FB8;
-	--a-primary-deep: #003E92;
+	--a-primary: #0E7C86;
+	--a-primary-deep: #0B6A73;
 	--a-on-primary: #FFFFFF;
 }
 
