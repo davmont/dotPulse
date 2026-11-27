@@ -178,7 +178,8 @@ El aspecto de dotPulse. La lista tiene dos grupos. En **Temas de dotPulse**, eli
 - **Linen**, con una barra de herramientas clara, paneles blancos de esquinas
   suaves, el módulo actual como una píldora naranja y las pestañas como un
   control segmentado.
-- **Material** para un tema claro y plano con los iconos clásicos.
+- **Material**, al estilo de Material Design: superficies tonales, un acento
+  morado, botones en forma de píldora y pestañas subrayadas con el acento.
 
 dotPulse, Facet y Linen pueden verse claros u oscuros: consulte [Apariencia](#appearance).
 
@@ -199,8 +200,8 @@ Si el tema se ve claro u oscuro:
   usa el modo oscuro, clara en otro caso. Cuando cambia el ajuste del
   ordenador, dotPulse lo sigue a partir de la siguiente página que abra.
 
-Solo los temas con una paleta oscura pueden verse oscuros: por ahora,
-**dotPulse**, **Facet** y **Linen**. Material y los temas antiguos se ven siempre claros.
+Solo los temas con una paleta oscura pueden verse oscuros: **dotPulse**,
+**Facet**, **Linen** y **Material**. Los temas antiguos se ven siempre claros.
 
 ![El panel con la apariencia Oscura](../img/ug-dark-theme.png){ .shot }
 

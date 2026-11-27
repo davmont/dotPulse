@@ -67,6 +67,22 @@ class DarkColorsTest extends TestCase {
         $GLOBALS['uistyle'] = $saved;
     }
 
+    function testTintedSurfaceGivesItsOwnHue() {
+        // Material's dark surface is a purple-grey: white becomes it, greys take its purple.
+        require_once DP_BASE_DIR . '/includes/main_functions.php';
+        $saved = isset($GLOBALS['uistyle']) ? $GLOBALS['uistyle'] : null;
+        $GLOBALS['uistyle'] = 'material';
+        $white = dPdarkParseColor(dPdarkColor('#ffffff', 'bg'));
+        foreach (dPdarkParseColor('#211F26') as $i => $channel) {
+            $this->assert(abs($white[$i] - $channel) <= 2, 'white becomes the surface: ' . dPdarkColor('#ffffff', 'bg'));
+        }
+        foreach (array('#f0f0f0', '#dddddd') as $c) {
+            list($r, $g, $b) = dPdarkParseColor(dPdarkColor($c, 'bg'));
+            $this->assert($b > $g && $r > $g, "$c becomes a purple-grey, not a blue-grey: " . dPdarkColor($c, 'bg'));
+        }
+        $GLOBALS['uistyle'] = $saved;
+    }
+
     function testFilterChangesBackgroundAndTextTogether() {
         $html = dPdarkColorFilter('<td bgcolor="#ffffff"><font color="#000000">x</font></td>');
         $this->assertEquals('<td bgcolor="' . DP_DARK_SURFACE . '"><font color="#E7E9EE">x</font></td>', $html);

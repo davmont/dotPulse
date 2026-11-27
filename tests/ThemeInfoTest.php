@@ -46,10 +46,12 @@ class ThemeInfoTest extends TestCase {
         $this->assertEquals(false, $info['legacy']);
         $this->assertEquals(true, $info['dark_palette']);
         $this->assertEquals('#2C2C2E', $info['dark_surface']);
-        // Material (2026) is current, with its own colours until it is rebuilt on the tokens.
+        // Material: rebuilt on the tokens, light and dark.
         $info = dPthemeInfo('material');
         $this->assertEquals(false, $info['legacy']);
-        $this->assertEquals(false, $info['vector_icons']);
+        $this->assertEquals(true, $info['vector_icons']);
+        $this->assertEquals(true, $info['dark_palette']);
+        $this->assertEquals('#211F26', $info['dark_surface']);
         foreach (array('default', 'amp', 'dp-grey-theme', 'wps-redmond') as $legacy) {
             $info = dPthemeInfo($legacy);
             $this->assertEquals(true, $info['legacy'], $legacy);
@@ -69,7 +71,7 @@ class ThemeInfoTest extends TestCase {
         $AppUI->setPref('UIAPPEARANCE', 'dark');
         $this->assertEquals('dark', dPappearance('dotpulse'));
         // A theme without a dark palette stays light; the old dark theme stays dark.
-        $this->assertEquals('light', dPappearance('material'));
+        $this->assertEquals('light', dPappearance('wps-redmond'));
         $AppUI->setPref('UIAPPEARANCE', 'light');
         $this->assertEquals('dark', dPappearance('dotpulse-dark'));
         // Automatic: the computer's setting, from the cookie; light until it is known.
@@ -78,7 +80,7 @@ class ThemeInfoTest extends TestCase {
         $_COOKIE['dp_scheme'] = 'dark';
         $this->assertEquals('dark', dPappearance('dotpulse'));
         $this->assertEquals(' data-theme="dark" data-appearance="auto" data-reload="1"', dPappearanceAttributes('dotpulse'));
-        $this->assertEquals('', dPappearanceAttributes('material'));
+        $this->assertEquals('', dPappearanceAttributes('wps-redmond'));
         $sheets = dPthemeStylesheets('dotpulse');
         $this->assert(strpos($sheets, 'style/dotpulse/dark.css') !== false, 'dark palette linked');
         $this->assert(strpos($sheets, 'style/_shared/appearance.js') !== false, 'appearance script');

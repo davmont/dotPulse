@@ -182,7 +182,7 @@ dotPulse works in a phone's browser. On a narrow screen:
 
 ## Light and dark theme
 
-The **dotPulse**, **Facet** and **Linen** themes can be light or dark. Choose **Light**, **Dark** or
+The **dotPulse**, **Facet**, **Linen** and **Material** themes can be light or dark. Choose **Light**, **Dark** or
 **Automatic**, which follows your computer's or phone's setting, in the
 **Appearance** preference. See
 [Your account and preferences](preferences.md#appearance).

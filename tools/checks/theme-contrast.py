@@ -110,7 +110,7 @@ def main():
             v.update(variables(f'style/{part}/main.css'))
             a.update(variables(f'style/{part}/main.css', r'body \.dpa', 'a'))
         if not v:
-            # Colours written into the stylesheet (material, until it is rebuilt on the tokens).
+            # Colours written into the stylesheet, not on the tokens: nothing to check.
             print(f'{theme}: no --dp- colour variables, not checked')
             continue
         variants = [(theme, v, a)]
